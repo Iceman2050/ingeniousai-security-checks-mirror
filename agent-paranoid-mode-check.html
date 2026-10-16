@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vitalik's "Paranoid Mode" for AI Agents: Tor, zkAPI, Cover Traffic — How Exposed Is Yours?</title>
+<meta name="description" content="Vitalik Buterin built an experimental 'paranoid mode' for his AI agent harness: Tor per conversation, zkAPI anonymous payments, cover traffic, local LLM prompt rewriting. 6-question agent-privacy exposure check. Free, no signup.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Vitalik built 'paranoid mode' for AI agents. How exposed is yours?">
+<meta property="og:description" content="Tor per conversation. Anonymous payments via zkAPI. Cover traffic. Local prompt rewriting. Vitalik's new privacy stack for AI agents — and a 6-question check of your own exposure. Free, no signup.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-paranoid-mode-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-paranoid-mode-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vitalik built 'paranoid mode' for AI agents. How exposed is yours?">
+<meta name="twitter:description" content="Tor per conversation. Anonymous payments via zkAPI. Cover traffic. Local prompt rewriting. 6-question agent-privacy exposure check — free, no signup.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d2a12;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .green{color:#3fb950}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.q{display:flex;gap:12px;align-items:flex-start;margin:16px 0;padding:14px;border:1px solid #232b38;border-radius:10px;background:#0d1219}
+.q .qn{flex:0 0 28px;height:28px;border-radius:50%;background:#1c2b45;color:#9db8e8;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.q .qt{flex:1}
+.q .qt small{display:block;color:#9aa7b8;font-size:13px;margin-top:4px}
+.qbtns{flex:0 0 auto;display:flex;gap:8px}
+.qbtns button{border:1px solid #2a3342;background:#11161f;color:#e6edf3;font-weight:700;font-size:13px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.qbtns button.sel-y{background:#3fb950;border-color:#3fb950;color:#06240f}
+.qbtns button.sel-n{background:#f85149;border-color:#f85149;color:#fff}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.howto{background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:18px;margin:20px 0;font-size:14px}
+.howto div{margin:8px 0}
+.howto b{color:#7ee787}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is Vitalik Buterin's 'paranoid mode' for AI agents?","acceptedAnswer":{"@type":"Answer","text":"An experimental open-source privacy stack Vitalik Buterin announced on X on October 16, 2026: a 'paranoid mode' wrapper for his pi agent harness built as an OpenAI-compatible daemon. It layers zkAPI (zero-knowledge payments), Tor (a separate circuit per conversation), random cover traffic, and local LLM prompt rewriting (he uses qwen3.8-flash-next), with the harness itself in a bwrap sandbox wrapped with torsocks so all its traffic goes through Tor."}},
+{"@type":"Question","name":"What are the three ways an AI agent leaks your identity?","acceptedAnswer":{"@type":"Answer","text":"Per the design's own framing: what you request (prompts carry names, company details, stylistic fingerprints), how you pay for it (an API key or card ties every query to a billing identity), and where you're making the request from (IP address, TLS fingerprint, and timing patterns). Vitalik's stack addresses each axis separately: local rewriting for content, zkAPI for payments, Tor plus cover traffic for network origin."}},
+{"@type":"Question","name":"What are the limits of Vitalik's paranoid-mode setup?","acceptedAnswer":{"@type":"Answer","text":"His own caveats: it adds real latency, especially when starting new conversations; the cover-traffic mechanism is only okay against passive adversaries and much weaker if the LLM provider colludes with a Tor guard and manipulates timing; and Tor is 'far from optimal' here — he argues the problem really needs a specialized mixnet with a higher bandwidth multiplier and built-in constant cover traffic."}},
+{"@type":"Question","name":"Can I use paranoid mode myself?","acceptedAnswer":{"@type":"Answer","text":"The code is open-source and experimental — it currently involves a Linux bwrap sandbox, torsocks, and a local model setup, so it's for the technically comfortable. The practical takeaways anyone can adopt: separate your agent's network identity from your own, keep API billing unlinkable where possible, strip identifying details from prompts before they reach third-party APIs, and reserve your highest-sensitivity agent tasks for a hardened tier."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">VITALIK'S PARANOID MODE &mdash; OCT 16, 2026</div>
+<h1>Vitalik built <span class="green">"paranoid mode"</span> for AI agents. How <span class="red">exposed</span> is yours?</h1>
+<p class="lead">On <strong>October 16, 2026</strong>, Ethereum co-founder <strong>Vitalik Buterin</strong> announced on X that he had built an experimental <strong>"paranoid mode"</strong> wrapper for his AI agent harness, <strong>pi</strong>: an OpenAI-compatible daemon layering <strong>Tor</strong> (a separate circuit per conversation), <strong>zkAPI</strong> zero-knowledge payments, <strong>random cover traffic</strong>, and <strong>local LLM prompt rewriting</strong> &mdash; with the harness itself sandboxed (bwrap) and wrapped in torsocks so everything it does goes through Tor. His goal: stop agents leaking identity along the three axes every agent exposes &mdash; <strong>what you request, how you pay for it, and where you're making the request from</strong>. The code is open-source. And he was blunt about the limits (below). This 60-second check measures <em>your</em> agent's exposure on those same three axes. Free, no signup.</p>
+
+<div class="howto">
+<div><b>What Vitalik built (verified, Oct 16, 2026):</b></div>
+<div>&bull; <strong>Tor, per conversation:</strong> in his words, "each conversation gets assigned a separate Tor circuit" &mdash; so no two tasks share a network identity.</div>
+<div>&bull; <strong>Cover traffic:</strong> requests are masked with random cover traffic, hiding timing and frequency patterns from passive observers.</div>
+<div>&bull; <strong>zkAPI payments:</strong> zero-knowledge payments (private ETH deposits via Open Anonymity / Ethereum Foundation) so API billing doesn't link queries to an identity.</div>
+<div>&bull; <strong>Local prompt rewriting:</strong> a local model (he's using qwen3.8-flash-next) rewrites prompts before they reach the external provider &mdash; stripping identifying details and stylistic fingerprints.</div>
+<div>&bull; <strong>Sandboxed harness:</strong> the pi agent harness runs in a bwrap sandbox (MicroVM experiments ongoing), wrapped with torsocks &mdash; all its network activity forced through Tor.</div>
+<div>&bull; <strong>His own caveats:</strong> real latency (especially starting new conversations); cover traffic is weak if the LLM provider <em>colludes</em> with a Tor guard and manipulates timing; Tor is "far from optimal" &mdash; he argues for a specialized mixnet with a higher bandwidth multiplier and built-in constant cover traffic.</div>
+</div>
+
+<div class="card">
+<h2>The 60-second agent-privacy exposure check</h2>
+<p class="note">Answer honestly. Here, "Yes" is the safe answer.</p>
+<div id="quiz"></div>
+<div id="qresult" style="margin-top:12px"><div class="verdict warn"><strong>Answer the 6 questions above</strong> to get your agent-privacy verdict.</div></div>
+<script>
+var QS=[
+["Do you know what network identity your agents present — IP address, TLS fingerprint, timing patterns?","Every agent request carries an IP, a TLS fingerprint, and timing. Most people have never seen what theirs looks like."],
+["Is your agent's traffic separated from your personal browsing and accounts?","Same IP, same account, same API key for agent + you = every agent action is trivially linkable to you."],
+["Are your agent's API payments unlinkable to your identity?","A credit card or named API account ties every query to a billing identity — exactly the axis zkAPI was built to close."],
+["Do you strip identifying details from prompts before they reach third-party APIs?","Prompts carry names, company details, project specifics, and writing style — a fingerprint the provider keeps."],
+["If your AI provider were breached or compelled, could it profile you from your agent's traffic alone?","Assume the provider logs everything — because it does. Paranoia starts from that assumption."],
+["Do you have a 'paranoid tier' — extra protections for your most sensitive agent tasks?","Not every task needs Tor. But the sensitive ones deserve a hardened path: separate identity, hardened network, hardened billing."] ];
+var ANS=[null,null,null,null,null,null];
+function renderQ(){
+  var h='';
+  for(var i=0;i<QS.length;i++){
+    h+='<div class="q"><div class="qn">'+(i+1)+'</div><div class="qt"><strong>'+QS[i][0]+'</strong><small>'+QS[i][1]+'</small></div><div class="qbtns"><button id="y'+i+'" onclick="ans('+i+',1)">Yes</button><button id="n'+i+'" onclick="ans('+i+',0)">No</button></div></div>';
+  }
+  document.getElementById('quiz').innerHTML=h;
+}
+function ans(i,v){
+  ANS[i]=v;
+  document.getElementById('y'+i).className=v===1?'sel-y':'';
+  document.getElementById('n'+i).className=v===0?'sel-n':'';
+  var out=document.getElementById('qresult');
+  if(ANS.indexOf(null)>=0){return;}
+  var yes=0;
+  for(var k=0;k<ANS.length;k++){if(ANS[k]===1)yes++;}
+  if(yes===6){
+    out.innerHTML='<div class="verdict safe"><strong>PARANOID-READY.</strong> You treat your agent like a network identity, not a tool — separated traffic, hardened billing, scrubbed prompts, and a hardened tier for sensitive tasks. Vitalik would approve.</div>';
+  }else if(yes>=4){
+    out.innerHTML='<div class="verdict warn"><strong>'+(6-yes)+' gaps — MOSTLY COVERED.</strong> Your basics are in place, but the missed checks are the identity-linking ones: shared network identity, named billing, or unscrubbed prompts. Pick the cheapest gap to close first.</div>';
+  }else{
+    out.innerHTML='<div class="verdict"><strong>'+(6-yes)+' of 6 missed — EXPOSED.</strong> Right now your agent broadcasts who you are three ways: what it asks, how you pay, and where it asks from. Start with the easiest win: separate your agent\'s network identity from your personal traffic.</div>';
+  }
+}
+renderQ();
+</script>
+<p class="note">This self-assessment is informational. It reflects the verified facts of Vitalik Buterin's October 16, 2026 "paranoid mode" announcement — it is not legal, financial, or operational-security advice.</p>
+</div>
+
+<div class="card">
+<h2>Why agent privacy matters — the three axes</h2>
+<ul>
+<li><strong>What you request.</strong> Prompts are the richest data an AI provider holds on you: project names, company internals, negotiation positions, medical or legal details, and your stylistic fingerprint. A local rewriting pass strips this before it leaves your machine.</li>
+<li><strong>How you pay.</strong> An API key or card links every single query to a billing identity &mdash; one subpoena, one breach, and the whole history is deanonymized. Zero-knowledge payment protocols like zkAPI break that link with cryptographic proofs instead of trust.</li>
+<li><strong>Where you request from.</strong> IP addresses, TLS fingerprints, and request timing let observers cluster your sessions even without content. Separate Tor circuits per conversation plus cover traffic make that clustering expensive &mdash; though, as Vitalik himself notes, not impossible for a determined, colluding adversary.</li>
+<li><strong>The uncomfortable truth.</strong> Most agents today leak on all three axes simultaneously: your personal IP, your named API account, your raw prompts. "Paranoid mode" is what it looks like when someone closes all three at once &mdash; and the latency bill shows why almost nobody does.</li>
+</ul>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Agent Auth Gateway gives every AI agent its own guardrails — budget caps, allowlists, approval queues, and a kill switch.</strong></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20read%20your%20agent%20paranoid%20mode%20check%20and%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with every developer running AI agents on third-party APIs.<br>
+Vitalik Buterin, X post, Oct 16, 2026 &middot; CryptoNews &middot; CryptoTimes &middot; ForkLog &middot; PANews &middot; CoinDesk &middot; TronWeekly
+</footer>
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=Vitalik%20built%20%27paranoid%20mode%27%20for%20AI%20agents%20%E2%80%94%20Tor%20per%20conversation%2C%20zkAPI%20anonymous%20payments%2C%20cover%20traffic%2C%20local%20prompt%20rewriting.%206-question%20exposure%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/agent-paranoid-mode-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/agent-paranoid-mode-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/agent-paranoid-mode-check.html&title=Vitalik%20built%20%27paranoid%20mode%27%20for%20AI%20agents%20(Tor%20%2B%20zkAPI%20%2B%20local%20prompt%20rewriting)%20%E2%80%94%2060-second%20exposure%20check" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
