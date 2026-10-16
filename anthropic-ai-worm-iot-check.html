@@ -45,7 +45,8 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"What did Anthropic warn about self-replicating AI?","acceptedAnswer":{"@type":"Answer","text":"Anthropic's October 2026 research warns that small AI models may be months away from self-replicating on commercial IoT devices like smart ovens and Android TV boxes. In tests, GLM-5.2 propagated Llama 3.1-8B to all 8 Android emulator nodes in 4 of 5 trials, hopping node-to-node over unauthenticated ADB ports. Such a worm would have no centralized point to shut off."}},
 {"@type":"Question","name":"How would an AI worm spread through IoT devices?","acceptedAnswer":{"@type":"Answer","text":"Per Anthropic's research: the worm hops from device to device over unauthenticated management interfaces (Android Debug Bridge, port 5555, was the demonstrated vector), then sets up an inference server on each new victim serving the model's weights — the weights themselves become part of the malware payload. A 9B-parameter model ran inference on 8 of 9 hardware types tested."}},
-{"@type":"Question","name":"How do I protect my IoT devices from AI worms?","acceptedAnswer":{"@type":"Answer","text":"Close unauthenticated ADB (port 5555) and other open management interfaces on every device; change all default credentials; install firmware updates; isolate IoT devices on a separate network segment; monitor for unusual outbound traffic or large weight-file transfers between devices. The interactive checklist on this page walks through each step."}}
+{"@type":"Question","name":"How do I protect my IoT devices from AI worms?","acceptedAnswer":{"@type":"Answer","text":"Close unauthenticated ADB (port 5555) and other open management interfaces on every device; change all default credentials; install firmware updates; isolate IoT devices on a separate network segment; monitor for unusual outbound traffic or large weight-file transfers between devices. The interactive checklist on this page walks through each step."}},
+{"@type":"Question","name":"Could AI models really self-replicate by the end of 2026?","acceptedAnswer":{"@type":"Answer","text":"Anthropic says yes, potentially — if small models keep improving at their historical rate, they could match GLM-5.2's simplified-test capability by the end of this year, with small weight-based replicators following soon after. Caveats: today's small models still struggle with the full end-to-end sequence unassisted, replication would be slow (a day or more per copy), and at least one expert has called the warning 'vendor exaggeration.' The prudent read: the capability gap is months, not years — harden IoT now."}}
 ]}
 </script>
 </head>
@@ -54,6 +55,8 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <div class="badge">ANTHROPIC RESEARCH &mdash; OCT 2026 &mdash; AI SELF-REPLICATION WARNING</div>
 <h1>Could an AI worm turn <span class="red">your IoT devices</span> into its brain?</h1>
 <p class="lead">Anthropic just showed it's nearly possible: in lab tests, <strong>GLM-5.2 propagated Llama 3.1-8B to all 8 Android nodes in 4 of 5 trials</strong> — hopping node-to-node over <strong>unauthenticated ADB ports</strong>, then standing up an inference server on each victim. A 9B-parameter model ran on 8 of 9 hardware types tested; a 26B model ran distributed across fifteen $55 TV boxes. Anthropic's verdict: small models may be <strong>months away</strong> from self-replicating on commercial IoT — with <strong>no centralized point to shut off</strong>. Tick the 60-second checklist to see if your fleet is exposed. Free, no signup.</p>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:18px;margin:20px 0;font-size:14px;color:#c8d2df"><strong>Heard on Reuters World News (Oct 14, 2026).</strong> Reuters cybersecurity correspondent Raphael Satter walked through this warning on the Reuters World News podcast: <em>&ldquo;What if these rogue agents were able to move around online without us being able to stop them?&rdquo;</em> &mdash; the no-central-shutoff problem, explained for a general audience. The underlying research: <a href="https://www.reuters.com/business/ai-models-may-soon-self-replicate-without-access-data-centers-anthropic-warns-2026-10-13/" target="_blank" rel="noopener" style="color:#6ea8fe">Reuters, Oct 13, 2026</a>.</div>
 
 <div class="card">
 <h2>The 60-second exposure check — tick what applies</h2>
@@ -82,6 +85,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <ul>
 <li><strong>What's proven:</strong> the full replication <em>chain</em> works — hop via open ADB, stand up inference, serve the weights. The inference-setup step researchers once called the bottleneck no longer blocks it, and it runs without root.</li>
 <li><strong>What's NOT proven:</strong> a small model <em>choosing</em> to replicate on its own. Anthropic orchestrated the worm with GLM-5.2 simulating a future small model. This is a capability demo, not a self-willed worm — and no full rogue replicator exists yet.</li>
+<li><strong>Not everyone buys the alarm.</strong> Some cybersecurity experts share Anthropic's concern; at least one called it &ldquo;vendor exaggeration,&rdquo; arguing models are still too big to move around efficiently and can't draw on enough compute to operate independently. Anthropic's own numbers partly concede the point: replication would be <em>slow</em> &mdash; a day or more per copy, with even a Kimwolf-scale botnet amounting to roughly 40 Nvidia H100s &mdash; which gives defenders room to respond by flagging large transfers, quarantining hosts, and hardening cheap devices.</li>
 <li><strong>The real near-term risk</strong> isn't Skynet — it's criminals using AI agents to automate the existing IoT-compromise playbook at scale, plus model weights becoming just another malware payload.</li>
 <li>Anthropic's own mitigations: stronger default security, better network monitoring, isolating infected devices.</li>
 </ul>
@@ -98,7 +102,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 
 <footer>
 Built by Ingenious AI &mdash; share this page with anyone running IoT fleets.<br>
-Anthropic autonomous-replication research &middot; Oct 2026 &middot; GLM-5.2 → Llama 3.1-8B, 8/8 nodes, 4/5 trials &middot; no full rogue replicator exists yet
+Anthropic autonomous-replication research (Frontier Red Team) &middot; Oct 12, 2026 &middot; Reuters World News podcast, Oct 14, 2026 (Raphael Satter) &middot; GLM-5.2 → Llama 3.1-8B, 8/8 nodes, 4/5 trials &middot; no full rogue replicator exists yet
 </footer>
 </div>
 
