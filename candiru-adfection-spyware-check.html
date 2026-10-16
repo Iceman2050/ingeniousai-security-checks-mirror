@@ -9,8 +9,8 @@
 <meta property="og:site_name" content="Ingenious AI">
 <meta property="og:title" content="Spyware is now delivered through ads you never click — 60-Second Risk Check">
 <meta property="og:description" content="Citizen Lab's AdFection report: a Google-certified ad vendor's ads infected 45+ Al Jazeera devices with Candiru spyware. No click required. Check your risk free, no signup.">
-<meta property="og:url" content="https://ingeniousai-security-checks.netlify.app/candiru-adfection-spyware-check.html"
-<link rel="canonical" href="https://ingeniousai-security-checks.netlify.app/candiru-adfection-spyware-check.html">>
+<meta property="og:url" content="https://ingeniousai-security-checks.netlify.app/candiru-adfection-spyware-check.html">
+<link rel="canonical" href="https://ingeniousai-security-checks.netlify.app/candiru-adfection-spyware-check.html">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spyware is now delivered through ads you never click — 60-Second Risk Check">
 <meta name="twitter:description" content="Citizen Lab's AdFection report: a Google-certified ad vendor's ads infected 45+ Al Jazeera devices with Candiru spyware. No click required. Check your risk free, no signup.">
@@ -41,6 +41,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"What is AdFection?","acceptedAnswer":{"@type":"Answer","text":"AdFection is the name Citizen Lab gave to a technique where the ad company Discover-Tech used its Controlium platform to de-anonymize and fingerprint devices through real-time ad bidding, then serve chosen targets a malicious ad that silently infected the device with Candiru mercenary spyware the moment the ad rendered — no click, no download."}},
 {"@type":"Question","name":"Am I at risk from AdFection-style ad spyware?","acceptedAnswer":{"@type":"Answer","text":"The confirmed targets were journalists and staff at Al Jazeera — mercenary spyware is sold to governments for targeted surveillance, not mass infection. But the delivery mechanism (compromised ad supply chains) touches everyone: Discover-Tech ads appeared on ~200,000 websites and apps. Keeping devices updated, enabling Lockdown Mode (iOS) or Advanced Protection (Android), and limiting ad tracking sharply reduce your exposure."}},
+{"@type":"Question","name":"How large was the Discover-Tech spy operation?","acceptedAnswer":{"@type":"Answer","text":"Huge. Per Confiant\u2019s October 2026 report, Discover-Tech pumped out at least 10 million ads per day reaching more than 120,000 websites and 75,000 apps. The operation sometimes extracted phone numbers from smartphone users, and cookie-matching data-sharing let it track people even beyond the reach of its ads. Confiant estimated hundreds of millions of people were touched. Its services gave Candiru \u2014 a US-blacklisted spyware company \u2014 and other Israeli surveillance firms access to ad platforms run by Google, Comcast, and Russia\u2019s Yandex."}},
 {"@type":"Question","name":"What happened to Discover-Tech after the Citizen Lab report?","acceptedAnswer":{"@type":"Answer","text":"Google removed Discover-Tech from its ad platforms and vendor lists, IAB Europe removed it from its approved vendor list, and ad platforms including Beeswax, Vungle, and Eskimi cut off or suspended the firm in early October 2026. Citizen Lab also flagged a separate actor, DARK CARTOGRAPHER, using the same infrastructure — detailed in a forthcoming report."}}
 ]}
 </script>
@@ -49,7 +50,20 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <div class="wrap">
 <div class="badge">ADFECTION &mdash; ZERO-CLICK SPYWARE VIA ADS &mdash; CONFIRMED OCT 15, 2026</div>
 <h1>Spyware is now delivered through <span class="red">ads you never click</span></h1>
-<p class="lead">On October 15, 2026, the University of Toronto's Citizen Lab published the first public technical proof that mercenary spyware reached real devices through <strong>targeted online ads</strong>. The ad firm Discover-Tech &mdash; a Google-certified vendor &mdash; used its <em>Controlium</em> platform to fingerprint devices in ad auctions and serve chosen targets an ad that silently installed Candiru spyware the instant it rendered. At least <strong>45 devices at Al Jazeera</strong> were infected in 2024&ndash;2025. Nobody clicked anything. This 60-second check tells you your risk level and exactly how to shrink it. Free, no signup.</p>
+<p class="lead">On October 15, 2026, the University of Toronto's Citizen Lab published the first public technical proof that mercenary spyware reached real devices through <strong>targeted online ads</strong>. The ad firm Discover-Tech &mdash; a Google-certified vendor &mdash; used its <em>Controlium</em> platform to fingerprint devices in ad auctions and serve chosen targets an ad that silently installed Candiru spyware the instant it rendered. At least <strong>45 devices at Al Jazeera</strong> were infected in 2024&ndash;2025. Nobody clicked anything. Then, the same day, Reuters reported that a second investigation by ad-security firm <strong>Confiant</strong> showed the operation was vastly bigger than the infection story alone: <strong>10 million ads a day</strong>, a tracking network spanning <strong>120,000 websites and 75,000 apps</strong>, phone numbers extracted from smartphones, and cookie matching that tracked people even beyond the reach of the ads. "Very likely hundreds of millions of people would have been touched," Confiant said. This 60-second check tells you your risk level and exactly how to shrink it. Free, no signup.</p>
+
+<div class="card">
+<h2>Update Oct 16 &mdash; the operation was bigger than first reported</h2>
+<ul>
+<li><strong>10 million ads a day</strong> pumped out worldwide by Discover-Tech, per Confiant &mdash; ordinary product ads for phones, earpods, and more, running through its various ad-platform partnerships.</li>
+<li><strong>120,000+ websites and 75,000 apps</strong> carried the ads. The ad only needed to <em>load</em> on a page for the spying to occur &mdash; no click, no consent, no warning.</li>
+<li><strong>Phone-number extraction:</strong> the operation sometimes pulled phone numbers from smartphone users &mdash; linking your device to your real identity for follow-on targeting.</li>
+<li><strong>Cookie matching tracked people beyond the ads' reach:</strong> data-sharing arrangements with ad partners let Discover-Tech follow people across the web even where its ads never appeared.</li>
+<li><strong>Customers included state-level spyware firms:</strong> besides Candiru (blacklisted by the US government), other Israeli surveillance firms got access through Discover-Tech to ad platforms run by <strong>Google, Comcast, and Russia's Yandex</strong>.</li>
+<li><strong>"The way online advertising works today is a systemic security threat,"</strong> Citizen Lab senior researcher Wolfie Cristl told Reuters &mdash; for states, the private sector, civil society, and everyone else alike.</li>
+</ul>
+<div class="verdict warn"><strong>Not just a targeted-spyware story anymore:</strong> the targeting pipeline (real-time bidding data, ad IDs, phone numbers) touches everyone who sees ads. The hygiene in steps 2&ndash;3 below starves that pipeline.</div>
+</div>
 
 <div class="card">
 <h2>The 60-second risk check</h2>
@@ -109,7 +123,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 
 <footer>
 Built by Ingenious AI &mdash; share this page with any journalist, activist, or newsroom you know.<br>
-Citizen Lab "AdFection" report &middot; published Oct 15, 2026 &middot; 45+ Al Jazeera devices infected 2024&ndash;2025 &middot; Google, IAB Europe, Beeswax, Vungle, Eskimi cut off Discover-Tech
+Citizen Lab "AdFection" report &middot; published Oct 15, 2026 &middot; 45+ Al Jazeera devices infected 2024&ndash;2025 &middot; Confiant: 10M ads/day, 120K sites + 75K apps, hundreds of millions touched (Reuters, Oct 15, 2026) &middot; Google, IAB Europe, Beeswax, Vungle, Eskimi cut off Discover-Tech
 </footer>
 </div>
 
