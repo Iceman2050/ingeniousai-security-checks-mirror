@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Is Your AI Agent Actually Traceable? — Free Self-Check</title>
+<meta name="description" content="Anthropic just added OpenTelemetry trace export — agent traceability is becoming the standard. Run this free 5-point self-check: can you answer who-called-what on your agents? No signup.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#12283f;border:1px solid #1c6ef2;color:#9ec5ff;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .blue{color:#5b9dff}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.step{display:flex;gap:14px;margin:18px 0}
+.stepnum{flex:0 0 34px;height:34px;border-radius:50%;background:#1c6ef2;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+code.cmd{display:block;background:#000;border:1px solid #2a3342;border-radius:8px;padding:14px 16px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;color:#7ee787;overflow-x:auto;margin:10px 0;white-space:pre}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">ANTHROPIC SHIPS OTEL TRACE EXPORT &mdash; TRACEABILITY IS THE NEW BASELINE</div>
+<h1>Is your AI agent <span class="blue">actually traceable</span>?</h1>
+<p class="lead">Anthropic just added OpenTelemetry trace export to the Claude Platform — agent traces are becoming the industry standard. Meanwhile the EU AI Office is demanding evidence of agent behavior. If your agent went rogue tonight, could you answer three questions: who called what, which tools fired, and where did the data go? Run this free 5-point self-check. No signup, nothing installed.</p>
+
+<div class="card">
+<h2>The 5-point self-check</h2>
+<div class="step"><div class="stepnum">1</div><div>
+<p><strong>Can you name every tool your agent called this week?</strong> Pick any agent and list every tool invocation — function name, arguments, timestamp. Not a guess: the record.</p>
+<div class="verdict"><strong>Fail:</strong> you can name the tools the agent <em>has access to</em>, not which ones it <em>actually called</em>.</div>
+<div class="verdict safe"><strong>Pass:</strong> a complete per-agent tool-call record, queryable by date.</div>
+</div></div>
+<div class="step"><div class="stepnum">2</div><div>
+<p><strong>Can you trace one data flow end to end?</strong> Take a sensitive input — a customer record, a secret — and trace every step where your agent touched it: retrieved, transformed, sent where?</p>
+<div class="verdict"><strong>Fail:</strong> the trail goes cold after the first tool call.</div>
+<div class="verdict safe"><strong>Pass:</strong> full lineage: input &rarr; transformations &rarr; destinations.</div>
+</div></div>
+<div class="step"><div class="stepnum">3</div><div>
+<p><strong>Do your traces follow a standard?</strong> OpenTelemetry is now the lingua franca — Anthropic exports OTel spans. Ad-hoc JSON blobs in a vendor-locked format aren't interoperable evidence.</p>
+<div class="verdict"><strong>Fail:</strong> traces in a proprietary format nobody else can read.</div>
+<div class="verdict safe"><strong>Pass:</strong> OTel-compatible spans, exportable and portable.</div>
+</div></div>
+<div class="step"><div class="stepnum">4</div><div>
+<p><strong>Can you reconstruct a session after the fact?</strong> Take an agent session from two weeks ago. Can you replay exactly what happened, in order, with outcomes?</p>
+<div class="verdict"><strong>Fail:</strong> retention expired, or sessions are unreconstructable.</div>
+<div class="verdict safe"><strong>Pass:</strong> ordered, replayable session history on demand.</div>
+</div></div>
+<div class="step"><div class="stepnum">5</div><div>
+<p><strong>Would the trace convince a skeptic?</strong> If a regulator, a customer, or your own security team challenged one trace, could you verify its integrity — or is it your word against theirs?</p>
+<div class="verdict"><strong>Fail:</strong> unverifiable traces; trust me, not proof.</div>
+<div class="verdict safe"><strong>Pass:</strong> tamper-evident traces a third party can verify.</div>
+</div></div>
+</div>
+
+<div class="card">
+<h2>If you failed any check, do this now</h2>
+<ul>
+<li><strong>Instrument every agent</strong> — record every tool call, argument, and outcome from day one.</li>
+<li><strong>Emit standard traces</strong> — OTel-compatible spans, so your evidence works everywhere.</li>
+<li><strong>Keep session history</strong> — replayable records, retained long enough to matter.</li>
+<li><strong>Make traces verifiable</strong> — hash-chain them so integrity is provable, not promised.</li>
+</ul>
+</div>
+
+<a class="cta" href="https://agent-flight-recorder.onrender.com/?utm_source=newsjack&utm_medium=static-page&utm_campaign=agent-traceability">Make your agents traceable &rarr; Agent Flight Recorder</a>
+<p class="note" style="text-align:center">This page covered the 5 checks. Agent Flight Recorder keeps a hash-chained, tamper-evident log of every agent action with OTel-compatible traces.</p>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with any team shipping AI agents.<br>
+EU AI Act monitoring obligations &middot; traceability is becoming the standard
+</footer>
+</div>
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=Is%20Your%20AI%20Agent%20Traceable%3F%20%E2%80%94%20Free%20AI%20agent%20traceability%20check&url=https%3A//ingeniousai-security-checks.netlify.app/newsjack-agent-traceability.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//ingeniousai-security-checks.netlify.app/newsjack-agent-traceability.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//ingeniousai-security-checks.netlify.app/newsjack-agent-traceability.html&title=Is%20Your%20AI%20Agent%20Traceable%3F" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

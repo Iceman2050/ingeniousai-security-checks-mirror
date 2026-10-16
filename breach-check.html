@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Have My Credentials Leaked? — The Honest 5-Minute Check</title>
+<meta name="description" content="No fake breach scans here. The honest way to check if your credentials leaked, in 3 real steps, plus a breach-response checklist. Free, no signup.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d2a12;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .green{color:#3fb950}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.step{display:flex;gap:16px;margin:20px 0;padding-bottom:20px;border-bottom:1px solid #1c2430}
+.step:last-child{border-bottom:none}
+.stepnum{flex:0 0 40px;height:40px;border-radius:50%;background:#1c6ef2;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:18px}
+.step h3{color:#fff;font-size:17px;margin-bottom:6px}
+.btn{display:inline-block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:16px;padding:14px 28px;border-radius:10px;border:none;cursor:pointer;margin:12px 0;text-decoration:none}
+.btn:hover{background:#2f7ef7}
+.checkitem{display:flex;gap:12px;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px;margin:8px 0;cursor:pointer;font-size:15px;align-items:flex-start}
+.checkitem input{margin-top:5px;transform:scale(1.3)}
+.checkitem.done{opacity:.55;text-decoration:line-through}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+.warnbox{background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#e6c26a}
+.note{font-size:14px;color:#9aa7b8}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can a website check if my email was in a breach without me trusting it with my email?","acceptedAnswer":{"@type":"Answer","text":"No — and any site that claims to check your email against breach databases from a static page is either sending your email to a third party or making the answer up. The safe way is to check it yourself at Have I Been Pwned, which uses a privacy-preserving lookup."}},{"@type":"Question","name":"What should I do if my email was in a data breach?","acceptedAnswer":{"@type":"Answer","text":"Change the password everywhere you reused it, enable two-factor authentication on every important account, and watch for phishing emails that reference the breach. Then upgrade to a password manager and passkeys so the next breach cannot hurt you."}},{"@type":"Question","name":"Is Have I Been Pwned safe to use?","acceptedAnswer":{"@type":"Answer","text":"Yes. It is run by security researcher Troy Hunt, uses k-anonymity so your full email or password never leaves your browser during lookups, and is the industry-standard breach lookup service."}}]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">NO FAKE SCANS · HONEST GUIDE</div>
+<h1>Have my credentials <span class="green">leaked</span>?</h1>
+<p class="lead">Here is the truth most "breach checker" sites will not tell you: a static web page <strong>cannot</strong> safely check breach databases for you. Any site that asks for your email and instantly invents a verdict is either harvesting your address or making the answer up. Here is the honest 5-minute check instead.</p>
+
+<div class="card">
+<h2>The 3 real steps</h2>
+<div class="step">
+<div class="stepnum">1</div>
+<div><h3>Check Have I Been Pwned yourself</h3>
+<p class="note">Run by security researcher Troy Hunt. It uses k-anonymity, so your full email never leaves your browser during the lookup. Type your address there — not here.</p>
+<a class="btn" href="https://haveibeenpwned.com" target="_blank" rel="noopener">Open Have I Been Pwned &rarr;</a></div>
+</div>
+<div class="step">
+<div class="stepnum">2</div>
+<div><h3>Kill password reuse with a password manager + passkeys</h3>
+<p class="note">Breaches hurt because one leaked password unlocks ten accounts. A password manager gives every site a unique password; passkeys remove passwords entirely where supported. Do this for email first — your inbox is the master key to everything else.</p></div>
+</div>
+<div class="step">
+<div class="stepnum">3</div>
+<div><h3>If you were in a breach: contain it today</h3>
+<p class="note">Change the password everywhere you reused it, turn on two-factor authentication on every important account, and expect phishing emails that reference the breach — attackers buy these lists and personalize their lures.</p></div>
+</div>
+</div>
+
+<div class="card">
+<h2>Breach-response checklist — tap as you go</h2>
+<div id="checklist">
+<label class="checkitem"><input type="checkbox"> Checked my email at Have I Been Pwned</label>
+<label class="checkitem"><input type="checkbox"> Changed passwords everywhere I reused the breached one</label>
+<label class="checkitem"><input type="checkbox"> Enabled 2FA on email, banking, and social accounts</label>
+<label class="checkitem"><input type="checkbox"> Installed a password manager (or finally started using it)</label>
+<label class="checkitem"><input type="checkbox"> Set up passkeys where offered</label>
+<label class="checkitem"><input type="checkbox"> Warned family members who share the breached service</label>
+</div>
+<p class="note" id="progress" style="margin-top:10px;color:#3fb950"></p>
+</div>
+
+<div class="warnbox"><strong>Why we do not ask for your email:</strong> a breach lookup needs your real address, and we will not collect addresses on a free static page. Sites that do are building a list — of people who just admitted they worry about breaches. That list is exactly what phishers want.</div>
+
+<a class="cta" href="https://breach-hunter.onrender.com/?utm_source=newsjack&utm_medium=static-page&utm_campaign=breach-check">Get BreachHunter — continuous breach monitoring &rarr;</a>
+<p class="note" style="text-align:center">BreachHunter watches breach feeds for your addresses and alerts you the moment you appear in a new one — so you hear it from us first, not from a phisher.</p>
+
+<footer>
+Built by Ingenious AI &mdash; share this with anyone who reuses passwords.<br>
+We never asked for your email, and we never will on this page.
+</footer>
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this guide: <a href="https://x.com/intent/post?text=The%20honest%20way%20to%20check%20if%20your%20credentials%20leaked%20-%20no%20fake%20scans&url=https%3A//ingeniousai-security-checks.netlify.app/breach-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//ingeniousai-security-checks.netlify.app/breach-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//ingeniousai-security-checks.netlify.app/breach-check.html&title=The%20honest%20breach%20check%20-%20why%20static%20pages%20can't%20scan%20for%20you" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<script>
+(function(){
+  var boxes=document.querySelectorAll("#checklist input");
+  function update(){
+    var done=0;
+    for(var i=0;i<boxes.length;i++){
+      boxes[i].closest(".checkitem").classList.toggle("done",boxes[i].checked);
+      if(boxes[i].checked)done++;
+    }
+    document.getElementById("progress").textContent=done+" of "+boxes.length+" done"+(done===boxes.length?" — you are contained. Nice work.":"");
+  }
+  for(var i=0;i<boxes.length;i++){boxes[i].addEventListener("change",update);}
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

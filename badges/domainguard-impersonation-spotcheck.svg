@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" role="img" aria-label="AI security: A 90">
+<linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient>
+<rect width="78" height="20" fill="#555"/><rect x="78" width="52" height="20" fill="#22c55e"/>
+<rect width="130" height="20" fill="url(#s)"/>
+<g fill="#fff" text-anchor="middle" font-family="Verdana,DejaVu Sans,sans-serif" font-size="11">
+<text x="39.0" y="15">AI security</text><text x="104.0" y="15">A 90</text></g></svg>

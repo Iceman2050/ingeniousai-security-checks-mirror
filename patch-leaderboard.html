@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vendor Patch-Speed Leaderboard — Who Fixes Critical CVEs Fastest — Ingenious AI</title>
+<meta name="description" content="How fast do vendors ship patches for critical CVEs? A dated, sourced leaderboard ranking 2026's biggest cases by days from public disclosure to patch — Collabora, GitLab, Drupal, SonicWall, Ivanti, Langflow.">
+<link rel="canonical" href="https://ingeniousai-security-checks.netlify.app/patch-leaderboard.html">
+<meta property="og:title" content="Vendor Patch-Speed Leaderboard — who fixes critical CVEs fastest?">
+<meta property="og:description" content="Dated, sourced: how many days each vendor took to ship a patch after disclosure. Some patched before telling anyone. One disclosed with no fix at all.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Vendor Patch-Speed Leaderboard","description":"Sourced ranking of software vendors by how fast they ship patches for critical CVEs in 2026.","provider":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-15","dateModified":"2026-10-15"}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:820px;margin:0 auto;padding:48px 20px}
+.badge-top{display:inline-block;background:#1c6ef2;color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:14px}
+h1{font-size:30px;margin-bottom:12px}
+p.lead{color:#9aa7b8;font-size:17px;margin-bottom:28px}
+h2{font-size:21px;margin:34px 0 12px}
+.entry{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:20px 22px;margin:14px 0}
+.entry .rank{font-size:12px;color:#6b7688;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.entry h3{font-size:17px;margin:6px 0 8px}
+.entry p{font-size:14px;color:#c9d4e3}
+.grade{display:inline-block;font-weight:800;font-size:13px;padding:3px 12px;border-radius:16px;margin-left:8px;vertical-align:middle}
+.gA{background:#0e3b21;color:#3fb950;border:1px solid #1f6f3f}
+.gB{background:#0e2f3b;color:#39c5cf;border:1px solid #1f6f7f}
+.gC{background:#3b2a0e;color:#d29922;border:1px solid #7f621f}
+.gF{background:#3b0e0e;color:#f85149;border:1px solid #7f1f1f}
+.stat{display:inline-block;background:#1a2330;border:1px solid #2a3342;color:#9aa7b8;font-size:12.5px;padding:4px 12px;border-radius:14px;margin:6px 6px 0 0}
+.stat b{color:#e6edf3}
+.src{font-size:12.5px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.faq details{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0}
+.faq summary{font-weight:700;cursor:pointer}
+.faq p{color:#9aa7b8;font-size:14px;margin-top:8px}
+.method{background:#11161f;border:1px solid #1c6ef2;border-radius:12px;padding:20px 22px;margin:20px 0;font-size:14px;color:#c9d4e3}
+.method h3{font-size:16px;margin-bottom:10px;color:#e6edf3}
+.method li{margin:6px 0 6px 18px}
+footer{margin-top:36px;padding-top:18px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.note{font-size:13px;color:#6b7688;margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<span class="badge-top">LEADERBOARD</span>
+<h1>Vendor Patch-Speed Leaderboard</h1>
+<p class="lead">How fast do vendors ship patches for critical CVEs? Seven of 2026's biggest cases, ranked by <strong>days from first public disclosure to patch release</strong> — every date sourced. The best vendors patch before they tell anyone. The worst disclose with no fix at all.</p>
+
+<div class="method">
+<h3>Methodology — exactly how "days to patch" is measured</h3>
+<ul>
+<li><strong>Days to patch</strong> = patch release date minus first public disclosure date (vendor advisory, CVE publication, or researcher disclosure — whichever came first).</li>
+<li><strong>Negative</strong> = patch shipped <em>before</em> public disclosure (patch-first — best practice).</li>
+<li><strong>0</strong> = coordinated same-day patch + advisory (standard practice among mature vendors).</li>
+<li><strong>Tiebreak:</strong> pre-patch in-the-wild exploitation window — days attackers had before any fix existed.</li>
+<li><strong>Honest caveats:</strong> this is an illustrative sample of 2026's biggest documented cases, not an exhaustive vendor census. Private notification dates are almost never public, so the clock starts at public disclosure. Exploitation-start dates are estimates from incident-response firms, not precise timestamps.</li>
+</ul>
+</div>
+
+<div class="entry">
+<div class="rank">#1 — fastest</div>
+<h3>Collabora — CVE-2026-110447 <span class="grade gA">A</span></h3>
+<p>Critical OS command injection in the Nextcloud built-in CODE server app (proxy.php), exploited in the wild in September–October 2026. Collabora shipped the fix in version <strong>26.4.303 on September 11, 2026</strong> — a full <strong>33 days before</strong> the public advisory of October 14, 2026. Textbook patch-first: the fix was out before attackers got the playbook.</p>
+<span class="stat"><b>−33</b> days (patch before disclosure)</span><span class="stat">Exploited in wild: <b>yes</b></span>
+<p class="src">Sources: <a href="http://thehackernews.com/2026/10/hackers-backdoor-nextcloud-servers.html" target="_blank" rel="noopener">The Hacker News</a> · <a href="https://www.neoteo.com/en/github-says-cve-2026-110447-differs-from-cve-2025-66208" target="_blank" rel="noopener">NeoTeo</a> · <a href="https://cyber.hendryadrian.com/article/3351/flaw-in-nextcloud-s-built-in-collabora-code-app-exploited-to-plant-web-shells" target="_blank" rel="noopener">Hendry Adrian</a></p>
+</div>
+
+<div class="entry">
+<div class="rank">#2</div>
+<h3>GitLab — critical GraphQL flaw (August 2026) <span class="grade gA">A</span></h3>
+<p>Critical unauthenticated GraphQL flaw allowing modification or deletion of public projects. GitLab shipped an <strong>out-of-band patch on August 17–18, 2026</strong> — days after its scheduled August 12 release — with the advisory the same day. No exploitation confirmed at disclosure. Going out-of-band within days is the severity signal mature vendors send.</p>
+<span class="stat"><b>0</b> days (patch + advisory same day)</span><span class="stat">Exploited in wild: <b>no</b> (at disclosure)</span>
+<p class="src">Sources: <a href="https://securityaffairs.com/197454/hacking/gitlab-patches-critical-unauthenticated-graphql-vulnerability.html" target="_blank" rel="noopener">Security Affairs</a> · <a href="https://thehackernews.com/2026/08/critical-gitlab-graphql-flaw-could-let.html" target="_blank" rel="noopener">The Hacker News</a> · <a href="https://Www.Darkreading.com/application-security/critical-gitlab-zero-click-flaw-mitigation-challenges" target="_blank" rel="noopener">Dark Reading</a></p>
+</div>
+
+<div class="entry">
+<div class="rank">#3</div>
+<h3>Drupal — Field UI RCE (October 2026) <span class="grade gA">A</span></h3>
+<p>Critical remote code execution reachable through contributed modules, rated 19/25 on Drupal's risk scale. The security team <strong>pre-announced the release on October 12</strong> so admins could reserve time, then shipped fixed releases (11.4.10, 11.3.19, 10.6.10) with the advisory — <strong>same day</strong>. No public exploit or attacks at the time of writing.</p>
+<span class="stat"><b>0</b> days (patch + advisory same day)</span><span class="stat">Exploited in wild: <b>no</b> (at disclosure)</span>
+<p class="src">Source: <a href="https://bitnewsbot.com/critical-drupal-field-ui-rce-patch-now/" target="_blank" rel="noopener">BitNewsBot</a></p>
+</div>
+
+<div class="entry">
+<div class="rank">#4</div>
+<h3>GitLab — commits API path traversal (September 2026) <span class="grade gB">B</span></h3>
+<p>Unauthenticated path traversal in the repository commits API exposing arbitrary files — secrets, tokens, private keys. <strong>Patches released September 10, 2026</strong> (CE 19.1.8, EE 19.2.6/19.3.2); CISA added it to the KEV catalog <strong>September 11</strong> with a 3-day remediation deadline. Same-day coordinated disclosure — but active exploitation was already confirmed by CISA and observed by watchTowr, so defenders were patching under fire.</p>
+<span class="stat"><b>0</b> days (patch + advisory same day)</span><span class="stat">Exploited in wild: <b>yes</b></span>
+<p class="src">Sources: <a href="https://en.cryptonomist.ch/2026/09/14/gitlab-critical-vulnerability-warning/" target="_blank" rel="noopener">Cryptonomist</a> · <a href="https://gbhackers.com/cisa-warns-of-critical-gitlab-vulnerability-exploited-in-attacks/" target="_blank" rel="noopener">GBHackers</a></p>
+</div>
+
+<div class="entry">
+<div class="rank">#5</div>
+<h3>SonicWall — SMA1000 zero-days CVE-2026-15409 / CVE-2026-15410 <span class="grade gC">C</span></h3>
+<p>Two chained zero-days (CVSS 10.0 + 7.2) in SMA1000 secure remote access appliances, exploited by threat actor UTA0533 to deliver custom malware. Volexity believes <strong>exploitation began around June 22, 2026</strong>; SonicWall's <strong>patch + advisory landed July 14</strong> — roughly <strong>22 days</strong> of zero-day exploitation with no fix available. CISA added both to KEV the same day.</p>
+<span class="stat"><b>0</b> days from disclosure</span><span class="stat"><b>~22 days</b> exploited before any patch</span>
+<p class="src">Sources: <a href="https://www.securityweek.com/sonicwall-zero-days-exploited-to-deliver-custom-malware-for-weeks-before-patch/" target="_blank" rel="noopener">SecurityWeek</a> · <a href="https://securityonline.info/sonicwall-sma1000-vulnerability-cve-2026-15409/" target="_blank" rel="noopener">SecurityOnline</a></p>
+</div>
+
+<div class="entry">
+<div class="rank">#6</div>
+<h3>Ivanti — Connect Secure zero-day CVE-2026-104935 <span class="grade gC">C</span></h3>
+<p>Authentication bypass (CVSS 8.6) in Ivanti Connect Secure VPN appliances, chained with other flaws for unauthenticated root code execution. Volexity found <strong>intrusions began October 3, 2026</strong>; Ivanti <strong>patched October 13</strong> — <strong>~10 days</strong> of active exploitation before a fix, during which attackers looted AD credentials, BitLocker keys, and LAPS passwords. Worse: a third vulnerability in the chain remained unpatched at disclosure.</p>
+<span class="stat"><b>0</b> days from disclosure</span><span class="stat"><b>~10 days</b> exploited before patch</span><span class="stat">Chain <b>incomplete</b> at patch</span>
+<p class="src">Source: <a href="https://cvetodo.com/news/ivanti-connect-secure-zero-day-cve-2026-104935-exploited-in-the-wild-since-october-3-patch-released" target="_blank" rel="noopener">CVETodo</a></p>
+</div>
+
+<div class="entry">
+<div class="rank">#7 — slowest</div>
+<h3>Langflow — path traversal RCE (Tenable TRA-2026-26) <span class="grade gF">F</span></h3>
+<p>Path traversal enabling remote code execution on exposed Langflow AI-pipeline servers. Researcher Joshua Martinelle <strong>first reported it January 20, 2026</strong>, followed up January 27 and February 4, and issued a final notice March 23. It was <strong>publicly disclosed March 27, 2026 — with no official patch released</strong>. Sixty-six days from first report to disclosure, and defenders still had no fix.</p>
+<span class="stat">Unpatched at disclosure</span><span class="stat"><b>66 days</b> from first report to disclosure</span>
+<p class="src">Source: <a href="https://cybersecuritynews.com/langflow-vulnerability-exploit/" target="_blank" rel="noopener">Cyber Security News</a></p>
+</div>
+
+<h2>What the leaderboard actually teaches</h2>
+<div class="entry">
+<p><strong>Most mature vendors cluster at 0</strong> — coordinated same-day patch and advisory is now the industry norm, which is good news. The real differentiators are <strong>patch-first behavior</strong> (Collabora's −33 days: the fix was out before the advisory told attackers where to look) and the <strong>pre-patch exploitation window</strong> (SonicWall's ~22 days, Ivanti's ~10 days, Langflow's no-fix-at-disclosure). When you evaluate a vendor, ask two questions: do they patch before they disclose — and how many days do attackers get before they do?</p>
+</div>
+
+<h2>FAQ</h2>
+<div class="faq">
+<details><summary>Why do so many vendors score 0 days?</summary><p>Because coordinated disclosure — shipping the patch and the advisory on the same day — is standard practice among mature vendors. A 0 is good: it means defenders and the patch arrived together. The leaderboard's real signal is in the exceptions: patch-first (negative) and unpatched-at-disclosure.</p></details>
+<details><summary>Is this an exhaustive ranking of all vendors?</summary><p>No. This is an illustrative sample of 2026's biggest documented cases where both the disclosure date and the patch release date are publicly sourced. It is not a census of the software industry.</p></details>
+<details><summary>Why use public disclosure as the start of the clock?</summary><p>Private notification dates are almost never published, so a vendor's true response time from first report is usually unknowable. Public disclosure is the first date attackers definitively have the information — that's the exposure window that matters to defenders.</p></details>
+<details><summary>How often is this updated?</summary><p>With each major 2026 case that has both dates sourced. New entries are added newest-first with their sources linked.</p></details>
+</div>
+
+<p class="note">CVE identifiers, dates, and vendor names are factual references to publicly reported security incidents, linked to their sources. Grades reflect patch-speed behavior only — not overall vendor quality.</p>
+<footer>Built by Ingenious AI — free tools for people who ship AI.</footer>
+</div>
+<div style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share: <a href="https://x.com/intent/post?text=Vendor%20patch-speed%20leaderboard%20—%20who%20fixes%20critical%20CVEs%20fastest%3F%20Dated%2C%20sourced.&url=https%3A//ingeniousai-security-checks.netlify.app/patch-leaderboard.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//ingeniousai-security-checks.netlify.app/patch-leaderboard.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//ingeniousai-security-checks.netlify.app/patch-leaderboard.html&title=Vendor%20patch-speed%20leaderboard%20—%20who%20fixes%20critical%20CVEs%20fastest" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+</body>
+</html>

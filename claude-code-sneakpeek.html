@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Is Your Claude Code Build Patched Against SneakPeek? — Free 30-Second Self-Test</title>
+<meta name="description" content="SneakPeek (CVSS 8.7) let a poisoned HTML file in any repo silently read your SSH keys, AWS credentials and tokens through Claude Code Desktop's preview pane. Fixed Aug 17 in build 1.30096.1 — check your version in 30 seconds, no signup.">
+<link rel="canonical" href="https://ingeniousai-security-checks.netlify.app/claude-code-sneakpeek.html">
+<meta property="og:title" content="Is your Claude Code build patched against SneakPeek?">
+<meta property="og:description" content="A poisoned HTML file could silently read your SSH keys and cloud credentials through Claude Code's preview pane. Free 30-second self-test.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#3b0d0d;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.step{display:flex;gap:14px;margin:18px 0}
+.stepnum{flex:0 0 34px;height:34px;border-radius:50%;background:#1c6ef2;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+code.cmd{display:block;background:#000;border:1px solid #2a3342;border-radius:8px;padding:14px 16px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;color:#7ee787;overflow-x:auto;margin:10px 0;white-space:pre}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I check if my Claude Code Desktop is patched against SneakPeek?","acceptedAnswer":{"@type":"Answer","text":"Open Claude Desktop and check the build number (Settings / About). Build 1.30096.1 or newer, released August 17, 2026, contains the full fix. Anything older is vulnerable to the SneakPeek preview-pane flaw — update through the app's auto-update immediately."}},
+{"@type":"Question","name":"What did the SneakPeek vulnerability actually do?","acceptedAnswer":{"@type":"Answer","text":"SneakPeek, disclosed by Noma Labs on October 14, 2026, chained three flaws in Claude Code Desktop's HTML preview pane: files over 256KB were written to disk and loaded as file:// URLs (bypassing the CSP applied to smaller files), the file:// origin gave the preview renderer local filesystem access, and the request filter meant to block file access was inactive. A poisoned HTML file over 256KB — e.g. a test coverage report in a cloned repo — could silently read SSH keys, AWS credentials, GitHub tokens and Kubernetes configs and exfiltrate them, with no click required. Anthropic scored it CVSS 8.7."}},
+{"@type":"Question","name":"Was SneakPeek exploited in the wild?","acceptedAnswer":{"@type":"Answer","text":"No confirmed in-the-wild exploitation has been reported — the public reporting describes a resolved research disclosure, not evidence that a specific user was compromised. The risk window was July 4 to August 17, 2026 on unpatched builds. If you reviewed HTML files from cloned repos on an old build during that window, rotate the secrets that lived on that machine as a precaution."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">SNEAKPEEK &mdash; CVSS 8.7 &mdash; PATCHED AUG 17</div>
+<h1>Is your Claude Code build patched against <span class="red">SneakPeek</span>?</h1>
+<p class="lead">Security researchers found that Claude Code Desktop's preview pane could be tricked into <strong>silently reading your SSH keys, AWS credentials, GitHub tokens and Kubernetes configs</strong> — no click required. Just clone a repo, ask Claude to review an HTML file, and the preview does the rest. The full fix shipped August 17 in build <strong>1.30096.1</strong>. This free 30-second self-test tells you where you stand. No signup, nothing installed.</p>
+
+<div class="card">
+<h2>The 30-second check</h2>
+<div class="step"><div class="stepnum">1</div><div>
+<p><strong>Check your Claude Desktop build number</strong> &mdash; open the app and look under Settings / About (auto-update usually handles this):</p>
+<div class="verdict"><strong>Older than 1.30096.1 &rarr; you are EXPOSED.</strong> The SneakPeek preview-pane flaw is unpatched on your build. Update immediately — do not open HTML files from untrusted repos until you do.</div>
+<div class="verdict safe"><strong>1.30096.1 or newer &rarr; patched.</strong> You're safe from SneakPeek. Keep auto-update on.</div>
+</div></div>
+<div class="step"><div class="stepnum">2</div><div>
+<p><strong>Check your past exposure window</strong> &mdash; the flaw was live from July 4 to August 17, 2026. Ask yourself:</p>
+<ul>
+<li>Did I review HTML files (test coverage reports, generated docs, exported pages) from <strong>cloned repositories</strong> on an unpatched build in that window?</li>
+<li>Did I clone any repo I didn't fully trust during that period?</li>
+</ul>
+<div class="verdict warn"><strong>Yes to either &rarr; treat it as possible exposure.</strong> No confirmed in-the-wild exploitation has been reported, but the exfiltration was silent by design. Rotate the secrets that lived on that machine: SSH keys, AWS credentials, GitHub/npm tokens, Kubernetes configs, OAuth session tokens.</div>
+<div class="note">No to both? Nothing more to do — but read step 3 anyway.</div>
+</div></div>
+<div class="step"><div class="stepnum">3</div><div>
+<p><strong>Close the pattern, not just this bug</strong> &mdash; SneakPeek's root cause was a <strong>size-based security boundary</strong>: files under 256KB got a strict CSP, files over it got written to disk and rendered as file:// URLs with local filesystem access. That pattern — two code paths, one guarded, one not — shows up everywhere:</p>
+<ul>
+<li>Never let an AI tool auto-preview HTML from a repo you cloned before you trust it.</li>
+<li>Keep auto-update ON for every AI coding tool you use — this is the second disclosure where the initial patch was bypassed (a Web Worker dodge) before the real fix landed.</li>
+<li>Audit what your AI tools can read: if a preview pane can reach <code>~/.ssh</code>, so can a poisoned file.</li>
+</ul>
+</div></div>
+</div>
+
+<div class="card">
+<h2>If you were exposed, do this now</h2>
+<ul>
+<li><strong>Update</strong> Claude Desktop to <strong>1.30096.1 or newer</strong> — auto-update is the fastest path.</li>
+<li><strong>Rotate everything the preview renderer could have reached</strong> &mdash; SSH private keys, AWS access keys, GitHub/npm tokens, Kubernetes kubeconfigs, OAuth session tokens. Exfiltration via the flaw was silent; patching doesn't un-read secrets.</li>
+<li><strong>Review repos you cloned July&ndash;August 2026</strong> for HTML files over 256KB you asked Claude to review — coverage reports are the classic lure.</li>
+<li><strong>Turn off auto-preview of untrusted HTML</strong> in your AI tools until you've confirmed the setting exists and is enforced.</li>
+</ul>
+</div>
+
+<a class="cta" href="wild-prompt-injections.html">See the live feed of AI attacks found in the wild &rarr;</a>
+<p class="note" style="text-align:center">SneakPeek is an AI-tooling attack. The wild injections feed tracks every real-world AI attack with dates and sources — and the chatbot red-team test lets you try 5 adversarial prompts on your own bot.</p>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with any developer using Claude Code.<br>
+SneakPeek (CVSS 8.7) &middot; disclosed by Noma Labs Oct 14, 2026 &middot; reported Jul 4, 2026 &middot; fully fixed in build 1.30096.1 (Aug 17, 2026) &middot; no confirmed in-the-wild exploitation as of Oct 15, 2026 &middot; CVE pending
+</footer>
+</div>
+
+<div class="card" style="margin-top:22px">
+<h2 style="font-size:18px;margin-bottom:8px">Red-team your own chatbot</h2>
+<p style="color:#9aa7b8;font-size:14px;margin-bottom:10px">SneakPeek was an AI tooling attack. Try 5 adversarial prompts on your own chatbot — free, 30 seconds.</p>
+<a href="newsjack-chatbreaker.html" style="display:inline-block;background:#1c6ef2;color:#fff;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;font-size:14px">Run the 5-prompt red-team test</a>
+</div>
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=Claude%20Code%20SneakPeek%20%E2%80%94%20a%20poisoned%20HTML%20file%20could%20silently%20read%20your%20SSH%20keys%20and%20AWS%20credentials%20through%20the%20preview%20pane%20%E2%80%94%20free%2030-sec%20self-test%3A%20are%20you%20on%20the%20fixed%20build%3F&url=https%3A//ingeniousai-security-checks.netlify.app/claude-code-sneakpeek.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//ingeniousai-security-checks.netlify.app/claude-code-sneakpeek.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//ingeniousai-security-checks.netlify.app/claude-code-sneakpeek.html&title=Claude%20Code%20SneakPeek%20self-check%3A%20are%20you%20on%20the%20fixed%20build%3F" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

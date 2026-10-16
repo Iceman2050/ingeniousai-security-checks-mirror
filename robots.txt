@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ingeniousai-security-checks.netlify.app/sitemap.xml

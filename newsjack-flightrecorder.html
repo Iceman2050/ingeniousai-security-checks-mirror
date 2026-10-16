@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 6 Fields Every AI Agent Action Log Needs — Free Checklist</title>
+<meta name="description" content="When an AI agent does damage, 'who did what' is unanswerable without tamper-evident logs. Check your logging against these 6 fields. Free, no signup.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a1f08;border:1px solid #d29922;color:#ffce63;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .yellow{color:#ffce63}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.step{display:flex;gap:14px;margin:18px 0}
+.stepnum{flex:0 0 34px;height:34px;border-radius:50%;background:#1c6ef2;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+code.cmd{display:block;background:#000;border:1px solid #2a3342;border-radius:8px;padding:14px 16px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;color:#7ee787;overflow-x:auto;margin:10px 0;white-space:pre;white-space:pre-wrap}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">WHEN THE AGENT BREAKS THINGS, THE LOG IS THE EVIDENCE</div>
+<h1>Could you prove <span class="yellow">what your AI agent did</span> last Tuesday?</h1>
+<p class="lead">An agent deleted the wrong records, sent the wrong email, spent the wrong budget. Now comes the question nobody can answer: exactly what did it do, when, and under whose authority? If your agent logs are a pile of stdout, you have no evidence. Check your logging against these 6 fields right now. No signup, nothing installed.</p>
+
+<div class="card">
+<h2>The 6-field log checklist</h2>
+<div class="step"><div class="stepnum">1</div><div>
+<p><strong>Timestamp in UTC, with timezone explicit.</strong> "Around 3pm" is not evidence. Every entry needs an unambiguous instant.</p>
+<div class="verdict"><strong>Missing or local-time-only &rarr; FAIL.</strong> You can't reconstruct a timeline across systems.</div>
+</div></div>
+<div class="step"><div class="stepnum">2</div><div>
+<p><strong>Actor identity</strong> &mdash; which agent, which run, which user authorized it. "The agent did it" names no one.</p>
+<div class="verdict"><strong>Just a process name &rarr; FAIL.</strong> You need agent ID + run ID + authorizing principal.</div>
+</div></div>
+<div class="step"><div class="stepnum">3</div><div>
+<p><strong>Action + tool called, with exact parameters.</strong> Not "sent email" &mdash; <em>which</em> email, to whom, with what body.</p>
+<div class="verdict"><strong>Summaries instead of parameters &rarr; FAIL.</strong> Summaries are written by the thing you're investigating.</div>
+</div></div>
+<div class="step"><div class="stepnum">4</div><div>
+<p><strong>Inputs, with secrets redacted.</strong> Log what the agent saw &mdash; but never log API keys, tokens, or PII in the clear.</p>
+<div class="verdict"><strong>Raw secrets in logs &rarr; FAIL twice.</strong> Your audit trail is now a credential leak.</div>
+</div></div>
+<div class="step"><div class="stepnum">5</div><div>
+<p><strong>Result and status.</strong> Success, failure, what came back. An action without an outcome is half a record.</p>
+<div class="verdict"><strong>Fire-and-forget logging &rarr; FAIL.</strong> You can't tell what actually happened.</div>
+</div></div>
+<div class="step"><div class="stepnum">6</div><div>
+<p><strong>Tamper evidence.</strong> Each entry cryptographically chained to the previous one (e.g. each record stores a hash of the one before it).</p>
+<code class="cmd">record_n.hash = sha256(record_{n-1}.hash + record_n.payload)
+// If anyone edits history, the chain breaks. Simple to implement, hard to fake.</code>
+<div class="verdict"><strong>Plain append-only file, editable by the agent itself &rarr; FAIL.</strong> The suspect holds the eraser.</div>
+<div class="verdict safe"><strong>All six present &rarr; you can actually investigate an incident.</strong> Now make sure the logs are retained and readable under pressure.</div>
+</div></div>
+</div>
+
+<div class="card">
+<h2>If you failed any field, do this now</h2>
+<ul>
+<li><strong>Add the missing fields</strong> before the next incident, not during it.</li>
+<li><strong>Separate log storage from the agent</strong> &mdash; the agent must not be able to rewrite its own history.</li>
+<li><strong>Redact on write</strong> &mdash; secrets should never touch the log pipeline unmasked.</li>
+<li><strong>Practice reading them</strong> &mdash; run a tabletop: "agent X refunded customer Y wrongly &mdash; reconstruct it from logs in 10 minutes."</li>
+</ul>
+</div>
+
+<a class="cta" href="https://agent-flight-recorder.onrender.com/?utm_source=newsjack&utm_medium=static-page&utm_campaign=flightrecorder-audit">Log your agents free &rarr; Agent Flight Recorder</a>
+<p class="note" style="text-align:center">This page gave you the checklist. Agent Flight Recorder implements it &mdash; every agent action gets a hash-chained, tamper-evident log entry: who did what, when, with which tools.</p>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with any team running AI agents in production.<br>
+Checklist only &middot; adapt field 6 to your stack's crypto primitives
+</footer>
+</div>
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=Agent%20Log%20Checklist%20%E2%80%94%20Free%20agent%20log%20checklist&url=https%3A//ingeniousai-security-checks.netlify.app/newsjack-flightrecorder.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//ingeniousai-security-checks.netlify.app/newsjack-flightrecorder.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//ingeniousai-security-checks.netlify.app/newsjack-flightrecorder.html&title=Agent%20Log%20Checklist" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

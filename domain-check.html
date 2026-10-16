@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Domain Impersonation Check — Is That Domain Trying to Fool You?</title>
+<meta name="description" content="Paste any domain and get an instant impersonation-risk score: lookalike characters, punycode tricks, hyphen stuffing, and suspicious TLDs. Free, client-side, nothing leaves your browser.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d2a12;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .green{color:#3fb950}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+input[type=text]{width:100%;background:#0d1219;border:1px solid #2a3342;border-radius:8px;padding:14px;font-size:17px;color:#e6edf3;margin-bottom:12px}
+input[type=text]:focus{outline:none;border-color:#1c6ef2}
+.btn{display:block;width:100%;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:16px;border-radius:10px;border:none;cursor:pointer;margin:20px 0}
+.btn:hover{background:#2f7ef7}
+.btn.ghost{background:#1c2430;border:1px solid #2a3342;font-size:14px;padding:10px}
+.result{border-radius:12px;padding:28px;margin:24px 0;display:none}
+.result.low{border:2px solid #3fb950;background:#0d1a0f;display:block}
+.result.mod{border:2px solid #d29922;background:#1a1409;display:block}
+.result.high{border:2px solid #f85149;background:#1a0f0f;display:block}
+.result h2{font-size:26px;margin-bottom:10px}
+.flag{background:#0b0f17;border:1px solid #232b38;border-radius:8px;padding:12px 16px;margin:10px 0;font-size:15px}
+.flag strong{color:#fff}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+.warnbox{background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#e6c26a}
+.note{font-size:14px;color:#9aa7b8}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Domain Impersonation Check","applicationCategory":"SecurityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"A free client-side tool that scores any domain for impersonation tricks: lookalike characters, punycode, hyphen stuffing, and suspicious TLDs. Nothing leaves your browser.","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">FREE · CLIENT-SIDE · NO SIGNUP</div>
+<h1>Is that domain <span class="green">trying to fool you</span>?</h1>
+<p class="lead">Paste any domain — a suspicious link from an email, or your own brand's domain to see how easily it could be faked. Instant impersonation-risk score, computed entirely in your browser. Nothing you type ever leaves this page.</p>
+
+<div class="card">
+<h2>Check a domain</h2>
+<input type="text" id="domain" placeholder="example.com" autocomplete="off" spellcheck="false" maxlength="253">
+<button class="btn" type="button" onclick="checkDomain()">Score this domain</button>
+<p class="note">Tip: paste the full URL if you like — we will extract the domain.</p>
+</div>
+
+<div class="result" id="result"></div>
+
+<div class="warnbox"><strong>Honest scope:</strong> this scores the domain <em>name string</em> for known impersonation tricks. It cannot tell you whether a domain is actually malicious or who registered it. A clean score is not a safety guarantee — always verify senders through a second channel.</div>
+
+<div class="card">
+<h2>How impersonation tricks work</h2>
+<p class="note"><strong>Lookalike characters</strong> — "paypa1.com" swaps a letter for a number; "rnicrosoft.com" uses r+n to mimic m. <strong>Punycode</strong> — domains starting with <span style="color:#7ee787">xn--</span> can render as foreign characters that look identical to Latin letters. <strong>Hyphen stuffing</strong> — "secure-login-paypal-support.com" buries the real brand in noise. <strong>Abused TLDs</strong> — some cheap top-level domains show up in phishing far more often than others.</p>
+</div>
+
+<a class="cta" href="https://domain-guard-08k7.onrender.com/?utm_source=newsjack&utm_medium=static-page&utm_campaign=domain-check">Monitor my real domains with DomainGuard &rarr;</a>
+<p class="note" style="text-align:center">DomainGuard watches your actual domains around the clock and alerts you the moment a lookalike is registered. This free check is the first taste.</p>
+
+<footer>
+Built by Ingenious AI &mdash; share this check with anyone who gets phishing emails.<br>
+Everything runs in your browser &mdash; your input never leaves this page.
+</footer>
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=Free%20domain%20impersonation%20check%20-%20spot%20phishing%20domains%20in%20seconds&url=https%3A//ingeniousai-security-checks.netlify.app/domain-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//ingeniousai-security-checks.netlify.app/domain-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//ingeniousai-security-checks.netlify.app/domain-check.html&title=Free%20domain%20impersonation%20checker%20-%20lookalikes%2C%20punycode%2C%20hyphen%20stuffing" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<script>
+function esc(s){return s.replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+var SUS_TLDS=["top","xyz","click","link","work","party","gq","tk","ml","cf","buzz","loan","racing","stream","download","zip","mov","country","kim","date"];
+var BRANDS=["paypal","apple","google","amazon","microsoft","netflix","bankofamerica","chase","wellsfargo","facebook","instagram","linkedin","dhl","fedex","ups","ebay","coinbase","binance","irs","usps"];
+function checkDomain(){
+  var raw=document.getElementById("domain").value.trim().toLowerCase();
+  if(!raw){alert("Type or paste a domain first.");return;}
+  var host=raw.replace(/^[a-z]+:\/\//,"").split("/")[0].split("?")[0].split("#")[0].replace(/:\d+$/,"");
+  if(!/^[a-z0-9.\-xn\u00e0-\u024f\u0370-\u03ff\u0400-\u04ff\u4e00-\u9fff]+$/.test(host)||host.indexOf(".")<0){alert("That does not look like a valid domain. Try something like example.com");return;}
+  var flags=[],score=0;
+  var labels=host.split("."),tld=labels[labels.length-1],sld=labels.slice(0,-1).join(".");
+  if(host.indexOf("xn--")===0||host.indexOf(".xn--")>0){score+=3;flags.push(["<strong>Punycode detected</strong> — this domain uses encoded characters that can render as lookalikes of real letters. Classic impersonation trick."]);}
+  var lookalikes=[["rn","m"],["vv","w"],["cl","d"],["1","l"],["0","o"],["5","s"],["\u0430","a"],["\u0435","e"],["\u043e","o"],["\u0440","p"]];
+  var laFound=[];
+  for(var i=0;i<lookalikes.length;i++){if(sld.indexOf(lookalikes[i][0])>=0){laFound.push(lookalikes[i][0]+" \u2192 "+lookalikes[i][1]);}}
+  if(laFound.length){score+=2;flags.push(["<strong>Lookalike characters</strong> — found patterns like "+esc(laFound.slice(0,3).join(", "))+" that visually mimic other letters."]);}
+  var hyphens=(sld.match(/-/g)||[]).length;
+  if(hyphens>=3){score+=2;flags.push(["<strong>Hyphen stuffing</strong> — "+hyphens+" hyphens. Attackers bury real brand names in hyphen noise (e.g. secure-login-brand-support)."]);}
+  else if(hyphens>=1&&sld.length>20){score+=1;flags.push(["Hyphen plus long name — worth a second look."]);}
+  if(SUS_TLDS.indexOf(tld)>=0){score+=2;flags.push(["<strong>High-abuse TLD</strong> — ."+esc(tld)+" shows up in phishing campaigns far more often than mainstream TLDs."]);}
+  var brandHit=null;
+  for(var b=0;b<BRANDS.length;b++){if(sld.indexOf(BRANDS[b])>=0){brandHit=BRANDS[b];break;}}
+  if(brandHit&&sld!==brandHit&&sld!==("www."+brandHit)){score+=3;flags.push(["<strong>Brand name embedded</strong> — contains \""+esc(brandHit)+"\" but is not the official domain. The #1 phishing pattern."]);}
+  if(host.length>30){score+=1;flags.push(["Unusually long domain ("+host.length+" chars) — legitimate brands rarely do this."]);}
+  var box=document.getElementById("result"),cls,rating,color,advice;
+  if(score>=4){cls="high";rating="HIGH IMPERSONATION RISK";color="#f85149";
+    advice="Do not log in, do not download anything, do not enter payment details on this domain. If it arrived by email or text, verify the sender through a separate channel (type the official site address yourself).";}
+  else if(score>=2){cls="mod";rating="MODERATE RISK";color="#d29922";
+    advice="Something here deserves caution. Compare it character-by-character with the official domain, and never reach it from a link in an unsolicited message.";}
+  else{cls="low";rating="LOW RISK SIGNALS";color="#3fb950";
+    advice="No common impersonation tricks found in the name itself. Still verify senders independently — a clean name score is not a safety guarantee.";}
+  var html="<h2 style='color:"+color+"'>"+rating+"</h2>"+
+    "<p class='note'>Domain: <strong style='color:#e6edf3'>"+esc(host)+"</strong> &middot; risk points: "+score+"</p>";
+  for(var f=0;f<flags.length;f++){html+="<div class='flag'>"+flags[f][0]+"</div>";}
+  if(!flags.length){html+="<div class='flag'>No impersonation patterns detected in the domain name.</div>";}
+  html+="<p style='margin-top:14px'>"+advice+"</p>"+
+    "<button class='btn ghost' type='button' onclick='copyVerdict()'>Copy my verdict to share</button>"+
+    "<p class='note' id='copynote' style='display:none;color:#3fb950'>Verdict copied.</p>";
+  box.className="result "+cls;
+  box.innerHTML=html;
+  box.scrollIntoView({behavior:"smooth"});
+  window._lastVerdict="Domain check: "+host+" = "+rating+" ("+score+" risk points). https://ingeniousai-security-checks.netlify.app/domain-check.html";
+}
+function copyVerdict(){
+  var t=window._lastVerdict||"";
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(t).then(function(){document.getElementById("copynote").style.display="block";});
+  }else{
+    var ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();
+    try{document.execCommand("copy");document.getElementById("copynote").style.display="block";}catch(e){}
+    document.body.removeChild(ta);
+  }
+}
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

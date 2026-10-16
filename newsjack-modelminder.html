@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30-Second Model Dependency Audit — Find What Breaks When AI Models Change</title>
+<meta name="description" content="AI models get deprecated, repriced, and silently updated. Run this 30-second audit to list every model your code depends on. Free, no signup.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a1f08;border:1px solid #d29922;color:#ffce63;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .yellow{color:#ffce63}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.step{display:flex;gap:14px;margin:18px 0}
+.stepnum{flex:0 0 34px;height:34px;border-radius:50%;background:#1c6ef2;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+code.cmd{display:block;background:#000;border:1px solid #2a3342;border-radius:8px;padding:14px 16px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;color:#7ee787;overflow-x:auto;margin:10px 0;white-space:pre}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">SILENT DEPRECATIONS BREAK PRODUCTION</div>
+<h1>Which AI models is your <span class="yellow">production</span> actually pinned to?</h1>
+<p class="lead">Model vendors deprecate, reprice, and silently update models on their own schedule &mdash; and your app finds out when it breaks at 2am. Run this 30-second audit in your repo to list every model your code depends on. No signup, nothing installed.</p>
+
+<div class="card">
+<h2>The 30-second dependency audit</h2>
+<div class="step"><div class="stepnum">1</div><div>
+<p><strong>Find hardcoded model names</strong> in your repo:</p>
+<code class="cmd">grep -rhoE "gpt-[0-9][a-z0-9.-]*|claude-[a-z0-9.-]+|gemini-[a-z0-9.-]+|llama-[a-z0-9.-]+" . --exclude-dir=.git --exclude-dir=node_modules 2>/dev/null | sort | uniq -c | sort -rn | head -20</code>
+<div class="verdict"><strong>Names with no version pin (e.g. "gpt-4" with no date) &rarr; RISK.</strong> Unpinned aliases get silently swapped under you.</div>
+</div></div>
+<div class="step"><div class="stepnum">2</div><div>
+<p><strong>Check what your environment actually points at</strong> (values masked &mdash; safe to run):</p>
+<code class="cmd">env | grep -iE "model|OPENAI|ANTHROPIC|GEMINI" | sed -E 's/=(.{4}).*/=\1***/' | head -20</code>
+<div class="verdict"><strong>Model set only in one dev's shell, not in config &rarr; RISK.</strong> If it's not in versioned config, it doesn't exist when it matters.</div>
+</div></div>
+<div class="step"><div class="stepnum">3</div><div>
+<p><strong>Find SDKs that auto-upgrade models</strong>:</p>
+<code class="cmd">grep -rnE "\"openai\"|'openai'|\"anthropic\"|@google/generative-ai" package.json requirements.txt pyproject.toml 2>/dev/null | head; grep -rn "latest\|\"*\"" package.json 2>/dev/null | grep -iE "openai|anthropic" | head -5</code>
+<div class="verdict"><strong>Floating SDK versions + unpinned models &rarr; double exposure.</strong> An SDK bump and a model swap can land in the same deploy.</div>
+<div class="verdict safe"><strong>Every model pinned, versioned, and documented &rarr; you're ahead of most teams.</strong> Now make sure someone watches the vendors' changelogs.</div>
+</div></div>
+<p class="note">This audit shows what you're pinned to today. It can't tell you what the vendor changes tomorrow &mdash; that's the part that needs watching.</p>
+</div>
+
+<div class="card">
+<h2>If you found unpinned models, do this now</h2>
+<ul>
+<li><strong>Pin exact model versions</strong> (dated snapshots, not aliases) in versioned config.</li>
+<li><strong>Centralize the list</strong> &mdash; one file, every model, every environment. No tribal knowledge.</li>
+<li><strong>Watch the vendors</strong> &mdash; deprecation notices hide in changelogs, status pages, and email you never read.</li>
+<li><strong>Plan migrations before the deadline</strong> &mdash; test the replacement model on your evals, not on your users.</li>
+</ul>
+</div>
+
+<a class="cta" href="https://model-minder.onrender.com/?utm_source=newsjack&utm_medium=static-page&utm_campaign=modelminder-deprecation">Watch your models free &rarr; ModelMinder</a>
+<p class="note" style="text-align:center">This page audited what you're pinned to. ModelMinder watches the vendors for you &mdash; deprecations, repricing, and silent updates &mdash; and alerts you before production breaks.</p>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with any team shipping on AI models.<br>
+Heuristic audit &middot; verify pins against your vendors' docs
+</footer>
+</div>
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=Model%20Dependency%20Audit%20%E2%80%94%20Free%20model%20dependency%20audit&url=https%3A//ingeniousai-security-checks.netlify.app/newsjack-modelminder.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//ingeniousai-security-checks.netlify.app/newsjack-modelminder.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//ingeniousai-security-checks.netlify.app/newsjack-modelminder.html&title=Model%20Dependency%20Audit" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

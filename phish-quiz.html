@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Can You Spot the Phish? — Free 10-Question Phishing Quiz — Ingenious AI</title>
+<meta name="description" content="10 realistic phishing scenarios: spear-phish emails, fake login pages, QR scams, MFA fatigue, AI voice calls. Pick Phish or Legit, learn the tell, share your score. Free, no signup.">
+<link rel="canonical" href="https://ingeniousai-security-checks.netlify.app/phish-quiz.html">
+<meta property="og:title" content="Can You Spot the Phish? — 10-question quiz">
+<meta property="og:description" content="Realistic phishing scenarios. Pick Phish or Legit, learn the tell, share your score.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Spot the Phish Quiz","applicationCategory":"SecurityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"A free 10-question interactive quiz with realistic phishing scenarios. Users pick Phish or Legit and learn the tell behind each one. No signup, nothing installed.","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:780px;margin:0 auto;padding:48px 20px}
+.badge-top{display:inline-block;background:#1c6ef2;color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:14px}
+h1{font-size:30px;margin-bottom:12px}
+p.lead{color:#9aa7b8;font-size:17px;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:20px 0}
+.progress{font-size:13px;color:#6b7688;font-weight:700;margin-bottom:12px}
+.pbar{height:8px;background:#0b0f17;border-radius:4px;margin-bottom:18px;overflow:hidden}
+.pbar div{height:100%;background:#1c6ef2;border-radius:4px;transition:width .3s}
+.scenario{background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:20px;font-size:15px;margin-bottom:20px;white-space:pre-wrap}
+.scenario .lbl{font-size:11px;color:#6b7688;font-weight:700;text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:8px}
+.pickrow{display:flex;gap:12px}
+.pick{flex:1;text-align:center;font-weight:700;font-size:17px;padding:14px;border-radius:10px;border:2px solid #2a3342;background:#0d1219;color:#e6edf3;cursor:pointer}
+.pick:hover{border-color:#1c6ef2}
+.pick:disabled{opacity:.55;cursor:default}
+.reveal{display:none;margin-top:18px;border-radius:10px;padding:18px 20px}
+.reveal.show{display:block}
+.reveal.right{background:#0d1a0f;border:2px solid #3fb950}
+.reveal.wrong{background:#1a0f0f;border:2px solid #f85149}
+.reveal .verdict{font-weight:800;font-size:17px;margin-bottom:8px}
+.reveal.right .verdict{color:#7ee787}
+.reveal.wrong .verdict{color:#ff9d97}
+.reveal p{font-size:14px;color:#c9d4e3}
+.nextbtn{display:none;margin-top:16px;width:100%;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:16px;padding:13px;border-radius:10px;border:none;cursor:pointer}
+.nextbtn.show{display:block}
+.nextbtn:hover{background:#2f7ef7}
+.result{display:none;border-radius:12px;padding:28px;margin:20px 0;text-align:center}
+.result.show{display:block;border:2px solid #1c6ef2;background:#0d1526}
+.result h2{font-size:26px;margin-bottom:8px}
+.result .big{font-size:52px;font-weight:800;margin:10px 0}
+.result p{color:#9aa7b8;font-size:15px;margin-bottom:14px}
+.shareline{background:#0b0f17;border:1px solid #232b38;border-radius:8px;padding:12px 16px;font-size:14px;margin:16px 0;color:#c9d4e3}
+.retry{background:#1c2430;border:1px solid #2a3342;color:#e6edf3;font-weight:700;font-size:15px;padding:12px 26px;border-radius:10px;cursor:pointer;margin-top:6px}
+h2{font-size:21px;margin:34px 0 12px}
+.faq details{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0}
+.faq summary{font-weight:700;cursor:pointer}
+.faq p{color:#9aa7b8;font-size:14px;margin-top:8px}
+.note{font-size:13px;color:#6b7688;margin-top:18px}
+footer{margin-top:36px;padding-top:18px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<span class="badge-top">FREE INTERACTIVE QUIZ</span>
+<h1>Can You Spot the Phish?</h1>
+<p class="lead">10 realistic scenarios drawn from real-world attack patterns. For each one, pick <strong>Phish</strong> or <strong>Legit</strong> — then learn the exact tell. Nothing leaves this page. No signup.</p>
+
+<div class="card" id="quizcard">
+<div class="progress" id="progress">Question 1 of 10</div>
+<div class="pbar"><div id="pfill" style="width:10%"></div></div>
+<div class="scenario" id="scen"></div>
+<div class="pickrow">
+<button class="pick" id="btnPhish" onclick="answer(true)">&#127908; Phish</button>
+<button class="pick" id="btnLegit" onclick="answer(false)">&#9989; Legit</button>
+</div>
+<div class="reveal" id="reveal"></div>
+<button class="nextbtn" id="nextbtn" onclick="nextQ()">Next &rarr;</button>
+</div>
+
+<div class="result" id="result"></div>
+
+<h2>How the quiz works</h2>
+<p style="color:#9aa7b8;font-size:14px">Each scenario is built from a documented, real-world attack pattern — spear-phishing, lookalike domains, QR-code phishing ("quishing"), MFA fatigue, SMS package scams, AI-cloned voice calls, job-offer scams, and the fake-CAPTCHA malware trick. Two scenarios are legitimate, so "everything is a phish" won't get you 10/10. The explanations teach the tell, not just the answer.</p>
+
+<h2>FAQ</h2>
+<div class="faq">
+<details><summary>Are these real phishing messages?</summary><p>They are realistic reconstructions of documented attack patterns, not copies of any single real message. Every scenario reflects techniques security teams have actually observed in the wild — the domains and names are fictional.</p></details>
+<details><summary>Why are two scenarios legitimate?</summary><p>Because in real life, most messages are fine — and treating everything as hostile trains the wrong reflex. The skill is telling the difference, which is what the quiz scores.</p></details>
+<details><summary>Does the quiz collect my answers?</summary><p>No. Everything runs in your browser. No account, no tracking of your score, nothing sent anywhere.</p></details>
+<details><summary>I got phished by one of these in real life. What now?</summary><p>Act fast: change the password from a clean device, revoke sessions, enable two-factor authentication, and if money moved, call your bank immediately. Then report it — to your IT team, or to your country's phishing-report address.</p></details>
+</div>
+
+<p class="note">Scenarios are teaching reconstructions of real attack patterns. No real brands' login pages are reproduced here, and nothing on this page will harm your device.</p>
+<footer>Built by Ingenious AI — free tools for people who ship AI.</footer>
+</div>
+<div class="share" id="sharebar">Share: <a id="shX" href="#" target="_blank" rel="noopener">X</a><a id="shLi" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fingeniousai-security-checks.netlify.app%2Fphish-quiz.html" target="_blank" rel="noopener">LinkedIn</a><a id="shWa" href="#" target="_blank" rel="noopener">WhatsApp</a><a id="shRe" href="https://www.reddit.com/submit?url=https%3A%2F%2Fingeniousai-security-checks.netlify.app%2Fphish-quiz.html&title=Can%20you%20spot%20the%20phish%3F%20Free%2010-question%20quiz" target="_blank" rel="noopener">Reddit</a></div>
+<script>
+var QS=[
+{t:"EMAIL — 4:58 PM\nFrom: Robert Chen <robert.chen@acme-corp-finance.com>\nSubject: Urgent wire — today\n\nHi, I'm back-to-back in meetings all afternoon. Please wire $48,500 to the vendor account below TODAY — the contract depends on it.\n\nAcct: 4471 0092 8817\nRouting: 021000021\n\nDo NOT call me, I'm presenting. Just confirm by reply when sent.\n— Robert",phish:true,why:"The domain is acme-corp-finance.com, not acme.com — a lookalike domain. Real executives don't ban phone verification on first-time wire requests; urgency plus \u201cdo not call\u201d is the classic business-email-compromise script."},
+{t:"EMAIL\nFrom: Microsoft 365 <no-reply@microsoft365-security-center.net>\nSubject: Your password expires TODAY\n\nYour Microsoft 365 password expires in 24 hours. Click below to keep your account active.\n\n[ Keep my account active ]\n\nThe page it opens looks exactly like the Microsoft login.",phish:true,why:"The sender domain is microsoft365-security-center.net — Microsoft's real domain is microsoft.com. Credential phishing lives on lookalike domains, and legitimate Microsoft never asks you to log in from an email link."},
+{t:"EMAIL — security alert\nFrom: Google <no-reply@accounts.google.com>\nSubject: New sign-in on your account\n\nA new sign-in on your Google Account:\nDevice: your phone model · Location: your city\nTime: 2 minutes ago (right after you signed in)\n\nIf this was you, you can ignore this. Review activity: myaccount.google.com",phish:false,why:"This matches an action you actually took, arrived at your real address from Google's genuine domain, and the safe move it suggests — checking activity in your account directly rather than clicking — is exactly right."},
+{t:"PARKING METER — a QR sticker\nA sticker on the meter reads: \u201cPAY FOR PARKING — scan to pay\u201d. It opens a page asking for your card number, expiry, and CVV on a domain you've never heard of.",phish:true,why:"Stickers placed over legitimate QR codes drove a real wave of parking-meter scams: the code routes to a harvest page. Payment QR codes demanding card details on an unfamiliar domain are textbook \u201cquishing\u201d — use the official parking app instead."},
+{t:"PHONE — 11:47 PM\nSix \u201cApprove sign-in?\u201d push notifications arrive in a row. You did not try to sign in to anything.",phish:true,why:"Unsolicited MFA prompts mean someone already has your password and is spamming approvals hoping you'll tap one to silence the noise. Deny them all, change the password from a clean device, and review account activity."},
+{t:"SMS\nDHL: Your package is held at customs. Pay $2.99 release fee within 24h: dhl-track-parcel.top/pay\n(You are not expecting any package.)",phish:true,why:"Carriers don't collect customs fees through SMS links, you weren't expecting anything, and the domain is dhl-track-parcel.top — not dhl.com. Small-fee urgency is the smishing formula."},
+{t:"PHONE CALL\n\u201cHi, this is the fraud department at your bank.\u201d The voice sounds professional. They say there's suspicious activity and ask you to read back the 6-digit code just texted to your phone.",phish:true,why:"AI voice cloning made this cheap and common. The code they want is YOUR bank's verification code — reading it back hands them your account. No real bank ever asks for an OTP; hang up and call the number on your card."},
+{t:"COMPUTER\nSystem Settings shows: \u201cSoftware update available \u2014 restart to install.\u201d It appeared inside the operating system's own Settings app, not in a web browser.",phish:false,why:"This arrived through the OS's own update mechanism \u2014 the exact opposite of the fake \u201cupdate\u201d popups that appear in browsers. You can verify it yourself in Settings > Software Update before installing."},
+{t:"WHATSAPP\nA recruiter offers $4,500/month remote data entry, no interview needed. They move you to Telegram and ask for a $150 \u201ctraining kit fee\u201d before your first day.",phish:true,why:"Legitimate employers never charge you to start work. Unsolicited offers that migrate to encrypted chat and demand upfront fees follow the job-scam script exactly."},
+{t:"WEBSITE\nA download site shows: \u201cVerify you are human\u201d with a checkbox, then instructions: press Win+R, paste the text we copied for you, press Enter.",phish:true,why:"No legitimate CAPTCHA has ever asked you to open the Run dialog and paste a command — that's the \u201cClickFix\u201d trick behind a wave of malware infections. Close the page."}
+];
+var idx=0,score=0,locked=false;
+function esc(s){return s;}
+function renderQ(){
+  var q=QS[idx];locked=false;
+  document.getElementById('progress').textContent='Question '+(idx+1)+' of 10';
+  document.getElementById('pfill').style.width=((idx+1)*10)+'%';
+  document.getElementById('scen').innerHTML='<span class="lbl">Scenario '+(idx+1)+'</span>'+q.t.replace(/</g,'&lt;');
+  var r=document.getElementById('reveal');r.className='reveal';r.innerHTML='';
+  document.getElementById('btnPhish').disabled=false;
+  document.getElementById('btnLegit').disabled=false;
+  var nb=document.getElementById('nextbtn');nb.className='nextbtn';nb.textContent=(idx===9)?'See my score':'Next \u2192';
+}
+function answer(pick){
+  if(locked)return;locked=true;
+  var q=QS[idx];var ok=(pick===q.phish);if(ok)score++;
+  document.getElementById('btnPhish').disabled=true;
+  document.getElementById('btnLegit').disabled=true;
+  var r=document.getElementById('reveal');
+  r.className='reveal show '+(ok?'right':'wrong');
+  r.innerHTML='<div class="verdict">'+(ok?'\u2714 Correct — '+(q.phish?'it\u2019s a phish.':'it\u2019s legit.'):'\u2718 Missed — '+(q.phish?'this one is a phish.':'this one is legit.'))+'</div><p>'+q.why+'</p>';
+  document.getElementById('nextbtn').className='nextbtn show';
+}
+function nextQ(){
+  if(idx<9){idx++;renderQ();}
+  else{showResult();}
+}
+function tier(s){
+  if(s>=9)return'Human firewall. You read the tells like a SOC analyst.';
+  if(s>=7)return'Sharp eye. A couple of tricky ones got past you.';
+  if(s>=5)return'Getting there — but a real attacker only needs one mistake.';
+  return'Phish bait. Run it again and read every tell this time.';
+}
+function showResult(){
+  document.getElementById('quizcard').style.display='none';
+  var r=document.getElementById('result');r.className='result show';
+  var line='I scored '+score+'/10 on the Spot-the-Phish quiz \u2014 can you beat me?';
+  r.innerHTML='<h2>Your score</h2><div class="big">'+score+'/10</div><p>'+tier(score)+'</p><div class="shareline">'+line+'</div><button class="retry" onclick="location.reload()">Retake the quiz</button>';
+  var url='https://ingeniousai-security-checks.netlify.app/phish-quiz.html';
+  var txt=encodeURIComponent(line+' '+url);
+  document.getElementById('shX').href='https://x.com/intent/post?text='+txt;
+  document.getElementById('shWa').href='https://wa.me/?text='+txt;
+}
+renderQ();
+(function(){
+  var url='https://ingeniousai-security-checks.netlify.app/phish-quiz.html';
+  var base=encodeURIComponent('Can you spot the phish? Free 10-question quiz: '+url);
+  document.getElementById('shX').href='https://x.com/intent/post?text='+base;
+  document.getElementById('shWa').href='https://wa.me/?text='+base;
+})();
+</script>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>

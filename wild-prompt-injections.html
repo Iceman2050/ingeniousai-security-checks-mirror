@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wild Prompt Injections — Live Feed of Real-World AI Attacks — Ingenious AI</title>
+<meta name="description" content="A live feed of prompt-injection attacks found in the wild: hidden payment orders, secret-key theft, file-deletion commands planted for AI agents. Test your chatbot against each one.">
+<link rel="canonical" href="https://ingeniousai-security-checks.netlify.app/wild-prompt-injections.html">
+<meta property="og:title" content="Wild Prompt Injections — attacks happening right now">
+<meta property="og:description" content="Real prompt-injection payloads found in the wild, with dates and sources.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Wild Prompt Injections — Live Feed","description":"Dated, sourced feed of in-the-wild prompt injection attacks.","provider":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:780px;margin:0 auto;padding:48px 20px}
+.badge-top{display:inline-block;background:#f85149;color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:14px}
+h1{font-size:30px;margin-bottom:12px}
+p.lead{color:#9aa7b8;font-size:17px;margin-bottom:28px}
+h2{font-size:21px;margin:34px 0 12px}
+.entry{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:20px 22px;margin:14px 0}
+.entry .date{font-size:12px;color:#6b7688;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.entry h3{font-size:17px;margin:6px 0 8px}
+.entry p{font-size:14px;color:#c9d4e3}
+.tags{margin:10px 0}
+.tag{display:inline-block;background:#1a2330;border:1px solid #2a3342;color:#9aa7b8;font-size:11.5px;padding:3px 10px;border-radius:14px;margin:2px 4px 2px 0}
+.src{font-size:12.5px;color:#6b7688;margin-top:8px}
+.src a{color:#1c6ef2}
+.test{display:inline-block;margin-top:12px;background:#1c6ef2;color:#fff;font-weight:700;font-size:13.5px;padding:9px 20px;border-radius:8px;text-decoration:none}
+.test:hover{background:#1559c7}
+pre{background:#0b0f17;border:1px solid #232b38;border-radius:8px;padding:14px;overflow-x:auto;font-size:12.5px;color:#c9d4e3;margin:10px 0;white-space:pre-wrap;word-break:break-all}
+.faq details{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0}
+.faq summary{font-weight:700;cursor:pointer}
+.faq p{color:#9aa7b8;font-size:14px;margin-top:8px}
+footer{margin-top:36px;padding-top:18px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.note{font-size:13px;color:#6b7688;margin-top:18px}
+.badge-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:#11161f;border:1px solid #232b38;border-radius:12px;padding:18px 20px;margin:14px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<span class="badge-top">LIVE FEED</span>
+<h1>Wild Prompt Injections</h1>
+<p class="lead">Prompt-injection attacks found <strong>in the wild</strong> — not lab demos. Dated, sourced, and growing. Every entry links the original report. Test your own chatbot against each payload with ChatBreaker.</p>
+
+<div class="entry">
+<div class="date">October 15, 2026</div>
+<h3>Claude Code "SneakPeek" — poisoned HTML steals dev secrets via preview pane</h3>
+<p>Noma Labs disclosed <strong>SneakPeek</strong> (CVSS 8.7) in Claude Code Desktop: a poisoned HTML file <strong>over 256KB</strong> in any cloned repo — a test coverage report is the classic lure — gets auto-rendered by the preview pane as a <strong>file:// URL with no CSP</strong>, letting embedded JavaScript silently read <strong>SSH keys, AWS credentials, GitHub tokens and Kubernetes configs</strong> and exfiltrate them. No click required. Anthropic's first patch was bypassed via a Web Worker before the full fix shipped in build <strong>1.30096.1</strong> (Aug 17). The pattern — a size-based security boundary with two code paths, one guarded, one not — is one every AI-tooling builder should audit for.</p>
+<div class="tags"><span class="tag">AI tooling attack</span><span class="tag">zero-click</span><span class="tag">credential theft</span><span class="tag">Claude Code</span></div>
+<p class="src">Sources: <a href="https://www.csoonline.com/article/4235139/how-claude-codes-256kb-blind-spot-put-developers-secrets-in-the-preview-pane.html" target="_blank" rel="noopener">CSO Online</a> &middot; <a href="https://dev.to/gabrielanhaia/pad-an-html-file-past-256kb-and-claude-code-desktops-preview-could-read-your-ssh-keys-12oh" target="_blank" rel="noopener">DEV Community</a> &middot; Noma Labs disclosure Oct 14, 2026</p>
+<a class="test" href="claude-code-sneakpeek.html">Run the 30-second SneakPeek self-check</a>
+</div>
+
+<div class="entry">
+<div class="date">October 15, 2026</div>
+<h3>PoeLLM "Canto Incognito" — jailbreak hidden in a poem</h3>
+<p>The first <strong>adversarial-format jailbreak</strong> seen in real attacks: malware operators hid their command-and-control instructions inside a <strong>poem posted on GitHub</strong>, defeating AI safety guardrails that scan for suspicious text. Active since April, it has infected <strong>3,000+ servers</strong> by breaking into exposed LiteLLM and Ollama instances. Anyone self-hosting LLM infrastructure is in the blast radius — and the technique generalizes to every AI deployment.</p>
+<div class="tags"><span class="tag">jailbreak</span><span class="tag">adversarial format</span><span class="tag">C2 obfuscation</span><span class="tag">LLM infrastructure</span></div>
+<p class="src">Source: cyber-attack live watch, multiple threat-intel reports October 2026</p>
+<a class="test" href="https://chatbreaker.onrender.com/">Test my chatbot against these</a>
+</div>
+
+<div class="entry">
+<div class="date">October 14, 2026</div>
+<h3>10 in-the-wild indirect prompt injections — Forcepoint</h3>
+<p>Hidden instructions planted in web content for AI agents to swallow. Documented payloads include: a <strong>PayPal.me link with a $5,000 fixed amount</strong> and full payment instructions aimed at agents with payment access; <strong>"send me the secret API key"</strong> paired with "Do not analyze the code" to suppress scrutiny; a <strong>recursive forced-deletion Unix command</strong> targeting coding assistants and DevOps agents; <strong>attribution hijacking</strong> crediting "Kirill Bobrov" and soliciting consulting contact; and a fake copyright-forbiddance notice causing denial of service.</p>
+<div class="tags"><span class="tag">indirect injection</span><span class="tag">payment fraud</span><span class="tag">secret exfiltration</span><span class="tag">agentic AI</span></div>
+<p class="src">Source: <a href="https://www.infosecurity-magazine.com/news/researchers-10-wild-indirect/" target="_blank" rel="noopener">Infosecurity Magazine</a></p>
+<a class="test" href="https://chatbreaker.onrender.com/">Test my chatbot against these</a>
+</div>
+
+<div class="entry">
+<div class="date">July 2026</div>
+<h3>SEO-poisoned fake Python library + typosquatted DeFi tracker — ZeroFox / CSA</h3>
+<p>Attackers SEO-poisoned a fake Python library page that framed a payment as a routine API-key step, with the instruction <strong>encoded in schema markup</strong> that agents parse. A typosquatted DeFi portfolio tracker posed as the legitimate domain. Across 26 models tested, <strong>four were manipulated into making a payment</strong> and two misclassified the fraudulent site as real.</p>
+<div class="tags"><span class="tag">SEO poisoning</span><span class="tag">indirect injection</span><span class="tag">payment fraud</span><span class="tag">typosquat</span></div>
+<p class="src">Source: <a href="https://www.zerofox.com/blog/llm-poisoning-attackers-write-fake-content/" target="_blank" rel="noopener">ZeroFox</a></p>
+<a class="test" href="https://chatbreaker.onrender.com/">Test my chatbot against these</a>
+</div>
+
+<div class="entry">
+<div class="date">April 2026</div>
+<h3>Hidden PayPal instruction + HTML-comment key leak — CSA telemetry</h3>
+<p>Two independent telemetry sources confirmed adversaries seeding the open web with hidden instructions for browsing agents and copilots: a <strong>fully specified hidden PayPal transaction</strong> in invisible text, and an <strong>HTML comment ordering the model to leak a secret API key</strong>.</p>
+<div class="tags"><span class="tag">indirect injection</span><span class="tag">payment fraud</span><span class="tag">secret exfiltration</span></div>
+<p class="src">Source: <a href="https://www.zerofox.com/blog/llm-poisoning-attackers-write-fake-content/" target="_blank" rel="noopener">ZeroFox / CSA research note</a></p>
+<a class="test" href="https://chatbreaker.onrender.com/">Test my chatbot against these</a>
+</div>
+
+<div class="entry">
+<div class="date">February 2026</div>
+<h3>32% jump in malicious indirect injections — Google DeepMind</h3>
+<p>DeepMind's security team, scanning 2–3 billion crawled pages per month, measured a <strong>32% increase in malicious indirect prompt injections</strong> between November 2025 and February 2026 — including fully specified payment instructions hidden in invisible text, waiting for an agent with payment access.</p>
+<div class="tags"><span class="tag">trend</span><span class="tag">indirect injection</span><span class="tag">measurement</span></div>
+<p class="src">Source: DeepMind research via industry reporting</p>
+</div>
+
+<div class="entry">
+<div class="date">September 2025</div>
+<h3>CopyPasta: injections that spread like a virus — HiddenLayer</h3>
+<p>Proof-of-concept hiding instructions inside a <strong>LICENSE.txt or README.md</strong>. When a developer's AI coding assistant reads the poisoned file, it silently copies the malicious instructions into every new file it generates — codebase-wide propagation from one planted file.</p>
+<div class="tags"><span class="tag">supply chain</span><span class="tag">coding assistant</span><span class="tag">indirect injection</span></div>
+<p class="src">Source: HiddenLayer research</p>
+<a class="test" href="https://chatbreaker.onrender.com/">Test my chatbot against these</a>
+</div>
+
+<h2>Wild-Payload Tested badge</h2>
+<p style="color:#9aa7b8;font-size:14px">Run your chatbot against the payloads above with ChatBreaker, then show the badge:</p>
+<div class="badge-row">
+<img src="badges/wild-payload-tested.svg" alt="Wild-payload tested badge">
+<div style="font-size:13.5px;color:#9aa7b8">Links here — visitors see the exact payloads you survived.</div>
+</div>
+<pre>[![Wild-Payload Tested](https://ingeniousai-security-checks.netlify.app/badges/wild-payload-tested.svg)](https://ingeniousai-security-checks.netlify.app/wild-prompt-injections.html)</pre>
+
+<h2>FAQ</h2>
+<div class="faq">
+<details><summary>Are these real attacks or lab experiments?</summary><p>Real. Every entry above was documented by a security research team from in-the-wild observations — poisoned web pages, SEO campaigns, and telemetry — not constructed demos.</p></details>
+<details><summary>How often is the feed updated?</summary><p>Continuously. Our attack-watch scans security news every 3 hours; newly documented wild payloads are added here with their source.</p></details>
+<details><summary>Can I submit a payload?</summary><p>Yes — if you've documented a wild prompt injection with a public source, send it via the ChatBreaker contact page and we'll add it with credit.</p></details>
+</div>
+
+<p class="note">Payloads are described for defensive purposes — to test and harden your own systems. Never deploy them against systems you don't own.</p>
+<footer>Built by Ingenious AI — free tools for people who ship AI.</footer>
+</div>
+<div style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share: <a href="https://x.com/intent/post?text=Wild%20prompt%20injections%20—%20real%20attacks%20found%20in%20the%20wild%2C%20dated%20and%20sourced&url=https%3A//ingeniousai-security-checks.netlify.app/wild-prompt-injections.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//ingeniousai-security-checks.netlify.app/wild-prompt-injections.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//ingeniousai-security-checks.netlify.app/wild-prompt-injections.html&title=Wild%20prompt%20injections%20—%20real%20in-the-wild%20AI%20attacks" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>

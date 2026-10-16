@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check Your Brand for Typosquat Domains in 30 Seconds — Free Self-Test</title>
+<meta name="description" content="Attackers register lookalike domains to phish your customers. Search certificate transparency logs for typosquats on your brand in 30 seconds. Free, no signup.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#3b0d0d;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.step{display:flex;gap:14px;margin:18px 0}
+.stepnum{flex:0 0 34px;height:34px;border-radius:50%;background:#1c6ef2;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+code.cmd{display:block;background:#000;border:1px solid #2a3342;border-radius:8px;padding:14px 16px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;color:#7ee787;overflow-x:auto;margin:10px 0;white-space:pre;white-space:pre-wrap}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">PHISHING STARTS WITH A LOOKALIKE DOMAIN</div>
+<h1>Is someone <span class="red">squatting on your brand</span> right now?</h1>
+<p class="lead">Phishing campaigns start with a domain that looks like yours: one letter swapped, a hyphen added, a lookalike character. Every one of those domains leaves a public trace in certificate transparency logs. Search those logs for your brand in 30 seconds. No signup, nothing installed.</p>
+
+<div class="card">
+<h2>The 30-second brand check</h2>
+<div class="step"><div class="stepnum">1</div><div>
+<p><strong>Search certificate transparency logs.</strong> Open crt.sh and search for certificates containing your brand name:</p>
+<code class="cmd">https://crt.sh/?q=%25yourbrand%25
+(replace "yourbrand" with your brand or domain name, no spaces)</code>
+<p>Scan the results for anything you don't recognize &mdash; especially domains with swapped letters, extra hyphens, or odd TLDs.</p>
+<div class="verdict"><strong>Unfamiliar lookalike domains with recent certificates &rarr; INVESTIGATE.</strong> Visit carefully (don't log in to anything) or check the domain's age and registrar.</div>
+</div></div>
+<div class="step"><div class="stepnum">2</div><div>
+<p><strong>Check the classic typos by hand.</strong> The most-abused tricks, using example brand "acme":</p>
+<code class="cmd">acme.com      → acme-login.com, acme-secure.com   (hyphen tricks)
+acme.com      → acrne.com, acem.com              (letter swaps / drops)
+acme.com      → acme.net, acme.io, acme.co        (TLD swaps)
+acme.com      → аcme.com                          (lookalike Unicode chars)</code>
+<p>Search crt.sh for each variant the same way as step 1.</p>
+<div class="verdict"><strong>Any variant registered recently that isn't yours &rarr; assume hostile until proven otherwise.</strong> Phishers register days before the campaign.</div>
+<div class="verdict safe"><strong>Nothing suspicious &rarr; clean today.</strong> Squatters register new domains constantly &mdash; this check needs repeating.</div>
+</div></div>
+<p class="note">crt.sh is a free public log operated for the security community. A domain having a certificate doesn't prove malice &mdash; but a lookalike you didn't register deserves a look.</p>
+</div>
+
+<div class="card">
+<h2>If you found a squat, do this now</h2>
+<ul>
+<li><strong>Don't visit it from a work machine</strong> &mdash; use a sandboxed browser or a URL scanner.</li>
+<li><strong>Document everything</strong> &mdash; screenshots, WHOIS, certificate dates. You'll need it for takedown.</li>
+<li><strong>File abuse reports</strong> with the registrar and hosting provider; report phishing URLs to Google Safe Browsing.</li>
+<li><strong>Warn your customers</strong> &mdash; a short "we will never ask you to log in at this domain" notice kills most phish.</li>
+<li><strong>Watch continuously</strong> &mdash; takedown one domain and the attacker registers three more.</li>
+</ul>
+</div>
+
+<a class="cta" href="https://domain-guard-08k7.onrender.com/?utm_source=newsjack&utm_medium=static-page&utm_campaign=domainguard-typosquat">Scan your brand free &rarr; DomainGuard</a>
+<p class="note" style="text-align:center">This page showed you the manual check. DomainGuard automates it &mdash; watching certificate transparency logs and new registrations for lookalikes and alerting you the moment one appears.</p>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with any brand owner.<br>
+crt.sh is a third-party public log &middot; a certificate alone doesn't prove malice
+</footer>
+</div>
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=Typosquat%20Domain%20Check%20%E2%80%94%20Free%20typosquat%20domain%20check&url=https%3A//ingeniousai-security-checks.netlify.app/newsjack-domainguard.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//ingeniousai-security-checks.netlify.app/newsjack-domainguard.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//ingeniousai-security-checks.netlify.app/newsjack-domainguard.html&title=Typosquat%20Domain%20Check" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

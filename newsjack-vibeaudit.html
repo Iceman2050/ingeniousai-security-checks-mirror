@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grep Your Repo in 30 Seconds — Free AI-Code Secret &amp; Vulnerability Sweep</title>
+<meta name="description" content="AI-generated code ships secrets and vulnerabilities. Run these 4 copy-paste commands to sweep your own repo in 30 seconds. Free, no signup.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#3b0d0d;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.step{display:flex;gap:14px;margin:18px 0}
+.stepnum{flex:0 0 34px;height:34px;border-radius:50%;background:#1c6ef2;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+code.cmd{display:block;background:#000;border:1px solid #2a3342;border-radius:8px;padding:14px 16px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;color:#7ee787;overflow-x:auto;margin:10px 0;white-space:pre}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">AI-GENERATED CODE &mdash; SHIPS WITH SECRETS</div>
+<h1>Grep your repo in <span class="red">30 seconds</span></h1>
+<p class="lead">AI coding assistants happily write hardcoded API keys, disabled TLS verification, and <code>eval()</code> into your codebase &mdash; and they never tell you. Run these 4 copy-paste commands in your repo root right now. Each one finds a class of problem that shows up constantly in AI-generated code. No signup, nothing installed.</p>
+
+<div class="card">
+<h2>The 30-second sweep</h2>
+<div class="step"><div class="stepnum">1</div><div>
+<p><strong>Leaked API keys and tokens</strong> &mdash; the classic AI-coding accident:</p>
+<code class="cmd">grep -rnE "sk-[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{36}|xox[bap]-" . --exclude-dir=.git 2>/dev/null | head -20</code>
+<div class="verdict"><strong>Any hits &rarr; rotate those keys NOW</strong> and move them to environment variables. A committed key is a compromised key.</div>
+<div class="verdict safe"><strong>No hits &rarr; good.</strong> Still add a pre-commit secret scanner so it stays that way.</div>
+</div></div>
+<div class="step"><div class="stepnum">2</div><div>
+<p><strong>Hardcoded passwords and credentials in config-shaped code:</strong></p>
+<code class="cmd">grep -rniE "(password|passwd|api[_-]?key|secret)\s*[:=]\s*['\"][^'\"]{4,}['\"]" . --exclude-dir=.git --exclude-dir=node_modules 2>/dev/null | grep -viE "example|placeholder|your-|xxx" | head -20</code>
+<div class="verdict"><strong>Any hits &rarr; real credentials in source.</strong> Move to a secrets manager or env vars; scrub git history.</div>
+</div></div>
+<div class="step"><div class="stepnum">3</div><div>
+<p><strong>Dangerous dynamic execution</strong> &mdash; AI assistants love <code>eval()</code> shortcuts:</p>
+<code class="cmd">grep -rnE "\beval\(|\bexec\(|os\.system\(|subprocess\.call\(.*shell=True|yaml\.load\(" . --exclude-dir=.git --exclude-dir=node_modules 2>/dev/null | head -20</code>
+<div class="verdict"><strong>Any hits on untrusted input &rarr; refactor.</strong> <code>eval</code>/<code>exec</code> on dynamic data is a standing invitation for code injection.</div>
+</div></div>
+<div class="step"><div class="stepnum">4</div><div>
+<p><strong>Disabled security defaults</strong> &mdash; the "just make it work" leftovers:</p>
+<code class="cmd">grep -rnE "verify\s*=\s*False|_create_unverified_context|StrictHostKeyChecking\s+no|@csrf_exempt" . --exclude-dir=.git --exclude-dir=node_modules 2>/dev/null | head -20</code>
+<div class="verdict"><strong>Any hits &rarr; each one is a hole</strong> an attacker can drive through: MITM-able TLS, unverified SSH, unprotected endpoints.</div>
+<div class="verdict safe"><strong>All four clean &rarr; your repo passed the quick sweep.</strong> The full scan below goes 50x deeper.</div>
+</div></div>
+<p class="note">Tip: run these again after every AI-assisted coding session. The patterns above are heuristics &mdash; they catch the common cases, not everything.</p>
+</div>
+
+<div class="card">
+<h2>If you found hits, do this now</h2>
+<ul>
+<li><strong>Rotate</strong> every exposed key and token immediately &mdash; assume they're already copied.</li>
+<li><strong>Scrub history</strong> &mdash; <code>git filter-repo</code> or BFG to remove secrets from past commits.</li>
+<li><strong>Move secrets to env vars</strong> and add a pre-commit hook (e.g. gitleaks) so it can't happen again.</li>
+<li><strong>Review the AI's diffs</strong> &mdash; the commands above are a triage pass, not a full audit.</li>
+</ul>
+</div>
+
+<a class="cta" href="https://vibe-audit-efkm.onrender.com/?utm_source=newsjack&utm_medium=static-page&utm_campaign=vibeaudit-secret-scan">Deep-scan your code free &rarr; Vibe-Code Audit</a>
+<p class="note" style="text-align:center">This page ran 4 heuristic checks. Vibe-Code Audit scans the full attack surface of AI-generated code &mdash; prompt-injection surfaces, leaked secrets, insecure defaults, vulnerable dependencies &mdash; with fix guidance for every finding.</p>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with any dev shipping AI-assisted code.<br>
+Heuristic sweep &middot; catches common cases, not a substitute for a full audit
+</footer>
+</div>
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=Repo%20Secret%20Sweep%20%E2%80%94%20Free%20repo%20secret%20sweep&url=https%3A//ingeniousai-security-checks.netlify.app/newsjack-vibeaudit.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//ingeniousai-security-checks.netlify.app/newsjack-vibeaudit.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//ingeniousai-security-checks.netlify.app/newsjack-vibeaudit.html&title=Repo%20Secret%20Sweep" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

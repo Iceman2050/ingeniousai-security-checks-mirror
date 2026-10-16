@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Exposed Is Your Homelab? — Free 2-Minute Security Quiz</title>
+<meta name="description" content="Answer 10 quick questions and get an honest exposure rating for your homelab or self-hosted server. Free, no signup, nothing installed.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d2a12;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .green{color:#3fb950}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.q{margin:22px 0;padding-bottom:18px;border-bottom:1px solid #1c2430}
+.q:last-child{border-bottom:none}
+.q p{font-weight:600;margin-bottom:10px;color:#fff}
+.q label{display:block;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:10px 14px;margin:8px 0;cursor:pointer;font-size:15px}
+.q label:hover{border-color:#1c6ef2}
+.q input{margin-right:10px}
+.btn{display:block;width:100%;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:16px;border-radius:10px;border:none;cursor:pointer;margin:20px 0}
+.btn:hover{background:#2f7ef7}
+.btn.ghost{background:#1c2430;border:1px solid #2a3342;font-size:15px;padding:12px}
+.result{border-radius:12px;padding:28px;margin:24px 0;display:none}
+.result.low{border:2px solid #3fb950;background:#0d1a0f;display:block}
+.result.mod{border:2px solid #d29922;background:#1a1409;display:block}
+.result.high{border:2px solid #f85149;background:#1a0f0f;display:block}
+.result h2{font-size:26px;margin-bottom:10px}
+.scorebar{height:12px;background:#0b0f17;border-radius:6px;margin:14px 0;overflow:hidden}
+.scorebar div{height:100%;border-radius:6px}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+.warnbox{background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#e6c26a}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Homelab Exposure Quiz","applicationCategory":"SecurityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"A free 10-question self-assessment that rates how exposed a homelab or self-hosted server is to common attacks. No signup, nothing installed.","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">FREE 2-MINUTE SELF-ASSESSMENT</div>
+<h1>How exposed is your <span class="green">homelab</span>?</h1>
+<p class="lead">10 honest questions about your self-hosted setup. Get a plain-English exposure rating and the three fixes that matter most. No signup, nothing installed, your answers never leave this page.</p>
+
+<div class="card" id="quiz">
+<h2>The 10 questions</h2>
+<form id="quizform">
+<div class="q"><p>1. Are all of your self-hosted apps updated to their latest versions?</p>
+<label><input type="radio" name="q1" value="0"> Yes, I update within days of a release</label>
+<label><input type="radio" name="q1" value="1"> Mostly, but some lag behind</label>
+<label><input type="radio" name="q1" value="2"> Honestly, several are months old</label></div>
+<div class="q"><p>2. Is SSH (port 22) directly reachable from the internet on your server?</p>
+<label><input type="radio" name="q2" value="2"> Yes, open to the world</label>
+<label><input type="radio" name="q2" value="1"> Open, but with key-only auth</label>
+<label><input type="radio" name="q2" value="0"> No — VPN, Tailscale, or firewall-restricted</label></div>
+<div class="q"><p>3. Do you use the default admin passwords on any service, router, or app?</p>
+<label><input type="radio" name="q3" value="2"> Probably on at least one</label>
+<label><input type="radio" name="q3" value="1"> Not sure</label>
+<label><input type="radio" name="q3" value="0"> No, all changed and unique</label></div>
+<div class="q"><p>4. Is your Nextcloud / media server / dashboard behind HTTPS with a valid certificate?</p>
+<label><input type="radio" name="q4" value="2"> No, plain HTTP</label>
+<label><input type="radio" name="q4" value="1"> HTTPS but with warnings or self-signed</label>
+<label><input type="radio" name="q4" value="0"> Yes, valid certificate everywhere</label></div>
+<div class="q"><p>5. Do you run the "built-in" all-in-one versions of apps (like Nextcloud's built-in Collabora CODE server)?</p>
+<label><input type="radio" name="q5" value="1"> Yes</label>
+<label><input type="radio" name="q5" value="0"> No, or I keep them updated</label>
+<label><input type="radio" name="q5" value="2"> Yes, and I rarely update them</label></div>
+<div class="q"><p>6. When did you last check your server logs for suspicious activity?</p>
+<label><input type="radio" name="q6" value="2"> Never</label>
+<label><input type="radio" name="q6" value="1"> Months ago</label>
+<label><input type="radio" name="q6" value="0"> Within the last few weeks</label></div>
+<div class="q"><p>7. Do you have automated, tested backups of your data?</p>
+<label><input type="radio" name="q7" value="2"> No backups</label>
+<label><input type="radio" name="q7" value="1"> Backups exist but never tested</label>
+<label><input type="radio" name="q7" value="0"> Yes, automated and tested restores</label></div>
+<div class="q"><p>8. Is two-factor authentication enabled on your admin accounts?</p>
+<label><input type="radio" name="q8" value="2"> No</label>
+<label><input type="radio" name="q8" value="1"> On some, not all</label>
+<label><input type="radio" name="q8" value="0"> Yes, everywhere it is offered</label></div>
+<div class="q"><p>9. Are any services exposed to the internet that only you use (admin panels, databases, dashboards)?</p>
+<label><input type="radio" name="q9" value="2"> Yes, several</label>
+<label><input type="radio" name="q9" value="1"> Maybe one or two</label>
+<label><input type="radio" name="q9" value="0"> No, everything private is behind a VPN</label></div>
+<div class="q"><p>10. Do you know which CVEs affect the software versions you are running?</p>
+<label><input type="radio" name="q10" value="2"> No idea</label>
+<label><input type="radio" name="q10" value="1"> I hear about the big ones</label>
+<label><input type="radio" name="q10" value="0"> Yes, I track advisories for my stack</label></div>
+<button class="btn" type="button" onclick="scoreQuiz()">Get my exposure rating</button>
+</form>
+</div>
+
+<div class="result" id="result"></div>
+
+<div class="card" id="emailcard" style="display:none">
+<h2>Get your full fix-it checklist by email</h2>
+<p class="note">Optional. Opens your email app with your score pre-filled — send it and we will reply with the prioritized fix list for your rating. No list, no spam, one reply.</p>
+<button class="btn ghost" type="button" onclick="emailResult()">Email me my checklist</button>
+<button class="btn ghost" type="button" onclick="copyResult()">Copy my result to share</button>
+<p class="note" id="copynote" style="display:none;color:#3fb950">Result copied — paste it anywhere.</p>
+</div>
+
+<a class="cta" href="https://breach-hunter.onrender.com/?utm_source=newsjack&utm_medium=static-page&utm_campaign=homelab-quiz">Scan your actual server free &rarr; BreachHunter</a>
+<p class="note" style="text-align:center">This quiz rates your habits. BreachHunter checks your real server for known exposures in 30 seconds. No signup.</p>
+
+<footer>
+Built by Ingenious AI &mdash; share this quiz with your homelab friends.<br>
+Your answers never leave this page &mdash; scoring happens in your browser.
+</footer>
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this quiz: <a href="https://x.com/intent/post?text=How%20exposed%20is%20your%20homelab%3F%20Free%202-minute%20quiz&url=https%3A//ingeniousai-security-checks.netlify.app/homelab-exposure-quiz.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//ingeniousai-security-checks.netlify.app/homelab-exposure-quiz.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//ingeniousai-security-checks.netlify.app/homelab-exposure-quiz.html&title=How%20exposed%20is%20your%20homelab%3F%20Free%20quiz" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<script>
+var lastRating="",lastScore=0;
+function scoreQuiz(){
+  var total=0,answered=0;
+  for(var i=1;i<=10;i++){
+    var sel=document.querySelector('input[name="q'+i+'"]:checked');
+    if(sel){total+=parseInt(sel.value,10);answered++;}
+  }
+  if(answered<10){alert("Please answer all 10 questions for an accurate rating.");return;}
+  lastScore=total;
+  var box=document.getElementById("result"),cls,rating,advice,color;
+  if(total<=5){cls="low";rating="LOW EXPOSURE";color="#3fb950";
+    advice="Your habits are solid. Stay sharp: keep the 48-hour update rule, and run a <a href='https://breach-hunter.onrender.com/?utm_source=newsjack&utm_medium=static-page&utm_campaign=homelab-quiz' style='color:#3fb950'>free BreachHunter scan</a> monthly to catch what habits miss.";}
+  else if(total<=11){cls="mod";rating="MODERATE EXPOSURE";color="#d29922";
+    advice="You have real gaps an automated attacker scan would find. Priority fixes: (1) update every app older than 30 days, (2) put private services behind a VPN, (3) enable 2FA on all admin accounts. Then verify with a <a href='https://breach-hunter.onrender.com/?utm_source=newsjack&utm_medium=static-page&utm_campaign=homelab-quiz' style='color:#d29922'>free 30-second scan</a>.";}
+  else{cls="high";rating="HIGH EXPOSURE";color="#f85149";
+    advice="Your setup matches the profile of servers that get compromised. Act today: (1) update everything now — unpatched apps are the #1 entry point, (2) close internet-facing admin panels and SSH, (3) check logs for signs of past compromise. Start with a <a href='https://breach-hunter.onrender.com/?utm_source=newsjack&utm_medium=static-page&utm_campaign=homelab-quiz' style='color:#f85149'>free exposure scan</a> to see what attackers see.";}
+  lastRating=rating;
+  box.className="result "+cls;
+  box.innerHTML="<h2 style='color:"+color+"'>"+rating+"</h2>"+
+    "<div class='scorebar'><div style='width:"+(total*5)+"%;background:"+color+"'></div></div>"+
+    "<p class='note'>Score: "+total+" / 20 — lower is better.</p><p style='margin-top:10px'>"+advice+"</p>";
+  box.scrollIntoView({behavior:"smooth"});
+  document.getElementById("emailcard").style.display="block";
+}
+function resultText(){
+  return "My homelab exposure rating: "+lastRating+" (score "+lastScore+"/20). Take the free quiz: https://ingeniousai-security-checks.netlify.app/homelab-exposure-quiz.html";
+}
+function copyResult(){
+  var t=resultText();
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(t).then(function(){document.getElementById("copynote").style.display="block";});
+  }else{
+    var ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();
+    try{document.execCommand("copy");document.getElementById("copynote").style.display="block";}catch(e){}
+    document.body.removeChild(ta);
+  }
+}
+function emailResult(){
+  var subject=encodeURIComponent("My homelab exposure checklist request ("+lastRating+")");
+  var body=encodeURIComponent(resultText()+"\n\nPlease send me the prioritized fix-it checklist for my rating.");
+  window.location.href="mailto:?subject="+subject+"&body="+body;
+}
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
