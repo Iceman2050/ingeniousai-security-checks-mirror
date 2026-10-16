@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linux Just Dropped AI-Code Disclosure — Should Your Project? 60-Second AI-Code Governance Check</title>
+<meta name="description" content="Linux kernel maintainers voted to drop the 'Assisted-by' AI disclosure tag. Linus Torvalds called banning AI-generated code 'utterly stupid' — what matters is whether contributors understand the code. 6-question check: is your project's AI-code governance sane? Free, no signup.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Linux dropped AI-code disclosure. Linus: banning AI code is 'utterly stupid.' Is your policy sane?">
+<meta property="og:description" content="The Linux kernel no longer requires 'Assisted-by' AI disclosure tags. Torvalds: what matters is that contributors understand the code. 6-question AI-code governance check. Free, no signup.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/linux-ai-code-disclosure-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/linux-ai-code-disclosure-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux dropped AI-code disclosure. Linus: banning AI code is 'utterly stupid.' Is your policy sane?">
+<meta name="twitter:description" content="The Linux kernel no longer requires 'Assisted-by' AI disclosure tags. Torvalds: what matters is that contributors understand the code. 6-question AI-code governance check. Free, no signup.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d2a12;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .green{color:#3fb950}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.q{display:flex;gap:12px;align-items:flex-start;margin:16px 0;padding:14px;border:1px solid #232b38;border-radius:10px;background:#0d1219}
+.q .qn{flex:0 0 28px;height:28px;border-radius:50%;background:#1c2b45;color:#9db8e8;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.q .qt{flex:1}
+.q .qt small{display:block;color:#9aa7b8;font-size:13px;margin-top:4px}
+.qbtns{flex:0 0 auto;display:flex;gap:8px}
+.qbtns button{border:1px solid #2a3342;background:#11161f;color:#e6edf3;font-weight:700;font-size:13px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.qbtns button.sel-y{background:#3fb950;border-color:#3fb950;color:#06240f}
+.qbtns button.sel-n{background:#f85149;border-color:#f85149;color:#fff}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+.cta.alt{background:#1c2430;border:1px solid #2a3342;font-size:16px;padding:14px}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.quote{background:#0d1219;border-left:3px solid #3fb950;border-radius:0 10px 10px 0;padding:16px 18px;margin:20px 0;font-size:16px;color:#c8d2df;font-style:italic}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What did the Linux kernel decide about AI-generated code?","acceptedAnswer":{"@type":"Answer","text":"At the Linux kernel Maintainers Summit on October 8, 2026 in Prague, maintainers reached consensus to deprecate the 'Assisted-by' tag — the disclosure previously expected when a kernel submission included AI/LLM-generated content. A message to the Linux mailing list announced the change and removed the documentation around the tag."}},
+{"@type":"Question","name":"What did Linus Torvalds actually say?","acceptedAnswer":{"@type":"Answer","text":"Responding to critics of the removal, Torvalds called banning AI-generated code 'utterly stupid,' comparing such a ban to prohibiting compilers or text editors. His position: what matters is that contributors genuinely understand the code they submit — if someone can't demonstrate real understanding of what the code does, the tool used to write it is irrelevant."}},
+{"@type":"Question","name":"Are other projects taking the same position?","acceptedAnswer":{"@type":"Answer","text":"No — the industry is split. While the kernel dropped its disclosure tag, other projects reject AI-generated contributions outright. GCC, the core compiler toolchain behind Linux itself, has drawn a hard line against AI-generated code. There is no industry consensus."}},
+{"@type":"Question","name":"Should my project drop AI disclosure too?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. The kernel's decision reflects its review culture — every line gets expert human review. Most projects don't have that. Disclosure still helps reviewers calibrate scrutiny, supports vulnerability tracing, and aligns with transparency rules like the EU AI Act's AI-content disclosure obligations. The sane policy tests understanding first and keeps disclosure as a review aid."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">AI CODE GOVERNANCE &mdash; LINUX KERNEL DECISION, OCT 2026</div>
+<h1>Linux just dropped <span class="green">AI-code disclosure</span>. Should your project?</h1>
+<p class="lead">At the Linux kernel <strong>Maintainers Summit on October 8, 2026</strong> in Prague, maintainers reached consensus to <strong>deprecate the "Assisted-by" tag</strong> &mdash; the disclosure previously expected when a kernel submission included AI/LLM-generated content. A message to the Linux mailing list announced the change and removed the tag's documentation. <strong>Linus Torvalds</strong> answered critics bluntly: banning AI-generated code is <strong>"utterly stupid"</strong> &mdash; like prohibiting compilers or text editors. His test is simpler and harder: <strong>does the contributor actually understand the code?</strong> If they can't demonstrate real understanding of what it does, the tool that wrote it is irrelevant. Meanwhile the industry is split: <strong>GCC</strong>, the compiler toolchain behind Linux itself, has drawn a <strong>hard line against AI-generated code</strong>. There is no consensus &mdash; which means your project needs its own deliberate policy, not a copy of someone else's. This 60-second check tests whether yours is sane. Free, no signup.</p>
+
+<div class="quote">&ldquo;What matters is that contributors actually understand the code they submit &mdash; if someone can't demonstrate real understanding of what the code does, the tool used to write it is irrelevant.&rdquo;<br><span style="font-style:normal;font-size:13px;color:#9aa7b8">&mdash; Linus Torvalds, on the 'Assisted-by' tag removal (paraphrased from XDA Developers, Oct 16, 2026)</span></div>
+
+<div class="card">
+<h2>The 60-second AI-code governance check</h2>
+<p class="note">Answer for your software project or team as it works today. Here, "Yes" is the safe answer.</p>
+<div id="quiz"></div>
+<div id="qresult" style="margin-top:12px"><div class="verdict warn"><strong>Answer the 6 questions above</strong> to get your governance verdict.</div></div>
+<script>
+var QS=[
+["Do you have a written policy on AI-generated code contributions?","Linux made a deliberate decision at a summit. 'We never discussed it' is not a policy — it's an accident waiting for an incident."],
+["Do reviewers verify the contributor UNDERSTANDS the code — not just that it works?","This is the Torvalds test. AI code that passes CI but that nobody understands is a liability with a merge commit."],
+["Do you scan AI-generated contributions for vulnerabilities?","AI-generated code has known vulnerability patterns. Treating it as 'just code' skips the highest-value check."],
+["Do you require disclosure of AI assistance on contributions?","Linux dropped it; GCC bans the code entirely. Disclosure helps reviewers calibrate scrutiny and traces bugs back to their origin."],
+["Is AI-generated code tested as rigorously as human-written code — or more?","The failure mode is confident-looking code nobody read carefully. It deserves more skepticism, not less."],
+["Can you trace which parts of your codebase are AI-generated?","When a vulnerability pattern emerges in AI-generated code, you need to find every instance fast. No inventory, no response."] ];
+var ANS=[null,null,null,null,null,null];
+function renderQ(){
+  var h='';
+  for(var i=0;i<QS.length;i++){
+    h+='<div class="q"><div class="qn">'+(i+1)+'</div><div class="qt"><strong>'+QS[i][0]+'</strong><small>'+QS[i][1]+'</small></div><div class="qbtns"><button id="y'+i+'" onclick="ans('+i+',1)">Yes</button><button id="n'+i+'" onclick="ans('+i+',0)">No</button></div></div>';
+  }
+  document.getElementById('quiz').innerHTML=h;
+}
+function ans(i,v){
+  ANS[i]=v;
+  document.getElementById('y'+i).className=v===1?'sel-y':'';
+  document.getElementById('n'+i).className=v===0?'sel-n':'';
+  var out=document.getElementById('qresult');
+  if(ANS.indexOf(null)>=0){return;}
+  var yes=0;
+  for(var k=0;k<ANS.length;k++){if(ANS[k]===1)yes++;}
+  if(yes===6){
+    out.innerHTML='<div class="verdict safe"><strong>SANE governance.</strong> Written policy, understanding-tested review, vuln scanning, disclosure, rigorous testing, traceability — you have what the kernel has (expert review) plus what it chose to drop (disclosure). That\'s stricter than Linux, and for most projects that\'s correct.</div>';
+  }else if(yes>=4){
+    out.innerHTML='<div class="verdict warn"><strong>'+(6-yes)+' gaps — PARTIAL governance.</strong> You\'re close, but the missing pieces are the ones that bite: untested understanding and untraceable AI code. Write the policy down and close the gaps this month.</div>';
+  }else{
+    out.innerHTML='<div class="verdict"><strong>'+(6-yes)+' of 6 missing — NO effective governance.</strong> Your project is accepting AI-generated code with no policy, no understanding check, and no traceability. Apply the Torvalds test starting today: no contributor merges code they can\'t explain — and scan everything AI-written for vulnerabilities.</div>';
+  }
+}
+renderQ();
+</script>
+<p class="note">This self-assessment is informational. It reflects the October 2026 Linux kernel governance debate — it is not legal advice.</p>
+</div>
+
+<div class="card">
+<h2>The sane policy, in five lines</h2>
+<ul>
+<li><strong>Test understanding, not tools.</strong> The Torvalds principle: a contributor who can explain every line may use any tool; one who can't may use none. Make this the review standard.</li>
+<li><strong>Keep disclosure even if Linux dropped it.</strong> You don't have the kernel's reviewer bench. Disclosure tells reviewers where to look harder, and transparency rules (like the EU AI Act's AI-content obligations) are moving toward more disclosure, not less.</li>
+<li><strong>Scan AI-generated code adversarially.</strong> AI code fails in patterns — insecure defaults, hallucinated APIs, missing edge cases. Automated vulnerability scanning on AI-written contributions is the cheapest high-value control.</li>
+<li><strong>Inventory it.</strong> Tag AI-generated code in your repo metadata. When the next AI-specific vulnerability class emerges, you'll need to find it all in hours, not quarters.</li>
+<li><strong>Write it down.</strong> A policy nobody wrote down is a policy nobody follows. One page: allowed tools, disclosure rule, review standard, scanning requirement.</li>
+</ul>
+</div>
+
+<a class="cta" href="https://disclosure-guard.onrender.com/?utm_source=newsjack&utm_medium=static-page&utm_campaign=linux-ai-disclosure">Track AI disclosure obligations &rarr; DisclosureGuard</a>
+<a class="cta alt" href="newsjack-vibeaudit.html">Sweep your code for AI-generated secrets &amp; vulnerabilities &rarr; Vibe-Code Audit</a>
+<p class="note" style="text-align:center">This page checked one governance debate. DisclosureGuard tracks AI disclosure duties across regulations; the Vibe-Code sweep finds what's actually in your code.</p>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with every engineering lead you know.<br>
+XDA Developers (Simon Batt) &middot; Oct 16, 2026 &middot; Linux Maintainers Summit, Prague, Oct 8, 2026 &middot; GCC AI-code policy
+</footer>
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=Linux%20just%20dropped%20AI-code%20disclosure.%20Linus%3A%20banning%20AI-generated%20code%20is%20%27utterly%20stupid%27%20%E2%80%94%20what%20matters%20is%20whether%20contributors%20understand%20the%20code.%20Is%20your%20project%27s%20policy%20sane%3F&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/linux-ai-code-disclosure-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/linux-ai-code-disclosure-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/linux-ai-code-disclosure-check.html&title=Linux%20dropped%20AI-code%20disclosure%20%E2%80%94%2060-second%20AI-code%20governance%20check" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
