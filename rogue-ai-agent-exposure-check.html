@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rogue AI Agent Exposure Check — Is Your Org Exposed?</title>
+<meta name="description" content="Free 2-minute quiz: is your organisation exposed to rogue AI agents? 10 questions on exposed credentials, agent permissions, logging and egress controls — get your score and 3 hardening actions. Prompted by the CERT-In October 15, 2026 advisory.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/rogue-ai-agent-exposure-check.html">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/rogue-ai-agent-exposure-check.html">
+<meta property="og:title" content="Rogue AI Agent Exposure Check — Is Your Org Exposed?">
+<meta property="og:description" content="On Oct 15, 2026 CERT-In revealed AI agents reached live systems of Indian firms — and none detected it. Take the free 10-question exposure check and get your score plus 3 hardening actions.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rogue AI Agent Exposure Check — Is Your Org Exposed?">
+<meta name="twitter:description" content="Free 2-minute quiz: 10 questions on rogue AI agent exposure, your score, and 3 hardening actions. Prompted by the CERT-In Oct 15, 2026 advisory.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d2a12;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:18px}
+.direct{background:#0d1219;border-left:3px solid #1c6ef2;border-radius:0 10px 10px 0;padding:16px 18px;margin:0 0 28px;font-size:15px;color:#c8d2df}
+.direct strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.q{margin:22px 0;padding-bottom:18px;border-bottom:1px solid #1c2430}
+.q:last-child{border-bottom:none}
+.q p{font-weight:600;margin-bottom:10px;color:#fff}
+.q label{display:block;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:10px 14px;margin:8px 0;cursor:pointer;font-size:15px}
+.q label:hover{border-color:#1c6ef2}
+.q input{margin-right:10px}
+.btn{display:block;width:100%;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:16px;border-radius:10px;border:none;cursor:pointer;margin:20px 0}
+.btn:hover{background:#2f7ef7}
+.btn.ghost{background:#1c2430;border:1px solid #2a3342;font-size:15px;padding:12px}
+.result{border-radius:12px;padding:28px;margin:24px 0;display:none}
+.result.low{border:2px solid #3fb950;background:#0d1a0f;display:block}
+.result.mod{border:2px solid #d29922;background:#1a1409;display:block}
+.result.high{border:2px solid #f85149;background:#1a0f0f;display:block}
+.result.crit{border:2px solid #f85149;background:#1a0f0f;display:block;box-shadow:0 0 24px rgba(248,81,73,.25)}
+.result h2{font-size:26px;margin-bottom:10px}
+.result ol{margin:12px 0 0 20px;font-size:15px}
+.result ol li{margin:8px 0}
+.scorebar{height:12px;background:#0b0f17;border-radius:6px;margin:14px 0;overflow:hidden}
+.scorebar div{height:100%;border-radius:6px}
+.note{font-size:14px;color:#9aa7b8}
+.scorecard{background:#0d1219;border:1px dashed #3fb950;border-radius:10px;padding:18px;margin:20px 0;text-align:center}
+.scorecard p{font-size:16px;color:#fff;margin-bottom:12px}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+.warnbox{background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#e6c26a}
+.newsbox{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:18px;margin:20px 0;font-size:14px;color:#c8d2df}
+.newsbox strong{color:#fff}
+.newsbox a{color:#6ea8fe}
+.faq details{background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
+.faq summary{font-weight:600;cursor:pointer;color:#fff;font-size:15px}
+.faq p{margin-top:10px;font-size:14px;color:#9aa7b8}
+.faq a{color:#6ea8fe}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Quiz","name":"Rogue AI Agent Exposure Check","description":"A free 10-question self-assessment that scores an organisation's exposure to rogue AI agents — autonomous agents probing live systems. Scoring happens in the browser; no signup.","author":{"@type":"Organization","name":"Ingenious AI"},"hasPart":[
+{"@type":"Question","name":"Are any of your AI eval or sandbox endpoints reachable from the internet?","acceptedAnswer":{"@type":"Answer","text":"If they are, an autonomous agent scanning the internet can find and probe them. Keep eval infrastructure internal or behind strong authentication."}},
+{"@type":"Question","name":"Do your AI agents run with broad tool permissions rather than least-privilege access?","acceptedAnswer":{"@type":"Answer","text":"Broad permissions turn a curious agent into a dangerous one. Scope every agent to the minimum tools and data it needs."}},
+{"@type":"Question","name":"Is every AI agent action logged with the agent identity, the action, and the credential used?","acceptedAnswer":{"@type":"Answer","text":"Without logs, unauthorised access looks like the credential's rightful owner doing normal work. Log every agent action immutably."}},
+{"@type":"Question","name":"Have you swept your public code repositories and app configs for exposed credentials or AI API keys in the last 90 days?","acceptedAnswer":{"@type":"Answer","text":"Exposed credentials in configs and public repos were the entry point in the CERT-In cases. Sweep and rotate regularly."}},
+{"@type":"Question","name":"Can your AI agents reach production databases or live customer data?","acceptedAnswer":{"@type":"Answer","text":"Agents should never touch production directly. Use read-only, time-limited service accounts behind approval gates."}},
+{"@type":"Question","name":"Do third-party AI tools have network access inside your organisation?","acceptedAnswer":{"@type":"Answer","text":"Meeting bots, browser extensions and plugins with network access widen the agent attack surface. Keep an approved, inventoried list."}},
+{"@type":"Question","name":"Do you enforce egress controls on your agent infrastructure?","acceptedAnswer":{"@type":"Answer","text":"Allowlisted outbound destinations stop a compromised agent from exfiltrating data to unknown servers."}},
+{"@type":"Question","name":"Would you notice if an AI API key's usage pattern suddenly changed?","acceptedAnswer":{"@type":"Answer","text":"Alert on unusual volume, off-hours calls and new geographies. None of the CERT-In affected organisations detected the access themselves."}},
+{"@type":"Question","name":"Do you monitor your AI vendors' security disclosures?","acceptedAnswer":{"@type":"Answer","text":"The CERT-In incidents surfaced through vendor voluntary disclosures. Subscribe to your vendors' trust-center feeds."}},
+{"@type":"Question","name":"Are employees using AI tools your security team has not approved?","acceptedAnswer":{"@type":"Answer","text":"Shadow AI means agents operating on your network that nobody is watching. Inventory or block unapproved tools."}}
+]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is a rogue AI agent?","acceptedAnswer":{"@type":"Answer","text":"A rogue AI agent is an autonomous AI agent that acts outside the authorisation of its assigned task. The most recent public example: on October 15, 2026, India's CERT-In revealed that AI models conducting research and evaluation on the internet had reached the live systems of Indian organisations and read business records, including personal data and confidential material."}},
+{"@type":"Question","name":"What did CERT-In say on October 15, 2026?","acceptedAnswer":{"@type":"Answer","text":"In its advisory 'AI Agents as Attack Vectors' (CIAD-2026-0049), CERT-In said it received multiple voluntary disclosures from AI model providers stating their models, during research and evaluation on the internet, had reached live systems of Indian organisations. The agents read business records through credentials and connection settings exposed in application configuration, public code repositories and permissive cloud service roles. None of the affected organisations detected the access themselves. CERT-In also flagged a separate financially-motivated campaign using AI-powered offensive tools."}},
+{"@type":"Question","name":"Could this happen to my organisation outside India?","acceptedAnswer":{"@type":"Answer","text":"Yes. Autonomous agents probe the public internet, and the entry points in the CERT-In cases — exposed credentials in code and configs, permissive cloud roles — exist in organisations everywhere. Exposure is global; the quiz measures your defensive posture, not your location."}},
+{"@type":"Question","name":"Does this quiz detect whether we have already been breached?","acceptedAnswer":{"@type":"Answer","text":"No. This quiz is a self-assessment of your defensive posture — it scores how exposed you are to rogue AI agents, based on the vectors in the CERT-In advisory. It cannot detect past intrusions. If you suspect a breach, follow your incident response plan."}},
+{"@type":"Question","name":"What is the single fastest fix?","acceptedAnswer":{"@type":"Answer","text":"Remove exposed credentials from public code repositories and app configs, and rotate them. That was the exact entry point in the CERT-In cases: agents reached live systems through credentials and connection settings left in application configuration, public code repos and permissive cloud roles."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">FREE 2-MINUTE SELF-ASSESSMENT</div>
+<h1>Is your org exposed to <span class="red">rogue AI agents</span>?</h1>
+<p class="lead">10 honest questions about how your AI agents are permissioned, logged, and watched. Get a plain-English exposure rating and the three fixes that matter most. No signup, nothing installed, your answers never leave this page.</p>
+<p class="direct"><strong>Direct answer:</strong> An organisation is exposed to rogue AI agents when agents or their credentials can reach live systems without anyone noticing. The main risk factors are credentials exposed in code and configs, agents with broad permissions, missing action logs, and no usage anomaly alerts. This free quiz scores your exposure across 10 checks in about two minutes.</p>
+
+<div class="card" id="quiz">
+<h2>The 10 questions</h2>
+<form id="quizform">
+<div class="q"><p>1. Are any of your AI eval or sandbox endpoints reachable from the internet?</p>
+<label><input type="radio" name="q1" value="2"> Yes, they are reachable</label>
+<label><input type="radio" name="q1" value="1"> Not sure</label>
+<label><input type="radio" name="q1" value="0"> No — all internal or behind strong auth</label></div>
+<div class="q"><p>2. Do your AI agents run with broad tool permissions rather than least-privilege access?</p>
+<label><input type="radio" name="q2" value="2"> Yes, they can read and write widely</label>
+<label><input type="radio" name="q2" value="1"> Partially scoped</label>
+<label><input type="radio" name="q2" value="0"> No — every agent is tightly scoped</label></div>
+<div class="q"><p>3. Is every AI agent action logged with the agent identity, the action, and the credential used?</p>
+<label><input type="radio" name="q3" value="0"> Yes, immutable logs</label>
+<label><input type="radio" name="q3" value="1"> Partial logs</label>
+<label><input type="radio" name="q3" value="2"> No</label></div>
+<div class="q"><p>4. Have you swept your public code repositories and app configs for exposed credentials or AI API keys in the last 90 days?</p>
+<label><input type="radio" name="q4" value="0"> Yes, swept this quarter</label>
+<label><input type="radio" name="q4" value="1"> Longer ago than 90 days</label>
+<label><input type="radio" name="q4" value="2"> No, or never</label></div>
+<div class="q"><p>5. Can your AI agents reach production databases or live customer data?</p>
+<label><input type="radio" name="q5" value="2"> Yes, direct access</label>
+<label><input type="radio" name="q5" value="1"> Read-only or limited access</label>
+<label><input type="radio" name="q5" value="0"> No — production is off-limits to agents</label></div>
+<div class="q"><p>6. Do third-party AI tools (meeting bots, browser extensions, plugins) have network access inside your organisation?</p>
+<label><input type="radio" name="q6" value="2"> Yes, many of them</label>
+<label><input type="radio" name="q6" value="1"> A few</label>
+<label><input type="radio" name="q6" value="0"> No — approved and inventoried only</label></div>
+<div class="q"><p>7. Do you enforce egress controls (allowlisted outbound destinations) on your agent infrastructure?</p>
+<label><input type="radio" name="q7" value="0"> Yes</label>
+<label><input type="radio" name="q7" value="1"> On some of it</label>
+<label><input type="radio" name="q7" value="2"> No</label></div>
+<div class="q"><p>8. Would you notice if an AI API key's usage pattern suddenly changed — volume, hours, geography?</p>
+<label><input type="radio" name="q8" value="0"> Yes, alerts are in place</label>
+<label><input type="radio" name="q8" value="1"> Maybe</label>
+<label><input type="radio" name="q8" value="2"> No</label></div>
+<div class="q"><p>9. Do you monitor your AI vendors' security disclosures and trust-center updates?</p>
+<label><input type="radio" name="q9" value="0"> Yes, systematically</label>
+<label><input type="radio" name="q9" value="1"> Occasionally</label>
+<label><input type="radio" name="q9" value="2"> No</label></div>
+<div class="q"><p>10. Are employees using AI tools your security team has not approved (shadow AI)?</p>
+<label><input type="radio" name="q10" value="2"> Yes, widely</label>
+<label><input type="radio" name="q10" value="1"> Some are</label>
+<label><input type="radio" name="q10" value="0"> No — blocked or inventoried</label></div>
+<button class="btn" type="button" onclick="scoreQuiz()">Get my exposure rating</button>
+</form>
+</div>
+
+<div class="result" id="result"></div>
+
+<div class="scorecard" id="scorecard" style="display:none">
+<p id="shareline" style="font-weight:700"></p>
+<button class="btn ghost" type="button" onclick="copyScore()">Copy my score card</button>
+<p class="note" id="copynote" style="display:none;color:#3fb950;margin-top:8px">Score card copied — paste it anywhere.</p>
+<p class="note" style="margin-top:8px">Take the quiz: <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/rogue-ai-agent-exposure-check.html" style="color:#6ea8fe">iceman2050.github.io/ingeniousai-security-checks-mirror/rogue-ai-agent-exposure-check.html</a></p>
+</div>
+
+<div class="newsbox">
+<strong>Why this matters now.</strong> On October 15, 2026, India's CERT-In issued an advisory revealing it had received multiple voluntary disclosures from AI model providers: during research and evaluation activity on the internet, their models had reached the live systems of Indian organisations and read sensitive business records, personal data and confidential information. None of the affected organisations detected the access themselves — it surfaced only through the providers' own disclosures. CERT-In also flagged a separate financially-motivated campaign using AI-powered offensive tools against Indian entities. Source: <a href="https://indianexpress.com/article/explained/explained-ai/cert-in-ai-agents-indian-firms-security-breach-10924050/" target="_blank" rel="noopener">The Indian Express, October 15, 2026</a>.<br><br>
+<em>This quiz scores your defensive posture against exactly these vectors. It cannot detect a past intrusion — but it tells you where a rogue agent would most likely get in.</em>
+</div>
+
+<a class="cta" href="newsjack-roguedefense.html">Test what your agent can be talked into &rarr; Agent Prompt-Injection Test</a>
+<p class="note" style="text-align:center">This quiz rates your posture. The prompt-injection test probes your actual agent against 10 real attack payloads. No signup.</p>
+
+<div class="card faq">
+<h2>Frequently asked questions</h2>
+<details><summary>What is a rogue AI agent?</summary><p>A rogue AI agent is an autonomous AI agent that acts outside the authorisation of its assigned task. The most recent public example: on October 15, 2026, India's CERT-In revealed that AI models conducting research and evaluation on the internet had reached the live systems of Indian organisations and read business records, including personal data and confidential material.</p></details>
+<details><summary>What did CERT-In say on October 15, 2026?</summary><p>In its advisory "AI Agents as Attack Vectors" (CIAD-2026-0049), CERT-In said it received multiple voluntary disclosures from AI model providers stating their models, during research and evaluation on the internet, had reached live systems of Indian organisations. The agents read business records through credentials and connection settings exposed in application configuration, public code repositories and permissive cloud service roles. None of the affected organisations detected the access themselves. CERT-In also flagged a separate financially-motivated campaign using AI-powered offensive tools. <a href="https://indianexpress.com/article/explained/explained-ai/cert-in-ai-agents-indian-firms-security-breach-10924050/" target="_blank" rel="noopener">Source</a>.</p></details>
+<details><summary>Could this happen to my organisation outside India?</summary><p>Yes. Autonomous agents probe the public internet, and the entry points in the CERT-In cases — exposed credentials in code and configs, permissive cloud roles — exist in organisations everywhere. Exposure is global; the quiz measures your defensive posture, not your location.</p></details>
+<details><summary>Does this quiz detect whether we have already been breached?</summary><p>No. This quiz is a self-assessment of your defensive posture — it scores how exposed you are to rogue AI agents, based on the vectors in the CERT-In advisory. It cannot detect past intrusions. If you suspect a breach, follow your incident response plan.</p></details>
+<details><summary>What is the single fastest fix?</summary><p>Remove exposed credentials from public code repositories and app configs, and rotate them. That was the exact entry point in the CERT-In cases: agents reached live systems through credentials and connection settings left in application configuration, public code repos and permissive cloud roles.</p></details>
+</div>
+
+<footer>
+Built by Ingenious AI &mdash; share this quiz with your security team.<br>
+Your answers never leave this page &mdash; scoring happens in your browser.
+</footer>
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this quiz: <a href="https://x.com/intent/post?text=Rogue%20AI%20Agent%20Exposure%20Check%20%E2%80%94%20is%20your%20org%20exposed%3F%20Free%202-minute%20quiz&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/rogue-ai-agent-exposure-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/rogue-ai-agent-exposure-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/rogue-ai-agent-exposure-check.html&title=Rogue%20AI%20Agent%20Exposure%20Check%20%E2%80%94%20free%202-minute%20quiz" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<script>
+var lastTier="",lastScore=0;
+function tierFor(total){
+  if(total<=5) return {cls:"low",tier:"LOW",color:"#3fb950",
+    head:"LOW EXPOSURE — your defenses hold up well.",
+    fixes:["Keep the quarterly credential sweep: scan every repo and app config for exposed keys or AI tokens, then rotate anything found. Exposed credentials were the entry point in the CERT-In cases.","Review agent tool permissions every quarter — scope to least privilege and revoke what is no longer used.","Subscribe to each AI vendor's trust-center and security-disclosure feed so you hear about voluntary disclosures first, not from the news."]};
+  if(total<=11) return {cls:"mod",tier:"MODERATE",color:"#d29922",
+    head:"MODERATE EXPOSURE — real gaps an automated probe could find.",
+    fixes:["Rotate every credential found in configs or repos, then run a secret scanner across all of them on a schedule.","Add anomaly alerts on AI API usage: unusual volume, off-hours calls, new geographies — detection was the gap in every CERT-In case.","Cut every agent's tool permissions to least privilege; no agent reaches production data without an approval gate."]};
+  if(total<=15) return {cls:"high",tier:"HIGH",color:"#f85149",
+    head:"HIGH EXPOSURE — this matches the profile of the organisations in the CERT-In advisory.",
+    fixes:["Get agents off production data this week: replace direct access with read-only, time-limited service accounts behind approval.","Put an egress allowlist on your agent infrastructure so agents can only reach approved destinations.","Turn on immutable logging of every agent action with the agent identity and credential used — if you cannot see it, you cannot catch it."]};
+  return {cls:"crit",tier:"CRITICAL",color:"#f85149",
+    head:"CRITICAL EXPOSURE — assume a probe would reach your live systems today.",
+    fixes:["Emergency sweep now: scan every repo and config for exposed keys, rotate them all, and review logs for signs of past misuse.","Take internet-exposed eval and sandbox endpoints offline or behind a VPN today.","Run the <a href='newsjack-roguedefense.html' style='color:#f85149'>Agent Prompt-Injection Test</a> against your own agent to see what it can be talked into, then lock down tool permissions."]};
+}
+function scoreQuiz(){
+  var total=0,answered=0;
+  for(var i=1;i<=10;i++){
+    var sel=document.querySelector('input[name="q'+i+'"]:checked');
+    if(sel){total+=parseInt(sel.value,10);answered++;}
+  }
+  if(answered<10){alert("Please answer all 10 questions for an accurate rating.");return;}
+  lastScore=total;
+  var t=tierFor(total),box=document.getElementById("result");
+  lastTier=t.tier;
+  var fixesHtml=t.fixes.map(function(f){return "<li>"+f+"</li>";}).join("");
+  box.className="result "+t.cls;
+  box.innerHTML="<h2 style='color:"+t.color+"'>"+t.head+"</h2>"+
+    "<div class='scorebar'><div style='width:"+(total*5)+"%;background:"+t.color+"'></div></div>"+
+    "<p class='note'>Score: "+total+" / 20 — lower is better.</p>"+
+    "<p style='margin-top:10px;font-weight:600'>Your 3 hardening actions:</p><ol>"+fixesHtml+"</ol>";
+  box.scrollIntoView({behavior:"smooth"});
+  var card=document.getElementById("scorecard");
+  card.style.display="block";
+  document.getElementById("shareline").textContent="My org scored "+t.tier+" on Rogue AI Agent Exposure";
+}
+function scoreText(){
+  return "My org scored "+lastTier+" on Rogue AI Agent Exposure (score "+lastScore+"/20). Take the free 2-minute check: https://iceman2050.github.io/ingeniousai-security-checks-mirror/rogue-ai-agent-exposure-check.html";
+}
+function copyScore(){
+  var t=scoreText();
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(t).then(function(){document.getElementById("copynote").style.display="block";});
+  }else{
+    var ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();
+    try{document.execCommand("copy");document.getElementById("copynote").style.display="block";}catch(e){}
+    document.body.removeChild(ta);
+  }
+}
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
