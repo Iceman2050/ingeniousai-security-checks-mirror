@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Service Worker Security Check — Your SW Sees Every Request. Is It Locked Down?</title>
+<meta name="description" content="A service worker intercepts every in-scope network request your site makes — a compromised or sloppy one is a man-in-the-middle on your own site. 6-question security check for PWA developers. Free, no signup.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Your service worker sees every request your site makes. Is it locked down?">
+<meta property="og:description" content="A service worker intercepts every in-scope request — a compromised or sloppy one is a man-in-the-middle on your own site. 6-question security check. Free, no signup.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/service-worker-security-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/service-worker-security-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Your service worker sees every request your site makes. Is it locked down?">
+<meta name="twitter:description" content="A service worker intercepts every in-scope request — a compromised or sloppy one is a man-in-the-middle on your own site. 6-question security check. Free, no signup.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d2a12;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .green{color:#3fb950}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.q{display:flex;gap:12px;align-items:flex-start;margin:16px 0;padding:14px;border:1px solid #232b38;border-radius:10px;background:#0d1219}
+.q .qn{flex:0 0 28px;height:28px;border-radius:50%;background:#1c2b45;color:#9db8e8;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.q .qt{flex:1}
+.q .qt small{display:block;color:#9aa7b8;font-size:13px;margin-top:4px}
+.qbtns{flex:0 0 auto;display:flex;gap:8px}
+.qbtns button{border:1px solid #2a3342;background:#11161f;color:#e6edf3;font-weight:700;font-size:13px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.qbtns button.sel-y{background:#3fb950;border-color:#3fb950;color:#06240f}
+.qbtns button.sel-n{background:#f85149;border-color:#f85149;color:#fff}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.howto{background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:18px;margin:20px 0;font-size:14px}
+.howto div{margin:8px 0}
+.howto b{color:#7ee787}
+code{background:#0d1219;border:1px solid #232b38;border-radius:6px;padding:2px 6px;font-size:13px;color:#7ee787}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What makes a service worker a security risk?","acceptedAnswer":{"@type":"Answer","text":"A service worker can intercept, read, and modify every network request and response inside its scope — navigation, API calls, everything. That is exactly what makes it powerful for offline apps and caching, and exactly what makes a compromised or sloppy one a man-in-the-middle on your own site: it could rewrite responses, skim form data, or serve poisoned content indefinitely."}},
+{"@type":"Question","name":"Can an attacker install their own service worker on my site?","acceptedAnswer":{"@type":"Answer","text":"Only through the same doors as any other compromise. A service worker script must be same-origin — a cross-origin script cannot be registered — so an attacker needs script execution on your origin (e.g. an XSS vulnerability) or a compromised server/CDN. That is why XSS defense, supply-chain hygiene, and keeping the service worker script minimal all matter."}},
+{"@type":"Question","name":"Why shouldn't I cache authenticated or sensitive responses?","acceptedAnswer":{"@type":"Answer","text":"Cache Storage is readable by any JavaScript running on your origin. If your service worker caches responses containing tokens, personal data, or private content, a single XSS flaw turns into a data-exfiltration channel for everything you cached. Keep sensitive responses out of the cache, or fetch them network-only."}},
+{"@type":"Question","name":"How do I kill a misbehaving service worker?","acceptedAnswer":{"@type":"Answer","text":"Ship a clean update whose script unregisters itself: navigator.serviceWorker.getRegistrations().then(r => r.forEach(reg => reg.unregister())). You can also inspect and remove workers per-site in browser DevTools (Application tab) or via chrome://serviceworker-internals. Have the kill path ready before you need it, not after."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">SERVICE WORKER SECURITY</div>
+<h1>Your service worker sees <span class="red">every request</span> your site makes. Is it <span class="green">locked down</span>?</h1>
+<p class="lead">A service worker is a JavaScript file that runs in the background, separate from your page &mdash; intercepting network requests, managing caches, and powering offline apps, background sync, and push notifications. Here is the part every developer should sit with: <strong>it can intercept, read, and rewrite every request inside its scope</strong>. A compromised or careless service worker is a <strong>man-in-the-middle on your own site</strong> &mdash; rewriting responses, skimming data, or serving stale or poisoned content long after you fixed the server. This 60-second check tests whether yours is an asset or a liability. Free, no signup.</p>
+
+<div class="howto">
+<div><b>Why a service worker is a security surface (verified against MDN):</b></div>
+<div>&bull; It runs in a worker context with <strong>no DOM access</strong> &mdash; but full power over <strong>navigation and resource requests</strong> in its scope, which it can intercept and modify at will.</div>
+<div>&bull; It only runs in <strong>secure contexts</strong>: HTTPS in production, with <code>localhost</code> treated as secure for development. (The spec is strict here because a network attacker who could inject a worker script would own the origin.)</div>
+<div>&bull; The script must be <strong>same-origin</strong> &mdash; an attacker can't register a worker from their own domain. They need script execution on <em>yours</em> (XSS) or a compromised server/CDN.</div>
+<div>&bull; Updates are <strong>byte-compared</strong>: a new script installs in the background but stays <em>waiting</em> until old pages close &mdash; unless you handle <code>skipWaiting()</code> / <code>clients.claim()</code> deliberately. Sloppy update handling = users stuck on old or poisoned content.</div>
+<div>&bull; Anything you cache is readable by <strong>any script on your origin</strong> &mdash; Cache Storage is not a vault. Cached sensitive responses widen every future XSS.</div>
+</div>
+
+<div class="card">
+<h2>The 60-second service-worker security check</h2>
+<p class="note">Answer honestly. Here, "Yes" is the safe answer.</p>
+<div id="quiz"></div>
+<div id="qresult" style="margin-top:12px"><div class="verdict warn"><strong>Answer the 6 questions above</strong> to get your service-worker security verdict.</div></div>
+<script>
+var QS=[
+["Is your service worker script served over HTTPS, from your own origin, with a narrow scope — not site-root if it doesn't need it?","HTTPS is mandatory, and the script must be same-origin. Scope defaults to the script's directory: a worker at /app/sw.js can only control /app/*. Register at the narrowest scope that works — a root-scope worker intercepts everything."],
+["Do you version your caches and clean up old ones in the activate event — so updates actually reach users?","Unversioned caches serve stale content forever, and a poisoned cache entry persists until explicitly deleted. Bump cache names per release and delete the old ones on activate; decide deliberately whether to use skipWaiting() and clients.claim()."],
+["Do you keep sensitive or authenticated responses OUT of the cache?","Cache Storage is readable by any JavaScript on your origin. Caching tokens, account data, or personal content turns one XSS into a data grab. Fetch sensitive responses network-only."],
+["Is your service worker code protected from tampering — minimal code, no untrusted third-party scripts?","Every importScripts() or static import widens the blast radius: a compromised dependency inside your worker inherits its request-interception power. Keep the worker lean, review it like server code, and pin what you import."],
+["Do you choose a caching strategy per resource type — not blind cache-first for everything?","Cache-first is right for versioned assets with hashed filenames. For HTML and API responses it serves stale or wrong data; prefer network-first or stale-while-revalidate there, and never cache error responses as if they were content."],
+["Do you have a kill path — can you ship an update that unregisters a misbehaving worker?","If a bad worker ships, you need a clean page that calls getRegistrations() and unregisters it. Rehearse this before you need it; also know the DevTools Application tab and chrome://serviceworker-internals for manual removal."] ];
+var ANS=[null,null,null,null,null,null];
+function renderQ(){
+  var h='';
+  for(var i=0;i<QS.length;i++){
+    h+='<div class="q"><div class="qn">'+(i+1)+'</div><div class="qt"><strong>'+QS[i][0]+'</strong><small>'+QS[i][1]+'</small></div><div class="qbtns"><button id="y'+i+'" onclick="ans('+i+',1)">Yes</button><button id="n'+i+'" onclick="ans('+i+',0)">No</button></div></div>';
+  }
+  document.getElementById('quiz').innerHTML=h;
+}
+function ans(i,v){
+  ANS[i]=v;
+  document.getElementById('y'+i).className=v===1?'sel-y':'';
+  document.getElementById('n'+i).className=v===0?'sel-n':'';
+  var out=document.getElementById('qresult');
+  if(ANS.indexOf(null)>=0){return;}
+  var yes=0;
+  for(var k=0;k<ANS.length;k++){if(ANS[k]===1)yes++;}
+  if(yes===6){
+    out.innerHTML='<div class="verdict safe"><strong>SW-HARDENED.</strong> Narrow scope, versioned caches, no sensitive data cached, lean tamper-resistant code, deliberate strategies, and a kill path. Your service worker is an asset, not a liability. Re-audit it every release.</div>';
+  }else if(yes>=4){
+    out.innerHTML='<div class="verdict warn"><strong>'+(6-yes)+' gaps — MOSTLY SAFE.</strong> The fundamentals are there, but the missed checks are where service-worker incidents live: stale caches that never update, sensitive responses sitting in Cache Storage, or a worker with wider scope than it needs. Close the gaps above.</div>';
+  }else{
+    out.innerHTML='<div class="verdict"><strong>'+(6-yes)+' of 6 missed — WIDE OPEN.</strong> Right now your service worker is a man-in-the-middle you installed yourself. Start today: (1) narrow its scope, (2) version caches and clean old ones on activate, (3) stop caching sensitive responses, and (4) write the unregister kill path before you need it.</div>';
+  }
+}
+renderQ();
+</script>
+<p class="note">This self-assessment is informational. It reflects documented service-worker behavior (MDN Web Docs) and standard web-security practice — it is not legal or professional security advice.</p>
+</div>
+
+<div class="card">
+<h2>Service-worker hardening checklist</h2>
+<ul>
+<li><strong>Scope it tight.</strong> Register at the narrowest scope that works. A root-scope worker sees every request on the origin &mdash; only grant that if the whole site genuinely needs offline behavior.</li>
+<li><strong>Version everything.</strong> Name caches per release (<code>app-v3</code>, not <code>app</code>), delete old caches in the <code>activate</code> handler, and handle the update flow explicitly instead of hoping users close all tabs.</li>
+<li><strong>Cache by resource type.</strong> Cache-first for hashed static assets; network-first or stale-while-revalidate for HTML and APIs; network-only for authenticated content. Never cache opaque error responses as content.</li>
+<li><strong>Treat the worker script like server code.</strong> Minimal logic, reviewed changes, pinned imports &mdash; a compromised <code>importScripts()</code> dependency inherits full request-interception power.</li>
+<li><strong>Defend the origin.</strong> Because registration requires same-origin script execution, your XSS defenses, Content Security Policy, and supply-chain hygiene <em>are</em> your service-worker defenses too.</li>
+<li><strong>Rehearse the kill switch.</strong> Keep a known-good page that unregisters workers, document the DevTools removal path, and make sure more than one person on the team knows it.</li>
+</ul>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Ingenious AI builds 11 AI security platforms — disclosure compliance, rogue-agent defense, breach hunting, agent oversight, and more.</strong></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20read%20your%20service%20worker%20security%20check%20and%20want%20early%20access%20to%20your%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with every web developer shipping a PWA.<br>
+Technical behavior verified against MDN Web Docs: Service Worker API.
+</footer>
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=A%20service%20worker%20intercepts%20EVERY%20request%20your%20site%20makes%20%E2%80%94%20a%20compromised%20one%20is%20a%20man-in-the-middle%20on%20your%20own%20site.%206-question%20security%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/service-worker-security-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/service-worker-security-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/service-worker-security-check.html&title=Service%20workers%20are%20a%20man-in-the-middle%20on%20your%20own%20site%20%E2%80%94%206-question%20security%20check" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
