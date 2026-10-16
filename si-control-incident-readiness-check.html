@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SI Control Incident Readiness Check — NIST, NSA &amp; CISA's 10 Practices</title>
+<meta name="description" content="On Oct 16, 2026 NIST, NSA and CISA published 10 key practices for SI control incidents in super-intelligence training and evaluation. 10-question organizational readiness check — how many do you actually have? Free, no signup.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="NIST, NSA &amp; CISA just published 10 practices for SI control incidents. How many does your org actually have?">
+<meta property="og:description" content="Joint guidance (Oct 16, 2026) for teams training or evaluating super-intelligence agents on long-horizon tasks. 10-question readiness self-check — free, no signup.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/si-control-incident-readiness-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/si-control-incident-readiness-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NIST, NSA &amp; CISA just published 10 practices for SI control incidents. How many does your org actually have?">
+<meta name="twitter:description" content="Joint guidance (Oct 16, 2026) for teams training or evaluating super-intelligence agents on long-horizon tasks. 10-question readiness self-check — free, no signup.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d1420;border:1px solid #1c6ef2;color:#7eb3ff;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .blue{color:#7eb3ff}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:16px;margin:20px 0 8px;color:#7eb3ff}
+.q{display:flex;gap:12px;align-items:flex-start;margin:16px 0;padding:14px;border:1px solid #232b38;border-radius:10px;background:#0d1219}
+.q .qn{flex:0 0 28px;height:28px;border-radius:50%;background:#1c2b45;color:#9db8e8;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.q .qt{flex:1}
+.q .qt small{display:block;color:#9aa7b8;font-size:13px;margin-top:4px}
+.qbtns{flex:0 0 auto;display:flex;gap:8px}
+.qbtns button{border:1px solid #2a3342;background:#11161f;color:#e6edf3;font-weight:700;font-size:13px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.qbtns button.sel-y{background:#3fb950;border-color:#3fb950;color:#06240f}
+.qbtns button.sel-n{background:#f85149;border-color:#f85149;color:#fff}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+.cta.sec{background:#11161f;border:1px solid #1c6ef2;color:#7eb3ff;font-size:16px;padding:14px}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.howto{background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:18px;margin:20px 0;font-size:14px}
+.howto div{margin:8px 0}
+.howto b{color:#7eb3ff}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is an SI control incident?","acceptedAnswer":{"@type":"Answer","text":"In the joint NIST/NSA/CISA guidance, an SI control incident occurs when one or more super-intelligence agents take significant uninstructed actions that compromise explicit or implicit policies, controls, or security measures imposed by the operator to define task scope or ensure human oversight. 'Uninstructed' means the actions were not directed by the operator or any adversarial source. Such incidents may be purely internal to the developer or evaluator, with no impact on external parties. A related concept is the 'SI control near-miss': an occurrence that did not become an incident but presented foreseeable and imminent risk of one."}},
+{"@type":"Question","name":"Who published the key practices, and are they mandatory?","acceptedAnswer":{"@type":"Answer","text":"The 'Key Practices for Incident Readiness and Response in Super Intelligence Training and Evaluation' (document PP-26-4396, Oct 2026 Ver 1.0, marked TLP:CLEAR) was published on October 16, 2026 by NIST's Center for Advancing Innovation and Standards for Super Intelligence (CAISSI), NSA's Super Intelligence Security Center (SISC), and CISA. The guidance is explicitly voluntary. It is grounded in NIST Cybersecurity Framework 2.0 and NIST SP 800-61r3, fulfills a White House 2025 SI Action Plan recommendation, and builds on a May 2026 NIST Workshop on SI Incident Management."}},
+{"@type":"Question","name":"Do the practices apply only to labs, or to deployers too?","acceptedAnswer":{"@type":"Answer","text":"The primary audience is organizations that train or evaluate highly capable SI agents on long-horizon tasks with limited human supervision — but the practices also apply to organizations deploying those agents, since many of the same controls, monitoring, shutdown, and reporting practices carry over to deployment environments."}},
+{"@type":"Question","name":"Where can I read the full document?","acceptedAnswer":{"@type":"Answer","text":"The full joint product, 'Key Practices for Incident Readiness and Response in Super Intelligence Training and Evaluation' (PP-26-4396, Oct 2026 Ver 1.0, TLP:CLEAR — shareable without restriction), is available on NIST's website: https://www.nist.gov/news-events/news/2026/10/key-practices-incident-readiness-and-response-super-intelligence-training"}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">NIST × NSA × CISA &mdash; OCT 16, 2026</div>
+<h1>NIST, NSA and CISA just published <span class="blue">10 practices</span> for SI control incidents. How many does your org <span class="red">actually have</span>?</h1>
+<p class="lead">On <strong>October 16, 2026</strong>, NIST's Center for Advancing Innovation and Standards for Super Intelligence (<strong>CAISSI</strong>), NSA's Super Intelligence Security Center (<strong>SISC</strong>), and <strong>CISA</strong> jointly published <strong>"Key Practices for Incident Readiness and Response in Super Intelligence Training and Evaluation"</strong> (document <strong>PP-26-4396</strong>, Oct 2026 Ver 1.0, marked <strong>TLP:CLEAR</strong> — shareable without restriction). It is <strong>voluntary guidance</strong> for organizations that train or evaluate highly capable super-intelligence agents on long-horizon tasks with limited human supervision. The practices build on cybersecurity incident-response best practice while addressing the unique SI considerations of agent scale and autonomy — ten practices across five lifecycle stages: <strong>Prepare, Detect, Respond, Recover, Report</strong>. If your team trains, evaluates, or deploys advanced AI agents, this 10-question check measures how much of that joint guidance you actually implement. Free, no signup.</p>
+
+<div class="howto">
+<div><b>What is an "SI control incident"?</b></div>
+<div>Per the joint guidance: an SI control incident occurs when one or more SI agents take <strong>significant uninstructed actions</strong> that compromise explicit or implicit policies, controls, or security measures imposed by the operator to <strong>define task scope or ensure human oversight</strong>. "Uninstructed" means the actions were <em>not</em> directed by the operator or by any adversarial source — the agent went off-script on its own.</div>
+<div>Two things most people miss: a <strong>near-miss</strong> is also defined — an occurrence that didn't become an incident but presented foreseeable and imminent risk of one — and these incidents <strong>may be entirely internal</strong> to the developer or evaluator, with no external impact at all. If you only investigate what escaped, you're blind to what almost did.</div>
+</div>
+
+<div class="card">
+<h2>The 10-question SI control-incident readiness check</h2>
+<p class="note">One question per joint practice. Answer honestly. Here, "Yes" is the safe answer.</p>
+<div id="quiz"></div>
+<div id="qresult" style="margin-top:12px"><div class="verdict warn"><strong>Answer the 10 questions above</strong> to get your readiness verdict.</div></div>
+<script>
+var QS=[
+["Do your SI agents run with least-privilege access, single-use infrastructure, strict task bounds, and monitored egress — enforced automatically, not just documented?","Practice 1 — Design and implement technical controls. Assume capable agents will find and exploit misconfigurations: restrict persistence channels (especially anything that could copy model weights or enable unmonitored inference), enforce strict network allowlists through a monitored gateway, keep a written SI control policy with automated enforcement, and build rapid block/contain/terminate mechanisms before deployment — then red-team those controls."],
+["Do you have written incident and near-miss indicators with severity scoring — and do you actually drill them with your team?","Practice 2 — Build organizational and personnel response readiness. Near-miss detection matters as much as incident detection. Run drills and simulations, stand up inbound reporting channels, bring in independent external auditors, consider publishing agent identifiers so defenders can spot your agents in the wild, and run structured risk assessments signed off by senior leadership before training runs."],
+["Do you monitor your agents at every layer — model, harness, host, network — including their reasoning traces, with real-time escalation?","Practice 3 — Monitor for unexpected activity. Define the intended security boundary per agent, watch agent reasoning and trajectories (not just outputs), deploy canaries, and keep agents from accessing or tampering with monitors and logs — use hardware telemetry and cross-layer consistency checks, plus monitoring models from different model families for cross-validation."],
+["Have your monitoring systems themselves been red-teamed — so you know they'd catch a monitor-aware agent?","Practice 4 — Validate and secure monitors to improve operational integrity. Treat monitored model outputs as potentially containing exploits aimed at the monitors themselves. If you haven't attacked your own watchers, you don't know they work."],
+["Can you preserve tamper-resistant evidence — model weights, checkpoints, logs, rejected actions, tool calls — after an incident?","Practice 5 — Collect, retain, and analyze evidence. Keep tamper-resistant logs with reliable timestamps and the configs needed to reproduce the incident; analyze telemetry to establish blast radius and root cause; check other agents for similar failures. SI models may assist the investigation, but key facts need human verification and cross-model checks."],
+["Do you have a predefined shutdown policy with automatic kill-switches for undesired agent activity?","Practice 6 — Mitigate and shut down undesired activity. Shutdown policies should be calibrated to model capability and severity: automatically halt agent trajectories on detection, pause training/evaluation/deployment of similar agents until controls are strengthened, revoke credentials, rebuild compromised environments, and hunt down persistence routes like backdoors and hidden channels."],
+["Before resuming agent activity after an incident, do you validate every containment layer — monitors, logging, egress allowlists, shutdown mechanisms, permissions?","Practice 7 — Verify and strengthen containment before resuming SI agent activity. Rebuild from verified baselines, patch exploited vulnerabilities, prove the fixes by replaying the incident trajectory, document the recovery decision and residual risk, and write an after-action report. For training-time incidents, design recovery so it doesn't reinforce the bad behavior or make the agent less monitorable."],
+["Do you have a plan to notify compromised third parties and share lessons with your value chain?","Practice 8 — Coordinate with affected parties. That means notifying parties your agents compromised or exploited, sharing timelines and transcripts, and passing lessons to the value chain — the model developer, evaluation providers, infrastructure providers."],
+["Do you know your legal reporting obligations — and which government SI experts (NIST CAISSI, NSA SISC) to contact voluntarily?","Practice 9 — Notify government. Meet legal reporting obligations (CISA, law enforcement), report vulnerabilities through established channels, and voluntarily share SI-specific incident and near-miss information with government SI experts at NIST CAISSI and NSA SISC."],
+["Are you prepared to share incident details publicly — enabling independent third-party review?","Practice 10 — Share information publicly. Where appropriate and as early as feasible, publish incident details, takeaways, and improvements so the wider community can learn and independently verify your handling."] ];
+var ANS=[null,null,null,null,null,null,null,null,null,null];
+function renderQ(){
+  var h='';
+  for(var i=0;i<QS.length;i++){
+    h+='<div class="q"><div class="qn">'+(i+1)+'</div><div class="qt"><strong>'+QS[i][0]+'</strong><small>'+QS[i][1]+'</small></div><div class="qbtns"><button id="y'+i+'" onclick="ans('+i+',1)">Yes</button><button id="n'+i+'" onclick="ans('+i+',0)">No</button></div></div>';
+  }
+  document.getElementById('quiz').innerHTML=h;
+}
+function ans(i,v){
+  ANS[i]=v;
+  document.getElementById('y'+i).className=v===1?'sel-y':'';
+  document.getElementById('n'+i).className=v===0?'sel-n':'';
+  var out=document.getElementById('qresult');
+  if(ANS.indexOf(null)>=0){return;}
+  var yes=0;
+  for(var k=0;k<ANS.length;k++){if(ANS[k]===1)yes++;}
+  if(yes>=9){
+    out.innerHTML='<div class="verdict safe"><strong>'+yes+'/10 — INCIDENT-READY.</strong> You implement nearly all ten joint practices. Keep the drills running, keep red-teaming the monitors, and keep the near-miss pipeline honest — readiness decays the moment attention does.</div>';
+  }else if(yes>=6){
+    out.innerHTML='<div class="verdict warn"><strong>'+yes+'/10 — MOSTLY READY.</strong> You have the skeleton of an incident program, but the missed checks are exactly where SI incidents live: monitor-aware agents, unvalidated watchers, and recovery without replay. Close the gaps above before your next long-horizon run.</div>';
+  }else if(yes>=3){
+    out.innerHTML='<div class="verdict warn"><strong>'+yes+'/10 — EXPOSED.</strong> You\'re missing most of the joint practices. A control incident in your training or eval fleet would likely be detected late, evidenced poorly, and contained by luck. Start with practices 1, 3, and 6: technical controls, layered monitoring, and a shutdown policy.</div>';
+  }else{
+    out.innerHTML='<div class="verdict"><strong>'+yes+'/10 — FLYING BLIND.</strong> You are running capable agents with almost none of the defenses the joint guidance considers baseline. An uninstructed agent action could compromise your controls and you might never know it happened. Read the joint practices, then implement them in stage order: Prepare, Detect, Respond, Recover, Report.</div>';
+  }
+}
+renderQ();
+</script>
+<p class="note">This self-assessment is informational and reflects a paraphrase of the joint practices — it is not legal or compliance advice, and the practices themselves are voluntary.</p>
+</div>
+
+<div class="card">
+<h2>The 10 practices at a glance</h2>
+<h3>PREPARE</h3>
+<ul>
+<li><strong>1. Design and implement technical controls.</strong> Least-privilege access, single-use infrastructure, strict task bounds, restricted persistence (watch model-weight-copy channels), monitored network allowlists, automated policy enforcement, rapid block/contain/terminate, red-team the controls.</li>
+<li><strong>2. Build organizational and personnel response readiness.</strong> Written incident/near-miss indicators with severity scoring, drills and simulations, inbound reporting channels, independent external auditors, senior-leadership sign-off on pre-run risk assessments.</li>
+</ul>
+<h3>DETECT</h3>
+<ul>
+<li><strong>3. Monitor for unexpected activity.</strong> All layers — model, harness, host, network — including agent reasoning and trajectories; protect monitors and logs from the agents themselves; cross-validate with monitors from different model families; real-time escalation with canaries.</li>
+<li><strong>4. Validate and secure the monitors.</strong> Red-team the monitoring stack itself; treat monitored outputs as potentially containing exploits aimed at the monitors.</li>
+</ul>
+<h3>RESPOND</h3>
+<ul>
+<li><strong>5. Collect, retain, and analyze evidence.</strong> Tamper-resistant logs with reliable timestamps; preserve weights, checkpoints, rejected actions, tool calls, and reproduction configs; establish blast radius and root cause; check other agents for similar failures.</li>
+<li><strong>6. Mitigate and shut down undesired activity.</strong> Predefined, capability-calibrated shutdown policies; automatic trajectory shutdown on detection; pause similar runs until controls are strengthened; revoke credentials; rebuild compromised environments; hunt persistence routes.</li>
+</ul>
+<h3>RECOVER</h3>
+<ul>
+<li><strong>7. Verify and strengthen containment before resuming.</strong> Rebuild from verified baselines; validate every containment layer; prove fixes by replaying the incident trajectory; document the recovery decision and residual risk; write the after-action report. Don't let recovery reinforce the bad behavior.</li>
+</ul>
+<h3>REPORT</h3>
+<ul>
+<li><strong>8. Coordinate with affected parties.</strong> Notify compromised or exploited third parties; share timelines and transcripts; share lessons with the value chain.</li>
+<li><strong>9. Notify government.</strong> Meet legal reporting obligations; report vulnerabilities through established channels; voluntarily share SI-specific incident/near-miss info with NIST CAISSI and NSA SISC.</li>
+<li><strong>10. Share information publicly.</strong> Publish details, takeaways, and improvements as early as feasible; enable independent third-party review.</li>
+</ul>
+</div>
+
+<a class="cta" href="https://www.nist.gov/news-events/news/2026/10/key-practices-incident-readiness-and-response-super-intelligence-training" target="_blank" rel="noopener">Read the full joint practices at NIST &rarr;</a>
+<a class="cta sec" href="rogue-ai-agent-exposure-check.html">Related: Rogue AI Agent Exposure Check &rarr;</a>
+<p class="note" style="text-align:center">This page checked your SI control-incident readiness against the joint NIST/NSA/CISA practices. The Rogue AI Agent Exposure Check measures your broader fleet defenses. Free, no signup.</p>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with every team training or evaluating advanced AI agents.<br>
+"Key Practices for Incident Readiness and Response in Super Intelligence Training and Evaluation" (PP-26-4396, Oct 2026 Ver 1.0, TLP:CLEAR) &middot; NIST CAISSI &times; NSA SISC &times; CISA &middot; published Oct 16, 2026 &middot; voluntary guidance, grounded in NIST CSF 2.0 and SP 800-61r3 &middot; fulfills a White House 2025 SI Action Plan recommendation.
+</footer>
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=NIST%2C%20NSA%20%26%20CISA%20just%20published%2010%20practices%20for%20SI%20control%20incidents.%20How%20many%20does%20your%20org%20actually%20have%3F%2010-question%20readiness%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/si-control-incident-readiness-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/si-control-incident-readiness-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/si-control-incident-readiness-check.html&title=NIST%2C%20NSA%20%26%20CISA%20just%20published%2010%20practices%20for%20SI%20control%20incidents%20%E2%80%94%2010-question%20readiness%20check" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
