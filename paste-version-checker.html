@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paste-Your-Version CVE Checker — Nextcloud, Langflow, GitLab, Cisco SEG, Docker</title>
+<meta name="description" content="Paste your software version and get an instant verdict: patched, vulnerable, or unknown — for Nextcloud, Langflow, GitLab, Cisco SEG, and Docker. 100% client-side, nothing leaves your browser.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/paste-version-checker.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Paste your version — get an instant patched/vulnerable verdict for 5 products">
+<meta property="og:description" content="Nextcloud, Langflow, GitLab, Cisco SEG, Docker: type your version, get a verdict in seconds. Runs entirely in your browser — your version never leaves your machine.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/paste-version-checker.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Paste your version — instant patched/vulnerable verdict">
+<meta name="twitter:description" content="Check your version against October 2026's critical CVEs. Client-side only.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1c6ef2;color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:30px;line-height:1.3;margin-bottom:14px}
+p.lead{font-size:17px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1420;border:1px solid #1c6ef2;border-radius:12px;padding:20px 24px;margin:24px 0;font-size:15.5px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+.tab{border:1px solid #2a3342;background:#11161f;color:#c9d4e3;font-size:14px;font-weight:700;padding:10px 18px;border-radius:999px;cursor:pointer;font-family:inherit}
+.tab.active{background:#1c6ef2;border-color:#1c6ef2;color:#fff}
+.panel{display:none}
+.panel.active{display:block}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:18px 0}
+.card h2{font-size:19px;margin-bottom:10px;color:#fff}
+.card p{font-size:14.5px;color:#9aa7b8;margin-bottom:12px}
+input[type=text]{width:100%;background:#000;border:1px solid #2a3342;color:#7ee787;border-radius:8px;padding:14px 16px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:16px;margin:8px 0}
+button.check{width:100%;background:#1c6ef2;color:#fff;border:0;font-weight:700;font-size:17px;padding:15px;border-radius:10px;cursor:pointer;margin-top:8px;font-family:inherit}
+button.check:hover{background:#2f7ef7}
+.result{margin-top:18px;padding:16px 18px;border-radius:10px;font-size:15px;display:none}
+.result.bad{display:block;background:#1a0f0f;border-left:4px solid #f85149}
+.result.warn{display:block;background:#1a1408;border-left:4px solid #d29922}
+.result.safe{display:block;background:#0d1a0f;border-left:4px solid #3fb950}
+.result.unk{display:block;background:#161c27;border-left:4px solid #6b7688}
+.note{font-size:13px;color:#6b7688;margin-top:14px}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0;font-size:14.5px}
+a{color:#1c6ef2}
+.faq details{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0}
+.faq summary{font-weight:700;cursor:pointer}
+.faq p{color:#9aa7b8;font-size:14px;margin-top:8px}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:17px;padding:16px;border-radius:10px;text-decoration:none;margin:24px 0}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Paste-Your-Version CVE Checker","description":"Client-side version checker for October 2026's critical CVEs across Nextcloud, Langflow, GitLab, Cisco SEG and Docker.","provider":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-15","dateModified":"2026-10-15"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is my version sent anywhere when I use this checker?","acceptedAnswer":{"@type":"Answer","text":"No. The entire check runs in JavaScript in your browser against version tables embedded in this page. No request is made, no analytics sees your input, nothing leaves your machine."}},
+{"@type":"Question","name":"How do I find my version?","acceptedAnswer":{"@type":"Answer","text":"Nextcloud built-in CODE app: Admin > Apps, or 'occ app:list | grep richdocumentscode'. Langflow: 'pip show langflow | grep version'. GitLab: 'gitlab-rake gitlab:env:info | grep version'. Cisco SEG: 'contentscannerstatus' on the CLI. Docker Hub: no version exists — the GhostPat flaw was server-side."}},
+{"@type":"Question","name":"Does a 'patched' verdict mean I'm definitely safe?","acceptedAnswer":{"@type":"Answer","text":"It means you are not exposed to the specific CVE this check covers. If you were vulnerable during the exploitation window, patch and also hunt for compromise indicators — patching closes the hole but does not remove anything an attacker already planted."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">FREE TOOL &middot; 100% CLIENT-SIDE &middot; NO SIGNUP</div>
+<h1>Paste your version. Get a verdict.</h1>
+<p class="lead">Five of October 2026's worst CVEs. One input box. Pick your product, type or paste your version string, and get an instant <strong>patched / vulnerable / unknown</strong> verdict — against the real published advisories, with every version table sourced below.</p>
+
+<div class="answer"><strong>The short version:</strong> This page checks your software version against October 2026's critical CVEs — Nextcloud (built-in Collabora CODE app CVE-2026-110447), Langflow (MCP RCE CVE-2026-105740), GitLab (CI/CD RCE CVE-2026-97229), Cisco Secure Email Gateway (CVE-2026-76519), and Docker Hub GhostPat (CVE-2026-105445) — entirely in your browser. Your version is compared numerically against the vendors' fixed versions; nothing you type is sent anywhere, because there is no server behind this page.</div>
+
+<div class="tabs" role="tablist">
+<button class="tab active" data-p="nextcloud">Nextcloud</button>
+<button class="tab" data-p="langflow">Langflow</button>
+<button class="tab" data-p="gitlab">GitLab</button>
+<button class="tab" data-p="cisco">Cisco SEG</button>
+<button class="tab" data-p="docker">Docker Hub</button>
+</div>
+
+<div class="panel active" id="panel-nextcloud">
+<div class="card">
+<h2>Nextcloud — CVE-2026-110447 (Collabora CODE app RCE)</h2>
+<p>Check the version of the <strong>"Collabora Online &ndash; Built-in CODE Server"</strong> app (<code>richdocumentscode</code>), not Nextcloud core. Admin &gt; Apps, or run <code>occ app:list | grep richdocumentscode</code>.</p>
+<input type="text" id="v-nextcloud" placeholder="e.g. 26.4.303">
+<button class="check" onclick="checkNC()">Check my version</button>
+<div class="result" id="r-nextcloud"></div>
+<p class="note">Sources: fixed in richdocumentscode <strong>26.4.303</strong> (shipped Sep 11, 2026), advisory Oct 14, 2026. <strong>Disabling the app does NOT protect you</strong> — update or remove it. Standalone Collabora servers are not affected. Full self-test: <a href="nextcloud-cve-2026-110447.html">Nextcloud CVE-2026-110447 check</a>.</p>
+</div>
+</div>
+
+<div class="panel" id="panel-langflow">
+<div class="card">
+<h2>Langflow — CVE-2026-105740 (MCP stdio RCE)</h2>
+<p>Your Langflow server version. On the host: <code>pip show langflow | grep -i version</code>. Docker users: your image tag (e.g. <code>langflowai/langflow:1.8.2</code> &rarr; type <code>1.8.2</code>).</p>
+<input type="text" id="v-langflow" placeholder="e.g. 1.8.2">
+<button class="check" onclick="checkLF()">Check my version</button>
+<div class="result" id="r-langflow"></div>
+<p class="note">Sources: fixed in <strong>1.10.3+</strong> (1.9.0 is the minimum); a second CVE record extends the flaw through <strong>1.10.2</strong>. Disclosed Oct 5, 2026; active exploitation with 1,423+ honeypot hits. Full self-test: <a href="langflow-cve-2026-105740.html">Langflow CVE-2026-105740 check</a>.</p>
+</div>
+</div>
+
+<div class="panel" id="panel-gitlab">
+<div class="card">
+<h2>GitLab — CVE-2026-97229 (CVSS 10.0 CI/CD RCE)</h2>
+<p>Your self-managed GitLab version. On the host: <code>gitlab-rake gitlab:env:info | grep "GitLab version"</code>.</p>
+<input type="text" id="v-gitlab" placeholder="e.g. 19.3.4">
+<button class="check" onclick="checkGL()">Check my version</button>
+<div class="result" id="r-gitlab"></div>
+<p class="note">Sources: vulnerable <strong>19.2.0&ndash;19.2.7, 19.3.0&ndash;19.3.4, 19.4.0&ndash;19.4.1</strong>; fixed in <strong>19.2.8 / 19.3.5 / 19.4.2</strong> (Oct 12, 2026). Versions older than 19.2 are not listed in the advisory — upgrade to a supported release regardless. Full self-test: <a href="gitlab-cve-2026-97229.html">GitLab CVE-2026-97229 check</a>.</p>
+</div>
+</div>
+
+<div class="panel" id="panel-cisco">
+<div class="card">
+<h2>Cisco Secure Email Gateway — CVE-2026-76519</h2>
+<p>Your <strong>Content Scanner Tools</strong> version. On the appliance CLI: <code>contentscannerstatus</code>. Note: the flaw only bites when File Reputation is enabled and assigned to a mail policy.</p>
+<input type="text" id="v-cisco" placeholder="e.g. 25.3.0.5525">
+<button class="check" onclick="checkCS()">Check my version</button>
+<div class="result" id="r-cisco"></div>
+<p class="note">Sources: fixed in Content Scanner Tools <strong>25.3.0.5525+</strong> (no restart required), advisory Oct 14, 2026. Secure Email and Web Manager, Secure Web Appliance, and Secure Email Cloud are not affected. Full self-test: <a href="cisco-seg-cve-2026-76519.html">Cisco SEG CVE-2026-76519 check</a>.</p>
+</div>
+</div>
+
+<div class="panel" id="panel-docker">
+<div class="card">
+<h2>Docker Hub — CVE-2026-105445 "GhostPat" (no version to check)</h2>
+<p>Honest answer: <strong>there is no client version for this one.</strong> GhostPat was a server-side Docker Hub flaw (open August 2024 &ndash; September 30, 2026) that let an attacker convert an account into an organization and inherit its personal access tokens — silently publishing images <strong>as you</strong>. Docker fixed it server-side in under four hours and found no evidence of exploitation across ~304,000 reviewed pushes. What you do instead:</p>
+<ul>
+<li><strong>Search your email</strong> for Docker's October 2, 2026 security notice — affected users were emailed directly.</li>
+<li><strong>Audit your tokens</strong> at hub.docker.com &rarr; Account Settings &rarr; Personal Access Tokens: delete anything you don't recognize.</li>
+<li><strong>Review your repos</strong> for tags you didn't push; rotate remaining tokens; enable 2FA.</li>
+</ul>
+<p class="note">Full self-test: <a href="docker-ghostpat-check.html">Docker GhostPat check</a>.</p>
+</div>
+</div>
+
+<h2 style="font-size:21px;margin:30px 0 12px">FAQ</h2>
+<div class="faq">
+<details><summary>Is my version sent anywhere?</summary><p>No. The entire check runs in JavaScript in your browser against version tables embedded in this page. No request is made, no analytics sees your input, nothing leaves your machine.</p></details>
+<details><summary>How do I find my version?</summary><p>Nextcloud built-in CODE app: Admin &gt; Apps, or <code>occ app:list | grep richdocumentscode</code>. Langflow: <code>pip show langflow | grep version</code>. GitLab: <code>gitlab-rake gitlab:env:info | grep version</code>. Cisco SEG: <code>contentscannerstatus</code> on the CLI. Docker Hub: no version exists — the GhostPat flaw was fixed server-side.</p></details>
+<details><summary>Does a "patched" verdict mean I'm definitely safe?</summary><p>It means you are not exposed to the specific CVE this check covers. If you were vulnerable during the exploitation window, patch <em>and</em> hunt for compromise indicators — patching closes the hole but does not remove anything an attacker already planted.</p></details>
+<details><summary>How accurate are these version tables?</summary><p>Each table is built from the vendor's published advisory and linked on this page. Versions are compared numerically (including hotfix/build suffixes like 25.3.0.5525). Anything that doesn't parse as a version returns "unknown" rather than a guess.</p></details>
+</div>
+
+<a class="cta" href="https://wa.me/5016691053?text=I%20need%20help%20checking%20my%20software%20versions%20against%20the%20latest%20CVEs">Vulnerable and not sure what to do? Talk to Ingenious AI &rarr;</a>
+
+<footer>
+Built by Ingenious AI &mdash; version tables sourced from the vendors' published advisories, checked October 15, 2026.<br>
+All checks run 100% client-side — nothing you type ever leaves your browser.
+</footer>
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this tool: <a href="https://x.com/intent/post?text=Paste%20your%20software%20version%20%E2%80%94%20instant%20patched%2Fvulnerable%20verdict%20for%20Nextcloud%2C%20Langflow%2C%20GitLab%2C%20Cisco%20SEG%2C%20Docker%20%E2%80%94%20100%25%20client-side&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/paste-version-checker.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/paste-version-checker.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/paste-version-checker.html&title=Paste-your-version%20CVE%20checker%20%E2%80%94%20Nextcloud%2C%20Langflow%2C%20GitLab%2C%20Cisco%20SEG%2C%20Docker" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<script>
+// Numeric version comparison: "25.3.0.5525" vs "1.9.0" etc.
+function parseVer(s){
+  s=String(s||"").trim().toLowerCase();
+  var m=s.match(/^(\d+(?:\.\d+)*)/);
+  if(!m) return null;
+  return m[1].split(".").map(function(x){return parseInt(x,10);});
+}
+function cmpVer(a,b){
+  var n=Math.max(a.length,b.length);
+  for(var i=0;i<n;i++){
+    var x=a[i]||0, y=b[i]||0;
+    if(x<y) return -1;
+    if(x>y) return 1;
+  }
+  return 0;
+}
+function inRange(v,lo,hi){
+  return cmpVer(v,parseVer(lo))>=0 && cmpVer(v,parseVer(hi))<=0;
+}
+function show(id,cls,html){
+  var el=document.getElementById(id);
+  el.className="result "+cls;
+  el.innerHTML=html;
+}
+function unk(id){show(id,"unk","<strong>Unknown.</strong> That didn't look like a version number I recognize (e.g. <em>1.8.2</em>, <em>19.3.4</em>, <em>25.3.0.5525</em>). Double-check the version and try again — I'd rather say unknown than guess.");}
+
+function checkNC(){
+  var v=parseVer(document.getElementById("v-nextcloud").value);
+  if(!v){unk("r-nextcloud");return;}
+  var fix=parseVer("26.4.303");
+  if(cmpVer(v,fix)<0){
+    show("r-nextcloud","bad","<strong>VULNERABLE to CVE-2026-110447.</strong> Your built-in Collabora CODE app ("+document.getElementById("v-nextcloud").value.trim()+") is below the fixed 26.4.303 — unauthenticated RCE. Update to <strong>26.4.303 or newer</strong>, or remove the app. Disabling it does NOT protect you. If it was exposed during Sept–Oct 2026, hunt for compromise indicators too.");
+  } else {
+    show("r-nextcloud","safe","<strong>Patched.</strong> "+document.getElementById("v-nextcloud").value.trim()+" is at or above 26.4.303, so CVE-2026-110447 does not affect you.");
+  }
+}
+function checkLF(){
+  var raw=document.getElementById("v-langflow").value.trim(), v=parseVer(raw);
+  if(!v){unk("r-langflow");return;}
+  if(cmpVer(v,parseVer("1.9.0"))<0){
+    show("r-langflow","bad","<strong>VULNERABLE to CVE-2026-105740.</strong> "+raw+" is below 1.9.0 — any logged-in user can get OS command execution via the MCP stdio transport. Upgrade to <strong>1.10.3 or newer</strong>, audit every MCP server entry, and rotate all secrets on the host.");
+  } else if(cmpVer(v,parseVer("1.10.3"))<0){
+    show("r-langflow","warn","<strong>Treat as AT-RISK.</strong> "+raw+" is in the 1.9.0–1.10.2 range, which a second CVE record covers for the same MCP flaw. Upgrade to <strong>1.10.3 or newer</strong> anyway.");
+  } else {
+    show("r-langflow","safe","<strong>Patched.</strong> "+raw+" is 1.10.3 or newer, so CVE-2026-105740 does not affect you.");
+  }
+}
+function checkGL(){
+  var raw=document.getElementById("v-gitlab").value.trim(), v=parseVer(raw);
+  if(!v){unk("r-gitlab");return;}
+  var vuln=inRange(v,"19.2.0","19.2.7")||inRange(v,"19.3.0","19.3.4")||inRange(v,"19.4.0","19.4.1");
+  if(vuln){
+    show("r-gitlab","bad","<strong>VULNERABLE to CVE-2026-97229 (CVSS 10.0).</strong> "+raw+" is in a vulnerable range — unauthenticated RCE via the CI/CD regex compiler, and a public PoC exists. Upgrade to <strong>19.2.8 / 19.3.5 / 19.4.2</strong> immediately, outside your normal patch cycle.");
+  } else if(cmpVer(v,parseVer("19.2.0"))<0){
+    show("r-gitlab","warn","<strong>Not listed in the advisory — treat as AT-RISK.</strong> "+raw+" is older than 19.2, and the advisory publishes no patch for your branch. Upgrade to a supported release (19.2.8+ / 19.3.5+ / 19.4.2+) regardless.");
+  } else {
+    show("r-gitlab","safe","<strong>Patched.</strong> "+raw+" is at or above the fixed releases (19.2.8 / 19.3.5 / 19.4.2), so CVE-2026-97229 does not affect you.");
+  }
+}
+function checkCS(){
+  var raw=document.getElementById("v-cisco").value.trim(), v=parseVer(raw);
+  if(!v){unk("r-cisco");return;}
+  if(cmpVer(v,parseVer("25.3.0.5525"))<0){
+    show("r-cisco","bad","<strong>VULNERABLE to CVE-2026-76519 — if File Reputation is enabled.</strong> Content Scanner Tools "+raw+" is below the fixed 25.3.0.5525. Check File Reputation (Mail Policies &gt; Incoming/Outgoing Mail Policies &gt; Advanced Malware Protection): if it's enabled and assigned, your gateway is exploitable by unauthenticated email right now. Update the scanner tools — no restart needed. No workaround exists.");
+  } else {
+    show("r-cisco","safe","<strong>Patched.</strong> Content Scanner Tools "+raw+" is 25.3.0.5525 or newer, so CVE-2026-76519 does not affect your gateway.");
+  }
+}
+// Tabs
+document.querySelectorAll(".tab").forEach(function(t){
+  t.addEventListener("click",function(){
+    document.querySelectorAll(".tab").forEach(function(x){x.classList.remove("active");});
+    document.querySelectorAll(".panel").forEach(function(x){x.classList.remove("active");});
+    t.classList.add("active");
+    document.getElementById("panel-"+t.getAttribute("data-p")).classList.add("active");
+  });
+});
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
