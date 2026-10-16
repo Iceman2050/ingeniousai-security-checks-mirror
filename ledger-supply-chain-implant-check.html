@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ledger Supply-Chain Attack: Your Hardware Wallet Passed Every Check — And Still Leaked Your Seed Phrase</title>
+<meta name="description" content="Oct 2026: criminals hid LTE seed-stealing implants inside genuine Ledger devices sold via resellers. Researcher estimates: $86M+ drained across 300+ wallets. 6-question hardware-wallet safety check. Free, no signup.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Your hardware wallet passed every authenticity check — and still sent your seed phrase to criminals">
+<meta property="og:description" content="Ledger supply-chain attack, Oct 2026: hidden LTE implants captured 24-word recovery phrases off device screens. Researcher estimates $86M+ drained. 6-question safety check — free, no signup.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ledger-supply-chain-implant-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ledger-supply-chain-implant-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Your hardware wallet passed every authenticity check — and still sent your seed phrase to criminals">
+<meta name="twitter:description" content="Ledger supply-chain attack, Oct 2026: hidden LTE implants captured 24-word recovery phrases off device screens. Researcher estimates $86M+ drained. 6-question safety check.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a1215;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .green{color:#3fb950}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.q{display:flex;gap:12px;align-items:flex-start;margin:16px 0;padding:14px;border:1px solid #232b38;border-radius:10px;background:#0d1219}
+.q .qn{flex:0 0 28px;height:28px;border-radius:50%;background:#1c2b45;color:#9db8e8;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.q .qt{flex:1}
+.q .qt small{display:block;color:#9aa7b8;font-size:13px;margin-top:4px}
+.qbtns{flex:0 0 auto;display:flex;gap:8px}
+.qbtns button{border:1px solid #2a3342;background:#11161f;color:#e6edf3;font-weight:700;font-size:13px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.qbtns button.sel-y{background:#3fb950;border-color:#3fb950;color:#06240f}
+.qbtns button.sel-n{background:#f85149;border-color:#f85149;color:#fff}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.howto{background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:18px;margin:20px 0;font-size:14px}
+.howto div{margin:8px 0}
+.howto b{color:#ffa198}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What happened in the Ledger supply-chain attack of October 2026?","acceptedAnswer":{"@type":"Answer","text":"A highly organized criminal group bought genuine Ledger hardware wallets, installed hidden electronic implants inside them, and returned the tampered devices into the distribution chain via resellers — principally CryptoBilis, an authorized reseller in Indonesia and Malaysia. The implant captured the user's 24-word recovery phrase from the device screen during setup and transmitted it over LTE via a provisioned eSIM to attacker-controlled servers. Victims' wallets then drained in a coordinated burst around October 9, 2026. Ledger called it one of the most sophisticated attacks the digital-asset industry has experienced."}},
+{"@type":"Question","name":"How did the implant steal funds if Ledger's security was not breached?","acceptedAnswer":{"@type":"Answer","text":"The implant was a separate hidden component sitting beneath the screen assembly — it did not modify Ledger's Secure Element chip, firmware, transactions or signatures. It read the recovery phrase off the unencrypted display data as it appeared during wallet setup, decoded it with its own microcontroller, and sent it out over a cellular connection. Because the Secure Element itself was untouched, Ledger's Genuine Check authenticated every compromised device as genuine. Ledger states its chip, operating system and servers were not compromised; the attack hit the distribution channel after devices left its control."}},
+{"@type":"Question","name":"How much crypto was stolen, and who was affected?","acceptedAnswer":{"@type":"Answer","text":"Blockchain investigator Specter estimated losses above $86 million; other analyses put the figure at $93–102 million across more than 300 wallets, and Tether froze about $10 million in USDT linked to the exploited addresses. Ledger itself has not confirmed a total number of victims or the total value lost. Those affected were buyers who purchased Ledger devices — mostly in the 90 days prior — from CryptoBilis or other resellers and distributors in Southeast Asia and Hong Kong, plus third-party marketplace sellers. Resellers across seven Asian markets paused sales on October 13, 2026."}},
+{"@type":"Question","name":"What should I do if I bought a Ledger from a reseller or marketplace?","acceptedAnswer":{"@type":"Answer","text":"Ledger's own guidance: do NOT initialize a device bought from CryptoBilis that you have not yet set up. If you already set one up, move your assets to a brand-new device — bought directly from the manufacturer — with a newly generated 24-word recovery phrase. Never reuse the old phrase. Buy hardware wallets only from the manufacturer's own store, never second-hand or from marketplace sellers, and report any suspicious device to the vendor's security team."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">LEDGER SUPPLY-CHAIN ATTACK &mdash; OCT 2026</div>
+<h1>Your hardware wallet <span class="red">passed every check</span> — and still <span class="red">leaked your seed phrase</span> to criminals</h1>
+<p class="lead">In October 2026, a <strong>highly organized criminal group</strong> bought genuine Ledger hardware wallets, hid <strong>LTE seed-stealing implants</strong> inside them, and fed the tampered devices back into the sales chain through resellers &mdash; principally <strong>CryptoBilis</strong>, an authorized reseller in Indonesia and Malaysia. The implant sat beneath the screen, <strong>read the 24-word recovery phrase off the display during setup</strong>, and beamed it to attacker servers over a cellular connection. Around <strong>October 9</strong>, wallets drained in one coordinated burst. Ledger called it <strong>&ldquo;one of the most sophisticated attacks&rdquo;</strong> the digital-asset industry has seen &mdash; and confirmed its own <strong>Genuine Check passed every compromised device</strong>, because the implant never touched the Secure Element it verifies. The wallet worked perfectly. The money was simply gone. This 60-second check tests whether <em>your</em> hardware-wallet habits would survive the same attack. Free, no signup.</p>
+
+<div class="howto">
+<div><b>How the implant worked (per Ledger's investigation):</b></div>
+<div>&bull; Hidden circuit board beneath the screen assembly of genuine Ledger devices.</div>
+<div>&bull; During setup, the screen displays the 24-word recovery phrase &rarr; the implant reads it from the display data.</div>
+<div>&bull; Its microcontroller decodes the words &rarr; transmits them over <strong>LTE via a provisioned eSIM</strong> — no internet needed on your computer.</div>
+<div>&bull; Attackers rebuild the wallet anywhere from the phrase and drain every coin — the physical device is never needed again.</div>
+<div>&bull; Secure Element, firmware, transactions and signatures: <strong>untouched</strong> — which is why authenticity checks passed.</div>
+<div>&bull; Researchers found <strong>three implant variants</strong>, each more advanced; one was bought on Amazon Japan from a China-based third-party seller.</div>
+</div>
+
+<div class="card">
+<h2>The 60-second hardware-wallet safety check</h2>
+<p class="note">Answer honestly. Here, "Yes" is the safe answer.</p>
+<div id="quiz"></div>
+<div id="qresult" style="margin-top:12px"><div class="verdict warn"><strong>Answer the 6 questions above</strong> to get your hardware-wallet safety verdict.</div></div>
+<script>
+var QS=[
+["Did you buy your hardware wallet DIRECTLY from the manufacturer's own store — not a reseller, marketplace, or second-hand seller?","The implants entered through the reseller distribution chain. Ledger paused sales across seven Asian markets plus Hong Kong; one tampered unit even surfaced via Amazon Japan. Direct-from-manufacturer is the only chain of custody you can trust."],
+["If you bought from any third-party seller in the last 90 days, have you moved your assets to a NEW device with a NEWLY generated recovery phrase?","This is Ledger's own guidance for CryptoBilis buyers. Never reuse the old phrase — anyone who captured it owns a permanent copy of your wallet."],
+["Do you know that a 'genuine device' result does NOT rule out a hardware implant?","Ledger's Genuine Check authenticates the Secure Element — which the implant never touched. Every compromised device in this attack passed as genuine. A clean check is necessary, not sufficient."],
+["Have you NEVER typed, photographed, emailed, or cloud-stored your 24-word recovery phrase?","The entire $86M+ attack existed to capture those 24 words. Whoever holds them can rebuild your wallet anywhere and move everything — no device, no PIN, no confirmation needed."],
+["Do you treat 'my wallet works fine' as zero proof of safety?","Every compromised wallet in this attack functioned perfectly normally. The drains hit on October 9 in a coordinated burst — wallets looked healthy right up until the money vanished in seconds."],
+["Would you immediately stop using — and report — a device bought second-hand, gifted, or from an unknown seller, instead of just setting it up?","Three implant generations exist and the latest is the most sophisticated. Any device whose custody you can't verify is a candidate for the next variant. Report it to the vendor's security team; don't gamble your savings on it."] ];
+var ANS=[null,null,null,null,null,null];
+function renderQ(){
+  var h='';
+  for(var i=0;i<QS.length;i++){
+    h+='<div class="q"><div class="qn">'+(i+1)+'</div><div class="qt"><strong>'+QS[i][0]+'</strong><small>'+QS[i][1]+'</small></div><div class="qbtns"><button id="y'+i+'" onclick="ans('+i+',1)">Yes</button><button id="n'+i+'" onclick="ans('+i+',0)">No</button></div></div>';
+  }
+  document.getElementById('quiz').innerHTML=h;
+}
+function ans(i,v){
+  ANS[i]=v;
+  document.getElementById('y'+i).className=v===1?'sel-y':'';
+  document.getElementById('n'+i).className=v===0?'sel-n':'';
+  var out=document.getElementById('qresult');
+  if(ANS.indexOf(null)>=0){return;}
+  var yes=0;
+  for(var k=0;k<ANS.length;k++){if(ANS[k]===1)yes++;}
+  if(yes===6){
+    out.innerHTML='<div class="verdict safe"><strong>SUPPLY-CHAIN HARDENED.</strong> You buy direct, treat authenticity checks as necessary-but-not-sufficient, and guard your recovery phrase like the master key it is. The CryptoBilis playbook has nothing to work with here. Stay paranoid about custody.</div>';
+  }else if(yes>=4){
+    out.innerHTML='<div class="verdict warn"><strong>'+(6-yes)+' gaps — MOSTLY SAFE.</strong> Your core instincts are right, but the missed checks are exactly where this attack lived: reseller custody, reused phrases, and trusting a green "genuine" badge. If any device came from a third party, move funds to a new device with a fresh phrase today.</div>';
+  }else{
+    out.innerHTML='<div class="verdict"><strong>'+(6-yes)+' of 6 missed — EXPOSED.</strong> Your current habits are the attack surface this criminal group industrialized: third-party devices, trusted checkmarks, and a recovery phrase that may already exist outside your control. Three moves today: (1) buy only direct from the manufacturer, (2) move assets to a new device with a new phrase, (3) never digitize your recovery phrase.</div>';
+  }
+}
+renderQ();
+</script>
+<p class="note">This self-assessment is informational, built from the verified facts of the October 2026 Ledger supply-chain incident — it is not financial or security advice. Loss figures are researcher estimates; Ledger has not confirmed a total.</p>
+</div>
+
+<div class="card">
+<h2>Why this attack changes hardware-wallet assumptions</h2>
+<ul>
+<li><strong>The trusted device was the weapon.</strong> Victims bought real Ledgers, set them up normally, and saw nothing wrong. Security models assumed no attacker would ever get physical access to internals <em>before</em> sale — that assumption is now broken at roughly $90 million scale.</li>
+<li><strong>The authenticity check was blind to it.</strong> Genuine Check verifies the Secure Element's cryptographic proof. The implant tapped the display path instead — a separate component the check was never designed to see. &ldquo;Genuine&rdquo; and &ldquo;compromised&rdquo; were simultaneously true.</li>
+<li><strong>No internet, no malware, no phishing needed.</strong> The implant exfiltrated over its own LTE connection with a provisioned eSIM. Your computer's antivirus, firewall, and clean browsing habits were all irrelevant.</li>
+<li><strong>Patience was the business model.</strong> Per Ledger, the group built seed-collector servers plus draining and laundering infrastructure, spent millions, waited — then struck hundreds of wallets in one coordinated operation on October 9.</li>
+<li><strong>Three generations and counting.</strong> Tibane Labs documented three implant variants, each more advanced than the last. What ships next will be harder to spot, not easier.</li>
+<li><strong>The fix is procedural, not technical.</strong> No firmware update defeats a hidden circuit board. The defense is custody: buy direct, never reuse a phrase from a suspect device, and treat any third-party hardware as hostile until proven otherwise.</li>
+</ul>
+</div>
+
+<a class="cta" href="https://www.coindesk.com/tech/2026/10/13/ledger-says-spy-chip-inside-cryptobilis-ledger-devices-transmitted-wallet-keys-over-mobile-network" target="_blank" rel="noopener">Read the full investigation timeline &rarr; CoinDesk</a>
+<p class="note" style="text-align:center">CoinDesk's October 13 report has Ledger's own technical account of the implant mechanism — how the chip sat inside the enclosure and exfiltrated recovery phrases over LTE.</p>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with everyone you know who holds crypto on a hardware wallet.<br>
+Financial Times, Oct 2026 &middot; CoinDesk &middot; The Hacker News &middot; Bitcoin Magazine &middot; Tibane Labs &middot; blockchain investigator Specter &middot; Ledger security updates, Oct 12–15, 2026
+</footer>
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=Hidden%20LTE%20chips%20inside%20genuine%20Ledger%20wallets%20stole%20%2486M%2B%20%E2%80%94%20and%20every%20device%20passed%20the%20authenticity%20check.%206-question%20hardware-wallet%20safety%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ledger-supply-chain-implant-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ledger-supply-chain-implant-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ledger-supply-chain-implant-check.html&title=Ledger%20supply-chain%20attack%3A%20hidden%20LTE%20implants%20stole%20seed%20phrases%20%E2%80%94%20devices%20passed%20authenticity%20checks" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
