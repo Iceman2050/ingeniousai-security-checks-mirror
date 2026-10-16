@@ -26,6 +26,33 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid #232b38;font-size:1
 </head>
 <body>
 <div class="wrap">
+<!-- Ingenious AI platform status badge: reads the live status.json published
+     by the uptime watcher (GitHub Pages sends CORS headers, so the Netlify
+     hub can fetch it cross-origin). Fails silent: if the fetch fails the
+     badge stays hidden rather than alarming anyone. -->
+<style>
+  #ingenious-status{display:none;align-items:center;gap:.5em;justify-content:center;
+    font:600 13px/1.4 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    border-radius:999px;padding:.45em 1.1em;margin:0 auto 1.2em;max-width:max-content}
+  #ingenious-status.ok{display:inline-flex;background:#e7f6ec;color:#166534;border:1px solid #bbf7d0}
+  #ingenious-status.degraded{display:inline-flex;background:#fef3c7;color:#92400e;border:1px solid #fde68a}
+</style>
+<div id="ingenious-status" role="status" aria-live="polite"></div>
+<script>
+(function(){
+  var el=document.getElementById('ingenious-status');
+  var ctl=new AbortController(); var t=setTimeout(function(){ctl.abort()},8000);
+  fetch('https://iceman2050.github.io/ingeniousai-security-checks-mirror/status.json?_='+Date.now(),{signal:ctl.signal,cache:'no-store'})
+    .then(function(r){clearTimeout(t); if(!r.ok) throw 0; return r.json();})
+    .then(function(s){
+      if(typeof s.down_count!=='number') throw 0;
+      if(s.down_count===0){el.className='ok';el.textContent='● All systems operational';}
+      else{el.className='degraded';el.textContent='▲ Some services are being restored — we\u2019re on it';}
+    })
+    .catch(function(){/* stay hidden on any failure */});
+})();
+</script>
+
 <span class="badge">FREE SELF-TESTS</span>
 <h1>Free 30-Second Security Self-Tests</h1>
 <p class="lead">Real checks against live threats. No signup, nothing installed. Built by Ingenious AI.</p>
