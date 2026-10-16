@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Breach Cost Calculator — Estimate Your Breach Cost | Ingenious AI</title>
+<meta name="description" content="Free data breach cost calculator: pick your company size and industry, get an estimated breach cost from IBM's 2026 published figures ($4.99M global average, $192 per record). Client-side, shareable result.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/breach-cost-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Data Breach Cost Calculator — what would a breach cost you?">
+<meta property="og:description" content="Estimate your breach cost from IBM's 2026 published figures: $4.99M global average, $192 per customer record. Free, client-side, shareable result.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/breach-cost-calculator.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Data Breach Cost Calculator — estimate your breach cost">
+<meta name="twitter:description" content="Based on IBM's 2026 published breach-cost figures. Free and client-side.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Data Breach Cost Calculator","applicationCategory":"SecurityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0"},"provider":{"@type":"Organization","name":"Ingenious AI"},"description":"Estimates data breach cost from IBM Cost of a Data Breach Report 2026 published figures."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Where do this calculator's numbers come from?","acceptedAnswer":{"@type":"Answer","text":"IBM's Cost of a Data Breach Report 2026, produced with the Ponemon Institute from 602 breached organizations across 16 countries, covering incidents between March 2025 and February 2026. Key published figures: $4.99M global average, $11.5M US average, $6.64M healthcare, $6.3M financial services, $5.2M energy, and $192 per customer PII record."}},
+{"@type":"Question","name":"How accurate is this breach cost estimate?","acceptedAnswer":{"@type":"Answer","text":"It is a rough planning figure built from public averages, not a quote and not a prediction. IBM's report does not break results out by company size, and real breach costs vary widely with the data involved, the attack vector, and how fast the breach is contained."}},
+{"@type":"Question","name":"Why does industry change the estimate?","acceptedAnswer":{"@type":"Answer","text":"Breach costs differ sharply by sector in IBM's data. Healthcare was the costliest industry for the 13th year running at $6.64M on average, followed by financial services at $6.3M and energy at $5.2M, against a $4.99M global average."}},
+{"@type":"Question","name":"What actually reduces the cost of a breach?","acceptedAnswer":{"@type":"Answer","text":"Speed and tooling. Breaches contained within 200 days averaged $4.32M versus $5.65M for longer lifecycles, and organizations using security AI and automation extensively saved an average of $1.93M per breach (IBM, 2026)."}},
+{"@type":"Question","name":"What is the cost per record of a data breach?","acceptedAnswer":{"@type":"Answer","text":"IBM's 2026 report puts the average compromised customer PII record at $192, up from $160. Customer PII was the most commonly stolen data type at 52% of breaches; intellectual property was the costliest to lose at $196 per record."}}
+]}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1c6ef2;color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:30px;line-height:1.3;margin-bottom:14px}
+p.lead{font-size:17px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1420;border:1px solid #1c6ef2;border-radius:12px;padding:20px 24px;margin:24px 0;font-size:15.5px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:18px 0}
+.card h2{font-size:19px;margin-bottom:14px}
+label.field{display:block;margin:16px 0 6px;font-weight:700;font-size:14px}
+select,input[type=number]{width:100%;background:#0b0f17;border:1px solid #2a3342;color:#e6edf3;border-radius:8px;padding:12px;font-size:16px;font-family:inherit}
+input[type=range]{width:100%;margin:8px 0}
+.recval{font-size:15px;color:#9aa7b8}
+.checkrow{display:flex;gap:10px;align-items:flex-start;margin:16px 0;font-size:14px}
+.checkrow input{margin-top:5px}
+button.calc{display:block;width:100%;background:#1c6ef2;color:#fff;border:none;border-radius:10px;padding:14px;font-size:17px;font-weight:700;cursor:pointer;margin-top:18px;font-family:inherit}
+button.calc:hover{background:#2b7cf5}
+#result{display:none}
+.big{font-size:42px;font-weight:800;color:#fff;margin:6px 0}
+.range{font-size:16px;color:#9aa7b8;margin-bottom:14px}
+.buckets{margin:18px 0}
+.bucket{display:flex;align-items:center;gap:12px;margin:8px 0;font-size:14px}
+.bucket .bar{height:10px;border-radius:5px;background:#1c6ef2;min-width:4px}
+.bucket .lbl{width:190px;color:#9aa7b8}
+.ctx{font-size:14px;color:#9aa7b8;margin-top:14px}
+.ctx b{color:#e6edf3}
+.sharecard{background:#0d1420;border:2px dashed #1c6ef2;border-radius:12px;padding:24px;margin:22px 0;text-align:center}
+.sharecard .st{font-size:19px;font-weight:700;line-height:1.5}
+.sharecard .src{font-size:13px;color:#9aa7b8;margin-top:10px}
+button.copy{background:#232b38;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;margin-top:12px;font-family:inherit}
+button.copy:hover{border-color:#1c6ef2}
+.caveat{font-size:13px;color:#6b7688;margin-top:14px}
+h2.sec{font-size:21px;margin:34px 0 12px}
+.faq{margin:10px 0;border-bottom:1px solid #1c2330;padding:12px 0}
+.faq b{display:block;font-size:15.5px;margin-bottom:6px}
+.faq p{font-size:14.5px;color:#9aa7b8}
+.sources{font-size:13.5px;color:#6b7688;margin-top:10px}
+.sources a{color:#7aa7f5}
+footer{margin-top:36px;padding-top:18px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+footer a{color:#7aa7f5}
+</style>
+</head>
+<body>
+<div class="wrap">
+<span class="badge">FREE CALCULATOR</span>
+<h1>Data Breach Cost Calculator</h1>
+<p class="lead">Pick your company size and industry. Get an estimated breach cost built from published research figures — in seconds, in your browser, nothing uploaded.</p>
+
+<div class="answer"><b>Direct answer:</b> IBM's 2026 Cost of a Data Breach Report puts the global average breach at $4.99 million, up 12% year over year, with healthcare the costliest industry at $6.64 million and customer PII averaging $192 per record. This calculator applies those published figures to your company size and industry for a fast, shareable estimate.</div>
+
+<div class="card">
+<h2>Your inputs</h2>
+<label class="field" for="size">Company size</label>
+<select id="size">
+<option value="startup">Startup — 1 to 50 employees</option>
+<option value="small">Small — 51 to 250 employees</option>
+<option value="mid" selected>Mid-size — 251 to 1,000 employees</option>
+<option value="large">Large — 1,001 to 5,000 employees</option>
+<option value="enterprise">Enterprise — 5,000+ employees</option>
+</select>
+<label class="field" for="industry">Industry</label>
+<select id="industry">
+<option value="healthcare">Healthcare</option>
+<option value="financial">Financial services</option>
+<option value="energy">Energy</option>
+<option value="other" selected>Other / cross-industry</option>
+</select>
+<label class="field" for="records">Records at risk <span class="recval" id="recval">75,000</span></label>
+<input type="range" id="records" min="2500" max="500000" step="2500" value="75000">
+<div class="recval">IBM's 2026 study covered breaches of 2,590 to 115,380 records. Move the slider to match your exposure; it stays a planning figure either way.</div>
+<div class="checkrow"><input type="checkbox" id="ai"><span><b>We use security AI and automation extensively.</b> IBM found these organizations saved an average of $1.93M per breach. Checking this reduces the estimate accordingly.</span></div>
+<button class="calc" onclick="calc()">Calculate my breach cost</button>
+</div>
+
+<div class="card" id="result">
+<h2>Estimated breach cost</h2>
+<div class="big" id="est">$—</div>
+<div class="range" id="rng"></div>
+<div class="buckets" id="buckets"></div>
+<div class="ctx" id="ctx"></div>
+<div class="sharecard">
+<div class="st" id="sharetext"></div>
+<div class="src">Estimate by Ingenious AI — from IBM Cost of a Data Breach Report 2026 published figures.<br>https://iceman2050.github.io/ingeniousai-security-checks-mirror/breach-cost-calculator.html</div>
+<button class="copy" onclick="copyshare()">Copy share text</button>
+</div>
+<div class="caveat"><b>Honest caveat:</b> this is an estimate from public averages, not a quote. IBM's report does not break results out by company size, so the size defaults are illustrative. Real costs vary with the data involved, the attack vector, and containment speed. Verify anything budget-critical against the source report.</div>
+</div>
+
+<h2 class="sec">Frequently asked questions</h2>
+<div class="faq"><b>Where do this calculator's numbers come from?</b><p>IBM's Cost of a Data Breach Report 2026, produced with the Ponemon Institute from 602 breached organizations across 16 countries, covering incidents between March 2025 and February 2026. Key published figures: $4.99M global average, $11.5M US average, $6.64M healthcare, $6.3M financial services, $5.2M energy, and $192 per customer PII record.</p></div>
+<div class="faq"><b>How accurate is this breach cost estimate?</b><p>It is a rough planning figure built from public averages, not a quote and not a prediction. IBM's report does not break results out by company size, and real breach costs vary widely with the data involved, the attack vector, and how fast the breach is contained.</p></div>
+<div class="faq"><b>Why does industry change the estimate?</b><p>Breach costs differ sharply by sector in IBM's data. Healthcare was the costliest industry for the 13th year running at $6.64M on average, followed by financial services at $6.3M and energy at $5.2M, against a $4.99M global average.</p></div>
+<div class="faq"><b>What actually reduces the cost of a breach?</b><p>Speed and tooling. Breaches contained within 200 days averaged $4.32M versus $5.65M for longer lifecycles, and organizations using security AI and automation extensively saved an average of $1.93M per breach (IBM, 2026).</p></div>
+<div class="faq"><b>What is the cost per record of a data breach?</b><p>IBM's 2026 report puts the average compromised customer PII record at $192, up from $160. Customer PII was the most commonly stolen data type at 52% of breaches; intellectual property was the costliest to lose at $196 per record.</p></div>
+
+<h2 class="sec">Sources</h2>
+<div class="sources">
+Figures: IBM Cost of a Data Breach Report 2026 (IBM / Ponemon Institute; 602 organizations, 16 countries, incidents March 2025 – February 2026).<br>
+Summaries consulted: <a href="https://www.secureworld.io/industry-news/cost-data-breach-report-2026">SecureWorld</a> · <a href="https://www.usecarly.com/blog/cybersecurity-statistics/">UseCarly</a> · <a href="https://incidentcost.com/types/data-breach">IncidentCost</a>.
+</div>
+
+<footer>Built by <b>Ingenious AI</b> · <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/">All free security self-tests</a></footer>
+</div>
+<script>
+var SIZE_DEFAULTS={startup:5000,small:25000,mid:75000,large:150000,enterprise:400000};
+var SIZE_LABELS={startup:"startup",small:"small",mid:"mid-size",large:"large",enterprise:"enterprise"};
+var IND_AVG={healthcare:6640000,financial:6300000,energy:5200000,other:4990000};
+var IND_LABELS={healthcare:"healthcare",financial:"financial services",energy:"energy",other:"cross-industry"};
+var PER_RECORD=192, AI_SAVING=1930000;
+function fmt(n){return "$"+Math.round(n).toLocaleString("en-US");}
+document.getElementById("size").addEventListener("change",function(){
+  var r=SIZE_DEFAULTS[this.value];
+  document.getElementById("records").value=r;
+  document.getElementById("recval").textContent=r.toLocaleString("en-US");
+});
+document.getElementById("records").addEventListener("input",function(){
+  document.getElementById("recval").textContent=Number(this.value).toLocaleString("en-US");
+});
+function calc(){
+  var size=document.getElementById("size").value,
+      ind=document.getElementById("industry").value,
+      recs=Number(document.getElementById("records").value),
+      ai=document.getElementById("ai").checked;
+  var est=recs*PER_RECORD;
+  if(ai){est=Math.max(est*0.30,est-AI_SAVING);}
+  var low=est*0.7, high=est*1.3, indAvg=IND_AVG[ind];
+  document.getElementById("est").textContent=fmt(est);
+  document.getElementById("rng").textContent="Planning range: "+fmt(low)+" – "+fmt(high)+"  (±30%; planning band, not an IBM figure)";
+  var bk=[["Detection and escalation",0.329],["Lost business",0.309],["Post-breach response",0.273],["Notification",0.090]];
+  var bh="";
+  bk.forEach(function(b){
+    var v=est*b[1];
+    bh+='<div class="bucket"><span class="lbl">'+b[0]+' ('+Math.round(b[1]*100)+'%)</span><span class="bar" style="width:'+Math.max(2,Math.round(b[1]*300))+'px"></span><span>'+fmt(v)+'</span></div>';
+  });
+  document.getElementById("buckets").innerHTML=bh;
+  document.getElementById("ctx").innerHTML="Context — IBM 2026 published averages: <b>"+IND_LABELS[ind]+" industry average "+fmt(indAvg)+"</b> · global average <b>$4.99M</b> · customer PII <b>$192/record</b> · mean time to identify and contain <b>247 days</b>."+(ai?" With extensive security AI/automation, IBM's average saving of $1.93M has been applied.":"");
+  var st="A data breach could cost a "+SIZE_LABELS[size]+" "+IND_LABELS[ind]+" company ~"+fmt(est)+". Estimate yours free:";
+  document.getElementById("sharetext").textContent=st;
+  document.getElementById("result").style.display="block";
+  document.getElementById("result").scrollIntoView({behavior:"smooth"});
+}
+function copyshare(){
+  var t=document.getElementById("sharetext").textContent+" https://iceman2050.github.io/ingeniousai-security-checks-mirror/breach-cost-calculator.html";
+  if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){alert("Share text copied.");});}
+  else{var ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand("copy");document.body.removeChild(ta);alert("Share text copied.");}
+}
+</script>
+</body>
+</html>
