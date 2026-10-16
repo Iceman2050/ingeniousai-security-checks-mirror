@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PwnEscape CVE-2026-99999 Kernel Check — Is Your Host Patched? Free 30-Second Self-Test</title>
+<meta name="description" content="PwnEscape (CVE-2026-99999, CVSS 9.3): a Linux kernel flaw letting guest VMs read host memory — demonstrated against live cloud sandboxes. Check your host kernel in 30 seconds. Free, no signup.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/pwnescape-kernel-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Can a VM read your host's memory? — 30-Second PwnEscape Kernel Check">
+<meta property="og:description" content="PwnEscape (CVE-2026-99999, CVSS 9.3): crafted packets from inside a guest VM can read host memory — proven against live cloud sandboxes. Check your host kernel in 30 seconds. Free, no signup.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/pwnescape-kernel-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Can a VM read your host's memory? — 30-Second PwnEscape Kernel Check">
+<meta name="twitter:description" content="PwnEscape (CVE-2026-99999, CVSS 9.3): crafted packets from inside a guest VM can read host memory — proven against live cloud sandboxes. Check your host kernel in 30 seconds. Free, no signup.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#3b0d0d;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.step{display:flex;gap:14px;margin:18px 0}
+.stepnum{flex:0 0 34px;height:34px;border-radius:50%;background:#1c6ef2;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+code.cmd{display:block;background:#000;border:1px solid #2a3342;border-radius:8px;padding:14px 16px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;color:#7ee787;overflow-x:auto;margin:10px 0;white-space:pre}
+input.kver{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;padding:14px 16px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:15px;color:#e6edf3;margin:10px 0}
+button.check{background:#1c6ef2;color:#fff;font-weight:700;font-size:16px;padding:12px 28px;border:none;border-radius:8px;cursor:pointer}
+button.check:hover{background:#2f7ef7}
+#result{margin-top:14px;display:none}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{border:1px solid #2a3342;padding:8px 10px;text-align:left}
+th{background:#161d28;color:#fff}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is PwnEscape CVE-2026-99999?","acceptedAnswer":{"@type":"Answer","text":"PwnEscape (CVE-2026-99999, CVSS 9.3 Critical) is a Linux kernel networking flaw: specially crafted packets sent from inside a guest virtual machine can read the host computer's memory, crash the host, and — in lab conditions — run code on it, breaking out of the VM. It was demonstrated against Vercel's live cloud sandboxes, which Vercel confirmed."}},
+{"@type":"Question","name":"How do I check if my host kernel is patched against PwnEscape?","acceptedAnswer":{"@type":"Answer","text":"Run 'uname -r' on the HOST (not the guest — patching the guest does not fix the host). Compare against the first fixed versions per stable branch: 5.10.272, 5.15.223, 6.1.190, 6.6.159, 6.12.113, 6.18.57, 7.2.11. Because distributions often backport fixes without changing the version number, also check your distribution's security advisory. The interactive checker on this page does the comparison for you."}},
+{"@type":"Question","name":"Can PwnEscape be exploited remotely over the internet?","acceptedAnswer":{"@type":"Answer","text":"No. The attack vector is local — the attacker must already be running code inside a guest VM on the target host. It is not in CISA's Known Exploited Vulnerabilities catalog and no in-the-wild exploitation has been reported. The risk is to shared/cloud infrastructure where untrusted tenants run code, not to a typical single-purpose server."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">CVE-2026-99999 &ldquo;PWNESCAPE&rdquo; &mdash; CVSS 9.3 CRITICAL &mdash; OCT 2026</div>
+<h1>Can a virtual machine <span class="red">read your host's memory</span>?</h1>
+<p class="lead">A researcher just proved it: <strong>PwnEscape</strong>, a flaw in the Linux kernel's networking code, lets specially crafted packets sent <strong>from inside a guest VM</strong> read the host computer's memory &mdash; about 32 bytes per packet, for as long as the attacker keeps sending. In lab conditions the same flaw crashed the host with two packets and broke out to administrator control. It was demonstrated against <strong>Vercel's live production sandboxes</strong>, and Vercel confirmed it. Found in 3 days with AI-assisted research costing under $700 in API tokens. This free 30-second check tells you if your host kernel is patched. No signup, nothing installed.</p>
+
+<div class="card">
+<h2>The 30-second check</h2>
+<div class="step"><div class="stepnum">1</div><div>
+<p><strong>Get your HOST kernel version</strong> &mdash; on the host machine itself (patching the guest does <em>not</em> fix the host):</p>
+<code class="cmd">uname -r</code>
+</div></div>
+<div class="step"><div class="stepnum">2</div><div style="flex:1">
+<p><strong>Paste it below</strong> &mdash; e.g. <code>6.8.0-52-generic</code> or <code>5.15.0-130-generic</code>:</p>
+<input class="kver" id="kver" placeholder="paste uname -r output here" autocomplete="off" spellcheck="false">
+<button class="check" onclick="checkKernel()">Check my kernel</button>
+<div id="result"></div>
+<p class="note" style="margin-top:10px"><strong>Important caveat:</strong> Linux distributions often backport security fixes <em>without</em> changing the version number — so a version below the fixed number may still be patched if your distro backported it. Always confirm against your distribution's security advisory (e.g. Debian security tracker, Ubuntu CVE tracker, RHEL errata), not just the number.</p>
+</div></div>
+</div>
+
+<div class="card">
+<h2>First fixed versions per stable branch</h2>
+<table>
+<tr><th>Stable branch</th><th>First fixed version</th></tr>
+<tr><td>5.10</td><td>5.10.272</td></tr>
+<tr><td>5.15</td><td>5.15.223</td></tr>
+<tr><td>6.1</td><td>6.1.190</td></tr>
+<tr><td>6.6</td><td>6.6.159</td></tr>
+<tr><td>6.12</td><td>6.12.113</td></tr>
+<tr><td>6.18</td><td>6.18.57</td></tr>
+<tr><td>7.2</td><td>7.2.11</td></tr>
+</table>
+<p class="note">Source: the CVE-2026-99999 record. The flaw was introduced in kernel 2.6.27, so every supported branch was affected. Fix: upstream commit <code>6785011f8b16</code> ("ipv4: validate checksum_start before completing checksum") by Red Hat's Michael S. Tsirkin — a deliberately partial defense-in-depth check; fuller input validation is still forthcoming.</p>
+</div>
+
+<div class="card" style="border-color:#f85149">
+<h2>If you're exposed, do this now</h2>
+<ul>
+<li><strong>Update the HOST kernel</strong> to a fixed version (or your vendor's build containing the fix) and <strong>reboot into it</strong>. Updating only guests changes nothing.</li>
+<li><strong>There is no workaround</strong> if you can't patch yet — but you can narrow the blast radius the way Vercel does: keep host kernels current, disable nested virtualization, and run each microVM under a least-privilege jailer (Firecracker's jailer model).</li>
+<li><strong>Who's actually at risk:</strong> clouds and platforms running untrusted tenant code in VMs on shared hosts. A single-purpose server with no untrusted guests is far less exposed — the attack needs code execution inside a guest first, and no in-the-wild exploitation has been reported.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Why this one matters beyond one cloud</h2>
+<ul>
+<li><strong>It's in the shared layer, not one vendor's setup:</strong> the bug is in the Linux kernel's networking code that the host runs — the same layer almost every large cloud uses to separate customers' workloads. Vercel's sandbox was reportedly hardened beyond industry standards with no misconfiguration found.</li>
+<li><strong>A new attack class:</strong> per the researchers, untrusted checksum metadata can rewrite security-sensitive packet fields <em>after</em> the kernel validated them — undermining assumptions across the networking stack, far beyond this one VM escape.</li>
+<li><strong>The AI-accelerated discovery era:</strong> found in 3 days for under $700 in tokens, after another team used AI help to reach OpenAI's internal systems earlier this year. Kernel bug-hunting just got dramatically cheaper — defenders and attackers alike.</li>
+<li><strong>Found the right way:</strong> via Vercel's $1M sandbox-escape challenge (August, two weeks, 1,285 reports, $242,000 paid) — disclosed privately, coordinated across the industry before publication.</li>
+</ul>
+</div>
+
+<a class="cta" href="https://breach-hunter.onrender.com/?utm_source=newsjack&utm_medium=static-page&utm_campaign=pwnescape-cve-2026-99999">Track infrastructure-level threats like PwnEscape &rarr; BreachHunter</a>
+<p class="note" style="text-align:center">This page checked one CVE. BreachHunter hunts attacker infrastructure and compromise indicators — including the cloud-isolation flaws that turn one breached container into a breached host.</p>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with anyone running VMs on shared hosts.<br>
+CVE-2026-99999 "PwnEscape" (CVSS 9.3 Critical) &middot; disclosed Oct 15, 2026 &middot; found by Paulos Yibelo (pwn.ai) in Vercel's sandbox challenge &middot; no in-the-wild exploitation reported
+</footer>
+</div>
+
+<div class="card" style="margin-top:22px">
+<h2 style="font-size:18px;margin-bottom:8px">Writing about PwnEscape? Embed the kernel checker</h2>
+<p style="color:#9aa7b8;font-size:14px;margin-bottom:10px">Drop a live kernel version-checker into your blog, docs, or forum post — three lines of HTML.</p>
+<a href="embed-checker.html" style="display:inline-block;background:#1c6ef2;color:#fff;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;font-size:14px">Get the embed code</a>
+</div>
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=PwnEscape%20CVE-2026-99999%3A%20a%20Linux%20kernel%20flaw%20lets%20a%20guest%20VM%20read%20HOST%20memory%20%E2%80%94%20proven%20vs%20live%20cloud%20sandboxes%20%E2%80%94%20free%2030-sec%20kernel%20check&url=https://iceman2050.github.io/ingeniousai-security-checks-mirror/pwnescape-kernel-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://iceman2050.github.io/ingeniousai-security-checks-mirror/pwnescape-kernel-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https://iceman2050.github.io/ingeniousai-security-checks-mirror/pwnescape-kernel-check.html&title=PwnEscape%20CVE-2026-99999%20Kernel%20Check" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+<script>
+var FIXED={"5.10":[5,10,272],"5.15":[5,15,223],"6.1":[6,1,190],"6.6":[6,6,159],"6.12":[6,12,113],"6.18":[6,18,57],"7.2":[7,2,11]};
+function parseVer(s){var m=s.trim().match(/^(\d+)\.(\d+)\.(\d+)/);return m?[+m[1],+m[2],+m[3]]:null;}
+function cmp(a,b){for(var i=0;i<3;i++){if(a[i]!==b[i])return a[i]-b[i];}return 0;}
+function checkKernel(){
+  var raw=document.getElementById('kver').value, res=document.getElementById('result'), v=parseVer(raw);
+  res.style.display='block';
+  if(!v){res.innerHTML='<div class="verdict warn"><strong>Could not parse that version.</strong> Paste the full output of <code>uname -r</code>, e.g. <code>6.8.0-52-generic</code>.</div>';return;}
+  var branch=v[0]+'.'+v[1], html='';
+  if(FIXED[branch]){
+    var d=cmp(v,FIXED[branch]);
+    if(d>=0) html='<div class="verdict safe"><strong>'+raw.trim()+' &rarr; PATCHED.</strong> Your kernel is at or above the first fixed version ('+FIXED[branch].join('.')+') for the '+branch+' branch. Still confirm your distro backported nothing odd — but by version number, you are clear of PwnEscape.</div>';
+    else html='<div class="verdict"><strong>'+raw.trim()+' &rarr; LIKELY VULNERABLE.</strong> The '+branch+' branch was fixed in '+FIXED[branch].join('.')+'. Update the HOST kernel and reboot. Then verify against your distribution\'s security advisory, since distros sometimes backport fixes without bumping the number.</div>';
+  } else if(cmp(v,[7,2,11])>0){
+    html='<div class="verdict safe"><strong>'+raw.trim()+' &rarr; LIKELY PATCHED.</strong> Newer than the newest branch with a published fix (7.2.11) — mainline contains the fix. Confirm with your distro advisory to be certain.</div>';
+  } else {
+    html='<div class="verdict warn"><strong>'+raw.trim()+' &rarr; UNCLEAR — check your distro advisory.</strong> Branch '+branch+' is not in the published fixed-version list (your branch may be EOL or carry a distro backport). Look up CVE-2026-99999 in your distribution\'s security tracker.</div>';
+  }
+  res.innerHTML=html;
+}
+</script>
+</body>
+</html>
