@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Could the Study You're Citing Be Fake? The AI Paper-Fraud Red-Flag Check</title>
+<meta name="description" content="A Lancet audit of 2.5 million biomedical papers found 4,046 fabricated citations in 2,810 papers — a 12-fold rise since 2023, with the sharpest jump as AI writing tools spread. 6 red-flag checks before you cite a study. Free, no signup.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="1 in 277 medical papers now cites a study that doesn't exist. Could yours? 60-second check">
+<meta property="og:description" content="A Lancet audit found fabricated citations in biomedical literature rose 12-fold since 2023. 6 red-flag checks before you cite or trust a study. Free, no signup.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-fake-research-redflag-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-fake-research-redflag-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1 in 277 medical papers now cites a study that doesn't exist. Could yours? 60-second check">
+<meta name="twitter:description" content="A Lancet audit found fabricated citations in biomedical literature rose 12-fold since 2023. 6 red-flag checks before you cite or trust a study. Free, no signup.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#3b0d0d;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.q{display:flex;gap:12px;align-items:flex-start;margin:16px 0;padding:14px;border:1px solid #232b38;border-radius:10px;background:#0d1219}
+.q .qn{flex:0 0 28px;height:28px;border-radius:50%;background:#1c2b45;color:#9db8e8;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.q .qt{flex:1}
+.q .qt small{display:block;color:#9aa7b8;font-size:13px;margin-top:4px}
+.qbtns{flex:0 0 auto;display:flex;gap:8px}
+.qbtns button{border:1px solid #2a3342;background:#11161f;color:#e6edf3;font-weight:700;font-size:13px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.qbtns button.sel-y{background:#3fb950;border-color:#3fb950;color:#06240f}
+.qbtns button.sel-n{background:#f85149;border-color:#f85149;color:#fff}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.stat{background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:16px;text-align:center}
+.stat b{display:block;font-size:26px;color:#ffa198}
+.stat span{font-size:13px;color:#9aa7b8}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What did the Lancet audit of fabricated citations find?","acceptedAnswer":{"@type":"Answer","text":"Topaz et al. (The Lancet, 2026) audited 2.5 million biomedical papers in PubMed Central's Open Access subset, verifying 97.1 million references with an AI-assisted system. They found 4,046 fabricated references in 2,810 papers. The rate rose 12-fold since 2023: 1 in 2,828 papers in 2023, 1 in 458 in 2025, and 1 in 277 in the first seven weeks of 2026, with the sharpest increase from mid-2024, coinciding with the spread of AI writing tools."}},
+{"@type":"Question","name":"Does a fabricated citation mean the whole paper is fraudulent?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. The authors could not determine cause — possibilities include paper-mill activity, intentional misconduct, and uncritical use of AI tools. Some fabricated citations may have been unintentionally generated by AI assistants. But over 98% of the affected articles had seen no publisher action at the time of the audit, and fake citations are already appearing in systematic reviews that inform clinical care."}},
+{"@type":"Question","name":"What did the researchers recommend?","acceptedAnswer":{"@type":"Answer","text":"They recommended publishers verify references with every submission using automated systems, indexing services add integrity metadata to article records, existing publications be screened retroactively, and research-integrity databases create a dedicated category for fabricated references to enable systematic tracking."}},
+{"@type":"Question","name":"Was the study itself criticised?","acceptedAnswer":{"@type":"Answer","text":"Yes. Biostatistics researcher Mohammad Hosseini (Northwestern) called the analysis 'simplistic' and the 'tip of the iceberg' — arguing the bigger, harder problem is AI-generated citations that aren't wholly fabricated but are inaccurate, biased, or incomplete, which current methods cannot reliably detect."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">AI RESEARCH FRAUD &mdash; THE LANCET AUDIT</div>
+<h1>1 in 277 medical papers now cites a study that <span class="red">doesn't exist</span></h1>
+<p class="lead">In May 2026, <strong>The Lancet</strong> published an audit by <strong>Maxim Topaz and colleagues (Columbia University)</strong> that scanned <strong>2.5 million biomedical papers</strong> and verified <strong>97.1 million references</strong> with an AI-assisted system. They found <strong>4,046 fabricated citations in 2,810 papers</strong> &mdash; references to studies that simply do not exist. The rate rose <strong>12-fold since 2023</strong>: 1 in 2,828 papers in 2023, 1 in 458 in 2025, 1 in 277 in early 2026 &mdash; with the sharpest jump from <strong>mid-2024, coinciding with the spread of AI writing tools</strong>. One paper had <strong>18 of 30 references fake</strong>. Review articles &mdash; the ones clinical guidelines are built on &mdash; run a <strong>57% higher</strong> fabrication rate. Over <strong>98%</strong> of affected articles had seen no publisher action. The authors couldn't prove cause &mdash; paper mills, misconduct, and uncritical AI use are all on the table &mdash; but the fake citations are already being cited by other papers and appearing in <strong>systematic reviews that inform clinical care</strong>. This 60-second check is the verification routine the study says everyone should be running. Free, no signup.</p>
+
+<div class="stats">
+<div class="stat"><b>2.5M</b><span>papers audited</span></div>
+<div class="stat"><b>4,046</b><span>fabricated citations found</span></div>
+<div class="stat"><b>12×</b><span>rise since 2023</span></div>
+<div class="stat"><b>98%+</b><span>of affected papers: no publisher action</span></div>
+</div>
+
+<div class="card">
+<h2>The 60-second citation integrity check</h2>
+<p class="note">Run this on any study before you cite it, prescribe from it, or build on it. Here, "Yes" is the safe answer.</p>
+<div id="quiz"></div>
+<div id="qresult" style="margin-top:12px"><div class="verdict warn"><strong>Answer the 6 checks above</strong> to get your integrity verdict.</div></div>
+<script>
+var QS=[
+["Did you verify the key references actually exist (PubMed, Crossref, or the publisher site)?","The core finding: 1 in 277 papers cites something that isn't real. A 30-second DOI lookup is the single highest-value check in research."],
+["Did you check the journal and publisher are legitimate and the paper is indexed?","Paper mills target real-looking journals. Confirm indexing in PubMed/Web of Science and that the publisher is a known entity."],
+["Did you look for a data-availability statement — and does the data actually exist?","Fabricated studies can't produce real datasets. 'Data available on request' with no response is a classic red flag."],
+["Did you sanity-check the statistics?","Impossible p-values, identical means across groups, sample sizes that don't match the analysis — fabricated numbers leave fingerprints."],
+["Did you check Retraction Watch / PubPeer for the paper or its authors?","Post-publication scrutiny catches what peer review missed. A 60-second search before citing is cheap insurance."],
+["If it's a review article, did you verify its key citations independently?","Review articles have a 57% higher fabrication rate — and they're what guidelines and later reviews build on. Trust, but verify harder."] ];
+var ANS=[null,null,null,null,null,null];
+function renderQ(){
+  var h='';
+  for(var i=0;i<QS.length;i++){
+    h+='<div class="q"><div class="qn">'+(i+1)+'</div><div class="qt"><strong>'+QS[i][0]+'</strong><small>'+QS[i][1]+'</small></div><div class="qbtns"><button id="y'+i+'" onclick="ans('+i+',1)">Yes</button><button id="n'+i+'" onclick="ans('+i+',0)">No</button></div></div>';
+  }
+  document.getElementById('quiz').innerHTML=h;
+}
+function ans(i,v){
+  ANS[i]=v;
+  document.getElementById('y'+i).className=v===1?'sel-y':'';
+  document.getElementById('n'+i).className=v===0?'sel-n':'';
+  var out=document.getElementById('qresult');
+  if(ANS.indexOf(null)>=0){return;}
+  var yes=0;
+  for(var k=0;k<ANS.length;k++){if(ANS[k]===1)yes++;}
+  if(yes===6){
+    out.innerHTML='<div class="verdict safe"><strong>SOLID verification routine.</strong> You\'re doing what the Lancet authors asked the whole ecosystem to do: verify at the point of use. Keep it habitual — the fabrication rate is still climbing.</div>';
+  }else if(yes>=4){
+    out.innerHTML='<div class="verdict warn"><strong>'+(6-yes)+' gaps — PARTIAL verification.</strong> The checks you skipped are exactly where fabricated citations hide. The cheapest upgrade: verify every DOI you cite before you cite it. Thirty seconds per reference.</div>';
+  }else{
+    out.innerHTML='<div class="verdict"><strong>'+(6-yes)+' of 6 checks skipped — HIGH exposure.</strong> You\'re citing the way the 2,810 affected papers got written: trust without verification. Start with check 1 — confirm every reference exists — and work down the list. For publishers and editors, the study\'s prescription is automated reference verification at submission.</div>';
+  }
+}
+renderQ();
+</script>
+<p class="note">This checklist is informational. It operationalises the recommendations of Topaz et al., The Lancet 2026 — it is not a forensic research-integrity audit.</p>
+</div>
+
+<div class="card">
+<h2>Why this is getting worse, not better</h2>
+<ul>
+<li><strong>AI made fabrication cheap.</strong> The sharpest rise began mid-2024, tracking the spread of mainstream AI writing tools. What once took a paper mill weeks now takes minutes.</li>
+<li><strong>Peer review can't see it.</strong> Fabricated citations look real: invented authors, plausible titles, correct journal formatting. At NeurIPS 2025, 100 hallucinated citations reportedly passed 3&ndash;5 expert reviewers each; an AI scanner found them.</li>
+<li><strong>Nobody is cleaning up.</strong> Over 98% of papers with fabricated references had seen no publisher action at audit time. The literature is accumulating fake citations faster than anyone retracts them.</li>
+<li><strong>The damage compounds.</strong> Fake citations get cited by real papers and absorbed into systematic reviews and clinical guidelines &mdash; the exact evidence base doctors rely on.</li>
+<li><strong>Detection lags the threat.</strong> Critics note the audit only catches <em>wholly fabricated</em> citations &mdash; the "tip of the iceberg." AI-generated citations that are merely inaccurate, biased, or incomplete remain effectively undetectable today.</li>
+</ul>
+</div>
+
+<a class="cta" href="https://disclosure-guard.onrender.com/?utm_source=newsjack&utm_medium=static-page&utm_campaign=fake-research">Detect undisclosed AI-generated content &rarr; DisclosureGuard</a>
+<p class="note" style="text-align:center">This page checked one integrity failure. DisclosureGuard scans content for AI-generation signals and disclosure obligations — the automated verification layer the Lancet authors say publishing needs.</p>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with every researcher, clinician, and student you know.<br>
+Topaz M, Roguin N, Gupta P, et al. "Fabricated citations: an audit across 2.5 million biomedical papers." <em>The Lancet</em>. 2026;407:1779-1781 &middot; Retraction Watch &middot; Nature (Apr 2026)
+</footer>
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=1%20in%20277%20medical%20papers%20now%20cites%20a%20study%20that%20doesn%27t%20exist%20%E2%80%94%20up%2012x%20since%202023%20(The%20Lancet).%206%20red-flag%20checks%20before%20you%20cite%20a%20study&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ai-fake-research-redflag-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ai-fake-research-redflag-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ai-fake-research-redflag-check.html&title=Could%20the%20study%20you%27re%20citing%20be%20fake%3F%20AI%20paper-fraud%20red-flag%20check" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
