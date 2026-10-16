@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Which Cyber Security Tool Does the Job? — 16 Open-Source Tools, 6 Real Scenarios</title>
+<meta name="description" content="OpenVAS, Wireshark, Frida, MobSF, Dradis and 11 more — 16 free open-source security tools across 4 categories. Take the 6-scenario tool-picker quiz and grab the one-line reference grid. Free, no signup.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="16 free security tools. Can you pick the right one for the job?">
+<meta property="og:description" content="Vulnerability scanning, pentesting, mobile security, reporting — 16 open-source tools, 6 real scenarios. Take the 60-second tool-picker quiz. Free, no signup.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/cyber-security-toolkit-picker.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/cyber-security-toolkit-picker.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="16 free security tools. Can you pick the right one for the job?">
+<meta name="twitter:description" content="Vulnerability scanning, pentesting, mobile security, reporting — 16 open-source tools, 6 real scenarios. Take the 60-second tool-picker quiz. Free, no signup.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d2a12;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .green{color:#3fb950}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:16px;margin:18px 0 8px;color:#7ee787}
+.q{display:flex;gap:12px;align-items:flex-start;margin:16px 0;padding:14px;border:1px solid #232b38;border-radius:10px;background:#0d1219}
+.q .qn{flex:0 0 28px;height:28px;border-radius:50%;background:#1c2b45;color:#9db8e8;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.q .qt{flex:1}
+.q .qt small{display:block;color:#9aa7b8;font-size:13px;margin-top:4px}
+.qbtns{flex:0 0 auto;display:flex;gap:8px}
+.qbtns button{border:1px solid #2a3342;background:#11161f;color:#e6edf3;font-weight:700;font-size:13px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.qbtns button.sel-y{background:#3fb950;border-color:#3fb950;color:#06240f}
+.qbtns button.sel-n{background:#f85149;border-color:#f85149;color:#fff}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.toolgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.tool{background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:10px 12px;font-size:13px}
+.tool b{color:#fff;display:block;font-size:14px}
+.tool span{color:#9aa7b8}
+@media(max-width:560px){.toolgrid{grid-template-columns:1fr}}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Are all 16 of these security tools really free and open source?","acceptedAnswer":{"@type":"Answer","text":"Yes — every tool in the four categories (OpenVAS, Wapiti, Nikto, Vuls, Wireshark, Ettercap, ArpSpoof, NetCat, Drozer, Androguard, Frida, MobSF, Dradis, Faraday, Ghostwriter, PwnDoc) is an open-source project you can download and run yourself. Exact licenses vary by project (GPL, MIT, Apache and others), so check each repository before commercial use."}},
+{"@type":"Question","name":"Which tool should a beginner start with?","acceptedAnswer":{"@type":"Answer","text":"Start with one category, not all sixteen. For network visibility, Wireshark is the classic first tool. For quick web checks, Nikto or Wapiti give fast results. For mobile, MobSF automates static and dynamic app analysis. Learn what each category does before collecting tools."}},
+{"@type":"Question","name":"Can these tools replace a professional penetration test?","acceptedAnswer":{"@type":"Answer","text":"No. Scanners find known issues fast, but a professional pentest adds human methodology: chaining vulnerabilities, testing business logic, social engineering, and prioritising by real business risk. Tools are the starting kit, not the engagement."}},
+{"@type":"Question","name":"Is it legal to use these tools?","acceptedAnswer":{"@type":"Answer","text":"Only on systems you own or have explicit written permission to test. Running scanners or interception tools against systems you don't own is illegal in most jurisdictions. Practice in a home lab or on intentionally vulnerable targets instead."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">CYBER SECURITY TOOLKIT &mdash; 16 OPEN-SOURCE TOOLS</div>
+<h1>16 free security tools. Can you <span class="green">pick the right one</span> for the job?</h1>
+<p class="lead">A viral infographic groups the essential open-source security toolkit into four categories: <strong>Vulnerability Scanning</strong> (OpenVAS, Wapiti, Nikto, Vuls), <strong>Penetration Testing</strong> (Wireshark, Ettercap, ArpSpoof, NetCat), <strong>Mobile Security</strong> (Drozer, Androguard, Frida, MobSF) and <strong>Reporting &amp; Documentation</strong> (Dradis, Faraday, Ghostwriter, PwnDoc). All sixteen are real, free, open-source projects. The quiz below gives you six real scenarios &mdash; reach for the right tool each time. Free, no signup.</p>
+
+<div class="card">
+<h2>The 60-second tool-picker quiz</h2>
+<p class="note">Six scenarios. In each one, a tool is suggested &mdash; answer <strong>Yes</strong> if it's the right pick for the job.</p>
+<div id="quiz"></div>
+<div id="qresult" style="margin-top:12px"><div class="verdict warn"><strong>Answer the 6 scenarios above</strong> to get your toolkit verdict.</div></div>
+<script>
+var QS=[
+["You need to check a fleet of Linux servers for known CVEs without installing any agent. Reach for Vuls?","Vuls is an agent-less vulnerability scanner (Go, by future-architect) that checks Linux/FreeBSD/macOS/Windows hosts over SSH against NVD, OVAL and other databases. Correct pick."],
+["You need to scan a web application for common flaws like SQL injection and XSS. Reach for Wapiti?","Wapiti is an open-source web-application vulnerability scanner written in Python — built exactly for crawling a site and probing for injection flaws. Correct pick."],
+["You need to capture live network traffic and inspect exactly what is crossing the wire. Reach for Wireshark?","Wireshark is the standard network protocol analyzer — capture packets, follow streams, dissect protocols. Correct pick."],
+["You're on an engagement and need a quick TCP listener, a banner grab, or a reverse-shell handler. Reach for Netcat?","Netcat is the classic &ldquo;TCP/IP Swiss army knife&rdquo; — listeners, banners, shells, data pipes in one tiny binary. Correct pick."],
+["You need to reverse-engineer an Android APK and get an automated security assessment. Reach for MobSF?","MobSF (Mobile Security Framework) automates static and dynamic analysis of Android (and iOS) apps. Correct pick."],
+["The pentest is done and you need to turn raw findings into a professional client report with your team. Reach for Dradis?","Dradis is a collaboration and reporting platform built for pentest teams — findings in, structured report out. Correct pick."] ];
+var ANS=[null,null,null,null,null,null];
+function renderQ(){
+  var h='';
+  for(var i=0;i<QS.length;i++){
+    h+='<div class="q"><div class="qn">'+(i+1)+'</div><div class="qt"><strong>'+QS[i][0]+'</strong><small>'+QS[i][1]+'</small></div><div class="qbtns"><button id="y'+i+'" onclick="ans('+i+',1)">Yes</button><button id="n'+i+'" onclick="ans('+i+',0)">No</button></div></div>';
+  }
+  document.getElementById('quiz').innerHTML=h;
+}
+function ans(i,v){
+  ANS[i]=v;
+  document.getElementById('y'+i).className=v===1?'sel-y':'';
+  document.getElementById('n'+i).className=v===0?'sel-n':'';
+  var out=document.getElementById('qresult');
+  if(ANS.indexOf(null)>=0){return;}
+  var yes=0;
+  for(var k=0;k<ANS.length;k++){if(ANS[k]===1)yes++;}
+  if(yes===6){
+    out.innerHTML='<div class="verdict safe"><strong>6/6 &mdash; TOOLKIT PRO.</strong> You reach for the right tool for every job: scanning, traffic analysis, mobile, and reporting. Now go deeper on one category and master it.</div>';
+  }else if(yes>=4){
+    out.innerHTML='<div class="verdict warn"><strong>'+yes+'/6 &mdash; SOLID OPERATOR.</strong> Good instincts on most scenarios. Re-read the reference grid below for the ones you missed &mdash; knowing <em>why</em> a tool fits is what separates operators from collectors.</div>';
+  }else{
+    out.innerHTML='<div class="verdict"><strong>'+yes+'/6 &mdash; SCRIPT KIDDIE STARTER PACK.</strong> No shame &mdash; everyone starts somewhere. Study the grid below, install one tool per category in a home lab, and retake the quiz. Never run these against systems you don\'t own.</div>';
+  }
+}
+renderQ();
+</script>
+<p class="note">This self-assessment is informational and for education. Only use security tools on systems you own or have explicit written permission to test.</p>
+</div>
+
+<div class="card">
+<h2>The full 16-tool reference grid</h2>
+<p class="note">All sixteen tools from the infographic, each verified as a real open-source project, with a one-line job description.</p>
+<h3>Vulnerability Scanning</h3>
+<div class="toolgrid">
+<div class="tool"><b>OpenVAS</b><span>Full-featured open-source vulnerability scanner (Greenbone).</span></div>
+<div class="tool"><b>Wapiti</b><span>Web-application vulnerability scanner (Python).</span></div>
+<div class="tool"><b>Nikto</b><span>Web-server scanner for dangerous files and outdated software.</span></div>
+<div class="tool"><b>Vuls</b><span>Agent-less scanner for Linux/FreeBSD/macOS/Windows over SSH (Go).</span></div>
+</div>
+<h3>Penetration Testing</h3>
+<div class="toolgrid">
+<div class="tool"><b>Wireshark</b><span>Network protocol analyzer — capture and inspect traffic.</span></div>
+<div class="tool"><b>Ettercap</b><span>Man-in-the-middle and network sniffing toolkit.</span></div>
+<div class="tool"><b>ArpSpoof</b><span>ARP-spoofing utility (dsniff suite) for LAN traffic redirection.</span></div>
+<div class="tool"><b>NetCat</b><span>"TCP/IP Swiss army knife" — listeners, banners, shells, pipes.</span></div>
+</div>
+<h3>Mobile Security</h3>
+<div class="toolgrid">
+<div class="tool"><b>Drozer</b><span>Android security assessment framework for devices and apps.</span></div>
+<div class="tool"><b>Androguard</b><span>Android reverse-engineering and static-analysis toolkit.</span></div>
+<div class="tool"><b>Frida</b><span>Dynamic instrumentation toolkit — hook into running apps.</span></div>
+<div class="tool"><b>MobSF</b><span>Mobile Security Framework — automated static + dynamic app analysis.</span></div>
+</div>
+<h3>Reporting &amp; Documentation</h3>
+<div class="toolgrid">
+<div class="tool"><b>Dradis</b><span>Pentest collaboration and reporting platform.</span></div>
+<div class="tool"><b>Faraday</b><span>Collaborative vulnerability-management workspace.</span></div>
+<div class="tool"><b>Ghostwriter</b><span>Project management and reporting for red teams.</span></div>
+<div class="tool"><b>PwnDoc</b><span>Pentest report generator from findings data.</span></div>
+</div>
+</div>
+
+<div class="card">
+<h2>One honest rule before you download anything</h2>
+<ul>
+<li><strong>Only test what you own.</strong> Every tool above is legal to own and learn — running them against someone else's systems without written permission is illegal in most jurisdictions. Build a home lab or use intentionally vulnerable targets.</li>
+<li><strong>Tools don't pentest — people do.</strong> Scanners find known issues; they miss business-logic flaws, chained attacks, and anything novel. The tool is the starting kit, not the engagement.</li>
+<li><strong>Check the license.</strong> "Open source" covers many licenses (GPL, MIT, Apache and others) — check each repo before commercial use.</li>
+</ul>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>BreachHunter — Ultra Advanced Penetration Testing.</strong></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20Cyber%20Security%20Toolkit%20Picker%20and%20want%20early%20access%20to%20BreachHunter." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with everyone learning security.<br>
+Tool lineup from the "Cyber Security Tools" infographic &middot; all 16 tools verified as real open-source projects (Oct 16, 2026)
+</footer>
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=16%20free%20open-source%20security%20tools%20%E2%80%94%20can%20you%20pick%20the%20right%20one%20for%20the%20job%3F%206-scenario%20tool-picker%20quiz&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/cyber-security-toolkit-picker.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/cyber-security-toolkit-picker.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/cyber-security-toolkit-picker.html&title=16%20open-source%20security%20tools%20%E2%80%94%206-scenario%20tool-picker%20quiz" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
