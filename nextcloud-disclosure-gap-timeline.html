@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-disclosure-gap-timeline.html">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-disclosure-gap-timeline.html">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 34-Day Gap: Nextcloud CVE-2026-110447 Disclosure Timeline</title>
+<meta name="description" content="Sept 10: first attack. Sept 11: fix shipped. Oct 14: the advisory. Interactive timeline of CVE-2026-110447's 34-day disclosure gap — why it happened, and what Nextcloud admins should learn.">
+<meta property="og:title" content="The 34-Day Gap: Nextcloud CVE-2026-110447 Disclosure Timeline">
+<meta property="og:description" content="The fix shipped Sept 11. The advisory landed Oct 14. Explore the 34-day gap — and what admins should learn from it.">
+<meta property="og:type" content="article">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1a1409;border:1px solid #d29922;color:#e6c26a;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.tl{position:relative;margin:24px 0 8px;padding-left:30px;border-left:2px solid #232b38}
+.tl-item{position:relative;margin:0 0 8px;cursor:pointer}
+.tl-item:before{content:"";position:absolute;left:-38px;top:6px;width:12px;height:12px;border-radius:50%;background:#1c6ef2;border:2px solid #0b0f17}
+.tl-item.crit:before{background:#f85149}
+.tl-item.fix:before{background:#3fb950}
+.tl-date{font-size:12px;color:#9aa7b8;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.tl-item h3{font-size:17px;color:#fff;margin:2px 0 4px}
+.tl-detail{display:none;font-size:14px;color:#c3ccd8;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 14px;margin:8px 0 16px}
+.tl-item.open .tl-detail{display:block}
+.tl-hint{font-size:13px;color:#6b7688;margin-bottom:4px}
+.tl-detail a{color:#6ea8ff}
+.lesson{background:#0d1a33;border:1px solid #1c6ef2;border-radius:10px;padding:16px 18px;margin:12px 0}
+.lesson strong{color:#9ec1ff}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px}
+.srclist{font-size:14px;color:#9aa7b8}
+.srclist a{color:#6ea8ff}
+.warnbox{background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#e6c26a}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Why did the CVE-2026-110447 advisory take 34 days after the first attack?","acceptedAnswer":{"@type":"Answer","text":"The fix shipped September 11, 2026, but the formal advisory wasn't published until October 14. Collabora's October 15 blog post attributes the delay to GitHub's CVE-processing backlog, which it says grew from about a day to many weeks; Collabora is applying to become a CVE Numbering Authority (CNA). Nextcloud separately said it wanted administrators to have time to update and that it had not observed widespread exploitation."}},
+{"@type":"Question","name":"Was CVE-2026-110447 exploited before the advisory?","acceptedAnswer":{"@type":"Answer","text":"Yes. Three administrators reported attacks on GitHub, with the earliest logged attack on September 10, 2026 — over a month before the October 14 advisory. Attackers planted PHP web shells and searched servers for credential stores and crypto wallets."}},
+{"@type":"Question","name":"What should admins learn from the disclosure gap?","acceptedAnswer":{"@type":"Answer","text":"Patch fast even without a CVE number — the fix shipped September 11, a full month before the advisory. Watch vendor forums and GitHub reports, not just CVE feeds. And remember that disabling the built-in CODE app does not fix it: update to 26.4.303+ or remove the app."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">CVE-2026-110447 &mdash; THE DISCLOSURE STORY</div>
+<h1>The <span class="red">34-day gap</span></h1>
+<p class="lead">September 10: the first attack. September 11: the fix ships. October 14: the world finally hears about it. Nobody was keeping a public timeline of what happened in between &mdash; so we built one. Tap any milestone to expand it.</p>
+
+<div class="card">
+<h2>Interactive timeline</h2>
+<p class="tl-hint">Tap a milestone for detail + source.</p>
+<div class="tl">
+<div class="tl-item"><div class="tl-date">Sept 9, 2026</div><h3>The fix is committed</h3>
+<div class="tl-detail">Collabora commits the fix for the proxy.php command-injection flaw. Nothing public yet &mdash; no CVE number, no advisory, no forum post. (<a href="https://cyber.hendryadrian.com/article/3718/attackers-exploit-collabora-code-execution-flaw-in-nextcloud-s-built-in-server-app" target="_blank" rel="noopener">cyber.hendryadrian.com</a>)</div></div>
+<div class="tl-item crit"><div class="tl-date">Sept 10, 2026</div><h3>First logged attack</h3>
+<div class="tl-detail">Three administrators report attacks on GitHub. Logs from two servers show malicious requests on September 10 and 11 &mdash; the day <em>before</em> the fixed release. Attackers plant PHP web shells and search one server for credential stores and crypto wallets. (<a href="https://www.scworld.com/brief/vulnerability-in-nextcloud-app-allowed-attackers-to-plant-web-shells" target="_blank" rel="noopener">SC Media</a>, via The Hacker News)</div></div>
+<div class="tl-item fix"><div class="tl-date">Sept 11, 2026</div><h3>Fix released: richdocumentscode 26.4.303</h3>
+<div class="tl-detail">The patched built-in CODE server app ships. Admins who update promptly are protected &mdash; but with no advisory and no CVE number, most have no reason to rush. The fixed release requires Nextcloud 30 or later. (<a href="http://thehackernews.com/2026/10/hackers-backdoor-nextcloud-servers.html" target="_blank" rel="noopener">The Hacker News</a>)</div></div>
+<div class="tl-item"><div class="tl-date">Oct 3, 2026</div><h3>Community forum warning</h3>
+<div class="tl-detail">A warning posted on the Nextcloud community forum (help.nextcloud.com) clarifies who is affected: installations using only the Nextcloud Office app without the built-in CODE app are not affected, whether Collabora runs in Docker, from a Linux package, or at a hosting provider. (<a href="http://thehackernews.com/2026/10/hackers-backdoor-nextcloud-servers.html" target="_blank" rel="noopener">The Hacker News</a>)</div></div>
+<div class="tl-item crit"><div class="tl-date">Oct 14, 2026</div><h3>CVE-2026-110447 advisory published &mdash; 34 days later</h3>
+<div class="tl-detail">Collabora publishes the formal security advisory with the CVE identifier, warning that disabling the app is insufficient &mdash; it must be updated to &ge;26.4.303 or removed. The Hacker News posts its warning the same day. The GitHub Advisory Database entry notes this CVE differs from the earlier CVE-2025-66208 in the same script. (<a href="http://thehackernews.com/2026/10/hackers-backdoor-nextcloud-servers.html" target="_blank" rel="noopener">THN</a> &middot; <a href="https://www.neoteo.com/en/github-says-cve-2026-110447-differs-from-cve-2025-66208" target="_blank" rel="noopener">NeoTeo</a>)</div></div>
+<div class="tl-item"><div class="tl-date">Oct 15, 2026</div><h3>Collabora explains the delay</h3>
+<div class="tl-detail">In a blog post, Collabora says GitHub's CVE-processing backlog grew from about a day to many weeks, and that it is applying to become a CVE Numbering Authority (CNA) so it can file CVEs directly. Separately, Nextcloud said it wanted administrators to have time to update and had not observed widespread exploitation &mdash; two different explanations for the same gap. (<a href="https://www.neoteo.com/en/collabora-explains-delay-in-nextcloud-cve-2026-110447-advisory" target="_blank" rel="noopener">NeoTeo, Oct 16</a>)</div></div>
+<div class="tl-item"><div class="tl-date">Oct 16, 2026</div><h3>Scale becomes visible</h3>
+<div class="tl-detail">Censys publishes its advisory: CVE-2026-110447 is CVSS v4.0 9.2 (Critical), with 19,454 hosts and 103,350 web properties detected with the app installed. As of this date it is not in the CISA KEV catalog. (<a href="https://censys.com/advisory/cve-2026-110447/" target="_blank" rel="noopener">Censys</a>)</div></div>
+</div>
+</div>
+
+<div class="card">
+<h2>What admins should learn from the gap</h2>
+<div class="lesson"><strong>1. Patch fast even without a CVE number.</strong> The fix shipped September 11 &mdash; a full month before the advisory. Admins waiting for a CVE feed to tell them what to do stayed exposed for 34 days.</div>
+<div class="lesson"><strong>2. Watch the forums, not just the feeds.</strong> The earliest public signals were GitHub reports from three admins and an Oct 3 community-forum post &mdash; not a CVE database.</div>
+<div class="lesson"><strong>3. Disabling &ne; fixing.</strong> The single most repeated mistake: disabling the built-in CODE app and assuming safety. Update to &ge;26.4.303 or remove it.</div>
+<div class="lesson"><strong>4. An exposure window means an investigation.</strong> Patching closes the hole; it doesn't remove shells. If you were vulnerable any time in Sept&ndash;Oct 2026, hunt &mdash; don't just update.</div>
+</div>
+
+<div class="card">
+<h2>Check where you stand</h2>
+<p>Were you exposed during the gap? Two free self-tests:</p>
+<a class="cta" href="nextcloud-exposure-quiz.html">Take the exposure quiz &rarr;</a>
+<p class="note" style="text-align:center">Already patched? <a href="nextcloud-webshell-leftovers-check.html" style="color:#6ea8ff">Run the webshell-leftovers hunt</a> &middot; <a href="nextcloud-cve-2026-110447.html" style="color:#6ea8ff">30-second exposure check</a></p>
+</div>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with any Nextcloud admin you know.<br>
+CVE-2026-110447 &middot; timeline compiled from public reporting, Oct 2026
+</footer>
+</div>
+<div class="share">Share this timeline: <a href="https://x.com/intent/post?text=The%2034-day%20gap%3A%20Nextcloud%20CVE-2026-110447%20timeline%20%E2%80%94%20fix%20shipped%20Sept%2011%2C%20advisory%20Oct%2014&url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fnextcloud-disclosure-gap-timeline.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fnextcloud-disclosure-gap-timeline.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fnextcloud-disclosure-gap-timeline.html&title=The%2034-day%20gap%3A%20Nextcloud%20CVE-2026-110447%20disclosure%20timeline" target="_blank" rel="noopener">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<script>
+(function(){
+  document.querySelectorAll('.tl-item').forEach(function(el){
+    el.addEventListener('click',function(){ el.classList.toggle('open'); });
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

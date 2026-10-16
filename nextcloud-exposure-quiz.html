@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-exposure-quiz.html">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-exposure-quiz.html">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Is Your Nextcloud One of the 19,454? — CVE-2026-110447 Exposure Quiz</title>
+<meta name="description" content="Censys found 19,454 hosts with the vulnerable Nextcloud Collabora app installed. Answer 5 questions for your EXPOSED / LIKELY SAFE / CANNOT TELL verdict on CVE-2026-110447. Free, no signup.">
+<meta property="og:title" content="Is Your Nextcloud One of the 19,454?">
+<meta property="og:description" content="5 questions. One honest verdict on your CVE-2026-110447 exposure. Free, no signup.">
+<meta property="og:type" content="article">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#3b0d0d;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0;display:none}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.verdict.warn{border-color:#d29922;background:#1a1409}
+.verdict.show{display:block}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+code.cmd{display:block;background:#000;border:1px solid #2a3342;border-radius:8px;padding:14px 16px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;color:#7ee787;overflow-x:auto;margin:10px 0;white-space:pre}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.q{margin:20px 0}
+.q p{font-weight:700;margin-bottom:10px;color:#fff}
+.q label{display:flex;gap:10px;align-items:flex-start;background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:12px 14px;margin:8px 0;cursor:pointer;font-size:15px}
+.q input{margin-top:5px;transform:scale(1.3);accent-color:#1c6ef2;flex:0 0 auto}
+.q label.sel{border-color:#1c6ef2;background:#0d1a33}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;font-weight:700;font-size:16px;padding:14px 28px;border-radius:10px;border:0;cursor:pointer;margin:12px 0}
+.btn:hover{background:#2f7ef7}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px}
+.srclist{font-size:14px;color:#9aa7b8}
+.srclist a{color:#6ea8ff}
+.warnbox{background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#e6c26a}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How many Nextcloud servers are exposed to CVE-2026-110447?","acceptedAnswer":{"@type":"Answer","text":"Censys reported on October 16, 2026 that it detects 19,454 hosts and 103,350 web properties with the vulnerable Collabora built-in CODE Server app installed. Only servers running richdocumentscode below 26.4.303 are actually exploitable."}},
+{"@type":"Question","name":"Am I safe if my Nextcloud isn't internet-facing?","acceptedAnswer":{"@type":"Answer","text":"An internal-only server is much harder to reach, but the flaw needs no authentication — anyone who can reach the server's proxy.php endpoint can exploit it. VPN-only or LAN-only deployments are lower risk, not zero risk."}},
+{"@type":"Question","name":"I removed the Collabora app in October — am I in the clear?","acceptedAnswer":{"@type":"Answer","text":"Removing the app closes the hole going forward, but if a vulnerable version was installed any time in September–October 2026, you should still hunt for planted web shells (shx*.php / shrf*.php patterns) and review access logs from September 10 onward. Patching or removing never deletes shells."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">CVE-2026-110447 &mdash; SELF-ASSESSMENT</div>
+<h1>Is your Nextcloud one of the <span class="red">19,454</span>?</h1>
+<p class="lead">Censys counts 19,454 hosts with the vulnerable Collabora app installed. Five honest questions, one honest verdict &mdash; including the uncomfortable ones admins skip, like "was it vulnerable <em>last month</em>?" No signup, nothing leaves your browser.</p>
+
+<div class="card">
+<h2>The 5-question quiz</h2>
+
+<div class="q" data-q="app"><p>1. Is the "Collabora Online &ndash; Built-in CODE Server" (richdocumentscode) app installed right now?</p>
+<label><input type="radio" name="q1" value="yes"> Yes, it's installed</label>
+<label><input type="radio" name="q1" value="no"> No / I use standalone Collabora (Docker, package, hosted)</label>
+<label><input type="radio" name="q1" value="dk"> I don't know</label></div>
+
+<div class="q" data-q="ver"><p>2. If installed: is its version below 26.4.303?</p>
+<label><input type="radio" name="q2" value="below"> Yes &mdash; below 26.4.303</label>
+<label><input type="radio" name="q2" value="ok"> No &mdash; 26.4.303 or higher (or app removed)</label>
+<label><input type="radio" name="q2" value="dk"> I don't know / app not installed</label></div>
+
+<div class="q" data-q="net"><p>3. Is your Nextcloud reachable from the internet?</p>
+<label><input type="radio" name="q3" value="yes"> Yes &mdash; public-facing</label>
+<label><input type="radio" name="q3" value="no"> No &mdash; LAN / VPN only</label>
+<label><input type="radio" name="q3" value="dk"> I don't know</label></div>
+
+<div class="q" data-q="past"><p>4. Was a vulnerable version (&lt; 26.4.303) installed at any point during Sept&ndash;Oct 2026?</p>
+<label><input type="radio" name="q4" value="yes"> Yes, or I can't rule it out</label>
+<label><input type="radio" name="q4" value="no"> No &mdash; it was patched/removed before September</label>
+<label><input type="radio" name="q4" value="dk"> I don't know</label></div>
+
+<div class="q" data-q="eol"><p>5. Is your Nextcloud version 29 or older?</p>
+<label><input type="radio" name="q5" value="yes"> Yes &mdash; 29 or older</label>
+<label><input type="radio" name="q5" value="no"> No &mdash; 30 or newer</label>
+<label><input type="radio" name="q5" value="dk"> I don't know</label></div>
+
+<button class="btn" id="go">Get my verdict</button>
+<div class="verdict" id="verdict"></div>
+</div>
+
+<div class="card">
+<h2>How to answer "I don't know"</h2>
+<code class="cmd">sudo -u www-data php occ app:list | grep richdocumentscode
+sudo -u www-data php occ --version</code>
+<p class="note">Two commands, ten seconds. The first tells you if the built-in CODE app is installed and its version; the second tells you your Nextcloud version (29 or older = end of life). Then retake the quiz.</p>
+<p class="srclist" style="margin-top:12px">Exposure figures: <a href="https://censys.com/advisory/cve-2026-110447/" target="_blank" rel="noopener">Censys advisory, Oct 16 2026</a> &middot; Attack timeline: <a href="http://thehackernews.com/2026/10/hackers-backdoor-nextcloud-servers.html" target="_blank" rel="noopener">The Hacker News</a></p>
+</div>
+
+<div class="card">
+<h2>Next steps</h2>
+<a class="cta" href="nextcloud-webshell-leftovers-check.html">Run the webshell-leftovers hunt &rarr;</a>
+<p class="note" style="text-align:center"><a href="nextcloud-disclosure-gap-timeline.html" style="color:#6ea8ff">The 34-day disclosure timeline</a> &middot; <a href="nextcloud-eol-trap-check.html" style="color:#6ea8ff">Check the EOL trap</a> &middot; <a href="nextcloud-cve-2026-110447.html" style="color:#6ea8ff">30-second exposure check</a></p>
+</div>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with any Nextcloud admin you know.<br>
+CVE-2026-110447 &middot; 19,454 hosts per Censys, Oct 16 2026 &middot; self-assessment only, not a scan
+</footer>
+</div>
+<div class="share">Share this quiz: <a href="https://x.com/intent/post?text=Is%20your%20Nextcloud%20one%20of%20the%2019%2C454%3F%20Free%205-question%20CVE-2026-110447%20exposure%20quiz&url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fnextcloud-exposure-quiz.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fnextcloud-exposure-quiz.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fnextcloud-exposure-quiz.html&title=Is%20your%20Nextcloud%20one%20of%20the%2019%2C454%3F%20CVE-2026-110447%20exposure%20quiz" target="_blank" rel="noopener">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<script>
+(function(){
+  document.querySelectorAll('.q label').forEach(function(l){
+    l.addEventListener('click',function(){
+      var q=l.closest('.q');
+      q.querySelectorAll('label').forEach(function(x){x.classList.remove('sel');});
+      l.classList.add('sel');
+    });
+  });
+  function val(n){ var el=document.querySelector('input[name="'+n+'"]:checked'); return el?el.value:null; }
+  document.getElementById('go').addEventListener('click',function(){
+    var v=document.getElementById('verdict');
+    var q1=val('q1'),q2=val('q2'),q3=val('q3'),q4=val('q4'),q5=val('q5');
+    if(!q1||!q2||!q3||!q4||!q5){ v.className='verdict warn show'; v.innerHTML='<strong>Answer all 5 questions first.</strong> "I don\'t know" is a valid answer &mdash; it just changes the verdict.'; v.scrollIntoView({behavior:'smooth',block:'center'}); return; }
+    var notes=[];
+    if(q3==='yes') notes.push('internet-facing, so the unauthenticated flaw is reachable by anyone');
+    if(q3==='dk') notes.push('unknown network exposure &mdash; verify whether port 80/443 reaches it');
+    if(q5==='yes') notes.push('<strong>EOL trap:</strong> Nextcloud 29 and older are end-of-life, and the app store still serves them the vulnerable app &mdash; <a href="nextcloud-eol-trap-check.html" style="color:#6ea8ff">check the EOL trap</a>');
+    var cls,head,body;
+    if(q1==='yes'&&q2==='below'){ cls=''; head='EXPOSED &mdash; act now.'; body='The vulnerable built-in CODE app is installed below 26.4.303'+(notes.length?' ('+notes.join('; ')+')':'')+'. Update to &ge;26.4.303 or <strong>remove</strong> the app (disabling doesn\'t count), then run the <a href="nextcloud-webshell-leftovers-check.html" style="color:#6ea8ff">webshell-leftovers hunt</a>.'; }
+    else if(q1==='yes'&&q2==='dk'){ cls='warn'; head='CANNOT TELL &mdash; check your version.'; body='The app is installed but you don\'t know the version'+(notes.length?' ('+notes.join('; ')+')':'')+'. Run <code>sudo -u www-data php occ app:list | grep richdocumentscode</code> &mdash; below 26.4.303 means exposed.'; }
+    else if(q4==='yes'){ cls='warn'; head='WAS EXPOSED &mdash; hunt for leftovers.'; body='A vulnerable version was (or may have been) installed during the Sept&ndash;Oct 2026 attack window'+(notes.length?' ('+notes.join('; ')+')':'')+'. The hole may be closed now, but planted shells survive patching. Run the <a href="nextcloud-webshell-leftovers-check.html" style="color:#6ea8ff">webshell-leftovers hunt</a> before you relax.'; }
+    else if(q1==='dk'||q4==='dk'){ cls='warn'; head='CANNOT TELL.'; body='Too many unknowns to call it safe'+(notes.length?' ('+notes.join('; ')+')':'')+'. Spend ten seconds on the two <code>occ</code> commands above, then retake the quiz.'; }
+    else { cls='safe'; head='LIKELY SAFE from this CVE.'; body='No built-in CODE app now, and none during the attack window'+(notes.length?' Note: '+notes.join('; ')+'.':'')+' Stay current with the <a href="nextcloud-october-patch-planner.html" style="color:#6ea8ff">October patch planner</a> anyway.'; }
+    v.className='verdict show '+cls;
+    v.innerHTML='<strong>'+head+'</strong><br>'+body;
+    v.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-crown-jewels-audit.html">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-crown-jewels-audit.html">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What the Attackers Hunted: Nextcloud Crown-Jewels Self-Audit</title>
+<meta name="description" content="Attackers who hit Nextcloud servers went straight for KeePass databases, wallet.dat, and password-manager artifacts. Audit what lives in web-server-readable paths — before someone else inventories it for you.">
+<meta property="og:title" content="What the Attackers Hunted: Nextcloud Crown-Jewels Self-Audit">
+<meta property="og:description" content="The Nextcloud attackers didn't browse — they went straight for password vaults and crypto wallets. Audit yours.">
+<meta property="og:type" content="article">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#3b0d0d;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.verdict{border-left:4px solid #3fb950;padding:12px 16px;background:#0d1a0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1409}
+.verdict.bad{border-color:#f85149;background:#1a0f0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+code.cmd{display:block;background:#000;border:1px solid #2a3342;border-radius:8px;padding:14px 16px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;color:#7ee787;overflow-x:auto;margin:10px 0;white-space:pre}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.meter{height:14px;background:#000;border:1px solid #2a3342;border-radius:999px;overflow:hidden;margin:14px 0}
+.meter>div{height:100%;width:0%;background:#3fb950;transition:width .3s}
+.meter.hot>div{background:linear-gradient(90deg,#d29922,#f85149)}
+.mcount{font-size:14px;color:#9aa7b8;margin-bottom:6px}
+.chk{display:flex;gap:12px;align-items:flex-start;background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:14px 16px;margin:10px 0;cursor:pointer;font-size:15px}
+.chk input{margin-top:5px;transform:scale(1.35);accent-color:#f85149;flex:0 0 auto}
+.chk.hit{border-color:#f85149;background:#1a0f0f}
+.chk small{display:block;color:#9aa7b8;font-size:13px;margin-top:4px}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px}
+.srclist{font-size:14px;color:#9aa7b8}
+.srclist a{color:#6ea8ff}
+.warnbox{background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#e6c26a}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What did the Nextcloud CVE-2026-110447 attackers look for?","acceptedAnswer":{"@type":"Answer","text":"On compromised servers, attackers searched for credential stores and cryptocurrency wallets — specifically KeePass databases, wallet.dat files, and password-manager artifacts. Reviewed requests showed discovery commands rather than confirmed data exfiltration, and no root access was reported."}},
+{"@type":"Question","name":"Why do web-server-readable files matter after a Nextcloud compromise?","acceptedAnswer":{"@type":"Answer","text":"The CVE-2026-110447 flaw runs commands as the web-server user (typically www-data). Anything that user can read — password vaults, wallet files, .env secrets, unencrypted backups — was within the attacker's reach on an exploited server. Assume www-data-readable meant exposed."}},
+{"@type":"Question","name":"Should I rotate passwords after patching CVE-2026-110447?","acceptedAnswer":{"@type":"Answer","text":"If your server was reachable and vulnerable at any point in September–October 2026, yes: rotate every secret the web-server account could read — database credentials, app passwords, API keys — and move sensitive files out of web-readable paths. Patching closes the hole; it doesn't undo access that already happened."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">CVE-2026-110447 &mdash; DEFENSIVE AUDIT</div>
+<h1>What the <span class="red">attackers hunted</span></h1>
+<p class="lead">The people who exploited Nextcloud servers in September didn't browse around &mdash; they went straight for the crown jewels: KeePass databases, <code>wallet.dat</code>, password-manager artifacts. This is a <strong>defensive</strong> self-audit: find out what of yours lives anywhere the web-server user can read, <em>before</em> someone else inventories it for you. Nothing here attacks anything.</p>
+
+<div class="card">
+<h2>The crown-jewels audit</h2>
+<p class="note">Tick anything that lives anywhere the web-server account (<code>www-data</code>) can read &mdash; home dirs, web roots, backup folders, /tmp. The meter counts your blast radius.</p>
+<div class="mcount" id="mcount">0 crown-jewel types in web-readable paths</div>
+<div class="meter" id="meter"><div id="mfill"></div></div>
+
+<label class="chk"><input type="checkbox"><span><strong>Password vaults</strong> &mdash; KeePass (.kdbx) databases or similar<small>Attackers explicitly searched for these. A vault readable by www-data on an exploited server = treat every password inside as exposed.</small></span></label>
+
+<label class="chk"><input type="checkbox"><span><strong>Crypto wallet files</strong> &mdash; wallet.dat or similar<small>Explicitly targeted in the reported intrusions. Move off the server; never in a web-readable path.</small></span></label>
+
+<label class="chk"><input type="checkbox"><span><strong>Password-manager exports / backups</strong><small>CSV/JSON exports are plaintext treasure. If one ever sat in a readable path during Sept&ndash;Oct 2026, rotate what it contained.</small></span></label>
+
+<label class="chk"><input type="checkbox"><span><strong>.env files / app secrets</strong><small>API keys and tokens in web-readable .env files are low-hanging fruit for any www-data-level access.</small></span></label>
+
+<label class="chk"><input type="checkbox"><span><strong>Unencrypted database dumps / backups</strong><small>A mysqldump in the web root is a full credential + data handover. Encrypt backups and keep them out of served paths.</small></span></label>
+
+<label class="chk"><input type="checkbox"><span><strong>Private keys / cloud credentials</strong><small>SSH keys, cloud credential files — anything that turns one compromised box into ten.</small></span></label>
+
+<div class="verdict" id="verdict"><strong>0 hits — tidy.</strong> Nothing on this list lives in web-readable paths. Keep it that way: re-audit whenever you change backup or deployment habits.</div>
+</div>
+
+<div class="card">
+<h2>Find them fast (defensive commands)</h2>
+<code class="cmd">find /var/www /home -name "*.kdbx" 2>/dev/null
+find /var/www /home -name "wallet.dat" 2>/dev/null
+find /var/www -name ".env" 2>/dev/null
+find /var/www -name "*.sql" -o -name "*.dump" 2>/dev/null</code>
+<p class="note">Run as your admin user. Anything these return that's readable by the web-server account belongs somewhere else &mdash; and if the server was vulnerable during Sept&ndash;Oct 2026, whatever it contained should be rotated.</p>
+</div>
+
+<div class="card">
+<h2>What the reporting actually says</h2>
+<ul>
+<li>Attackers searched compromised servers for <strong>credential stores and crypto wallets</strong> &mdash; KeePass databases, <code>wallet.dat</code>, password-manager artifacts.</li>
+<li>Reviewed requests showed <strong>discovery, not confirmed exfiltration</strong> &mdash; but anything readable by the web-server account was within reach.</li>
+<li><strong>No root access</strong> was reported. The blast radius is "everything www-data can read" &mdash; which is exactly what this audit maps.</li>
+<li>Ransomware-operator exploitation reports are <strong>unconfirmed</strong>.</li>
+</ul>
+<p class="srclist">Sources: <a href="https://cyberpress.org/critical-nextcloud-collabora-flaw/" target="_blank" rel="noopener">CyberPress</a> &middot; <a href="http://thehackernews.com/2026/10/hackers-backdoor-nextcloud-servers.html" target="_blank" rel="noopener">The Hacker News</a> &middot; <a href="https://www.scworld.com/brief/vulnerability-in-nextcloud-app-allowed-attackers-to-plant-web-shells" target="_blank" rel="noopener">SC Media</a></p>
+</div>
+
+<div class="card">
+<h2>Finish the job</h2>
+<a class="cta" href="nextcloud-webshell-leftovers-check.html">Run the webshell-leftovers hunt &rarr;</a>
+<p class="note" style="text-align:center"><a href="nextcloud-exposure-quiz.html" style="color:#6ea8ff">Exposure quiz</a> &middot; <a href="nextcloud-october-patch-planner.html" style="color:#6ea8ff">October patch planner</a></p>
+</div>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with any Nextcloud admin you know.<br>
+CVE-2026-110447 &middot; defensive audit only &middot; assume www-data-readable = exposed
+</footer>
+</div>
+<div class="share">Share this audit: <a href="https://x.com/intent/post?text=The%20Nextcloud%20attackers%20went%20straight%20for%20KeePass%20DBs%20and%20wallet.dat%20%E2%80%94%20free%20crown-jewels%20self-audit&url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fnextcloud-crown-jewels-audit.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fnextcloud-crown-jewels-audit.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fnextcloud-crown-jewels-audit.html&title=What%20the%20Nextcloud%20attackers%20hunted%3A%20crown-jewels%20self-audit" target="_blank" rel="noopener">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<script>
+(function(){
+  var boxes=document.querySelectorAll('.chk input[type=checkbox]');
+  function upd(){
+    var done=0;
+    boxes.forEach(function(b){ b.closest('.chk').classList.toggle('hit',b.checked); if(b.checked) done++; });
+    var pct=Math.round(done/boxes.length*100);
+    document.getElementById('mfill').style.width=pct+'%';
+    document.getElementById('meter').classList.toggle('hot',done>0);
+    document.getElementById('mcount').textContent=done+' crown-jewel type'+(done===1?'':'s')+' in web-readable paths';
+    var v=document.getElementById('verdict');
+    if(done===0){ v.className='verdict'; v.innerHTML='<strong>0 hits &mdash; tidy.</strong> Nothing on this list lives in web-readable paths. Keep it that way: re-audit whenever you change backup or deployment habits.'; }
+    else if(done<=2){ v.className='verdict warn'; v.innerHTML='<strong>'+done+' hit'+(done===1?'':'s')+' &mdash; shrink the blast radius.</strong> Move these out of web-server-readable paths now. If the server was vulnerable any time Sept&ndash;Oct 2026, rotate what they contained.'; }
+    else { v.className='verdict bad'; v.innerHTML='<strong>'+done+' hits &mdash; wide blast radius.</strong> Multiple crown-jewel types sit where www-data can read them. Move them all out of readable paths today, and if there was any Sept&ndash;Oct 2026 exposure window, rotate everything they contained.'; }
+  }
+  boxes.forEach(function(b){ b.addEventListener('change',upd); });
+  upd();
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

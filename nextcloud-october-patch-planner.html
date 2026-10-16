@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-october-patch-planner.html">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-october-patch-planner.html">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>October Patch Sprint Planner: Nextcloud Hub 26 + CODE Fix Readiness</title>
+<meta name="description" content="One readiness checklist for October's Nextcloud updates: Hub 26 Winter 33.0.10, Spring 34.0.5, Summer 35.0.2 — plus the critical Collabora CODE fix. Backup order, staged rollout, post-update verification.">
+<meta property="og:title" content="October Patch Sprint Planner: Nextcloud Hub 26 + CODE Fix">
+<meta property="og:description" content="One checklist: the three Hub 26 maintenance updates plus the critical Collabora fix, in the right order.">
+<meta property="og:type" content="article">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d1a33;border:1px solid #1c6ef2;color:#9ec1ff;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .blue{color:#6ea8ff}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.verdict{border-left:4px solid #d29922;padding:12px 16px;background:#1a1409;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+code.cmd{display:block;background:#000;border:1px solid #2a3342;border-radius:8px;padding:14px 16px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;color:#7ee787;overflow-x:auto;margin:10px 0;white-space:pre}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.meter{height:14px;background:#000;border:1px solid #2a3342;border-radius:999px;overflow:hidden;margin:14px 0}
+.meter>div{height:100%;width:0%;background:linear-gradient(90deg,#1c6ef2,#3fb950);transition:width .3s}
+.mcount{font-size:14px;color:#9aa7b8;margin-bottom:6px}
+.chk{display:flex;gap:12px;align-items:flex-start;background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:14px 16px;margin:10px 0;cursor:pointer;font-size:15px}
+.chk input{margin-top:5px;transform:scale(1.35);accent-color:#1c6ef2;flex:0 0 auto}
+.chk.done{border-color:#3fb950;background:#0d1a0f}
+.chk small{display:block;color:#9aa7b8;font-size:13px;margin-top:4px}
+.chk .ord{flex:0 0 28px;height:28px;border-radius:50%;background:#1c6ef2;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.verline{font-size:13px;color:#9aa7b8;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:10px 14px;margin:12px 0}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px}
+.srclist{font-size:14px;color:#9aa7b8}
+.srclist a{color:#6ea8ff}
+.warnbox{background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#e6c26a}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What are the October 2026 Nextcloud maintenance updates?","acceptedAnswer":{"@type":"Answer","text":"Per the October 16, 2026 announcement: Nextcloud Hub 26 Winter updates to 33.0.10, Spring to 34.0.5, and Summer to 35.0.2. They include bug fixes, stability and security upgrades. The rollout is staged, starting at 30% of instances."}},
+{"@type":"Question","name":"Should I update the Collabora app or Nextcloud Hub first?","acceptedAnswer":{"@type":"Answer","text":"Triage the critical one first: the built-in Collabora CODE Server app (CVE-2026-110447, exploited in the wild) should be updated to 26.4.303+ or removed before anything else. Then apply your Hub maintenance update. If you're on Nextcloud 29 or older, there is no safe app version — upgrade Nextcloud or remove the app."}},
+{"@type":"Question","name":"My updater doesn't show the October update yet — is something wrong?","acceptedAnswer":{"@type":"Answer","text":"Probably not. Nextcloud rolls out maintenance updates in stages, starting at 30% of instances, so yours may simply not be in the first wave. Don't force it by switching to beta channels; wait for your wave or update manually from a backup."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">OCTOBER 2026 &mdash; PATCH SPRINT</div>
+<h1>October patch sprint <span class="blue">planner</span></h1>
+<p class="lead">October handed Nextcloud admins two jobs at once: the critical Collabora CODE fix (CVE-2026-110447, exploited in the wild) <em>and</em> three Hub 26 maintenance updates. Do them in the wrong order and you waste a maintenance window &mdash; or worse, patch the Hub while the RCE is still open. One checklist, right order, progress tracked.</p>
+
+<div class="card">
+<h2>Your October updates</h2>
+<div class="verline"><strong>Hub 26 Winter &rarr; 33.0.10</strong> &middot; <strong>Spring &rarr; 34.0.5</strong> &middot; <strong>Summer &rarr; 35.0.2</strong> &mdash; bug fixes, stability and security upgrades. Staged rollout starting at 30% of instances. <span class="note">(via <a href="https://help.nextcloud.com/t/october-maintenance-updates-for-nextcloud-hub-26-winter-spring-and-summer/251072" target="_blank" rel="noopener" style="color:#6ea8ff">help.nextcloud.com</a>)</span></div>
+<div class="verline"><strong>richdocumentscode &rarr; 26.4.303+</strong> &mdash; fixes CVE-2026-110447 (unauthenticated RCE, exploited Sept&ndash;Oct 2026). Requires Nextcloud 30+. Disabling the app does <strong>not</strong> fix it.</div>
+</div>
+
+<div class="card">
+<h2>The sprint checklist &mdash; in order</h2>
+<div class="mcount" id="mcount">0 of 6 steps complete</div>
+<div class="meter" id="meter"><div id="mfill"></div></div>
+
+<label class="chk"><input type="checkbox"><span class="ord">1</span><span><strong>Back up files + database &mdash; and trust the backup</strong><small>A backup you haven't test-restored is a hope, not a backup. Confirm the dump is recent and complete before touching anything.</small></span></label>
+
+<label class="chk"><input type="checkbox"><span class="ord">2</span><span><strong>Snapshot the VM / container if you can</strong><small>Your rollback path if an update goes sideways. No snapshot capability? Make sure step 1 is airtight instead.</small></span></label>
+
+<label class="chk"><input type="checkbox"><span class="ord">3</span><span><strong>Triage the critical fix FIRST: the CODE app</strong><small>Update "Collabora Online &ndash; Built-in CODE Server" to <strong>26.4.303+</strong> or <strong>remove it entirely</strong> &mdash; this CVE is exploited in the wild and needs no authentication. Disabling doesn't count. On Nextcloud &le;29? There is no safe app version: upgrade Nextcloud or remove the app (see <a href="nextcloud-eol-trap-check.html" style="color:#6ea8ff">the EOL trap</a>).</small></span></label>
+
+<label class="chk"><input type="checkbox"><span class="ord">4</span><span><strong>Apply your Hub maintenance update</strong><small>Winter &rarr; 33.0.10, Spring &rarr; 34.0.5, Summer &rarr; 35.0.2. Staged rollout at 30% &mdash; if your updater doesn't offer it yet, that's normal; don't switch to beta channels to force it.</small></span></label>
+
+<label class="chk"><input type="checkbox"><span class="ord">5</span><span><strong>Verify post-update</strong><small><code>sudo -u www-data php occ app:list | grep richdocumentscode</code> &mdash; confirm &ge;26.4.303 or absent. <code>sudo -u www-data php occ --version</code> &mdash; confirm your Hub target version.</small></span></label>
+
+<label class="chk"><input type="checkbox"><span class="ord">6</span><span><strong>Hunt, then watch</strong><small>If the server was ever exposed during Sept&ndash;Oct 2026, run the <a href="nextcloud-webshell-leftovers-check.html" style="color:#6ea8ff">webshell-leftovers hunt</a> &mdash; patching doesn't remove planted shells. Then keep an eye on help.nextcloud.com and your logs for a week.</small></span></label>
+
+<div class="verdict" id="verdict"><strong>Sprint not started.</strong> Work the steps in order &mdash; step 3 (the CODE fix) is the one attackers care about.</div>
+</div>
+
+<div class="card">
+<h2>Sources</h2>
+<p class="srclist">Maintenance updates: <a href="https://help.nextcloud.com/t/october-maintenance-updates-for-nextcloud-hub-26-winter-spring-and-summer/251072" target="_blank" rel="noopener">help.nextcloud.com</a> &middot; <a href="https://nextcloud.com/blog/october-updates-for-nextcloud-hub-26-winter-spring-summer/" target="_blank" rel="noopener">nextcloud.com blog</a> &middot; CVE-2026-110447: <a href="http://thehackernews.com/2026/10/hackers-backdoor-nextcloud-servers.html" target="_blank" rel="noopener">The Hacker News</a> &middot; <a href="https://censys.com/advisory/cve-2026-110447/" target="_blank" rel="noopener">Censys</a></p>
+</div>
+
+<div class="card">
+<h2>Keep going</h2>
+<a class="cta" href="nextcloud-disclosure-gap-timeline.html">See the 34-day disclosure timeline &rarr;</a>
+<p class="note" style="text-align:center"><a href="nextcloud-exposure-quiz.html" style="color:#6ea8ff">Exposure quiz</a> &middot; <a href="nextcloud-crown-jewels-audit.html" style="color:#6ea8ff">Crown-jewels audit</a></p>
+</div>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with any Nextcloud admin you know.<br>
+October 2026 &middot; Hub 26 Winter 33.0.10 / Spring 34.0.5 / Summer 35.0.2 &middot; CODE fix 26.4.303+
+</footer>
+</div>
+<div class="share">Share this planner: <a href="https://x.com/intent/post?text=Nextcloud%20October%20patch%20sprint%20planner%3A%20Hub%2026%20updates%20%2B%20the%20critical%20CODE%20fix%2C%20in%20the%20right%20order&url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fnextcloud-october-patch-planner.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fnextcloud-october-patch-planner.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fnextcloud-october-patch-planner.html&title=Nextcloud%20October%20patch%20sprint%20planner%3A%20Hub%2026%20%2B%20CODE%20fix%20in%20the%20right%20order" target="_blank" rel="noopener">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<script>
+(function(){
+  var boxes=document.querySelectorAll('.chk input[type=checkbox]');
+  function upd(){
+    var done=0;
+    boxes.forEach(function(b){ b.closest('.chk').classList.toggle('done',b.checked); if(b.checked) done++; });
+    var pct=Math.round(done/boxes.length*100);
+    document.getElementById('mfill').style.width=pct+'%';
+    document.getElementById('mcount').textContent=done+' of '+boxes.length+' steps complete';
+    var v=document.getElementById('verdict');
+    if(done===boxes.length){ v.className='verdict safe'; v.innerHTML='<strong>SPRINT COMPLETE.</strong> Backed up, critical fix triaged, Hub updated, verified, hunted. Nice work &mdash; now keep the leftovers hunt in your back pocket for the next CVE.'; }
+    else { v.className='verdict'; v.innerHTML='<strong>Sprint in progress: '+done+' of '+boxes.length+'.</strong> Step 3 (the CODE fix) is the one attackers care about &mdash; don\'t let the Hub update jump the queue.'; }
+  }
+  boxes.forEach(function(b){ b.addEventListener('change',upd); });
+  upd();
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
