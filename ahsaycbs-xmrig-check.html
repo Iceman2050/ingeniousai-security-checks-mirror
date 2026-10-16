@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AhsayCBS CVE-2026-105133 / CVE-2026-105134 Check — Is Your Backup Server Vulnerable? Free Self-Test</title>
+<meta name="description" content="Attackers chain two AhsayCBS flaws for unauthenticated remote code execution, drop JSP web shells and XMRig miners disguised as edge.exe. Even version 10.3.4 is still vulnerable. Check your version in 60 seconds. Free, no signup.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="AhsayCBS owners: attackers are dropping XMRig miners disguised as Microsoft Edge — 60-Second Version Check">
+<meta property="og:description" content="CVE-2026-105133 + CVE-2026-105134 chained for unauthenticated RCE. August patches were incomplete — even 10.3.4 is vulnerable. CISA deadline: Oct 17, 2026. Check your build now, free, no signup.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ahsaycbs-xmrig-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ahsaycbs-xmrig-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AhsayCBS owners: attackers are dropping XMRig miners disguised as Microsoft Edge — 60-Second Version Check">
+<meta name="twitter:description" content="CVE-2026-105133 + CVE-2026-105134 chained for unauthenticated RCE. August patches were incomplete — even 10.3.4 is vulnerable. CISA deadline: Oct 17, 2026. Check your build now, free, no signup.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#3b0d0d;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.step{display:flex;gap:14px;margin:18px 0}
+.stepnum{flex:0 0 34px;height:34px;border-radius:50%;background:#1c6ef2;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+input.ver{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;padding:14px 16px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:16px;color:#7ee787;margin:12px 0}
+button.checkbtn{background:#1c6ef2;color:#fff;font-weight:700;font-size:16px;padding:14px 28px;border:none;border-radius:8px;cursor:pointer}
+button.checkbtn:hover{background:#2f7ef7}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+code{background:#000;border:1px solid #2a3342;border-radius:6px;padding:2px 8px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;color:#7ee787}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What are CVE-2026-105133 and CVE-2026-105134?","acceptedAnswer":{"@type":"Answer","text":"CVE-2026-105133 is an improper authentication vulnerability in AhsayCBS's checkSysPwd() function; CVE-2026-105134 is an OS command injection in the Replication Receiver component (/rps/api/json/UpdateReceivers.do). Attackers chain them to bypass authentication and execute arbitrary OS commands with NT AUTHORITY\\SYSTEM privileges — no login required."}},
+{"@type":"Question","name":"Is AhsayCBS 10.3.4 still vulnerable?","acceptedAnswer":{"@type":"Answer","text":"Yes. Huntress confirmed that the August 2026 patches (9.15.2.59 and 10.3.4.0) did not fully fix the flaws, and that even the latest listed version 10.3.4 remained exploitable — effectively a zero-day. The complete fixes are the v10.3.4.45 hotfix (v10 branch) and the v9.15.2.70 hotfix (v7/v8/v9 branches), followed by a server reboot."}},
+{"@type":"Question","name":"What do the attackers do after exploiting AhsayCBS?","acceptedAnswer":{"@type":"Answer","text":"Per Huntress and Bitdefender MDR: plant JSP web shells in the AhsayCBS web app directories, stage payloads in C:\\Users\\Public, install XMRig cryptominers disguised as edge.exe / msedge.exe (with a service named MicrosoftEdgeUpdateSvc), drop an AI-assisted PowerShell script (Taskgmr.ps1) that kills Windows Task Manager to hide mining, install OpenSSH for a backdoor, and create services, scheduled tasks, and elevated accounts for persistence."}},
+{"@type":"Question","name":"What is the CISA deadline for the AhsayCBS flaws?","acceptedAnswer":{"@type":"Answer","text":"CISA added both flaws to its Known Exploited Vulnerabilities (KEV) catalog, requiring US federal agencies to patch by October 17, 2026. Private organizations should treat the same date as the urgency bar — exploitation began October 7, 2026, and Huntress saw at least five organizations targeted by October 8."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">AHSAYCBS RCE + XMRIG MINER &mdash; CISA KEV-LISTED &mdash; PATCH DEADLINE OCT 17, 2026</div>
+<h1>Your backup server may be mining crypto for <span class="red">attackers</span> right now</h1>
+<p class="lead">Attackers are chaining two AhsayCBS flaws &mdash; <strong>CVE-2026-105133</strong> (authentication bypass) and <strong>CVE-2026-105134</strong> (OS command injection) &mdash; to get unauthenticated remote code execution with <strong>NT AUTHORITY\SYSTEM</strong> privileges. Huntress saw at least <strong>five organizations targeted</strong> from October 7, 2026. After breaking in, they drop <strong>JSP web shells</strong> and <strong>XMRig miners disguised as <code>edge.exe</code></strong>, plus an AI-written PowerShell script that kills Windows Task Manager to hide the mining. The scary part: the August 2026 patches <strong>did not fully work</strong> &mdash; Huntress confirmed even version <strong>10.3.4 is still vulnerable</strong>. New hotfixes are out: <strong>v10.3.4.45</strong> and <strong>v9.15.2.70</strong>, reboot required. CISA added both flaws to its KEV catalog with a patch deadline of <strong>October 17, 2026</strong> &mdash; tomorrow. This 60-second check tells you whether your build is vulnerable and what to hunt for. Free, no signup.</p>
+
+<div class="card">
+<h2>Step 1 &mdash; Check your AhsayCBS version</h2>
+<p>Type the full build number from the AhsayCBS web console (<strong>System Settings &rarr; License &rarr; Update License</strong>). You need all four numbers, e.g. <code>10.3.4.45</code> &mdash; "10.3.4" alone is not enough.</p>
+<input class="ver" id="ver" type="text" inputmode="decimal" autocapitalize="off" spellcheck="false" placeholder="e.g. 10.3.4.0">
+<button class="checkbtn" onclick="checkVer()">Check my version</button>
+<div id="vresult" style="margin-top:12px"></div>
+<script>
+function cmp(a,b){for(var i=0;i<4;i++){var x=a[i]||0,y=b[i]||0;if(x!==y)return x-y;}return 0;}
+function checkVer(){
+  var raw=document.getElementById('ver').value.trim();
+  var out=document.getElementById('vresult');
+  var m=raw.match(/(\d+)\.(\d+)\.(\d+)(?:\.(\d+))?/);
+  if(!m){out.innerHTML='<div class="verdict warn"><strong>Could not parse that version.</strong> Enter the full build like <code>10.3.4.45</code> from System Settings &rarr; License &rarr; Update License.</div>';return;}
+  var v=[+m[1],+m[2],+m[3],+(m[4]||0)];
+  var major=v[0], vuln=true, fix='';
+  if(major===10){fix='10.3.4.45';vuln=cmp(v,[10,3,4,45])<0;}
+  else if(major===9||major===8||major===7){fix='9.15.2.70';vuln=cmp(v,[9,15,2,70])<0;}
+  else{fix='contact your Ahsay partner for the supported hotfix path';}
+  if(vuln){
+    out.innerHTML='<div class="verdict"><strong>VULNERABLE.</strong> Build <code>'+raw+'</code> is below the fixed build <code>'+fix+'</code>. The August 2026 patches were incomplete &mdash; assume this server is exploitable <em>right now</em>. Patch to the hotfix, reboot, then do Step 2 before trusting anything on this box.</div>';
+  }else{
+    out.innerHTML='<div class="verdict safe"><strong>PATCHED (initial entry point).</strong> Build <code>'+raw+'</code> is at or above <code>'+fix+'</code>, which Huntress independently verified mitigates the attack chain&apos;s entry point. Still do Step 2: if the box was exposed <em>before</em> patching, backdoors planted earlier survive the patch.</div>';
+  }
+}
+</script>
+<p class="note">This check runs entirely in your browser &mdash; your version never leaves this page.</p>
+</div>
+
+<div class="card">
+<h2>Step 2 &mdash; Hunt for compromise signs</h2>
+<p>Patching closes the door; it does <strong>not</strong> remove intruders already inside. If the server was internet-exposed before the hotfix, check for these attacker artifacts (Huntress + Bitdefender MDR observations):</p>
+<ul>
+<li><strong><code>edge.exe</code> or <code>msedge.exe</code> in temp directories</strong> &mdash; XMRig miners impersonating Microsoft Edge. Real Edge does not live in temp folders.</li>
+<li><strong>A service named <code>MicrosoftEdgeUpdateSvc</code></strong> &mdash; fake Edge updater service used for miner persistence.</li>
+<li><strong>JSP web shells</strong> in the AhsayCBS web application directories &mdash; small scripts turning web requests into a command shell.</li>
+<li><strong>Files staged in <code>C:\Users\Public</code></strong> &mdash; writable by every local user; attackers drop tooling here via <code>curl</code>/<code>certutil</code>.</li>
+<li><strong><code>Taskgmr.ps1</code></strong> &mdash; AI-assisted PowerShell that kills Windows Task Manager when opened (anti-analysis). Task Manager dying at night is a symptom, not a glitch.</li>
+<li><strong>Unexpected OpenSSH installation</strong> &mdash; backdoor that survives patching because it doesn't depend on the vulnerable web service.</li>
+<li><strong>Suspicious processes spawned by <code>cbssvcX64.exe</code></strong> &mdash; the AhsayCBS service process should not be launching miners or shells.</li>
+<li><strong>New services, scheduled tasks, or elevated accounts</strong> you didn't create.</li>
+</ul>
+<div class="verdict warn"><strong>Found any of these?</strong> Treat the box as fully compromised: isolate it, preserve forensic images, rotate every credential the server touches, and assume backup data was reachable. Then rebuild from known-good media &mdash; don't just patch over an intrusion.</div>
+</div>
+
+<div class="card">
+<h2>Why this is worse than it looks</h2>
+<ul>
+<li><strong>The "patched" versions weren't.</strong> Versions 9.15.2.59 and 10.3.4.0 (August 2026) were assumed fixed; Ahsay later confirmed the patches were incomplete and Huntress showed even 10.3.4 was still exploitable &mdash; effectively a zero-day window that lasted two months.</li>
+<li><strong>Patching does not evict attackers.</strong> OpenSSH backdoors, services, and scheduled tasks persist after the hotfix. "Patched and rebooted" without an IOC hunt is a false sense of safety.</li>
+<li><strong>The miners hide in plain sight.</strong> Naming the miner <code>edge.exe</code> and the service <code>MicrosoftEdgeUpdateSvc</code> exploits admin trust in Microsoft-signed-looking names.</li>
+<li><strong>Anti-analysis is automated now.</strong> The Taskgmr.ps1 script &mdash; suspected AI-written &mdash; watches for Task Manager and kills it. If your monitoring relies on someone noticing a slow server, it will miss this.</li>
+<li><strong>The clock is real.</strong> Exploitation started October 7; CISA's KEV deadline is October 17, 2026. Attackers had a 10-day head start on most defenders.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>What to do right now</h2>
+<ul>
+<li><strong>Patch to v10.3.4.45</strong> (v10 branch) or <strong>v9.15.2.70</strong> (v7/v8/v9 branches) from Ahsay &mdash; downloads need a valid partner account &mdash; then <strong>reboot the server</strong> as Ahsay instructs.</li>
+<li><strong>Hunt the IOCs in Step 2</strong> before declaring the box clean.</li>
+<li><strong>Verify your backups are intact and restorable</strong> &mdash; this is backup infrastructure; confirm backup jobs still run and data wasn't tampered with.</li>
+<li><strong>Rotate credentials</strong> stored on or reachable from the server.</li>
+<li><strong>Restrict AhsayCBS management ports</strong> to trusted IPs/VPN &mdash; this attack needed the web service to be reachable.</li>
+</ul>
+</div>
+
+<a class="cta" href="https://breach-hunter.onrender.com/?utm_source=newsjack&utm_medium=static-page&utm_campaign=ahsaycbs-xmrig">Hunt attacker infrastructure and IOCs &rarr; BreachHunter</a>
+<p class="note" style="text-align:center">This page checked one threat. BreachHunter tracks attacker infrastructure, malicious domains, and compromise indicators &mdash; the IOC-hunting side of stories like AhsayCBS.</p>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with any Ahsay backup admin you know.<br>
+The Hacker News &middot; Oct 15, 2026 &middot; CVE-2026-105133 (auth bypass) + CVE-2026-105134 (OS command injection, CVSS 9.3) &middot; fixed in v10.3.4.45 / v9.15.2.70 &middot; CISA KEV deadline Oct 17, 2026 &middot; Huntress + Bitdefender MDR telemetry
+</footer>
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=AhsayCBS%20admins%3A%20attackers%20are%20dropping%20XMRig%20miners%20disguised%20as%20edge.exe%20%E2%80%94%20even%20v10.3.4%20is%20vulnerable.%20CISA%20deadline%20tomorrow.%20Free%2060-sec%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ahsaycbs-xmrig-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ahsaycbs-xmrig-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ahsaycbs-xmrig-check.html&title=AhsayCBS%20CVE-2026-105134%20Version%20Check" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
