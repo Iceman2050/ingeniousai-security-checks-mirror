@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free security.txt Generator — RFC 9116 Compliant</title>
+<meta name="description" content="Free security.txt generator: answer a few questions and get a valid RFC 9116 security.txt file with Contact, Expires, Policy and more. Copy or download, then deploy to /.well-known/security.txt.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-txt-generator.html">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-txt-generator.html">
+<meta property="og:title" content="Free security.txt Generator — RFC 9116 Compliant">
+<meta property="og:description" content="Draft a valid security.txt for your site in under a minute. Contact, Expires, Policy, Encryption and more — copy, download, deploy. Free from Ingenious AI.">
+<meta property="og:type" content="website">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d2a12;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:12px}
+.direct{background:#11161f;border:1px solid #232b38;border-left:4px solid #1c6ef2;border-radius:10px;padding:16px 20px;margin:20px 0;font-size:15px;color:#c9d4e3}
+label{display:block;font-size:14px;font-weight:700;margin:18px 0 6px;color:#c9d4e3}
+label .req{color:#f85149}
+label .hint{display:block;font-weight:400;font-size:13px;color:#9aa7b8;margin-top:2px}
+input[type=text],input[type=url],input[type=email]{width:100%;background:#11161f;border:1px solid #232b38;border-radius:8px;color:#e6edf3;font-size:15px;padding:12px 14px;font-family:monospace}
+input:focus{outline:none;border-color:#1c6ef2}
+pre.out{background:#0d1117;border:1px solid #232b38;border-radius:12px;padding:20px;margin:24px 0;font-size:14px;line-height:1.7;white-space:pre-wrap;word-break:break-all;color:#a5d6ff}
+pre.out .c{color:#6b7688}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 8px}
+.btn{flex:1;min-width:160px;padding:14px;font-size:16px;font-weight:800;border-radius:10px;border:2px solid #1c6ef2;background:#1c6ef2;color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:#e6edf3;border-color:#2a3342}
+.btn:hover{filter:brightness(1.15)}
+.note{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:16px 0;font-size:14px;color:#9aa7b8}
+.note code{color:#a5d6ff}
+h2{font-size:24px;margin:36px 0 12px}
+ol.steps{margin:12px 0 12px 22px;font-size:15px;color:#c9d4e3}
+ol.steps li{margin-bottom:10px}
+ol.steps code{background:#0d1117;border:1px solid #232b38;border-radius:6px;padding:2px 8px;color:#a5d6ff;font-size:14px}
+details.faq{margin:14px 0;background:#11161f;border:1px solid #232b38;border-radius:10px;padding:16px 20px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:16px}
+details.faq p{margin-top:10px;font-size:15px;color:#c9d4e3}
+footer{margin-top:40px;padding-top:18px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+footer a{color:#9aa7b8}
+.err{display:none;background:#1a0f0f;border:1px solid #f85149;border-radius:10px;padding:12px 18px;margin:16px 0;font-size:14px;color:#f0a3a3}
+.err.show{display:block}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Free security.txt Generator","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-txt-generator.html","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0"},"description":"Free client-side generator for RFC 9116 security.txt files: Contact, Expires, Encryption, Acknowledgments, Policy, Hiring, Preferred-Languages and Canonical."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is security.txt?","acceptedAnswer":{"@type":"Answer","text":"security.txt is a plain text file defined by RFC 9116, published in April 2022. Placed at /.well-known/security.txt, it tells security researchers exactly how to report vulnerabilities they find in your systems — which contact to use, whether encrypted reports are accepted, and where your disclosure policy lives."}},
+{"@type":"Question","name":"Which fields does RFC 9116 require?","acceptedAnswer":{"@type":"Answer","text":"Two fields are required: Contact (at least one mailto:, https: or tel: URI) and Expires (an ISO 8601 date-time, recommended less than a year ahead so the file cannot go stale). Everything else — Encryption, Acknowledgments, Policy, Hiring, Preferred-Languages, Canonical — is optional but useful."}},
+{"@type":"Question","name":"Where do I put the generated file?","acceptedAnswer":{"@type":"Answer","text":"Upload it to https://yourdomain.com/.well-known/security.txt and make sure it is served as plain text over HTTPS. Most static hosts, CDNs and CMS platforms let you add a file at that path in minutes."}},
+{"@type":"Question","name":"Does my data leave my browser?","acceptedAnswer":{"@type":"Answer","text":"No. This generator runs entirely in your browser. Nothing you type is sent anywhere — the file is assembled locally and downloaded straight to your device."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<span class="badge">FREE DEVELOPER TOOL</span>
+<h1>Free security.txt Generator</h1>
+<p class="lead">Draft a valid <b>RFC 9116</b> security.txt for your site in under a minute. Answer the questions, copy or download the file, deploy it to <code>/.well-known/security.txt</code>. No signup, nothing leaves your browser.</p>
+
+<div class="direct"><b>What this is:</b> security.txt is a plain text file defined by RFC 9116 (April 2022) that lives at <b>/.well-known/security.txt</b> on your website. It tells security researchers how to report vulnerabilities they find — the right contact, whether encrypted reports are accepted, and where your disclosure policy is. This tool formats the file for you; you supply only your own details.</div>
+
+<div class="err" id="err"></div>
+
+<label>Contact email <span class="req">*</span><span class="hint">Where researchers reach you, e.g. security@example.com (becomes mailto:)</span></label>
+<input type="email" id="f_email" placeholder="security@example.com" autocomplete="off">
+
+<label>Contact URL (optional)<span class="hint">A web reporting form or bug bounty page, e.g. https://example.com/report</span></label>
+<input type="url" id="f_contacturl" placeholder="https://example.com/report" autocomplete="off">
+
+<label>Expires <span class="req">*</span><span class="hint">ISO 8601 date-time. Defaults to one year from now, per the RFC recommendation</span></label>
+<input type="text" id="f_expires" autocomplete="off">
+
+<label>Your site URL (for the Canonical field)<span class="hint">e.g. https://example.com — used to build the Canonical field</span></label>
+<input type="url" id="f_site" placeholder="https://example.com" autocomplete="off">
+
+<label>Encryption key URL (optional)<span class="hint">Link to your PGP key, e.g. https://example.com/.well-known/pgp-key.txt</span></label>
+<input type="url" id="f_encryption" placeholder="https://example.com/.well-known/pgp-key.txt" autocomplete="off">
+
+<label>Policy URL (optional)<span class="hint">Your vulnerability disclosure policy page</span></label>
+<input type="url" id="f_policy" placeholder="https://example.com/security-policy" autocomplete="off">
+
+<label>Acknowledgments URL (optional)<span class="hint">Hall of fame page crediting researchers</span></label>
+<input type="url" id="f_ack" placeholder="https://example.com/hall-of-fame" autocomplete="off">
+
+<label>Hiring URL (optional)<span class="hint">Security-related job openings</span></label>
+<input type="url" id="f_hiring" placeholder="https://example.com/careers/security" autocomplete="off">
+
+<label>Preferred languages (optional)<span class="hint">Comma-separated, e.g. en, es</span></label>
+<input type="text" id="f_langs" placeholder="en" autocomplete="off">
+
+<pre class="out" id="out"># Your security.txt will appear here</pre>
+
+<div class="btns">
+<button class="btn" id="btn_copy">Copy to clipboard</button>
+<button class="btn ghost" id="btn_dl">Download security.txt</button>
+</div>
+
+<div class="note">Generated locally in your browser. Fields follow RFC 9116 exactly: <code>Contact</code>, <code>Expires</code> (required), <code>Encryption</code>, <code>Acknowledgments</code>, <code>Policy</code>, <code>Hiring</code>, <code>Preferred-Languages</code>, <code>Canonical</code>. Comment lines start with <code>#</code>.</div>
+
+<h2>Deploy in 3 steps</h2>
+<ol class="steps">
+<li>Copy or download the file above and review it — make sure the contact details are really yours.</li>
+<li>Upload it to <code>https://yourdomain.com/.well-known/security.txt</code> so it is served as plain text over HTTPS.</li>
+<li>Revisit this page before the <code>Expires</code> date and regenerate — an expired security.txt is treated as untrustworthy. Set a calendar reminder.</li>
+</ol>
+
+<h2>Frequently asked questions</h2>
+<details class="faq"><summary>What is security.txt?</summary><p>security.txt is a plain text file defined by RFC 9116, published in April 2022. Placed at /.well-known/security.txt, it tells security researchers exactly how to report vulnerabilities they find in your systems — which contact to use, whether encrypted reports are accepted, and where your disclosure policy lives.</p></details>
+<details class="faq"><summary>Which fields does RFC 9116 require?</summary><p>Two fields are required: <b>Contact</b> (at least one mailto:, https: or tel: URI) and <b>Expires</b> (an ISO 8601 date-time, recommended less than a year ahead so the file cannot go stale). Everything else — Encryption, Acknowledgments, Policy, Hiring, Preferred-Languages, Canonical — is optional but useful.</p></details>
+<details class="faq"><summary>Where do I put the generated file?</summary><p>Upload it to https://yourdomain.com/.well-known/security.txt and make sure it is served as plain text over HTTPS. Most static hosts, CDNs and CMS platforms let you add a file at that path in minutes.</p></details>
+<details class="faq"><summary>Does my data leave my browser?</summary><p>No. This generator runs entirely in your browser. Nothing you type is sent anywhere — the file is assembled locally and downloaded straight to your device.</p></details>
+
+<footer>Free tool by <b>Ingenious AI</b> · <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/">More free security self-tests</a></footer>
+</div>
+
+<script>
+(function(){
+var CREDIT = "https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-txt-generator.html";
+function $(id){return document.getElementById(id);}
+function showErr(msg){var e=$("err");e.textContent=msg;e.classList.add("show");}
+function hideErr(){$("err").classList.remove("show");}
+function normUrl(u){u=(u||"").trim();if(!u)return "";if(!/^https?:\/\//i.test(u))u="https://"+u;return u;}
+function esc(s){return s.replace(/[#\r\n]/g," ").trim();}
+function build(){
+  hideErr();
+  var email=($("f_email").value||"").trim();
+  var contacturl=normUrl($("f_contacturl").value);
+  var expires=($("f_expires").value||"").trim();
+  var site=normUrl($("f_site").value).replace(/\/+$/,"");
+  var encryption=normUrl($("f_encryption").value);
+  var policy=normUrl($("f_policy").value);
+  var ack=normUrl($("f_ack").value);
+  var hiring=normUrl($("f_hiring").value);
+  var langs=($("f_langs").value||"").split(",").map(function(s){return esc(s);}).filter(Boolean).join(", ");
+  var L=[];
+  L.push("# Generated by Ingenious AI — "+CREDIT);
+  if(email){
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){showErr("Please enter a valid contact email address.");}
+    L.push("Contact: mailto:"+esc(email));
+  }
+  if(contacturl)L.push("Contact: "+esc(contacturl));
+  if(!email&&!contacturl){showErr("Contact is required by RFC 9116 — add an email or a contact URL.");}
+  if(expires){
+    if(!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?(Z|[+-]\d{2}:?\d{2})?$/.test(expires)){showErr("Expires must be ISO 8601, e.g. 2027-10-16T00:00:00Z.");}
+    L.push("Expires: "+esc(expires));
+  }
+  if(encryption)L.push("Encryption: "+esc(encryption));
+  if(ack)L.push("Acknowledgments: "+esc(ack));
+  if(policy)L.push("Policy: "+esc(policy));
+  if(hiring)L.push("Hiring: "+esc(hiring));
+  if(langs)L.push("Preferred-Languages: "+langs);
+  if(site)L.push("Canonical: "+site+"/.well-known/security.txt");
+  return L.join("\n")+"\n";
+}
+function refresh(){
+  var txt=build();
+  $("out").textContent=txt;
+}
+["f_email","f_contacturl","f_expires","f_site","f_encryption","f_policy","f_ack","f_hiring","f_langs"].forEach(function(id){
+  $(id).addEventListener("input",refresh);
+});
+(function(){var d=new Date();d.setFullYear(d.getFullYear()+1);$("f_expires").value=d.toISOString().slice(0,19)+"Z";})();
+$("btn_copy").addEventListener("click",function(){
+  var txt=build();
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(function(){$("btn_copy").textContent="Copied!";setTimeout(function(){$("btn_copy").textContent="Copy to clipboard";},1500);});
+  }else{
+    var ta=document.createElement("textarea");ta.value=txt;document.body.appendChild(ta);ta.select();
+    try{document.execCommand("copy");$("btn_copy").textContent="Copied!";setTimeout(function(){$("btn_copy").textContent="Copy to clipboard";},1500);}catch(e){showErr("Copy failed — select the text manually.");}
+    document.body.removeChild(ta);
+  }
+});
+$("btn_dl").addEventListener("click",function(){
+  var txt=build();
+  var blob=new Blob([txt],{type:"text/plain;charset=utf-8"});
+  var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="security.txt";
+  document.body.appendChild(a);a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},100);
+});
+refresh();
+})();
+</script>
+</body>
+</html>
