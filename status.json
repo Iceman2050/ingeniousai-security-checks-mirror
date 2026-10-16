@@ -1,0 +1,18 @@
+{
+ "updated": "2026-10-16T10:50:15-06:00",
+ "down_count": 11,
+ "total": 11,
+ "services": {
+  "agent-auth-gateway": "down",
+  "agent-flight-recorder": "down",
+  "breach-hunter": "down",
+  "chatbreaker": "down",
+  "contentcraft-ai": "down",
+  "disclosure-guard": "down",
+  "domain-guard": "down",
+  "model-minder": "down",
+  "rogue-defense": "down",
+  "terms-watch": "down",
+  "vibe-audit": "down"
+ }
+}
