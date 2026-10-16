@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spot the Phish Quiz — Can You Catch All 10?</title>
+<meta name="description" content="Free 10-round phishing quiz: read realistic email scenarios, call phish or legit, and get the red-flag breakdown for each. No signup, nothing installed.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/spot-the-phish-quiz.html">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/spot-the-phish-quiz.html">
+<meta property="og:title" content="Spot the Phish Quiz — Can You Catch All 10?">
+<meta property="og:description" content="10 realistic scenarios. Phish or legit? Get your score and the red-flag breakdown. Free security training from Ingenious AI.">
+<meta property="og:type" content="website">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d2a12;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:12px}
+.direct{background:#11161f;border:1px solid #232b38;border-left:4px solid #1c6ef2;border-radius:10px;padding:16px 20px;margin:20px 0;font-size:15px;color:#c9d4e3}
+.simnote{background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:14px 18px;margin:20px 0;font-size:14px;color:#e6c26a}
+.mail{background:#fff;color:#1a1a1a;border-radius:12px;padding:22px;margin:24px 0;box-shadow:0 4px 24px rgba(0,0,0,.4)}
+.mail .mrow{margin-bottom:10px;font-size:15px}
+.mail .mlabel{color:#666;font-size:12px;text-transform:uppercase;letter-spacing:.5px;display:block}
+.mail .mfrom{font-weight:700}
+.mail .msubj{font-weight:700;font-size:17px;border-bottom:1px solid #eee;padding-bottom:10px;margin-bottom:12px}
+.mail .mbody{font-size:15px;white-space:pre-wrap}
+.mail .mlink{margin-top:12px;background:#f0f4fa;border:1px dashed #9aa7b8;border-radius:8px;padding:10px 14px;font-size:14px}
+.mail .mlink b{display:block;font-size:12px;color:#555;text-transform:uppercase;letter-spacing:.5px}
+.vbtns{display:flex;gap:14px;margin:20px 0}
+.vbtns button{flex:1;padding:18px;font-size:19px;font-weight:800;border-radius:10px;border:2px solid #2a3342;background:#1c2430;color:#e6edf3;cursor:pointer}
+.vbtns button:hover{border-color:#1c6ef2}
+.vbtns button.phish:hover{background:#5a1a1a;border-color:#f85149}
+.vbtns button.legit:hover{background:#0d2a12;border-color:#3fb950}
+.verdict{display:none;border-radius:12px;padding:24px;margin:20px 0}
+.verdict.show{display:block}
+.verdict.right{border:2px solid #3fb950;background:#0d1a0f}
+.verdict.wrong{border:2px solid #f85149;background:#1a0f0f}
+.verdict h3{font-size:20px;margin-bottom:10px}
+.flags{margin:12px 0 0 18px;font-size:15px}
+.flags li{margin-bottom:6px}
+.nextbtn{display:block;width:100%;background:#1c6ef2;color:#fff;font-weight:700;font-size:17px;padding:15px;border-radius:10px;border:none;cursor:pointer;margin:14px 0}
+.nextbtn:hover{background:#2f7ef7}
+.progress{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+.pbar{height:10px;background:#1c2430;border-radius:5px;margin-bottom:20px;overflow:hidden}
+.pbar div{height:100%;background:#1c6ef2;border-radius:5px;transition:width .3s}
+#startcard,#resultcard{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:32px;margin:24px 0;text-align:center}
+#resultcard{display:none}
+.score{font-size:56px;font-weight:800;margin:10px 0}
+.rank{font-size:18px;color:#9aa7b8;margin-bottom:16px}
+.sharebox{background:#0d1219;border:1px dashed #2a3342;border-radius:10px;padding:16px;font-size:15px;margin:16px 0;word-break:break-word}
+.sharebtns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+.sharebtns button,.sharebtns a{background:#1c6ef2;color:#fff;font-weight:700;font-size:15px;padding:12px 20px;border-radius:8px;border:none;cursor:pointer;text-decoration:none}
+.sharebtns button.ghost{background:#1c2430;border:1px solid #2a3342}
+.faq{margin:30px 0}
+.faq h2{font-size:22px;margin-bottom:14px}
+.faq details{background:#11161f;border:1px solid #232b38;border-radius:8px;padding:14px 18px;margin:10px 0}
+.faq summary{font-weight:700;cursor:pointer}
+.faq p{margin-top:10px;font-size:15px;color:#c9d4e3}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+a{color:#58a6ff}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Quiz","name":"Spot the Phish Quiz — Can You Catch All 10?","description":"Free 10-round phishing quiz: read realistic email scenarios, call phish or legit, and get the red-flag breakdown for each.","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/spot-the-phish-quiz.html","provider":{"@type":"Organization","name":"Ingenious AI"},"isAccessibleForFree":true}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is this phishing quiz free?","acceptedAnswer":{"@type":"Answer","text":"Yes. All 10 rounds, the red-flag breakdowns, and your score card are free with no signup and nothing installed."}},
+{"@type":"Question","name":"Are the phishing examples real?","acceptedAnswer":{"@type":"Answer","text":"No. Every scenario is an original simulated example written for training. Real phishing emails are never reproduced, and no real brands' messages are copied."}},
+{"@type":"Question","name":"What makes a message likely phishing?","acceptedAnswer":{"@type":"Answer","text":"The most reliable signals are a sender domain that does not match the claimed brand, a link whose real destination differs from its label, manufactured urgency or threats, and requests for credentials or payments through the message itself."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<span class="badge">FREE SECURITY TRAINING</span>
+<h1>Spot the Phish Quiz — Can You Catch All 10?</h1>
+<p class="lead">Ten realistic scenarios. You call it: phish or legit. Then you get the full breakdown of what gave it away.</p>
+<div class="direct"><strong>Short answer:</strong> most people miss at least two. The average score on quizzes like this is around 6 out of 10, because modern phishing copies real branding almost perfectly and the real tells hide in the sender domain and the link destination. Play all ten rounds below and see where you stand.</div>
+<div class="simnote"><strong>Training note:</strong> every scenario on this page is a <strong>simulated example written for training</strong>. No real phishing email is reproduced and no real company's message is copied. Brand names appear only as fictional stand-ins.</div>
+
+<div id="startcard">
+<h2 style="margin-bottom:12px">Ready to test your instincts?</h2>
+<p style="color:#9aa7b8;margin-bottom:20px">10 rounds · about 3 minutes · shareable score at the end</p>
+<button class="nextbtn" onclick="startQuiz()">Start the quiz</button>
+</div>
+
+<div id="quiz" style="display:none">
+<div class="progress" id="progress">Round 1 of 10</div>
+<div class="pbar"><div id="pfill" style="width:0%"></div></div>
+<div class="mail" id="mailbox"></div>
+<div class="vbtns" id="vbtns">
+<button class="phish" onclick="answer('phish')">🎣 PHISH</button>
+<button class="legit" onclick="answer('legit')">✅ LEGIT</button>
+</div>
+<div class="verdict" id="verdict"></div>
+<button class="nextbtn" id="nextbtn" style="display:none" onclick="nextRound()">Next round →</button>
+</div>
+
+<div id="resultcard">
+<h2>Your score</h2>
+<div class="score" id="scorenum">0/10</div>
+<div class="rank" id="ranktext"></div>
+<div class="sharebox" id="sharetext"></div>
+<div class="sharebtns">
+<button onclick="copyShare()">Copy my score</button>
+<a id="xshare" href="#" target="_blank" rel="noopener">Share on X</a>
+<button class="ghost" onclick="location.reload()">Play again</button>
+</div>
+<p style="font-size:14px;color:#9aa7b8">Free phishing training by <strong>Ingenious AI</strong> — <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/">more free security self-tests</a></p>
+</div>
+
+<div class="faq">
+<h2>Phishing quiz FAQ</h2>
+<details><summary>Is this phishing quiz free?</summary><p>Yes. All 10 rounds, the red-flag breakdowns, and your score card are free with no signup and nothing installed.</p></details>
+<details><summary>Are the phishing examples real?</summary><p>No. Every scenario is an original simulated example written for training. Real phishing emails are never reproduced, and no real brands' messages are copied.</p></details>
+<details><summary>What makes a message likely phishing?</summary><p>The most reliable signals are a sender domain that does not match the claimed brand, a link whose real destination differs from its label, manufactured urgency or threats, and requests for credentials or payments through the message itself.</p></details>
+<details><summary>What should I do if I clicked a real phishing link?</summary><p>Disconnect, do not enter anything, change the password from a known-good device starting with your email account, enable two-factor authentication, and report the message to your IT team or email provider.</p></details>
+</div>
+
+<footer>Built by Ingenious AI · <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/">Free security self-tests</a> · Simulated examples for training only</footer>
+</div>
+
+<script>
+var ROUNDS=[
+{f:"accounts@paypa1-secure.com",s:"Action required: your account will be limited in 24 hours",b:"Dear customer,\n\nWe detected unusual activity on your account. To avoid a temporary limitation, verify your identity within 24 hours.\n\nClick below to confirm your details now.",link:{show:"https://www.paypal.com/verify",real:"http://paypa1-secure.com/login"},verdict:"phish",why:"This is phishing.",flags:["Sender domain is paypa1-secure.com (with the digit 1), not paypal.com — a classic typosquat.","The real link destination (paypa1-secure.com) does not match the paypal.com label.","Manufactured urgency: a 24-hour account-limitation threat pushes you to act before thinking.","Real payment companies never ask you to verify identity through a link in an unexpected email."]},
+{f:"no-reply@accounts.examplemail.com",s:"Reset your password",b:"Hi,\n\nYou asked to reset your password for your ExampleMail account. This link expires in 60 minutes.\n\nReset password: [button]\n\nIf you did not request this, you can safely ignore this message — no changes will be made.",link:{show:"https://accounts.examplemail.com/reset?token=9f2c",real:"https://accounts.examplemail.com/reset?token=9f2c"},verdict:"legit",why:"This one is legitimate.",flags:["Sender domain accounts.examplemail.com matches the service exactly.","The link destination matches its label, character for character, on the real domain.","No threat: it plainly says you can ignore it if you did not request it.","The 60-minute expiry is normal security practice for reset tokens, not a pressure tactic."]},
+{f:"daniel.reeves@reevesco-consulting.com",s:"Quick favor — gift cards needed before 3pm",b:"Hi, I'm in back-to-back meetings and need a favor. Can you grab 4 x $100 gift cards (any major retailer) and send me the codes? I'll reimburse you today.\n\nSent from my iPhone\nDaniel",link:null,verdict:"phish",why:"This is phishing — a CEO-fraud / gift-card scam.",flags:["Check the domain: reevesco-consulting.com vs the real company domain. Attackers register lookalike domains for exactly this.","Gift cards plus secrecy plus a deadline is the textbook gift-card scam pattern — no legitimate executive asks for this by email.","Sent from a supposed iPhone but the writing is generic and avoids any detail only your real boss would know.","Real rule: any money or gift-card request by email gets verified through a second channel (call, in person)."]},
+{f:"calendar-notification@google.com",s:"Invitation: Q3 Planning Sync @ Thu 2:00 PM",b:"You have been invited to:\nQ3 Planning Sync\nThursday, October 22, 2026 2:00 PM\nOrganizer: priya.sharma@example.org\n\n[Accept] [Decline] [Maybe]",link:{show:"https://calendar.google.com/event?action=VIEW&eid=abc123",real:"https://calendar.google.com/event?action=VIEW&eid=abc123"},verdict:"legit",why:"This one is legitimate.",flags:["Sender is calendar-notification@google.com, Google's real calendar notification address.","The link goes to calendar.google.com, Google's genuine domain, matching its label.","Calendar invites are one of the most commonly suspected — and most commonly legitimate — message types.","Still wise: check the organizer name. You can always open your calendar app directly instead of clicking."]},
+{f:"billing@quickbooks-notifications.com",s:"Your invoice #INV-88412 is ready — payment due Friday",b:"Hello,\n\nYour invoice #INV-88412 for $1,249.00 is ready. Please review the attached statement and submit payment by Friday to avoid late fees.\n\nAttachment: invoice_INV-88412.pdf (214 KB)",link:null,verdict:"phish",why:"This is phishing.",flags:["The sender domain quickbooks-notifications.com is not the vendor's real domain — attackers add plausible words like 'notifications' to lookalikes.","An unexpected invoice with an attachment and a late-fee deadline is designed to make you open first and verify later.","Real accounting platforms send you to log in at their known site; they do not need you to open a PDF from email.","Verify by opening your accounting app directly — never from the email's attachment or links."]},
+{f:"First National Bank — Fraud Alerts",s:"[SMS] Possible fraud: did you approve $842.10 at ELECTRONICS DEPOT?",b:"Possible fraud on your card ending 4417: $842.10 at ELECTRONICS DEPOT. Reply YES if this was you, NO if not.\n\nIf NO, call the number on the back of your card immediately. Do not click links in texts about fraud.",link:null,verdict:"legit",why:"This one is legitimate.",flags:["It asks you to reply YES/NO and then call the number on the back of your card — a channel YOU control, not a link they gave you.","No link at all. That is the strongest possible signal: phishing needs you to click something.","It names the last four digits of your card and a specific merchant and amount — details a scammer blasting texts would not have.","The message itself teaches the safe behavior: never click links in fraud texts."]},
+{f:"it-helpdesk@companyname-mfa.com",s:"Your MFA enrollment expires today — re-enroll now",b:"Hi team,\n\nAs part of our security upgrade, all employees must re-enroll in multi-factor authentication today. Your current enrollment expires at 5 PM.\n\nRe-enroll here: [link]\n\n— IT Helpdesk",link:{show:"https://sso.companyname.com/mfa",real:"https://companyname-mfa.com/enroll"},verdict:"phish",why:"This is phishing.",flags:["Sender domain companyname-mfa.com is not the company's real domain — the hyphenated extra word is the giveaway.","The displayed link says sso.companyname.com but the real destination is companyname-mfa.com.","'Expires at 5 PM today' is manufactured urgency aimed at employees who fear losing access.","Real IT never demands same-day MFA re-enrollment by email link. Go to your company's IT portal directly."]},
+{f:"updates@videoconf-app.com",s:"Version 6.4.2 is available — what's new",b:"Version 6.4.2 of VideoConf is now available.\n\nThis release fixes screen-sharing on older laptops and two minor security issues. Update from inside the app: Settings → Check for updates.\n\nRead the full changelog: [link]",link:{show:"https://docs.videoconf-app.com/changelog/6-4-2",real:"https://docs.videoconf-app.com/changelog/6-4-2"},verdict:"legit",why:"This one is legitimate.",flags:["Sender and link domains match the vendor's real domain exactly.","It tells you to update from INSIDE the app (Settings → Check for updates) — the safe path — rather than pushing a download link.","No urgency, no threats, no credential request. Boring is good.","The changelog link is on the vendor's real docs subdomain and matches its label."]},
+{f:"invitations@llinkedln-jobs.com",s:"47 recruiters viewed your profile this week",b:"Your profile is getting attention!\n\n47 recruiters viewed your profile in the last 7 days, including 3 from Fortune 500 companies.\n\nSee who's interested: [View my profile views]",link:{show:"https://www.linkedin.com/me/profile-views",real:"https://llinkedln-jobs.com/profile-views?id=9921"},verdict:"phish",why:"This is phishing.",flags:["Sender domain llinkedln-jobs.com — that's L-L-I-N-K-E-D-L-N, a double-L typosquat of the real professional network.","The label says linkedin.com but the real destination is the typosquat domain.","Flattery ('47 recruiters!', 'Fortune 500') is the bait — it makes curiosity override caution.","Real platforms show this inside their app. Open the app yourself instead of clicking."]},
+{f:"USPS — Tracking Updates",s:"[SMS] Package held: $2.40 customs fee required",b:"USPS: Your package 9405XXXXXXXX is held at the facility. A $2.40 customs fee is required for release.\n\nPay now: [link] to avoid return to sender.",link:{show:"http://usps-track-package.com/pay",real:"http://usps-track-package.com/pay"},verdict:"phish",why:"This is phishing — the classic smishing toll.",flags:["A tiny fee ($2.40) plus 'return to sender' pressure is the standard package-scam formula.","The link domain usps-track-package.com is not the postal service's real domain.","Did you order anything? Scammers blast these to millions of numbers hoping one person is waiting on a package.","Real carriers do not demand surprise customs fees by text link. Track from the carrier's official site or app."]}
+];
+var idx=0,score=0;
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function startQuiz(){document.getElementById("startcard").style.display="none";document.getElementById("quiz").style.display="block";renderRound();}
+function renderRound(){
+var r=ROUNDS[idx];
+document.getElementById("progress").textContent="Round "+(idx+1)+" of 10";
+document.getElementById("pfill").style.width=(idx*10)+"%";
+var linkHtml=r.link?'<div class="mlink"><b>Link preview</b>Label: '+esc(r.link.show)+'<br>Real destination: '+esc(r.link.real)+'</div>':'<div class="mlink"><b>Attachment / no link</b>This message carries an attachment or asks for action with no link to inspect.</div>';
+document.getElementById("mailbox").innerHTML='<div class="mrow"><span class="mlabel">From</span><span class="mfrom">'+esc(r.f)+'</span></div><div class="msubj">'+esc(r.s)+'</div><div class="mrow"><span class="mbody">'+esc(r.b)+'</span></div>'+linkHtml;
+document.getElementById("vbtns").style.display="flex";
+document.getElementById("verdict").className="verdict";
+document.getElementById("nextbtn").style.display="none";
+window.scrollTo(0,0);
+}
+function answer(pick){
+var r=ROUNDS[idx];
+var right=(pick===r.verdict);
+if(right)score++;
+document.getElementById("vbtns").style.display="none";
+var v=document.getElementById("verdict");
+v.className="verdict show "+(right?"right":"wrong");
+var fh="<ul class='flags'>";
+for(var i=0;i<r.flags.length;i++)fh+="<li>"+esc(r.flags[i])+"</li>";
+fh+="</ul>";
+v.innerHTML="<h3>"+(right?"✅ Correct — ":"❌ Missed — ")+esc(r.why)+"</h3>"+fh;
+var nb=document.getElementById("nextbtn");
+nb.textContent=(idx===9)?"See my score →":"Next round →";
+nb.style.display="block";
+document.getElementById("pfill").style.width=((idx+1)*10)+"%";
+}
+function nextRound(){idx++;if(idx>=10){showResult();}else{renderRound();}}
+function rankFor(s){if(s===10)return"Perfect. You are the person your security team wants on call.";if(s>=8)return"Sharp eye — you catch what most people miss.";if(s>=6)return"Solid instincts, with a couple of blind spots to fix.";if(s>=4)return"Average — which means phishers would get you eventually.";return"High risk. Read every breakdown above, then retake it.";}
+function showResult(){
+document.getElementById("quiz").style.display="none";
+var rc=document.getElementById("resultcard");rc.style.display="block";
+document.getElementById("scorenum").textContent=score+"/10";
+document.getElementById("ranktext").textContent=rankFor(score);
+var st="I scored "+score+"/10 on the Spot the Phish quiz — can you beat me? https://iceman2050.github.io/ingeniousai-security-checks-mirror/spot-the-phish-quiz.html";
+document.getElementById("sharetext").textContent=st;
+document.getElementById("xshare").href="https://twitter.com/intent/tweet?text="+encodeURIComponent(st);
+window._share=st;window.scrollTo(0,0);
+}
+function copyShare(){navigator.clipboard.writeText(window._share||"").then(function(){alert("Score copied — paste it anywhere!");});}
+</script>
+</body>
+</html>
