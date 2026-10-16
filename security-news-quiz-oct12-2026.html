@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Cybersecurity News Quiz — October 12, 2026 — Ingenious AI</title>
+<meta name="description" content="Test yourself on this week's real security headlines: Cisco 0-day, GitLab PoC, curl RCE fix, SAP CVSS 10.0 SSRF, AhsayCBS KEV, CISA deadline, Winn-Dixie breach. 8 questions, free, no signup.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-news-quiz-oct12-2026.html">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-news-quiz-oct12-2026.html">
+<meta property="og:title" content="Weekly Cybersecurity News Quiz — Week of October 12, 2026">
+<meta property="og:description" content="8 questions on this week's real security headlines. I scored my week — how's yours?">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Weekly Cybersecurity News Quiz — October 12, 2026","applicationCategory":"SecurityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"A free 8-question quiz on the real cybersecurity headlines of the week of October 12, 2026: Cisco 0-day, GitLab PoC exploit, curl RCE fix, SAP CVSS 10.0 SSRF, AhsayCBS KEV listing, CISA deadline, Winn-Dixie breach. Score out of 8, share your result. No signup.","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:780px;margin:0 auto;padding:48px 20px}
+.badge-top{display:inline-block;background:#1c6ef2;color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:14px}
+h1{font-size:30px;margin-bottom:12px}
+p.lead{color:#9aa7b8;font-size:17px;margin-bottom:12px}
+.direct{background:#0d1526;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;margin:18px 0;font-size:15px}
+.direct b{color:#7db3ff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:20px 0}
+.progress{font-size:13px;color:#6b7688;font-weight:700;margin-bottom:12px}
+.pbar{height:8px;background:#0b0f17;border-radius:4px;margin-bottom:18px;overflow:hidden}
+.pbar div{height:100%;background:#1c6ef2;border-radius:4px;transition:width .3s}
+.qtext{font-size:18px;font-weight:700;margin-bottom:18px}
+.opts button{display:block;width:100%;text-align:left;font-size:15px;padding:13px 16px;border-radius:10px;border:2px solid #2a3342;background:#0d1219;color:#e6edf3;cursor:pointer;margin:10px 0}
+.opts button:hover:not(:disabled){border-color:#1c6ef2}
+.opts button:disabled{cursor:default}
+.opts button.picked-right{border-color:#3fb950;background:#0d1a0f}
+.opts button.picked-wrong{border-color:#f85149;background:#1a0f0f}
+.reveal{display:none;margin-top:18px;border-radius:10px;padding:18px 20px}
+.reveal.show{display:block}
+.reveal.right{background:#0d1a0f;border:2px solid #3fb950}
+.reveal.wrong{background:#1a0f0f;border:2px solid #f85149}
+.reveal .verdict{font-weight:800;font-size:17px;margin-bottom:8px}
+.reveal.right .verdict{color:#7ee787}
+.reveal.wrong .verdict{color:#ff9d97}
+.reveal p{font-size:14px;color:#c9d4e3}
+.reveal a{color:#7db3ff}
+.nextbtn{display:none;margin-top:16px;width:100%;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:16px;padding:13px;border-radius:10px;border:none;cursor:pointer}
+.nextbtn.show{display:block}
+.nextbtn:hover{background:#2f7ef7}
+.result{display:none;border-radius:12px;padding:28px;margin:20px 0;text-align:center}
+.result.show{display:block;border:2px solid #1c6ef2;background:#0d1526}
+.result h2{font-size:26px;margin-bottom:8px}
+.result .big{font-size:52px;font-weight:800;margin:10px 0}
+.result .rank{font-size:18px;font-weight:700;color:#7db3ff;margin-bottom:10px}
+.result p{color:#9aa7b8;font-size:15px;margin-bottom:14px}
+.shareline{background:#0b0f17;border:1px solid #232b38;border-radius:8px;padding:12px 16px;font-size:14px;margin:16px 0;color:#c9d4e3}
+.copybtn{background:#1c6ef2;color:#fff;font-weight:700;font-size:14px;padding:10px 22px;border-radius:8px;border:none;cursor:pointer;margin:4px}
+.retry{background:#1c2430;border:1px solid #2a3342;color:#e6edf3;font-weight:700;font-size:15px;padding:12px 26px;border-radius:10px;cursor:pointer;margin-top:6px}
+h2{font-size:21px;margin:34px 0 12px}
+.faq details{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0}
+.faq summary{font-weight:700;cursor:pointer}
+.faq p{color:#9aa7b8;font-size:14px;margin-top:8px}
+.srcs{font-size:13px;color:#6b7688}
+.srcs li{margin:6px 0;list-style:none}
+.srcs a{color:#7db3ff;word-break:break-all}
+.note{font-size:13px;color:#6b7688;margin-top:18px}
+footer{margin-top:36px;padding-top:18px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<span class="badge-top">WEEKLY QUIZ · OCT 12, 2026</span>
+<h1>Weekly Cybersecurity News Quiz</h1>
+<p class="lead">8 questions on the real headlines from the week of October 12–16, 2026. Every question is drawn from a verified published story, linked below. No signup, nothing installed.</p>
+<div class="direct"><b>Direct answer:</b> This week's quiz covers the Cisco Secure Email Gateway 0-day (CVE-2026-76519), the GitLab RCE proof-of-concept (CVE-2026-97229), curl 8.23.0's RCE fix, SAP's CVSS 10.0 SSRF, the AhsayCBS flaws CISA added to its exploited-vulnerabilities catalog, the Winn-Dixie breach disclosure, and the N0n ransomware claim. Answer 8 multiple-choice questions, get your score, and share it.</div>
+
+<div class="card" id="quizcard">
+<div class="progress" id="prog">QUESTION 1 OF 8</div>
+<div class="pbar"><div id="pbarfill" style="width:12.5%"></div></div>
+<div class="qtext" id="qtext"></div>
+<div class="opts" id="opts"></div>
+<div class="reveal" id="reveal"><div class="verdict" id="verdict"></div><p id="explain"></p></div>
+<button class="nextbtn" id="nextbtn" onclick="nextQ()">Next question →</button>
+</div>
+
+<div class="result" id="result">
+<h2>Your score</h2>
+<div class="big" id="scorebig">0/8</div>
+<div class="rank" id="rank"></div>
+<p id="resultmsg"></p>
+<div class="shareline" id="shareline"></div>
+<button class="copybtn" onclick="copyShare()">Copy share text</button>
+<div><button class="retry" onclick="location.reload()">Try again</button></div>
+</div>
+
+<h2>Sources — every question traces to a real story</h2>
+<ul class="srcs">
+<li>1. AhsayCBS CVEs — <a href="https://dev.to/iamfaizanakhtar/cve-2026-105134-ahsay-ahsaycbs-os-command-injection-rce-vulnerability-analysis-mitigation-201o">dev.to analysis</a></li>
+<li>2. GitLab RCE PoC — <a href="https://cybersecuritynews.com/poc-gitlab-rce-vulnerability/">cybersecuritynews.com</a></li>
+<li>3. Cisco SEG 0-day — <a href="https://betanews.com/article/cisco-email-gateway-cve-2026-76519-exploited/">betanews.com</a></li>
+<li>4. curl 8.23.0 RCE fix — <a href="https://meterpreter.org/curl-8-23-0-cve-2026-92392-rce/">meterpreter.org</a></li>
+<li>5. SAP Cloud SDK SSRF — <a href="https://deafnews.it/en/news/news/cve-2026-89111-critical-ssrf-in-sap-cloud-sdk-for-python-exfiltrates-credentials">deafnews.it</a></li>
+<li>6. CISA KEV additions — <a href="https://undercodenews.com/cisa-sounds-the-alarm-four-actively-exploited-vulnerabilities-put-email-gateways-firewalls-and-backup-servers-at-risk-video/">undercodenews.com</a></li>
+<li>7. Winn-Dixie breach — <a href="https://beyondmachines.net/event_details/winn-dixie-discloses-data-breach-following-anubis-ransomware-attack-i-c-j-g-w">beyondmachines.net</a></li>
+<li>8. N0n ransomware claim — <a href="https://undercodenews.com/n0n-ransomware-group-claims-attack-on-california-smart-building-and-surveillance-integrator-threatening-october-14-data-exposure-video/">undercodenews.com</a></li>
+</ul>
+<p class="note">Quiz edition: week of October 12, 2026. New edition every Friday — this page stays as an archive.</p>
+
+<h2>FAQ</h2>
+<div class="faq">
+<details><summary>Is this quiz based on real news?</summary><p>Yes. Every question references a story published during the week of October 12–16, 2026, and the sources are listed above. Nothing here is invented.</p></details>
+<details><summary>Will there be a new quiz next week?</summary><p>Yes — a new edition ships every Friday covering that week's headlines. This page remains as the October 12, 2026 archive.</p></details>
+<details><summary>Do I need an account to play?</summary><p>No. The quiz runs entirely in your browser. No signup, no tracking.</p></details>
+<details><summary>How is my score shared?</summary><p>Your result card includes copy-ready text ("I scored X/8 on this week's security news") with a link back to this quiz. Paste it anywhere.</p></details>
+</div>
+
+<div class="share">More free security self-tests: <a href="index.html">the hub</a> · built by <b>Ingenious AI</b></div>
+<footer>© 2026 Ingenious AI — free security self-tests. Educational content; verify critical patches against vendor advisories.</footer>
+</div>
+
+<script>
+var QUIZ=[
+{q:"CISA added two AhsayCBS flaws to its Known Exploited Vulnerabilities catalog on October 14. What CVSS 3.1 score did the critical one (CVE-2026-105134) receive?",
+ opts:["10.0 — the maximum possible","9.4","8.8","7.3"],
+ a:0,
+ why:"CVE-2026-105134 is an unauthenticated OS command injection RCE scoring CVSS 3.1 10.0 — network-reachable, trivial to exploit, no privileges, with a public exploit in the wild. <a href=\"https://dev.to/iamfaizanakhtar/cve-2026-105134-ahsay-ahsaycbs-os-command-injection-rce-vulnerability-analysis-mitigation-201o\">Source</a>"},
+{q:"A proof-of-concept exploit was published this week for the critical GitLab flaw CVE-2026-97229. Which component is vulnerable?",
+ opts:["The CI/CD regular-expression compiler","The container registry","The OAuth token exchange","The wiki renderer"],
+ a:0,
+ why:"GitLab's advisory describes CVE-2026-97229 as an integer overflow in the CI/CD regex compiler — CI lint processes a crafted pipeline config from an attacker-controlled branch. Fixed in 19.2.8, 19.3.5 and 19.4.2 on October 12. <a href=\"https://cybersecuritynews.com/poc-gitlab-rce-vulnerability/\">Source</a>"},
+{q:"How do attackers exploit the Cisco Secure Email Gateway 0-day (CVE-2026-76519, CVSS 9.8)?",
+ opts:["A doctored attachment in an ordinary email — no login needed","A phishing link the recipient must click","A malicious browser extension","A brute-forced admin password"],
+ a:0,
+ why:"The flaw sits in AMP's attachment processing when File Reputation is enabled. A single message with a crafted file lets an unauthenticated outsider write files and run commands as root. No workaround exists. <a href=\"https://betanews.com/article/cisco-email-gateway-cve-2026-76519-exploited/\">Source</a>"},
+{q:"Which curl release fixes the critical HTTP/2 use-after-free RCE (CVE-2026-92392)?",
+ opts:["curl 8.23.0","curl 8.22.1","curl 8.20.0","curl 9.0.0"],
+ a:0,
+ why:"curl 8.23.0 (October 16, 2026) fixes CVE-2026-92392, a use-after-free in HTTP/2 uploads affecting 8.12.0–8.22.0, where a rogue server can corrupt client memory and reach RCE. <a href=\"https://meterpreter.org/curl-8-23-0-cve-2026-92392-rce/\">Source</a>"},
+{q:"SAP patched a maximum-severity SSRF in the Cloud SDK for Python (CVE-2026-89111, CVSS 10.0). Which parameter did attackers manipulate?",
+ opts:["tenant_subdomain","session_token","client_secret","redirect_uri"],
+ a:0,
+ why:"The unvalidated tenant_subdomain parameter let an unauthenticated attacker divert OAuth2 token requests to a controlled server, stealing client credentials across tenants on SAP BTP. Fixed in 0.45.2. <a href=\"https://deafnews.it/en/news/news/cve-2026-89111-critical-ssrf-in-sap-cloud-sdk-for-python-exfiltrates-credentials\">Source</a>"},
+{q:"CISA added four actively-exploited flaws to its KEV catalog this week (Cisco SEG, Palo Alto PAN-OS, AhsayCBS). What is the federal remediation deadline?",
+ opts:["October 17, 2026","October 31, 2026","November 1, 2026","December 1, 2026"],
+ a:0,
+ why:"CISA directed federal civilian agencies to remediate the four KEV additions — spanning email gateways, firewalls and backup servers — by October 17, 2026. <a href=\"https://undercodenews.com/cisa-sounds-the-alarm-four-actively-exploited-vulnerabilities-put-email-gateways-firewalls-and-backup-servers-at-risk-video/\">Source</a>"},
+{q:"Winn-Dixie disclosed a data breach this week involving Social Security numbers. Which ransomware group claimed responsibility?",
+ opts:["Anubis","Akira","LockBit","N0n"],
+ a:0,
+ why:"The Florida supermarket chain disclosed the breach to Massachusetts regulators on October 5; the Anubis group had claimed the intrusion on August 3, alleging it stole internal company data. Winn-Dixie is offering 24 months of credit monitoring. <a href=\"https://beyondmachines.net/event_details/winn-dixie-discloses-data-breach-following-anubis-ransomware-attack-i-c-j-g-w\">Source</a>"},
+{q:"The ransomware group N0n claimed this week to have breached which kind of company?",
+ opts:["A California smart building and surveillance integrator","A French supermarket chain","A Texas oil refinery","A German car manufacturer"],
+ a:0,
+ why:"N0n listed Interior Technologies — a California smart-building and surveillance integrator — claiming gateway configs covering every client site, device and credential. The claim remains unverified. <a href=\"https://undercodenews.com/n0n-ransomware-group-claims-attack-on-california-smart-building-and-surveillance-integrator-threatening-october-14-data-exposure-video/\">Source</a>"}
+];
+var i=0,score=0;
+function renderQ(){
+ var q=QUIZ[i];
+ document.getElementById('prog').textContent="QUESTION "+(i+1)+" OF "+QUIZ.length;
+ document.getElementById('pbarfill').style.width=((i+1)/QUIZ.length*100)+"%";
+ document.getElementById('qtext').textContent=q.q;
+ var box=document.getElementById('opts');box.innerHTML="";
+ q.opts.forEach(function(o,k){
+  var b=document.createElement('button');b.textContent=o;
+  b.onclick=function(){answer(b,k)};box.appendChild(b);
+ });
+ document.getElementById('reveal').className="reveal";
+ document.getElementById('nextbtn').className="nextbtn";
+}
+function answer(btn,k){
+ var q=QUIZ[i],right=k===q.a;
+ if(right)score++;
+ var kids=document.getElementById('opts').children;
+ for(var j=0;j<kids.length;j++){kids[j].disabled=true;
+  if(j===q.a)kids[j].classList.add('picked-right');}
+ if(!right)btn.classList.add('picked-wrong');
+ var r=document.getElementById('reveal');
+ r.className="reveal show "+(right?"right":"wrong");
+ document.getElementById('verdict').textContent=right?"✓ Correct":"✗ Wrong — the answer is: "+q.opts[q.a];
+ document.getElementById('explain').innerHTML=q.why;
+ document.getElementById('nextbtn').className="nextbtn show";
+ document.getElementById('nextbtn').textContent=(i===QUIZ.length-1)?"See my score →":"Next question →";
+}
+function nextQ(){
+ if(i<QUIZ.length-1){i++;renderQ();}
+ else{
+  document.getElementById('quizcard').style.display="none";
+  var r=document.getElementById('result');r.className="result show";
+  document.getElementById('scorebig').textContent=score+"/8";
+  var rank,msg;
+  if(score===8){rank="Threat-intel pro";msg="A perfect week. You read everything before it trended.";}
+  else if(score>=6){rank="Well briefed";msg="Solid week — you caught most of what mattered.";}
+  else if(score>=4){rank="Patching needed";msg="Half the week got past you. The headlines above are your patch notes.";}
+  else{rank="Living dangerously";msg="This week had a CVSS 10.0 and a root 0-day and you missed them. Catch up above.";}
+  document.getElementById('rank').textContent=rank;
+  document.getElementById('resultmsg').textContent=msg;
+  document.getElementById('shareline').textContent="I scored "+score+"/8 on this week's security news quiz — "+rank+". Test yourself: https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-news-quiz-oct12-2026.html";
+ }
+}
+function copyShare(){
+ var t=document.getElementById('shareline').textContent;
+ navigator.clipboard.writeText(t).then(function(){alert("Share text copied!");});
+}
+renderQ();
+</script>
+</body>
+</html>
