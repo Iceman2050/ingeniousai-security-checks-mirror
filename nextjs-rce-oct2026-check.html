@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Next.js RCE Check — Are You on a Vulnerable Version? Free 30-Second Self-Test</title>
+<meta name="description" content="Next.js out-of-band patch (Oct 14, 2026): two critical unauthenticated RCE flaws (CVSS 9.5) + high DoS. Check your Next.js version in 30 seconds. Free, no signup.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Two unauthenticated RCEs in Next.js — are you patched? 30-Second Check">
+<meta property="og:description" content="Next.js shipped an out-of-band fix for two critical unauthenticated RCE flaws (CVSS 9.5 each) + a high-severity DoS. Check your version in 30 seconds. Free, no signup.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextjs-rce-oct2026-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextjs-rce-oct2026-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Two unauthenticated RCEs in Next.js — are you patched? 30-Second Check">
+<meta name="twitter:description" content="Next.js out-of-band fix: two critical unauthenticated RCE flaws (CVSS 9.5) + high DoS. Check your version in 30 seconds. Free, no signup.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#3b0d0d;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+code.cmd{display:block;background:#000;border:1px solid #2a3342;border-radius:8px;padding:14px 16px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;color:#7ee787;overflow-x:auto;margin:10px 0;white-space:pre}
+input.ver{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;padding:14px 16px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:15px;color:#e6edf3;margin:10px 0}
+button.check{background:#1c6ef2;color:#fff;font-weight:700;font-size:16px;padding:12px 28px;border:none;border-radius:8px;cursor:pointer}
+button.check:hover{background:#2f7ef7}
+#result{margin-top:14px;display:none}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+th,td{border:1px solid #2a3342;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#161d28;color:#fff}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What are the Next.js October 2026 critical vulnerabilities?","acceptedAnswer":{"@type":"Answer","text":"Next.js shipped an out-of-band update on October 14, 2026 fixing three flaws: (1) unauthenticated RCE via 'use cache' functions returning multiple typed arrays (GHSA-673q-mjm6-r5xr, CVSS 9.5) in 16.0.0–16.4.0 with Cache Components; (2) unauthenticated RCE via SVG image processing through sharp/librsvg (CVE-2026-96889, CVSS 9.5) in 10.0.0–15.5.27 and 16.0.0–16.4.0 on glibc Linux; (3) high-severity DoS via Server Actions (GHSA-p3m5-59mp-jv5r) in 13.0.0–15.5.27 and 16.0.0–16.4.0. Fixed in 16.4.1 and 15.5.28."}},
+{"@type":"Question","name":"How do I check my Next.js version?","acceptedAnswer":{"@type":"Answer","text":"Run 'npm ls next' in your project, or check the version in package.json / package-lock.json. Then compare against the fixed releases: 16.4.1 (Active LTS) and 15.5.28 (Maintenance LTS). The interactive checker on this page does the comparison for you — paste your version and it tells you which of the three flaws you're exposed to."}},
+{"@type":"Question","name":"Is there a workaround for the Next.js SVG RCE without upgrading?","acceptedAnswer":{"@type":"Answer","text":"Partially: ensure sharp is 0.35.5 or later, or block SVG rendering in sharp with sharp.block({ operation: ['VipsForeignLoadSvg'] }). But the 'use cache' RCE has no workaround — Vercel recommends upgrading even if you believe your app doesn't use the affected pattern. No public exploitation had been reported as of October 15, 2026."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">NEXT.JS OUT-OF-BAND &mdash; OCT 14, 2026 &mdash; 2&times; RCE CVSS 9.5</div>
+<h1>Two unauthenticated RCEs in Next.js — <span class="red">are you patched?</span></h1>
+<p class="lead">Next.js just shipped an <strong>out-of-band</strong> security update for <strong>two critical unauthenticated remote-code-execution flaws (CVSS 9.5 each)</strong> plus a high-severity denial-of-service bug. One RCE hides in React Server Components' <code>use cache</code>; the other in SVG image processing via <code>sharp</code>/librsvg on glibc Linux. No login needed for either. Paste your Next.js version for an instant verdict. Free, no signup.</p>
+
+<div class="card">
+<h2>The 30-second check</h2>
+<p><strong>Find your version</strong>:</p>
+<code class="cmd">npm ls next
+# or: grep '"next"' package.json</code>
+<p style="margin-top:10px"><strong>Paste it</strong> (e.g. <code>15.5.27</code>, <code>16.4.0</code>, <code>14.2.5</code>):</p>
+<input class="ver" id="ver" placeholder="e.g. 15.5.27" autocomplete="off" spellcheck="false">
+<button class="check" onclick="checkVer()">Check my version</button>
+<div id="result"></div>
+</div>
+
+<div class="card">
+<h2>The three flaws at a glance</h2>
+<table>
+<tr><th>Flaw</th><th>Affected</th><th>Fixed in</th><th>Who's exposed</th></tr>
+<tr><td><strong>RCE</strong> via <code>use cache</code><br>GHSA-673q-mjm6-r5xr<br>CVSS 9.5</td><td>16.0.0 – 16.4.0</td><td><strong>16.4.1</strong></td><td>App Router + Cache Components where a <code>use cache</code> fn returns multiple typed arrays. Root cause in React (react-server-dom-* 19.0.0–19.3.0). <strong>No workaround</strong> — upgrade even if you think you're unaffected.</td></tr>
+<tr><td><strong>RCE</strong> via SVG images<br>CVE-2026-96889<br>CVSS 9.5</td><td>10.0.0 – 15.5.27<br>and 16.0.0 – 16.4.0</td><td><strong>16.4.1</strong>, or <strong>15.5.28</strong> with sharp ≥ 0.35.5</td><td>Apps passing attacker-supplied SVGs to <code>sharp</code> on glibc Linux — via <code>dangerouslyAllowSVG</code> or <code>next/og</code> on Node.js runtime. Workaround: sharp 0.35.5+ or <code>sharp.block({operation:["VipsForeignLoadSvg"]})</code>.</td></tr>
+<tr><td><strong>DoS</strong> via Server Actions<br>GHSA-p3m5-59mp-jv5r<br>High</td><td>13.0.0 – 15.5.27<br>and 16.0.0 – 16.4.0</td><td><strong>15.5.28</strong>, <strong>16.4.1</strong></td><td>App Router apps with ≥1 Server Action. Crafted requests burn CPU and block the process. Pages Router apps are not affected by this one.</td></tr>
+</table>
+<p class="note">As of Oct 15: no public reports of exploitation, and two of the advisories were missing from the npm audit feed — <strong><code>npm audit</code> alone may not warn you</strong>. Check the version manually.</p>
+</div>
+
+<div class="card" style="border-color:#f85149">
+<h2>Patch now — the order matters</h2>
+<ul>
+<li><strong>Upgrade Next.js</strong> to <strong>16.4.1</strong> (Active LTS) or <strong>15.5.28</strong> (Maintenance LTS). Upgrading pulls a fixed <code>sharp</code> automatically.</li>
+<li><strong>Can't upgrade today?</strong> For the SVG RCE only: pin <code>sharp</code> ≥ 0.35.5 or block SVG loads in sharp. There is <strong>no workaround</strong> for the <code>use cache</code> RCE — that one needs the upgrade.</li>
+<li><strong>Audit your exposure:</strong> grep for <code>use cache</code> functions returning typed arrays, check for <code>dangerouslyAllowSVG</code> or <code>next/og</code> usage, inventory your Server Actions.</li>
+</ul>
+</div>
+
+<div class="card" style="margin-top:22px">
+<h2 style="font-size:18px;margin-bottom:8px">Writing about this? Embed the checker</h2>
+<p style="color:#9aa7b8;font-size:14px;margin-bottom:10px">Drop a live version checker into your blog, docs, or forum post — three lines of HTML.</p>
+<a href="embed-checker.html" style="display:inline-block;background:#1c6ef2;color:#fff;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;font-size:14px">Get the embed code</a>
+</div>
+
+<a class="cta" href="https://breach-hunter.onrender.com/?utm_source=newsjack&utm_medium=static-page&utm_campaign=nextjs-rce-oct2026">Scan your web app's attack surface &rarr; BreachHunter</a>
+<p class="note" style="text-align:center">This page checked one release. BreachHunter pentests your web application's exposed surface — the outdated frameworks and misconfigurations attackers actually probe.</p>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with anyone shipping Next.js.<br>
+Next.js out-of-band security release &middot; Oct 14, 2026 &middot; 16.4.1 / 15.5.28 &middot; GHSA-673q-mjm6-r5xr, CVE-2026-96889, GHSA-p3m5-59mp-jv5r &middot; no public exploitation reported as of Oct 15
+</footer>
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=Next.js%20out-of-band%20patch%3A%20TWO%20unauthenticated%20RCE%20flaws%20(CVSS%209.5)%20%2B%20DoS%20%E2%80%94%20are%20you%20patched%3F%20Free%2030-sec%20version%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/nextjs-rce-oct2026-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/nextjs-rce-oct2026-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/nextjs-rce-oct2026-check.html&title=Next.js%20RCE%20Version%20Check%20Oct%202026" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+<script>
+function parseV(s){var m=s.trim().match(/^(\d+)\.(\d+)\.(\d+)/);return m?[+m[1],+m[2],+m[3]]:null;}
+function cmp(a,b){for(var i=0;i<3;i++){if(a[i]!==b[i])return a[i]-b[i];}return 0;}
+function checkVer(){
+  var raw=document.getElementById('ver').value, res=document.getElementById('result'), v=parseV(raw);
+  res.style.display='block';
+  if(!v){res.innerHTML='<div class="verdict warn"><strong>Could not parse that version.</strong> Paste the number from <code>npm ls next</code>, e.g. <code>15.5.27</code>.</div>';return;}
+  var M=v[0], html='';
+  function rceUseCache(){ return M===16 && cmp(v,[16,4,1])<0; }
+  function rceSvg(){ return (M>=10&&M<=15&&cmp(v,[15,5,28])<0)||(M===16&&cmp(v,[16,4,1])<0); }
+  function dos(){ return (M>=13&&M<=15&&cmp(v,[15,5,28])<0)||(M===16&&cmp(v,[16,4,1])<0); }
+  if(M<10){ html='<div class="verdict warn"><strong>'+raw.trim()+' &rarr; OUTSIDE PUBLISHED RANGES.</strong> The advisory lists 10.0.0+ as affected. Below 10 you are outside this advisory — but that also means long-unsupported; upgrade regardless.</div>'; }
+  else{
+    var hits=[];
+    if(rceUseCache()) hits.push('<b>RCE via <code>use cache</code></b> (GHSA-673q-mjm6-r5xr, CVSS 9.5) — no workaround, upgrade required');
+    if(rceSvg()) hits.push('<b>RCE via SVG/sharp</b> (CVE-2026-96889, CVSS 9.5) — if you process SVGs on glibc Linux; interim fix: sharp ≥ 0.35.5');
+    if(dos()) hits.push('<b>DoS via Server Actions</b> (GHSA-p3m5-59mp-jv5r, High) — if you use App Router Server Actions');
+    if(hits.length===0) html='<div class="verdict safe"><strong>'+raw.trim()+' &rarr; PATCHED.</strong> At or above the fixed releases (16.4.1 / 15.5.28). You are clear of all three October flaws.</div>';
+    else html='<div class="verdict"><strong>'+raw.trim()+' &rarr; VULNERABLE to '+hits.length+' flaw(s):</strong><ul><li>'+hits.join('</li><li>')+'</li></ul>Upgrade to <b>16.4.1</b> or <b>15.5.28</b> now.</div>';
+  }
+  res.innerHTML=html;
+}
+</script>
+</body>
+</html>
