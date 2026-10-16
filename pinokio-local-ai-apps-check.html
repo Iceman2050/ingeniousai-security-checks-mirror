@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pinokio: Run AI Apps on Your Own Machine — What to Check Before You One-Click Install</title>
+<meta name="description" content="Pinokio is a free, open-source AI browser that installs open-source AI apps locally with one click — no terminal, no account. 8,200+ GitHub stars, MIT licensed. But a script can run anything on your machine. 6-question fit check. Free, no signup.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Run open-source AI apps on your own PC — privately. What to check first.">
+<meta property="og:description" content="Pinokio one-click-installs open-source AI apps locally: no terminal, no account, no cloud. But one click can also run anything on your machine. 6-question fit check — free, no signup.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/pinokio-local-ai-apps-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/pinokio-local-ai-apps-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Run open-source AI apps on your own PC — privately. What to check first.">
+<meta name="twitter:description" content="Pinokio one-click-installs open-source AI apps locally: no terminal, no account, no cloud. But one click can also run anything on your machine. 6-question fit check — free, no signup.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d2a12;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .green{color:#3fb950}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.q{display:flex;gap:12px;align-items:flex-start;margin:16px 0;padding:14px;border:1px solid #232b38;border-radius:10px;background:#0d1219}
+.q .qn{flex:0 0 28px;height:28px;border-radius:50%;background:#1c2b45;color:#9db8e8;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.q .qt{flex:1}
+.q .qt small{display:block;color:#9aa7b8;font-size:13px;margin-top:4px}
+.qbtns{flex:0 0 auto;display:flex;gap:8px}
+.qbtns button{border:1px solid #2a3342;background:#11161f;color:#e6edf3;font-weight:700;font-size:13px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.qbtns button.sel-y{background:#3fb950;border-color:#3fb950;color:#06240f}
+.qbtns button.sel-n{background:#f85149;border-color:#f85149;color:#fff}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+.cta.ghost{background:transparent;border:1px solid #2a3342;color:#9db8e8}
+.cta.ghost:hover{background:#11161f}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.howto{background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:18px;margin:20px 0;font-size:14px}
+.howto div{margin:8px 0}
+.howto b{color:#7ee787}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is Pinokio?","acceptedAnswer":{"@type":"Answer","text":"Pinokio is a free, open-source desktop app (MIT licensed, 8,200+ stars on GitHub as of October 2026, built by cocktailpeanut) that one-click-installs and runs open-source AI applications — image generators, text-to-speech, video tools, local LLMs — on your own Windows, macOS, or Linux machine. It wraps install scripts, runtimes, terminals, and local web UIs so you never touch a terminal; each app runs in its own isolated environment."}},
+{"@type":"Question","name":"Is Pinokio really free, and is it private?","acceptedAnswer":{"@type":"Answer","text":"Yes on both counts, with a caveat. There is no paid tier and no account is required to install and run apps; the code is MIT-licensed. Apps run locally, so Pinokio itself requires no data sharing — but individual apps you install may have their own network behavior, so privacy depends on the app, not just the launcher."}},
+{"@type":"Question","name":"Is it safe to one-click-install apps with Pinokio?","acceptedAnswer":{"@type":"Answer","text":"Mostly, with eyes open. Pinokio's own script policy states that scripts can run anything — it is effectively a user-friendly terminal. Scripts on the official Discover page are vetted: manually listed, tracked via Git, and frozen under the official organization. But since June 2026 the community can publish launchers too, so inspect an unfamiliar script's repository, publisher, and commands before running it."}},
+{"@type":"Question","name":"What hardware do I need to run Pinokio apps?","acceptedAnswer":{"@type":"Answer","text":"Pinokio itself runs on 64-bit Windows, macOS (including Apple Silicon), and Linux. The apps are another matter: heavy image and video generators typically need a decent NVIDIA GPU (many launchers specify 6GB+ VRAM or NVIDIA-only), and model weights can take tens of gigabytes of disk. Lighter apps — transcription, TTS, small LLMs — can run on CPU."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">OPEN-SOURCE AI APPS &mdash; LOCAL-FIRST</div>
+<h1>Run AI apps on <span class="green">your own machine</span> &mdash; privately. What to check <span class="red">before</span> you one-click install.</h1>
+<p class="lead"><strong>Pinokio</strong> (<a href="https://pinokio.co" target="_blank" rel="noopener" style="color:#6ea8fe">pinokio.co</a>) is a free, open-source &ldquo;AI browser&rdquo; that installs and runs open-source AI apps &mdash; image generators, text-to-speech, video tools, local LLMs &mdash; on your own computer with <strong>one click</strong>: no terminal, no Python setup, no dependency hell. Each app lands in its <strong>own isolated environment</strong>, and because everything runs locally, your data stays on your machine. No account required, no paid tier. The repo (<a href="https://github.com/pinokiocomputer/pinokio" target="_blank" rel="noopener" style="color:#6ea8fe">pinokiocomputer/pinokio</a>) is MIT-licensed with <strong>8,200+ stars</strong> and was updated as recently as this week. The pitch is real. But here is the sentence the pitch hurries past: <strong>a Pinokio script can run anything on your computer</strong> &mdash; it is, by the project's own description, a user-friendly terminal. One click is convenient precisely because it is powerful. This 60-second check tests whether your setup &mdash; and your habits &mdash; are ready for it. Free, no signup.</p>
+
+<div class="howto">
+<div><b>What Pinokio is (verified, Oct 16, 2026):</b></div>
+<div>&bull; Free forever: no paid tier, no account needed to install or run apps.</div>
+<div>&bull; Open source: MIT license; repo updated October 2026; ~8,260 stars, ~840 forks.</div>
+<div>&bull; Cross-platform: 64-bit Windows, macOS (incl. Apple Silicon), Linux.</div>
+<div>&bull; Isolated environments: each app installs into its own sandbox — no version conflicts.</div>
+<div>&bull; Local-first privacy: apps run on your machine; Pinokio requires no data sharing.</div>
+<div>&bull; Community publishing opened June 2026: anyone can now share launchers, not just the curator.</div>
+</div>
+
+<div class="card">
+<h2>The 60-second Pinokio readiness check</h2>
+<p class="note">Answer honestly. Here, "Yes" is the safe answer.</p>
+<div id="quiz"></div>
+<div id="qresult" style="margin-top:12px"><div class="verdict warn"><strong>Answer the 6 questions above</strong> to get your readiness verdict.</div></div>
+<script>
+var QS=[
+["Do you have the hardware — a decent GPU for heavy apps, or modest expectations (CPU-friendly tools only)?","Many launchers are NVIDIA-only or want 6GB+ VRAM, and model weights can eat tens of GB of disk. Pinokio removes the setup pain, not the hardware requirements."],
+["Do you install only from the vetted Discover catalog — or inspect a community script's repo, publisher, and commands first?","Discover scripts are manually listed, Git-tracked, and frozen under the official org. Since June 2026 anyone can publish launchers, so unfamiliar ones deserve a look before you click."],
+["Do you understand that a Pinokio script can run ANY command on your machine?","The project's own script policy says it plainly: Pinokio is a user-friendly terminal. One-click convenience and full shell power are the same thing here."],
+["Do you keep your machine's sensitive files (SSH keys, wallets, credentials) out of reach of apps you run?","A malicious or compromised launcher runs with your user privileges. Isolation covers dependencies — not your home directory."],
+["Do you actually need local-first privacy — or would a hosted service do the job with less fuss?","Local means no data leaves your machine, but also your GPU, your disk, your troubleshooting. Match the tool to the need."],
+["When a one-click install fails anyway, are you willing to read the log and troubleshoot?","'No dependency errors' is marketing — the repo carries hundreds of open issues. One click usually works; 'usually' is doing real work in that sentence."] ];
+var ANS=[null,null,null,null,null,null];
+function renderQ(){
+  var h='';
+  for(var i=0;i<QS.length;i++){
+    h+='<div class="q"><div class="qn">'+(i+1)+'</div><div class="qt"><strong>'+QS[i][0]+'</strong><small>'+QS[i][1]+'</small></div><div class="qbtns"><button id="y'+i+'" onclick="ans('+i+',1)">Yes</button><button id="n'+i+'" onclick="ans('+i+',0)">No</button></div></div>';
+  }
+  document.getElementById('quiz').innerHTML=h;
+}
+function ans(i,v){
+  ANS[i]=v;
+  document.getElementById('y'+i).className=v===1?'sel-y':'';
+  document.getElementById('n'+i).className=v===0?'sel-n':'';
+  var out=document.getElementById('qresult');
+  if(ANS.indexOf(null)>=0){return;}
+  var yes=0;
+  for(var k=0;k<ANS.length;k++){if(ANS[k]===1)yes++;}
+  if(yes===6){
+    out.innerHTML='<div class="verdict safe"><strong>READY TO ONE-CLICK.</strong> You know what you are granting, you vet what you install, and your hardware matches your ambitions. Pinokio will feel like a superpower. Keep the vetting habit as the catalog grows.</div>';
+  }else if(yes>=4){
+    out.innerHTML='<div class="verdict warn"><strong>'+(6-yes)+' gaps — MOSTLY READY.</strong> Close them before installing anything heavy: stick to the vetted Discover catalog, check the GPU/disk demands on each launcher page, and remember a script is a shell with a friendly face.</div>';
+  }else{
+    out.innerHTML='<div class="verdict"><strong>'+(6-yes)+' of 6 missed — NOT YET.</strong> Right now one-click installs would be a gamble: unknown scripts, unknown hardware demands, unknown trust model. Start by reading a launcher\'s repo and script before installing, and try one lightweight CPU app first.</div>';
+  }
+}
+renderQ();
+</script>
+<p class="note">This self-assessment is informational — it reflects Pinokio's verified features and documented tradeoffs, not legal or security advice. Star counts and repo stats verified via the GitHub API on Oct 16, 2026.</p>
+</div>
+
+<div class="card">
+<h2>The trust question: who vets your one click?</h2>
+<ul>
+<li><strong>The Discover catalog is curated.</strong> Per the project's script policy, Discover scripts are manually listed, tracked via Git, and frozen under the official <em>pinokiocomputer</em> organization — the closest thing to a safety guarantee in this model.</li>
+<li><strong>The catalog is now community-powered.</strong> Since June 2026, anyone can publish launchers, with GitHub-verified ownership marking &ldquo;official updates.&rdquo; More choice, more responsibility on you.</li>
+<li><strong>Isolation is about dependencies, not your data.</strong> Each app gets its own environment (no pip/conda conflicts), but a running script executes with <em>your</em> user privileges — isolation won't stop a malicious launcher reading your files.</li>
+<li><strong>475 open issues.</strong> Real users hit real failures: broken installs, GPU quirks, version drift. &ldquo;No dependency errors&rdquo; is a goal, not a guarantee — the community tab exists precisely because things break.</li>
+<li><strong>Privacy is app-dependent.</strong> Pinokio itself asks for nothing, but each app you install is its own software with its own network behavior. Local-first is a strong default, not a blanket promise.</li>
+<li><strong>The GPU tax is real.</strong> The launcher pages say it plainly: NVIDIA-only builds, 6GB+ VRAM minimums, ~63GB pruned weight downloads. Check the requirements <em>before</em> the download, not after.</li>
+</ul>
+</div>
+
+<a class="cta" href="https://pinokio.co" target="_blank" rel="noopener">Browse the Pinokio catalog &rarr; pinokio.co</a>
+<a class="cta ghost" href="https://github.com/pinokiocomputer/pinokio" target="_blank" rel="noopener">Inspect the source first &rarr; GitHub repo (MIT)</a>
+<p class="note" style="text-align:center">Two rules before any one-click install: (1) read the launcher's repo and script, (2) confirm your hardware meets the app's requirements. Free, no signup.</p>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with anyone tempted to one-click-install AI apps on their main machine.<br>
+Repo stats via GitHub API, Oct 16, 2026 &middot; pinokiocomputer/pinokio (MIT) &middot; pinokio.co &middot; therundown.ai &middot; Decrypt
+</footer>
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=Pinokio%20one-click-installs%20open-source%20AI%20apps%20on%20your%20own%20PC%20%E2%80%94%20no%20terminal%2C%20no%20account%2C%20no%20cloud.%20But%20a%20script%20can%20run%20ANYTHING%20on%20your%20machine.%206-question%20readiness%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/pinokio-local-ai-apps-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/pinokio-local-ai-apps-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/pinokio-local-ai-apps-check.html&title=Pinokio%20runs%20AI%20apps%20locally%20with%20one%20click%20%E2%80%94%20what%20to%20check%20before%20you%20install" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
