@@ -43,7 +43,7 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid #232b38;font-size:1
 <p class="lead">Writing about a CVE? Give your readers a live exposure checker instead of a version table. Three lines of HTML — they enter their version, get an instant verdict, and never leave your page.</p>
 
 <h2>Live demo</h2>
-<div class="demo"><iframe id="demo" src="widget/cve-widget.html" height="420" title="CVE exposure checker" loading="lazy"></iframe></div>
+<div class="demo"><iframe id="demo" src="https://ingeniousai-security-checks.netlify.app/widget/cve-widget.html" height="420" title="CVE exposure checker" loading="lazy"></iframe></div>
 
 <h2>Get the embed code</h2>
 <p style="color:#9aa7b8;font-size:14px">Pick the CVE, copy, paste:</p>
@@ -76,7 +76,7 @@ function pick(c, el){
   cur = c;
   document.querySelectorAll(".opt").forEach(function(o){ o.classList.remove("active"); });
   el.classList.add("active");
-  document.getElementById("demo").src = "widget/cve-widget.html?cve=" + c;
+  document.getElementById("demo").src = "https://ingeniousai-security-checks.netlify.app/widget/cve-widget.html?cve=" + c;
   document.getElementById("snippet").textContent = snippetFor(c);
 }
 function copySnippet(){
