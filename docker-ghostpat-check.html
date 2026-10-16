@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Docker GhostPat Check — Were Your Images Hijacked? Free Self-Test</title>
+<meta name="description" content="CVE-2026-105445 'GhostPat': a 2-year Docker Hub flaw let attackers publish images under your name via account conversion. Check if you were affected in 60 seconds. Free, no signup.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Someone could have published Docker images under YOUR name — 60-Second GhostPat Check">
+<meta property="og:description" content="CVE-2026-105445: a 2-year Docker Hub flaw let attackers push images as you via account conversion. Docker found no exploitation — verify yourself in 60 seconds. Free, no signup.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/docker-ghostpat-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/docker-ghostpat-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Someone could have published Docker images under YOUR name — 60-Second GhostPat Check">
+<meta name="twitter:description" content="CVE-2026-105445: a 2-year Docker Hub flaw let attackers push images as you via account conversion. Verify yourself in 60 seconds. Free, no signup.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#3b0d0d;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.step{display:flex;gap:14px;margin:18px 0}
+.stepnum{flex:0 0 34px;height:34px;border-radius:50%;background:#1c6ef2;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What was the Docker Hub GhostPat flaw?","acceptedAnswer":{"@type":"Answer","text":"GhostPat (CVE-2026-105445, CVSS 9.4 Critical) was a Docker Hub flaw open from August 2024 to September 2026: converting a personal account into an organization transferred the account's personal access tokens to the designated owner without changing the token secret or notifying them. An attacker could create an account, mint a token, convert the account naming a victim as owner — and the token would then work at the registry as the victim, able to push, pull, or delete images."}},
+{"@type":"Question","name":"Was the GhostPat flaw exploited?","acceptedAnswer":{"@type":"Answer","text":"Docker says it found no evidence of exploitation after reviewing approximately 304,000 pushes made with transferred tokens and analyzing high-risk public images. On October 2, 2026 Docker emailed users whose accounts received transferred tokens; on October 8 it deactivated those tokens except where owners asked to keep them. There is no update to install — the fix was server-side."}},
+{"@type":"Question","name":"How do I check if my Docker Hub account was affected by GhostPat?","acceptedAnswer":{"@type":"Answer","text":"(1) Search your email for Docker's October 2, 2026 notification — affected users were emailed directly. (2) Audit your personal access tokens at hub.docker.com under Account Settings and delete any you don't recognize. (3) Review your repositories for image tags you didn't push. (4) Rotate remaining tokens and enable two-factor authentication."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">CVE-2026-105445 &ldquo;GHOSTPAT&rdquo; &mdash; CVSS 9.4 CRITICAL &mdash; FIXED SEP 30, 2026</div>
+<h1>Someone could have published Docker images <span class="red">under your name</span></h1>
+<p class="lead">For <strong>over two years</strong>, a Docker Hub flaw called <strong>GhostPat</strong> let an attacker push, pull, or delete images <strong>as you</strong> — by creating an account, minting a personal access token, converting the account into an organization, and naming <em>you</em> as its owner. The token kept its secret and silently became yours at the registry. Docker fixed it on September 30 (under four hours after the report) and found <strong>no evidence of exploitation</strong> across ~304,000 reviewed pushes — but trust Docker's audit <em>and</em> verify. This free 60-second check walks you through it. No signup, nothing installed.</p>
+
+<div class="card">
+<h2>The 60-second check</h2>
+<div class="step"><div class="stepnum">1</div><div>
+<p><strong>Check for Docker's email</strong> &mdash; on October 2, Docker emailed every user whose account received a transferred token, plus the org owners involved. Search your inbox for Docker Hub security notices from early October:</p>
+<div class="verdict"><strong>Got the email &rarr; you were in the blast radius.</strong> Continue through all steps below — Docker deactivated the transferred tokens on Oct 8, but verify your repos yourself.</div>
+<div class="verdict safe"><strong>No email &rarr; Docker's review didn't flag your account.</strong> Still worth the 60 seconds — the audit below is good hygiene regardless.</div>
+</div></div>
+<div class="step"><div class="stepnum">2</div><div>
+<p><strong>Audit your personal access tokens</strong> &mdash; hub.docker.com &rarr; Account Settings &rarr; Personal Access Tokens. Each token acts as your account at the registry with the permissions it was created with:</p>
+<ul>
+<li><strong>Delete anything you don't recognize</strong> — a token you didn't create is the whole attack.</li>
+<li><strong>Delete anything unused</strong> — dead tokens are pure risk surface.</li>
+<li><strong>Rotate what's left</strong> — especially tokens created before October 2026.</li>
+</ul>
+</div></div>
+<div class="step"><div class="stepnum">3</div><div>
+<p><strong>Review your repositories for phantom pushes</strong> &mdash; open each of your repos on Docker Hub and check the tags:</p>
+<div class="verdict warn"><strong>A tag you didn't push, or a push timestamp from a session you don't remember &rarr; investigate immediately.</strong> An attacker with push access could have trojanized an image under your trusted name — the supply-chain nightmare scenario.</div>
+<div class="verdict safe"><strong>Every tag accounted for &rarr; good.</strong> Your images are yours.</div>
+</div></div>
+<div class="step"><div class="stepnum">4</div><div>
+<p><strong>Lock it down going forward</strong>:</p>
+<ul>
+<li><strong>Enable two-factor authentication</strong> on Docker Hub if you haven't.</li>
+<li><strong>Scope every token to least privilege</strong> — read-only where possible; short expiries where the UI allows.</li>
+<li><strong>Never accept an unexpected organization-owner designation</strong> — Docker now requires owner consent for conversions (part of the fix), so a consent prompt you didn't initiate is a red flag.</li>
+</ul>
+<p class="note">Nothing to install or patch — the fix was server-side on Docker Hub itself. Your job is verification + hygiene.</p>
+</div></div>
+</div>
+
+<div class="card">
+<h2>How the attack worked (so you know what you're checking for)</h2>
+<ul>
+<li>Docker Hub can't move a repo between accounts — instead you <strong>convert a personal account into an organization</strong> keeping the same name, and name an existing account as owner.</li>
+<li>The bug: conversion <strong>transferred the account's PATs to the new owner without changing the token secret and without notifying them</strong>. The token's creator could still use it.</li>
+<li>Attacker's recipe: create account → mint PAT → convert to org naming the victim as owner → the token now authenticates <strong>as the victim</strong> at the registry.</li>
+<li>Blast radius was <strong>registry-only</strong>: push/pull/delete within the token's scope. No web-UI access, no password/email/2FA changes, no full account takeover.</li>
+<li>Found by Peter Molnar and Krisztian Hozak (mptrdev.com); Docker shipped the fix <strong>under four hours</strong> after the report. Tokens are no longer transferred on conversion, and owner designation now needs consent.</li>
+</ul>
+</div>
+
+<div class="card" style="margin-top:22px">
+<h2 style="font-size:18px;margin-bottom:8px">Writing about GhostPat? Embed the checker</h2>
+<p style="color:#9aa7b8;font-size:14px;margin-bottom:10px">Drop a live exposure checker into your blog, docs, or forum post — three lines of HTML.</p>
+<a href="embed-checker.html" style="display:inline-block;background:#1c6ef2;color:#fff;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;font-size:14px">Get the embed code</a>
+</div>
+
+<a class="cta" href="https://breach-hunter.onrender.com/?utm_source=newsjack&utm_medium=static-page&utm_campaign=docker-ghostpat">Hunt compromise indicators like these &rarr; BreachHunter</a>
+<p class="note" style="text-align:center">This page checked one flaw. BreachHunter hunts attacker infrastructure and compromise indicators — the phantom pushes and hijacked trust that supply-chain attacks leave behind.</p>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with anyone publishing Docker images.<br>
+CVE-2026-105445 "GhostPat" (CVSS 9.4 Critical) &middot; open Aug 26, 2024 – Sep 30, 2026 &middot; found by Peter Molnar &amp; Krisztian Hozak (mptrdev.com) &middot; no evidence of exploitation per Docker's review of ~304,000 pushes
+</footer>
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=Docker%20GhostPat%20CVE-2026-105445%3A%20a%202-year%20flaw%20let%20attackers%20push%20images%20under%20YOUR%20name%20%E2%80%94%20were%20you%20affected%3F%20Free%2060-sec%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/docker-ghostpat-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/docker-ghostpat-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/docker-ghostpat-check.html&title=Docker%20GhostPat%20CVE-2026-105445%20Check" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
