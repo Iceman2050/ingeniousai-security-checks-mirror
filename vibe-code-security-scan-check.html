@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your AI Wrote the Code — Did Anyone Scan It? Vibe-Code Security Check</title>
+<meta name="description" content="Veracode found 45% of AI-generated code ships with a vulnerability. A builder just demoed an alpha SAST+DAST scanner for vibe-coded apps. 6-question self-check: is YOUR vibe-coded app leaking secrets or shipping SQLi? Free, no signup.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Your AI wrote the code. Did anyone check it for holes?">
+<meta property="og:description" content="45% of AI-generated code ships with a vulnerability (Veracode 2025). 6-question vibe-code security check: hardcoded secrets, SQL injection, XSS, eval() — free, no signup.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/vibe-code-security-scan-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/vibe-code-security-scan-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Your AI wrote the code. Did anyone check it for holes?">
+<meta name="twitter:description" content="45% of AI-generated code ships with a vulnerability. 6-question vibe-code security self-check — free, no signup.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d2a12;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .green{color:#3fb950}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.q{display:flex;gap:12px;align-items:flex-start;margin:16px 0;padding:14px;border:1px solid #232b38;border-radius:10px;background:#0d1219}
+.q .qn{flex:0 0 28px;height:28px;border-radius:50%;background:#1c2b45;color:#9db8e8;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.q .qt{flex:1}
+.q .qt small{display:block;color:#9aa7b8;font-size:13px;margin-top:4px}
+.qbtns{flex:0 0 auto;display:flex;gap:8px}
+.qbtns button{border:1px solid #2a3342;background:#11161f;color:#e6edf3;font-weight:700;font-size:13px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.qbtns button.sel-y{background:#3fb950;border-color:#3fb950;color:#06240f}
+.qbtns button.sel-n{background:#f85149;border-color:#f85149;color:#fff}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.newsbox{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:18px;margin:20px 0;font-size:14px;color:#c8d2df}
+.newsbox b{color:#fff}
+.howto{background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:18px;margin:20px 0;font-size:14px}
+.howto div{margin:8px 0}
+.howto b{color:#7ee787}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is SAST and what is DAST?","acceptedAnswer":{"@type":"Answer","text":"SAST (Static Application Security Testing) analyzes your source code without running it, flagging known-bad patterns like string-concatenated SQL or hardcoded secrets. DAST (Dynamic Application Security Testing) probes the running application the way an attacker would, finding runtime flaws like authentication bypasses. They catch different bug classes, so security teams use both."}},
+{"@type":"Question","name":"What is THL ScanHub?","acceptedAnswer":{"@type":"Answer","text":"THL ScanHub is an alpha-stage project demoed on October 16, 2026 in the public vibecodinglife Facebook group. Its builder describes it as combining open-source SAST scanners with a custom DAST scanner aimed at vibe-coded applications, generating vulnerability reports, with cloud or local AI plugged in to review findings for false positives. As of this writing it is a demo running on localhost — not publicly available and not independently verified."}},
+{"@type":"Question","name":"What did Veracode's 2025 report find about AI-generated code?","acceptedAnswer":{"@type":"Answer","text":"Veracode's 2025 GenAI Code Security Report tested over 100 large language models across 80 coding tasks and found AI-generated code introduced security vulnerabilities in 45% of cases. Java was the worst language at 72%, cross-site scripting flaws were missed 86% of the time, and security performance did not improve as models got more capable."}},
+{"@type":"Question","name":"How do I start scanning a vibe-coded app today?","acceptedAnswer":{"@type":"Answer","text":"Start with the free tier: run an open-source SAST scanner such as Semgrep on the codebase, probe the running app with OWASP ZAP for DAST, add secret scanning to catch hardcoded API keys, and have a human — or an AI reviewer — triage the findings for false positives before you ship. Scanning once is not enough; wire it into every build."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">VIBE-CODE SECURITY &mdash; OCT 2026</div>
+<h1>Your AI wrote the code. Did anyone check it for <span class="red">holes</span>?</h1>
+<p class="lead">Veracode's <strong>2025 GenAI Code Security Report</strong> tested 100+ large language models across 80 coding tasks: <strong>45% of AI-generated code shipped a real vulnerability</strong>. Java was worst at 72%, cross-site scripting flaws slipped through 86% of the time &mdash; and security did <em>not</em> improve as models got smarter. Veracode CTO Jens Wessling: <em>&ldquo;Our research reveals GenAI models make the wrong choices nearly half the time, and it's not improving.&rdquo;</em> A separate audit of 5,600+ publicly available vibe-coded apps found 2,000+ high-impact vulnerabilities and 400+ exposed secrets. Vibe coding optimizes for &ldquo;it works&rdquo; &mdash; never for &ldquo;it's safe.&rdquo; This 60-second check tests whether <em>your</em> AI-built app is an open door. Free, no signup.</p>
+
+<div class="newsbox"><b>Spotted Oct 16, 2026.</b> In the public <strong>vibecodinglife</strong> Facebook group, a builder demoed <strong>THL ScanHub</strong> &mdash; described as an alpha that aggregates open-source SAST scanners with a custom DAST scanner aimed at vibe-coded apps, generates vulnerability reports, and plugs in cloud or local AI to review findings for false positives. The demo screenshot of a &ldquo;Sample: Vulnerable Shop&rdquo; scan showed <strong>12 findings</strong> (0 critical, 4 high, 6 medium, 2 low): SQL injection via string concatenation, arbitrary code execution via <strong>eval()</strong> with dynamic input, secrets in source code, XSS via innerHTML assignment, and an exposed Stripe publishable key. Honest framing: it's an alpha demo running on localhost &mdash; not publicly available, not independently verified. But the <em>flaw classes it found</em> are exactly what ships in real vibe-coded apps every day.</div>
+
+<div class="card">
+<h2>The 60-second vibe-code security check</h2>
+<p class="note">Answer honestly. Here, "Yes" is the safe answer.</p>
+<div id="quiz"></div>
+<div id="qresult" style="margin-top:12px"><div class="verdict warn"><strong>Answer the 6 questions above</strong> to get your vibe-code security verdict.</div></div>
+<script>
+var QS=[
+["Do you run any SAST or DAST scan on AI-generated code before it ships?","SAST reads your code for known-bad patterns; DAST attacks the running app like a hacker would. They catch different bugs — one without the other leaves blind spots."],
+["Have you scanned your repo for hardcoded secrets or API keys?","AI assistants love pasting keys straight into code. A key pushed to a public repo can be harvested by bots within minutes."],
+["Is user input kept out of raw SQL strings — parameterized queries or an ORM everywhere?","String-concatenated SQL is the classic injection path, and AI writes it by default because it looks simple."],
+["Is untrusted content kept out of innerHTML / dangerouslySetInnerHTML?","Veracode found AI code misses XSS 86% of the time. Render user content as text, never as HTML."],
+["Is eval() — and dynamic code execution with user input — banned in your codebase?","eval() on dynamic input is arbitrary code execution waiting to happen. AI reaches for it whenever it's 'convenient'."],
+["Does a human — or an AI reviewer — triage scanner findings for false positives instead of ignoring the report?","Scanners cry wolf. Reports nobody triages get ignored entirely, and the real findings rot with the false ones. The triage step is what turns noise into fixes."] ];
+var ANS=[null,null,null,null,null,null];
+function renderQ(){
+  var h='';
+  for(var i=0;i<QS.length;i++){
+    h+='<div class="q"><div class="qn">'+(i+1)+'</div><div class="qt"><strong>'+QS[i][0]+'</strong><small>'+QS[i][1]+'</small></div><div class="qbtns"><button id="y'+i+'" onclick="ans('+i+',1)">Yes</button><button id="n'+i+'" onclick="ans('+i+',0)">No</button></div></div>';
+  }
+  document.getElementById('quiz').innerHTML=h;
+}
+function ans(i,v){
+  ANS[i]=v;
+  document.getElementById('y'+i).className=v===1?'sel-y':'';
+  document.getElementById('n'+i).className=v===0?'sel-n':'';
+  var out=document.getElementById('qresult');
+  if(ANS.indexOf(null)>=0){return;}
+  var yes=0;
+  for(var k=0;k<ANS.length;k++){if(ANS[k]===1)yes++;}
+  if(yes===6){
+    out.innerHTML='<div class="verdict safe"><strong>SCAN-CLEAN.</strong> You scan before you ship, keep secrets out of code, block the classic injection paths, and triage findings instead of ignoring them. Your vibe-coded app is defended like software should be. Keep the gate on every build.</div>';
+  }else if(yes>=4){
+    out.innerHTML='<div class="verdict warn"><strong>'+(6-yes)+' gaps — MOSTLY SAFE.</strong> The fundamentals are there, but the missed checks are exactly where vibe-coded apps bleed: one unreviewed AI commit with a hardcoded key or a concatenated query is all it takes. Close the gaps above before your next deploy.</div>';
+  }else if(yes>=2){
+    out.innerHTML='<div class="verdict"><strong>'+(6-yes)+' of 6 missed — RISKY.</strong> Your app is probably shipping the same flaw classes the ScanHub demo found in a toy shop app: SQL injection, XSS, eval() execution, exposed secrets. Run a SAST scan this week — Semgrep is free and takes minutes.</div>';
+  }else{
+    out.innerHTML='<div class="verdict"><strong>'+(6-yes)+' of 6 missed — VULNERABLE BY DEFAULT.</strong> Unreviewed AI code with no scanning is how 45% of generated code ships vulnerable. Assume your app has holes right now: scan it with Semgrep + OWASP ZAP, rotate any exposed keys, and don\'t ship another AI commit unscanned.</div>';
+  }
+}
+renderQ();
+</script>
+<p class="note">This self-assessment is informational. It reflects Veracode's published 2025 findings and standard application-security practice — it is not a substitute for a professional security audit.</p>
+</div>
+
+<div class="card">
+<h2>SAST vs DAST in 30 seconds — and why scanners cry wolf</h2>
+<ul>
+<li><strong>SAST (static):</strong> reads your source code without running it. Catches SQL concatenation, hardcoded secrets, dangerous functions &mdash; fast, early, but noisy.</li>
+<li><strong>DAST (dynamic):</strong> attacks the <em>running</em> app like an outsider. Catches auth bypasses, runtime misconfigurations &mdash; real proof, but only after the app runs.</li>
+<li><strong>Together:</strong> they cover each other's blind spots. The ScanHub alpha's whole pitch is this combo, purpose-built for vibe-coded apps.</li>
+<li><strong>The false-positive problem:</strong> scanners flag plenty that isn't exploitable. Teams that don't triage findings stop reading reports &mdash; and the real vulnerabilities hide in the ignored pile. That's why the demo plugs AI in as the reviewer: to separate signal from noise before a human signs off.</li>
+</ul>
+</div>
+
+<div class="howto">
+<div><b>The 4 flaw classes the demo caught — check yours for each:</b></div>
+<div>&bull; <b>SQL injection</b> via string concatenation &rarr; use parameterized queries or an ORM.</div>
+<div>&bull; <b>Arbitrary code execution</b> via eval() on dynamic input &rarr; ban eval(); never execute user input.</div>
+<div>&bull; <b>Secrets in source code</b> (incl. a Stripe publishable key) &rarr; env vars + secret scanning in CI.</div>
+<div>&bull; <b>XSS</b> via innerHTML assignment &rarr; render untrusted content as text, never HTML.</div>
+</div>
+
+<a class="cta" href="newsjack-vibeaudit.html">Want the full audit treatment? &rarr; Run the Vibe-Code Audit check</a>
+<p class="note" style="text-align:center">This page checked your scan hygiene. The Vibe-Code Audit check goes deeper on AI-generated code review. Free, no signup.</p>
+
+<footer>
+Built by Ingenious AI &mdash; share this with everyone vibe-coding an app right now.<br>
+Veracode 2025 GenAI Code Security Report (press release, Jul 30, 2025) &middot; Escape State of Security of Vibe-Coded Apps via CIO Dive &middot; THL ScanHub alpha demo, vibecodinglife Facebook group, Oct 16, 2026
+</footer>
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=45%25%20of%20AI-generated%20code%20ships%20with%20a%20vulnerability%20(Veracode%202025).%20Is%20YOUR%20vibe-coded%20app%20an%20open%20door%3F%206-question%20security%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/vibe-code-security-scan-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/vibe-code-security-scan-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/vibe-code-security-scan-check.html&title=45%25%20of%20AI-generated%20code%20ships%20vulnerable%20%E2%80%94%206-question%20vibe-code%20security%20check" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
