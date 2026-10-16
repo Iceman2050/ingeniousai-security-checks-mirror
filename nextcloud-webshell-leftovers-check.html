@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>You Patched CVE-2026-110447 — But Are You Actually Clean? | Webshell Leftovers Check</title>
-<meta name="description" content="Patched the Nextcloud Collabora RCE? Patching does NOT remove planted web shells. Free interactive persistence-hunt checklist for CVE-2026-110447 — hunt shx*/shrf* shells, log traces, and unrotated secrets.">
+<meta name="description" content="Patched the Nextcloud Collabora RCE? Patching does NOT remove planted web shells. Free interactive persistence-hunt checklist for CVE-2026-110447 — hunt shx*/shrf*/Nx_* shells, log traces, and unrotated secrets.">
 <meta property="og:title" content="You Patched CVE-2026-110447 — But Are You Actually Clean?">
 <meta property="og:description" content="Patching the Nextcloud Collabora RCE doesn't remove web shells attackers already planted. Run the free persistence-hunt checklist.">
 <meta property="og:type" content="article">
@@ -47,7 +47,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"Does patching CVE-2026-110447 remove web shells attackers planted?","acceptedAnswer":{"@type":"Answer","text":"No. Updating the Collabora built-in CODE Server app to 26.4.303+ (or removing it) closes the vulnerability but does not delete web shells already planted. A project maintainer explicitly urged admins to also delete lingering shx-prefixed PHP files. Patching and compromise-hunting are two separate jobs."}},
-{"@type":"Question","name":"What filenames did the Nextcloud web shells use?","acceptedAnswer":{"@type":"Answer","text":"Public incident reporting describes attackers planting PHP web shells with names matching shx*.php and shrf*.php inside the app directory. Searching your Nextcloud app directories for unexpected PHP files matching these patterns is the first hunt step."}},
+{"@type":"Question","name":"What filenames did the Nextcloud web shells use?","acceptedAnswer":{"@type":"Answer","text":"Public incident reporting describes attackers planting PHP web shells with names matching shx*.php and shrf*.php inside the app directory, and on 2026-10-16 a community member reported a live backdoor named Nx_33143.php (containing a simple system() shell) found via the integrity check. Searching your Nextcloud app directories for unexpected PHP files matching these patterns is the first hunt step."}},
 {"@type":"Question","name":"What logs should I check after patching CVE-2026-110447?","acceptedAnswer":{"@type":"Answer","text":"Review web-server access logs from September 10, 2026 onward for requests to the built-in CODE server's proxy.php endpoint (especially proxy.php?status) and any suspicious command-like request paths. The earliest logged attack dates to September 10, 2026."}}
 ]}
 </script>
@@ -65,8 +65,8 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <div class="meter" id="meter"><div id="mfill"></div></div>
 
 <label class="chk"><input type="checkbox">
-<span><strong>1. Hunted for planted shells</strong> &mdash; searched the Nextcloud app directory for PHP files you didn't install. Attackers used names like <code>shx*.php</code> / <code>shrf*.php</code>.
-<small><code>find /var/www/nextcloud/apps -name "shx*.php" -o -name "shrf*.php" 2>/dev/null</code> &mdash; any hit is an incident, not a cleanup task.</small></span></label>
+<span><strong>1. Hunted for planted shells</strong> &mdash; searched the Nextcloud app directory for PHP files you didn't install. Attackers used names like <code>shx*.php</code> / <code>shrf*.php</code> — and a live <code>Nx_*.php</code> backdoor was reported 2026-10-16.
+<small><code>find /var/www/nextcloud/apps -name "shx*.php" -o -name "shrf*.php" -o -name "Nx_*.php" 2>/dev/null</code> &mdash; any hit is an incident, not a cleanup task.</small></span></label>
 
 <label class="chk"><input type="checkbox">
 <span><strong>2. Reviewed access logs since Sept 10, 2026</strong> &mdash; looked for requests to the built-in CODE server's <code>proxy.php</code> (especially <code>proxy.php?status</code>) and suspicious command-like request paths around any restart or upgrade window.
