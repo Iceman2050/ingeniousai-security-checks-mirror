@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitLab Duo Prompt Injection (CVE-2026-96893) — Is Your AI Coding Agent an Attack Surface? Free Check</title>
+<meta name="description" content="GitLab's Oct 2026 security update patched a prompt injection flaw in the Duo Agent Platform (CVE-2026-96893, CVSS 7.3) plus a CVSS 10.0 pipeline flaw (CVE-2026-97229). 60-second checklist: is your AI coding agent an attack surface? Free, no signup.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="GitLab Duo prompt injection (CVE-2026-96893): your AI coding agent is an attack surface now">
+<meta property="og:description" content="GitLab patched a prompt injection flaw in Duo Agent Platform (CVSS 7.3): an attacker could inject crafted content into AI agent instructions, causing command execution under another user's identity. 60-second exposure check. Free, no signup.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/gitlab-duo-prompt-injection.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/gitlab-duo-prompt-injection.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GitLab Duo prompt injection (CVE-2026-96893): your AI coding agent is an attack surface now">
+<meta name="twitter:description" content="CVE-2026-96893 (CVSS 7.3): crafted content injected into AI agent instructions could trigger command execution under another user's identity. 60-second check. Free.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#3b0d0d;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.chk{display:flex;gap:12px;align-items:flex-start;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0;cursor:pointer}
+.chk input{margin-top:5px;transform:scale(1.3);accent-color:#1c6ef2}
+.chk b{color:#fff}
+button.check{background:#1c6ef2;color:#fff;font-weight:700;font-size:16px;padding:12px 28px;border:none;border-radius:8px;cursor:pointer;margin-top:8px}
+button.check:hover{background:#2f7ef7}
+#result{margin-top:14px;display:none}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+code.cmd{display:block;background:#000;border:1px solid #2a3342;border-radius:8px;padding:14px 16px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;color:#7ee787;overflow-x:auto;margin:10px 0;white-space:pre}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is CVE-2026-96893 in GitLab Duo?","acceptedAnswer":{"@type":"Answer","text":"CVE-2026-96893 is a prompt injection vulnerability in the GitLab Duo Agent Platform, disclosed in GitLab's October 2026 security update with a CVSS score of 7.3. Insufficient neutralization of input used in prompts supplied to a large language model meant an authenticated attacker could inject specially crafted content into AI agent instructions, potentially leading to unintended command execution under another user's identity."}},
+{"@type":"Question","name":"What is CVE-2026-97229?","acceptedAnswer":{"@type":"Answer","text":"CVE-2026-97229 is a critical (CVSS 10.0) vulnerability in scheduled pipeline execution policies in GitLab Enterprise Edition, disclosed in the same October 2026 update. An authenticated attacker could execute arbitrary CI/CD pipelines in a project transferred to another group, inheriting privileges they should no longer hold after the ownership change."}},
+{"@type":"Question","name":"Why are AI coding agents a new attack surface?","acceptedAnswer":{"@type":"Answer","text":"AI coding agents act on instructions that blend trusted commands with untrusted content — repository text, issue comments, merge-request descriptions, dependency READMEs. If crafted content can steer the agent's instructions (as CVE-2026-96893 shows), the agent's shell access, repo permissions, and CI/CD credentials become the attacker's. Unlike a chatbot giving a wrong answer, an agent executes code."}},
+{"@type":"Question","name":"How do I protect my team from AI coding-agent attacks?","acceptedAnswer":{"@type":"Answer","text":"Patch GitLab to the fixed versions; treat everything the agent reads (issues, MR comments, third-party repos, README files) as untrusted input; run agents with least-privilege tokens and scoped permissions; review logs of agent-executed commands; disable agent features you don't use; and audit what external content your agent ingests before it acts on it."}},
+{"@type":"Question","name":"Which GitLab versions are affected?","acceptedAnswer":{"@type":"Answer","text":"Per GitLab's October 2026 security release, the affected ranges include GitLab Enterprise Edition 18.1 through before 19.2.8, 19.3 through before 19.3.5, and 19.4 through before 19.4.2. Upgrade to the patched releases and confirm your instance version in Admin → Overview."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">GITLAB SECURITY UPDATE &mdash; OCT 2026 &mdash; AI AGENT PROMPT INJECTION</div>
+<h1>GitLab Duo prompt injection <span class="red">(CVE-2026-96893)</span>: your AI coding agent is an attack surface now</h1>
+<p class="lead">GitLab's October 2026 security update patched two headline flaws: <strong>CVE-2026-97229 (CVSS 10.0)</strong> — arbitrary CI/CD pipeline execution after project transfers — and <strong>CVE-2026-96893 (CVSS 7.3)</strong>, a prompt injection flaw in the <strong>GitLab Duo Agent Platform</strong>. The second one is the sign of the times: an authenticated attacker could inject crafted content into the AI agent's instructions, potentially causing <strong>unintended command execution under another user's identity</strong>. A chatbot giving a wrong answer is an information problem. An agent executing commands is a <em>breach</em>. Tick the 60-second checklist to see if your agent setup is exposed. Free, no signup.</p>
+
+<div class="card">
+<h2>The 60-second agent attack-surface check — tick what applies</h2>
+<label class="chk"><input type="checkbox" id="c1"><span><b>GitLab not yet patched to the Oct 2026 security release</b> — CVE-2026-96893 (Duo Agent Platform, CVSS 7.3) and CVE-2026-97229 (pipeline policies, CVSS 10.0) are fixed in 19.2.8 / 19.3.5 / 19.4.2. Check: Admin &rarr; Overview.</span></label>
+<label class="chk"><input type="checkbox" id="c2"><span><b>Your AI agent reads untrusted content</b> — issue comments, MR descriptions, third-party repos, dependency READMEs. Every one of these is a potential injection channel into the agent's instructions.</span></label>
+<label class="chk"><input type="checkbox" id="c3"><span><b>The agent runs with broad permissions</b> — full repo write, CI/CD trigger rights, or tokens that outlive the task. An injected instruction is only as dangerous as the permissions behind it.</span></label>
+<label class="chk"><input type="checkbox" id="c4"><span><b>Nobody reviews what the agent actually executed</b> — no audit of agent-run shell commands or file changes. If you can't list what your agent did yesterday, you can't spot what it shouldn't have done.</span></label>
+<label class="chk"><input type="checkbox" id="c5"><span><b>Agent features are on everywhere by default</b> — Duo/agent capabilities enabled org-wide, including on projects and users that never asked for them. Unused attack surface is still attack surface.</span></label>
+<button class="check" onclick="score()">Score my exposure</button>
+<div id="result"></div>
+</div>
+
+<div class="card">
+<h2>What the advisories actually say</h2>
+<ul>
+<li><strong>CVE-2026-96893 (CVSS 7.3) — GitLab Duo Agent Platform:</strong> insufficient neutralization of input used in prompts supplied to the LLM. An authenticated attacker could inject specially crafted content into AI agent instructions — with unintended command execution under another user's identity as the worst case. This is prompt injection graduating from chatbot nuisance to <em>agent</em> threat.</li>
+<li><strong>CVE-2026-97229 (CVSS 10.0) — scheduled pipeline execution policies:</strong> after a project is transferred to another group, an authenticated attacker could execute arbitrary CI/CD pipelines using the new group's privileges. Patch, then re-audit permissions on every recently transferred project.</li>
+<li><strong>The pattern to internalize:</strong> prompt injection started as a chatbot problem. AI agents — which read the web, run shell commands, and hold credentials — turn the same flaw into remote code execution. Every agent your team deploys is a new privileged user that reads untrusted input for a living.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Harden your AI coding agent today</h2>
+<code class="cmd"># 1. Patch first — then verify the running version
+# Admin -> Overview; target 19.2.8 / 19.3.5 / 19.4.2+
+
+# 2. Scope the agent down: dedicated service account,
+#    least-privilege token, no CI/CD trigger rights
+#    unless the workflow truly needs them
+
+# 3. Turn on audit logging for agent-executed commands
+#    and review them weekly — treat the agent's shell
+#    history like a privileged user's</code>
+<ul>
+<li><strong>Treat agent input as untrusted.</strong> Everything the agent reads — issues, comments, MRs, vendored code, README files — is attacker-reachable. Sanitize or sandbox before the agent acts on it.</li>
+<li><strong>Least privilege, always.</strong> The blast radius of an injected instruction equals the agent's permissions. Scope tokens, repos, and pipeline rights to the minimum the workflow needs.</li>
+<li><strong>Review what it did.</strong> Agent-executed commands should be logged and reviewable. An agent nobody audits is a privileged user nobody watches.</li>
+<li><strong>Disable what you don't use.</strong> Duo/agent features enabled org-wide "just in case" are pure attack surface. Enable per-project, per-team.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Scan the code your agent touches — free</h2>
+<p style="color:#9aa7b8;font-size:15px;margin-bottom:12px">Agents inherit the vulnerabilities of the code they read and run. Our open-source scanners check for the exact patterns attackers use — prompt-injection payloads, overpermissioned tools, hardcoded secrets:</p>
+<ul>
+<li><a href="https://github.com/Iceman2050/agent-skills-security-scanner" target="_blank" rel="noopener" style="color:#6ea8fe"><strong>agent-skills-security-scanner</strong></a> — offline scanner for AI agent skills: prompt-injection payloads, overpermissioned tools, hardcoded secrets, exfiltration calls.</li>
+<li><a href="https://github.com/Iceman2050/attack-matrix-mapper" target="_blank" rel="noopener" style="color:#6ea8fe"><strong>attack-matrix-mapper</strong></a> — map your red-team findings to MITRE ATT&amp;CK v20's new AI technique IDs (T1698 indirect prompt injection included) and find your coverage gaps.</li>
+</ul>
+<p class="note">Vibe-Code Audit's managed code-security scans return with the platform fleet on November 1 — <a href="https://vibe-audit-efkm.onrender.com" target="_blank" rel="noopener" style="color:#6ea8fe">vibe-audit-efkm.onrender.com</a>.</p>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center">
+<div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div>
+<div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Vibe-Code Audit scans the code your AI agents read, write, and run.</strong></div>
+<div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms return November 1 &mdash; get early access now:</div>
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20your%20GitLab%20Duo%20check%20and%20want%20early%20access%20to%20Vibe-Code%20Audit." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a>
+</div>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with anyone running GitLab Duo or AI coding agents.<br>
+GitLab security release, Oct 2026 &middot; CVE-2026-96893 (CVSS 7.3, Duo Agent Platform prompt injection) &middot; CVE-2026-97229 (CVSS 10.0, pipeline execution policies) &middot; patch before you harden
+</footer>
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=GitLab%20Duo%20prompt%20injection%20(CVE-2026-96893%2C%20CVSS%207.3)%20%E2%80%94%20your%20AI%20coding%20agent%20is%20an%20attack%20surface%20now.%20Free%2060-sec%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/gitlab-duo-prompt-injection.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/gitlab-duo-prompt-injection.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/gitlab-duo-prompt-injection.html&title=GitLab%20Duo%20Prompt%20Injection%20(CVE-2026-96893)%20Exposure%20Check" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+<script>
+function score(){
+  var n=0; for(var i=1;i<=5;i++){ if(document.getElementById('c'+i).checked) n++; }
+  var res=document.getElementById('result'); res.style.display='block';
+  if(n===0) res.innerHTML='<div class="verdict safe"><strong>0/5 — CLEAN.</strong> Patched GitLab, untrusted-input discipline, least-privilege agent, audited commands, minimal enabled surface. This is the posture CVE-2026-96893 demands. Keep it.</div>';
+  else if(n<=2) res.innerHTML='<div class="verdict warn"><strong>'+n+'/5 — MODERATE.</strong> '+n+' gap(s) an agent-targeting attacker could use. Patch first (the CVEs are real and public), then scope the agent\u2019s permissions down.</div>';
+  else res.innerHTML='<div class="verdict"><strong>'+n+'/5 — HIGH.</strong> Your AI coding agent is exactly the kind of privileged, untrusted-input-reading surface CVE-2026-96893 targets. Patch GitLab today, then work the hardening list above in order.</div>';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8,000 Websites Now Talk to AI Agents Through HTTP Headers — 30 Tried to Hack Them</title>
+<meta name="description" content="Signals Corps scanned 217M page responses: nearly 8,000 sites send AI agents instructions via HTTP headers — and 30 attempted indirect prompt injection. Audit your own headers free.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="8,000 websites now talk to AI agents through HTTP headers — 30 tried to hack them">
+<meta property="og:description" content="Signals Corps scanned 217M page responses: ~8,000 sites direct AI agents via headers, 30 attempted indirect prompt injection. Only 3-10% publish llms.txt. Free header audit.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/http-header-ai-agents.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/http-header-ai-agents.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="8,000 websites now talk to AI agents through HTTP headers — 30 tried to hack them">
+<meta name="twitter:description" content="Signals Corps: ~8,000 sites direct AI agents via HTTP headers; 30 attempted indirect prompt injection. Audit your own headers free.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#3b0d0d;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.chk{display:flex;gap:12px;align-items:flex-start;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0;cursor:pointer}
+.chk input{margin-top:5px;transform:scale(1.3);accent-color:#1c6ef2}
+.chk b{color:#fff}
+button.check{background:#1c6ef2;color:#fff;font-weight:700;font-size:16px;padding:12px 28px;border:none;border-radius:8px;cursor:pointer;margin-top:8px}
+button.check:hover{background:#2f7ef7}
+#result{margin-top:14px;display:none}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+code.cmd{display:block;background:#000;border:1px solid #2a3342;border-radius:8px;padding:14px 16px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;color:#7ee787;overflow-x:auto;margin:10px 0;white-space:pre}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What did the Signals Corps study actually find?","acceptedAnswer":{"@type":"Answer","text":"Researchers at Signals Corps examined roughly 217 million HTTP page responses collected via Common Crawl. They found nearly 8,000 websites using HTTP response headers to communicate with AI agents — including 7,271 sites with pointers directing agents elsewhere and 6,989 sending an x-llms-txt header. Among them, 30 sites were classified as attempting indirect prompt injection: embedding instructions in header content that an AI agent might read and obey."}},
+{"@type":"Question","name":"What is an 'agent-directed' HTTP header?","acceptedAnswer":{"@type":"Answer","text":"An agent-directed header is an HTTP response header intended for AI agents rather than browsers — for example x-llms-txt pointing an agent to a machine-readable summary of the site, or headers naming which AI crawlers may access content. They are metadata about how automated readers should treat the page. Most are benign housekeeping; the study found a minority carrying instruction-like content."}},
+{"@type":"Question","name":"What does indirect prompt injection via headers mean?","acceptedAnswer":{"@type":"Answer","text":"Indirect prompt injection happens when hostile instructions are hidden in content an AI agent reads on behalf of a user — a webpage, email, file, or, as this study shows, HTTP headers. Language models process instructions and data in the same text stream, so an agent asked to summarize a page can be steered by instructions smuggled into that page's headers. The study documented 22 cases attempting to make AI systems ignore prior instructions, delete training data, or execute SQL-injection-like text."}},
+{"@type":"Question","name":"Only 3–10% of sites publish llms.txt — why does that matter?","acceptedAnswer":{"@type":"Answer","text":"llms.txt is a proposed convention for giving AI agents a clean, machine-readable summary of a website. With only 3–10% of sites publishing one, agents mostly ingest raw page content — headers included — which is exactly the unfiltered stream where injection attempts hide. Publishing an llms.txt gives you a say in what the agent reads first."}},
+{"@type":"Question","name":"How do I audit my own site's headers for agent-directed or risky content?","acceptedAnswer":{"@type":"Answer","text":"Run: curl -sI https://your-site.com and read every response header. Look for x-llms-txt or custom x-agent-* headers, check what they point to, and read the values for imperative language ('ignore', 'delete', 'execute', 'system prompt'). The free open-source tool header-hunter (github.com/Iceman2050/header-hunter) automates this: it classifies headers as agent-directed, suspicious, or benign."}},
+{"@type":"Question","name":"Is my site at risk if it doesn't send any agent-directed headers?","acceptedAnswer":{"@type":"Answer","text":"Your site isn't attacking anyone, but your visitors' AI agents still read your pages — including any third-party content, ads, or user comments embedded in them. The risk runs both ways: audit what your headers say to agents, and assume agents visiting your site ingest everything on the page. If you run a chatbot or agent that browses the web, treat fetched page content — headers included — as untrusted input."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">SIGNALS CORPS RESEARCH &mdash; OCT 2026 &mdash; AI AGENT SECURITY</div>
+<h1>8,000 websites now talk to AI agents through <span class="red">HTTP headers</span> — 30 tried to hack them</h1>
+<p class="lead">Researchers at Signals Corps examined <strong>~217 million HTTP page responses</strong> and found <strong>nearly 8,000 websites</strong> using response headers to communicate with AI agents — pointers, crawler rules, machine-readable summaries. And <strong>30 of those sites</strong> were caught attempting <strong>indirect prompt injection</strong>: instructions smuggled into header content that an AI agent might read and obey. Meanwhile only <strong>3–10% of sites</strong> publish an <code>llms.txt</code> at all. Your site's headers are talking to agents right now — do you know what they're saying? Run the free audit below.</p>
+
+<div class="card">
+<h2>What "agent-directed headers" actually are</h2>
+<ul>
+<li><strong>x-llms-txt</strong> — points an AI agent to a machine-readable summary of the site (6,989 sites in the study sent this one).</li>
+<li><strong>Agent pointers</strong> — 7,271 sites sent headers directing agents to look elsewhere: alternate feeds, API docs, canonical agent content.</li>
+<li><strong>Crawler rules in headers</strong> — x-robots-tag entries naming AI crawlers, telling them what they may or may not ingest. About 10% of sites use robots.txt rules to restrict AI crawlers.</li>
+<li><strong>The dark 30</strong> — headers carrying instruction-like content: attempts to make agents ignore prior instructions, delete training data, or execute SQL-injection-style text. Many of the rest were jokes, per the researchers — but 22 were credible attack attempts.</li>
+</ul>
+<p class="note">Why headers matter: when you ask an agent to "summarize this page," your request and the page's content enter the model's context as one text stream. Anything in that stream — visible text, hidden markup, <em>or response headers</em> — can steer it. That's indirect prompt injection, and headers are its newest hiding place.</p>
+</div>
+
+<div class="card">
+<h2>The 60-second header audit — tick what applies to your site</h2>
+<label class="chk"><input type="checkbox" id="c1"><span><b>You've never looked at your own response headers</b> — run <code>curl -sI https://your-site.com</code> and actually read them. Most site owners have no idea what's in there.</span></label>
+<label class="chk"><input type="checkbox" id="c2"><span><b>No llms.txt published</b> — agents ingest your raw pages (headers included) with no clean summary to read first. You're in the 90%+ majority, and that's the exposure.</span></label>
+<label class="chk"><input type="checkbox" id="c3"><span><b>Third-party scripts, ads, or embeds on your pages</b> — each one can set or influence what an agent reads. Your headers are only half the story.</span></label>
+<label class="chk"><input type="checkbox" id="c4"><span><b>You run a chatbot or agent that browses the web</b> — fetched pages arrive as untrusted input. If your agent reads headers, the Signals Corps 30 prove the attack surface is real.</span></label>
+<label class="chk"><input type="checkbox" id="c5"><span><b>No robots.txt rules for AI crawlers</b> — only ~10% of sites restrict AI crawlers. If you haven't decided your policy, the crawlers decided it for you.</span></label>
+<button class="check" onclick="score()">Score my exposure</button>
+<div id="result"></div>
+</div>
+
+<div class="card">
+<h2>Audit any site's headers free — header-hunter</h2>
+<code class="cmd">git clone https://github.com/Iceman2050/header-hunter.git
+cd header-hunter
+python3 headerhunter.py https://your-site.com</code>
+<ul>
+<li><strong>Agent-directed</strong> — x-llms-txt, AI-crawler x-robots-tag, x-agent-* headers, llms.txt links. Flagged and explained.</li>
+<li><strong>Suspicious</strong> — header values with instruction-like language ("ignore previous instructions", "reveal system prompt", destructive commands). Labeled <em>possible indirect prompt injection — unconfirmed, inspect manually</em>. Detection, not accusation.</li>
+<li><strong>Benign</strong> — everything else, left alone. Zero dependencies, runs fully offline except fetching your target URL.</li>
+</ul>
+<a class="cta" href="https://github.com/Iceman2050/header-hunter">Get header-hunter free on GitHub &rarr;</a>
+<p class="note" style="text-align:center">Open source (MIT) by Ingenious AI. For managed chatbot red-teaming against the full injection playbook: <a href="https://chatbreaker.onrender.com" style="color:#6ea8fe">ChatBreaker</a>.</p>
+</div>
+
+<div class="card">
+<h2>Sources</h2>
+<ul>
+<li>Signals Corps findings as reported: <a href="https://www.technotime.net/17762" target="_blank" rel="noopener" style="color:#6ea8fe">TechnoTime, Oct 16, 2026</a> — ~8,000 agent-targeting sites, 30 injection attempts, 217M responses scanned.</li>
+<li>Independent analysis: <a href="https://groundtruth.day/news/web-response-headers-test-where-agents-accept-instructions.html" target="_blank" rel="noopener" style="color:#6ea8fe">Ground Truth, Oct 16, 2026</a> — small-scale tests on when agents obey header instructions.</li>
+</ul>
+<p class="note">Attribution: the 217-million-response scan was conducted by Signals Corps researchers; Ingenious AI did not run it. Numbers above are as reported. MITRE ATT&amp;CK v20 (Oct 2026) now tracks indirect prompt injection as technique T1698.</p>
+</div>
+
+<footer>
+Built by Ingenious AI &mdash; share this page with anyone running a website.<br>
+Signals Corps HTTP-header study &middot; Oct 16, 2026 &middot; ~217M page responses &middot; ~8,000 agent-directed sites &middot; 30 injection attempts &middot; 3–10% llms.txt adoption
+</footer>
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=8%2C000%20websites%20now%20talk%20to%20AI%20agents%20through%20HTTP%20headers%20%E2%80%94%2030%20tried%20to%20hack%20them.%20Audit%20YOUR%20headers%20free&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/http-header-ai-agents.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/http-header-ai-agents.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/http-header-ai-agents.html&title=8000%20websites%20talk%20to%20AI%20agents%20via%20HTTP%20headers%20%E2%80%94%2030%20tried%20to%20hack%20them" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+<script>
+function score(){
+  var n=0; for(var i=1;i<=5;i++){ if(document.getElementById('c'+i).checked) n++; }
+  var res=document.getElementById('result'); res.style.display='block';
+  if(n===0) res.innerHTML='<div class="verdict safe"><strong>0/5 — CLEAN.</strong> You have read your headers, published llms.txt, set crawler policy, and treat agent-fetched content as untrusted. That puts you ahead of ~97% of the web.</div>';
+  else if(n<=2) res.innerHTML='<div class="verdict warn"><strong>'+n+'/5 — GAPS.</strong> '+n+' unchecked item(s). Start with the curl command above — reading your own headers takes 30 seconds and is the single highest-value step.</div>';
+  else res.innerHTML='<div class="verdict"><strong>'+n+'/5 — EXPOSED.</strong> Your site is speaking to AI agents and you have not checked what it is saying. Run header-hunter above — it is free, offline, and takes a minute.</div>';
+}
+</script>
+</body>
+</html>
