@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HomeLibrary: Should You Trust a Shared Script Memory for Your AI Agents? — Code-Reviewed</title>
+<meta name="description" content="A developer announced HomeLibrary, a shared memory so AI agents reuse tested scripts instead of rewriting them. The underlying MCP server HomeShed is real and open-source — I reviewed the code. HomeLibrary itself isn't released yet. Honest evaluator's take + 6-question fit check. Free, no signup.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="A shared script memory for AI agents — brilliant idea, but should you trust it?">
+<meta property="og:description" content="HomeLibrary promises to stop AI agents rewriting the same scripts. The open-source MCP server behind it is real — I reviewed the code. The product itself isn't released. 6-question fit check — free, no signup.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/homelibrary-shared-agent-memory-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/homelibrary-shared-agent-memory-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="A shared script memory for AI agents — brilliant idea, but should you trust it?">
+<meta name="twitter:description" content="HomeLibrary promises to stop AI agents rewriting the same scripts. The open-source MCP server behind it is real — I reviewed the code. The product itself isn't released. 6-question fit check.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d2a12;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .green{color:#3fb950}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.q{display:flex;gap:12px;align-items:flex-start;margin:16px 0;padding:14px;border:1px solid #232b38;border-radius:10px;background:#0d1219}
+.q .qn{flex:0 0 28px;height:28px;border-radius:50%;background:#1c2b45;color:#9db8e8;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.q .qt{flex:1}
+.q .qt small{display:block;color:#9aa7b8;font-size:13px;margin-top:4px}
+.qbtns{flex:0 0 auto;display:flex;gap:8px}
+.qbtns button{border:1px solid #2a3342;background:#11161f;color:#e6edf3;font-weight:700;font-size:13px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.qbtns button.sel-y{background:#3fb950;border-color:#3fb950;color:#06240f}
+.qbtns button.sel-n{background:#f85149;border-color:#f85149;color:#fff}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.howto{background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:18px;margin:20px 0;font-size:14px}
+.howto div{margin:8px 0}
+.howto b{color:#7ee787}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;margin-right:8px;vertical-align:middle}
+.tag.ok{background:#0d2a12;color:#7ee787;border:1px solid #3fb950}
+.tag.no{background:#2a0d0d;color:#f85149;border:1px solid #f85149}
+.tag.soon{background:#1a1408;color:#e6c26a;border:1px solid #d29922}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is HomeLibrary and is it released?","acceptedAnswer":{"@type":"Answer","text":"HomeLibrary is a shared script-and-prompt memory for AI agents announced on October 16, 2026 by developer keefng8: before an agent writes a script from scratch, it checks whether a tested version already exists, saving tokens and avoiding rewritten bugs. It is NOT released — the author describes it as in development and tweaking before any release, and the name appears nowhere in the public repository."}},
+{"@type":"Question","name":"What is HomeShed and what did the code review find?","acceptedAnswer":{"@type":"Answer","text":"HomeShed (github.com/keefng8/homeshed-mcp) is the free, open-source (Apache-2.0) self-hosted MCP server behind the announcement, with 136 tools covering memory, reasoning, git, Docker, Proxmox and more. A code review found thoughtful security defaults: token authentication, localhost-only binding, action tools off by default, per-client keys and rate limits, a Fernet-encrypted secrets vault, SSRF guards, rule packs that vet commands before execution, and a SECURITY.md disclosure policy. The project is 7 days old with 8 stars — professionally built but unproven at scale."}},
+{"@type":"Question","name":"What is the security tradeoff of a shared agent script memory?","acceptedAnswer":{"@type":"Answer","text":"A shared memory means agents EXECUTE shared code. Its safety equals your review process: an allowlist plus owner approval per run (HomeShed's model) is the right shape, but a poisoned, stale, or subtly buggy shared entry propagates to every agent that reuses it. Keep such a server on localhost or behind an access proxy, never expose it to the internet, and remember mounting the Docker socket gives root on the host."}},
+{"@type":"Question","name":"Where can I follow HomeLibrary's development?","acceptedAnswer":{"@type":"Answer","text":"Watch the public repository at github.com/keefng8/homeshed-mcp (Apache-2.0, free core; a paid HomeShed Pro add-on also exists). Since HomeLibrary itself is unreleased, there is nothing to download yet — the repository is where a release would appear."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">OPEN-SOURCE MCP SERVER &mdash; CODE-REVIEWED OCT 16, 2026</div>
+<h1>Should you trust a <span class="green">shared script memory</span> for your AI agents?</h1>
+<p class="lead">A developer just announced <strong>HomeLibrary</strong> &mdash; a shared memory so your AI agents reuse tested scripts instead of rewriting them (and reintroducing bugs) every time. The open-source MCP server behind it, <strong>HomeShed</strong>, is real &mdash; I cloned the repo and reviewed the code. But HomeLibrary itself <strong>isn't released yet</strong>. Here is the honest evaluator's take: what's verified, what's aspirational, and whether it fits you.</p>
+
+<div class="card">
+<h2><span class="tag ok">VERIFIED</span> What the code review confirmed</h2>
+<ul>
+<li><strong>The repo is real and substantial.</strong> <a href="https://github.com/keefng8/homeshed-mcp" target="_blank" rel="noopener" style="color:#6ea8fe">github.com/keefng8/homeshed-mcp</a> &mdash; a self-hosted MCP server (Claude Code, Claude Desktop, Cursor, VS Code, OpenCode) with 136 tools: cross-session memory, a known-bugs list (&ldquo;seen this error before?&rdquo;), a logic solver, git, Docker, Proxmox monitoring, and secret-leak scanning of your AI transcripts.</li>
+<li><strong>Free and open source (Apache-2.0).</strong> One install, no account. Note honestly: a paid <em>HomeShed Pro</em> add-on also exists &mdash; the core is free, the ecosystem has a commercial tier.</li>
+<li><strong>Security defaults are genuinely thoughtful.</strong> Token auth on every request, binds to localhost only, tools that act on your machines start <em>switched off</em>, per-client keys with rate limits, secrets in a Fernet-encrypted vault, SSRF guards, and rule packs that vet commands <em>before</em> the agent runs them. A published SECURITY.md with a private disclosure process. No hardcoded live secrets found in the code.</li>
+<li><strong>Actively built, not abandoned.</strong> Created Oct 9, 2026; 7 releases in 7 days (v0.3.2 latest); 138 test files; maintained changelog. The token-savings tracker the author cites (<em>system.savings</em>, added in v0.3.2) exists in the code.</li>
+<li><strong>The &ldquo;second opinion&rdquo; hook exists.</strong> The author's &ldquo;Shedkeeper&rdquo; shadow-mode concept appears in the codebase as an optional companion-service integration &mdash; the code comments note the public copy ships without it, matching the author's &ldquo;my local setup&rdquo; framing.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2><span class="tag soon">UNRELEASED</span> <span class="tag no">UNVERIFIABLE</span> What's not proven yet</h2>
+<ul>
+<li><strong>HomeLibrary itself doesn't exist yet.</strong> The name appears <em>zero times</em> in the repository &mdash; no code, no branch, no release. The author says it's in development and being tweaked before any release. Every specific feature claim (Sure/Likely/Weak match scoring, &ldquo;Missed Requests&rdquo; log, duplicate/stale/failing entry flags, &ldquo;never stores secrets&rdquo;, passkey phone-tap approval) is the author's description of <em>unreleased</em> software. Treat it as a roadmap, not a product.</li>
+<li><strong>The savings figure is one person's anecdote.</strong> &ldquo;~7.9k tokens / &pound;0.28 this week&rdquo; comes from the author's own screenshot &mdash; plausible, but not independently verifiable, and your mileage will differ entirely with your workload.</li>
+<li><strong>Tiny, brand-new community.</strong> 8 stars, 4 forks, one maintainer, 7 days old. The engineering looks professional, but nothing here is battle-tested at scale. Adopt with the caution you'd give any week-old infrastructure dependency.</li>
+<li><strong>The core security tradeoff is yours to manage.</strong> A shared script memory means agents <em>execute shared code</em>. An allowlist plus your explicit approval per run is the right shape &mdash; but a poisoned, stale, or subtly buggy shared entry propagates to <em>every</em> agent that reuses it. The safety of the system equals the rigor of your review process.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>The 60-second fit check &mdash; is this for you?</h2>
+<div id="quiz"></div>
+<div id="qresult"></div>
+</div>
+
+<script>
+var QS=[
+["Do your AI agents work across multiple projects or machines, rewriting the same scripts over and over?","This is the exact pain HomeLibrary targets. If you run one agent on one project, a shared memory buys you almost nothing."],
+["Can you self-host an MCP server (Docker or Python) and keep it updated?","HomeShed is self-hosted only — there is no managed option. A 7-day-old project also moves fast; expect frequent updates."],
+["Are you comfortable with agents EXECUTING shared scripts — gated by an allowlist and your explicit approval per run?","That is the trust model. If the idea of agents running shared code makes you uneasy even with approvals, stop here."],
+["Do you have (or will you build) a process for reviewing shared scripts before agents reuse them?","A poisoned or stale shared entry propagates bugs to every agent. The author's duplicate/stale/failing flags are unreleased — today, review is on you."],
+["Do you know what your agents cost you in tokens right now?","Without a baseline you cannot verify any savings claim. HomeShed's built-in system.savings tracker (v0.3.2) can give you one."],
+["Are you OK adopting a 7-day-old, solo-maintainer project — or would you rather watch and wait?","Apache-2.0 means you can fork it and the code is genuinely well-structured. But 8 stars is 8 stars: this is early-adopter territory."] ];
+var ANS=[null,null,null,null,null,null];
+function renderQ(){
+  var h='';
+  for(var i=0;i<QS.length;i++){
+    h+='<div class="q"><div class="qn">'+(i+1)+'</div><div class="qt"><strong>'+QS[i][0]+'</strong><small>'+QS[i][1]+'</small></div><div class="qbtns"><button id="y'+i+'" onclick="ans('+i+',1)">Yes</button><button id="n'+i+'" onclick="ans('+i+',0)">No</button></div></div>';
+  }
+  document.getElementById('quiz').innerHTML=h;
+}
+function ans(i,v){
+  ANS[i]=v;
+  document.getElementById('y'+i).className=v===1?'sel-y':'';
+  document.getElementById('n'+i).className=v===0?'sel-n':'';
+  var out=document.getElementById('qresult');
+  if(ANS.indexOf(null)>=0){return;}
+  var yes=0;
+  for(var k=0;k<ANS.length;k++){if(ANS[k]===1)yes++;}
+  if(yes===6){
+    out.innerHTML='<div class="verdict safe"><strong>STRONG FIT — with eyes open.</strong> You have the multi-agent sprawl, the self-hosting ability, and the review discipline this idea needs. Star the repo, run HomeShed now, and evaluate HomeLibrary the day it actually ships — against your own token baseline, not the author\'s screenshot.</div>';
+  }else if(yes>=4){
+    out.innerHTML='<div class="verdict warn"><strong>'+(6-yes)+' gaps — PROMISING, BUT PILOT FIRST.</strong> The idea fits your shape, but don\'t bet infrastructure on a week-old project yet. Run HomeShed on one non-critical machine, measure your own savings for a month, and keep the agent allowlist tiny until the review process is muscle memory.</div>';
+  }else{
+    out.innerHTML='<div class="verdict"><strong>'+(6-yes)+' of 6 missed — NOT FOR YOU YET.</strong> Either your setup doesn\'t have the rewrite problem, or the trust model doesn\'t fit your risk appetite. Watch the repo; if HomeLibrary ships with third-party audits and a real user base, retake this check then.</div>';
+  }
+}
+renderQ();
+</script>
+
+<div class="card">
+<h2>The bottom line</h2>
+<p><strong>HomeShed: real, open, and unusually well-engineered for its age</strong> &mdash; worth a star and a test drive if you live in AI coding agents. <strong>HomeLibrary: an exciting announcement of software that doesn't exist yet</strong> &mdash; judge it when there's code, not screenshots. And whichever shared-memory tool you eventually use, remember the iron rule: <strong>a shared script library is only as safe as the review process guarding what goes into it.</strong></p>
+<a class="cta" href="https://github.com/keefng8/homeshed-mcp" target="_blank" rel="noopener">Star / watch HomeShed on GitHub &rarr;</a>
+<p class="note">HomeShed core is Apache-2.0 and free; a paid Pro tier exists. HomeLibrary is unreleased as of Oct 16, 2026 &mdash; there is nothing to download yet.</p>
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=Someone%20announced%20a%20shared%20script%20memory%20for%20AI%20agents.%20I%20reviewed%20the%20code%20%E2%80%94%20here%27s%20what%27s%20real%2C%20what%27s%20not%20released%2C%20and%20a%206-question%20fit%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/homelibrary-shared-agent-memory-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/homelibrary-shared-agent-memory-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/homelibrary-shared-agent-memory-check.html&title=HomeLibrary%20shared%20agent%20memory%20%E2%80%94%20code-reviewed%3A%20what%27s%20real%20vs%20unreleased" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b}'></script><!-- End Cloudflare Web Analytics -->
+<footer>
+Built by Ingenious AI &mdash; an independent evaluator's take, not an endorsement.<br>
+Code reviewed Oct 16, 2026: github.com/keefng8/homeshed-mcp (Apache-2.0) &middot; HomeLibrary unreleased &middot; author's unreleased-product claims are labeled as such throughout.<br>
+<span class="note">Informational only — not security or legal advice. Verify anything before installing.</span>
+</footer>
+</div>
+</body>
+</html>
