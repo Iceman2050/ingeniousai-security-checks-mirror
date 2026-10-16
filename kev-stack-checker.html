@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check Your Software Against CISA's Exploited Vulnerabilities Catalog</title>
+<meta name="description" content="Free tool: paste your software list and instantly see which products appear in CISA's Known Exploited Vulnerabilities catalog — flaws confirmed exploited in the wild. 100% client-side, nothing leaves your browser.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/kev-stack-checker.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Check your stack against CISA's exploited-vulnerabilities catalog">
+<meta property="og:description" content="Paste your software versions and see which ones carry vulnerabilities CISA confirms are exploited in the wild. Free, instant, private — runs entirely in your browser.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/kev-stack-checker.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Check your stack vs CISA's KEV catalog">
+<meta name="twitter:description" content="Free client-side tool: find actively-exploited vulnerabilities in your software list.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1c6ef2;color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:30px;line-height:1.3;margin-bottom:14px}
+p.lead{font-size:17px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1420;border:1px solid #1c6ef2;border-radius:12px;padding:20px 24px;margin:24px 0;font-size:15.5px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:18px 0}
+.card h2{font-size:19px;margin-bottom:10px;color:#fff}
+.card p{font-size:14.5px;color:#9aa7b8;margin-bottom:12px}
+textarea{width:100%;background:#000;border:1px solid #2a3342;color:#7ee787;border-radius:8px;padding:14px 16px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:15px;margin:8px 0;min-height:130px}
+button.check{width:100%;background:#1c6ef2;color:#fff;border:0;font-weight:700;font-size:17px;padding:15px;border-radius:10px;cursor:pointer;margin-top:8px;font-family:inherit}
+button.check:hover{background:#2f7ef7}
+button.ghost{width:100%;background:transparent;border:1px solid #2a3342;color:#c9d4e3;font-weight:700;font-size:14px;padding:11px;border-radius:10px;cursor:pointer;margin-top:10px;font-family:inherit}
+button.ghost:hover{border-color:#1c6ef2}
+.result{margin-top:18px;padding:16px 18px;border-radius:10px;font-size:15px;display:none}
+.result.bad{display:block;background:#1a0f0f;border-left:4px solid #f85149}
+.result.warn{display:block;background:#1a1408;border-left:4px solid #d29922}
+.result.safe{display:block;background:#0d1a0f;border-left:4px solid #3fb950}
+.cve{background:#0b0f17;border:1px solid #232b38;border-radius:10px;padding:16px 18px;margin:12px 0}
+.cve h3{font-size:15.5px;color:#fff;margin-bottom:6px}
+.cve h3 a{color:#1c6ef2;text-decoration:none}
+.cve p{font-size:13.5px;color:#9aa7b8;margin:4px 0}
+.cve .meta{font-size:12.5px;color:#6b7688}
+.cve .ransom{display:inline-block;background:#3a1111;color:#f85149;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px;margin-top:6px}
+.sharebox{background:#0d1420;border:1px solid #1c6ef2;border-radius:12px;padding:20px 24px;margin:24px 0}
+.sharebox p{font-size:14.5px;color:#c9d4e3;margin-bottom:12px}
+.note{font-size:13px;color:#6b7688;margin-top:14px}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0;font-size:14.5px}
+a{color:#1c6ef2}
+.faq details{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0}
+.faq summary{font-weight:700;cursor:pointer}
+.faq p{color:#9aa7b8;font-size:14px;margin-top:8px}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:17px;padding:16px;border-radius:10px;text-decoration:none;margin:24px 0}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"KEV Stack Checker","applicationCategory":"SecurityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"Ingenious AI"},"description":"Paste your software list and check it against CISA's Known Exploited Vulnerabilities catalog. Free, client-side, no data leaves your browser."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is CISA's KEV catalog?","acceptedAnswer":{"@type":"Answer","text":"The Known Exploited Vulnerabilities catalog is maintained by the U.S. Cybersecurity and Infrastructure Security Agency. It lists only vulnerabilities that CISA has confirmed are actively exploited in the wild, with required-action deadlines for U.S. federal agencies. A match here means the flaw is not theoretical — attackers are using it."}},
+{"@type":"Question","name":"How fresh is the data in this checker?","acceptedAnswer":{"@type":"Answer","text":"The checker embeds a dated snapshot of the CISA catalog, fetched on 2026-10-16. It is not live data. Always confirm findings against CISA's current catalog and the vendor's advisory before acting, especially for time-sensitive patching decisions."}},
+{"@type":"Question","name":"Does my software list leave my computer?","acceptedAnswer":{"@type":"Answer","text":"No. The catalog snapshot is downloaded with this page and every comparison runs in JavaScript in your browser. No request is made with your input, nothing is logged, nothing leaves your machine."}},
+{"@type":"Question","name":"Why does the checker ask me to verify my version manually?","acceptedAnswer":{"@type":"Answer","text":"The CISA catalog names vulnerable products but does not publish machine-readable affected-version ranges for every entry. The checker tells you which of your products have known exploited flaws; you then confirm your exact version against the vendor advisory linked on each result."}},
+{"@type":"Question","name":"What should I do if something matches?","acceptedAnswer":{"@type":"Answer","text":"Treat it as urgent: exploited vulnerabilities are the highest-priority patches in any stack. Check the vendor advisory for the fixed version, patch or mitigate, and — if you were exposed before patching — look for signs of compromise. The due dates shown are CISA's deadlines for federal agencies; fix sooner."}}
+]}
+</script>
+<script src="kev-data.js"></script>
+</head>
+<body>
+<div class="wrap">
+<span class="badge">INGENIOUS AI &mdash; FREE SECURITY TOOL</span>
+<h1>Check Your Software Against CISA's Exploited Vulnerabilities Catalog</h1>
+<p class="lead">Paste your software list below. This tool checks each product against CISA's Known Exploited Vulnerabilities (KEV) catalog &mdash; the official list of flaws attackers are actively exploiting right now. KEV data as of <strong>2026-10-16</strong>.</p>
+
+<div class="answer">
+<strong>The short version:</strong> the KEV catalog tracks vulnerabilities that CISA has confirmed are being exploited in the wild, not just rated severe. If your software appears here, patch it first &mdash; exploited flaws are the ones attackers actually use. This free checker compares your product list against a dated snapshot of that catalog, entirely in your browser, with no data sent anywhere.
+</div>
+
+<div class="card">
+<h2>Your software stack</h2>
+<p>One product per line: name and version, e.g. <code>Nextcloud 29.0.4</code>. Version is used for display; matching is by product name, then you confirm your exact version against the advisory.</p>
+<textarea id="stack" placeholder="Nextcloud 29.0.4&#10;GitLab 17.5.1&#10;Docker 27.1.1&#10;Windows 11"></textarea>
+<button class="check" onclick="checkStack()">Check my stack</button>
+<button class="ghost" onclick="fillSample()">Fill with a sample stack</button>
+<div class="result" id="result"></div>
+<div class="note">Matches are against a dated snapshot (2026-10-16) &mdash; verify against CISA and vendor advisories before acting. Absence of a match is not proof of safety.</div>
+</div>
+
+<div class="sharebox" id="sharebox" style="display:none">
+<p id="sharetext"></p>
+<button class="ghost" onclick="copyShare()">Copy share text</button>
+<p class="note">Every share drives another admin to check their stack &mdash; and links back here.</p>
+</div>
+
+<div class="card faq">
+<h2>Questions</h2>
+<details><summary>What is CISA's KEV catalog?</summary><p>The Known Exploited Vulnerabilities catalog is maintained by the U.S. Cybersecurity and Infrastructure Security Agency. It lists only vulnerabilities confirmed to be actively exploited in the wild, with required-action deadlines for U.S. federal agencies. A match here means the flaw is not theoretical &mdash; attackers are using it.</p></details>
+<details><summary>How fresh is the data in this checker?</summary><p>The checker embeds a dated snapshot of the CISA catalog, fetched on 2026-10-16. It is not live data. Always confirm findings against CISA's current catalog and the vendor's advisory before acting, especially for time-sensitive patching decisions.</p></details>
+<details><summary>Does my software list leave my computer?</summary><p>No. The catalog snapshot downloads with this page and every comparison runs in JavaScript in your browser. No request is made with your input, nothing is logged, nothing leaves your machine.</p></details>
+<details><summary>Why do I have to verify my version manually?</summary><p>The CISA catalog names vulnerable products but does not publish machine-readable affected-version ranges for every entry. The checker tells you which of your products have known exploited flaws; you then confirm your exact version against the linked vendor advisory.</p></details>
+<details><summary>What should I do if something matches?</summary><p>Treat it as urgent: exploited vulnerabilities are the highest-priority patches in any stack. Check the vendor advisory for the fixed version, patch or mitigate, and &mdash; if you were exposed before patching &mdash; look for signs of compromise. The due dates shown are CISA's deadlines for federal agencies; fix sooner.</p></details>
+</div>
+
+<a class="cta" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/">More free security checkers from Ingenious AI &rarr;</a>
+
+<footer>
+Built by Ingenious AI &mdash; KEV data: CISA Known Exploited Vulnerabilities catalog, snapshot fetched 2026-10-16.<br>
+Matches are indicators, not proof of exposure. Always verify with the vendor advisory.<br>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/">Security hub</a>
+</footer>
+</div>
+
+<script>
+function toks(s){return s.toLowerCase().replace(/[^a-z0-9]+/g,' ').trim().split(/\s+/).filter(function(t){return t.length>=2;});}
+var STOP={'the':1,'and':1,'for':1,'with':1,'app':1,'software':1,'server':1};
+
+function parseLine(line){
+  var m=line.trim().match(/^(.*?)[\s,]+(\d[\w.\-]*)\s*$/);
+  if(m) return {name:m[1].trim(),version:m[2]};
+  return {name:line.trim(),version:''};
+}
+
+function matchEntry(userTokens,entry){
+  var prod=entry.product, vendor=entry.vendor;
+  var hay;
+  if(/^multiple products$/i.test(prod) || /^various$/i.test(prod)) hay=toks(vendor);
+  else hay=toks(prod+' '+vendor);
+  hay=hay.filter(function(t){return !STOP[t];});
+  var hits=userTokens.filter(function(t){return hay.indexOf(t)>=0;});
+  var all=userTokens.filter(function(t){return !STOP[t];});
+  if(hits.length===0) return false;
+  // strong match: every meaningful user token appears in product+vendor
+  var strong=all.every(function(t){return hay.indexOf(t)>=0;});
+  return {strong:strong,hits:hits.length};
+}
+
+function checkStack(){
+  var lines=document.getElementById('stack').value.split('\n').filter(function(l){return l.trim().length>0;});
+  var box=document.getElementById('result');
+  if(!lines.length){box.className='result warn';box.innerHTML='Paste at least one product first.';return;}
+  var totalMatches=0, html='';
+  lines.forEach(function(line){
+    var p=parseLine(line);
+    var ut=toks(p.name).filter(function(t){return !STOP[t];});
+    if(!ut.length) return;
+    var strong=[],weak=[];
+    window.KEV.forEach(function(e){
+      var r=matchEntry(ut,e);
+      if(r){(r.strong?strong:weak).push(e);}
+    });
+    var matches=strong.length?strong:weak;
+    matches=matches.sort(function(a,b){return a.added<b.added?1:-1;});
+    var shown=matches.slice(0,25);
+    totalMatches+=matches.length;
+    html+='<div class="cve" style="background:#161c27;border-color:#2a3342;margin:16px 0;padding:14px 16px">';
+    html+='<h3 style="color:#fff">'+escapeHtml(p.name)+(p.version?' <span class="meta">'+escapeHtml(p.version)+'</span>':'')+'</h3>';
+    if(!matches.length){
+      html+='<p class="meta">No KEV matches in the 2026-10-16 snapshot. Not proof of safety — verify critical systems against the current catalog.</p>';
+    }else{
+      html+='<p style="color:#f85149;font-weight:700">'+matches.length+' actively-exploited vulnerabilit'+(matches.length===1?'y':'ies')+' in KEV for this product:</p>';
+      shown.forEach(function(e){
+        html+='<div class="cve">';
+        html+='<h3><a href="https://nvd.nist.gov/vuln/detail/'+escapeHtml(e.cve)+'" target="_blank" rel="noopener">'+escapeHtml(e.cve)+'</a> — '+escapeHtml(e.name)+'</h3>';
+        html+='<p>'+escapeHtml(e.desc)+'</p>';
+        html+='<p class="meta">Vendor: '+escapeHtml(e.vendor)+' · Product: '+escapeHtml(e.product)+'<br>Added to KEV: '+escapeHtml(e.added)+' · CISA due date: '+escapeHtml(e.due)+'</p>';
+        if(e.ransom && e.ransom.toLowerCase()==='known') html+='<span class="ransom">KNOWN RANSOMWARE USE</span>';
+        html+='<p class="meta" style="margin-top:8px">KEV does not publish version ranges — confirm your version ('+escapeHtml(p.version||'not given')+') against the vendor advisory before acting.</p>';
+        html+='</div>';
+      });
+      if(matches.length>25) html+='<p class="meta">+'+(matches.length-25)+' more matches — narrow your product name for a cleaner result, or check the full catalog at cisa.gov.</p>';
+    }
+    html+='</div>';
+  });
+  box.className='result '+(totalMatches?'bad':'safe');
+  box.innerHTML=(totalMatches
+    ? '<strong>'+totalMatches+' actively-exploited vulnerabilit'+(totalMatches===1?'y found':'ies found')+' in your stack (KEV snapshot 2026-10-16).</strong> Patch these first — exploited flaws are the ones attackers actually use.'
+    : '<strong>No matches in the KEV snapshot (2026-10-16).</strong> None of these products carry vulnerabilities CISA confirms are exploited in the wild. Keep them patched anyway.')+html;
+  // share box
+  var sb=document.getElementById('sharebox');
+  var st=document.getElementById('sharetext');
+  var msg=totalMatches
+    ? 'I found '+totalMatches+' actively-exploited vulnerabilit'+(totalMatches===1?'y':'ies')+' in my software stack with Ingenious AI\'s free KEV checker'
+    : 'My software stack came back clean against CISA\'s exploited-vulnerabilities catalog — checked free with Ingenious AI\'s KEV checker';
+  st.innerHTML='<strong>Share it:</strong> "'+escapeHtml(msg)+': https://iceman2050.github.io/ingeniousai-security-checks-mirror/kev-stack-checker.html"';
+  sb.style.display='block';
+  sb.dataset.share=msg+': https://iceman2050.github.io/ingeniousai-security-checks-mirror/kev-stack-checker.html';
+}
+
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+
+function fillSample(){
+  document.getElementById('stack').value='Nextcloud 29.0.4\nGitLab 17.5.1\nDocker 27.1.1\nCisco Secure Email 15.0\nWindows 11';
+}
+
+function copyShare(){
+  var t=document.getElementById('sharebox').dataset.share;
+  if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){alert('Copied — paste it anywhere.');});}
+  else{prompt('Copy this:',t);}
+}
+</script>
+</body>
+</html>
