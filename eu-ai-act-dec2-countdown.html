@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EU AI Act Ad-Label Self-Test: Dec 2 Countdown</title>
+<meta name="description" content="EU AI Act ad-label self-test: check whether your AI ads meet Article 50 disclosure duties before the Dec 2, 2026 deadline. 6 questions + risk readout.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/eu-ai-act-dec2-countdown.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="EU AI Act Ad-Label Self-Test: Dec 2 Countdown">
+<meta property="og:description" content="EU AI Act ad-label self-test: check whether your AI ads meet Article 50 disclosure duties before the Dec 2, 2026 deadline. 6 questions + risk readout.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/eu-ai-act-dec2-countdown.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="EU AI Act Ad-Label Self-Test: Dec 2 Countdown">
+<meta name="twitter:description" content="EU AI Act ad-label self-test: check whether your AI ads meet Article 50 disclosure duties before the Dec 2, 2026 deadline. 6 questions + risk readout.">
+<link rel="stylesheet" href="ecosystem.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"EU AI Act Ad-Label Self-Test: Dec 2 Countdown","description":"Interactive self-test checking whether AI-generated ads meet EU AI Act Article 50 disclosure duties ahead of the December 2, 2026 enforcement milestone, with a live countdown and per-gap compliance readout.","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/eu-ai-act-dec2-countdown.html","author":{"@type":"Organization","name":"Ingenious AI"},"inLanguage":"en"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Do AI-generated ads need a label in the EU?","acceptedAnswer":{"@type":"Answer","text":"Some do. Visible disclosure becomes particularly relevant when an AI-generated or manipulated advertisement realistically depicts a person, object, product, place, entity, or event and could falsely appear authentic or truthful. Advertising content is excluded from the lighter disclosure regime for genuinely artistic or satirical work."}},
+{"@type":"Question","name":"Does every AI-assisted marketing asset need a disclosure label?","acceptedAnswer":{"@type":"Answer","text":"No. Standard editing tasks fall outside the marking duty, including grammar correction, spellchecking, minor stylistic polish, and AI-generated translations. Summaries and substantive rewrites still require marking. Visible disclosure is triggered by deepfake content and by unreviewed public-interest text."}},
+{"@type":"Question","name":"What happens if you ignore the AI content disclosure requirements?","acceptedAnswer":{"@type":"Answer","text":"Breaching the Article 50 transparency obligations carries fines of up to 15 million euros or 3% of total worldwide annual turnover, whichever is higher. The AI Act's steepest band — up to 35 million euros or 7% of global turnover — applies to prohibited AI practices under Article 5."}},
+{"@type":"Question","name":"Does AI-written marketing copy need a disclaimer?","acceptedAnswer":{"@type":"Answer","text":"Purely promotional copy may sit outside the disclosure rules, but content that informs the public on regulatory, technical, health or environmental matters is more likely to be flagged. Genuine human authorship and editorial ownership are the cleanest way to stay on the right side of the line."}},
+{"@type":"Question","name":"Do the EU AI Act disclosure rules apply to companies outside the EU?","acceptedAnswer":{"@type":"Answer","text":"Yes, they can. The Act follows the AI output rather than the company's location: if your AI system's output is used in the European Union — for example AI-generated campaign assets reaching EU audiences — you can be in scope wherever you are established."}}
+]}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:780px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1c2430;border:1px solid #1c6ef2;color:#6ea8fe;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:32px;line-height:1.25;margin-bottom:14px}
+h2{font-size:22px;margin:30px 0 12px}
+p.lead{font-size:17px;color:#9aa7b8;margin-bottom:22px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:26px;margin:18px 0}
+.small{font-size:13px;color:#9aa7b8}
+.tiny{font-size:12px;color:#6b7688}
+a{color:#6ea8fe}
+.legal{background:#2a1f08;border:1px solid #d29922;border-radius:10px;padding:14px 18px;font-size:14px;color:#ffce63;margin-bottom:18px}
+.count{display:flex;gap:12px;margin:16px 0;flex-wrap:wrap}
+.cell{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:14px 18px;text-align:center;min-width:88px}
+.cell b{display:block;font-size:30px;color:#6ea8fe;font-variant-numeric:tabular-nums}
+.cell span{font-size:11px;color:#9aa7b8;letter-spacing:1px;text-transform:uppercase}
+.q{border:1px solid #232b38;border-radius:10px;padding:16px 18px;margin:12px 0;background:#0d1420}
+.q p{font-weight:600;color:#e6edf3;margin-bottom:10px}
+.q label{display:inline-block;margin-right:18px;font-size:14px;color:#9aa7b8;cursor:pointer}
+.q input{margin-right:6px;accent-color:#1c6ef2;width:16px;height:16px}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px;margin-top:8px;border:none;cursor:pointer}
+#result{display:none}
+.gap{border-left:4px solid #e5484d;background:#0d1420;border-radius:0 10px 10px 0;padding:14px 16px;margin:10px 0}
+.gap.ok{border-left-color:#3fb950}
+.gap strong{color:#e6edf3}
+.gap p{font-size:13px;color:#9aa7b8;margin:4px 0 0}
+.gap .limb{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1px;padding:3px 10px;border-radius:999px;background:#e5484d22;color:#ff9a9a;border:1px solid #e5484d;margin-bottom:6px}
+.gap.ok .limb{background:#3fb95022;color:#3fb950;border-color:#3fb950}
+.verdict{font-size:20px;font-weight:800;margin:14px 0}
+.cta{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center}
+.related a{display:inline-block;margin:4px 8px 4px 0;padding:8px 14px;background:#0d1420;border:1px solid #2a3342;border-radius:999px;font-size:13px;text-decoration:none;color:#9aa7b8}
+.related a:hover{color:#fff;border-color:#6ea8fe}
+details{margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px}
+summary{font-weight:700;color:#fff;cursor:pointer}
+details p{margin:8px 0 0;color:#9aa7b8;font-size:15px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="badge">EU AI ACT · ENFORCEMENT MILESTONE</div>
+<h1>Are Your AI Ads Labeled? The Dec 2 Countdown Self-Test</h1>
+<div class="legal"><strong>Automated guidance, not legal advice.</strong> This self-test is an informational aid only. Your obligations depend on your role (provider, deployer, distributor) and use case. Confirm with qualified counsel.</div>
+<p class="lead">Article 50 of the EU AI Act makes AI-generated content labeling a legal duty — transparency obligations have applied since <strong>August 2, 2026</strong>, and the machine-readable marking phase-in for pre-existing systems ends <strong>December 2, 2026</strong> (further phases: December 2, 2027 and August 2, 2028). Take the 6-question self-test below and get a compliance risk readout citing the exact Article 50 limb behind every gap.</p>
+
+<div class="count" id="countdown">
+<div class="cell"><b id="cd-d">–</b><span>days</span></div>
+<div class="cell"><b id="cd-h">–</b><span>hours</span></div>
+<div class="cell"><b id="cd-m">–</b><span>minutes</span></div>
+<div class="cell"><b id="cd-s">–</b><span>seconds</span></div>
+</div>
+<p class="tiny">Countdown to December 2, 2026 (CET, Brussels). Want the embeddable widget version? <a href="ai-act-countdown.html">EU AI Act Countdown widgets</a>.</p>
+
+<div class="card">
+<h2 style="margin-top:0">The 6-question self-test</h2>
+<p class="small">Answer for your AI-generated ads and content that reaches audiences in the EU.</p>
+
+<div class="q" data-q="q1"><p>1. Do you run AI-generated or AI-manipulated ads — images, video, or audio a viewer could mistake for real?</p>
+<label><input type="radio" name="q1" value="yes">Yes</label><label><input type="radio" name="q1" value="no">No</label></div>
+
+<div class="q" data-q="q2"><p>2. Is the AI origin disclosed <em>on the ad itself</em>, at first exposure — not just in metadata or a buried caption?</p>
+<label><input type="radio" name="q2" value="yes">Yes, visible in the ad</label><label><input type="radio" name="q2" value="no">No / metadata only</label></div>
+
+<div class="q" data-q="q3"><p>3. Do any ads use AI-generated faces, voices, or virtual influencers (deepfakes)?</p>
+<label><input type="radio" name="q3" value="yes">Yes</label><label><input type="radio" name="q3" value="no">No</label></div>
+
+<div class="q" data-q="q4"><p>4. Is your AI content machine-readable-marked (watermark or C2PA-style provenance)?</p>
+<label><input type="radio" name="q4" value="yes">Yes</label><label><input type="radio" name="q4" value="no">No</label></div>
+
+<div class="q" data-q="q5"><p>5. Do you publish AI-generated text to inform the public (news, health, policy, environment) without genuine human editorial review?</p>
+<label><input type="radio" name="q5" value="yes">Yes</label><label><input type="radio" name="q5" value="no">No</label></div>
+
+<div class="q" data-q="q6"><p>6. Do you run AI chatbots or AI customer agents without clearly telling users they are talking to AI?</p>
+<label><input type="radio" name="q6" value="yes">Yes</label><label><input type="radio" name="q6" value="no">No</label></div>
+
+<button class="btn" onclick="grade()">Get my risk readout →</button>
+
+<div id="result" class="card" style="margin-top:20px">
+<div class="verdict" id="verdict"></div>
+<div id="gaps"></div>
+<p class="tiny" style="margin-top:12px">Transparency breaches carry fines of up to €15 million or 3% of worldwide annual turnover, whichever is higher (the AI Act's steepest band — up to €35M / 7% — applies to prohibited practices under Article 5). This readout is automated guidance, not legal advice.</p>
+</div>
+</div>
+
+<div class="cta">
+<div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div>
+<div style="font-size:17px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#fff;text-decoration:underline">DisclosureGuard</a> puts AI disclosure compliance on autopilot</strong> — it scans your ads and content, flags what's unlabeled, and keeps you ahead of the Article 50 deadlines.</div>
+<div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">Our platforms return November 1 — get early access now:</div>
+<a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard.">Get early access on WhatsApp →</a>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">Frequently asked questions</h2>
+<details><summary>Do AI-generated ads need a label in the EU?</summary><p>Some do. Visible disclosure becomes particularly relevant when an AI-generated or manipulated advertisement realistically depicts a person, object, product, place, entity, or event and could falsely appear authentic or truthful. Advertising content is excluded from the lighter disclosure regime for genuinely artistic or satirical work.</p></details>
+<details><summary>Does every AI-assisted marketing asset need a disclosure label?</summary><p>No. Standard editing tasks fall outside the marking duty, including grammar correction, spellchecking, minor stylistic polish, and AI-generated translations. Summaries and substantive rewrites still require marking. Visible disclosure is triggered by deepfake content and by unreviewed public-interest text.</p></details>
+<details><summary>What happens if you ignore the AI content disclosure requirements?</summary><p>Breaching the Article 50 transparency obligations carries fines of up to €15 million or 3% of worldwide annual turnover, whichever is higher. The AI Act's steepest band — up to €35 million or 7% of global turnover — applies to prohibited AI practices under Article 5.</p></details>
+<details><summary>Does AI-written marketing copy need a disclaimer?</summary><p>Purely promotional copy may sit outside the disclosure rules, but content that informs the public on regulatory, technical, health or environmental matters is more likely to be flagged. Genuine human authorship and editorial ownership are the cleanest way to stay on the right side of the line.</p></details>
+<details><summary>Do the EU AI Act disclosure rules apply to companies outside the EU?</summary><p>Yes, they can. The Act follows the AI output rather than the company's location: if your AI system's output is used in the European Union — for example AI-generated campaign assets reaching EU audiences — you can be in scope wherever you are established.</p></details>
+</div>
+
+<div class="card related">
+<h2 style="margin-top:0">More from Ingenious AI</h2>
+<a href="ai-act-countdown.html">EU AI Act countdown widgets</a>
+<a href="article-50-ready.html">Article 50 readiness check</a>
+<a href="disclosure-lie-detector.html">Disclosure lie detector</a>
+<a href="compliance-deadline-ticker.html">Compliance deadline ticker</a>
+<a href="all-links.html">All tools hub</a>
+<a href="security-suite.html">Security suite</a>
+</div>
+
+</div>
+<script>
+(function(){
+  var DEADLINE = new Date('2026-12-02T00:00:00+01:00').getTime();
+  function tick(){
+    var now = Date.now(), d = DEADLINE - now;
+    if(d <= 0){ document.getElementById('cd-d').textContent='0'; document.getElementById('cd-h').textContent='0'; document.getElementById('cd-m').textContent='0'; document.getElementById('cd-s').textContent='0'; return; }
+    document.getElementById('cd-d').textContent = Math.floor(d/864e5);
+    document.getElementById('cd-h').textContent = String(Math.floor(d/36e5)%24).padStart(2,'0');
+    document.getElementById('cd-m').textContent = String(Math.floor(d/6e4)%60).padStart(2,'0');
+    document.getElementById('cd-s').textContent = String(Math.floor(d/1e3)%60).padStart(2,'0');
+  }
+  tick(); setInterval(tick, 1000);
+})();
+
+var RULES = {
+  q1: {unsafe:'yes', limb:'Article 50(4) — deployer disclosure duty (scope)', text:'Running AI-generated ads a viewer could mistake for real puts you inside the Article 50(4) disclosure duty. The questions below check whether you meet it — a "yes" here means the rest of this test applies to you.'},
+  q2: {unsafe:'no', limb:'Article 50(4) — deployer deepfake/synthetic disclosure', text:'The disclosure must be clear, distinguishable, and given at first exposure. A platform-embedded or metadata-only mark is not sufficient on its own — put a human-perceivable label in the ad itself.'},
+  q3: {unsafe:'yes', limb:'Article 50(4) — deepfake disclosure', text:'AI-generated faces, voices and virtual influencers trigger the full labelling obligation. Advertising is explicitly excluded from the lighter regime for genuinely artistic or satirical work.'},
+  q4: {unsafe:'no', limb:'Article 50(2) — machine-readable marking', text:'Providers must ensure AI outputs are marked so they are machine-readable and detectable. The phase-in for systems already on the market ends December 2, 2026 — add watermarks or C2PA Content Credentials.'},
+  q5: {unsafe:'yes', limb:'Article 50(4) — public-interest text', text:'AI-generated text published to inform the public on matters of public interest must be disclosed unless it went through genuine human review and editorial control, with a named person or organisation taking editorial responsibility.'},
+  q6: {unsafe:'yes', limb:'Article 50(1) — AI interaction disclosure', text:'People must be informed when they are interacting with an AI system. Tell users upfront — a chatbot that hides its AI nature is a direct breach.'}
+};
+
+function grade(){
+  var gaps = [];
+  for(var q in RULES){
+    var sel = document.querySelector('input[name="'+q+'"]:checked');
+    if(!sel){ alert('Please answer all 6 questions first.'); return; }
+    if(sel.value === RULES[q].unsafe) gaps.push({q:q, rule:RULES[q]});
+  }
+  var q1sel = document.querySelector('input[name="q1"]:checked');
+  var r = document.getElementById('result'), v = document.getElementById('verdict'), g = document.getElementById('gaps');
+  var n = gaps.length;
+  if(n === 0){
+    v.textContent = '✅ Low exposure — no gaps found';
+    v.style.color = '#3fb950';
+    g.innerHTML = '<div class="gap ok"><span class="limb">CLEAR</span><strong>No disclosure gaps detected.</strong><p>Your answers indicate your AI ads and content meet the Article 50 transparency duties checked here. Re-test whenever you launch new AI-generated creative — and remember this is automated guidance, not legal advice.</p></div>';
+  } else if(n <= 2){
+    v.textContent = '⚠️ Moderate risk — ' + n + (n===1?' gap':' gaps') + ' to close before Dec 2';
+    v.style.color = '#d29922';
+  } else {
+    v.textContent = '🚨 High risk — ' + n + ' gaps to close before Dec 2';
+    v.style.color = '#e5484d';
+  }
+  if(n > 0){
+    g.innerHTML = gaps.map(function(x){
+      return '<div class="gap"><span class="limb">' + x.rule.limb + '</span><strong>Gap found — question ' + x.q.slice(1) + '.</strong><p>' + x.rule.text + '</p></div>';
+    }).join('');
+  }
+  r.style.display = 'block';
+  r.scrollIntoView({behavior:'smooth'});
+}
+</script>
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

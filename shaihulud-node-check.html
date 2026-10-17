@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Is Your npm Supply Chain Compromised? Shai-Hulud Check</title>
+<meta name="description" content="Shai-Hulud stole npm tokens, AWS keys and SSH keys via poisoned install scripts. Free guided 8-step self-audit to check your dependencies and CI for red flags.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Is Your npm Supply Chain Compromised? Shai-Hulud Check">
+<meta property="og:description" content="Shai-Hulud stole npm tokens, AWS keys and SSH keys via poisoned install scripts. Free guided 8-step self-audit to check your dependencies and CI for red flags.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/shaihulud-node-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/shaihulud-node-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Is Your npm Supply Chain Compromised? Shai-Hulud Check">
+<meta name="twitter:description" content="Shai-Hulud stole npm tokens, AWS keys and SSH keys via poisoned install scripts. Free guided 8-step self-audit to check your dependencies and CI for red flags.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a1215;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:32px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+h1 .green{color:#3fb950}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.howto{background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:18px;margin:20px 0;font-size:14px}
+.howto div{margin:8px 0}
+.howto b{color:#ffa198}
+.step{display:flex;gap:12px;align-items:flex-start;margin:14px 0;padding:14px;border:1px solid #232b38;border-radius:10px;background:#0d1219;cursor:pointer}
+.step.done{border-color:#3fb950;background:#0d1a12}
+.step input{width:20px;height:20px;margin-top:2px;flex:0 0 auto;cursor:pointer;accent-color:#3fb950}
+.step .st{flex:1}
+.step .st strong{color:#fff;display:block}
+.step .st small{display:block;color:#9aa7b8;font-size:13px;margin-top:6px}
+.step .st code{color:#7ee787;background:#0b0f17;padding:1px 6px;border-radius:4px;font-size:12px}
+.progress{height:10px;background:#1c2330;border-radius:999px;overflow:hidden;margin:16px 0}
+.progress i{display:block;height:100%;width:0;background:#3fb950;transition:width .3s}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.flag{background:#1a0f0f;border:1px solid #f85149;border-radius:8px;padding:10px 14px;margin:8px 0;font-size:14px}
+.flag b{color:#ffa198}
+details.faq{margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px}
+details.faq summary{font-weight:700;color:#fff;cursor:pointer}
+details.faq p{margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6}
+.morelinks{background:#0d1420;border:1px solid #232b38;border-radius:10px;padding:20px;margin:28px 0;font-size:15px}
+.morelinks a{color:#6ea8fe;text-decoration:none}
+.morelinks a:hover{text-decoration:underline}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Is Your npm Supply Chain Compromised? Shai-Hulud Check","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/shaihulud-node-check.html","description":"Guided 8-step self-audit to check your npm dependencies and CI for signs of the Shai-Hulud supply-chain attack.","publisher":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is the Shai-Hulud npm attack?","acceptedAnswer":{"@type":"Answer","text":"Shai-Hulud is a self-propagating npm supply-chain worm family. In documented waves — including May 2026 and a September/October 2026 wave — attackers published malicious versions of legitimate packages (e.g. tensorlake@0.5.144 on October 8, 2026). The payload fired from the package's install script during npm install, stole credentials from the machine, and used stolen npm tokens to republish poisoned versions of packages the victim could publish to. Analysts including Socket, JFrog, Microsoft, Snyk and StepSecurity have tracked the campaign."}},
+{"@type":"Question","name":"What secrets does the Shai-Hulud worm steal?","acceptedAnswer":{"@type":"Answer","text":"Per Socket's analysis of the tensorlake compromise, the stealer harvested npm tokens, GitHub tokens, AWS credentials and secrets, HashiCorp Vault tokens, Kubernetes credentials, SSH keys, .env files, cryptocurrency wallets and messaging-app data — anything accessible to the process running the install."}},
+{"@type":"Question","name":"How did Shai-Hulud persist after the package was removed?","acceptedAnswer":{"@type":"Answer","text":"Researchers found the worm planted persistence outside node_modules: a SessionStart hook in .claude/settings.json pointing at a dropped .claude/setup.mjs script, a backup .vscode/tasks.json task that runs when the folder opens, and commits of those configs to reachable repositories via stolen GitHub tokens. Some variants also enrolled the host as a self-hosted GitHub Actions runner. Removing the malicious package alone did not remove these hooks."}},
+{"@type":"Question","name":"How do I protect my project from malicious npm install scripts?","acceptedAnswer":{"@type":"Answer","text":"The 8-step self-audit on this page walks through it: review recent dependency updates, inspect package.json lifecycle scripts across the tree, read any install script before trusting it, check for planted hook files (.claude/settings.json, .vscode/tasks.json), review lockfile diffs, rotate secrets that were visible during installs, and going forward use lockfiles, npm's ignore-scripts option, and 2FA on your npm account."}},
+{"@type":"Question","name":"Was my project affected if I installed a compromised package version?","acceptedAnswer":{"@type":"Answer","text":"Check exactly which versions you installed against the flagged versions (e.g. tensorlake@0.5.144) and when. If you installed a malicious version, assume any credential accessible during the install was exfiltrated — rotate npm tokens, GitHub tokens, cloud keys and anything in .env files — and inspect your repos for planted hook files and commits you did not make."}}
+]}
+</script>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<div class="badge">SHAI-HULUD NPM SUPPLY-CHAIN WAVE &mdash; OCT 2026</div>
+<h1>One <span class="red">npm install</span> can silently steal <span class="red">every secret</span> on your machine</h1>
+<p class="lead">The <strong>Shai-Hulud</strong> supply-chain wave turns trusted npm packages into credential thieves. Malicious package versions fire their payload from the package's <strong>install script</strong> — before your application code ever runs — and harvest <strong>npm tokens, GitHub tokens, AWS keys, Vault tokens, Kubernetes credentials, SSH keys, .env files and crypto wallets</strong> from developer machines and CI runners (per Socket's analysis). The latest wave hit the <strong>tensorlake</strong> AI SDK: version <strong>0.5.144</strong>, published October 8, 2026, ran a <code>preinstall</code> hook executing an obfuscated loader (<code>lib/setup.mjs</code>) that launched the worm (<code>lib/Math_Symbol.js</code>) with the Bun runtime. Earlier waves pushed 84 malicious versions across 42 <code>@tanstack/*</code> packages in six minutes, and planted persistence hooks in <code>.claude/settings.json</code> so the malware survived package removal. This free guided <strong>8-step self-audit</strong> walks you through checking your own dependencies and CI for the signs. It's a guided audit you perform yourself — it does not scan your machine.</p>
+
+<div class="howto">
+<div><b>How the attack works (per Socket, JFrog, Microsoft, Snyk and StepSecurity analyses):</b></div>
+<div>&bull; Attacker compromises a maintainer account or CI token, then publishes a <strong>poisoned version</strong> of a legitimate package.</div>
+<div>&bull; You run <code>npm install</code> &rarr; the package's <code>preinstall</code>/<code>install</code>/<code>postinstall</code> hook executes attacker code <strong>before any of your code runs</strong>.</div>
+<div>&bull; The payload scans your machine and CI environment for secrets: <code>~/.npmrc</code> tokens, GitHub tokens, SSH keys, AWS/GCP credentials, cloud metadata endpoints, Vault, loose <code>.env</code> files.</div>
+<div>&bull; Stolen data is exfiltrated — sometimes via encrypted HTTPS, sometimes via <strong>public GitHub repos created on the victim's own account</strong> as the drop point.</div>
+<div>&bull; The worm <strong>self-propagates</strong>: stolen npm tokens are used to publish poisoned versions of every package the victim can publish.</div>
+<div>&bull; It <strong>persists</strong>: <code>.claude/settings.json</code> SessionStart hooks, <code>.vscode/tasks.json</code> backups, commits titled <code>chore: update dependencies</code> pushed to your repos with stolen GitHub tokens.</div>
+</div>
+
+<div class="card">
+<h2>The Shai-Hulud self-audit: 8 steps</h2>
+<p class="note">Tick each step as you complete it. Progress is saved on this device only (localStorage) — nothing is sent anywhere.</p>
+<div class="progress"><i id="pbar"></i></div>
+<p class="note" id="pcount" style="margin-bottom:8px">0 of 8 steps complete</p>
+<div id="steps"></div>
+<div id="sresult" style="margin-top:12px"><div class="verdict warn"><strong>Audit in progress.</strong> Work through the 8 steps above to complete your self-audit.</div></div>
+<script>
+var STEPS=[
+["Review what you just installed or updated","Run <code>npm audit</code> and check <code>git log</code> / <code>git diff package-lock.json</code> for recent dependency changes. You cannot audit what you don't know changed — start with an inventory of recent version bumps."],
+["Inspect lifecycle scripts in your top-level package.json","Open your own <code>package.json</code> and read every <code>preinstall</code>, <code>install</code>, <code>postinstall</code>, <code>prepublish</code> entry. These hooks execute code on install — any entry you don't recognize is a red flag."],
+["Sweep the whole dependency tree for install hooks","Run: <code>find node_modules -maxdepth 2 -name package.json | xargs grep -l '\"preinstall\"\\|\"postinstall\"' 2>/dev/null</code> to list every dependency that runs code at install time. Investigate any you don't expect — a caching library has no business running network code on install."],
+["Read the actual install script before trusting it","Open the hook file and read it. Red flags: obfuscated or minified code, base64 blobs, <code>eval(</code>, network calls (<code>fetch</code>, <code>curl</code>), references to cloud metadata endpoints like <code>169.254.169.254</code>, or launching a different runtime (the tensorlake payload used Bun)."],
+["Hunt for planted persistence files","Check for files the worm drops outside node_modules: <code>.claude/setup.mjs</code>, unexpected <code>SessionStart</code> hooks in <code>.claude/settings.json</code>, and tasks you didn't create in <code>.vscode/tasks.json</code>. These survive <code>npm uninstall</code> — removing the package is not enough."],
+["Review your lockfile diff for suspicious jumps","Look at the last <code>package-lock.json</code> diff: major version jumps you didn't approve, packages appearing from new or unfamiliar maintainers, or version numbers that don't match the project's public release history."],
+["Rotate every secret that was visible during installs","If you installed anything during the wave windows — or anything you can't vouch for — assume npm tokens, GitHub tokens, AWS keys, and everything in <code>.env</code> files was exfiltrated and rotate them all. Also check your GitHub account for public repos you didn't create (the worm used these as exfil drop points)."],
+["Lock the door going forward","Use lockfiles and never <code>npm install</code> without one; set <code>npm config set ignore-scripts true</code> (or <code>--ignore-scripts</code>) and only allow scripts for vetted packages; enable 2FA on your npm account; watch new-maintainer announcements on packages you depend on."]
+];
+var KEY="shaihulud_audit_v1";
+var DONE={};
+try{DONE=JSON.parse(localStorage.getItem(KEY)||"{}");}catch(e){DONE={};}
+function render(){
+  var h="",n=0;
+  for(var i=0;i<STEPS.length;i++){
+    var d=DONE[i]?" done":"";if(DONE[i])n++;
+    h+='<label class="step'+d+'"><input type="checkbox" '+(DONE[i]?"checked":"")+' onchange="toggle('+i+',this.checked)"><span class="st"><strong>Step '+(i+1)+': '+STEPS[i][0]+'</strong><small>'+STEPS[i][1]+'</small></span></label>';
+  }
+  document.getElementById('steps').innerHTML=h;
+  document.getElementById('pbar').style.width=(n/STEPS.length*100)+"%";
+  document.getElementById('pcount').textContent=n+" of "+STEPS.length+" steps complete";
+  var out=document.getElementById('sresult');
+  if(n===STEPS.length){
+    out.innerHTML='<div class="verdict safe"><strong>AUDIT COMPLETE — 8 of 8.</strong> You have inventoried your dependencies, swept install hooks, checked for planted persistence, and rotated exposed secrets. Keep ignore-scripts on by default and treat every unexpected lifecycle hook as hostile until proven otherwise.</div>';
+  }else if(n>=4){
+    out.innerHTML='<div class="verdict warn"><strong>'+n+' of 8 done.</strong> Good progress — the remaining steps are where the worm hides: persistence files outside node_modules and secret rotation. Finish all 8 to close the loop.</div>';
+  }else{
+    out.innerHTML='<div class="verdict"><strong>'+n+' of 8 done.</strong> You are still exposed to the exact mechanism of this attack: install hooks that run before your code does. Priority order: steps 3, 5 and 7 first.</div>';
+  }
+}
+function toggle(i,v){
+  DONE[i]=v;
+  try{localStorage.setItem(KEY,JSON.stringify(DONE));}catch(e){}
+  render();
+}
+render();
+</script>
+<p class="note">This is a guided self-audit, not an automated scanner: you run the commands on your own machine, and nothing about your project leaves your browser. Informational only, not security advice.</p>
+</div>
+
+<div class="card">
+<h2>Red flags: what a poisoned package looks like</h2>
+<div class="flag"><b>Obfuscated install scripts.</b> The tensorlake payload shipped as an obfuscated loader (<code>lib/setup.mjs</code>) plus an ~856KB worm file (<code>lib/Math_Symbol.js</code>). Legitimate install scripts are readable; walls of encoded text are not.</div>
+<div class="flag"><b>Install hooks in packages that don't need them.</b> A TypeScript SDK or caching library running preinstall network code is suspicious by construction.</div>
+<div class="flag"><b>Unexpected network calls during install.</b> Install steps should not phone home, probe cloud metadata endpoints, or open encrypted connections.</div>
+<div class="flag"><b>New or changed maintainers.</b> Waves began with compromised maintainer accounts and hijacked CI publish tokens — a familiar package with a brand-new publisher deserves scrutiny.</div>
+<div class="flag"><b>Hook files appearing in your repo.</b> <code>.claude/setup.mjs</code>, new <code>SessionStart</code> entries in <code>.claude/settings.json</code>, or <code>.vscode/tasks.json</code> tasks you didn't write.</div>
+<div class="flag"><b>Public repos on your account you didn't create.</b> The worm created public GitHub repositories on victims' accounts as exfiltration drop points — an unfamiliar repo is an infection indicator.</div>
+</div>
+
+<div class="card">
+<h2>Frequently asked questions</h2>
+<details class="faq"><summary>What is the Shai-Hulud npm attack?</summary><p>Shai-Hulud is a self-propagating npm supply-chain worm family. In documented waves — including May 2026 and a September/October 2026 wave — attackers published malicious versions of legitimate packages (e.g. tensorlake@0.5.144 on October 8, 2026). The payload fired from the package's install script during <code>npm install</code>, stole credentials from the machine, and used stolen npm tokens to republish poisoned versions of packages the victim could publish to. Analysts including Socket, JFrog, Microsoft, Snyk and StepSecurity have tracked the campaign.</p></details>
+<details class="faq"><summary>What secrets does the Shai-Hulud worm steal?</summary><p>Per Socket's analysis of the tensorlake compromise: npm tokens, GitHub tokens, AWS credentials and secrets, HashiCorp Vault tokens, Kubernetes credentials, SSH keys, .env files, cryptocurrency wallets and messaging-app data — anything accessible to the process running the install.</p></details>
+<details class="faq"><summary>How did Shai-Hulud persist after the package was removed?</summary><p>Researchers found the worm planted persistence outside node_modules: a <code>SessionStart</code> hook in <code>.claude/settings.json</code> pointing at a dropped <code>.claude/setup.mjs</code> script, a backup <code>.vscode/tasks.json</code> task that runs when the folder opens, and commits of those configs to reachable repositories via stolen GitHub tokens. Some variants also enrolled the host as a self-hosted GitHub Actions runner. Removing the malicious package alone did not remove these hooks.</p></details>
+<details class="faq"><summary>How do I protect my project from malicious npm install scripts?</summary><p>Run the 8-step self-audit above: review recent dependency updates, inspect <code>package.json</code> lifecycle scripts across the tree, read any install script before trusting it, check for planted hook files (<code>.claude/settings.json</code>, <code>.vscode/tasks.json</code>), review lockfile diffs, rotate secrets that were visible during installs, and going forward use lockfiles, npm's <code>ignore-scripts</code> option, and 2FA on your npm account.</p></details>
+<details class="faq"><summary>Was my project affected if I installed a compromised package version?</summary><p>Check exactly which versions you installed against the flagged versions (e.g. tensorlake@0.5.144) and when. If you installed a malicious version, assume any credential accessible during the install was exfiltrated — rotate npm tokens, GitHub tokens, cloud keys and everything in <code>.env</code> files — and inspect your repos for planted hook files and commits you did not make.</p></details>
+</div>
+
+<a class="cta" href="http://thehackernews.com/2026/10/tensorlake-npm-package-compromised-to.html" target="_blank" rel="noopener">Read the tensorlake / Shai-Hulud analysis &rarr; The Hacker News</a>
+<p class="note" style="text-align:center">The Hacker News report (October 2026) carries Socket's technical breakdown of the tensorlake compromise: the preinstall hook, the obfuscated loader, and the full credential-theft target list.</p>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Shipping AI-built code? Vibe-Code Audit reviews it before attackers do.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:14px">Poisoned install scripts are exactly the kind of thing a code audit catches — ours reviews AI-generated and AI-assisted code for supply-chain traps, leaked secrets and hidden hooks. In early access now, full launch November 1:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20your%20Shai-Hulud%20supply-chain%20check%20and%20want%20early%20access%20to%20Vibe-Code%20Audit." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get Vibe-Code Audit early access &rarr;</a></div>
+
+<div class="morelinks">
+<strong style="color:#fff">More from Ingenious AI</strong><br>
+&bull; <a href="ghostaction-ci-audit.html">Is your CI compromised? The GhostAction audit</a><br>
+&bull; <a href="ledger-supply-chain-implant-check.html">Data breach check: the Ledger supply-chain attack</a><br>
+&bull; <a href="ship-safe-ai-code-audit-check.html">Ship safe: AI code audit check</a><br>
+&bull; <a href="ai-dfir-detection-pack-check.html">AI incident detection pack check</a><br>
+&bull; <a href="newsjack-vibeaudit.html">Vibe-Code Audit newsjack hub</a><br>
+&bull; <a href="all-links.html">All Ingenious AI checkers &amp; tools</a> &nbsp;·&nbsp; <a href="security-suite.html">The 11-platform security suite</a>
+</div>
+
+</div>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

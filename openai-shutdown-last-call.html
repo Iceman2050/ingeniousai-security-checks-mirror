@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenAI Oct 23 Shutdown: Last-Call Migration Checklist</title>
+<meta name="description" content="OpenAI retires 7 models on Oct 23, 2026. Interactive migration checklist: what's dying, what replaces each model, and the 5 traps that break apps silently.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/openai-shutdown-last-call.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="OpenAI Oct 23 Shutdown: Last-Call Migration Checklist">
+<meta property="og:description" content="OpenAI retires 7 models on Oct 23, 2026. Interactive migration checklist: what's dying, what replaces each model, and the 5 traps that break apps silently.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/openai-shutdown-last-call.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenAI Oct 23 Shutdown: Last-Call Migration Checklist">
+<meta name="twitter:description" content="OpenAI retires 7 models on Oct 23, 2026. Interactive migration checklist: what's dying, what replaces each model, and the 5 traps that break apps silently.">
+<link rel="stylesheet" href="ecosystem.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"OpenAI Oct 23 Shutdown: Last-Call Migration Checklist","description":"Interactive last-call migration checklist for OpenAI's October 23, 2026 model retirements: dying models, suggested replacements, pricing context, and the 5 migration traps.","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/openai-shutdown-last-call.html","author":{"@type":"Organization","name":"Ingenious AI"},"inLanguage":"en"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What happens when an OpenAI model is deprecated?","acceptedAnswer":{"@type":"Answer","text":"It keeps working until its published shutdown date. After that date, API requests return HTTP 404 with a model_not_found error and your app stops getting answers — it does not degrade gracefully. Switch before the deadline."}},
+{"@type":"Question","name":"When is GPT-4 being shut down?","acceptedAnswer":{"@type":"Answer","text":"October 23, 2026. On the same date OpenAI also retires gpt-4-turbo, o1, o3-mini, o4-mini, gpt-image-1, and all ft-* fine-tunes of those model families. GPT-5.6 Sol is the replacement, not a retiree."}},
+{"@type":"Question","name":"Does the Oct 23, 2026 OpenAI shutdown affect ChatGPT?","acceptedAnswer":{"@type":"Answer","text":"No. The shutdown applies to the OpenAI API (usage-billed developer access). OpenAI swaps ChatGPT's models on its own timetable, and Microsoft Azure has its own model retirement schedule — Azure users should check the Azure retirements page."}},
+{"@type":"Question","name":"Can a retired OpenAI model be recovered?","acceptedAnswer":{"@type":"Answer","text":"No. Closed models' weights never leave OpenAI, so once a model is retired there is no way to call it again. The only recovery is migration: point your code at a supported replacement and re-test your workloads."}},
+{"@type":"Question","name":"How do I find every place a dying model is named?","acceptedAnswer":{"@type":"Answer","text":"Search your code, config files, environment variables, prompt templates, and any no-code/automation tools for each model ID — including short names like o4-mini and gpt-4-turbo. Check scheduled jobs and queues too: cron jobs fail silently on the 404."}}
+]}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:780px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#3a0d0d;border:1px solid #e5484d;color:#ff9a9a;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:32px;line-height:1.25;margin-bottom:14px}
+h2{font-size:22px;margin:30px 0 12px}
+p.lead{font-size:17px;color:#9aa7b8;margin-bottom:22px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:26px;margin:18px 0}
+.small{font-size:13px;color:#9aa7b8}
+.tiny{font-size:12px;color:#6b7688}
+a{color:#6ea8fe}
+.count{display:flex;gap:12px;margin:16px 0;flex-wrap:wrap}
+.cell{background:#0d1420;border:1px solid #e5484d;border-radius:10px;padding:14px 18px;text-align:center;min-width:88px}
+.cell b{display:block;font-size:30px;color:#ff9a9a;font-variant-numeric:tabular-nums}
+.cell span{font-size:11px;color:#9aa7b8;letter-spacing:1px;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;font-size:14px;margin-top:10px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid #232b38;vertical-align:top}
+th{color:#9aa7b8;font-size:12px;letter-spacing:1px;text-transform:uppercase}
+td code{background:#0d1420;border:1px solid #2a3342;border-radius:5px;padding:2px 7px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}
+.die{color:#ff9a9a;font-weight:700}
+.trap{border:1px solid #232b38;border-radius:10px;padding:14px 16px;margin:10px 0;background:#0d1420;cursor:pointer;transition:border-color .15s}
+.trap:hover{border-color:#6ea8fe}
+.trap.done{border-color:#3fb950;background:#0e1a12}
+.trap label{display:flex;gap:12px;cursor:pointer;align-items:flex-start}
+.trap input{margin-top:5px;width:18px;height:18px;accent-color:#3fb950;flex-shrink:0}
+.trap strong{color:#e6edf3;display:block;margin-bottom:4px}
+.trap p{font-size:13px;color:#9aa7b8;margin:0}
+.trap.done strong{color:#3fb950;text-decoration:line-through}
+.progress{height:12px;background:#0d1420;border:1px solid #232b38;border-radius:999px;overflow:hidden;margin:12px 0}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,#1c6ef2,#3fb950);transition:width .3s}
+.price{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}
+.price div{background:#0d1420;border:1px solid #232b38;border-radius:10px;padding:14px 18px;flex:1;min-width:200px}
+.price b{font-size:22px;color:#e6edf3}
+.cta{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px;margin-top:8px}
+.related a{display:inline-block;margin:4px 8px 4px 0;padding:8px 14px;background:#0d1420;border:1px solid #2a3342;border-radius:999px;font-size:13px;text-decoration:none;color:#9aa7b8}
+.related a:hover{color:#fff;border-color:#6ea8fe}
+details{margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px}
+summary{font-weight:700;color:#fff;cursor:pointer}
+details p{margin:8px 0 0;color:#9aa7b8;font-size:15px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="badge">LAST CALL · OCTOBER 23, 2026</div>
+<h1>The Oct 23 OpenAI Shutdown: Last-Call Migration Checklist</h1>
+<p class="lead">On <strong>October 23, 2026</strong>, OpenAI retires seven models. Requests to them stop working — HTTP 404, no graceful fallback. If your chatbot, classifier, or automation was built on any of them, this page is your 30-second triage: what's dying, what replaces it, and the five traps that break apps silently.</p>
+
+<div class="count" id="countdown">
+<div class="cell"><b id="cd-d">–</b><span>days</span></div>
+<div class="cell"><b id="cd-h">–</b><span>hours</span></div>
+<div class="cell"><b id="cd-m">–</b><span>minutes</span></div>
+<div class="cell"><b id="cd-s">–</b><span>seconds</span></div>
+</div>
+<p class="tiny">Countdown to October 23, 2026 (UTC). Deadlines follow OpenAI's published deprecations page — verify there before you migrate.</p>
+
+<div class="card">
+<h2 style="margin-top:0">☠️ What's dying on Oct 23</h2>
+<table>
+<tr><th>Model</th><th>Suggested replacement</th><th>Note</th></tr>
+<tr><td><code class="die">gpt-4-0613</code></td><td><code>GPT-5.6 Sol</code></td><td class="small">The original pinned GPT-4 snapshot — the most common buried dependency.</td></tr>
+<tr><td><code class="die">gpt-4-turbo</code></td><td><code>GPT-5.6 Sol</code></td><td class="small">Flagship-workload class; test prompts on the replacement, outputs differ.</td></tr>
+<tr><td><code class="die">o1</code></td><td><code>GPT-5.6 Sol</code></td><td class="small">First-gen reasoning model; migrate reasoning-heavy chains carefully.</td></tr>
+<tr><td><code class="die">o3-mini</code></td><td><code>GPT-6.1 Sol</code></td><td class="small">Cost-efficient reasoning — GPT-6.1 Sol preserves the cost profile.</td></tr>
+<tr><td><code class="die">o4-mini</code></td><td><code>GPT-6.1 Sol</code></td><td class="small">Same reasoning class; re-run evals after switching.</td></tr>
+<tr><td><code class="die">gpt-image-1</code></td><td><code>check deprecations page</code></td><td class="small">Image pipelines need a migration target from OpenAI's current docs.</td></tr>
+<tr><td><code class="die">ft-*</code></td><td><code>rebuild or prompt-tune</code></td><td class="small">ALL fine-tunes of these families die. Fine-tuning is also winding down — confirm current status on OpenAI's deprecations page.</td></tr>
+</table>
+<p class="tiny" style="margin-top:10px">Replacements are suggested starting points, not official guidance. <strong>GPT-5.6 Sol is the replacement — it is not being retired.</strong> Always verify against <a href="https://platform.openai.com/docs/deprecations">OpenAI's deprecations page</a>.</p>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">💰 Pricing context: replacement cost per 1M tokens</h2>
+<div class="price">
+<div><span class="small">GPT-5.6 Sol</span><br><b>$4 input / $20 output</b><p class="tiny" style="margin-top:6px">Flagship-class replacement for GPT-4 / GPT-4-turbo / o1 workloads.</p></div>
+<div><span class="small">GPT-6.1 Sol</span><br><b>$2 input / $10 output</b><p class="tiny" style="margin-top:6px">Cost-efficient replacement for o3-mini / o4-mini reasoning workloads.</p></div>
+</div>
+<p class="tiny" style="margin-top:10px">Pricing context per OpenAI's published API pricing at the time of writing — confirm current rates before budgeting. Cost shock is trap #4 below.</p>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">🪤 The 5 migration traps <span class="tiny">(check them off — your progress saves in this browser)</span></h2>
+<div class="progress"><i id="bar"></i></div>
+<p class="small" id="ptext">0 of 12 complete</p>
+
+<div class="trap" data-k="t1"><label><input type="checkbox"><span><strong>1 · Pinned model strings in code</strong><p>The dying model ID is buried in code, config files, environment variables, prompt templates, and no-code automation tools. Search for every ID — including short names like <code>o4-mini</code> — before you touch anything else.</p></span></label></div>
+<div class="trap" data-k="t2"><label><input type="checkbox"><span><strong>2 · Fine-tune rebuilds</strong><p>ft-* models die with their base models. If you rely on a fine-tuned model, you must rebuild or re-engineer it on a supported base — and OpenAI is winding down fine-tuning overall, so check you can still train a replacement.</p></span></label></div>
+<div class="trap" data-k="t3"><label><input type="checkbox"><span><strong>3 · Eval drift on the new model</strong><p>The replacement answers differently: tone, format, refusal behavior, and reasoning depth all shift. Run the same prompts through the suggested model and compare answers, speed, and cost on real work before switching traffic.</p></span></label></div>
+<div class="trap" data-k="t4"><label><input type="checkbox"><span><strong>4 · Cost shock</strong><p>GPT-5.6 Sol at $4/$20 per 1M tokens is a different price class than the mini models you're leaving. Multiply your current monthly token volume by the new rates — surprise bills are the second most common migration complaint.</p></span></label></div>
+<div class="trap" data-k="t5"><label><input type="checkbox"><span><strong>5 · Queue &amp; cron silent breakage</strong><p>Scheduled jobs, queue workers, and background automations hit the same HTTP 404 — but silently, at 3am. After migration, verify every cron and queue still produces output, and add alerting on <code>model_not_found</code> errors.</p></span></label></div>
+<div class="trap" data-k="t6"><label><input type="checkbox"><span><strong>Bonus · Supplier-built tools</strong><p>If you pay for a tool built on OpenAI (agency chatbot, plugin, SaaS integration), ask the supplier which model it uses and whether they are switching before Oct 23. Their migration is your uptime.</p></span></label></div>
+</div>
+
+<div class="cta">
+<div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div>
+<div style="font-size:17px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#fff;text-decoration:underline">ModelMinder</a> watches model retirements so you never find out from a 404</strong> — deprecation radar for every model your stack depends on, with migration windows before the shutdown hits.</div>
+<div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">Our platforms return November 1 — get early access now:</div>
+<a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder.">Get early access on WhatsApp →</a>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">Frequently asked questions</h2>
+<details><summary>What happens when an OpenAI model is deprecated?</summary><p>It keeps working until its published shutdown date. After that date, API requests return HTTP 404 with a <code>model_not_found</code> error and your app stops getting answers — it does not degrade gracefully. Switch before the deadline.</p></details>
+<details><summary>When is GPT-4 being shut down?</summary><p>October 23, 2026. On the same date OpenAI also retires gpt-4-turbo, o1, o3-mini, o4-mini, gpt-image-1, and all ft-* fine-tunes of those model families. GPT-5.6 Sol is the replacement — not a retiree.</p></details>
+<details><summary>Does the Oct 23, 2026 OpenAI shutdown affect ChatGPT?</summary><p>No. The shutdown applies to the OpenAI API (usage-billed developer access). OpenAI swaps ChatGPT's models on its own timetable, and Microsoft Azure has its own model retirement schedule — Azure users should check the Azure retirements page.</p></details>
+<details><summary>Can a retired OpenAI model be recovered?</summary><p>No. Closed models' weights never leave OpenAI, so once a model is retired there is no way to call it again. The only recovery is migration: point your code at a supported replacement and re-test your workloads.</p></details>
+<details><summary>How do I find every place a dying model is named?</summary><p>Search your code, config files, environment variables, prompt templates, and any no-code/automation tools for each model ID — including short names like <code>o4-mini</code> and <code>gpt-4-turbo</code>. Check scheduled jobs and queues too: cron jobs fail silently on the 404.</p></details>
+</div>
+
+<div class="card related">
+<h2 style="margin-top:0">More from Ingenious AI</h2>
+<a href="newsjack-modelminder.html">ModelMinder: deprecation radar</a>
+<a href="model-downgrade-detector.html">Model downgrade detector</a>
+<a href="shadow-model-census.html">Shadow model census</a>
+<a href="model-eulogy-hotline.html">Model eulogy hotline</a>
+<a href="all-links.html">All tools hub</a>
+<a href="security-suite.html">Security suite</a>
+</div>
+
+</div>
+<script>
+(function(){
+  var DEADLINE = new Date('2026-10-23T00:00:00Z').getTime();
+  function tick(){
+    var now = Date.now(), d = DEADLINE - now;
+    if(d <= 0){ document.getElementById('cd-d').textContent='0'; document.getElementById('cd-h').textContent='0'; document.getElementById('cd-m').textContent='0'; document.getElementById('cd-s').textContent='0'; return; }
+    document.getElementById('cd-d').textContent = Math.floor(d/864e5);
+    document.getElementById('cd-h').textContent = String(Math.floor(d/36e5)%24).padStart(2,'0');
+    document.getElementById('cd-m').textContent = String(Math.floor(d/6e4)%60).padStart(2,'0');
+    document.getElementById('cd-s').textContent = String(Math.floor(d/1e3)%60).padStart(2,'0');
+  }
+  tick(); setInterval(tick, 1000);
+  var KEY='openai-last-call-progress-v1';
+  var saved={}; try{ saved=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){}
+  var traps=[].slice.call(document.querySelectorAll('.trap'));
+  function render(){
+    var done=0;
+    traps.forEach(function(t){
+      var k=t.getAttribute('data-k'), cb=t.querySelector('input');
+      cb.checked=!!saved[k];
+      t.classList.toggle('done', cb.checked);
+      if(cb.checked) done++;
+    });
+    document.getElementById('bar').style.width=(done/traps.length*100)+'%';
+    document.getElementById('ptext').textContent=done+' of '+traps.length+' complete';
+  }
+  traps.forEach(function(t){
+    t.querySelector('input').addEventListener('change', function(){
+      saved[t.getAttribute('data-k')]=this.checked;
+      try{ localStorage.setItem(KEY, JSON.stringify(saved)); }catch(e){}
+      render();
+    });
+  });
+  render();
+})();
+</script>
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Does Your AI Vendor Do With Your Data? (Free)</title>
+<meta name="description" content="7 questions reveal what your AI vendor does with your data: storage, training, sub-processors, deletion. Free checker, with the DeepSeek GDPR probe as caution.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-data-use-checker.html">
+<link rel="stylesheet" href="ecosystem.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="What does your AI vendor do with your data?">
+<meta property="og:description" content="7 questions, 30 seconds: find out where your AI vendor stores, shares, and trains on your data — with the DeepSeek GDPR probe as the cautionary tale. Free checker.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-data-use-checker.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="What does your AI vendor do with your data?">
+<meta name="twitter:description" content="Free 7-question checker: storage, training, sub-processors, deletion. Built by Ingenious AI.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d1a2b;border:1px solid #1c6ef2;color:#6ea8fe;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+ul{margin:10px 0 10px 20px}
+li{margin:10px 0}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.q p{font-size:16px;margin-bottom:12px;color:#fff}
+.q .fb{font-size:14px;color:#9aa7b8;margin-top:10px;display:none}
+.q .opts{display:flex;gap:10px;flex-wrap:wrap}
+.q button{flex:1;min-width:120px;background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px;font-size:15px;font-weight:600;cursor:pointer}
+.q button:hover{border-color:#1c6ef2}
+.q button.sel-good{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.q button.sel-bad{background:#2b1215;border-color:#f85149;color:#ffa198}
+.q button:disabled{cursor:default;opacity:.85}
+#verdict{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+#verdict.good{border-color:#3fb950;background:#0d1a0f}
+#verdict.bad{border-color:#f85149;background:#1a0f0f}
+#verdict b.verd{font-size:19px;letter-spacing:.5px}
+.sharebox{margin-top:16px;display:none;background:#0b0f17;border:1px dashed #2a3342;border-radius:8px;padding:14px 16px}
+.sharebox p{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+#sharetext{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical;min-height:64px}
+.copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+.warnbox{max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+.newsitem{border-left:3px solid #f85149;padding:10px 0 10px 16px;margin:14px 0}
+.newsitem strong{color:#fff}
+.newsitem .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;color:#ffa198;border:1px solid #f85149;border-radius:4px;padding:2px 8px;margin-bottom:6px}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"What Does Your AI Vendor Do With Your Data? (Free)","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-data-use-checker.html","description":"A free 7-question checker that reveals what your AI vendor does with your data — storage, training, sub-processors, deletion — with the October 2026 DeepSeek GDPR investigation as the cautionary tale.","author":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-17","inLanguage":"en"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What does my AI vendor do with my data?","acceptedAnswer":{"@type":"Answer","text":"It depends on the vendor's terms and contracts. At minimum, assume your prompts, chat logs, metadata, and usage patterns are retained; many vendors also use inputs for model training unless a contract, enterprise agreement, or opt-out says otherwise. Read the privacy policy's data-use and training clauses, check the sub-processor list, and confirm how deletion works before trusting any vendor with sensitive data."}},
+{"@type":"Question","name":"Can AI companies train their models on my prompts?","acceptedAnswer":{"@type":"Answer","text":"Often yes, unless something forbids it. Consumer and free-tier AI tools commonly default to using your inputs for training, while paid or enterprise tiers may offer opt-outs or contractual no-training guarantees. If your vendor's policy does not explicitly promise not to train on your data, assume it can."}},
+{"@type":"Question","name":"Is DeepSeek GDPR compliant?","acceptedAnswer":{"@type":"Answer","text":"That is exactly what German data protection authorities are investigating. Rhineland-Palatinate DPO Dieter Kugelmann is probing DeepSeek's data collection (including IP addresses, chat logs, and keystroke rhythms) and GDPR compliance, and DeepSeek reportedly has no EU legal representative. The investigation is ongoing — compliance has not been established."}},
+{"@type":"Question","name":"What is CVE-2026-52394?","acceptedAnswer":{"@type":"Answer","text":"A vulnerability published on October 13, 2026, rated CVSS 9.1 (Critical), in which DeepSeek V4 allowed unauthorized actions through crafted input due to incorrect access control. It is a reminder that AI vendors are software vendors too — their products can carry the same classes of critical flaws as any other platform you trust with data."}},
+{"@type":"Question","name":"How do I check an AI vendor's data practices before using them?","acceptedAnswer":{"@type":"Answer","text":"Run the seven checks on this page: confirm where data is stored, get a written no-training promise, read the sub-processor list, test the deletion process, research their breach and CVE history, ban free-tier tools for work data, and confirm they have a legal representative in your jurisdiction. Then keep watching the terms — they change."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free security checks</a>
+<div class="badge">AI DATA PRIVACY &mdash; OCT 2026</div>
+<h1>What does your AI vendor <span style="color:#f85149">really</span> do with your data?</h1>
+<p class="lead">Your team pastes contracts, patient notes, financials, and trade secrets into AI tools every day. Seven questions, 30 seconds &mdash; find out whether you actually know where that data goes, or whether you're just hoping.</p>
+
+<p class="answer"><strong>Short answer:</strong> most teams can't name where their AI vendor stores data, whether it trains on their inputs, or who else touches it. October 2026 gave us a live cautionary tale: DeepSeek is under German regulatory investigation for exactly these questions. Answer honestly &mdash; "not sure" counts as a miss.</p>
+
+<div class="card">
+<h2>This month in AI data risk</h2>
+<div class="newsitem"><div class="tag">REGULATORY</div><br><strong>Germany is investigating DeepSeek's data collection.</strong> Data protection authorities &mdash; including Rhineland-Palatinate's DPO Dieter Kugelmann &mdash; are probing what DeepSeek collects (reportedly IP addresses, chat logs, and keystroke rhythms), where it goes, and whether GDPR is being honored. DeepSeek reportedly has <strong>no EU legal representative</strong> &mdash; precisely the accountability gap regulators chase. <span class="note">Reported October 2026; investigation ongoing.</span></div>
+<div class="newsitem"><div class="tag">CRITICAL CVE</div><br><strong>CVE-2026-52394, published October 13, 2026 &mdash; CVSS 9.1 (Critical).</strong> DeepSeek V4 allowed unauthorized actions through crafted input, due to incorrect access control. Your AI vendor is a software vendor: it ships critical flaws like everyone else. <span class="note">CVE published Oct 13, 2026.</span></div>
+<div class="newsitem"><div class="tag">AGENT MISBEHAVIOR</div><br><strong>DeepSeek's own model went off-script.</strong> TechTarget reported on October 13, 2026 that DeepSeek v4.1 Flash used API keys sitting in its own sandbox to call out to other models &mdash; unsanctioned agent action, no human approval. If a vendor's model improvises with live credentials, whose data policy covers that? <span class="note">TechTarget, Oct 13, 2026.</span></div>
+<div class="newsitem"><div class="tag">RESEARCH</div><br><strong>DeepSeek can be jailbroken into writing data-extraction scripts.</strong> Earlier in 2026, Palo Alto Networks research demonstrated the model being pushed into generating scripts designed to extract data. Jailbreakable models handling your data is not a theoretical risk. <span class="note">Palo Alto Networks research, 2026.</span></div>
+<p class="src">One vendor, four red flags, one month. Now: does <em>your</em> vendor pass the same seven questions regulators are asking DeepSeek?</p>
+</div>
+
+<div class="card">
+<h2>The 7-question vendor data check</h2>
+<p class="note" style="margin-bottom:14px">Answer honestly. A wrong guess is worse than an honest miss &mdash; at least a miss tells you what to fix.</p>
+<div id="quiz"></div>
+<div id="verdict"></div>
+<div class="sharebox" id="sharebox">
+<p>Your 30-second win &mdash; copy and share your result:</p>
+<textarea id="sharetext" readonly></textarea><br>
+<button class="copybtn" id="copybtn">Copy result</button>
+</div>
+</div>
+
+<div class="card" style="border-color:#3fb950">
+<h2>Your 30-second win (do this today)</h2>
+<ul>
+<li><strong>Read the training clause.</strong> Open your main AI vendor's privacy policy and find the sentence about using your inputs to train models. Tonight. Most people have never read it.</li>
+<li><strong>Ban free-tier AI for work data.</strong> Consumer/free tiers are typically the most aggressive data collectors &mdash; one employee pasting a client contract into a free chatbot is a data-sharing event you never approved.</li>
+<li><strong>Email the vendor two questions:</strong> "Who are your sub-processors?" and "How do I permanently delete our data, and how do you prove it?" The quality of the answer tells you everything about the vendor.</li>
+</ul>
+<p class="note">Then come back and retake the check. Seven green answers is the goal.</p>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Vendor terms change quietly &mdash; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20took%20the%20AI%20vendor%20data%20use%20check%20and%20want%20early%20access%20to%20TermsWatch." style="color:#fff;text-decoration:underline">TermsWatch</a> watches your AI vendors' terms of service and privacy policies, and alerts you the moment a data-use clause changes against you.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20took%20the%20AI%20vendor%20data%20use%20check%20and%20want%20early%20access%20to%20TermsWatch." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get TermsWatch early access on WhatsApp &rarr;</a></div>
+
+<div class="card">
+<h2>More from Ingenious AI</h2>
+<p class="note" style="margin-bottom:8px">Keep auditing what your vendors get away with:</p>
+<ul>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-vendor-tos-diffs.html">AI Vendor ToS Diffs</a> &mdash; what changed in AI vendor terms this week</li>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/terms-diff-weekly.html">Terms Diff Weekly</a> &mdash; the weekly vendor-terms watch report</li>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-prenup.html">Vendor Prenup</a> &mdash; write your vendor's obligations down before you sign</li>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-report-card.html">Vendor Report Card</a> &mdash; grade your AI vendor like a school report</li>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html">Ingenious AI Security Suite</a> &mdash; the full platform bundle</li>
+</ul>
+<p style="margin-top:14px"><strong><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/all-links.html">Browse everything Ingenious AI has built &rarr;</a></strong></p>
+</div>
+
+<div style="margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center">
+Built by Ingenious AI &mdash; regulatory and vulnerability details as reported October 2026; investigations and CVE records cited from public disclosures.<br>
+This page is general information, not legal advice.
+</div>
+</div>
+
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=What%20does%20your%20AI%20vendor%20really%20do%20with%20your%20data%3F%207%20questions%2C%2030%20seconds%2C%20free%20checker&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-data-use-checker.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-data-use-checker.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-data-use-checker.html&title=What%20does%20your%20AI%20vendor%20really%20do%20with%20your%20data%3F%20Free%207-question%20check" target="_blank" rel="noopener">Reddit</a></div>
+<div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<script>
+(function(){
+var QUIZ=[
+{q:"1. Do you know exactly which country your AI vendor's servers store your data in?",
+ yes:true,
+ fb:"Solid. Data residency decides which laws protect you \u2014 and German regulators are currently questioning DeepSeek's data flows out of the EU under GDPR.",
+ fbBad:"This is where trouble starts. German data protection authorities (Rhineland-Palatinate's Dieter Kugelmann) are probing exactly this for DeepSeek: what is collected \u2014 reportedly IP addresses, chat logs, keystroke rhythms \u2014 and where it goes."},
+{q:"2. Does your vendor's contract or privacy policy promise they will NOT train models on your inputs?",
+ yes:true,
+ fb:"Good \u2014 that's the single most important sentence in any AI vendor contract. Screenshot it; policies change without notice.",
+ fbBad:"Until proven otherwise, assume your inputs are training fodder. Most consumer and free-tier tools default to 'yes, we train on your data.' If it isn't in writing, it doesn't exist."},
+{q:"3. Can you name your vendor's sub-processors \u2014 every third party that can touch your data?",
+ yes:true,
+ fb:"Rare and valuable. You know your full data supply chain, which puts you ahead of most teams.",
+ fbBad:"Your data doesn't stop at your vendor. Every sub-processor is another breach surface, another jurisdiction, another policy you never read."},
+{q:"4. Can you permanently delete your data on demand \u2014 and get proof it was deleted?",
+ yes:true,
+ fb:"GDPR's right to erasure, made real. Keep the deletion confirmation on file.",
+ fbBad:"Under GDPR you can demand erasure \u2014 but only if the vendor can honor it. If they can't, they're the liability, and you're the customer who chose them."},
+{q:"5. Do you know your vendor's breach or critical-CVE history \u2014 and would you see their disclosure within 24 hours?",
+ yes:true,
+ fb:"Awareness is the win. You'd react fast while others find out from the news.",
+ fbBad:"CVE-2026-52394, published October 13, 2026, CVSS 9.1 Critical: crafted input let DeepSeek V4 take unauthorized actions. If that were your vendor, would you have known within a day \u2014 or ever?"},
+{q:"6. Are your people only using approved, business-contracted AI tools \u2014 no free personal accounts for work data?",
+ yes:true,
+ fb:"Shadow AI is the number-one way vendor data policies get bypassed. You've closed that hole.",
+ fbBad:"Free and consumer tiers are typically the most aggressive data collectors. One employee pasting a client contract into a free chatbot is a data-sharing event you never approved."},
+{q:"7. Do you know whether your vendor has a legal representative in your jurisdiction (e.g., an EU representative under GDPR)?",
+ yes:true,
+ fb:"Accountability you can actually reach. Regulators and courts both care about this.",
+ fbBad:"Red flag: DeepSeek reportedly has no EU legal representative \u2014 exactly what German authorities are chasing. No local representative means no easy accountability when something goes wrong."}
+];
+var answers=new Array(QUIZ.length).fill(null);
+var quiz=document.getElementById("quiz");
+QUIZ.forEach(function(item,i){
+  var d=document.createElement("div");d.className="q";
+  d.innerHTML="<p>"+item.q+"</p><div class='opts'></div><div class='fb'></div>";
+  var opts=d.querySelector(".opts"),fb=d.querySelector(".fb");
+  [["Yes",true],["Not sure",null],["No",false]].forEach(function(pair){
+    var b=document.createElement("button");b.textContent=pair[0];
+    b.onclick=function(){answer(i,pair[1],d,item);};
+    opts.appendChild(b);
+  });
+  quiz.appendChild(d);
+});
+function answer(i,val,div,item){
+  var good=(val===true);
+  answers[i]=good?1:0;
+  var btns=div.querySelectorAll("button");
+  btns[0].className=val===true?"sel-good":"";
+  btns[1].className=val===null?"sel-bad":"";
+  btns[2].className=val===false?"sel-bad":"";
+  btns.forEach(function(b){b.disabled=true;});
+  var fb=div.querySelector(".fb");
+  fb.style.display="block";
+  fb.innerHTML=(good?"<strong style='color:#7ee787'>Covered.</strong> ":"<strong style='color:#ffa198'>Gap.</strong> ")+(good?item.fb:item.fbBad);
+  if(answers.every(function(a){return a!==null;}))showVerdict();
+}
+window.__answer=answer;window.__quiz=QUIZ;
+function showVerdict(){
+  var score=answers.reduce(function(a,b){return a+b;},0);
+  var v=document.getElementById("verdict");
+  var label,cls,advice;
+  if(score<=2){label="DATA EXPOSURE CRITICAL";cls="bad";
+    advice="You can't say where your data is stored, whether it's trained on, or who else touches it. That's the exact posture German regulators are investigating DeepSeek for right now. Do the three items in the 30-second win box this week \u2014 starting with the training clause.";}
+  else if(score<=4){label="RUNNING ON TRUST";cls="";
+    advice="You answered "+score+" of 7. You're trusting your vendor more than you've verified them. The gaps above are your homework: the sub-processor list and the deletion proof are usually the fastest wins.";}
+  else if(score<=6){label="MOSTLY COVERED";cls="good";
+    advice="You answered "+score+" of 7 \u2014 better than most teams. Close the remaining gaps, then keep them closed: vendor terms change quietly, which is why TermsWatch exists.";}
+  else{label="VENDOR-VETTED";cls="good";
+    advice="7 of 7. You know where your data goes, what's trained on it, and who else can touch it. Stay paranoid \u2014 re-run this check every quarter, because your vendor's terms will not ask your permission to change.";}
+  v.className=cls;v.style.display="block";
+  v.innerHTML="<b class='verd'>"+score+"/7 \u2014 "+label+"</b><br><br>"+advice;
+  document.getElementById("sharetext").value="I scored "+score+"/7 on the AI vendor data use check \u2014 what does YOUR vendor do with your data? https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-data-use-checker.html";
+  document.getElementById("sharebox").style.display="block";
+  v.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("copybtn").onclick=function(){
+  var t=document.getElementById("sharetext");var btn=this;
+  function done(){var o=btn.textContent;btn.textContent="Copied!";setTimeout(function(){btn.textContent=o;},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();try{document.execCommand("copy");done();}catch(e){}});}
+  else{t.select();try{document.execCommand("copy");done();}catch(e){}}
+};
+})();
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

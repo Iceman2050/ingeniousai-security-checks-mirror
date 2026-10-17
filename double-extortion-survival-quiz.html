@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Could You Survive a Double-Extortion Attack? (Free)</title>
+<meta name="description" content="8 questions: could your business survive double-extortion ransomware? Scores offline backups, MFA, EDR, segmentation. Readiness quiz - October victims inside.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/double-extortion-survival-quiz.html">
+<link rel="stylesheet" href="ecosystem.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Could you survive a double-extortion attack?">
+<meta property="og:description" content="Ransomware gangs now encrypt AND leak your data — backups alone won't save you. 8 questions, 30 seconds: would your business survive? Free quiz.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/double-extortion-survival-quiz.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Could you survive a double-extortion attack?">
+<meta name="twitter:description" content="Free 8-question readiness quiz: backups, MFA, EDR, segmentation. Built by Ingenious AI.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2b1215;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+ul{margin:10px 0 10px 20px}
+li{margin:10px 0}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.q p{font-size:16px;margin-bottom:12px;color:#fff}
+.q .fb{font-size:14px;color:#9aa7b8;margin-top:10px;display:none}
+.q .opts{display:flex;gap:10px;flex-wrap:wrap}
+.q button{flex:1;min-width:120px;background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px;font-size:15px;font-weight:600;cursor:pointer}
+.q button:hover{border-color:#1c6ef2}
+.q button.sel-good{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.q button.sel-bad{background:#2b1215;border-color:#f85149;color:#ffa198}
+.q button:disabled{cursor:default;opacity:.85}
+#verdict{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+#verdict.good{border-color:#3fb950;background:#0d1a0f}
+#verdict.bad{border-color:#f85149;background:#1a0f0f}
+#verdict b.verd{font-size:19px;letter-spacing:.5px}
+.sharebox{margin-top:16px;display:none;background:#0b0f17;border:1px dashed #2a3342;border-radius:8px;padding:14px 16px}
+.sharebox p{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+#sharetext{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical;min-height:64px}
+.copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+.warnbox{max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+.victim{border-left:3px solid #f85149;padding:10px 0 10px 16px;margin:14px 0}
+.victim strong{color:#fff}
+.victim .gang{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;color:#ffa198;border:1px solid #f85149;border-radius:4px;padding:2px 8px;margin-bottom:6px}
+.howto{border-left:3px solid #d29922;padding:10px 0 10px 16px;margin:14px 0}
+.howto strong{color:#e8c26a}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Could You Survive a Double-Extortion Attack? (Free)","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/double-extortion-survival-quiz.html","description":"A free 8-question readiness quiz: could your business survive a double-extortion ransomware attack? Scores offline backups, MFA, EDR, segmentation, and leak-site monitoring against October 2026 real victims.","author":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-17","inLanguage":"en"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is a double-extortion ransomware attack?","acceptedAnswer":{"@type":"Answer","text":"A ransomware attack in two moves: the gang encrypts your files (so you can't work) AND steals your data, threatening to publish it on a dark-web leak site (so you pay even if you can recover). Restoring from backups defeats the encryption half, but does nothing about the stolen-data half — which is why backups alone don't save you."}},
+{"@type":"Question","name":"Do backups protect against ransomware?","acceptedAnswer":{"@type":"Answer","text":"Only against the encryption half. Offline, tested backups let you restore operations without paying for a decryption key — but in a double-extortion attack the criminals also stole your data and threaten to publish it on a leak site. Backups are essential and not sufficient: you also need to stop the initial intrusion and the exfiltration."}},
+{"@type":"Question","name":"Which ransomware groups are active in October 2026?","acceptedAnswer":{"@type":"Answer","text":"Disclosed victims this month include Pantanal Agricola, listed by Thegentlemen (disclosed October 16, 2026); Reed & Giordano PA, listed by Rhysida (October 11, 2026); and Yarema, listed by Akira (October 9, 2026). All three follow the double-extortion model: encrypt the victim's systems and threaten to publish stolen data."}},
+{"@type":"Question","name":"What is a dark-web leak site?","acceptedAnswer":{"@type":"Answer","text":"A site run by a ransomware gang — typically on the dark web — where they publish (or threaten to publish) data stolen from victims who refuse to pay. Being listed is the second half of the double-extortion squeeze: even a company with perfect backups can be pressured by the threat of customer data, contracts, or internal documents going public."}},
+{"@type":"Question","name":"How do I prepare my business for a double-extortion attack?","acceptedAnswer":{"@type":"Answer","text":"Run the eight checks on this page: offline tested backups, network segmentation, MFA on all remote access, monitored EDR, phishing training, a written incident response plan, data classification with access limits, and dark-web leak-site monitoring. The fastest wins for most small businesses are enabling MFA on remote access today and verifying one backup restore this week."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free security checks</a>
+<div class="badge">RANSOMWARE READINESS &mdash; OCT 2026</div>
+<h1>Could you survive a <span style="color:#f85149">double-extortion</span> attack?</h1>
+<p class="lead">Ransomware gangs don't just encrypt your files anymore. They steal your data first, then threaten to publish it on a dark-web leak site &mdash; so even perfect backups can't save you. Eight questions, 30 seconds: would your business survive?</p>
+
+<p class="answer"><strong>Short answer:</strong> the double-extortion model &mdash; <em>encrypt your systems AND threaten to leak your stolen data</em> &mdash; means "we have backups" is no longer a complete answer. October 2026's victim list is fresh. Take the quiz, then fix the gaps before you're on next month's list.</p>
+
+<div class="card">
+<h2>How double extortion works</h2>
+<div class="howto"><strong>Move 1 &mdash; Encrypt.</strong> The gang breaks in (usually through stolen credentials or phishing), spreads across your network, and encrypts everything. No work gets done.</div>
+<div class="howto"><strong>Move 2 &mdash; Exfiltrate.</strong> Before encrypting, they quietly steal your most sensitive data: client records, contracts, financials, employee files.</div>
+<div class="howto"><strong>Move 3 &mdash; Squeeze.</strong> Pay for the decryption key, <em>and</em> pay again so they "don't" publish your data on their leak site. Restore from backup all you want &mdash; the stolen data is still in their hands.</div>
+<p class="note">Backups answer Move 1. Nothing in "we have backups" answers Moves 2 and 3. That's the gap this quiz measures.</p>
+</div>
+
+<div class="card">
+<h2>October 2026: it happened to real companies this month</h2>
+<div class="victim"><div class="gang">THEGENTLEMEN &mdash; OCT 16</div><br><strong>Pantanal Agricola</strong> was disclosed as a victim this month &mdash; systems encrypted, data on the table for publication. Agribusiness is not "too boring to hack."</div>
+<div class="victim"><div class="gang">RHYSIDA &mdash; OCT 11</div><br><strong>Reed &amp; Giordano PA</strong>, a law firm, was listed by Rhysida. Law firms hold exactly the kind of confidential client data that makes the leak threat \u2014 Move 3 \u2014 devastating.</div>
+<div class="victim"><div class="gang">AKIRA &mdash; OCT 9</div><br><strong>Yarema</strong> was listed by Akira. Whatever was exfiltrated before the encryption is now leverage. If they stole everything, the leak threat owns you.</div>
+<p class="src">Victim disclosures as reported October 2026. Three industries, three gangs, one playbook. Which of these companies do you resemble most?</p>
+</div>
+
+<div class="card">
+<h2>The 8-question survival quiz</h2>
+<p class="note" style="margin-bottom:14px">Answer honestly. The ransomware gang won't grade on a curve.</p>
+<div id="quiz"></div>
+<div id="verdict"></div>
+<div class="sharebox" id="sharebox">
+<p>Your 30-second win &mdash; copy and share your result:</p>
+<textarea id="sharetext" readonly></textarea><br>
+<button class="copybtn" id="copybtn">Copy result</button>
+</div>
+</div>
+
+<div class="card" style="border-color:#3fb950">
+<h2>Your 30-second win (do this today)</h2>
+<ul>
+<li><strong>Turn on MFA on every remote entry point.</strong> VPN, RDP, email, admin logins &mdash; today. Stolen credentials are the most common way in, and MFA kills most of those attacks outright.</li>
+<li><strong>Verify one backup restore this week.</strong> Not "check the backup ran" &mdash; actually restore a file from an offline or immutable backup. Untested backups are a rumor.</li>
+<li><strong>Know when you're listed.</strong> If your data hit a leak site, would you find out this week &mdash; or from a journalist? Leak-site monitoring closes that gap.</li>
+</ul>
+<p class="note">Then retake the quiz. Eight green answers is the goal.</p>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Don't find out from a journalist &mdash; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20took%20the%20double-extortion%20survival%20quiz%20and%20want%20early%20access%20to%20BreachHunter." style="color:#fff;text-decoration:underline">BreachHunter</a> monitors dark-web leak sites and alerts you the moment your data shows up, so Move 3 never blindsides you.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20took%20the%20double-extortion%20survival%20quiz%20and%20want%20early%20access%20to%20BreachHunter." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get BreachHunter early access on WhatsApp &rarr;</a></div>
+
+<div class="card">
+<h2>More from Ingenious AI</h2>
+<p class="note" style="margin-bottom:8px">Keep hardening before you're a headline:</p>
+<ul>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/breach-check.html">Breach Check</a> &mdash; has your data already been exposed in a breach?</li>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/breach-cost-calculator.html">Breach Cost Calculator</a> &mdash; what one breach would actually cost you</li>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/breach-roulette.html">Breach Roulette</a> &mdash; spin the wheel of breach scenarios</li>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/connectwise-cloud-backup-breach-check.html">ConnectWise Cloud Backup Breach Check</a> &mdash; the backup-breach case study</li>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html">Ingenious AI Security Suite</a> &mdash; the full platform bundle</li>
+</ul>
+<p style="margin-top:14px"><strong><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/all-links.html">Browse everything Ingenious AI has built &rarr;</a></strong></p>
+</div>
+
+<div style="margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center">
+Built by Ingenious AI &mdash; victim details from October 2026 ransomware leak-site disclosures.<br>
+This page is general information, not legal advice.
+</div>
+</div>
+
+<div class="share">Share this quiz: <a href="https://x.com/intent/post?text=Could%20your%20business%20survive%20a%20double-extortion%20ransomware%20attack%3F%208%20questions%2C%20free%20quiz&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/double-extortion-survival-quiz.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/double-extortion-survival-quiz.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/double-extortion-survival-quiz.html&title=Could%20your%20business%20survive%20a%20double-extortion%20ransomware%20attack%3F%20Free%208-question%20quiz" target="_blank" rel="noopener">Reddit</a></div>
+<div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<script>
+(function(){
+var QUIZ=[
+{q:"1. Do you have backups that are offline or immutable \u2014 and have you actually restored from one in the last 12 months?",
+ yes:true,
+ fb:"Tested restores are your answer to the encryption half. Keep testing them on a schedule \u2014 an untested backup is a rumor.",
+ fbBad:"Backups you never tested are a rumor. Thegentlemen disclosed Pantanal Agricola on Oct 16 \u2014 encryption first, questions later. Your only answer to Move 1 is a restore you know works."},
+{q:"2. Is your network segmented, so malware on one machine can't walk straight to everything?",
+ yes:true,
+ fb:"Segmentation is what turns 'one infected laptop' into an incident instead of a company-wide encryption event.",
+ fbBad:"On a flat network, one compromised machine becomes every machine. Segmentation is the cheapest containment you can buy."},
+{q:"3. Is MFA enforced on every remote entry point \u2014 VPN, RDP, email, admin logins?",
+ yes:true,
+ fb:"Most initial access starts with stolen credentials. Enforced MFA kills the majority of those attacks outright.",
+ fbBad:"No MFA on remote access is an open door. Stolen credentials are the most common way ransomware gangs get in \u2014 and this one you can fix today."},
+{q:"4. Do you run EDR on endpoints \u2014 actively monitored, not just basic antivirus?",
+ yes:true,
+ fb:"Monitored EDR is what catches the encryptor before it finishes. Signatures alone don't cut it anymore.",
+ fbBad:"Signature antivirus misses modern ransomware. Without monitored EDR, the encryptor runs to completion before anyone notices."},
+{q:"5. Has everyone had phishing/security training in the last 12 months?",
+ yes:true,
+ fb:"Phishing is still the number-one entry point. Trained people are your cheapest detection layer.",
+ fbBad:"Phishing remains the top initial-access vector. Rhysida listed law firm Reed & Giordano PA on Oct 11 \u2014 professional-services staff are prime phishing targets, and yours haven't been trained this year."},
+{q:"6. Do you have a written incident response plan \u2014 named people, a call list, first-hour actions?",
+ yes:true,
+ fb:"The first hour decides the outcome. You have a plan instead of a panic.",
+ fbBad:"'We'd figure it out' is not a plan. The first hour after discovery decides whether you contain it or become the next leak-site listing."},
+{q:"7. Is your sensitive data classified and access-limited, so attackers can't steal everything in one sweep?",
+ yes:true,
+ fb:"Limited blast radius, limited leverage. Classification is what shrinks Move 3.",
+ fbBad:"Yarema (Akira, Oct 9): whatever was exfiltrated is now leverage. If attackers can reach everything, the leak threat owns you \u2014 classify data and limit who can touch it."},
+{q:"8. Would you know within a week if your data appeared on a dark-web leak site?",
+ yes:true,
+ fb:"You'd catch Move 3 early \u2014 when you can still control the narrative instead of learning it from a journalist.",
+ fbBad:"Without leak-site monitoring, the second half of double extortion blindsides you. That's exactly the gap BreachHunter closes: an alert the moment your data shows up."}
+];
+var answers=new Array(QUIZ.length).fill(null);
+var quiz=document.getElementById("quiz");
+QUIZ.forEach(function(item,i){
+  var d=document.createElement("div");d.className="q";
+  d.innerHTML="<p>"+item.q+"</p><div class='opts'></div><div class='fb'></div>";
+  var opts=d.querySelector(".opts"),fb=d.querySelector(".fb");
+  [["Yes",true],["Not sure",null],["No",false]].forEach(function(pair){
+    var b=document.createElement("button");b.textContent=pair[0];
+    b.onclick=function(){answer(i,pair[1],d,item);};
+    opts.appendChild(b);
+  });
+  quiz.appendChild(d);
+});
+function answer(i,val,div,item){
+  var good=(val===true);
+  answers[i]=good?1:0;
+  var btns=div.querySelectorAll("button");
+  btns[0].className=val===true?"sel-good":"";
+  btns[1].className=val===null?"sel-bad":"";
+  btns[2].className=val===false?"sel-bad":"";
+  btns.forEach(function(b){b.disabled=true;});
+  var fb=div.querySelector(".fb");
+  fb.style.display="block";
+  fb.innerHTML=(good?"<strong style='color:#7ee787'>Covered.</strong> ":"<strong style='color:#ffa198'>Gap.</strong> ")+(good?item.fb:item.fbBad);
+  if(answers.every(function(a){return a!==null;}))showVerdict();
+}
+window.__answer=answer;window.__quiz=QUIZ;
+function showVerdict(){
+  var score=answers.reduce(function(a,b){return a+b;},0);
+  var v=document.getElementById("verdict");
+  var label,cls,advice;
+  if(score<=2){label="YOU WOULD NOT SURVIVE";cls="bad";
+    advice="You answered "+score+" of 8. A double-extortion gang gets in, encrypts everything, steals your data, and you're negotiating from zero leverage \u2014 exactly the position Pantanal Agricola, Reed & Giordano PA, and Yarema were in this month. Start with the 30-second win box: MFA today, one verified restore this week.";}
+  else if(score<=5){label="HOLDING BY A THREAD";cls="";
+    advice="You answered "+score+" of 8. You'd survive the encryption half or the leak half \u2014 probably not both. The gaps above are the exact weaknesses gangs like Akira and Rhysida monetize. Close the red ones first.";}
+  else if(score<=7){label="LIKELY SURVIVOR";cls="good";
+    advice="You answered "+score+" of 8 \u2014 better than most businesses. Finish the last gaps and keep the discipline: quarterly restore tests, annual training refresh, and leak-site monitoring so Move 3 never surprises you.";}
+  else{label="DOUBLE-EXTORTION READY";cls="good";
+    advice="8 of 8. Segmented, backed up, monitored, and you'd spot a leak-site listing within days. Stay ready \u2014 re-run this quiz every quarter, because attacker playbooks don't sit still.";}
+  v.className=cls;v.style.display="block";
+  v.innerHTML="<b class='verd'>"+score+"/8 \u2014 "+label+"</b><br><br>"+advice;
+  document.getElementById("sharetext").value="I scored "+score+"/8 on the double-extortion survival quiz \u2014 could YOUR business survive? https://iceman2050.github.io/ingeniousai-security-checks-mirror/double-extortion-survival-quiz.html";
+  document.getElementById("sharebox").style.display="block";
+  v.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("copybtn").onclick=function(){
+  var t=document.getElementById("sharetext");var btn=this;
+  function done(){var o=btn.textContent;btn.textContent="Copied!";setTimeout(function(){btn.textContent=o;},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();try{document.execCommand("copy");done();}catch(e){}});}
+  else{t.select();try{document.execCommand("copy");done();}catch(e){}}
+};
+})();
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
