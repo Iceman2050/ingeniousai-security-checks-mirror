@@ -21,7 +21,7 @@
 {"@type":"Question","name":"How does the Spot the AI Video Duel work?","acceptedAnswer":{"@type":"Answer","text":"Each round shows two short video clips side by side for about 10 seconds. One clip is AI-generated, one is real camera footage. You tap which one you think is AI, get instant right-or-wrong feedback, and a score at the end with a shareable verdict card."}},
 {"@type":"Question","name":"Are the clips honestly labeled?","acceptedAnswer":{"@type":"Answer","text":"Yes. The two duel rounds pair an AI-generated clip against real, freely-licensed camera footage, with the source and license credited under each clip after you guess. The two practice rounds use two AI-generated clips and are clearly labeled as practice — they are not scored."}},
 {"@type":"Question","name":"Can I add my own clips to the duel?","acceptedAnswer":{"@type":"Answer","text":"Yes. The page reads its rounds from videos/duel/rounds.json. Drop your own AI and real MP4 clips into videos/duel/, update the JSON fields (ai, real, ai_credit, real_credit), and the game picks them up automatically."}}
-]}
+]}]}
 </script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -73,6 +73,7 @@ a{color:#6ea8fe}
 ul.tips{margin:10px 0 10px 20px;font-size:14px;color:#9aa7b8}
 .hidden{display:none!important}
 </style>
+<link rel="stylesheet" href="ecosystem.css">
 </head>
 <body>
 <div class="wrap">

@@ -16,7 +16,7 @@ Every page on this mirror carries the shared ecosystem footer
   Recorder, Agent Auth Gateway, DomainGuard, ContentCraft AI).
   Prefills stay until Nov 1, when platforms return and links flip to
   direct platform URLs.
-- **GitHub org** — https://github.com/Iceman2050 (47 open-source
+- **GitHub org** — https://github.com/Iceman2050 (73 open-source
   security tools; every repo README carries the same 11 platform links).
 - **Newsletter signup** — honest email capture (see below).
 - **Mirror home** link.

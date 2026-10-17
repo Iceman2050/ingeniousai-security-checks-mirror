@@ -9,7 +9,7 @@ standard include to each:
 1. In `<head>`: `<link rel="stylesheet" href="ecosystem.css">`
 2. Before the Cloudflare beacon, before `</body>`:
    ```html
-   <div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 47 open-source security tools by Ingenious AI</a></div>
+   <div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
    <script src="ecosystem.js"></script>
    ```
    (The JS replaces the div content with the full footer: 11 platform
