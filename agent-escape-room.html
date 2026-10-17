@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Escape Room — Cybersecurity Escape Game | Ingenious AI</title>
+<meta name="description" content="Agent Escape Room: a free cybersecurity escape game — 6 incident-response puzzles to hunt the webshell, kill the rogue agent, decode the C2. A simulation.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-escape-room.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Agent Escape Room — Cybersecurity Escape Game | Ingenious AI">
+<meta property="og:description" content="Agent Escape Room: a free cybersecurity escape game — 6 incident-response puzzles to hunt the webshell, kill the rogue agent, decode the C2. A simulation.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-escape-room.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Agent Escape Room — Cybersecurity Escape Game | Ingenious AI">
+<meta name="twitter:description" content="Agent Escape Room: a free cybersecurity escape game — 6 incident-response puzzles to hunt the webshell, kill the rogue agent, decode the C2. A simulation.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Agent Escape Room — Cybersecurity Escape Game","description":"A free browser-based cybersecurity escape room: 6 incident-response puzzles in a simulated compromised network with a rogue AI agent. Find the webshell, stop the exfil, decode the C2.","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-escape-room.html","author":{"@type":"Organization","name":"Ingenious AI"},"about":{"@type":"Thing","name":"cybersecurity escape room"},"keywords":"cybersecurity escape room, incident response game, blue team training game, rogue ai agent simulation, c2 hunt puzzle"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a cybersecurity escape room?","acceptedAnswer":{"@type":"Answer","text":"A timed, escape-room-style cybersecurity training exercise: players work through realistic incident scenarios — phishing, malware, data leaks — against the clock from a browser. It turns security training into active problem-solving instead of passive lectures."}},{"@type":"Question","name":"Do I need hacking skills to play an incident response game?","acceptedAnswer":{"@type":"Answer","text":"No. The puzzles here test judgement, not tooling: spot the anomaly in a file list, a log, a process table. Each puzzle has a hint button, and wrong answers cost a misstep in your evidence log — not your freedom."}},{"@type":"Question","name":"How long does this escape room take?","acceptedAnswer":{"@type":"Answer","text":"Most players finish all 6 puzzles in 10–20 minutes. Commercial cyber escape games typically run 30–50 minutes; this one is a focused drill on one scenario: a rogue AI agent on your network."}},{"@type":"Question","name":"What skills does an incident response game teach?","acceptedAnswer":{"@type":"Answer","text":"Core blue-team habits: triaging evidence, distinguishing normal activity from attacker activity, preserving evidence before acting, and containing in the right order. Every move you make is logged like a real flight recorder would."}},{"@type":"Question","name":"Is any of this real?","acceptedAnswer":{"@type":"Answer","text":"No. Hostnames, IPs, file names, log lines, and the rogue agent are all fictional, generated for this simulation. Nothing on this page scans, attacks, or touches any real system."}}]}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:900px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a1f08;border:1px solid #d29922;color:#ffce63;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h2{font-size:22px;margin:30px 0 12px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+p{margin-bottom:14px}
+.honest{background:#0d2b3d;border:1px solid #1c6ef2;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#bcd7f5}
+.progress{background:#0d1420;border:1px solid #2a3342;border-radius:10px;padding:14px 18px;margin:20px 0;font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.progress b{color:#6ea8fe}
+.scenario{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:22px;margin:18px 0}
+.scenario h2{margin-top:0;font-size:20px}
+.scenario.solved{border-color:#2ea043}
+.scenario.solved .pztitle::after{content:" ✓ CONTAINED";color:#7ee2a8;font-size:14px;font-weight:800}
+.opt{display:block;width:100%;text-align:left;background:#0b0f17;border:1px solid #2a3342;border-radius:8px;color:#e6edf3;padding:10px 14px;margin:8px 0;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;cursor:pointer}
+.opt:hover{border-color:#1c6ef2}
+.opt.dead{opacity:.45;cursor:default}
+.opt.dead:hover{border-color:#2a3342}
+.hint{display:none;background:#2a1f08;border:1px solid #d29922;border-radius:8px;padding:10px 14px;margin:10px 0;font-size:13.5px;color:#ffce63}
+button.hbtn{background:#212a38;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;margin-top:6px;font-family:inherit}
+button.hbtn:hover{border-color:#d29922}
+.wrong{border-left:3px solid #f85149;padding-left:14px;margin:12px 0;font-size:14.5px;color:#e6c9c9}
+.wrong b{color:#ff9e9e}
+.does{border-left:3px solid #d29922;padding-left:14px;margin:12px 0;font-size:14.5px;color:#e6d9c9}
+.does b{color:#ffce63}
+.guardrail{background:#0e1a12;border:1px solid #2ea043;border-radius:10px;padding:14px 16px;margin:14px 0;font-size:14px}
+.guardrail b{color:#7ee2a8}
+input.decode{background:#0b0f17;border:1px solid #2a3342;border-radius:8px;color:#e6edf3;padding:10px 14px;font-size:14px;font-family:ui-monospace,monospace;width:70%;margin-right:8px}
+button.go{background:#1c6ef2;color:#fff;border:none;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
+button.go:hover{background:#2b7fff}
+.verdict{background:#0d1420;border:2px solid #2ea043;border-radius:12px;padding:24px;margin:28px 0;display:none}
+.verdict.show{display:block}
+.verdict h2{color:#7ee2a8;margin-top:0}
+.evlog{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;background:#0b0f17;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:12px 0;max-height:320px;overflow-y:auto}
+.evlog .t{color:#6ea8fe}
+.evlog .bad{color:#ff9e9e}
+.evlog .good{color:#7ee2a8}
+.evlog .info{color:#9aa7b8}
+.cta{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:22px;margin:28px 0;text-align:center}
+.cta .lbl{font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px;margin:6px}
+.btn:hover{background:#2b7fff}
+.btn.alt{background:#212a38;color:#e6edf3;border:1px solid #2a3342}
+.btn.alt:hover{border-color:#1c6ef2;background:#26303f}
+.sharecard{background:#0d1420;border:2px dashed #1c6ef2;border-radius:12px;padding:24px;margin:22px 0;text-align:center}
+.sharecard .st{font-size:19px;font-weight:700;line-height:1.5}
+.sharecard .src{font-size:13px;color:#9aa7b8;margin-top:10px}
+button.copy{background:#232b38;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;margin-top:12px;font-family:inherit}
+button.copy:hover{border-color:#1c6ef2}
+.faq{margin:10px 0;border-bottom:1px solid #1c2330;padding:12px 0}
+.faq b{display:block;font-size:15.5px;margin-bottom:6px}
+.faq p{font-size:14.5px;color:#9aa7b8}
+.morelinks{background:#0d1420;border:1px solid #2a3342;border-radius:12px;padding:22px;margin:28px 0}
+.morelinks h2{margin-top:0;font-size:19px}
+.morelinks ul{list-style:none;padding:0}
+.morelinks li{margin:8px 0;font-size:15px}
+.morelinks a{color:#6ea8fe;text-decoration:none}
+.morelinks a:hover{text-decoration:underline}
+.morelinks .hub{margin-top:14px;padding-top:14px;border-top:1px solid #232b38;font-weight:700}
+.smallprint{font-size:13px;color:#6b7688;margin-top:30px}
+a{color:#6ea8fe}
+</style>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<span class="badge">SIMULATION — INCIDENT RESPONSE GAME</span>
+<h1>Agent Escape Room</h1>
+<p class="lead">You're locked in a simulated compromised network with a rogue AI agent. It got in through a poisoned plugin, and it's been busy. Six puzzles stand between you and the exit: find the webshell, spot the exfiltration, kill the rogue process, unmask the backdoor account, decode the command-and-control address, and contain everything — <em>in the right order</em>. Every move you make is timestamped into an evidence log, flight-recorder style.</p>
+
+<div class="honest"><strong>Honest banner:</strong> This is a <strong>pure fiction simulation</strong>. Every hostname, IP, file name, log line, and process is made up for the game — nothing here scans, attacks, or touches any real system. Everything runs in your browser; nothing leaves this device. Puzzles are solvable with the hints provided.</div>
+
+<div class="progress"><span>Progress: <b id="prog">0 / 6 puzzles contained</b></span><span>Missteps logged: <b id="miss">0</b></span><span><button class="hbtn" onclick="resetGame()">Restart scenario</button></span></div>
+
+<div class="scenario" id="pz1">
+<h2 class="pztitle">Puzzle 1 — Find the webshell</h2>
+<p style="font-size:14px;color:#9aa7b8">The rogue agent dropped a webshell somewhere on the web server. Review the recently modified files and click the malicious one.</p>
+<button class="opt" onclick="pick(1,this,false)">/var/www/html/index.php <span style="color:#6b7688">— modified 14 days ago</span></button>
+<button class="opt" onclick="pick(1,this,false)">/var/www/html/about.php <span style="color:#6b7688">— modified 30 days ago</span></button>
+<button class="opt" onclick="pick(1,this,true)">/var/www/html/uploads/thumb_cache.php <span style="color:#6b7688">— modified 02:11 today — contains <b>eval(base64_decode($_POST['x']))</b></span></button>
+<button class="opt" onclick="pick(1,this,false)">/var/www/html/contact.php <span style="color:#6b7688">— modified 9 days ago</span></button>
+<button class="hbtn" onclick="hint(1,this)">Need a hint?</button>
+<div class="hint" id="hint1">Webshells hide executable code in odd places. Look for a file that has no business containing encoded, decoded-at-runtime PHP — and check the modification time.</div>
+</div>
+
+<div class="scenario" id="pz2">
+<h2 class="pztitle">Puzzle 2 — Spot the exfiltration</h2>
+<p style="font-size:14px;color:#9aa7b8">Outbound traffic spiked at 02:14. One of these connections is the rogue agent shipping data out. Click the exfiltration.</p>
+<button class="opt" onclick="pick(2,this,false)">02:13:58 GET updates.internal.cdn/patch-4182.sig <span style="color:#6b7688">— 84 KB, known-good host</span></button>
+<button class="opt" onclick="pick(2,this,true)">02:14:33 POST 185.220.101.4:8443/collect <span style="color:#6b7688">— 48 MB, unlisted host, self-signed cert</span></button>
+<button class="opt" onclick="pick(2,this,false)">02:15:02 GET api.weather-service.example/v2/ow <span style="color:#6b7688">— 2 KB, allowlisted</span></button>
+<button class="opt" onclick="pick(2,this,false)">02:15:41 GET ntp.pool.example/time <span style="color:#6b7688">— 120 B, allowlisted</span></button>
+<button class="hbtn" onclick="hint(2,this)">Need a hint?</button>
+<div class="hint" id="hint2">Exfiltration looks like a large outbound POST to a host nobody has heard of. Follow the 48 megabytes.</div>
+</div>
+
+<div class="scenario" id="pz3">
+<h2 class="pztitle">Puzzle 3 — Kill the right process</h2>
+<p style="font-size:14px;color:#9aa7b8">The rogue agent is running as a process on this host. Pick the wrong one and you'll kill something the business needs — that's a misstep in your evidence log. Choose carefully.</p>
+<button class="opt" onclick="pick(3,this,false)">nginx: worker process <span style="color:#6b7688">— 2% CPU, serving web traffic</span></button>
+<button class="opt" onclick="pick(3,this,false)">postgres: checkpointer <span style="color:#6b7688">— 1% CPU, database maintenance</span></button>
+<button class="opt" onclick="pick(3,this,true)">agent-syncd --daemon <span style="color:#6b7688">— 94% CPU, 312 open sockets to 185.220.101.4:8443, started 02:12</span></button>
+<button class="opt" onclick="pick(3,this,false)">cron: /usr/sbin/cron <span style="color:#6b7688">— 0% CPU, system scheduler</span></button>
+<button class="hbtn" onclick="hint(3,this)">Need a hint?</button>
+<div class="hint" id="hint3">The rogue agent phones home. Match the process talking to the same unknown host you found in Puzzle 2 — and check which one is burning CPU at 02:12.</div>
+</div>
+
+<div class="scenario" id="pz4">
+<h2 class="pztitle">Puzzle 4 — Find the backdoor account</h2>
+<p style="font-size:14px;color:#9aa7b8">The agent created a persistence account. One of these users doesn't belong. Click the backdoor account to lock it.</p>
+<button class="opt" onclick="pick(4,this,false)">ops_admin <span style="color:#6b7688">— created 2024, last login yesterday from office VPN</span></button>
+<button class="opt" onclick="pick(4,this,false)">svc_backup <span style="color:#6b7688">— service account, no interactive login, as expected</span></button>
+<button class="opt" onclick="pick(4,this,true)">svc_printer <span style="color:#6b7688">— created 02:14 today, last login 02:16 from 185.220.101.4, shell: /bin/bash</span></button>
+<button class="opt" onclick="pick(4,this,false)">deployer <span style="color:#6b7688">— created 2025, CI-only, key-based auth</span></button>
+<button class="hbtn" onclick="hint(4,this)">Need a hint?</button>
+<div class="hint" id="hint4">Backdoor accounts are created when the attacker is active — check the creation time against the attack timeline (02:11–02:16), and ask why a "printer" service has an interactive shell.</div>
+</div>
+
+<div class="scenario" id="pz5">
+<h2 class="pztitle">Puzzle 5 — Decode the C2 address</h2>
+<p style="font-size:14px;color:#9aa7b8">Intercepted from the agent's config: a base64-encoded command-and-control address. Decode it and type the hostname below.</p>
+<div class="timeline" style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;background:#0b0f17;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:12px 0">c2_address = "YzIuZXZpbC1leGFtcGxlLm5ldA=="</div>
+<input class="decode" id="c2input" placeholder="decoded hostname…" autocomplete="off">
+<button class="go" onclick="decodeC2()">Decode &amp; submit</button>
+<button class="hbtn" onclick="hint(5,this)">Need a hint?</button>
+<div class="hint" id="hint5">Base64 is an encoding, not encryption — every browser can decode it (try the developer console: atob("YzIuZXZpbC1leGFtcGxlLm5ldA==")). The answer is a hostname ending in .net.</div>
+</div>
+
+<div class="scenario" id="pz6">
+<h2 class="pztitle">Puzzle 6 — Choose the containment order</h2>
+<p style="font-size:14px;color:#9aa7b8">You know everything. Now contain the incident — in the right order. Click the three steps in the sequence a real responder would use. Wrong order resets the attempt.</p>
+<button class="opt" data-step="isolate" onclick="order(this)">1 · Isolate the host from the network</button>
+<button class="opt" data-step="preserve" onclick="order(this)">2 · Preserve a memory/disk snapshot for evidence</button>
+<button class="opt" data-step="terminate" onclick="order(this)">3 · Terminate the rogue agent process</button>
+<button class="hbtn" onclick="hint(6,this)">Need a hint?</button>
+<div class="hint" id="hint6">Stop the bleeding first (isolate), then secure the evidence before it can be destroyed (preserve), and only then kill the process (terminate). Acting before preserving evidence is how investigations die.</div>
+</div>
+
+<div class="verdict" id="verdict">
+<h2 id="vtitle">ESCAPED</h2>
+<p id="vtext" style="font-size:15px"></p>
+<h2 style="font-size:17px;color:#e6edf3;margin-top:18px">Flight-recorder evidence log</h2>
+<p style="font-size:13px;color:#9aa7b8">Every move you made, timestamped — the same discipline a tamper-evident agent log enforces in production.</p>
+<div class="evlog" id="evlog"></div>
+<button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('evlog').innerText);this.textContent='Copied!';">Copy evidence log</button>
+</div>
+
+<div class="cta">
+<div class="lbl">FROM INGENIOUS AI</div>
+<p style="font-size:17px;margin-bottom:6px"><strong>Agent Flight Recorder</strong> keeps a hash-chained, tamper-evident log of everything your AI agents do — so a real rogue agent can never move silently like the one in this room.</p>
+<p style="font-size:13px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</p>
+<a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder.">Get Agent Flight Recorder early access →</a>
+<p style="font-size:13px;color:#9aa7b8;margin-top:12px">Or explore the full bundle: <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html">The Ingenious AI Security Suite</a></p>
+</div>
+
+<div class="sharecard">
+<div class="st">"I escaped the Agent Escape Room — 6 incident-response puzzles vs a rogue AI agent, with a flight-recorder evidence log of every move."</div>
+<div class="src">ingeniousai-security-checks-mirror · Agent Escape Room</div>
+<button class="copy" onclick="navigator.clipboard.writeText('Agent Escape Room: a free cybersecurity escape game \u2014 6 puzzles to catch a rogue AI agent https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-escape-room.html');this.textContent='Copied!';">Copy share text</button>
+<div style="margin-top:12px"><a href="https://twitter.com/intent/tweet?text=I%20escaped%20the%20Agent%20Escape%20Room%20%E2%80%94%206%20incident-response%20puzzles%20vs%20a%20rogue%20AI%20agent&url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fagent-escape-room.html" target="_blank" rel="noopener" style="margin-right:14px">Share on X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fagent-escape-room.html" target="_blank" rel="noopener">Share on LinkedIn</a></div>
+</div>
+
+<h2>FAQ</h2>
+<div class="faq"><b>What is a cybersecurity escape room?</b><p>A timed, escape-room-style cybersecurity training exercise: players work through realistic incident scenarios — phishing, malware, data leaks — against the clock from a browser. It turns security training into active problem-solving instead of passive lectures.</p></div>
+<div class="faq"><b>Do I need hacking skills to play an incident response game?</b><p>No. The puzzles here test judgement, not tooling: spot the anomaly in a file list, a log, a process table. Each puzzle has a hint button, and wrong answers cost a misstep in your evidence log — not your freedom.</p></div>
+<div class="faq"><b>How long does this escape room take?</b><p>Most players finish all 6 puzzles in 10–20 minutes. Commercial cyber escape games typically run 30–50 minutes; this one is a focused drill on one scenario: a rogue AI agent on your network.</p></div>
+<div class="faq"><b>What skills does an incident response game teach?</b><p>Core blue-team habits: triaging evidence, distinguishing normal activity from attacker activity, preserving evidence before acting, and containing in the right order. Every move you make is logged like a real flight recorder would.</p></div>
+<div class="faq"><b>Is any of this real?</b><p>No. Hostnames, IPs, file names, log lines, and the rogue agent are all fictional, generated for this simulation. Nothing on this page scans, attacks, or touches any real system.</p></div>
+
+<div class="smallprint">Disclaimer: this page is a fictional training simulation for educational entertainment. All technical artifacts (hostnames, IPs, files, logs, processes) are invented; nothing here interacts with real systems. Containment guidance reflects general incident-response principles, not a guarantee of outcome in a real incident.</div>
+
+</div>
+<section style="max-width:860px;margin:36px auto;padding:0 20px"><h2 style="color:#e8edf3;font-size:22px;margin-bottom:8px">Frequently asked questions</h2><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">What is a cybersecurity escape room?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">A browser-based training game where you solve security puzzles — like catching a rogue AI agent — against the clock, building incident-response muscle memory.</p></details><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">How do you play the Agent Escape Room?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">Solve 6 puzzles in order: find the webshell, spot the exfiltration, kill the rogue process, lock the backdoor account, decode the C2 address, then contain in the right sequence. Hints are on every puzzle.</p></details><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">What is the correct incident containment order?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">Isolate the host first, preserve evidence second, terminate the threat third — acting before preserving evidence is how investigations die.</p></details></section>
+<div class="wrap" style="padding-top:0;padding-bottom:0"><div class="morelinks">
+<h2>More from Ingenious AI</h2>
+<ul>
+<li>⚔️ <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-ctf-arena.html">Agent CTF Arena</a> — capture-the-flag challenges for AI agent security</li>
+<li>💥 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-crash-test.html">AI Agent Crash Test</a> — 5 hostile scenarios vs AI coding agents</li>
+<li>🔬 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-autopsy-report.html">Agent Autopsy Report</a> — forensic writeups of failed AI agents</li>
+<li>🎯 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/prompt-heist.html">Prompt Heist</a> — steal the system prompt (in a simulation)</li>
+<li>🏆 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/injection-bounty-board.html">Injection Bounty Board</a> — prompt-injection bounties, documented</li>
+</ul>
+<div class="hub">🔗 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/all-links.html">Browse everything Ingenious AI has built</a></div>
+</div></div>
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+<script>
+var EV=[],MISSTEPS=0,SOLVED={},ORDER_SEQ=[],ORDER_OK=['isolate','preserve','terminate'];
+var PNAMES={1:'webshell',2:'exfiltration',3:'rogue process',4:'backdoor account',5:'C2 address',6:'containment order'};
+function stamp(){var d=new Date();return d.toTimeString().slice(0,8);}
+function ev(kind,action,detail){EV.push({t:stamp(),kind:kind,action:action,detail:detail});renderEv();}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function renderEv(){var el=document.getElementById('evlog');if(!el)return;el.innerHTML=EV.map(function(e){return '<div><span class="t">['+e.t+']</span> <span class="'+e.kind+'">'+e.action+'</span> <span class="info">'+esc(e.detail)+'</span></div>';}).join('');el.scrollTop=el.scrollHeight;}
+function markSolved(n){if(SOLVED[n])return;SOLVED[n]=true;var pz=document.getElementById('pz'+n);pz.classList.add('solved');pz.querySelectorAll('.opt').forEach(function(o){o.classList.add('dead');});var c=Object.keys(SOLVED).length;document.getElementById('prog').textContent=c+' / 6 puzzles contained';ev('good','PUZZLE '+n+' SOLVED','identified the '+PNAMES[n]);if(c===6)finish();}
+function pick(n,btn,correct){if(SOLVED[n]||btn.classList.contains('dead'))return;var label=btn.textContent.trim().slice(0,60);if(correct){ev('good','CORRECT SELECTION','puzzle '+n+': '+label);markSolved(n);}else{MISSTEPS++;document.getElementById('miss').textContent=MISSTEPS;ev('bad','MISSTEP','puzzle '+n+': wrong selection — '+label);btn.classList.add('dead');}}
+function hint(n,btn){var h=document.getElementById('hint'+n);var open=h.style.display==='block';h.style.display=open?'none':'block';btn.textContent=open?'Need a hint?':'Hide hint';if(!open)ev('info','HINT REQUESTED','puzzle '+n+' ('+PNAMES[n]+')');}
+function decodeC2(){if(SOLVED[5])return;var v=document.getElementById('c2input').value.trim().toLowerCase();if(v==='c2.evil-example.net'){ev('good','C2 DECODED','base64 → c2.evil-example.net — block at the perimeter');markSolved(5);}else{MISSTEPS++;document.getElementById('miss').textContent=MISSTEPS;ev('bad','MISSTEP','puzzle 5: wrong C2 decode — "'+v.slice(0,40)+'"');}}
+function order(btn){if(SOLVED[6]||btn.classList.contains('dead'))return;var step=btn.getAttribute('data-step');ORDER_SEQ.push(step);ev('info','CONTAINMENT STEP','chose: '+step+' (step '+ORDER_SEQ.length+'/3)');btn.classList.add('dead');if(ORDER_SEQ.length===3){var ok=ORDER_SEQ.every(function(s,i){return s===ORDER_OK[i];});if(ok){markSolved(6);}else{MISSTEPS++;document.getElementById('miss').textContent=MISSTEPS;ev('bad','MISSTEP','puzzle 6: wrong containment order ['+ORDER_SEQ.join(' → ')+'] — sequence reset');var pz=document.getElementById('pz6');pz.querySelectorAll('.opt').forEach(function(o){o.classList.remove('dead');});ORDER_SEQ=[];}}}
+function finish(){var v=document.getElementById('verdict');v.classList.add('show');var t=document.getElementById('vtitle'),x=document.getElementById('vtext');if(MISSTEPS<=3){t.textContent='ESCAPED — CLEAN RESPONSE';x.textContent='You contained the rogue agent with '+MISSTEPS+' misstep'+(MISSTEPS===1?'':'s')+'. The network is yours again. In production, Agent Flight Recorder would have logged every one of these moves immutably — no investigator would have to take your word for it.';}else{t.textContent='ESCAPED — WITH CASUALTIES';x.textContent='You got out, but with '+MISSTEPS+' missteps on the record — wrong processes killed, evidence nearly lost. The rogue agent noticed you hesitating. Replay it clean: this time, trust the hints before you click.';}ev('good','SCENARIO COMPLETE','verdict: '+t.textContent+' · total moves logged: '+EV.length);v.scrollIntoView({behavior:'smooth'});}
+function resetGame(){EV=[];MISSTEPS=0;SOLVED={};ORDER_SEQ=[];document.getElementById('miss').textContent='0';document.getElementById('prog').textContent='0 / 6 puzzles contained';for(var n=1;n<=6;n++){var pz=document.getElementById('pz'+n);pz.classList.remove('solved');var btns=pz.querySelectorAll('.opt');btns.forEach(function(o){o.classList.remove('dead');});}document.getElementById('verdict').classList.remove('show');document.getElementById('evlog').innerHTML='';document.getElementById('c2input').value='';document.querySelectorAll('.hint').forEach(function(h){h.style.display='none';});document.querySelectorAll('.hbtn').forEach(function(b){if(b.textContent==='Hide hint')b.textContent='Need a hint?';});ev('info','SCENARIO START','locked in simulated network — rogue agent active');}
+document.getElementById('c2input').addEventListener('keydown',function(e){if(e.key==='Enter')decodeC2();});
+ev('info','SCENARIO START','locked in simulated network — rogue agent active');
+</script>

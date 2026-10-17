@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What LLM Are Companies Running? | Ingenious AI</title>
+<meta name="description" content="Anonymous census of the LLMs companies actually run — GPT-5, Claude, Gemini, Llama, Mistral, DeepSeek, Qwen. No names, no emails. Published results soon.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/shadow-model-census.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="What LLM Are Companies Running? | Ingenious AI">
+<meta property="og:description" content="Anonymous census of the LLMs companies actually run — GPT-5, Claude, Gemini, Llama, Mistral, DeepSeek, Qwen. No names, no emails. Published results soon.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/shadow-model-census.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="What LLM Are Companies Running? | Ingenious AI">
+<meta name="twitter:description" content="Anonymous census of the LLMs companies actually run — GPT-5, Claude, Gemini, Llama, Mistral, DeepSeek, Qwen. No names, no emails. Published results soon.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Shadow Model Census — What LLMs Are Companies Actually Running?","description":"An anonymous census asking what AI models companies actually run in production, across coding, support, internal tools and customer-facing use cases.","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/shadow-model-census.html","author":{"@type":"Organization","name":"Ingenious AI"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is the Shadow Model Census anonymous?","acceptedAnswer":{"@type":"Answer","text":"Yes. The form asks for no names, no emails, no company names, and no IP addresses. Responses are stored only in your browser's localStorage as a device-only demo."}},{"@type":"Question","name":"Which LLM do most companies use?","acceptedAnswer":{"@type":"Answer","text":"GoodFirms AI-tool tracking of 14,022 active companies finds ChatGPT used by 11,359 companies, Claude by 10,103, and Gemini by 4,294. Stack Overflow's 2026 developer survey found Anthropic and OpenAI neck and neck at ~75% usage each."}},{"@type":"Question","name":"Why is it called a shadow model census?","acceptedAnswer":{"@type":"Answer","text":"Because much enterprise AI use is shadow IT: Stack Overflow's 2026 developer survey found only 24% of companies have published an approved AI toolset or formal AI policy, leaving most tool choices to individuals."}},{"@type":"Question","name":"When will the published census be released?","acceptedAnswer":{"@type":"Answer","text":"After enough responses come in, the aggregated results will be published as a public census. Subscribe to the Ingenious AI newsletter to be notified when it launches."}}],"about":{"@type":"Thing","name":"enterprise LLM adoption"},"keywords":"what llm are companies using, enterprise ai adoption survey, shadow ai census, enterprise llm statistics"}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:900px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a1f08;border:1px solid #d29922;color:#ffce63;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h2{font-size:22px;margin:30px 0 12px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+p{margin-bottom:14px}
+.honest{background:#0d2b3d;border:1px solid #1c6ef2;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#bcd7f5}
+.stat{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:20px 22px;margin:18px 0}
+.stat h2{margin-top:0;font-size:20px}
+.stat .num{font-size:30px;font-weight:700;color:#ffce63}
+.stat .src{font-size:13px;color:#9aa7b8;margin-top:8px}
+.stat .src a{color:#6ea8fe}
+.survey{background:#11161f;border:1px solid #1c6ef2;border-radius:12px;padding:24px;margin:22px 0}
+.survey h2{margin-top:0}
+.survey fieldset{border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:14px 0}
+.survey legend{font-weight:700;font-size:15px;padding:0 8px;color:#6ea8fe}
+.survey label{display:block;font-size:15px;margin:9px 0;cursor:pointer}
+.survey input[type="checkbox"],.survey input[type="radio"]{margin-right:10px;accent-color:#1c6ef2;transform:scale(1.15)}
+.survey input[type="text"]{background:#0b0f17;border:1px solid #2a3342;border-radius:6px;color:#e6edf3;padding:8px 12px;font-size:14px;margin-left:6px;width:220px;font-family:inherit}
+button.submit{background:#1c6ef2;color:#fff;border:none;border-radius:8px;padding:12px 30px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;margin-top:8px}
+button.submit:hover{background:#2b7fff}
+.results{background:#0e1a12;border:1px solid #2ea043;border-radius:12px;padding:20px 22px;margin:22px 0;display:none}
+.results h2{margin-top:0}
+.results .row{display:flex;align-items:center;margin:8px 0;font-size:14.5px}
+.results .lbl{width:180px;color:#9aa7b8}
+.results .barwrap{flex:1;background:#0b0f17;border:1px solid #232b38;border-radius:999px;height:12px;overflow:hidden}
+.results .barfill{height:100%;background:linear-gradient(90deg,#2ea043,#1c6ef2);width:0%}
+.results .n{width:60px;text-align:right;color:#7ee2a8;font-weight:700}
+.cta{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:22px;margin:28px 0;text-align:center}
+.cta .lbl{font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px;margin:6px}
+.btn:hover{background:#2b7fff}
+.btn.alt{background:#212a38;color:#e6edf3;border:1px solid #2a3342}
+.btn.alt:hover{border-color:#1c6ef2;background:#26303f}
+.sharecard{background:#0d1420;border:2px dashed #1c6ef2;border-radius:12px;padding:24px;margin:22px 0;text-align:center}
+.sharecard .st{font-size:19px;font-weight:700;line-height:1.5}
+.sharecard .src{font-size:13px;color:#9aa7b8;margin-top:10px}
+button.copy{background:#232b38;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;margin-top:12px;font-family:inherit}
+button.copy:hover{border-color:#1c6ef2}
+.more{background:#0d1420;border:1px solid #232b38;border-radius:10px;padding:20px;margin:28px 0}
+.more h2{margin-top:0}
+.more ul{list-style:none;margin-top:8px}
+.more li{margin:8px 0;font-size:15px}
+.more a{color:#6ea8fe;text-decoration:none}
+.more a:hover{text-decoration:underline}
+.faq{margin:10px 0;border-bottom:1px solid #1c2330;padding:12px 0}
+.faq b{display:block;font-size:15.5px;margin-bottom:6px}
+.faq p{font-size:14.5px;color:#9aa7b8}
+.smallprint{font-size:13px;color:#6b7688;margin-top:30px}
+a{color:#6ea8fe}
+</style>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<span class="badge">🕵️ ANONYMOUS SURVEY</span>
+<h1>Shadow Model Census</h1>
+<p class="lead">"What models is your company actually running?" Vendor press releases say one thing. Procurement dashboards say another. This anonymous census asks the people who see production traffic every day — no names, no emails, no company names, no tracking. The aggregate becomes the public census.</p>
+
+<div class="honest"><strong>Honest banner:</strong> this form collects <strong>no identifying fields</strong> — no name, no email, no company name, no IP logging. Submissions are stored only in your browser's <strong>localStorage</strong> as a device-only demo so you can see how the aggregate view works. The <strong>published census launches after enough responses come in</strong> — <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/newsletter.html" style="color:#6ea8fe">subscribe to the newsletter</a> to get it the day it drops.</div>
+
+<h2>What the official surveys already tell us</h2>
+
+<div class="stat">
+<h2>Which LLM do most companies use?</h2>
+<p style="margin:12px 0">GoodFirms' AI-tool tracking of <strong>14,022 active companies</strong>: <strong>ChatGPT — 11,359</strong> companies · <strong>Claude — 10,103</strong> · <strong>Gemini — 4,294</strong>. At the developer level it's neck and neck: Stack Overflow's 2026 survey found <strong>Anthropic 74.4% vs OpenAI 74.1%</strong> usage — but 49% of developers want to use Anthropic next year vs 32.1% for OpenAI.</p>
+<div class="src">Sources: <a href="https://ssquares.tech/ai-adoption-statistics-2026-survey-of-343-business-leaders/" target="_blank" rel="noopener">ssquares.tech / GoodFirms data</a> · <a href="https://stackoverflow.co/company/press/archive/stack-overflow-annual-developer-survey-ai-trust-conditional/" target="_blank" rel="noopener">Stack Overflow 2026 survey</a></div>
+</div>
+
+<div class="stat">
+<h2>The shadow gap</h2>
+<p style="margin:12px 0">Stack Overflow's 2026 developer survey found that only <strong>24% of companies</strong> have published an approved AI toolset or a formal AI policy — leaving the majority of developers making tool choices individually. If you run a model at work that procurement doesn't know about, congratulations: you're shadow AI, and this census is for you.</p>
+<div class="src">Source: <a href="https://www.comparethecloud.net/news/stack-overflows-2026-developer-survey-83-use-ai-tools-but-only-66-trust-ai-for-important-decisions" target="_blank" rel="noopener">comparethecloud / Stack Overflow 2026</a></div>
+</div>
+
+<div class="stat">
+<h2>Enterprise frontier-LLM spend</h2>
+<p style="margin:12px 0">A June 2026 research compilation (McKinsey, BCG, Gartner, Deloitte, IBM, KPMG surveys) estimates <strong>~85–90% of large enterprises</strong> have at least one production LLM deployment, <strong>55–65% run multiple frontier LLMs concurrently</strong>, and enterprise frontier-LLM API spend topped <strong>$15B in H1 2026</strong> — on track to exceed $35B for the full year. Estimated enterprise spend share: OpenAI ~40–45%, Anthropic ~25–30%, Google ~15–18%, Meta 5–8%.</p>
+<div class="src">Source: <a href="https://presenc.ai/research/enterprise-llm-adoption-statistics-june-2026" target="_blank" rel="noopener">presenc.ai research compilation</a> (June 2026)</div>
+</div>
+
+<div class="survey">
+<h2>📋 The census — 3 questions, 30 seconds, zero identity</h2>
+<form id="censusForm">
+<fieldset>
+<legend>1. Which models is your company actually running? (check all that apply)</legend>
+<label><input type="checkbox" name="model" value="GPT-5.x"> GPT-5.x</label>
+<label><input type="checkbox" name="model" value="Claude"> Claude</label>
+<label><input type="checkbox" name="model" value="Gemini"> Gemini</label>
+<label><input type="checkbox" name="model" value="Llama"> Llama</label>
+<label><input type="checkbox" name="model" value="Mistral"> Mistral</label>
+<label><input type="checkbox" name="model" value="DeepSeek"> DeepSeek</label>
+<label><input type="checkbox" name="model" value="Qwen"> Qwen</label>
+<label><input type="checkbox" name="model" value="Other" id="otherModel"> Other <input type="text" id="otherModelText" placeholder="e.g. Grok, Falcon, Yi" aria-label="Other model name"></label>
+</fieldset>
+<fieldset>
+<legend>2. Main use case</legend>
+<label><input type="radio" name="usecase" value="Coding"> Coding / engineering</label>
+<label><input type="radio" name="usecase" value="Support"> Customer support</label>
+<label><input type="radio" name="usecase" value="Internal tools"> Internal tools / knowledge</label>
+<label><input type="radio" name="usecase" value="Customer-facing"> Customer-facing product</label>
+</fieldset>
+<fieldset>
+<legend>3. Company size band</legend>
+<label><input type="radio" name="size" value="<50"> &lt;50 people</label>
+<label><input type="radio" name="size" value="50-500"> 50–500 people</label>
+<label><input type="radio" name="size" value="500+"> 500+ people</label>
+</fieldset>
+<button type="submit" class="submit">Submit anonymously →</button>
+<p style="font-size:13px;color:#9aa7b8;margin-top:10px">No name, no email, no company name, no IP. Stored only on this device for this demo.</p>
+</form>
+</div>
+
+<div class="results" id="resultsBox">
+<h2>📊 Live aggregate — this device (demo)</h2>
+<p style="font-size:13px;color:#9aa7b8" id="respCount">0 responses on this device</p>
+<div id="resultsModels"></div>
+<div id="resultsUsecases"></div>
+<div id="resultsSizes"></div>
+</div>
+
+<div class="cta">
+<div class="lbl">FROM INGENIOUS AI</div>
+<p style="font-size:17px;margin-bottom:6px"><strong>ModelMinder</strong> is our model deprecation radar: it tracks the models in your stack — pricing moves, version retirements, quiet downgrades — so procurement always knows what's actually running and what it's about to cost.</p>
+<p style="font-size:13px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now, or get the whole suite:</p>
+<a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder.">Get ModelMinder early access →</a><br>
+<a class="btn alt" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html">See the full Security Suite →</a>
+</div>
+
+<div class="sharecard">
+<div class="st">"What models is your company actually running?" — anonymous 3-question census. No names, no emails, no tracking.</div>
+<div class="src">ingeniousai-security-checks-mirror · Shadow Model Census</div>
+<button class="copy" onclick="navigator.clipboard.writeText('What LLMs is your company ACTUALLY running? Anonymous 3-question census — no names, no emails: https://iceman2050.github.io/ingeniousai-security-checks-mirror/shadow-model-census.html');this.textContent='Copied!';">Copy share text</button>
+<div style="margin-top:12px"><a href="https://twitter.com/intent/tweet?text=What%20LLMs%20is%20your%20company%20ACTUALLY%20running%3F%20Anonymous%203-question%20census&url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fshadow-model-census.html" target="_blank" rel="noopener" style="margin-right:14px">Share on X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fshadow-model-census.html" target="_blank" rel="noopener">Share on LinkedIn</a></div>
+</div>
+
+<div class="cta">
+<div class="lbl">NEWSLETTER</div>
+<p style="font-size:17px;margin-bottom:6px">The published census launches after enough responses — get the results (and every research drop) in your inbox.</p>
+<a class="btn" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/newsletter.html">Subscribe to the newsletter →</a>
+</div>
+
+<div class="more">
+<h2>More from Ingenious AI</h2>
+<ul>
+<li>🪦 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-obituaries/index.html">Model Obituaries — retired models, properly eulogized</a></li>
+<li>🔍 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/transparent-ai-index.html">Transparent AI Index — which vendors actually disclose</a></li>
+<li>🗺️ <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-stack-mapper.html">AI Stack Mapper — map the models in your stack</a></li>
+<li>📉 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-downgrade-detector.html">Model Downgrade Detector — catch quiet quality drops</a></li>
+<li>🧭 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/all-links.html">Browse everything Ingenious AI has built</a></li>
+</ul>
+</div>
+
+<h2>FAQ</h2>
+<div class="faq"><b>Is the Shadow Model Census anonymous?</b><p>Yes. The form asks for no names, no emails, no company names and collects no IP addresses. Responses are stored only in your browser's localStorage as a device-only demo so you can see how the aggregate view works.</p></div>
+<div class="faq"><b>Why is it called a "shadow" model census?</b><p>Because much enterprise AI use is shadow IT: Stack Overflow's 2026 developer survey found only 24% of companies have published an approved AI toolset or formal AI policy, leaving the majority of developers making tool choices individually.</p></div>
+<div class="faq"><b>Which LLM do most companies use?</b><p>GoodFirms' AI-tool tracking of 14,022 active companies finds ChatGPT used by 11,359 companies, Claude by 10,103, and Gemini by 4,294. Stack Overflow's 2026 developer survey found Anthropic and OpenAI usage neck and neck at roughly 75% each.</p></div>
+<div class="faq"><b>How much are enterprises spending on LLMs?</b><p>A June 2026 compilation of major research-firm surveys estimates enterprise frontier-LLM API spend topped $15B in H1 2026, on track to exceed $35B for the full year — with 85–90% of large enterprises reporting at least one production LLM deployment.</p></div>
+<div class="faq"><b>When will the published census be released?</b><p>After enough responses come in, the aggregated results will be published as a public census. Subscribe to the Ingenious AI newsletter to be notified the day it launches.</p></div>
+
+<div class="smallprint">Disclaimer: survey statistics cited above come from the linked third-party research (GoodFirms via ssquares.tech, Stack Overflow 2026 Developer Survey, presenc.ai research compilation) and are reproduced as published — methodologies and sample populations differ. This demo form stores responses only on your device.</div>
+
+</div>
+<section style="max-width:860px;margin:36px auto;padding:0 20px"><h2 style="color:#e8edf3;font-size:22px;margin-bottom:8px">Frequently asked questions</h2><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">Is the Shadow Model Census anonymous?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">Yes. The form asks for no names, no emails, no company names and collects no IP addresses. Responses are stored only in your browser's localStorage as a device-only demo.</p></details><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">Why is it called a "shadow" model census?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">Because much enterprise AI use is shadow IT: Stack Overflow's 2026 developer survey found only 24% of companies have published an approved AI toolset or formal AI policy.</p></details><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">Which LLM do most companies use?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">GoodFirms' AI-tool tracking of 14,022 active companies finds ChatGPT used by 11,359 companies, Claude by 10,103, and Gemini by 4,294. Stack Overflow's 2026 developer survey found Anthropic and OpenAI usage neck and neck at roughly 75% each.</p></details><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">How much are enterprises spending on LLMs?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">A June 2026 compilation of major research-firm surveys estimates enterprise frontier-LLM API spend topped $15B in H1 2026, on track to exceed $35B for the full year.</p></details><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">When will the published census be released?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">After enough responses come in, the aggregated results will be published as a public census. Subscribe to the Ingenious AI newsletter to be notified the day it launches.</p></details></section>
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+<script>
+(function(){
+  var KEY='shadow-model-census-responses';
+  var MODELS=['GPT-5.x','Claude','Gemini','Llama','Mistral','DeepSeek','Qwen','Other'];
+  function load(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return[]}}
+  function save(r){try{localStorage.setItem(KEY,JSON.stringify(r))}catch(e){}}
+  function rows(container, labels, counts, total){
+    var el=document.getElementById(container); if(!el)return; el.innerHTML='';
+    labels.forEach(function(l){
+      var n=counts[l]||0; var pct=total?Math.round(n/total*100):0;
+      el.innerHTML+='<div class="row"><div class="lbl">'+l+'</div><div class="barwrap"><div class="barfill" style="width:'+pct+'%"></div></div><div class="n">'+n+'</div></div>';
+    });
+  }
+  function render(){
+    var r=load(); var total=r.length;
+    document.getElementById('respCount').textContent=total+' response'+(total===1?'':'s')+' on this device (demo)';
+    var mc={},uc={},sc={};
+    r.forEach(function(x){
+      (x.models||[]).forEach(function(m){mc[m]=(mc[m]||0)+1});
+      if(x.usecase)uc[x.usecase]=(uc[x.usecase]||0)+1;
+      if(x.size)sc[x.size]=(sc[x.size]||0)+1;
+    });
+    rows('resultsModels',MODELS,mc,total);
+    rows('resultsUsecases',['Coding','Support','Internal tools','Customer-facing'],uc,total);
+    rows('resultsSizes',['<50','50-500','500+'],sc,total);
+    document.getElementById('resultsBox').style.display='block';
+  }
+  document.getElementById('censusForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var models=[];
+    document.querySelectorAll('input[name="model"]:checked').forEach(function(c){
+      if(c.value==='Other'){
+        var t=document.getElementById('otherModelText').value.trim();
+        models.push(t?('Other: '+t):'Other');
+      }else models.push(c.value);
+    });
+    var uc=document.querySelector('input[name="usecase"]:checked');
+    var sz=document.querySelector('input[name="size"]:checked');
+    if(!models.length){alert('Please check at least one model.');return;}
+    if(!uc||!sz){alert('Please answer all three questions.');return;}
+    var r=load();
+    r.push({models:models,usecase:uc.value,size:sz.value});
+    save(r); render();
+    document.getElementById('resultsBox').scrollIntoView({behavior:'smooth'});
+  });
+  if(load().length)render();
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "What LLM Are Companies Running? | Ingenious AI",
+  "description": "Anonymous census of the LLMs companies actually run — GPT-5, Claude, Gemini, Llama, Mistral, DeepSeek, Qwen. No names, no emails. Published results soon.",
+  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/shadow-model-census.html",
+  "about": [
+    {"@type": "Thing","name": "enterprise LLM adoption"},
+    {"@type": "Thing","name": "shadow AI"},
+    {"@type": "Thing","name": "LLM survey statistics"}
+  ],
+  "keywords": "what LLM are companies using, enterprise AI adoption survey, shadow AI census, enterprise LLM statistics",
+  "publisher": {"@type": "Organization","name": "Ingenious AI","url": "https://github.com/Iceman2050"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question","name": "Is the Shadow Model Census anonymous?","acceptedAnswer": {"@type": "Answer","text": "Yes. The form asks for no names, no emails, no company names and collects no IP addresses. Responses are stored only in your browser's localStorage as a device-only demo."}},
+    {"@type": "Question","name": "Why is it called a \"shadow\" model census?","acceptedAnswer": {"@type": "Answer","text": "Because much enterprise AI use is shadow IT: Stack Overflow's 2026 developer survey found only 24% of companies have published an approved AI toolset or formal AI policy, leaving the majority of developers making tool choices individually."}},
+    {"@type": "Question","name": "Which LLM do most companies use?","acceptedAnswer": {"@type": "Answer","text": "GoodFirms' AI-tool tracking of 14,022 active companies finds ChatGPT used by 11,359 companies, Claude by 10,103, and Gemini by 4,294. Stack Overflow's 2026 developer survey found Anthropic and OpenAI usage neck and neck at roughly 75% each."}},
+    {"@type": "Question","name": "How much are enterprises spending on LLMs?","acceptedAnswer": {"@type": "Answer","text": "A June 2026 compilation of major research-firm surveys estimates enterprise frontier-LLM API spend topped $15B in H1 2026, on track to exceed $35B for the full year — with 85–90% of large enterprises reporting at least one production LLM deployment."}},
+    {"@type": "Question","name": "When will the published census be released?","acceptedAnswer": {"@type": "Answer","text": "After enough responses come in, the aggregated results will be published as a public census. Subscribe to the Ingenious AI newsletter to be notified the day it launches."}}
+  ]
+}
+</script>
+</body>
+</html>

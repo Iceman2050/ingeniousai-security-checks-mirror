@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Coding Assistant Mistakes — Confessional | Ingenious AI</title>
+<meta name="description" content="Anonymous confessional for AI coding assistant mistakes — what did your AI copilot ship into production? Confessions stay on your device only. Confess, learn.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/vibe-code-confessional.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="AI Coding Assistant Mistakes — Confessional | Ingenious AI">
+<meta property="og:description" content="Anonymous confessional for AI coding assistant mistakes — what did your AI copilot ship into production? Confessions stay on your device only. Confess, learn.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/vibe-code-confessional.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Coding Assistant Mistakes — Confessional | Ingenious AI">
+<meta name="twitter:description" content="Anonymous confessional for AI coding assistant mistakes — what did your AI copilot ship into production? Confessions stay on your device only. Confess, learn.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"AI Coding Assistant Mistakes — The Confessional","description":"Anonymous confessional for AI coding assistant mistakes: what did your AI coding assistant ship into production? Confessions are stored on your device only.","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/vibe-code-confessional.html","author":{"@type":"Organization","name":"Ingenious AI"},"about":{"@type":"Thing","name":"AI coding assistant security mistakes"},"keywords":"ai coding assistant mistakes, ai coding assistant security risks, github copilot security risks, ai generated code vulnerabilities, vibe coding security"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can AI coding assistants leak secrets into production code?","acceptedAnswer":{"@type":"Answer","text":"Yes. GitGuardian's State of Secrets Sprawl research found 6.4% of repositories with Copilot enabled leaked at least one secret — 40% above the public baseline. Common paths: hard-coded credentials the assistant suggested, secrets pasted into prompts, and credentials committed alongside AI-generated config files."}},{"@type":"Question","name":"What are the most common AI coding assistant mistakes?","acceptedAnswer":{"@type":"Answer","text":"Accepting suggestions without reading them; shipping code with missing input sanitization (the most common AI-code flaw in academic testing); hard-coded credentials; service-role keys dropped into client code; and vague prompts that produce subtly wrong code."}},{"@type":"Question","name":"Is AI-generated code safe to ship without a review?","acceptedAnswer":{"@type":"Answer","text":"No. Academic audits find roughly 15-25% of AI-generated code samples contain security vulnerabilities. Treat every AI suggestion as a first draft: read it fully, run static analysis and secrets scanning, and require human review for anything security-sensitive before it reaches production."}},{"@type":"Question","name":"How do I stop my AI coding assistant from shipping secrets?","acceptedAnswer":{"@type":"Answer","text":"Keep secrets out of prompts, use a secrets manager, add pre-commit secrets scanning, review every AI-generated diff before merging, and restrict the assistant's file access so it cannot read .env files or credential stores."}}]}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:900px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a1f08;border:1px solid #d29922;color:#ffce63;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h2{font-size:22px;margin:30px 0 12px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+p{margin-bottom:14px}
+.honest{background:#0d2b3d;border:1px solid #1c6ef2;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#bcd7f5}
+.scenario{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:22px;margin:18px 0}
+.scenario h2{margin-top:0;font-size:20px}
+.confess{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:22px;margin:18px 0}
+.confess .who{font-size:13px;color:#9aa7b8;margin-bottom:6px}
+.confess .sev{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;margin-left:8px}
+.sev.s1,.sev.s2{background:#0e1a12;border:1px solid #2ea043;color:#7ee2a8}
+.sev.s3{background:#2a1f08;border:1px solid #d29922;color:#ffce63}
+.sev.s4,.sev.s5{background:#2b1210;border:1px solid #f85149;color:#ff9e9e}
+.example-tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1px;background:#2a1f08;border:1px solid #d29922;color:#ffce63;border-radius:6px;padding:2px 8px;margin-bottom:8px}
+.form{background:#0d1420;border:1px solid #1c6ef2;border-radius:12px;padding:22px;margin:22px 0}
+.form label{display:block;font-size:14px;font-weight:700;margin:14px 0 6px;color:#c9d4e3}
+.form textarea{width:100%;min-height:110px;background:#0b0f17;border:1px solid #2a3342;border-radius:8px;color:#e6edf3;padding:12px;font-size:14.5px;font-family:inherit;resize:vertical}
+.form select,.form input[type=range]{width:100%}
+.form select{background:#0b0f17;border:1px solid #2a3342;border-radius:8px;color:#e6edf3;padding:10px;font-size:14.5px;font-family:inherit}
+.statbox{background:#0d1420;border:1px solid #2a3342;border-radius:10px;padding:16px 18px;margin:18px 0;display:flex;gap:24px;flex-wrap:wrap}
+.statbox .stat b{display:block;font-size:24px;color:#6ea8fe}
+.statbox .stat span{font-size:12.5px;color:#9aa7b8}
+.guardrail{background:#0e1a12;border:1px solid #2ea043;border-radius:10px;padding:14px 16px;margin:14px 0;font-size:14px}
+.guardrail b{color:#7ee2a8}
+.cta{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:22px;margin:28px 0;text-align:center}
+.cta .lbl{font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px;margin:6px}
+.btn:hover{background:#2b7fff}
+.btn.alt{background:#212a38;color:#e6edf3;border:1px solid #2a3342}
+.btn.alt:hover{border-color:#1c6ef2;background:#26303f}
+.sharecard{background:#0d1420;border:2px dashed #1c6ef2;border-radius:12px;padding:24px;margin:22px 0;text-align:center}
+.sharecard .st{font-size:19px;font-weight:700;line-height:1.5}
+.sharecard .src{font-size:13px;color:#9aa7b8;margin-top:10px}
+button.copy{background:#232b38;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;margin-top:12px;font-family:inherit}
+button.copy:hover{border-color:#1c6ef2}
+button.plain{background:#232b38;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
+button.plain:hover{border-color:#f85149}
+.faq{margin:10px 0;border-bottom:1px solid #1c2330;padding:12px 0}
+.faq b{display:block;font-size:15.5px;margin-bottom:6px}
+.faq p{font-size:14.5px;color:#9aa7b8}
+.morelinks{background:#0d1420;border:1px solid #2a3342;border-radius:12px;padding:22px;margin:28px 0}
+.morelinks h2{margin-top:0;font-size:19px}
+.morelinks ul{list-style:none;padding:0}
+.morelinks li{margin:8px 0;font-size:15px}
+.morelinks a{color:#6ea8fe;text-decoration:none}
+.morelinks a:hover{text-decoration:underline}
+.morelinks .hub{margin-top:14px;padding-top:14px;border-top:1px solid #232b38;font-weight:700}
+.smallprint{font-size:13px;color:#6b7688;margin-top:30px}
+a{color:#6ea8fe}
+</style>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<span class="badge">ANONYMOUS CONFESSIONAL</span>
+<h1>The Vibe Code Confessional</h1>
+<p class="lead">"What did your AI coding assistant ship into production?" Confess it here. Research keeps finding the same pattern: developers trust AI suggestions, skip the review, and the secret or the vulnerability ships at 2am. This wall is where those stories live — so nobody else has to live them.</p>
+
+<div class="honest"><strong>Honest banner:</strong> Confessions on this page are stored <strong>only in your browser's localStorage — on this device only</strong>. Nothing is uploaded, sent, or shared with us or anyone else. The three cards labeled EXAMPLE are <strong>illustrative seed confessions, not real reports</strong>. Your entries can be wiped at any time with the "Wipe this device's wall" button below. Never include real secrets, API keys, company names, or credentials in a confession — this is a cathartic wall, not a vault.</div>
+
+<div class="statbox" id="stats">
+<div class="stat"><b id="stotal">3</b><span>confessions on this device</span></div>
+<div class="stat"><b id="savg">3.3</b><span>average "how bad" rating</span></div>
+<div class="stat"><b id="stop">—</b><span>most-blamed assistant (device only)</span></div>
+</div>
+<p style="font-size:12.5px;color:#6b7688;margin-top:-10px">Stats above are computed locally from this device's wall only — we have no access to them.</p>
+
+<div class="form">
+<h2 style="margin-top:0">Confess (anonymous, device-only)</h2>
+<form id="confessForm" onsubmit="return addConfession(event)">
+<label for="ftext">What happened?</label>
+<textarea id="ftext" required maxlength="800" placeholder="e.g. I let my coding assistant write the deploy script and it hardcoded the database password…"></textarea>
+<label for="fassistant">Which assistant?</label>
+<select id="fassistant">
+<option>GitHub Copilot</option>
+<option>ChatGPT / Codex</option>
+<option>Claude / Claude Code</option>
+<option>Cursor</option>
+<option>Gemini</option>
+<option>Windsurf</option>
+<option>Another AI assistant</option>
+<option>Prefer not to say</option>
+</select>
+<label for="fsev">How bad was it? <span id="sevlabel" style="color:#ffce63;font-weight:800">3</span>/5</label>
+<input type="range" id="fsev" min="1" max="5" value="3" oninput="document.getElementById('sevlabel').textContent=this.value">
+<div style="margin-top:16px"><button class="copy" type="submit">Post confession to this device's wall →</button></div>
+<p style="font-size:12.5px;color:#6b7688;margin-top:10px">Stored in this browser only. Do not paste real keys, credentials, or company names.</p>
+</form>
+</div>
+
+<h2>The wall</h2>
+<div id="wall"></div>
+<div style="margin:16px 0"><button class="plain" onclick="wipeWall()">Wipe this device's wall</button></div>
+
+<div class="guardrail"><b>The pattern behind these confessions:</b> security research consistently finds the same root causes — developers accept AI suggestions without reading them, prompts omit security context, and credentials end up hard-coded because the assistant "helpfully" wrote them in. The fix is procedural, not personal: review every AI diff, run secrets scanning before every commit, and keep credentials out of prompts entirely.</div>
+
+<div class="cta">
+<div class="lbl">FROM INGENIOUS AI</div>
+<p style="font-size:17px;margin-bottom:6px"><strong>Vibe-Code Audit</strong> reviews AI-written code for the exact failure modes on this wall — leaked secrets, injection flaws, and missing validation — before they reach production.</p>
+<p style="font-size:13px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</p>
+<a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit.">Get Vibe-Code Audit early access →</a>
+<p style="font-size:13px;color:#9aa7b8;margin-top:12px">Or explore the full bundle: <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html">The Ingenious AI Security Suite</a></p>
+</div>
+
+<div class="sharecard">
+<div class="st">"What did your AI coding assistant ship into production?" — the anonymous confessional for vibe-coding war stories. Confessions stay on your device only.</div>
+<div class="src">ingeniousai-security-checks-mirror · Vibe Code Confessional</div>
+<button class="copy" onclick="navigator.clipboard.writeText('What did your AI coding assistant ship into production? Confess anonymously (device-only) at the Vibe Code Confessional https://iceman2050.github.io/ingeniousai-security-checks-mirror/vibe-code-confessional.html');this.textContent='Copied!';">Copy share text</button>
+<div style="margin-top:12px"><a href="https://twitter.com/intent/tweet?text=What%20did%20your%20AI%20coding%20assistant%20ship%20into%20production%3F%20The%20anonymous%20vibe-code%20confessional&url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fvibe-code-confessional.html" target="_blank" rel="noopener" style="margin-right:14px">Share on X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fvibe-code-confessional.html" target="_blank" rel="noopener">Share on LinkedIn</a></div>
+</div>
+
+<h2>FAQ</h2>
+<div class="faq"><b>Can AI coding assistants leak secrets into production code?</b><p>Yes. GitGuardian's State of Secrets Sprawl research found 6.4% of repositories with Copilot enabled leaked at least one secret — 40% above the public baseline. Common paths: hard-coded credentials the assistant suggested, secrets pasted into prompts, and credentials committed alongside AI-generated config files.</p></div>
+<div class="faq"><b>What are the most common AI coding assistant mistakes?</b><p>Accepting suggestions without reading them; shipping code with missing input sanitization (the most common AI-code flaw in academic testing); hard-coded credentials; service-role keys dropped into client code; and vague prompts that produce subtly wrong code.</p></div>
+<div class="faq"><b>Is AI-generated code safe to ship without a review?</b><p>No. Academic audits find roughly 15–25% of AI-generated code samples contain security vulnerabilities. Treat every AI suggestion as a first draft: read it fully, run static analysis and secrets scanning, and require human review for anything security-sensitive before it reaches production.</p></div>
+<div class="faq"><b>How do I stop my AI coding assistant from shipping secrets?</b><p>Keep secrets out of prompts, use a secrets manager, add pre-commit secrets scanning, review every AI-generated diff before merging, and restrict the assistant's file access so it cannot read .env files or credential stores.</p></div>
+<div class="faq"><b>Which platform audits AI-written code before production?</b><p>Vibe-Code Audit is our code-review platform for AI-generated code — it flags the failure modes on this wall (leaked secrets, injection flaws, missing validation) before they ship. It returns November 1; early access is open now via the button above.</p></div>
+
+<div class="smallprint">Disclaimer: confessions are stored in your browser's localStorage on this device only and are never transmitted anywhere. The three EXAMPLE cards are illustrative seed entries, not real reports. Do not include real secrets, credentials, or identifying information in any confession. This page is educational entertainment; audit descriptions are architectural guidance, not a guarantee of protection.</div>
+
+</div>
+<section style="max-width:860px;margin:36px auto;padding:0 20px"><h2 style="color:#e8edf3;font-size:22px;margin-bottom:8px">Frequently asked questions</h2><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">What are AI coding assistant mistakes?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">The recurring failure modes when developers trust AI-generated code without review: leaked secrets, missing input validation, insecure defaults, and subtly wrong logic that looks correct at a glance.</p></details><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">Can GitHub Copilot leak my secrets?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">It can help leak them: research found repos using Copilot leak secrets at a 40% higher rate than average, mostly via hard-coded credentials the assistant suggested or that developers committed alongside generated code. Keep secrets out of prompts and scan before every commit.</p></details><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">Are my confessions really private?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">Yes. Everything on this page lives in your browser's localStorage on this device only — nothing is uploaded or shared. The wipe button deletes it all.</p></details></section>
+<div class="wrap" style="padding-top:0;padding-bottom:0"><div class="morelinks">
+<h2>More from Ingenious AI</h2>
+<ul>
+<li>🕹️ <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-escape-room.html">Agent Escape Room</a> — escape a compromised network with a rogue agent in 6 puzzles</li>
+<li>⚔️ <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-ctf-arena.html">Agent CTF Arena</a> — capture-the-flag challenges for AI agent security</li>
+<li>🛡️ <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-security-badge.html">AI Security Badge</a> — earn and share your AI-security readiness badge</li>
+<li>🏆 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/injection-hall-of-fame.html">Injection Hall of Fame</a> — the greatest prompt-injection hits, documented</li>
+</ul>
+<div class="hub">🔗 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/all-links.html">Browse everything Ingenious AI has built</a></div>
+</div></div>
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+<script>
+var SEED=[
+{assistant:"GitHub Copilot",sev:5,example:true,text:"I committed an AWS key at 2am because my coding assistant auto-completed the deploy config and I hit accept without reading the diff. Rotated it the next morning. The guilt rotation took longer."},
+{assistant:"ChatGPT / Codex",sev:4,example:true,text:"Shipped a SQL injection the linter missed. The assistant wrote the query with string concatenation, it looked clean, tests passed. A security scan caught it in staging two days later."},
+{assistant:"Claude / Claude Code",sev:1,example:true,text:"Deployed an infinite retry loop that cost $400 in API calls overnight. The assistant added 'just retry until success' to the sync job. It succeeded. So did the bill."}
+];
+function loadWall(){try{var w=JSON.parse(localStorage.getItem('vcc_wall')||'null');if(!w){w=SEED;localStorage.setItem('vcc_wall',JSON.stringify(w));}return w;}catch(e){return SEED.slice();}}
+function saveWall(w){try{localStorage.setItem('vcc_wall',JSON.stringify(w));}catch(e){}}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function renderWall(){
+var w=loadWall();
+var html=w.map(function(c){
+return '<div class="confess">'+(c.example?'<span class="example-tag">EXAMPLE</span><br>':'')+'<div class="who">'+esc(c.assistant)+'<span class="sev s'+c.sev+'">how bad: '+c.sev+'/5</span></div><p style="margin-bottom:0">'+esc(c.text)+'</p></div>';
+}).join('');
+document.getElementById('wall').innerHTML=html||'<p style="color:#6b7688">The wall is empty on this device. Be the first to confess.</p>';
+var n=w.length,avg=n?(w.reduce(function(a,c){return a+c.sev;},0)/n).toFixed(1):'—';
+var counts={};w.forEach(function(c){counts[c.assistant]=(counts[c.assistant]||0)+1;});
+var top='—',mx=0;for(var k in counts){if(counts[k]>mx){mx=counts[k];top=k;}}
+document.getElementById('stotal').textContent=n;
+document.getElementById('savg').textContent=avg;
+document.getElementById('stop').textContent=top.length>18?top.slice(0,18)+'…':top;
+}
+function addConfession(e){
+e.preventDefault();
+var text=document.getElementById('ftext').value.trim();
+if(!text)return false;
+var w=loadWall();
+w.unshift({assistant:document.getElementById('fassistant').value,sev:parseInt(document.getElementById('fsev').value,10),text:text,example:false});
+saveWall(w);renderWall();
+document.getElementById('confessForm').reset();
+document.getElementById('sevlabel').textContent='3';
+document.getElementById('wall').scrollIntoView({behavior:'smooth'});
+return false;
+}
+function wipeWall(){if(confirm('Wipe every confession stored on this device?')){try{localStorage.removeItem('vcc_wall');}catch(e){}renderWall();}}
+renderWall();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "AI Coding Assistant Mistakes \u2014 The Confessional | Ingenious AI",
+  "description": "Anonymous confessional for AI coding assistant mistakes \u2014 what did your AI copilot ship into production? Confessions stay on your device only. Confess, learn.",
+  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/vibe-code-confessional.html",
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "AI coding assistant mistakes"
+    },
+    {
+      "@type": "Thing",
+      "name": "AI coding assistant security risks"
+    },
+    {
+      "@type": "Thing",
+      "name": "GitHub Copilot security risks"
+    },
+    {
+      "@type": "Thing",
+      "name": "AI generated code vulnerabilities"
+    },
+    {
+      "@type": "Thing",
+      "name": "vibe coding security"
+    }
+  ],
+  "keywords": "AI coding assistant mistakes, AI coding assistant security risks, GitHub Copilot security risks, AI generated code vulnerabilities, vibe coding security",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ingenious AI",
+    "url": "https://github.com/Iceman2050"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are AI coding assistant mistakes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The recurring failure modes when developers trust AI-generated code without review: leaked secrets, missing input validation, insecure defaults, and subtly wrong logic that looks correct at a glance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can GitHub Copilot leak my secrets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It can help leak them: research found repos using Copilot leak secrets at a 40% higher rate than average, mostly via hard-coded credentials the assistant suggested or that developers committed alongside generated code. Keep secrets out of prompts and scan before every commit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are my confessions really private?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Everything on this page lives in your browser's localStorage on this device only \u2014 nothing is uploaded or shared. The wipe button deletes it all."
+      }
+    }
+  ]
+}
+</script>
+</body>
+</html>
