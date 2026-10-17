@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RepoMesh: Hand Off Coding Work Between AI Agents — 5-Question Multi-Agent Check</title>
+<meta name="description" content="RepoMesh is a free, local-first desktop app that lets Cursor, Claude Code, Codex and OpenCode share one repository brain — with task checkpoints and Git-aware handoffs between agents. Free 5-question check: is your setup ready for multi-agent coding?">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/repomesh-cross-agent-handoff-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Cursor starts a task. Claude Code finishes it. No copy-pasting context.">
+<meta property="og:description" content="RepoMesh: free local-first shared repository context + task handoffs across AI coding agents. 5-question multi-agent readiness check, free.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/repomesh-cross-agent-handoff-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RepoMesh cross-agent handoff — multi-agent readiness check">
+<meta name="twitter:description" content="Free local-first shared repo context for AI coding agents, with task checkpoints. 5 questions: is your setup ready?">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1a1033;border:1px solid #a371f7;color:#d2a8ff;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+h1 .purple{color:#a371f7}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{border:1px solid #2a3342;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#161d29;color:#fff}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.q p{font-size:16px;margin-bottom:12px;color:#fff}
+.q .opts{display:flex;gap:10px;flex-wrap:wrap}
+.q button{flex:1;min-width:120px;background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px;font-size:15px;font-weight:600;cursor:pointer}
+.q button:hover{border-color:#1c6ef2}
+.q button.sel-yes{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.q button.sel-no{background:#2b1215;border-color:#f85149;color:#ffa198}
+.q button:disabled{cursor:default;opacity:.85}
+#verdict{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+#verdict.good{border-color:#3fb950;background:#0d1a0f}
+#verdict.bad{border-color:#f85149;background:#1a0f0f}
+#verdict b.verd{font-size:19px;letter-spacing:.5px}
+.sharebox{margin-top:16px;display:none;background:#0b0f17;border:1px dashed #2a3342;border-radius:8px;padding:14px 16px}
+.sharebox p{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+#sharetext{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical;min-height:64px}
+.copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+.warnbox{max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Multi-Agent Coding Readiness Check","applicationCategory":"DeveloperApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/repomesh-cross-agent-handoff-check.html","description":"Five questions that score whether your setup is ready for multi-agent coding — shared repository context, cross-agent task handoffs, checkpoints, state verification, and local-first control — spotlighting the free RepoMesh Desktop app.","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is RepoMesh?","acceptedAnswer":{"@type":"Answer","text":"A free, local-first desktop app (Windows and Mac) that indexes your repository and serves ranked, reusable context to AI coding agents over the Model Context Protocol — so Claude Code, OpenAI Codex, Cursor, and OpenCode share one understanding of the codebase instead of each rediscovering it."}},
+{"@type":"Question","name":"How does RepoMesh's cross-agent task handoff work?","acceptedAnswer":{"@type":"Answer","text":"An opt-in feature (Harness P2) keeps repository-scoped checkpoints and decisions locally. Opt-in Stop hooks for Claude Code and Codex save Git state at checkpoints; connected MCP clients retrieve them over MCP. Git-aware verification compares branch, commit, and working tree before trusting an old checkpoint."}},
+{"@type":"Question","name":"Is RepoMesh really free and local-first?","acceptedAnswer":{"@type":"Answer","text":"Yes: the site states no subscription, no trial clock, no AI API key required for the local engine. Target repositories are read-only, secrets are excluded and redacted, and diagnostics sharing is off until you opt in. Development is supported by optional Buy-Me-A-Coffee contributions."}},
+{"@type":"Question","name":"Which AI coding agents does RepoMesh support?","acceptedAnswer":{"@type":"Answer","text":"Claude Code, OpenAI Codex, and Cursor via documented MCP integrations; OpenCode via native MCP; and any stdio MCP client pointed at the repomesh-mcp server. Note the site's own caveat: native Cursor automatic checkpoint capture is not shipped or validated — Cursor retrieves checkpoints over MCP."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free security checks</a>
+<div class="badge">TOOL SPOTLIGHT &mdash; repomesh.app &middot; FREE &middot; LOCAL-FIRST</div>
+<h1>Cursor starts the task. <span class="purple">Claude Code finishes it.</span> <span class="red">No copy-pasting.</span></h1>
+<p class="lead">AI coding is moving from solo assistants to <strong>coordinated agent teams</strong> &mdash; and the bottleneck is context. Every agent session rediscovers the same codebase. <strong>RepoMesh</strong> fixes that with a free, local-first desktop app: one repository brain, shared over MCP by <strong>Claude Code, Codex, Cursor, and OpenCode</strong>, plus opt-in <strong>task checkpoints</strong> so the next agent picks up exactly where the last one left off. Five questions on whether your setup is ready for multi-agent coding.</p>
+
+<p class="answer"><strong>Short answer:</strong> the moment two different agents touch one codebase, you need three things: <strong>shared context</strong> (no rediscovery), <strong>checkpoints</strong> (state survives agent switches), and <strong>verification</strong> (don't trust a stale checkpoint). RepoMesh provides all three locally, with no cloud and no account. Take the check below.</p>
+
+<div class="card">
+<h2>The 60-second Multi-Agent Readiness Check</h2>
+<p class="note">Answer for the codebase your agents work on.</p>
+<div id="quiz"></div>
+<div id="verdict" role="status" aria-live="polite"></div>
+<div class="sharebox" id="sharebox">
+<p>Share your result:</p>
+<textarea id="sharetext" readonly></textarea>
+<button class="copybtn" id="copybtn">Copy result text</button>
+</div>
+</div>
+
+<div class="card">
+<h2>What RepoMesh actually does (verified from repomesh.app)</h2>
+<table>
+<tr><th>Capability</th><th>How it works</th></tr>
+<tr><td><strong>Repository indexing</strong></td><td>Indexes files, functions, classes, exports, routes, tests, SQL migrations locally — incremental, with import graphs, tsconfig alias resolution, source-to-test links.</td></tr>
+<tr><td><strong>MCP context delivery</strong></td><td>Local stdio MCP server with tools like <code>prepare_task</code>, <code>get_context</code>, <code>search_symbol</code>, <code>find_tests</code>. Agents ask for what they need instead of exploring everything.</td></tr>
+<tr><td><strong>Shared Task Handoff</strong> (Harness P2, opt-in)</td><td>Repository-scoped checkpoints + decisions stored locally; opt-in Stop hooks for Claude Code and Codex save Git state; connected MCP clients retrieve over MCP.</td></tr>
+<tr><td><strong>Git-aware verification</strong></td><td>Compares branch, commit, and working tree before trusting an old checkpoint — so a handoff doesn't resume from a state that no longer exists.</td></tr>
+<tr><td><strong>Decision memory</strong></td><td>Architectural decisions saved with rationale, provenance, and visibility into conflicting choices.</td></tr>
+</table>
+<ul>
+<li><strong>Supported agents:</strong> Claude Code, OpenAI Codex, Cursor (documented MCP integrations), OpenCode (native MCP), any stdio MCP client via <code>repomesh-mcp</code>.</li>
+<li><strong>Local-first:</strong> runs locally, no AI API key, no account; target repos are read-only; secrets excluded and redacted; diagnostics off until you opt in.</li>
+<li><strong>Price:</strong> $0 — no subscription, no trial clock; optional Buy-Me-A-Coffee contributions.</li>
+<li><strong>Their benchmark:</strong> controlled Claude Code A/B measured ~20% fewer tokens on a simple fix, 34.7% on a multi-file bug, 30.6% on a dependency regression — with the honest caveat that three pairs per scenario are too few for statistical significance.</li>
+</ul>
+<p class="src">Sources: <a href="https://repomesh.app/" target="_blank" rel="noopener">repomesh.app</a> (verified October 17, 2026)</p>
+</div>
+
+<div class="card">
+<h2>Three honest caveats (from their own docs)</h2>
+<h3>1. Cursor automatic checkpoint capture isn't shipped</h3>
+<p>The site is explicit: Cursor can <em>retrieve</em> checkpoints over MCP, but native Cursor automatic capture is "not shipped or validated." The Cursor&rarr;Claude handoff works through the MCP retrieval path, not magic.</p>
+<h3>2. Hook records don't include reasoning</h3>
+<p>Observed hook records never include chat transcripts, reasoning, or inferred next steps. If the next agent needs task <em>instructions</em>, use explicit checkpoints — don't assume the checkpoint contains the thinking.</p>
+<h3>3. Always verify before trusting a checkpoint</h3>
+<p>A checkpoint is only as good as the state it points at. The Git-aware verification exists because branches move. Run it; a checkpoint from a merged branch is a trap.</p>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#fff;text-decoration:underline">Agent Auth Gateway</a> is the control plane for agent teams &mdash; budget caps, allowlists, approval queues, and a kill switch for every agent touching your code.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20multi-agent%20coding%20readiness%20check%20and%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<footer>
+Built by Ingenious AI &mdash; an independent take, not an endorsement. Tool facts verified from repomesh.app, October 17, 2026.<br>
+RepoMesh Desktop v0.0.46 &middot; free &middot; local-first &middot; optional donations via Buy Me a Coffee
+</footer>
+</div>
+
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=Cursor%20starts%20a%20task%2C%20Claude%20Code%20finishes%20it%20%E2%80%94%20no%20copy-pasting%20context.%20RepoMesh%3A%20free%20local-first%20shared%20repo%20brain%20for%20AI%20coding%20agents%20%E2%80%94%205-question%20multi-agent%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/repomesh-cross-agent-handoff-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/repomesh-cross-agent-handoff-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/repomesh-cross-agent-handoff-check.html&title=RepoMesh%3A%20free%20local-first%20shared%20repository%20context%20%2B%20task%20handoffs%20across%20AI%20coding%20agents%20%E2%80%94%205-question%20multi-agent%20check" target="_blank" rel="noopener">Reddit</a></div>
+<div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<script>
+(function(){
+var QUESTIONS=[
+"1. Do your AI coding agents SHARE repository context \u2014 or does every session rediscover the same codebase?",
+"2. Can work HAND OFF between DIFFERENT agents (e.g. Cursor \u2192 Claude Code) without copy-pasting context?",
+"3. Do you keep TASK CHECKPOINTS that survive an agent switch \u2014 progress, decisions, and state?",
+"4. Do you VERIFY a checkpoint (branch, commit, working tree) before trusting it in a new agent session?",
+"5. Is your agent context LOCAL-FIRST \u2014 no cloud upload of your codebase, no account required?"
+];
+var PAGE="https://iceman2050.github.io/ingeniousai-security-checks-mirror/repomesh-cross-agent-handoff-check.html";
+var answers=new Array(QUESTIONS.length).fill(null);
+var quiz=document.getElementById("quiz");
+QUESTIONS.forEach(function(q,i){
+  var d=document.createElement("div");d.className="q";
+  d.innerHTML="<p>"+q+"</p><div class='opts'></div>";
+  var opts=d.querySelector(".opts");
+  [["Yes",1,"sel-yes"],["No",0,"sel-no"]].forEach(function(pair){
+    var b=document.createElement("button");b.textContent=pair[0];
+    b.onclick=function(){answer(i,pair[1],d);};
+    opts.appendChild(b);
+  });
+  quiz.appendChild(d);
+});
+function answer(i,val,div){
+  answers[i]=val;
+  var btns=div.querySelectorAll("button");
+  btns[0].className=val===1?"sel-yes":"";
+  btns[1].className=val===0?"sel-no":"";
+  btns.forEach(function(b){b.disabled=true;});
+  if(answers.every(function(a){return a!==null;}))showVerdict();
+}
+function showVerdict(){
+  var score=answers.reduce(function(a,b){return a+b;},0);
+  var v=document.getElementById("verdict");
+  var label,cls,advice;
+  if(score<=2){label="SOLO-AGENT SETUP \u2014 context dies with the session";cls="bad";
+    advice="With "+(5-score)+" of 5 missing, every agent session starts from zero and handoffs mean copy-paste. The fix is one shared repository brain: index once, let every agent ask for context over MCP, and add checkpoints so state survives agent switches.";}
+  else if(score<=3){label="PARTIAL \u2014 handoffs are fragile";cls="";
+    advice="You have "+score+" of 5. The gap that breaks handoffs: verification. A checkpoint pointing at a merged branch or a moved working tree hands the next agent a lie. Verify branch, commit, and tree before trusting any checkpoint — and write explicit checkpoints; hooks don't capture reasoning.";}
+  else{label="MULTI-AGENT READY";cls="good";
+    advice="Shared context, cross-agent handoffs, checkpoints, verification, local-first — your setup treats agents as a team, not isolated interns. Keep the index fresh and the handoff hooks opt-in and explicit; that's what keeps the team honest.";}
+  v.className=cls;v.style.display="block";
+  v.innerHTML="<b class='verd'>"+score+"/5 \u2014 "+label+"</b><br><br>"+advice;
+  document.getElementById("sharetext").value="I scored "+score+"/5 on the multi-agent coding readiness check \u2014 free local-first shared repo context + task handoffs across AI coding agents. Check your setup: "+PAGE;
+  document.getElementById("sharebox").style.display="block";
+  v.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("copybtn").onclick=function(){
+  var t=document.getElementById("sharetext");var btn=this;
+  function done(){var o=btn.textContent;btn.textContent="Copied!";setTimeout(function(){btn.textContent=o;},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();try{document.execCommand("copy");done();}catch(e){}});}
+  else{t.select();try{document.execCommand("copy");done();}catch(e){}}
+};
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
