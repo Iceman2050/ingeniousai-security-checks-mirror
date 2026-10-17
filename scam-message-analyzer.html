@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scam Message Analyzer — Paste It, Check It | Ingenious AI</title>
+<meta name="description" content="Paste a suspicious text, email, or call transcript and get an instant, private risk check. Client-side scam detector for FBI impersonation and smishing — no signup, nothing leaves your device.">
+<meta property="og:title" content="Scam Message Analyzer — Paste It, Check It">
+<meta property="og:description" content="Free client-side tool: paste a suspicious message, see the red flags highlighted, get a risk verdict. Nothing leaves your device.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/scam-message-analyzer.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/scam-message-analyzer.html">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{background:#0a0f16;color:#e8edf3;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;line-height:1.6}
+.wrap{max-width:780px;margin:0 auto;padding:24px 18px 60px}
+h1{font-size:30px;margin:18px 0 8px}
+h2{font-size:22px;margin:32px 0 10px;color:#fff}
+.badge{display:inline-block;background:#1c6ef2;color:#fff;font-size:12px;font-weight:bold;letter-spacing:1px;padding:5px 12px;border-radius:20px;margin-bottom:6px}
+.lede{font-size:17px;color:#b9c4d2}
+.card{background:#101823;border:1px solid #1e2a3a;border-radius:10px;padding:18px;margin:16px 0}
+.card h3{margin:0 0 8px;font-size:17px;color:#fff}
+ul,ol{padding-left:20px}li{margin:6px 0}
+a{color:#6ea8fe}
+.small{font-size:13px;color:#8b98a9}
+textarea{width:100%;min-height:150px;background:#0d1420;border:1px solid #2a3a52;color:#e8edf3;border-radius:8px;padding:12px;font-size:15px;font-family:inherit;box-sizing:border-box}
+select{background:#0d1420;border:1px solid #2a3a52;color:#e8edf3;border-radius:8px;padding:10px 12px;font-size:15px;margin:10px 8px 10px 0}
+button{background:#1c6ef2;color:#fff;border:0;padding:12px 28px;border-radius:8px;font-size:15px;font-weight:bold;cursor:pointer;margin:6px 8px 6px 0}
+button.ghost{background:transparent;border:1px solid #2a3a52;color:#b9c4d2}
+button.sample{background:#14202f;border:1px solid #2a3a52;color:#cfe0ff;font-size:13px;padding:8px 14px;font-weight:normal}
+#results{display:none;margin-top:20px}
+.verdict{border-radius:10px;padding:18px;margin:0 0 16px;font-size:18px}
+.verdict.high{background:#2a0f14;border:2px solid #b3202c;color:#ffd7db}
+.verdict.caution{background:#2a2008;border:2px solid #d99a1c;color:#ffe9bd}
+.verdict.low{background:#0c2417;border:2px solid #2e9e5b;color:#c9f2da}
+.verdict .big{font-size:22px;font-weight:bold;display:block;margin-bottom:4px}
+.scorebar{height:14px;background:#0d1420;border:1px solid #2a3a52;border-radius:7px;margin:10px 0 4px;overflow:hidden}
+.scorebar>div{height:100%;border-radius:7px}
+.flag{background:#101823;border:1px solid #2a3a52;border-left:4px solid #b3202c;border-radius:8px;padding:12px 14px;margin:10px 0}
+.flag.trust{border-left-color:#2e9e5b}
+.flag .fname{font-weight:bold;color:#fff}
+.flag .w{font-size:12px;color:#8b98a9}
+.flag .why{font-size:14px;color:#b9c4d2;margin-top:4px}
+mark{background:#b3202c;color:#fff;padding:1px 3px;border-radius:3px}
+mark.trust{background:#2e9e5b}
+.srcbox{background:#0d1420;border:1px solid #2a3a52;border-radius:8px;padding:14px;margin:14px 0;white-space:pre-wrap;font-size:14px;line-height:1.7}
+.steps li{margin:8px 0}
+.noscript{background:#2a0f14;border:1px solid #b3202c;border-radius:8px;padding:14px;margin:16px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<span class="badge">FREE TOOL</span>
+<h1>Scam Message Analyzer</h1>
+<p class="lede">Got a text, email, or call claiming you're under federal investigation — or demanding money, gift cards, or crypto? Paste it below. This tool scans for the red flags the FBI warns about and gives you an instant verdict. <strong>Everything runs on your device. Nothing you paste is sent anywhere.</strong></p>
+
+<noscript><div class="noscript"><strong>JavaScript is required</strong> for the analyzer to run — it is 100% client-side, so enabling it here is safe: nothing leaves your device.</div></noscript>
+
+<div class="card">
+<h3>1. Paste the suspicious message</h3>
+<textarea id="msginput" placeholder="Paste the full text, email body, or what the caller said — exactly as you received it…"></textarea>
+<div>
+<label class="small" for="msgtype">Message type:&nbsp;</label>
+<select id="msgtype">
+<option value="text">Text message (SMS)</option>
+<option value="email">Email</option>
+<option value="call">Call transcript / voicemail</option>
+</select>
+</div>
+<div>
+<button id="analyzeBtn" type="button">Analyze message</button>
+<button id="clearBtn" type="button" class="ghost">Clear</button>
+</div>
+<h3 style="margin-top:18px">2. Or try a sample</h3>
+<div>
+<button type="button" class="sample" data-sample="0">FBI text scam</button>
+<button type="button" class="sample" data-sample="1">Phishing email</button>
+<button type="button" class="sample" data-sample="2">Jury-duty call</button>
+<button type="button" class="sample" data-sample="3">Legit reminder</button>
+</div>
+</div>
+
+<div id="results">
+<div id="verdict" class="verdict"></div>
+<div class="card">
+<h3>Risk score</h3>
+<div class="scorebar"><div id="scorefill"></div></div>
+<p class="small" id="scorelabel"></p>
+</div>
+<div class="card">
+<h3>Flags found</h3>
+<div id="flaglist"></div>
+</div>
+<div class="card">
+<h3>Your message, with matches highlighted</h3>
+<div class="srcbox" id="highlighted"></div>
+</div>
+<div class="card">
+<h3>What to do next</h3>
+<ol class="steps" id="actions"></ol>
+</div>
+</div>
+
+<h2>How the scoring works</h2>
+<div class="card">
+<p>Each red flag carries a weight. Impersonation of a government agency (+25), legal threats like "arrest warrant" (+20), payment demands via gift cards or crypto (+20), urgency and secrecy tactics (+12 each), suspicious look-alike links (+15–20), and requests for your SSN or bank details (+12) stack up fast — and dangerous combinations (agency name <em>plus</em> a payment demand) add bonus points, because that's the classic scam shape.</p>
+<p><strong>Verdict thresholds:</strong> 70–100 = <strong>High risk — likely a scam</strong> · 35–69 = <strong>Caution</strong> · 0–34 = <strong>Low risk</strong>.</p>
+<p class="small">This is a <strong>heuristic screen, not proof</strong>. It looks for known scam patterns — it cannot verify who really sent a message, and a clever new scam may score low. The rules that never change: legitimate agencies never demand gift cards, crypto, or wire transfers; never use contact details from the suspicious message itself; when in doubt, hang up and verify independently.</p>
+</div>
+
+<h2>Why this exists</h2>
+<div class="card">
+<p>In September 2026 the FBI's Newark office warned that criminals are posing as FBI, DEA, and Secret Service agents — spoofing real office numbers, using real agents' names, even staging fake video calls. The FBI's 2025 Internet Crime Report logged roughly <strong>32,000 government-impersonation complaints</strong> and about <strong>$798 million</strong> in losses in one year. Read the full breakdown on our <a href="fbi-impersonation-scam-check.html">FBI impersonation scam check page</a>.</p>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Scams start with a spoofed identity. <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#fff;text-decoration:underline">DomainGuard</a> watches for look-alike domains built to impersonate trusted organizations before scammers can use them.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20used%20the%20scam%20message%20analyzer." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<h2>About this tool</h2>
+<p class="small">Built by Ingenious AI. 100% client-side — your pasted text never leaves your browser. This tool screens for known scam patterns; it is not legal advice and cannot prove who sent a message. Sources: FBI Newark field office advisory (Sept 29, 2026); FBI IC3 PSA on law-enforcement impersonation (Sept 17, 2026); FBI 2025 Internet Crime Report.</p>
+<p class="small">What this tool does NOT do: it cannot trace a number, verify a caller's identity, or detect brand-new scam scripts. Only the agency itself can confirm contact is genuine.</p>
+</div>
+<script>
+/* ===== Scam Message Analyzer — 100% client-side scoring engine =====
+   Verdict thresholds: score >= 70 -> HIGH (likely scam);
+   35..69 -> CAUTION; 0..34 -> LOW. Score clamped to 0..100. */
+var FLAGS=[
+{id:"impersonation",name:"Government agency impersonation",weight:25,
+ types:["text","email","call"],
+ explanation:"Claims to be the FBI, IRS, DEA, Secret Service, or another agency. Real agencies don't open cases by cold text, and scammers routinely borrow agency names.",
+ find:(function(){
+   var inner=rx(["\\bfbi\\b","federal bureau of investigation","\\bdea\\b","drug enforcement","secret service","homeland security","\\bdhs\\b","\\birs\\b","internal revenue","social security administration","\\bssa\\b","\\bsheriff\\b","federal agent","special agent","federal officer"]);
+   return function(text){
+     // Don't count agency names that appear inside genuine .gov URLs or the real 1-800-CALL-FBI number
+     var safe=[];
+     extractUrls(text).forEach(function(u){if(/\.gov$/i.test(u.host))safe.push({start:u.start,end:u.end});});
+     var m,hotline=/1-800-call-fbi/gi;
+     while((m=hotline.exec(text))!==null)safe.push({start:m.index,end:m.index+m[0].length});
+     return inner(text).filter(function(x){
+       return !safe.some(function(g){return x.start>=g.start&&x.end<=g.end;});
+     });
+   };
+ })()},
+{id:"legal_threat",name:"Legal threats",weight:20,
+ types:["text","email","call"],
+ explanation:"'Arrest warrant', 'under federal investigation', frozen accounts. Threats create panic so you act before thinking.",
+ find:rx(["arrest warrant","bench warrant","under (federal )?investigation","will be arrested","warrant (will be|has been) issued","criminal charges?","accounts? (will be |are )?frozen","seize your","lawsuit against you"])},
+{id:"urgency",name:"Manufactured urgency",weight:12,
+ types:["text","email","call"],
+ explanation:"'Within 24 hours', 'act now', 'final notice'. Urgency is the pressure valve of every impersonation scam.",
+ find:rx(["immediately","within \\d+ hours?","right now","\\burgent\\b","act now","final notice","last (chance|warning)","do not hang up","don't hang up","today or","expires? (today|in \\d+)"])},
+{id:"payment_demand",name:"Payment demand (gift cards / crypto / wire)",weight:20,
+ types:["text","email","call"],
+ explanation:"Demands payment via gift cards, crypto, wire, or cash apps 'to avoid arrest'. No legitimate agency collects fines this way. Ever.",
+ find:rx(["gift ?cards?","itunes( card)?","google play( card)?","steam( card)?","\\bbitcoin\\b","\\bcrypto\\w*","wire transfer","western union","moneygram","\\bzelle\\b","cash ?app","\\bvenmo\\b","pay (\\$?[\\d,]+ )?in (bitcoin|crypto|cash)","to (avoid|clear|settle|drop)( the)? (charges|case|warrant|arrest)"])},
+{id:"secrecy",name:"Secrecy demand",weight:12,
+ types:["text","email","call"],
+ explanation:"'Don't tell anyone' keeps you from asking someone who'd spot the scam instantly.",
+ find:rx(["do ?not tell","don't tell","never tell","keep (this |it )?confidential","do not discuss","between (you and )?me","nobody (else )?should know","stay silent about"])},
+{id:"info_harvest",name:"Personal data harvesting",weight:12,
+ types:["text","email","call"],
+ explanation:"Asks for SSN, bank details, or 'identity verification'. Real agencies don't collect these by text or cold call.",
+ find:rx(["social security( number)?","\\bssn\\b","bank account","routing number","credit card (number|details?)","mother'?s maiden","verify your identity","confirm your (identity|ssn|details)"])},
+{id:"suspicious_link",name:"Suspicious / look-alike link",weight:20,
+ types:["text","email"],
+ explanation:"Link imitates a government domain (e.g. fbi-gov-pay.com instead of fbi.gov) or hides behind a shortener. Real federal email and sites end in .gov.",
+ find:findBadLinks},
+{id:"callback_number",name:"They give YOU a number to call",weight:10,
+ types:["text","email","call"],
+ explanation:"'Call me back at…' steers you to the scammer. Real agencies want you to look the number up yourself.",
+ find:rx(["call.{0,25}back at","call this number","reach me at","my direct (line|number)","call me (directly )?on"])},
+{id:"authority_borrow",name:"Named 'agent' / badge theatrics",weight:10,
+ types:["text","email","call"],
+ explanation:"A named agent or badge number sounds official — but names are public information. It proves the person exists, not that they called you.",
+ find:rx(["(agent|officer|deputy|detective|sergeant|marshal|inspector)\\s+[A-Z][a-z]+","badge( number)? ?#?\\d+"])},
+{id:"scam_courtesy",name:"Scam-email phrasing ('kindly')",weight:6,
+ types:["email"],
+ explanation:"Weak signal on its own: 'kindly provide / kindly revert' is a classic tell of mass-produced scam email.",
+ find:rx(["\\bkindly\\b"])},
+{id:"robocall_tell",name:"Robocall / pressure-call pattern",weight:8,
+ types:["call"],
+ explanation:"'Press 1', automated urgent calls, and scripts that punish hanging up are hallmarks of scam call centers.",
+ find:rx(["press \\d","automated (voice )?message","urgent (automated )?call","this call (is being |will be )recorded by the (federal|us)"])},
+{id:"official_channel",name:"Points to official channels (trust signal)",weight:-10,trust:true,
+ types:["text","email","call"],
+ explanation:"References real verification paths like fbi.gov, ic3.gov, or 1-800-CALL-FBI. Scams avoid these; legitimate guidance includes them.",
+ find:rx(["1-800-call-fbi","\\bic3\\.gov\\b","tips\\.fbi\\.gov","reportfraud\\.ftc\\.gov","look (it |the number )?up yourself","verify (it |this )?independently"])},
+{id:"no_payment_claim",name:"Explicit no-payment statement (trust signal)",weight:-8,trust:true,
+ types:["text","email","call"],
+ explanation:"States no payment is requested. Consistent with legitimate notices.",
+ find:rx(["no payment (is |will be )?required","will not ask(ing)? for (payment|money)","never (ask|demand).{0,40}(payment|money|gift|bitcoin|crypto)"])},
+{id:"real_gov_link",name:"Genuine .gov link (trust signal)",weight:-8,trust:true,
+ types:["text","email"],
+ explanation:"Links to a real .gov domain — the one domain family scammers can't convincingly fake in text.",
+ find:findGovLinks}
+];
+var COMBOS=[
+{ids:["impersonation","payment_demand"],weight:15,note:"Agency impersonation + payment demand — the textbook scam shape"},
+{ids:["impersonation","legal_threat"],weight:10,note:"Agency impersonation + legal threats"},
+{ids:["legal_threat","secrecy"],weight:8,note:"Threats + secrecy — designed to stop you asking for help"},
+{ids:["urgency","payment_demand"],weight:8,note:"Urgency + payment demand"},
+{ids:["suspicious_link","urgency"],weight:8,note:"Shady link + urgency"},
+{ids:["suspicious_link","info_harvest"],weight:8,note:"Shady link + data harvesting"}
+];
+var SAMPLES=[
+{label:"FBI text scam",type:"text",expect:"high",
+ text:"FBI ALERT: You are UNDER FEDERAL INVESTIGATION. A bench warrant will be issued within 24 hours. Pay $2,400 in Bitcoin to avoid arrest. Do NOT tell anyone. Call back immediately at 555-0199."},
+{label:"Phishing email",type:"email",expect:"high",
+ text:"Dear customer, kindly verify your identity at http://fbi-gov-secure.com/login within 48 hours or your account will be frozen. Do not tell anyone about this notice."},
+{label:"Jury-duty call",type:"call",expect:"caution",
+ text:"Hi, this is Officer Daniels from the County Sheriff's office. Our records show you missed jury duty on Monday. Please call the courthouse at 555-0142 to reschedule."},
+{label:"Legit reminder",type:"text",expect:"low",
+ text:"Hi Maria, this is City Dental reminding you of your appointment tomorrow at 10am. Reply C to confirm or call 555-0100 to reschedule."}
+];
+/* Build a case-insensitive multi-pattern finder returning [{start,end,phrase}] */
+function rx(patterns){
+  var re=new RegExp("(?:"+patterns.join(")|(?:" )+")","gi");
+  return function(text){
+    var out=[],m; re.lastIndex=0;
+    while((m=re.exec(text))!==null){ out.push({start:m.index,end:m.index+m[0].length,phrase:m[0]}); if(m[0].length===0)re.lastIndex++; }
+    return out;
+  };
+}
+function extractUrls(text){
+  var re=/(?:https?:\/\/)?(?:www\.)?([a-z0-9-]+(?:\.[a-z0-9-]+)+(?:\/[^\s]*)?)/gi;
+  var out=[],m; while((m=re.exec(text))!==null){ out.push({full:m[0],host:m[1].split("/")[0].toLowerCase(),start:m.index,end:m.index+m[0].length}); }
+  return out;
+}
+function findBadLinks(text){
+  var out=[];
+  extractUrls(text).forEach(function(u){
+    var gov=/\.gov$/i.test(u.host);
+    var lookalike=/(fbi|irs|\bssa\b|dhs|\bdea\b|treasury)/i.test(u.host)&&!gov;
+    var short=/^(bit\.ly|t\.co|tinyurl\.com|goo\.gl|is\.gd|ow\.ly|cutt\.ly)$/i.test(u.host);
+    if(lookalike||short)out.push({start:u.start,end:u.end,phrase:u.full});
+  });
+  return out;
+}
+function findGovLinks(text){
+  var out=[];
+  extractUrls(text).forEach(function(u){
+    if(/\.gov$/i.test(u.host))out.push({start:u.start,end:u.end,phrase:u.full});
+  });
+  return out;
+}
+function tierForScore(s){return s>=70?"high":(s>=35?"caution":"low");}
+function analyzeMessage(rawText,msgType){
+  var text=String(rawText||"");
+  if(!text.trim())return{empty:true,score:0,tier:"none",flags:[],combos:[],spans:[]};
+  var fired=[],spans=[];
+  FLAGS.forEach(function(f){
+    if(f.types&&f.types.indexOf(msgType)<0)return;
+    var m=f.find(text);
+    if(m&&m.length){
+      fired.push({id:f.id,name:f.name,weight:f.weight,trust:!!f.trust,explanation:f.explanation,matches:m});
+      m.forEach(function(x){spans.push({start:x.start,end:x.end,trust:!!f.trust});});
+    }
+  });
+  var ids={}; fired.forEach(function(f){ids[f.id]=true;});
+  var comboNotes=[];
+  var bonus=COMBOS.reduce(function(sum,c){
+    var hit=c.ids.every(function(id){return ids[id];});
+    if(hit)comboNotes.push(c.note);
+    return sum+(hit?c.weight:0);
+  },0);
+  var score=fired.reduce(function(s,f){return s+f.weight;},0)+bonus;
+  score=Math.max(0,Math.min(100,Math.round(score)));
+  var tier=tierForScore(score);
+  spans.sort(function(a,b){return a.start-b.start||b.end-a.end;});
+  var merged=[];
+  spans.forEach(function(s){
+    var l=merged[merged.length-1];
+    if(l&&s.start<l.end){if(s.end>l.end)l.end=s.end;}
+    else merged.push({start:s.start,end:s.end,trust:s.trust});
+  });
+  return{empty:false,score:score,tier:tier,flags:fired,combos:comboNotes,spans:merged};
+}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function highlightHTML(text,spans){
+  var out="",last=0;
+  spans.forEach(function(s){
+    out+=esc(text.slice(last,s.start))+'<mark'+(s.trust?' class="trust"':'')+'>'+esc(text.slice(s.start,s.end))+'</mark>';
+    last=s.end;
+  });
+  return out+esc(text.slice(last));
+}
+var ACTIONS={
+ high:["<strong>Do not reply, call back, click, or pay.</strong> Treat the message as hostile.","Screenshot or save the message — you'll need it for the report.","Verify independently: type <strong>fbi.gov</strong> into your browser yourself, or call <strong>1-800-CALL-FBI</strong>. Never use contact details from the message.","Report it: <strong>ic3.gov</strong> (FBI Internet Crime Complaint Center), tips.fbi.gov — and forward scam texts to <strong>7726</strong> (SPAM).","If you already paid or shared personal info: call your bank / card fraud line <strong>right now</strong>, then file at ic3.gov."],
+ caution:["<strong>Do not act on it yet.</strong> Don't pay, click, or call any number in the message.","Verify through an independent channel: look up the agency's real number yourself and ask whether the contact is genuine.","If it claims to be a court or sheriff: call the courthouse on a number from its official website.","When in doubt, report it at ic3.gov — reporting helps even if you're unsure."],
+ low:["No classic scam patterns were found — but this is a heuristic screen, not a guarantee.","Stay alert for follow-ups: scammers often send a 'clean' first message, then escalate.","If anything changes (payment demands, threats, links), paste the new message here and re-check."]
+};
+if(typeof document!=="undefined"&&document.getElementById){
+(function(){
+  var input=document.getElementById("msginput"),
+      typeSel=document.getElementById("msgtype"),
+      results=document.getElementById("results");
+  function run(text,type){
+    var r=analyzeMessage(text,type);
+    if(r.empty){alert("Paste a message first — then hit Analyze.");return;}
+    var v=document.getElementById("verdict");
+    var cfg={
+      high:{cls:"high",title:"HIGH RISK — LIKELY A SCAM",sub:"This message matches the classic government-impersonation scam pattern. Do not engage."},
+      caution:{cls:"caution",title:"CAUTION — SUSPICIOUS SIGNS",sub:"Some red flags are present. Verify independently before doing anything."},
+      low:{cls:"low",title:"LOW RISK — NO SCAM SIGNS FOUND",sub:"No classic patterns detected. This is a screen, not a guarantee — stay alert."}
+    }[r.tier];
+    v.className="verdict "+cfg.cls;
+    v.innerHTML='<span class="big">'+cfg.title+'</span>'+cfg.sub;
+    var fill=document.getElementById("scorefill");
+    fill.style.width=r.score+"%";
+    fill.style.background=r.tier==="high"?"#b3202c":(r.tier==="caution"?"#d99a1c":"#2e9e5b");
+    document.getElementById("scorelabel").textContent="Risk score: "+r.score+" / 100 (70+ high · 35–69 caution · under 35 low)";
+    var fl=document.getElementById("flaglist");
+    if(!r.flags.length){fl.innerHTML='<p class="small">No red flags triggered. Nothing in this message matched the known scam pattern library.</p>';}
+    else{
+      fl.innerHTML=r.flags.map(function(f){
+        return '<div class="flag'+(f.trust?' trust':'')+'"><span class="fname">'+(f.trust?"✓ ":"⚠ ")+esc(f.name)+'</span> <span class="w">('+(f.weight>0?"+":"")+f.weight+' pts)</span><div class="why">'+esc(f.explanation)+'</div></div>';
+      }).join("")+(r.combos.length?'<p class="small"><strong>Combination bonuses:</strong> '+r.combos.map(esc).join("; ")+'</p>':"");
+    }
+    document.getElementById("highlighted").innerHTML=highlightHTML(text,r.spans);
+    document.getElementById("actions").innerHTML=ACTIONS[r.tier].map(function(a){return "<li>"+a+"</li>";}).join("");
+    results.style.display="block";
+    results.scrollIntoView({behavior:"smooth"});
+  }
+  document.getElementById("analyzeBtn").onclick=function(){run(input.value,typeSel.value);};
+  document.getElementById("clearBtn").onclick=function(){input.value="";results.style.display="none";};
+  var sbtns=document.querySelectorAll("button.sample");
+  for(var i=0;i<sbtns.length;i++){
+    (function(b){b.onclick=function(){
+      var s=SAMPLES[+b.getAttribute("data-sample")];
+      input.value=s.text; typeSel.value=s.type; run(s.text,s.type);
+    };})(sbtns[i]);
+  }
+})();
+}
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
