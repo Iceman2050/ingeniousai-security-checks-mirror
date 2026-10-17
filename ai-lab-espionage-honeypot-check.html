@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Lab Espionage Check — Is Your Team Ready for Human-Targeted Spying?</title>
+<meta name="description" content="OpenAI is training staff against honeypots, playground elicitation, bribery, and eavesdropping (WSJ, Oct 14, 2026). Anthropic and Google issued similar warnings. Free 5-question check: is your team hardened against human-targeted espionage?">
+<meta property="og:title" content="AI Lab Espionage Check — Is Your Team Ready for Human-Targeted Spying?">
+<meta property="og:description" content="Honeypots, cash offers, café eavesdropping, playground approaches: what the WSJ says AI labs are training staff against — and the opsec rules. Free 5-question check.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-lab-espionage-honeypot-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-lab-espionage-honeypot-check.html">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{background:#0a0f16;color:#e8edf3;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;line-height:1.6}
+.wrap{max-width:760px;margin:0 auto;padding:24px 18px 60px}
+h1{font-size:30px;margin:18px 0 8px}
+h2{font-size:22px;margin:32px 0 10px;color:#fff}
+.badge{display:inline-block;background:#b3202c;color:#fff;font-size:12px;font-weight:bold;letter-spacing:1px;padding:5px 12px;border-radius:20px;margin-bottom:6px}
+.lede{font-size:17px;color:#b9c4d2}
+.card{background:#101823;border:1px solid #1e2a3a;border-radius:10px;padding:18px;margin:16px 0}
+.card.warn{border-color:#b3202c;background:#160f12}
+.card h3{margin:0 0 8px;font-size:17px;color:#fff}
+ul{padding-left:20px}li{margin:6px 0}
+a{color:#6ea8fe}
+.small{font-size:13px;color:#8b98a9}
+.quiz{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0}
+.q{margin:14px 0;padding:12px;background:#101823;border-radius:8px}
+.q p{margin:0 0 8px;font-weight:600}
+.q label{margin-right:16px;cursor:pointer}
+button{background:#1c6ef2;color:#fff;border:0;padding:12px 28px;border-radius:8px;font-size:15px;font-weight:bold;cursor:pointer}
+#result{font-size:18px;font-weight:bold;margin-top:14px}
+.src{font-size:13px;color:#8b98a9;margin:4px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<span class="badge">ESPIONAGE CHECK</span>
+<h1>The Honeypot Briefing: Is Your Team Ready for Human-Targeted Espionage?</h1>
+<p class="lede">On October 14, 2026, the Wall Street Journal reported that OpenAI is training employees to recognize foreign spies who may use romance, befriending, cash, and eavesdropping to steal AI secrets — and that Anthropic and Google have issued similar warnings. This isn't about firewalls. It's about people. Here's what was reported, the tactics catalog, the opsec rules — and a 5-question check for any company with secrets worth stealing.</p>
+
+<h2>What the Journal reported</h2>
+<div class="card warn">
+<h3>The training scenarios (as reported — training examples, not confirmed incidents)</h3>
+<ul>
+<li><strong>The playground approach:</strong> in one training scenario, a stranger repeatedly shows up with a child at a San Francisco playground used by an OpenAI employee, befriends the employee through small talk, and gradually steers conversation toward their work. Per the Journal, the scenario is presented as an actual espionage approach.</li>
+<li><strong>Honeypots:</strong> training covers operatives who use romance or sexual attraction to get close to a target and extract secrets. One session reportedly used the anecdote of a U.S. diplomat in Russia targeted by repeated romantic approaches.</li>
+<li><strong>Cash offers:</strong> outsiders — including competitors and state-sponsored actors — may simply offer employees money for company information.</li>
+<li><strong>Café eavesdropping:</strong> conversations overheard in public spaces, on transit, and in cafés.</li>
+<li><strong>Similar warnings</strong> have reportedly been issued to employees at Anthropic and Google.</li>
+</ul>
+<p class="small">Why now: frontier AI labs are starting to operate like defense contractors — offline computers for sensitive work, fingerprint-gated areas, deny-by-default networks. The training push accelerated after a real insider incident (below).</p>
+</div>
+
+<h2>The tactics catalog — how human-targeted espionage works</h2>
+<div class="card">
+<ul>
+<li><strong>Elicitation:</strong> no secrets are "stolen" — they're <em>given</em>, piece by piece, in friendly conversation. The playground scenario is textbook: shared context (kids), repeated contact, gradual steering toward work topics.</li>
+<li><strong>Honeypot / romantic approach:</strong> an operative builds a personal relationship to create trust, access, and leverage. The target rarely realizes the relationship has a second purpose until far too late.</li>
+<li><strong>Bribery:</strong> the blunt instrument — cash for "harmless" background information that turns out to be the first step, not the last.</li>
+<li><strong>Ambient collection:</strong> eavesdropping in cafés, shoulder-surfing on transit, photographing whiteboards through glass. No hacking required.</li>
+<li><strong>Technical implants:</strong> when human approaches fail or as a complement — hidden recording devices placed by insiders (see the October case below).</li>
+</ul>
+</div>
+
+<h2>The opsec rules from the briefings</h2>
+<div class="card">
+<ol>
+<li><strong>No branded clothing in public.</strong> A company hoodie on the train marks you as a target worth approaching.</li>
+<li><strong>Privacy screens on phones and laptops</strong> in public and on transit.</li>
+<li><strong>Wipe whiteboards after every meeting</strong> — anyone with room access, including cleaning staff, could be recruited or compromised.</li>
+<li><strong>Watch for elicitation:</strong> strangers who keep steering conversation toward your work, new acquaintances asking oddly specific technical questions, romantic interests unusually curious about your projects.</li>
+<li><strong>Report approaches.</strong> The single behavior every counter-intelligence program depends on: employees telling security about the weird conversation, the too-friendly stranger, the cash offer.</li>
+</ol>
+</div>
+
+<h2>Context: the October 9 arrest</h2>
+<div class="card warn">
+<h3>Alleged — charges filed, not proven</h3>
+<p>On October 9, 2026, the FBI arrested <strong>Abdulrahman Alfozan</strong>, 35, an OpenAI engineer employed since July 2025. Prosecutors <strong>allege</strong> he concealed a thumb-sized recording device — hidden in toilet paper and plugged into a USB port behind a conference-room television — in an executive conference room at a San Francisco office. The device was discovered around September 30; its stored data was encrypted. Investigators say they found a second similar device in his bag. He is charged with using a device to intercept oral communications (up to 5 years in prison); his lawyer has said the allegations are out of character.</p>
+<p class="small">OpenAI says it used its own AI models to identify who planted the device, that it has no evidence of model weights, source code, or customer data being exfiltrated, and that the employee was terminated. The FBI investigation is ongoing. Treat everything in this card as <em>alleged</em> until a court rules.</p>
+</div>
+
+<div class="quiz">
+<h2 style="margin-top:0">The 5-question check — is your team hardened?</h2>
+<div id="quiz"></div>
+<button onclick="grade()">Check my score</button>
+<div id="result"></div>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Human-targeted espionage ends in stolen data. <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#fff;text-decoration:underline">BreachHunter</a> watches for your company's secrets surfacing where they shouldn't — the tripwire for when opsec fails.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20AI%20lab%20espionage%20check." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<h2>About this page</h2>
+<p class="small">This page was prompted by a Rundown AI post (Oct 15, 2026) summarizing the Wall Street Journal's reporting. The training scenarios above are <strong>training examples described in the reporting</strong>, not independently confirmed incidents. The Alfozan case involves <strong>filed charges, not proven guilt</strong>. This page is not affiliated with OpenAI, Anthropic, Google, or the Wall Street Journal. It is a readiness check, not legal or security advice.</p>
+<p class="src">Sources: Wall Street Journal, "AI Companies Play Cat-and-Mouse With Secret-Stealing Spies" (Oct 14, 2026); Dealroom summary (Oct 16, 2026); NY Post (Oct 15, 2026); Daily AI Brief (Oct 16, 2026); AI Weekly (Oct 15, 2026); Reuters via Tribune (Oct 13–14, 2026) on the Alfozan arrest.</p>
+<p class="small">What this page does NOT do: it cannot assess your actual insider-threat posture — that takes a real security program. What it does: make the human attack surface visible.</p>
+</div>
+<script>
+var QUESTIONS=[
+{q:"A stranger at a playground keeps steering conversation toward your work projects. Do you shut it down and report the approach to security?",good:true},
+{q:"You wear your company hoodie on the train every day. Is that good opsec?",good:false},
+{q:"A new romantic interest asks detailed questions about your team's roadmap. Do you treat that as a possible elicitation attempt and report it?",good:true},
+{q:"You leave the whiteboard full of architecture notes after a meeting because the cleaners come later. Is that acceptable?",good:false},
+{q:"Someone offers you cash for 'harmless' background info about your company. Do you refuse and report it?",good:true}
+];
+function render(){
+var h="";
+for(var i=0;i<QUESTIONS.length;i++){
+h+='<div class="q"><p>'+(i+1)+'. '+QUESTIONS[i].q+'</p><label><input type="radio" name="q'+i+'" value="yes"> Yes</label><label><input type="radio" name="q'+i+'" value="no"> No</label></div>';
+}
+document.getElementById("quiz").innerHTML=h;
+}
+function grade(){
+var score=0,answered=0;
+for(var i=0;i<QUESTIONS.length;i++){
+var sel=document.querySelector('input[name="q'+i+'"]:checked');
+if(!sel)continue;
+answered++;
+var yes=(sel.value==="yes");
+if((yes&&QUESTIONS[i].good)||(!yes&&!QUESTIONS[i].good))score++;
+}
+var r=document.getElementById("result");
+if(answered<QUESTIONS.length){r.textContent="Answer all 5 questions first.";return;}
+var msg=score===5?"5/5 — Hardened. Keep reporting approaches.":score>=3?score+"/5 — Decent instincts, but review the opsec rules above.":score+"/5 — Soft target. Re-read the tactics catalog before your next coffee shop visit.";
+r.textContent=msg;
+}
+render();
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
