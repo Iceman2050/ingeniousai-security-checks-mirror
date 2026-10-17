@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ToS Translator: Does This Service Train AI on Your Data? — Ingenious AI</title>
+<meta name="description" content="Paste any Terms of Service — get a plain-English verdict on whether the vendor can train AI on your content. Pattern scan, not legal advice.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/tos-training-clause-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="ToS Translator: Does This Service Train AI on Your Data? — Ingenious AI">
+<meta property="og:description" content="Paste any Terms of Service — get a plain-English verdict on whether the vendor can train AI on your content. Pattern scan, not legal advice.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/tos-training-clause-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ToS Translator: Does This Service Train AI on Your Data? — Ingenious AI">
+<meta name="twitter:description" content="Paste any Terms of Service — get a plain-English verdict on whether the vendor can train AI on your content. Pattern scan, not legal advice.">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "ToS Translator: Does This Service Train AI on Your Data? \u2014 Ingenious AI", "applicationCategory": "SecurityApplication", "operatingSystem": "Any (web)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/tos-training-clause-check.html", "description": "Paste any Terms of Service \u2014 get a plain-English verdict on whether the vendor can train AI on your content. Pattern scan, not legal advice.", "author": {"@type": "Organization", "name": "Ingenious AI"}}
+</script>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:900px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a1f08;border:1px solid #d29922;color:#ffce63;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h2{font-size:22px;margin:30px 0 12px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+p{margin-bottom:14px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:22px;margin:14px 0}
+.small{font-size:13px;color:#6b7688}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;border:none;cursor:pointer;font-size:15px}
+.btn:hover{background:#2b7fff}
+input[type=text],textarea,select{background:#0d1420;border:1px solid #232b38;color:#e6edf3;border-radius:8px;padding:10px 12px;font-size:15px;width:100%}
+label{display:block;margin:10px 0 4px;font-weight:600}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+a{color:#6ea8fe}
+table{width:100%%;border-collapse:collapse;margin:16px 0;font-size:14px}
+th,td{border:1px solid #232b38;padding:10px 12px;text-align:left;vertical-align:top}
+th{background:#0d1420;color:#9aa7b8}
+.honest{background:#0d2b3d;border:1px solid #1c6ef2;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#bcd7f5}
+.warn{background:#3d1a1a;border:1px solid #f85149;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#ffc9c4}
+.score-pill{display:inline-block;font-weight:700;padding:4px 12px;border-radius:999px;font-size:13px}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+<div class="badge">TOS TRANSLATOR</div>
+<h1>ToS Translator: Does This Service Train AI on Your Data?</h1>
+<p class="lead">Paste any Terms of Service or privacy policy excerpt &mdash; get a plain-English verdict on whether the vendor can train AI models on your content.</p>
+<div class="honest"><strong>Pattern scan, not legal advice.</strong> This tool matches known clause patterns; it cannot read the full agreement, spot contradictions buried elsewhere in the document, or interpret law. Always read the actual terms.</div>
+<div class="card">
+<label>Paste ToS / privacy policy text (the data-use section is enough):</label>
+<textarea id="tosin" rows="8" placeholder="Paste here... e.g. 'We may use your content to improve and develop our services...'"></textarea>
+<br><br><button class="btn" onclick="scan()">Translate the legalese &rarr;</button>
+</div>
+<div class="card" id="tosout" style="display:none"><h2 style="margin-top:0">Verdict</h2><div id="verdicts"></div></div>
+<h2>Try a real example</h2>
+<p>Copy the data-use section from any AI vendor's terms and paste it above. Then check how vendors compare in our <a href="transparent-ai-index.html">transparency index</a> &mdash; and let <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch.">TermsWatch</a> monitor vendor terms for you, so the next silent ToS change doesn't blindside you.</p>
+<script>
+var PATTERNS=[
+ {re:/\b(train|training)\b[^.]{0,80}\b(model|models|ai)\b|\b(model|models|ai)\b[^.]{0,80}\btrain(ing|ed)?\b/i,label:"Explicit AI-training language",verdict:"RED",why:"The text says your content may be used to train AI models."},
+ {re:/use[^.]{0,60}(improve|develop|enhance)[^.]{0,60}(service|services|product|model)/i,label:"'Improve our services' clause",verdict:"AMBER",why:"'Improve/develop our services' is the classic training-data euphemism. It often — not always — covers model training."},
+ {re:/retain[^.]{0,60}data|retention[^.]{0,40}\d+\s*(day|month)/i,label:"Data retention clause",verdict:"AMBER",why:"Retained data is trainable data unless the terms explicitly forbid training on retained content."},
+ {re:/opt[\s-]?out/i,label:"Opt-out mentioned",verdict:"GREEN",why:"An opt-out exists — but check whether it is opt-IN by default and what it actually covers."},
+ {re:/will not use[^.]{0,60}train|not used[^.]{0,40}training|never[^.]{0,40}train/i,label:"No-training commitment",verdict:"GREEN",why:"The vendor explicitly commits not to train on your data. Check the scope (API vs consumer tier — they often differ)."},
+ {re:/de-?identified|anonymized|aggregate/i,label:"Anonymization / aggregation",verdict:"AMBER",why:"Anonymized data is routinely used for training. 'We don't train on your data' and 'we train on anonymized data' can both be true."},
+ {re:/human review|reviewed by (humans|our team)/i,label:"Human review clause",verdict:"AMBER",why:"Human review means humans read your content — a privacy exposure even without model training."},
+ {re:/third[- ]part(y|ies)[^.]{0,60}(share|disclose|provide)/i,label:"Third-party sharing",verdict:"AMBER",why:"Shared data can be trained on by someone else's models under someone else's terms."}
+];
+function scan(){
+  var t=document.getElementById('tosin').value;
+  if(t.trim().length<40){alert('Paste at least a paragraph of terms text.');return;}
+  var hits=PATTERNS.map(function(p){var m=t.match(p.re);return m?{p:p,quote:m[0].slice(0,160)}:null;}).filter(Boolean);
+  var box=document.getElementById('verdicts');var col={RED:'#f85149',AMBER:'#d29922',GREEN:'#3fb950'};
+  if(!hits.length){box.innerHTML='<p>No known training-data patterns matched. That does <strong>not</strong> mean the terms are safe — it means the scan found nothing recognizable. Read the full document.</p>';}
+  else{
+    var worst=hits.some(function(h){return h.p.verdict==='RED'})?'RED':hits.some(function(h){return h.p.verdict==='AMBER'})?'AMBER':'GREEN';
+    box.innerHTML='<p style="font-size:18px">Overall: <span class="score-pill" style="background:'+col[worst]+'22;color:'+col[worst]+';border:1px solid '+col[worst]+'">'+(worst==='RED'?'LIKELY TRAINS ON YOUR DATA':worst==='AMBER'?'UNCLEAR — READ CAREFULLY':'EXPLICIT PROTECTIONS FOUND')+'</span></p>'+
+    hits.map(function(h){return '<div class="card" style="border-left:4px solid '+col[h.p.verdict]+'"><strong>'+h.p.label+'</strong><p class="small" style="font-style:italic">“'+h.quote.replace(/</g,'&lt;')+'…”</p><p>'+h.p.why+'</p></div>';}).join('');
+  }
+  document.getElementById('tosout').style.display='block';
+  document.getElementById('tosout').scrollIntoView({behavior:'smooth'});
+}
+</script>
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#fff;text-decoration:underline">TermsWatch</a> watches AI vendor terms for you &mdash; silent ToS changes, new training-data clauses, caught the day they land.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20browsed%20tos-training-clause-check.html%20and%20want%20early%20access%20to%20TermsWatch." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+<footer>Built by Ingenious AI &mdash; Free tool by Ingenious AI.<br><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/index.html">All checks</a></footer>
+</div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

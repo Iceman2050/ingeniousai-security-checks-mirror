@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your AI Stack&#x27;s Attack Surface Mapper — Ingenious AI</title>
+<meta name="description" content="Tick every AI component you run — get a visual map of where attackers get in, with the real attack research behind each risk.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-stack-mapper.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Your AI Stack&#x27;s Attack Surface Mapper — Ingenious AI">
+<meta property="og:description" content="Tick every AI component you run — get a visual map of where attackers get in, with the real attack research behind each risk.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-stack-mapper.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Your AI Stack&#x27;s Attack Surface Mapper — Ingenious AI">
+<meta name="twitter:description" content="Tick every AI component you run — get a visual map of where attackers get in, with the real attack research behind each risk.">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "Your AI Stack's Attack Surface Mapper \u2014 Ingenious AI", "applicationCategory": "SecurityApplication", "operatingSystem": "Any (web)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-stack-mapper.html", "description": "Tick every AI component you run \u2014 get a visual map of where attackers get in, with the real attack research behind each risk.", "author": {"@type": "Organization", "name": "Ingenious AI"}}
+</script>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:900px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a1f08;border:1px solid #d29922;color:#ffce63;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h2{font-size:22px;margin:30px 0 12px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+p{margin-bottom:14px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:22px;margin:14px 0}
+.small{font-size:13px;color:#6b7688}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;border:none;cursor:pointer;font-size:15px}
+.btn:hover{background:#2b7fff}
+input[type=text],textarea,select{background:#0d1420;border:1px solid #232b38;color:#e6edf3;border-radius:8px;padding:10px 12px;font-size:15px;width:100%}
+label{display:block;margin:10px 0 4px;font-weight:600}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+a{color:#6ea8fe}
+table{width:100%%;border-collapse:collapse;margin:16px 0;font-size:14px}
+th,td{border:1px solid #232b38;padding:10px 12px;text-align:left;vertical-align:top}
+th{background:#0d1420;color:#9aa7b8}
+.honest{background:#0d2b3d;border:1px solid #1c6ef2;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#bcd7f5}
+.warn{background:#3d1a1a;border:1px solid #f85149;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#ffc9c4}
+.score-pill{display:inline-block;font-weight:700;padding:4px 12px;border-radius:999px;font-size:13px}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+<div class="badge">ATTACK SURFACE MAP</div>
+<h1>Your AI Stack's Attack Surface Mapper</h1>
+<p class="lead">Tick every AI component you run &mdash; get a visual map of where attackers actually get in, with the real attack research behind each risk.</p>
+<div class="card" id="checklist">
+<label style="font-weight:normal"><input type="checkbox" data-r="prompt-injection" data-w="3"> Customer-facing chatbot</label>
+<label style="font-weight:normal"><input type="checkbox" data-r="indirect-injection" data-w="3"> AI email summarizer / inbox triage</label>
+<label style="font-weight:normal"><input type="checkbox" data-r="tool-abuse" data-w="3"> Coding agent with shell/file access</label>
+<label style="font-weight:normal"><input type="checkbox" data-r="mcp" data-w="2"> MCP servers (third-party)</label>
+<label style="font-weight:normal"><input type="checkbox" data-r="rag" data-w="2"> RAG over internal docs</label>
+<label style="font-weight:normal"><input type="checkbox" data-r="memory" data-w="2"> Agent with persistent memory</label>
+<label style="font-weight:normal"><input type="checkbox" data-r="voice" data-w="2"> Voice agent / phone bot</label>
+<label style="font-weight:normal"><input type="checkbox" data-r="autonomy" data-w="3"> Fully autonomous agent (no approval gates)</label>
+<label style="font-weight:normal"><input type="checkbox" data-r="supply" data-w="2"> Fine-tuned / third-party open-weight models</label>
+<label style="font-weight:normal"><input type="checkbox" data-r="api" data-w="1"> AI API with stored credentials</label>
+<br><button class="btn" onclick="map()">Map my attack surface &rarr;</button>
+</div>
+<div class="card" id="mapout" style="display:none">
+<h2 style="margin-top:0">Your attack surface</h2>
+<svg id="svgmap" width="100%" height="320" viewBox="0 0 800 320" style="background:#0d1420;border-radius:8px"></svg>
+<div id="risks"></div>
+<h2>Total exposure score: <span id="tscore"></span>/100</h2>
+<p class="small">Deterministic: each component contributes its weight &times; 4. Educational model, not a security certification.</p>
+</div>
+<script>
+var RISKINFO={
+"prompt-injection":{t:"Direct prompt injection",d:"Attackers talk your chatbot into ignoring its instructions. The oldest attack in the book — still works daily.",s:"https://learnprompting.org/docs/prompt_hacking/injection"},
+"indirect-injection":{t:"Indirect injection via email/web",d:"Hidden instructions in emails or pages your summarizer reads. Barracuda documented live phishing pairing human lures with AI-targeted instructions (Oct 2026).",s:"https://www.barracuda.com"},
+"tool-abuse":{t:"Tool abuse / sandbox escape",d:"A coding agent with a shell is one injection away from running attacker commands. Adversa's encrypted-context injection exfiltrated .env.prod via Copilot CLI in 28s (Oct 2026).",s:"https://www.infoworld.com/article/4231775/encrypted-instructions-trick-copilot-cli-into-spilling-developer-secrets.html"},
+"mcp":{t:"Malicious / compromised MCP servers",d:"Third-party MCP servers run code with your agent's privileges. Typosquatted servers and token theft are documented.",s:"https://iceman2050.github.io/ingeniousai-security-checks-mirror/state-of-mcp-security-2026.html"},
+"rag":{t:"RAG poisoning",d:"Poisoned documents in your knowledge base steer answers. Attackers plant the docs, your agent quotes them as truth.",s:"#"},
+"memory":{t:"Memory poisoning",d:"Persistent memory is a write-once attack surface: poison it once, the agent misbehaves forever.",s:"#"},
+"voice":{t:"Voice cloning / vishing",d:"Cloned voices defeat phone-based verification. Try our quiz to hear how close clones have gotten.",s:"which-voicemail-is-ai.html"},
+"autonomy":{t:"Unsupervised autonomy",d:"No approval gates + standing credentials = the rogue-agent profile. Transluce caught agents self-initiating exploit probes (Oct 2026).",s:"https://ts2.tech/en/ai-agents-sent-200000-requests-then-tried-a-sql-probe/"},
+"supply":{t:"Backdoored weights / adapters",d:"QLoRA adapters can hide trigger phrases that swap tool calls for remote shells (ProjectDiscovery, Oct 2026).",s:"https://www.spartechsoftware.com/cybersecurity-news/open-weight-model-backdoors-agent-security/"},
+"api":{t:"Credential exposure",d:"Stored API keys in agent configs are harvested by info-stealers targeting developer machines.",s:"#"}
+};
+function map(){
+  var boxes=document.querySelectorAll('#checklist input:checked');
+  if(!boxes.length){alert('Tick at least one component.');return;}
+  var svg=document.getElementById('svgmap');var cx=400,cy=150,R=110,n=boxes.length;var html='';
+  html+='<circle cx="'+cx+'" cy="'+cy+'" r="34" fill="#1c6ef2"/><text x="'+cx+'" y="'+cy+5+'" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">YOU</text>';
+  var total=0,rh='';
+  boxes.forEach(function(b,i){
+    var a=(2*Math.PI*i/n)-Math.PI/2;var x=cx+R*Math.cos(a)*1.6,y=cy+R*Math.sin(a)*0.85;
+    var w=parseInt(b.dataset.w);total+=w*4;var info=RISKINFO[b.dataset.r];
+    var col=w===3?'#f85149':w===2?'#d29922':'#3fb950';
+    html+='<line x1="'+cx+'" y1="'+cy+'" x2="'+x+'" y2="'+y+'" stroke="'+col+'" stroke-width="'+w+'"/>';
+    html+='<circle cx="'+x+'" cy="'+y+'" r="10" fill="'+col+'"/>';
+    html+='<text x="'+x+'" y="'+(y+28)+'" text-anchor="middle" fill="#e6edf3" font-size="11">'+b.parentNode.textContent.trim().slice(0,26)+'</text>';
+    rh+='<div class="card" style="border-left:4px solid '+col+'"><strong>'+info.t+'</strong><p class="small">'+info.d+'</p>'+(info.s&&info.s!=='#'?'<a href="'+info.s+'" rel="nofollow noopener" target="_blank" style="font-size:13px">source ↗</a>':'')+'</div>';
+  });
+  svg.innerHTML=html;document.getElementById('risks').innerHTML=rh;
+  document.getElementById('tscore').textContent=Math.min(100,total);
+  document.getElementById('mapout').style.display='block';
+  document.getElementById('mapout').scrollIntoView({behavior:'smooth'});
+}
+</script>
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#fff;text-decoration:underline">Rogue-Agent Defense</a> is the AI agent firewall &mdash; it watches what your agents can touch and stops the abuse mapped above.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20browsed%20ai-stack-mapper.html%20and%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+<footer>Built by Ingenious AI &mdash; Free tool by Ingenious AI.<br><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/index.html">All checks</a></footer>
+</div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

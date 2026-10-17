@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>“Which Voicemail Is AI?” Quiz — Ingenious AI</title>
+<meta name="description" content="Three rounds, two voicemails each: can you hear which one is the AI-cloned scam voice? Score, share, and learn the family-code-word defense.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/which-voicemail-is-ai.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="“Which Voicemail Is AI?” Quiz — Ingenious AI">
+<meta property="og:description" content="Three rounds, two voicemails each: can you hear which one is the AI-cloned scam voice? Score, share, and learn the family-code-word defense.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/which-voicemail-is-ai.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="“Which Voicemail Is AI?” Quiz — Ingenious AI">
+<meta name="twitter:description" content="Three rounds, two voicemails each: can you hear which one is the AI-cloned scam voice? Score, share, and learn the family-code-word defense.">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "\u201cWhich Voicemail Is AI?\u201d Quiz \u2014 Ingenious AI", "applicationCategory": "SecurityApplication", "operatingSystem": "Any (web)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/which-voicemail-is-ai.html", "description": "Three rounds, two voicemails each: can you hear which one is the AI-cloned scam voice? Score, share, and learn the family-code-word defense.", "author": {"@type": "Organization", "name": "Ingenious AI"}}
+</script>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:900px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a1f08;border:1px solid #d29922;color:#ffce63;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h2{font-size:22px;margin:30px 0 12px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+p{margin-bottom:14px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:22px;margin:14px 0}
+.small{font-size:13px;color:#6b7688}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;border:none;cursor:pointer;font-size:15px}
+.btn:hover{background:#2b7fff}
+input[type=text],textarea,select{background:#0d1420;border:1px solid #232b38;color:#e6edf3;border-radius:8px;padding:10px 12px;font-size:15px;width:100%}
+label{display:block;margin:10px 0 4px;font-weight:600}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+a{color:#6ea8fe}
+table{width:100%%;border-collapse:collapse;margin:16px 0;font-size:14px}
+th,td{border:1px solid #232b38;padding:10px 12px;text-align:left;vertical-align:top}
+th{background:#0d1420;color:#9aa7b8}
+.honest{background:#0d2b3d;border:1px solid #1c6ef2;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#bcd7f5}
+.warn{background:#3d1a1a;border:1px solid #f85149;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#ffc9c4}
+.score-pill{display:inline-block;font-weight:700;padding:4px 12px;border-radius:999px;font-size:13px}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+<div class="badge">AUDIO QUIZ</div>
+<h1>Which Voicemail Is AI?</h1>
+<p class="lead">Three rounds. Two voicemails each. One is a natural human-style read, one mimics an AI-cloned voice &mdash; the kind scammers use. Can you hear the difference?</p>
+<div class="honest"><strong>Both clips in every round are synthetic</strong> (generated for this quiz). One is a natural read; the other imitates a voice-cloned scam call &mdash; flatter delivery, phone-line artifacts. No real person's voice was cloned.</div>
+<div id="quiz"></div>
+<div class="card" id="final" style="display:none"><h2 style="margin-top:0">Your score: <span id="fscore"></span>/3</h2><p id="fmsg"></p>
+<p><button class="btn" onclick="share()">Share my score &rarr;</button></p>
+<p class="small" id="shareout"></p></div>
+<h2>Why this matters</h2>
+<p>Voice-cloning scams are the fastest-growing phone fraud vector: "grandparent scams" now run on cloned voices of real family members. The defense is a <strong>family code word</strong> &mdash; agree on one today, and no urgent voice on the phone can bypass it. Share this quiz with someone who needs to hear it.</p>
+<script>
+var ROUNDS=[
+ {a:"audio/voicemail-quiz/p1-natural.mp3",b:"audio/voicemail-quiz/p1-clone.mp3",clone:"b",why:"Clip B is the clone: flatter affect, phone-line compression artifacts, and note the content — an 'urgent wire transfer' is the #1 voice-scam script."},
+ {a:"audio/voicemail-quiz/p2-natural.mp3",b:"audio/voicemail-quiz/p2-clone.mp3",clone:"b",why:"Clip B again: the 'bank fraud department' callback scam. Real banks don't work this way — and the delivery gives it away."},
+ {a:"audio/voicemail-quiz/p3-clone.mp3",b:"audio/voicemail-quiz/p3-natural.mp3",clone:"a",why:"This time it's Clip A: the 'grandchild in trouble, don't tell mom and dad' script. Secrecy + urgency = the two scam tells, whatever the voice sounds like."}
+];
+var idx=0,score=0;
+function renderQ(){
+  if(idx>=ROUNDS.length){
+    document.getElementById('quiz').innerHTML='';
+    var f=document.getElementById('final');f.style.display='block';
+    document.getElementById('fscore').textContent=score;
+    document.getElementById('fmsg').textContent=score===3?"Perfect — you hear what most people miss. Now teach someone else: the family code word is the real defense.":score===2?"Sharp ears. One fooled you — imagine it calling your grandmother at 9pm.":score===1?"One right. Clones are getting close — that's exactly why scammers use them.":"Zero. Don't feel bad — feel warned. This is what scam victims hear.";
+    f.scrollIntoView({behavior:'smooth'});return;
+  }
+  var r=ROUNDS[idx];
+  document.getElementById('quiz').innerHTML='<div class="card"><h2 style="margin-top:0">Round '+(idx+1)+' of 3</h2>'+
+   '<p><strong>Clip A</strong><br><audio controls src="'+r.a+'" style="width:100%"></audio></p>'+
+   '<p><strong>Clip B</strong><br><audio controls src="'+r.b+'" style="width:100%"></audio></p>'+
+   '<p>Which one is the AI-cloned voice?</p>'+
+   '<button class="btn" onclick="answer('a')">Clip A is the clone</button> '+
+   '<button class="btn" onclick="answer('b')">Clip B is the clone</button></div>';
+}
+function answer(pick){
+  var r=ROUNDS[idx];var ok=pick===r.clone;if(ok)score++;
+  document.getElementById('quiz').innerHTML='<div class="card" style="border-left:4px solid '+(ok?'#3fb950':'#f85149')+'"><h2 style="margin-top:0">'+(ok?'✔ Correct':'✘ Wrong')+'</h2><p>'+r.why+'</p><button class="btn" onclick="idx++;renderQ()">'+(idx+1>=ROUNDS.length?'See my score':'Next round')+' &rarr;</button></div>';
+}
+function share(){
+  var t='I scored '+score+'/3 on "Which Voicemail Is AI?" — can you beat me?';
+  document.getElementById('shareout').innerHTML='Copy-paste: <br><textarea readonly onclick="this.select()">'+t+' https://iceman2050.github.io/ingeniousai-security-checks-mirror/which-voicemail-is-ai.html</textarea>';
+}
+renderQ();
+</script>
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#fff;text-decoration:underline">DisclosureGuard</a> keeps your content honest — and this quiz keeps your family safe from the voices that aren't.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20browsed%20which-voicemail-is-ai.html%20and%20want%20early%20access%20to%20DisclosureGuard." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+<footer>Built by Ingenious AI &mdash; Free tool by Ingenious AI.<br><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/index.html">All checks</a></footer>
+</div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
