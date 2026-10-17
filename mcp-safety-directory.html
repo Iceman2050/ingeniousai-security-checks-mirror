@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCP Server Safety Directory — Negotiation-Behavior Ratings from the 2026-10-17 Probe | Ingenious AI</title>
+<meta name="description" content="Searchable safety directory of 27 public MCP servers, rated on observed protocol-negotiation behavior from the State of MCP Security 2026 probe (Oct 17, 2026). Free, no signup.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-safety-directory.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="MCP Server Safety Directory — 27 servers rated on negotiation behavior">
+<meta property="og:description" content="Searchable, sortable ratings of 27 public MCP servers from our 2026-10-17 handshake probe. Ratings reflect one probe, not a certification.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-safety-directory.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MCP Server Safety Directory — 27 servers, rated on evidence">
+<meta name="twitter:description" content="Ratings derived only from our 2026-10-17 negotiation probe. Searchable, sortable, honest about limits.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"MCP Server Safety Directory","applicationCategory":"SecurityApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-safety-directory.html","description":"Searchable and sortable directory of 27 public MCP servers with safety ratings derived from observed protocol-negotiation behavior in the 2026-10-17 probe.","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:1080px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#241a3d;border:1px solid #c9a6ff;color:#c9a6ff;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:32px;line-height:1.25;margin-bottom:14px}
+p.lead{font-size:17px;color:#9aa7b8;margin-bottom:22px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:26px;margin:18px 0}
+h2{font-size:22px;margin:30px 0 12px}
+.honesty{background:#241a3d;border:2px solid #c9a6ff;border-radius:12px;padding:20px 22px;margin:24px 0}
+.honesty h2{font-size:16px;color:#c9a6ff;margin:0 0 8px}
+.honesty p{font-size:14px;color:#c4ccd6;margin:0}
+.toolbar{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0;align-items:center}
+.toolbar input,.toolbar select{background:#0d1420;border:1px solid #232b38;border-radius:8px;color:#e6edf3;padding:10px 14px;font-size:14px}
+.toolbar input{flex:1;min-width:220px}
+.count{font-size:13px;color:#9aa7b8}
+.tablewrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13.5px;min-width:860px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid #232b38;vertical-align:top}
+th{color:#9aa7b8;font-size:12px;letter-spacing:.5px;cursor:pointer;user-select:none;white-space:nowrap}
+th:hover{color:#e6edf3}
+th .arrow{color:#6ea8fe}
+.grade{display:inline-block;font-size:13px;font-weight:800;padding:4px 12px;border-radius:999px;min-width:34px;text-align:center}
+.gA{background:#0e2a1a;color:#3fb950;border:1px solid #3fb950}
+.gB{background:#12233a;color:#6ea8fe;border:1px solid #6ea8fe}
+.gC{background:#2a1f08;color:#ffce63;border:1px solid #d29922}
+.gF{background:#2a1215;color:#f85149;border:1px solid #f85149}
+.gNA{background:#1a2332;color:#9aa7b8;border:1px solid #3a4656}
+.ev{font-size:12.5px;color:#9aa7b8}
+.src{font-size:12px;color:#6b7688;margin-top:4px}
+.src a{color:#6ea8fe}
+.rubric{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+.rubric td{padding:10px 12px;border-bottom:1px solid #232b38;vertical-align:top}
+.rubric td:first-child{white-space:nowrap}
+.small{font-size:13px;color:#9aa7b8}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px;border:none;cursor:pointer}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+a{color:#6ea8fe}
+p{margin-bottom:14px;color:#c4ccd6}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">DIRECTORY · DATA FROM 2026-10-17</div>
+<h1>MCP Server Safety Directory</h1>
+<p class="lead">Safety ratings for <strong>27 public MCP servers</strong>, derived <em>only</em> from what we observed in the <a href="state-of-mcp-security-2026.html">State of MCP Security 2026 probe</a> (2026-10-17): six unauthenticated handshake probes per endpoint, asking each server to negotiate four real protocol eras and two fictional ones. Search, sort, and filter below.</p>
+
+<div class="honesty">
+<h2>⚠️ HONEST SCOPE</h2>
+<p><strong>These ratings reflect one unauthenticated probe run on 2026-10-17 — not a certification.</strong> They measure <em>negotiation behavior only</em>: whether a server silently downgraded the newest protocol era. A silent downgrade is <strong>not</strong> a vulnerability finding, and an "N/A — unobservable" rating is <strong>not</strong> a finding of wrongdoing (those servers answered every probe with HTTP 401, so independent verification is impossible). Ratings can change with the next probe run.</p>
+</div>
+
+<div class="toolbar">
+<input type="text" id="q" placeholder="Search server, vendor, behavior…" oninput="render()">
+<select id="fgrade" onchange="render()">
+<option value="">All ratings</option>
+<option value="A">A</option><option value="B">B</option><option value="C">C</option>
+<option value="F">F</option><option value="N/A">N/A — unobservable</option>
+</select>
+<span class="count" id="count"></span>
+</div>
+
+<div class="tablewrap"><table id="tbl">
+<thead><tr>
+<th onclick="sortBy('server')">Server <span class="arrow" id="a-server"></span></th>
+<th onclick="sortBy('vendor')">Vendor <span class="arrow" id="a-vendor"></span></th>
+<th onclick="sortBy('behavior')">Negotiation behavior (observed) <span class="arrow" id="a-behavior"></span></th>
+<th onclick="sortBy('grade')">Rating <span class="arrow" id="a-grade"></span></th>
+<th>Evidence note</th>
+</tr></thead>
+<tbody id="rows"></tbody>
+</table></div>
+<p class="small">Click a column header to sort. Ratings use the rubric below — nothing else feeds them.</p>
+
+<h2>Methodology — exactly what was measured</h2>
+<div class="card">
+<p class="small">Run date: <strong>2026-10-17</strong>. Tool: open-source <code>mcp-negotiation-prober</code> (MIT) — sends an MCP <code>initialize</code> handshake with <code>protocolVersion</code> set to each of 6 eras (<code>2024-11-05</code>, <code>2025-03-26</code>, <code>2025-06-18</code>, <code>2026-07-28</code>, plus fictional <code>1999-01-01</code> and <code>2037-12-31</code>) and classifies the echoed version. No credentials used; every probe was an unauthenticated handshake. Endpoints were taken from vendors' own published docs. An endpoint was included only if it responded at all (including HTTP 401). <strong>Verdicts describe negotiation behavior only</strong> — results are reproducible: same tool + same endpoints = same verdicts. Full detail: <a href="state-of-mcp-security-2026.html">State of MCP Security 2026</a>.</p>
+</div>
+
+<h2>Rating rubric (the only inputs to a grade)</h2>
+<div class="card" style="padding:12px 26px">
+<table class="rubric">
+<tr><td><span class="grade gA">A</span></td><td><strong>Honest on all 6 probes</strong> — newest era negotiated honestly, fictional eras rejected. <em>None observed in this run.</em></td></tr>
+<tr><td><span class="grade gB">B</span></td><td><strong>Newest era handled honestly</strong> — no silent downgrade observed; fictional eras not accepted as valid. (Context7, X Docs public, PMWallets, LPSignal.)</td></tr>
+<tr><td><span class="grade gC">C</span></td><td><strong>Partially observable</strong> — no downgrade observed, but the weakest honest-answer rate among observable servers (2/6). (OutcomeTick.)</td></tr>
+<tr><td><span class="grade gF">F</span></td><td><strong>Silent downgrade observed</strong> — asked for the newest era <code>2026-07-28</code>, answered with older <code>2025-06-18</code> without declaring it; fictional eras answered with the default version instead of rejected. (Microsoft Learn, AWS.)</td></tr>
+<tr><td><span class="grade gNA">N/A</span></td><td><strong>Unobservable — not graded.</strong> All 6 probes returned HTTP 401 (OAuth wall), so negotiation behavior cannot be independently verified. This is an instrument gap, <strong>not</strong> a finding of wrongdoing.</td></tr>
+</table>
+<p class="small" style="margin-top:12px">Grades are recomputed every probe run. A vendor that declares its negotiated version publicly — or opens negotiation to unauthenticated verification — moves up on the next run. Downgrades that are <em>declared</em> are not downgrades we can see, and honesty is the only thing graded here.</p>
+</div>
+
+<h2>Submit your server</h2>
+<div class="card">
+<p class="small">Run an MCP server and want it in the next probe? Send the public endpoint URL and a link to your docs — we'll include it in the next unauthenticated run and publish the verdict, whatever it is.</p>
+<p><a class="btn" href="mailto:avilanatanael640@gmail.com?subject=MCP%20Safety%20Directory%20submission&body=Server%20name%3A%0AVendor%3A%0APublic%20endpoint%20URL%3A%0ADocs%20link%3A">Submit your server →</a></p>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#fff;text-decoration:underline">DisclosureGuard</a> is AI disclosure compliance on autopilot &mdash; it scans your ads and content, flags what's unlabeled, and keeps you ahead of the EU AI Act transparency rules.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20generated%20my%20AI%20disclosure%20badge%20and%20want%20early%20access%20to%20DisclosureGuard." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<footer>Built by Ingenious AI &mdash; ratings reflect one 2026-10-17 probe, not a certification.<br><a href="index.html">All checks</a></footer>
+</div>
+<script>
+const DATA=[
+["Microsoft Learn","Microsoft","Silent downgrade: asked 2026-07-28, answered 2025-06-18 undeclared; fictional eras answered with default version","F","3/6 honest. Only server cohort that both downgraded the newest era and accepted fictional eras."],
+["AWS","Amazon","Silent downgrade: asked 2026-07-28, answered 2025-06-18 undeclared; fictional eras answered with default version","F","2/6 honest. Same dual pattern as Microsoft Learn: newest-era downgrade + unvalidated version field."],
+["Context7","Context7","Observable: 3/6 honest, no downgrade, no fictional-era acceptance","B","Newest era handled honestly; did not answer fictional eras with a default version."],
+["X Docs (public paths)","X Corp","Observable: 3/6 honest, no downgrade, no fictional-era acceptance","B","Public documentation paths answered probes honestly; authenticated paths were 401-walled (listed separately below)."],
+["PMWallets (public)","PMWallets","Observable: 3/6 honest, no downgrade, no fictional-era acceptance","B","No silent downgrade observed on the newest era."],
+["LPSignal (public)","LPSignal","Observable: 3/6 honest, no downgrade, no fictional-era acceptance","B","No silent downgrade observed on the newest era."],
+["OutcomeTick (public)","OutcomeTick","Observable: 2/6 honest, no downgrade","C","Weakest honest-answer rate among observable servers; no downgrade observed."],
+["GitHub","GitHub","All 6 probes → HTTP 401 (OAuth wall)","N/A","Negotiation unobservable. Not a finding of wrongdoing."],
+["Stripe","Stripe","All 6 probes → HTTP 401 (OAuth wall)","N/A","Negotiation unobservable. Not a finding of wrongdoing."],
+["Figma","Figma","All 6 probes → HTTP 401 (OAuth wall)","N/A","Negotiation unobservable. Not a finding of wrongdoing."],
+["Linear","Linear","All 6 probes → HTTP 401 (OAuth wall)","N/A","Negotiation unobservable. Not a finding of wrongdoing."],
+["Slack","Salesforce","All 6 probes → HTTP 401 (OAuth wall)","N/A","Negotiation unobservable. Not a finding of wrongdoing."],
+["Notion","Notion","All 6 probes → HTTP 401 (OAuth wall)","N/A","Negotiation unobservable. Not a finding of wrongdoing."],
+["Cloudflare","Cloudflare","All 6 probes → HTTP 401 (OAuth wall)","N/A","Negotiation unobservable. Not a finding of wrongdoing."],
+["HubSpot","HubSpot","All 6 probes → HTTP 401 (OAuth wall)","N/A","Negotiation unobservable. Not a finding of wrongdoing."],
+["Atlassian (v1+v2)","Atlassian","All 6 probes → HTTP 401 (OAuth wall)","N/A","Both API versions walled. Negotiation unobservable. Not a finding of wrongdoing."],
+["Supabase","Supabase","All 6 probes → HTTP 401 (OAuth wall)","N/A","Negotiation unobservable. Not a finding of wrongdoing."],
+["Sentry","Sentry","All 6 probes → HTTP 401 (OAuth wall)","N/A","Negotiation unobservable. Not a finding of wrongdoing."],
+["Neon","Neon","All 6 probes → HTTP 401 (OAuth wall)","N/A","Negotiation unobservable. Not a finding of wrongdoing."],
+["Vercel","Vercel","All 6 probes → HTTP 401 (OAuth wall)","N/A","Negotiation unobservable. Not a finding of wrongdoing."],
+["Monday.com","monday.com","All 6 probes → HTTP 401 (OAuth wall)","N/A","Negotiation unobservable. Not a finding of wrongdoing."],
+["Ahrefs","Ahrefs","All 6 probes → HTTP 401 (OAuth wall)","N/A","Negotiation unobservable. Not a finding of wrongdoing."],
+["Perplexity","Perplexity","All 6 probes → HTTP 401 (OAuth wall)","N/A","Negotiation unobservable. Not a finding of wrongdoing."],
+["Semrush","Semrush","All 6 probes → HTTP 401 (OAuth wall)","N/A","Negotiation unobservable. Not a finding of wrongdoing."],
+["Exa","Exa","All 6 probes → HTTP 401 (OAuth wall)","N/A","Negotiation unobservable. Not a finding of wrongdoing."],
+["X API","X Corp","All 6 probes → HTTP 401 (OAuth wall)","N/A","Negotiation unobservable. Not a finding of wrongdoing."],
+["X Docs (authenticated)","X Corp","All 6 probes → HTTP 401 (OAuth wall)","N/A","Public paths were observable (B); authenticated paths walled. Not a finding of wrongdoing."]
+];
+let sortKey='grade',sortDir=1;
+const GRADE_ORDER={"F":0,"C":1,"B":2,"A":3,"N/A":4};
+function gradeBadge(g){return '<span class="grade g'+(g==='N/A'?'NA':g)+'">'+g+'</span>';}
+function sortBy(k){
+  if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=1;}
+  ['server','vendor','behavior','grade'].forEach(x=>document.getElementById('a-'+x).textContent='');
+  document.getElementById('a-'+k).textContent=sortDir===1?'▲':'▼';
+  render();
+}
+function render(){
+  const q=document.getElementById('q').value.toLowerCase();
+  const fg=document.getElementById('fgrade').value;
+  const idx={server:0,vendor:1,behavior:2,grade:3}[sortKey];
+  let rows=DATA.filter(d=>(!fg||d[3]===fg)&&(!q||(d[0]+' '+d[1]+' '+d[2]+' '+d[4]).toLowerCase().includes(q)));
+  rows.sort((a,b)=>{
+    let va=a[idx],vb=b[idx];
+    if(sortKey==='grade'){va=GRADE_ORDER[a[3]];vb=GRADE_ORDER[b[3]];}
+    else{va=va.toLowerCase();vb=vb.toLowerCase();}
+    return (va>vb?1:va<vb?-1:0)*sortDir;
+  });
+  document.getElementById('rows').innerHTML=rows.map(d=>
+    '<tr><td><strong>'+d[0]+'</strong></td><td>'+d[1]+'</td><td>'+d[2]+'</td><td>'+gradeBadge(d[3])+'</td>'+
+    '<td class="ev">'+d[4]+'<div class="src">Source: <a href="state-of-mcp-security-2026.html">State of MCP Security 2026</a> (2026-10-17 probe)</div></td></tr>'
+  ).join('');
+  document.getElementById('count').textContent=rows.length+' of '+DATA.length+' servers';
+}
+document.getElementById('a-grade').textContent='▲';
+render();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
