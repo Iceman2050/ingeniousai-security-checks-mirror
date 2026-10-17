@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Automation System Picker — Which of the 50 Should You Build First? | Ingenious AI</title>
+<meta name="description" content="50 AI automation systems businesses actually want. Take the 6-question picker and get your top 3 best-fit systems with why each fits — free, no signup.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-automation-system-picker.html">
+<link rel="stylesheet" href="ecosystem.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Which AI automation system should your business build first?">
+<meta property="og:description" content="50 AI automation systems. 6 questions. Your top 3 best fits, free.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-automation-system-picker.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Automation System Picker — your top 3 of 50">
+<meta name="twitter:description" content="6 questions map you to the 3 best-fit AI automation systems for your business. Free.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:860px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#101a2e;border:1px solid #1c6ef2;color:#6ea8fe;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .blue{color:#6ea8fe}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.q p{font-size:16px;margin-bottom:12px;color:#fff}
+.q .opts{display:flex;gap:10px;flex-wrap:wrap}
+.q button{flex:1;min-width:150px;background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px;font-size:14px;font-weight:600;cursor:pointer;text-align:left}
+.q button:hover{border-color:#1c6ef2}
+.q button.sel{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.q button:disabled{cursor:default}
+.q button.sel:disabled{opacity:1}
+#verdict{display:none;border-left:4px solid #3fb950;padding:18px;background:#0d1a0f;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+.pick{border:1px solid #2a3342;border-radius:10px;padding:16px;margin:12px 0;background:#0d1219}
+.pick .rank{display:inline-block;background:#1c6ef2;color:#fff;font-weight:800;font-size:13px;border-radius:6px;padding:2px 10px;margin-bottom:8px}
+.pick h3{font-size:18px;color:#fff;margin-bottom:6px}
+.pick p{font-size:15px;color:#c9d1d9}
+.pick .why{font-size:13px;color:#7ee787;margin-top:8px}
+.resetbtn{margin-top:14px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+.sharebox{margin-top:16px;display:none;background:#0b0f17;border:1px dashed #2a3342;border-radius:8px;padding:14px 16px}
+.sharebox p{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+#sharetext{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical;min-height:64px}
+.copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-top:14px}
+.sys{background:#0d1219;border:1px solid #2a3342;border-radius:8px;padding:12px 14px;font-size:14px}
+.sys .n{color:#6ea8fe;font-weight:700;margin-right:6px}
+.sys .d{display:block;font-size:12px;color:#9aa7b8;margin-top:4px}
+.catchips{margin-bottom:14px}
+.catchips button{background:#161d29;border:1px solid #2a3342;color:#9aa7b8;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600;cursor:pointer;margin:0 6px 8px 0}
+.catchips button.on{background:#0d1626;border-color:#1c6ef2;color:#6ea8fe}
+.catgroup{margin-top:18px}
+.catgroup h3{font-size:16px;color:#fff;border-bottom:1px solid #232b38;padding-bottom:8px;margin-bottom:12px}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+.warnbox{max-width:860px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+.cta-block{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:24px;margin:28px 0;text-align:center}
+.cta-block .kicker{font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px}
+.cta-block h2{font-size:22px;color:#fff;margin-bottom:10px}
+.cta-block p{font-size:15px;color:#9aa7b8;margin-bottom:14px}
+.cta-block .platforms{font-size:13px;color:#9aa7b8;margin:16px 0 12px;line-height:2}
+.cta-block .platforms a{color:#6ea8fe;text-decoration:none;white-space:nowrap}
+.bigbtn{display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px;margin:4px}
+.bigbtn.ghost{background:transparent;border:1px solid #1c6ef2;color:#6ea8fe}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"AI Automation System Picker","applicationCategory":"BusinessApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-automation-system-picker.html","description":"Six questions that recommend the 3 best-fit AI automation systems for a business from a catalog of 50, with a browsable grid of all 50 grouped by category.","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How does the AI automation system picker work?","acceptedAnswer":{"@type":"Answer","text":"You answer 6 questions about your biggest time-wasters, team size, tech comfort, urgency, whether the work is customer-facing or internal, and your biggest revenue leak. Each answer maps to relevant systems from the catalog of 50, and the three highest-scoring systems are recommended with an explanation of which of your answers matched them."}},
+{"@type":"Question","name":"Are the 50 automation systems real things businesses buy?","acceptedAnswer":{"@type":"Answer","text":"They are categories of automation work that agencies and consultants build for businesses — lead qualification, appointment scheduling, ticket triage, invoice automation, and so on. They are opportunities, not guarantees: fit depends on the business's actual workflow, data, and budget."}},
+{"@type":"Question","name":"Can Ingenious AI build one of these for my business?","acceptedAnswer":{"@type":"Answer","text":"Yes — Ingenious AI builds custom AI automation systems for businesses. Use the WhatsApp or email link on the page to describe what you need."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free tools</a>
+<div class="badge">FOR BUSINESS OWNERS &mdash; FREE PICKER</div>
+<h1>50 AI automation systems. <span class="blue">Which 3 fit your business?</span></h1>
+<p class="lead">Six questions about how your business actually runs. The picker scores all 50 systems against your answers and recommends the three best fits &mdash; with exactly which answers matched. No signup, no email wall. These are <strong>opportunities, not guarantees</strong>: fit always depends on your workflow, data, and budget.</p>
+
+<div class="card">
+<h2>The 60-second picker</h2>
+<p class="note">Answer all six.</p>
+<div id="quiz"></div>
+<div id="verdict" role="status" aria-live="polite"></div>
+<div class="sharebox" id="sharebox">
+<p>Share your result:</p>
+<textarea id="sharetext" readonly></textarea>
+<button class="copybtn" id="copybtn">Copy result text</button>
+</div>
+</div>
+
+<div class="cta-block">
+<div class="kicker">FROM INGENIOUS AI</div>
+<h2>Want one of these built for your business?</h2>
+<p>Ingenious AI builds custom AI automation systems &mdash; scoped to your workflow, wired into the tools you already use, and built to be maintained. Tell us which system caught your eye and what it should do.</p>
+<a class="bigbtn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20an%20AI%20automation%20system%20built%20for%20my%20business.%20Here%27s%20what%20I%20need%3A%20">Chat on WhatsApp &rarr;</a>
+<a class="bigbtn ghost" href="mailto:avilanatanael640@gmail.com?subject=Build%20an%20AI%20automation%20system%20for%20my%20business&body=Hi%20Ingenious%20AI%2C%0A%0AI%27m%20interested%20in%20having%20an%20AI%20automation%20system%20built%20for%20my%20business.%0A%0ASystem%20I%27m%20interested%20in%3A%20%0AWhat%20it%20should%20do%3A%20%0AMy%20business%20type%3A%20%0A%0AThanks!">Email us instead</a>
+<div class="platforms">All 11 platforms:
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard.">DisclosureGuard</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder.">ModelMinder</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch.">TermsWatch</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit.">Vibe-Code Audit</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense.">Rogue-Agent Defense</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter.">BreachHunter</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker.">ChatBreaker</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder.">Agent Flight Recorder</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway.">Agent Auth Gateway</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard.">DomainGuard</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI.">ContentCraft AI</a>
+</div>
+</div>
+
+<div class="card">
+<h2>Browse all 50 systems</h2>
+<p class="note">Filter by category, or scroll the full catalog.</p>
+<div class="catchips" id="catchips"></div>
+<div id="catgroups"></div>
+</div>
+
+<p class="src">Inspired by the "50 AI Automation Systems" list circulating on social media. System names kept as published; descriptions are our own one-line summaries. Nothing here is a promise of results &mdash; automation fit depends on the business.</p>
+</div>
+
+<div class="share">Share this picker: <a href="https://x.com/intent/post?text=Which%20AI%20automation%20system%20should%20your%20business%20build%20first%3F%206%20questions%2C%20top%203%20of%2050%2C%20free&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ai-automation-system-picker.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ai-automation-system-picker.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ai-automation-system-picker.html&title=6-question%20picker%3A%20which%20of%2050%20AI%20automation%20systems%20fits%20your%20business%3F" target="_blank" rel="noopener">Reddit</a></div>
+<div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check self-promotion and AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<script>
+(function(){
+/* ---- the 50 systems: [name, category, one-line description] ---- */
+var SYSTEMS=[
+["AI Lead Qualification System","Sales","Scores and qualifies inbound leads against your criteria so sales talks to buyers, not browsers."],
+["AI Appointment Scheduler","Operations","Books, confirms, and reschedules appointments automatically across time zones."],
+["AI Email Responder","Support","Drafts or sends replies to routine inbound email in your tone, escalating the rest."],
+["AI Follow-Up Automation","Sales","Chases quotes, proposals, and cold leads on schedule so no opportunity goes quiet."],
+["AI Proposal Generator","Sales","Turns a scope call or brief into a polished, priced proposal in minutes."],
+["AI Invoice Automation","Finance","Creates, sends, and tracks invoices; nudges what's overdue."],
+["AI Payment Reminder System","Finance","Polite, escalating payment reminders that recover cash without awkward calls."],
+["AI Customer Onboarding","Support","Walks new customers through setup, collects what you need, and flags stuck accounts."],
+["AI Support Ticket Triage","Support","Reads, prioritizes, and routes tickets — and resolves the routine ones outright."],
+["AI Knowledge Base Assistant","Support","Answers customer questions from your docs, 24/7, in your voice."],
+["AI Social Media Scheduler","Marketing","Plans, drafts, and posts content across channels on a consistent calendar."],
+["AI Content Repurposer","Marketing","Turns one video, call, or post into clips, captions, threads, and articles."],
+["AI Review Manager","Marketing","Monitors reviews everywhere, drafts responses, and flags reputation risks early."],
+["AI Data Entry Automation","Operations","Moves data between forms, sheets, and systems without retyping."],
+["AI Document Classifier","Operations","Reads incoming documents and files them by type, client, or urgency."],
+["AI Meeting Notes Assistant","Operations","Captures decisions, owners, and deadlines from every call — no more lost action items."],
+["AI CRM Updater","Sales","Keeps contact records, stages, and notes current from calls, email, and forms."],
+["AI Pipeline Management","Sales","Tracks every deal's stage, predicts slippage, and nags owners before deals stall."],
+["AI Inventory Monitor","Operations","Watches stock levels and demand signals so you reorder before you run out."],
+["AI Order Processing","Operations","Takes orders from cart to fulfillment with fewer touches and fewer errors."],
+["AI Shipping Automation","Operations","Compares carriers, prints labels, and sends tracking without the tab-switching."],
+["AI Expense Categorizer","Finance","Reads receipts and transactions and files them under the right category."],
+["AI Report Generator","Finance","Turns raw numbers into readable weekly/monthly reports with the highlights called out."],
+["AI Sales Assistant","Sales","Preps call briefs, suggests next steps, and keeps follow-ups from slipping."],
+["AI Upsell Recommender","Sales","Spots which customers are ready for the next tier and drafts the pitch."],
+["AI Churn Prediction","Insights","Flags at-risk accounts early, while there's still time to save them."],
+["AI Feedback Analyzer","Insights","Reads reviews, tickets, and surveys to surface what customers actually want."],
+["AI Survey Automation","Insights","Sends the right survey at the right moment and summarizes what came back."],
+["AI Webinar Automation","Marketing","Runs registration, reminders, follow-up, and replay delivery for every session."],
+["AI Job Application Screener","HR","Reads every application and shortlists the ones worth a human look."],
+["AI Interview Scheduler","Operations","Coordinates candidate availability and books interviews without the email ping-pong."],
+["AI Employee Onboarding","HR","Guides new hires through paperwork, training, and first-week tasks."],
+["AI Timesheet Collector","HR","Chases, checks, and consolidates timesheets before payroll day."],
+["AI Compliance Checker","HR","Scans documents and processes against the rules you must follow."],
+["AI Contract Analyzer","Finance","Reads contracts for risky clauses, missing terms, and renewal dates."],
+["AI Project Status Reporter","Operations","Turns scattered updates into one clear status report for clients or leadership."],
+["AI Task Automation","Operations","Connects your apps so repetitive multi-step work runs itself."],
+["AI File Organizer","Operations","Renames, tags, and files documents into a structure you can actually find."],
+["AI Transcription Automation","Operations","Turns calls, meetings, and voice notes into searchable text."],
+["AI Language Translator","Operations","Translates content and conversations for multilingual customers and teams."],
+["AI Voice Assistant","Support","Answers and routes calls with a natural voice, 24/7."],
+["AI Competitor Monitor","Insights","Watches competitors' pricing, launches, and messaging and reports what changed."],
+["AI Price Monitoring","Insights","Tracks market prices for your products so your pricing never drifts blind."],
+["AI Local SEO Monitor","Marketing","Tracks your map and search visibility and flags what to fix."],
+["AI Ad Performance Monitor","Marketing","Watches spend and results across ad platforms and flags waste early."],
+["AI Client Communication Hub","Support","One place for every client thread, with summaries and next actions."],
+["AI Backup Automation","Operations","Verifies backups actually ran and alerts you before data loss finds you first."],
+["AI System Health Monitor","Operations","Watches your systems and tools and alerts on failures before customers notice."],
+["AI Workflow Orchestrator","Operations","Chains multiple automations into one reliable end-to-end process."],
+["AI Business Insights Dashboard","Insights","One dashboard answering 'how is the business doing' from live data."]
+];
+var CATS=["All","Sales","Marketing","Support","Operations","Finance","HR","Insights"];
+
+/* ---- quiz: each option maps to system indexes ---- */
+var QUESTIONS=[
+{q:"1. What eats the most hours in your week?",
+ opts:[
+  ["Chasing sales follow-ups",[3,4,23,0,24]],
+  ["Answering support tickets & email",[8,9,45,2]],
+  ["Manual data entry & filing",[13,14,37,16]],
+  ["Scheduling & calendar ping-pong",[1,30,10]],
+  ["Invoices, expenses & finance admin",[5,6,21,22]],
+  ["Creating content",[11,12,28]]]},
+{q:"2. How big is your team?",
+ opts:[
+  ["Just me",[36,48,38,15]],
+  ["2\u201310 people",[17,35,45,22]],
+  ["11\u201350 people",[31,32,29,33]],
+  ["50+ people",[34,9,49,26]]]},
+{q:"3. How comfortable are you with new tech?",
+ opts:[
+  ["Keep it simple, no-code please",[1,10,15,38]],
+  ["I use a few tools already",[11,22,27,35]],
+  ["Comfortable with APIs & integrations",[48,47,46,16]]]},
+{q:"4. What do you need most urgently?",
+ opts:[
+  ["More revenue, fast",[0,3,4,24]],
+  ["Cut costs & wasted effort",[13,20,36,21]],
+  ["Keep the customers I have",[7,25,26,12]],
+  ["Less chaos, more clarity",[35,48,37,45]]]},
+{q:"5. Is the painful work mostly\u2026",
+ opts:[
+  ["Customer-facing",[2,40,39,12,28]],
+  ["Internal operations",[14,19,18,32]],
+  ["Honestly, both",[45,22,49,9]]]},
+{q:"6. Where does revenue leak out?",
+ opts:[
+  ["Leads slipping through the cracks",[0,17,3,45]],
+  ["Slow or messy fulfillment",[19,20,18,35]],
+  ["Bad reviews & reputation hits",[12,26,43,44]],
+  ["Pricing blind spots",[42,41,49,24]],
+  ["Hiring the wrong people",[29,30,31]],
+  ["Compliance & contract risk",[33,34,5]]]}
+];
+var PAGE="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-automation-system-picker.html";
+var POINTS=3;
+var answers=new Array(QUESTIONS.length).fill(null);
+var quiz=document.getElementById("quiz");
+
+function scoreFor(picks){
+  var scores=new Array(SYSTEMS.length).fill(0);
+  var reasons={};
+  picks.forEach(function(p,i){
+    if(p===null||p===undefined)return;
+    var opt=QUESTIONS[i].opts[p];
+    opt[1].forEach(function(si){
+      scores[si]+=POINTS;
+      (reasons[si]=reasons[si]||[]).push(opt[0]);
+    });
+  });
+  return {scores:scores,reasons:reasons};
+}
+function top3(scores){
+  return scores.map(function(s,i){return i;})
+    .sort(function(a,b){return (scores[b]-scores[a])||(a-b);})
+    .slice(0,3);
+}
+
+QUESTIONS.forEach(function(qq,qi){
+  var d=document.createElement("div");d.className="q";
+  d.innerHTML="<p>"+qq.q+"</p><div class='opts'></div>";
+  var opts=d.querySelector(".opts");
+  qq.opts.forEach(function(o,oi){
+    var b=document.createElement("button");b.textContent=o[0];
+    b.onclick=function(){
+      answers[qi]=oi;
+      var btns=opts.querySelectorAll("button");
+      btns.forEach(function(x){x.className="";x.disabled=true;});
+      b.className="sel";
+      if(answers.every(function(a){return a!==null;}))showVerdict();
+    };
+    opts.appendChild(b);
+  });
+  quiz.appendChild(d);
+});
+
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+function showVerdict(){
+  var r=scoreFor(answers);
+  var picks=top3(r.scores);
+  var v=document.getElementById("verdict");
+  var html="<b style='font-size:19px;letter-spacing:.5px'>YOUR TOP 3 OF 50</b><br><br>";
+  var names=[];
+  picks.forEach(function(si,n){
+    var s=SYSTEMS[si];
+    names.push(s[0]);
+    var why=(r.reasons[si]||[]).filter(function(x,ix,arr){return arr.indexOf(x)===ix;});
+    html+="<div class='pick'><span class='rank'>#"+(n+1)+"</span><h3>"+(si+1)+". "+esc(s[0])+"</h3><p>"+esc(s[2])+"</p><div class='why'>Why it fits: matched your answers on "+why.map(esc).join(" · ")+".</div></div>";
+  });
+  html+="<p class='note' style='margin-top:10px'>Opportunities, not guarantees — the right pick still depends on your workflow, data, and budget.</p>";
+  html+="<button class='resetbtn' id='resetbtn'>Retake the quiz</button>";
+  v.innerHTML=html;v.style.display="block";
+  document.getElementById("sharetext").value="My top 3 AI automation systems: "+names.join(", ")+". Find yours (free 6-question picker): "+PAGE;
+  document.getElementById("sharebox").style.display="block";
+  document.getElementById("resetbtn").onclick=resetQuiz;
+  v.scrollIntoView({behavior:"smooth",block:"center"});
+}
+function resetQuiz(){
+  answers=new Array(QUESTIONS.length).fill(null);
+  quiz.querySelectorAll(".q .opts button").forEach(function(b){b.className="";b.disabled=false;});
+  document.getElementById("verdict").style.display="none";
+  document.getElementById("sharebox").style.display="none";
+  window.scrollTo({top:quiz.offsetTop-20,behavior:"smooth"});
+}
+document.getElementById("copybtn").onclick=function(){
+  var t=document.getElementById("sharetext");var btn=this;
+  function done(){var o=btn.textContent;btn.textContent="Copied!";setTimeout(function(){btn.textContent=o;},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();try{document.execCommand("copy");done();}catch(e){}});}
+  else{t.select();try{document.execCommand("copy");done();}catch(e){}}
+};
+
+/* ---- browsable catalog ---- */
+var chips=document.getElementById("catchips");
+var groups=document.getElementById("catgroups");
+function renderCats(filter){
+  groups.innerHTML="";
+  CATS.slice(1).forEach(function(c){
+    if(filter!=="All"&&filter!==c)return;
+    var g=document.createElement("div");g.className="catgroup";
+    var h=document.createElement("h3");h.textContent=c;g.appendChild(h);
+    var grid=document.createElement("div");grid.className="grid";
+    SYSTEMS.forEach(function(s,si){
+      if(s[1]!==c)return;
+      var d=document.createElement("div");d.className="sys";
+      d.innerHTML="<span class='n'>"+(si+1)+"</span><strong>"+esc(s[0])+"</strong><span class='d'>"+esc(s[2])+"</span>";
+      grid.appendChild(d);
+    });
+    g.appendChild(grid);groups.appendChild(g);
+  });
+}
+CATS.forEach(function(c){
+  var b=document.createElement("button");b.textContent=c+(c==="All"?" (50)":"");
+  if(c==="All")b.className="on";
+  b.onclick=function(){
+    chips.querySelectorAll("button").forEach(function(x){x.className="";});
+    b.className="on";renderCats(c);
+  };
+  chips.appendChild(b);
+});
+renderCats("All");
+
+/* expose for tests */
+window.__picker={SYSTEMS:SYSTEMS,QUESTIONS:QUESTIONS,scoreFor:scoreFor,top3:top3};
+})();
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
