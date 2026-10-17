@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>"The AI Said It Was Secure" — The Self-Audit Fallacy Check</title>
+<meta name="description" content="A meme nailed a real security problem: letting the AI that wrote your code audit it. Research shows models are biased toward their own output and miss their own blind spots. Free 5-question check — would your AI-built code survive a real audit?">
+<meta property="og:title" content="&quot;The AI Said It Was Secure&quot; — The Self-Audit Fallacy Check">
+<meta property="og:description" content="The meme is funny because it's true: research shows LLMs are biased toward their own output and miss 64.5% of their own errors. Free 5-question check.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-self-audit-fallacy-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-self-audit-fallacy-check.html">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{background:#0a0f16;color:#e8edf3;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;line-height:1.6}
+.wrap{max-width:760px;margin:0 auto;padding:24px 18px 60px}
+h1{font-size:30px;margin:18px 0 8px}
+h2{font-size:22px;margin:32px 0 10px;color:#fff}
+.badge{display:inline-block;background:#7a4d12;color:#fff;font-size:12px;font-weight:bold;letter-spacing:1px;padding:5px 12px;border-radius:20px;margin-bottom:6px}
+.lede{font-size:17px;color:#b9c4d2}
+.card{background:#101823;border:1px solid #1e2a3a;border-radius:10px;padding:18px;margin:16px 0}
+.card.warn{border-color:#7a4d12;background:#171207}
+.card h3{margin:0 0 8px;font-size:17px;color:#fff}
+ul{padding-left:20px}li{margin:6px 0}
+a{color:#6ea8fe}
+.small{font-size:13px;color:#8b98a9}
+.src{font-size:12px;color:#66727f}
+.q{margin:14px 0;padding:12px;border:1px solid #1e2a3a;border-radius:8px}
+.q p{margin:0 0 8px;font-weight:600}
+.q label{margin-right:18px;cursor:pointer}
+#result{font-size:18px;font-weight:bold;margin-top:14px}
+button{background:#1c6ef2;color:#fff;border:0;padding:12px 28px;border-radius:8px;font-size:15px;font-weight:bold;cursor:pointer;margin-top:10px}
+.meme{font-size:15px;color:#b9c4d2;font-style:italic;border-left:3px solid #7a4d12;padding-left:14px;margin:18px 0}
+.stat{font-size:26px;font-weight:bold;color:#fff}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">VIBE-CODING SECURITY</div>
+<h1>"The AI Said It Was Secure" 💀</h1>
+<p class="lede">A meme went around this week: <em>"Bro's security audit is a thumbs-up from the same AI that built it."</em> It's funny because it's true — and because researchers have actually measured exactly how bad this is.</p>
+
+<div class="meme">"The AI said it was secure 💀" — vibecodinglife group, Oct 2026. The joke: your security audit is the same model grading its own homework.</div>
+
+<h2>What the meme gets right (with receipts)</h2>
+<div class="card">
+<h3>1. Models are biased toward their own output</h3>
+<p>A study by researchers at UC Santa Barbara and Carnegie Mellon ("Pride and Prejudice: LLM Amplifies Self-Bias in Self-Refinement") found that LLMs systematically favor their own generations across six models (GPT-4, GPT-3.5, Gemini, LLaMA2, Mixtral, DeepSeek) — and that iterative self-refinement <strong>amplifies</strong> the bias instead of fixing it.</p>
+</div>
+<div class="card">
+<h3>2. The Self-Correction Blind Spot</h3>
+<p>Testing across 14 models found an average <span class="stat">64.5%</span> blind-spot rate: models fail to correct errors in their <em>own</em> outputs — yet can correct the <strong>identical errors</strong> when the same text is presented as someone else's. The knowledge is there. The self-awareness isn't.</p>
+</div>
+<div class="card">
+<h3>3. Correlated errors: the grader shares the student's blind spots</h3>
+<p>An information-theoretic analysis of self-correction put it bluntly: when the generator and the evaluator share failure modes, self-evaluation provides <strong>weak evidence</strong> of correctness. A derivation can be elegant, internally consistent, convincingly presented — and still wrong in exactly the way the model can't see.</p>
+</div>
+<div class="card warn">
+<h3>4. "Looks secure" ≠ "is secure"</h3>
+<p>Here's the cruelest finding: self-refinement pipelines reliably improve <em>fluency and understandability</em> — the output reads better — while <strong>amplifying</strong> self-bias. An AI self-audit doesn't just miss vulnerabilities; it makes the code <em>look</em> more secure while missing them. The thumbs-up gets more confident, not more correct.</p>
+</div>
+
+<h2>Why AI self-audits fail</h2>
+<ul>
+<li><strong>Confirmation bias toward own output</strong> — the model trusts text it generated, scoring it higher than identical text from elsewhere.</li>
+<li><strong>Shared blind spots</strong> — the reviewer fails in exactly the same places the author failed. Two copies of the same brain isn't redundancy.</li>
+<li><strong>No adversarial pressure</strong> — a real audit tries to <em>break</em> the thing. A self-audit tries to <em>confirm</em> it.</li>
+<li><strong>No independent signal</strong> — research consistently finds that <strong>external feedback</strong> (a different model, a human, a test suite) is what actually reduces bias and improves outcomes.</li>
+</ul>
+
+<h2>What a real audit needs</h2>
+<ul>
+<li><strong>An independent reviewer</strong> — a different model, a human, or ideally both. Never the author grading itself.</li>
+<li><strong>Adversarial testing</strong> — someone (or something) actively trying to find the flaw, not confirm the design.</li>
+<li><strong>Checklists, not vibes</strong> — OWASP Top 10, dependency scans, secret detection. Boring, mechanical, effective.</li>
+<li><strong>Verifiable criteria</strong> — self-correction works best where success is checkable (tests pass, exploit fails). "Looks fine to me" is not a criterion.</li>
+</ul>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>An AI grading its own code is the meme. An <em>independent</em> audit is the fix — that's exactly what <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#fff;text-decoration:underline">Vibe-Code Audit</a> does: a separate reviewer that didn't write your code, checking it like an adversary would.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20AI%20self-audit%20fallacy%20check." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<h2>The 5-question check: would your AI-built code survive a real audit?</h2>
+<div id="quiz"></div>
+<button onclick="grade()">Check my answers</button>
+<div id="result"></div>
+
+<p class="small" style="margin-top:28px">Honest scope: the meme is a joke, not a study — but the research it points at is real (self-bias in self-refinement, the self-correction blind spot, correlated evaluator errors). Those studies cover LLM self-evaluation generally; applied here to the specific case of AI-audited code. This page is a readiness check, not legal or security advice, and is not affiliated with any AI lab or research group.</p>
+<p class="src">Sources: Xu et al., "Pride and Prejudice: LLM Amplifies Self-Bias in Self-Refinement" (UCSB/CMU, arXiv) — <a href="https://arxiv.org/html/2402.11436v2">arxiv.org/html/2402.11436v2</a> · Ken Tsui, "Self-Correction Bench: Revealing and Addressing the Self-Correction Blind Spot in LLMs" (arXiv, Jul 2025) · "Limits of Self-Correction in LLMs: An Information-Theoretic Analysis of Correlated Errors" — <a href="https://www.preprints.org/manuscript/202601.0892">preprints.org/manuscript/202601.0892</a> · "On the Self-Verification Limitations of Large Language Models on Reasoning and Planning Tasks" · Meme: vibecodinglife Facebook group, Oct 14, 2026.</p>
+</div>
+<script>
+var QUESTIONS=[
+{q:"Your AI wrote the code AND gave it a clean bill of health. Do you ship it without a second opinion?",good:false},
+{q:"Should security reviews come from a reviewer that did NOT write the code — a different model or a human?",good:true},
+{q:"The AI says 'no vulnerabilities found.' Does that prove the code is secure?",good:false},
+{q:"Would you add adversarial testing — someone actively trying to break it — to your review process?",good:true},
+{q:"Do you run a mechanical security checklist (OWASP, dependency scans, secret detection) on AI-generated code instead of trusting the AI's word?",good:true}
+];
+function render(){
+var h="";
+for(var i=0;i<QUESTIONS.length;i++){
+h+='<div class="q"><p>'+(i+1)+'. '+QUESTIONS[i].q+'</p><label><input type="radio" name="q'+i+'" value="yes"> Yes</label><label><input type="radio" name="q'+i+'" value="no"> No</label></div>';
+}
+document.getElementById("quiz").innerHTML=h;
+}
+function grade(){
+var score=0,answered=0;
+for(var i=0;i<QUESTIONS.length;i++){
+var sel=document.querySelector('input[name="q'+i+'"]:checked');
+if(!sel)continue;
+answered++;
+var yes=(sel.value==="yes");
+if((yes&&QUESTIONS[i].good)||(!yes&&!QUESTIONS[i].good))score++;
+}
+var r=document.getElementById("result");
+if(answered<QUESTIONS.length){r.textContent="Answer all 5 questions first.";return;}
+var msg=score===5?"5/5 — Your code gets a real audit, not a thumbs-up. Ship it.":score>=3?score+"/5 — Mostly sound, but close the self-audit loop above.":score+"/5 — Right now your security audit is the meme. Get an independent review before this ships.";
+r.textContent=msg;
+}
+render();
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
