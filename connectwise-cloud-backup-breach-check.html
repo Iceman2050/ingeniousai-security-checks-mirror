@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ConnectWise Cloud Backup Breach — Was Your Microsoft 365 Tenant Exposed?</title>
+<meta name="description" content="Huntress: attackers used a compromised ConnectWise Cloud Backup credential to sign in to 173 Microsoft 365 tenants via Microsoft Graph — no MFA prompt, mailboxes and files readable. Free 5-question check: was your tenant exposed?">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/connectwise-cloud-backup-breach-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="173 Microsoft 365 tenants breached through a backup app — was yours one?">
+<meta property="og:description" content="A compromised ConnectWise Cloud Backup credential let attackers read mailboxes, files, and Teams data across 173 tenants — no password, no MFA. 5-question exposure check, free.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/connectwise-cloud-backup-breach-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ConnectWise Cloud Backup breach — M365 exposure check">
+<meta name="twitter:description" content="173 tenants signed in with a stolen vendor credential. 5 questions to check whether yours was exposed.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#3b0d0d;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.q p{font-size:16px;margin-bottom:12px;color:#fff}
+.q .opts{display:flex;gap:10px;flex-wrap:wrap}
+.q button{flex:1;min-width:120px;background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px;font-size:15px;font-weight:600;cursor:pointer}
+.q button:hover{border-color:#1c6ef2}
+.q button.sel-yes{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.q button.sel-no{background:#2b1215;border-color:#f85149;color:#ffa198}
+.q button:disabled{cursor:default;opacity:.85}
+#verdict{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+#verdict.good{border-color:#3fb950;background:#0d1a0f}
+#verdict.bad{border-color:#f85149;background:#1a0f0f}
+#verdict b.verd{font-size:19px;letter-spacing:.5px}
+.sharebox{margin-top:16px;display:none;background:#0b0f17;border:1px dashed #2a3342;border-radius:8px;padding:14px 16px}
+.sharebox p{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+#sharetext{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical;min-height:64px}
+.copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+.warnbox{max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+.timeline{margin:14px 0 6px 4px}
+.timeline div{margin:10px 0;padding-left:14px;border-left:2px solid #2a3342}
+.timeline b{color:#fff}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"ConnectWise Cloud Backup Breach Exposure Check","applicationCategory":"SecurityApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/connectwise-cloud-backup-breach-check.html","description":"Five questions that score whether your Microsoft 365 tenant was exposed in the October 2026 ConnectWise Cloud Backup credential compromise affecting 173 tenants.","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What happened in the ConnectWise Cloud Backup breach?","acceptedAnswer":{"@type":"Answer","text":"Huntress observed unknown attackers using a compromised vendor credential belonging to ConnectWise Cloud Backup (formerly SkyKick) to sign in to 173 Microsoft 365 partner and customer tenants. On October 15, 2026 between 06:13 and 08:34 UTC, the actor obtained Microsoft Graph tokens from IP 144.172.64.128, moving through tenants in sorted GUID order seconds apart — scripted behavior. The app's broad permissions (mailboxes, OneDrive, SharePoint, Teams, directory data) became the attacker's permissions, with no user password or MFA prompt needed."}},
+{"@type":"Question","name":"How do I know if my Microsoft 365 tenant was affected?","acceptedAnswer":{"@type":"Answer","text":"Check whether ConnectWise Cloud Backup (AppId 506e08f9-6e9a-4da4-942b-a099a03644ae) is consented in your tenant, then search your sign-in and audit logs for that app ID and for authentication from non-standard IP addresses since October 15, 2026. Also check whether new client secrets were added to service principals and whether the app holds Global Administrator or Directory.ReadWrite.All permissions."}},
+{"@type":"Question","name":"Why didn't MFA stop this attack?","acceptedAnswer":{"@type":"Answer","text":"The attackers didn't log in as users — they authenticated as the trusted backup application itself using its own vendor credential (a client assertion). App-only authentication carries the permissions customers already approved and never triggers user MFA prompts, which is exactly why stolen vendor credentials are so dangerous."}},
+{"@type":"Question","name":"What has ConnectWise done about it?","acceptedAnswer":{"@type":"Answer","text":"ConnectWise closed access to the Cloud Backup application and reported no evidence of partner backup data compromise, though the incident remains active. Microsoft Threat Intelligence is tracking it as an active supply-chain attack against the app's OAuth identity."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free security checks</a>
+<div class="badge">ACTIVE SUPPLY-CHAIN ATTACK &mdash; REPORTED OCT 16&ndash;17, 2026</div>
+<h1>A backup app's stolen credential <span class="red">walked into 173 Microsoft 365 tenants</span> &mdash; was yours one of them?</h1>
+<p class="lead">Huntress caught unknown attackers using a compromised credential belonging to <strong>ConnectWise Cloud Backup</strong> (formerly SkyKick) to obtain Microsoft Graph tokens across 173 customer and partner tenants. No passwords cracked, no MFA prompt &mdash; they signed in <em>as the trusted backup app itself</em> and inherited its permissions: mailboxes, OneDrive, SharePoint, Teams, directory data. Five questions, 60 seconds, to check your exposure.</p>
+
+<p class="answer"><strong>Short answer:</strong> if ConnectWise Cloud Backup (AppId <code>506e08f9-6e9a-4da4-942b-a099a03644ae</code>) is consented in your tenant, you are in the affected population &mdash; the stolen credential works everywhere the app was authorized. The attack ran <strong>October 15, 06:13&ndash;08:34 UTC</strong> from <code>144.172.64.128</code>, tenants hit in sorted GUID order seconds apart (a script, not a human). Microsoft tracks it as an <strong>active supply-chain attack</strong>. Check the five things below.</p>
+
+<div class="card">
+<h2>The 60-second ConnectWise Exposure Check</h2>
+<p class="note">Answer for the Microsoft 365 tenant you administer.</p>
+<div id="quiz"></div>
+<div id="verdict" role="status" aria-live="polite"></div>
+<div class="sharebox" id="sharebox">
+<p>Share your result:</p>
+<textarea id="sharetext" readonly></textarea>
+<button class="copybtn" id="copybtn">Copy result text</button>
+</div>
+</div>
+
+<div class="card">
+<h2>What actually happened (verified)</h2>
+<div class="timeline">
+<div><b>Oct 13&ndash;14:</b> the same IP (<code>144.172.64.128</code>, a hosting-provider address) password-sprayed four law-firm tenants. No successful user sign-ins detected in Huntress telemetry &mdash; a warm-up.</div>
+<div><b>Oct 15, 06:13&ndash;08:34 UTC:</b> the actor authenticated as the ConnectWise Cloud Backup app using its stolen vendor credential and pulled Microsoft Graph tokens across <b>173 partner/customer tenants</b>, moving through tenant IDs in sorted GUID order, seconds apart &mdash; an automated target list.</div>
+<div><b>Escalation:</b> in at least one tenant the app granted itself <b>Global Administrator</b> and added new client secrets to other trusted applications &mdash; including an MSP management app and a security platform &mdash; building persistence beyond the stolen credential.</div>
+<div><b>Response:</b> ConnectWise closed access to the Cloud Backup app and says it has no evidence of partner backup data compromise. Microsoft Threat Intelligence is tracking it as an active supply-chain attack on the app's OAuth identity.</div>
+</div>
+<h3>Why this one is nasty</h3>
+<ul>
+<li><strong>No user login, no MFA:</strong> the login records show a <em>client assertion</em> &mdash; the secret came from the vendor's home tenant, not from anything inside yours. App-only identities never see an MFA prompt.</li>
+<li><strong>Consent is the key:</strong> every permission your tenant already granted the backup app became the attacker's permission. 173 tenants confirmed &mdash; the true number is "everywhere the app is installed."</li>
+<li><strong>Absence of evidence isn't evidence:</strong> Huntress warns that a lack of visible mail or file access in logs does not prove nothing was taken &mdash; directory reads via Graph leave thinner audit trails.</li>
+</ul>
+<p class="src">Sources: <a href="http://thehackernews.com/2026/10/hackers-use-compromised-connectwise.html" target="_blank" rel="noopener">The Hacker News</a> &middot; <a href="https://www.spartechsoftware.com/cybersecurity-news/connectwise-backup-breach-173-tenants/" target="_blank" rel="noopener">SparTech</a> &middot; <a href="https://cybersecuritynews.com/connectwise-credentials-microsoft-365-accounts/" target="_blank" rel="noopener">CyberSecurityNews</a> &middot; <a href="https://captechgroup.com/threat-intelligence-center/unc7017-uses-compromised-connectwise-credential-to-e90117" target="_blank" rel="noopener">Capstone</a> (reporting by Huntress; Microsoft Threat Intelligence tracking)</p>
+</div>
+
+<div class="card">
+<h2>Do this today if you're in the affected population</h2>
+<ul>
+<li><strong>Search sign-in logs</strong> for AppId <code>506e08f9-6e9a-4da4-942b-a099a03644ae</code> and for auth from <code>144.172.64.128</code> since Oct 15.</li>
+<li><strong>Audit service principals:</strong> any new client secrets or credentials added in the last 30 days that nobody on your team recognizes?</li>
+<li><strong>Review app consent:</strong> does ConnectWise Cloud Backup still hold Global Admin or <code>Directory.ReadWrite.All</code>? Remove what you don't actively use.</li>
+<li><strong>Watch for persistence:</strong> new service principals, new app registrations, or consent grants appearing after Oct 15 are red flags.</li>
+</ul>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#fff;text-decoration:underline">BreachHunter</a> is Ultra Advanced Penetration Testing &mdash; it finds the trusted-app and over-permissioned-consent paths attackers actually walk, before they do.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20ConnectWise%20breach%20exposure%20check%20and%20want%20early%20access%20to%20BreachHunter." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<footer>
+Built by Ingenious AI &mdash; an independent security take, not an endorsement. Incident facts verified from Huntress reporting via multiple outlets.<br>
+Microsoft Threat Intelligence tracks this as an active supply-chain attack
+</footer>
+</div>
+
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=A%20stolen%20backup-app%20credential%20signed%20in%20to%20173%20Microsoft%20365%20tenants%20%E2%80%94%20no%20password%2C%20no%20MFA.%205%20questions%20to%20check%20whether%20your%20tenant%20was%20exposed%2C%20free&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/connectwise-cloud-backup-breach-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/connectwise-cloud-backup-breach-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/connectwise-cloud-backup-breach-check.html&title=ConnectWise%20Cloud%20Backup%20credential%20compromised%20%E2%80%94%20173%20M365%20tenants%20%E2%80%94%205-question%20exposure%20check" target="_blank" rel="noopener">Reddit</a></div>
+<div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<script>
+(function(){
+var QUESTIONS=[
+"1. Is ConnectWise Cloud Backup (or SkyKick Backup) consented in your Microsoft 365 tenant right now?",
+"2. Have you searched your sign-in logs for app ID 506e08f9-6e9a-4da4-942b-a099a03644ae (or auth from 144.172.64.128) since October 15?",
+"3. Do you review app-only (client-assertion) authentications from unfamiliar IP addresses \u2014 not just user logins?",
+"4. Have you checked whether NEW client secrets or credentials were added to any service principal in the last 30 days?",
+"5. Have you removed Global Admin / Directory.ReadWrite.All consent from third-party backup apps you no longer actively use?"
+];
+var PAGE="https://iceman2050.github.io/ingeniousai-security-checks-mirror/connectwise-cloud-backup-breach-check.html";
+var answers=new Array(QUESTIONS.length).fill(null);
+var quiz=document.getElementById("quiz");
+QUESTIONS.forEach(function(q,i){
+  var d=document.createElement("div");d.className="q";
+  d.innerHTML="<p>"+q+"</p><div class='opts'></div>";
+  var opts=d.querySelector(".opts");
+  [["Yes",1,"sel-yes"],["No",0,"sel-no"]].forEach(function(pair){
+    var b=document.createElement("button");b.textContent=pair[0];
+    b.onclick=function(){answer(i,pair[1],d);};
+    opts.appendChild(b);
+  });
+  quiz.appendChild(d);
+});
+function answer(i,val,div){
+  answers[i]=val;
+  var btns=div.querySelectorAll("button");
+  btns[0].className=val===1?"sel-yes":"";
+  btns[1].className=val===0?"sel-no":"";
+  btns.forEach(function(b){b.disabled=true;});
+  if(answers.every(function(a){return a!==null;}))showVerdict();
+}
+function showVerdict(){
+  var score=answers.reduce(function(a,b){return a+b;},0);
+  var v=document.getElementById("verdict");
+  var label,cls,advice;
+  if(score<=2){label="EXPOSED AND BLIND \u2014 act today";cls="bad";
+    advice="With "+(5-score)+" of 5 checks unanswered, you cannot rule out that your tenant was walked. The attacker moved in sorted GUID order, seconds apart \u2014 if the app was consented in your tenant, assume it was visited. Search your sign-in logs for the app ID and the attack IP now, audit new client secrets, and strip consent you don't use.";}
+  else if(score<=3){label="PARTIALLY COVERED \u2014 close the gaps";cls="";
+    advice="You have "+score+" of 5. The gaps that matter most: app-only auth from unfamiliar IPs (this attack never touched a user login), and new client secrets added to service principals (the persistence move). Close those two and you're in good shape.";}
+  else{label="LOCKED DOWN \u2014 keep watching";cls="good";
+    advice="Logs searched, consent reviewed, secrets audited \u2014 you've done the work this incident demands. Stay alert: Microsoft still tracks this as active, and stolen vendor credentials can resurface in other apps' consent chains.";}
+  v.className=cls;v.style.display="block";
+  v.innerHTML="<b class='verd'>"+score+"/5 \u2014 "+label+"</b><br><br>"+advice;
+  document.getElementById("sharetext").value="I scored "+score+"/5 on the ConnectWise M365 exposure check \u2014 a stolen backup-app credential signed in to 173 tenants with no MFA. Check yours free: "+PAGE;
+  document.getElementById("sharebox").style.display="block";
+  v.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("copybtn").onclick=function(){
+  var t=document.getElementById("sharetext");var btn=this;
+  function done(){var o=btn.textContent;btn.textContent="Copied!";setTimeout(function(){btn.textContent=o;},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();try{document.execCommand("copy");done();}catch(e){}});}
+  else{t.select();try{document.execCommand("copy");done();}catch(e){}}
+};
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
