@@ -1,0 +1,78 @@
+<!-- ============================================================================
+  INGENIOUS AI — SUITE CROSS-PROMO SNIPPET
+  File: _suite-cross-promo.html
+  ----------------------------------------------------------------------------
+  WHAT IT IS
+    A compact, copy-pasteable "More from Ingenious AI" card that any platform
+    dashboard, docs page, or marketing page can embed to cross-promote the
+    rest of the Ingenious AI security suite. Shows smart platform pairings
+    ("Using X? Pair it with Y"), then the full all-11 platform row, then a
+    link to the Security Suite bundle page.
+
+  USAGE
+    1. Copy this whole file's contents (the <style> + <div> block) into any
+       HTML page, or server-include it:
+         <!--#include virtual="_suite-cross-promo.html" -->
+    2. No JS, no external CSS, no dependencies — inline styles only, so it
+       renders standalone on dashboards, docs sites, and the mirror alike.
+    3. Works on light and dark pages (translucent card on a subtle gradient).
+
+  RULES (standing — do not change without owner approval)
+    - ALL links are WhatsApp early-access prefills (wa.me/5016691053).
+      NEVER point at Render URLs — the fleet is suspended until Nov 1 and
+      Render links are dead. (Dead-Render-link sweep: 2026-10-16.)
+    - Platform names spelled exactly: DisclosureGuard, ModelMinder,
+      TermsWatch, Vibe-Code Audit, Rogue-Agent Defense, BreachHunter,
+      ChatBreaker, Agent Flight Recorder, Agent Auth Gateway, DomainGuard,
+      ContentCraft AI.
+    - Company voice: "we / us / Ingenious AI" — never a personal name.
+  ============================================================================ -->
+
+<style>
+  .ia-crosspromo{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    max-width:640px;margin:24px auto;padding:20px 22px;border-radius:14px;color:#eaf0ff;
+    background:linear-gradient(135deg,#0b1226 0%,#131c3a 60%,#1b1440 100%);
+    border:1px solid rgba(120,140,255,.25);box-shadow:0 8px 28px rgba(10,20,60,.35)}
+  .ia-crosspromo h3{margin:0 0 4px;font-size:18px;font-weight:700;letter-spacing:.2px;color:#fff}
+  .ia-crosspromo h3 .ia-badge{display:inline-block;font-size:11px;font-weight:600;vertical-align:middle;
+    margin-left:8px;padding:3px 9px;border-radius:999px;color:#0b1226;
+    background:linear-gradient(90deg,#7df9c6,#4de3ff)}
+  .ia-crosspromo .ia-sub{margin:0 0 14px;font-size:13.5px;color:#aeb9dd;line-height:1.45}
+  .ia-crosspromo .ia-pair{font-size:14px;line-height:1.5;padding:9px 0;border-top:1px solid rgba(140,160,255,.14)}
+  .ia-crosspromo .ia-pair:first-of-type{border-top:none}
+  .ia-crosspromo .ia-pair strong{color:#fff}
+  .ia-crosspromo a{color:#8fd8ff;text-decoration:none;font-weight:600}
+  .ia-crosspromo a:hover{text-decoration:underline;color:#c4ecff}
+  .ia-crosspromo .ia-all{margin-top:14px;padding-top:12px;border-top:1px solid rgba(140,160,255,.2);
+    font-size:12.5px;line-height:1.9;color:#aeb9dd}
+  .ia-crosspromo .ia-all a{display:inline-block;margin:2px 4px 2px 0;padding:3px 10px;border-radius:999px;
+    background:rgba(120,150,255,.12);border:1px solid rgba(120,150,255,.28);
+    font-size:12px;font-weight:600;color:#dbe4ff;white-space:nowrap}
+  .ia-crosspromo .ia-all a:hover{background:rgba(120,150,255,.25);text-decoration:none}
+  .ia-crosspromo .ia-cta{display:inline-block;margin-top:14px;padding:10px 18px;border-radius:10px;
+    background:linear-gradient(90deg,#4de3ff,#7df9c6);color:#0b1226!important;font-weight:700;
+    font-size:14px;text-decoration:none!important}
+  .ia-crosspromo .ia-cta:hover{filter:brightness(1.08)}
+</style>
+
+<div class="ia-crosspromo">
+  <h3>More from Ingenious AI <span class="ia-badge">11-PLATFORM SUITE</span></h3>
+  <p class="ia-sub">One vendor, one security posture. Every platform below is in early access now — request access on WhatsApp and we'll onboard you before the Nov 1 full launch.</p>
+
+  <div class="ia-pair"><strong>Using BreachHunter?</strong> Pair it with <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard">DisclosureGuard</a> for EU AI Act readiness — find the exposure, then prove compliance.</div>
+  <div class="ia-pair"><strong>Using DisclosureGuard?</strong> Add <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch">TermsWatch</a> — your AI vendors change their terms silently; we catch it.</div>
+  <div class="ia-pair"><strong>Using ModelMinder?</strong> Pair it with <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch">TermsWatch</a> — deprecation radar plus terms-change alerts on the same models.</div>
+  <div class="ia-pair"><strong>Using Rogue-Agent Defense?</strong> Lock it down with <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway">Agent Auth Gateway</a> (budget caps, allowlists, kill switch) and <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder">Agent Flight Recorder</a> (hash-chained forensics).</div>
+  <div class="ia-pair"><strong>Running agents in production?</strong> <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder">Agent Flight Recorder</a> + <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway">Agent Auth Gateway</a> give you the audit trail and the emergency brake.</div>
+  <div class="ia-pair"><strong>Using ChatBreaker?</strong> Harden the human layer with <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard">DomainGuard</a> — most social-engineering runs on lookalike domains.</div>
+  <div class="ia-pair"><strong>Using DomainGuard?</strong> Sweep for what's already exposed with <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter">BreachHunter</a>.</div>
+  <div class="ia-pair"><strong>Shipping AI-built code?</strong> <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit">Vibe-Code Audit</a> reviews it before attackers do — and <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense">Rogue-Agent Defense</a> watches the agents that wrote it.</div>
+  <div class="ia-pair"><strong>Publishing AI content?</strong> <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI">ContentCraft AI</a> plus <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard">DisclosureGuard</a> keeps every asset disclosed and compliant.</div>
+
+  <div class="ia-all">
+    <strong style="color:#fff">All 11 platforms:</strong><br>
+    <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard">DisclosureGuard</a><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder">ModelMinder</a><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch">TermsWatch</a><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit">Vibe-Code Audit</a><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense">Rogue-Agent Defense</a><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter">BreachHunter</a><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker">ChatBreaker</a><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder">Agent Flight Recorder</a><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway">Agent Auth Gateway</a><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard">DomainGuard</a><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI">ContentCraft AI</a>
+  </div>
+
+  <a class="ia-cta" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html">Explore the full Security Suite →</a>
+</div>
