@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 90-Second Security Audit — Real Client-Side Email &amp; Domain Checks — Ingenious AI</title>
+<meta name="description" content="The 90-Second Security Audit from Ingenious AI: real client-side checks of your domain's SPF, DMARC and HTTPS reachability — every result labeled with its method, nothing faked. Get an honest letter grade and your top 3 fixes.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ninety-second-audit.html">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ninety-second-audit.html">
+<meta property="og:title" content="The 90-Second Security Audit — Real Client-Side Email &amp; Domain Checks — Ingenious AI">
+<meta property="og:description" content="Real client-side checks: SPF and DMARC via DNS-over-HTTPS, HTTPS reachability probe. Every result labeled with its method. Honest grade, top 3 fixes.">
+<meta property="og:type" content="website">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0e3a24;color:#6ee7b7;font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:14px;letter-spacing:1px}
+h1{font-size:32px;margin-bottom:12px}
+p.lead{color:#9aa7b8;font-size:17px;margin-bottom:28px}
+.panel{background:#11161f;border:1px solid #232b38;border-radius:14px;padding:26px;margin-bottom:24px}
+label{display:block;font-weight:700;font-size:15px;margin-bottom:8px}
+input[type=text]{width:100%;background:#0b0f17;border:1px solid #232b38;border-radius:10px;color:#e6edf3;padding:14px 16px;font-size:17px;font-family:inherit}
+input[type=text]:focus{outline:none;border-color:#22c55e}
+button.run{background:#22c55e;color:#052e16;border:none;border-radius:10px;font-weight:800;font-size:17px;padding:14px 26px;cursor:pointer;margin-top:14px;width:100%}
+button.run:hover{background:#4ade80}
+button.run:disabled{background:#1f2937;color:#6b7688;cursor:wait}
+.honest{font-size:13px;color:#6b7688;margin-top:12px}
+#results{display:none}
+.grade-card{text-align:center;padding:20px 0}
+.grade{font-size:72px;font-weight:900;line-height:1}
+.grade.A{color:#22c55e}.grade.B{color:#84cc16}.grade.C{color:#eab308}.grade.D{color:#f97316}.grade.F{color:#ef4444}
+.grade-note{font-size:14px;color:#9aa7b8;margin-top:8px}
+.check{background:#0b0f17;border:1px solid #232b38;border-radius:10px;padding:16px 18px;margin:12px 0}
+.check .name{font-weight:700;font-size:15px}
+.check .method{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:12px;margin:6px 0;background:#1f2937;color:#9aa7b8}
+.check .status{font-size:15px;margin-top:4px}
+.status.pass{color:#4ade80}.status.warn{color:#fbbf24}.status.fail{color:#f87171}.status.unknown{color:#9aa7b8}
+.fixes h3{font-size:19px;margin:24px 0 10px}
+.fix{background:#11161f;border-left:4px solid #f59e0b;border-radius:8px;padding:14px 18px;margin:10px 0;font-size:15px}
+.fix b{color:#fbbf24}
+.cta{background:#1a2332;border:1px solid #2b3a52;border-radius:14px;padding:26px;margin-top:40px;text-align:center}
+.cta h2{font-size:22px;margin-bottom:10px}
+.cta p{color:#9aa7b8;font-size:15px;margin-bottom:18px}
+.cta a.btn{display:inline-block;background:#ef4444;color:#fff;font-weight:800;font-size:17px;padding:14px 30px;border-radius:12px;text-decoration:none}
+.cta a.btn:hover{background:#f87171}
+footer{margin-top:36px;padding-top:18px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "The 90-Second Security Audit — Real Client-Side Email & Domain Checks — Ingenious AI",
+  "description": "A 90-second security audit from Ingenious AI that runs real client-side checks: SPF and DMARC records via DNS-over-HTTPS and an HTTPS reachability probe. Every result is labeled with its method; checks that cannot run report honestly. Produces a transparent letter grade and top 3 fixes.",
+  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/ninety-second-audit.html",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Ingenious AI Security Checks",
+    "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ingenious AI",
+    "url": "https://github.com/Iceman2050"
+  }
+}
+</script>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<span class="badge">⏱️ 90-SECOND AUDIT</span>
+<h1>The 90-Second Security Audit</h1>
+<p class="lead">One domain, one button. We run <b>real client-side checks</b> in your browser and label every result with its method. If a check can't run, we say so — we never fake a pass.</p>
+
+<div class="panel">
+  <label for="domain">Your domain (no https needed)</label>
+  <input type="text" id="domain" placeholder="example.com" autocomplete="off" autocapitalize="off" spellcheck="false" inputmode="url">
+  <button class="run" id="run">Run the audit</button>
+  <div class="honest">What this page actually checks: <b>SPF</b> and <b>DMARC</b> DNS records via Cloudflare DNS-over-HTTPS, and an <b>HTTPS reachability probe</b> (reachability only — response headers are not readable cross-origin, and we do not pretend otherwise).</div>
+</div>
+
+<div id="results" class="panel">
+  <div class="grade-card">
+    <div class="grade" id="grade">–</div>
+    <div class="grade-note" id="grade-note"></div>
+  </div>
+  <div id="checks"></div>
+  <div class="fixes"><h3>Your top 3 fixes</h3><div id="fixlist"></div></div>
+</div>
+
+<div class="cta">
+  <h2>Email spoofing is how breaches start</h2>
+  <p>BreachHunter watches for your domain in breach data and stolen-credential dumps, 24/7. Early access is open.</p>
+  <a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter%20to%20monitor%20my%20domain%20in%20breach%20data.">Get BreachHunter early access</a>
+</div>
+
+<footer>Built by Ingenious AI · Checks run in your browser; your domain never leaves this page except to public DNS-over-HTTPS and your own server. · Oct 2026</footer>
+</div>
+
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+<script>
+(function(){
+  var DOH='https://cloudflare-dns.com/dns-query?name=';
+  function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  function normalize(raw){
+    var d=(raw||'').trim().toLowerCase();
+    d=d.replace(/^[a-z][a-z0-9+.-]*:\/\//,''); // strip scheme server-side in JS
+    d=d.split('/')[0].split('?')[0].split('#')[0].split(':')[0];
+    d=d.replace(/^www\./,'').replace(/\.$/,'');
+    return d;
+  }
+  function dohTxt(name){
+    return fetch(DOH+encodeURIComponent(name)+'&type=TXT',{headers:{'Accept':'application/dns-json'}})
+      .then(function(r){if(!r.ok)throw new Error('DoH HTTP '+r.status);return r.json();})
+      .then(function(j){return (j.Answer||[]).filter(function(a){return a.type===16;}).map(function(a){return a.data.replace(/^"|"$/g,'');});});
+  }
+  function reachability(domain){
+    var ctl=new AbortController();var t=setTimeout(function(){ctl.abort();},12000);
+    return fetch('https://'+domain,{mode:'no-cors',signal:ctl.signal,cache:'no-store'})
+      .then(function(){clearTimeout(t);return {ok:true};})
+      .catch(function(e){clearTimeout(t);return {ok:false,reason:(e&&e.name==='AbortError')?'timed out after 12s':(e&&e.message?e.message:'network error')};});
+  }
+  function row(name,method,status,detail){
+    return '<div class="check"><div class="name">'+esc(name)+'</div>'+
+      '<span class="method">'+esc(method)+'</span>'+
+      '<div class="status '+status+'">'+esc(detail)+'</div></div>';
+  }
+  document.getElementById('run').addEventListener('click',function(){
+    var btn=document.getElementById('run');
+    var domain=normalize(document.getElementById('domain').value);
+    if(!/^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)+$/.test(domain)){
+      alert('Enter a valid domain, e.g. example.com');return;
+    }
+    btn.disabled=true;btn.textContent='Checking…';
+    var results=document.getElementById('results');
+    results.style.display='none';
+    var checks=[],fixes=[],score=100,ran=0;
+    var spfP=dohTxt(domain).then(function(txt){
+      var recs=txt.filter(function(t){return /^v=spf1/i.test(t);});
+      ran++;
+      if(recs.length){checks.push(row('SPF record','checked via DNS-over-HTTPS','pass','Found: '+recs[0].slice(0,120)));}
+      else{checks.push(row('SPF record','checked via DNS-over-HTTPS','fail','No SPF record published — anyone can forge mail from @'+domain+'.'));score-=30;fixes.push('<b>Publish an SPF record</b> for '+esc(domain)+' (a TXT record starting <code>v=spf1</code> listing your mail servers). Without it, anyone on the internet can send email that looks like it came from you.');}
+    }).catch(function(e){checks.push(row('SPF record','checked via DNS-over-HTTPS','unknown','Could not check — '+(e.message||'network error')+'.'));fixes.push('<b>SPF could not be checked</b> — retry later or look up your domain\u2019s TXT records manually.');});
+    var dmarcP=dohTxt('_dmarc.'+domain).then(function(txt){
+      var recs=txt.filter(function(t){return /^v=DMARC1/i.test(t);});
+      ran++;
+      if(recs.length){
+        var policy=(recs[0].match(/p=([a-z]+)/i)||[])[1]||'unknown';
+        if(policy.toLowerCase()==='reject'||policy.toLowerCase()==='quarantine'){
+          checks.push(row('DMARC record','checked via DNS-over-HTTPS','pass','Found, policy p='+policy+' — spoofed mail gets '+(policy.toLowerCase()==='reject'?'rejected':'quarantined')+'.'));
+        }else{
+          checks.push(row('DMARC record','checked via DNS-over-HTTPS','warn','Found, but policy p='+policy+' — monitoring only. Spoofed mail still lands in inboxes.'));score-=10;
+          fixes.push('<b>Tighten your DMARC policy</b> from p='+esc(policy)+' to p=quarantine, then p=reject. Monitoring mode protects nobody.');
+        }
+      }else{checks.push(row('DMARC record','checked via DNS-over-HTTPS','fail','No DMARC record at _dmarc.'+domain+'.'));score-=30;fixes.push('<b>Publish a DMARC record</b> at <code>_dmarc.'+esc(domain)+'</code> — start with <code>v=DMARC1; p=none; rua=mailto:you@'+esc(domain)+'</code>, then enforce.');}
+    }).catch(function(e){checks.push(row('DMARC record','checked via DNS-over-HTTPS','unknown','Could not check — '+(e.message||'network error')+'.'));fixes.push('<b>DMARC could not be checked</b> — retry later or look up <code>_dmarc.'+esc(domain)+'</code> TXT manually.');});
+    var reachP=reachability(domain).then(function(r){
+      ran++;
+      if(r.ok){checks.push(row('HTTPS reachability','reachability probe — response headers NOT readable cross-origin','pass','https://'+domain+' responded — the site is reachable over HTTPS. (This probe cannot read TLS details or security headers; it only confirms the server answers.)'));}
+      else{checks.push(row('HTTPS reachability','reachability probe — response headers NOT readable cross-origin','fail','No HTTPS response — '+(r.reason||'unreachable')+'. Your visitors may be getting an error or an insecure page.'));score-=20;fixes.push('<b>Fix your HTTPS</b> — https://'+esc(domain)+' did not answer ('+esc(r.reason||'unreachable')+'). A site that fails over HTTPS loses visitors and trust.');}
+    });
+    Promise.all([spfP,dmarcP,reachP]).then(function(){
+      var grade=score>=90?'A':score>=75?'B':score>=55?'C':score>=35?'D':'F';
+      var g=document.getElementById('grade');g.textContent=grade;g.className='grade '+grade;
+      document.getElementById('grade-note').textContent='Computed transparently from the '+ran+' check(s) that actually ran. Unknown results neither help nor hurt the grade.';
+      document.getElementById('checks').innerHTML=checks.join('');
+      var fl=document.getElementById('fixlist');
+      if(!fixes.length){fl.innerHTML='<div class="fix"><b>No fixes needed</b> — everything that could be checked passed. Keep monitoring; DNS records and certs change.</div>';}
+      else{fl.innerHTML=fixes.slice(0,3).join('');}
+      results.style.display='block';
+      btn.disabled=false;btn.textContent='Run the audit';
+      results.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+})();
+</script>
+</body>
+</html>
