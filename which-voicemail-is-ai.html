@@ -74,8 +74,8 @@ function renderQ(){
    '<p><strong>Clip A</strong><br><audio controls src="'+r.a+'" style="width:100%"></audio></p>'+
    '<p><strong>Clip B</strong><br><audio controls src="'+r.b+'" style="width:100%"></audio></p>'+
    '<p>Which one is the AI-cloned voice?</p>'+
-   '<button class="btn" onclick="answer('a')">Clip A is the clone</button> '+
-   '<button class="btn" onclick="answer('b')">Clip B is the clone</button></div>';
+   '<button class="btn" onclick="answer(&#39;a&#39;)">Clip A is the clone</button> '+
+   '<button class="btn" onclick="answer(&#39;b&#39;)">Clip B is the clone</button></div>';
 }
 function answer(pick){
   var r=ROUNDS[idx];var ok=pick===r.clone;if(ok)score++;

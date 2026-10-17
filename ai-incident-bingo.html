@@ -82,7 +82,7 @@ function newCard(){
   for(var i=pool.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=pool[i];pool[i]=pool[j];pool[j]=t;}
   var cells=pool.slice(0,24);cells.splice(12,0,["FREE SPACE","You're reading this, so you're already ahead"]);
   document.getElementById('bingo').innerHTML=cells.map(function(c){
-    return '<div class="bcell" onclick="this.classList.toggle('marked')" title="'+c[1].replace(/"/g,'&quot;')+'" style="background:#11161f;border:1px solid #232b38;border-radius:8px;padding:10px 8px;font-size:12px;cursor:pointer;min-height:86px">'+c[0]+'</div>';
+    return '<div class="bcell" onclick="this.classList.toggle(&#39;marked&#39;)" title="'+c[1].replace(/"/g,'&quot;')+'" style="background:#11161f;border:1px solid #232b38;border-radius:8px;padding:10px 8px;font-size:12px;cursor:pointer;min-height:86px">'+c[0]+'</div>';
   }).join('')+'<style>.bcell.marked{background:#1c6ef2!important;border-color:#1c6ef2!important;color:#fff}</style>';
 }
 newCard();
