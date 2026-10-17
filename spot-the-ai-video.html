@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spot the AI Video Duel — Can You Tell Real Footage from AI Video?</title>
+<meta name="description" content="A free 10-second guess game: watch two short clips side by side, spot which one is AI-generated, get your score and a shareable verdict card. Real camera footage vs AI video — how good is your eye?">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/spot-the-ai-video.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Spot the AI Video Duel — can you beat my score?">
+<meta property="og:description" content="Two clips. One is AI-generated. One is real camera footage. 10 seconds to decide. Play free, get your score, challenge a friend.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/spot-the-ai-video.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Spot the AI Video Duel — real vs AI video, can you tell?">
+<meta name="twitter:description" content="Watch 2 clips, spot the AI-generated one, get your score. Free game by Ingenious AI.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"Spot the AI Video Duel","applicationCategory":"GameApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/spot-the-ai-video.html","description":"A free guess game: watch two short clips side by side, spot which one is AI-generated, get instant feedback, a final verdict tier and a shareable score card.","author":{"@type":"Organization","name":"Ingenious AI"}},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How does the Spot the AI Video Duel work?","acceptedAnswer":{"@type":"Answer","text":"Each round shows two short video clips side by side for about 10 seconds. One clip is AI-generated, one is real camera footage. You tap which one you think is AI, get instant right-or-wrong feedback, and a score at the end with a shareable verdict card."}},
+{"@type":"Question","name":"Are the clips honestly labeled?","acceptedAnswer":{"@type":"Answer","text":"Yes. The two duel rounds pair an AI-generated clip against real, freely-licensed camera footage, with the source and license credited under each clip after you guess. The two practice rounds use two AI-generated clips and are clearly labeled as practice — they are not scored."}},
+{"@type":"Question","name":"Can I add my own clips to the duel?","acceptedAnswer":{"@type":"Answer","text":"Yes. The page reads its rounds from videos/duel/rounds.json. Drop your own AI and real MP4 clips into videos/duel/, update the JSON fields (ai, real, ai_credit, real_credit), and the game picks them up automatically."}}
+]}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:860px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#13243f;border:1px solid #1c6ef2;color:#6ea8fe;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:32px;line-height:1.25;margin-bottom:14px}
+h2{font-size:22px;margin:26px 0 12px}
+p.lead{font-size:17px;color:#9aa7b8;margin-bottom:22px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:26px;margin:18px 0}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:14px 30px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:16px;border:none;cursor:pointer;margin-top:8px}
+.btn:hover{background:#2b7bf5}
+.btn.ghost{background:#0d1420;border:1px solid #1c6ef2;color:#6ea8fe}
+.small{font-size:13px;color:#9aa7b8}
+.honest{background:#0d1420;border:1px solid #2a3342;border-left:4px solid #3fb950;border-radius:8px;padding:16px 18px;margin:18px 0;font-size:14px;color:#c9d4e3}
+.duel{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0}
+@media(max-width:640px){.duel{grid-template-columns:1fr}}
+.clip{border:2px solid #232b38;border-radius:12px;overflow:hidden;background:#000;transition:border-color .25s}
+.clip video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;background:#000}
+.clip .pick{display:block;width:100%;padding:12px;background:#0d1420;border:none;border-top:1px solid #232b38;color:#e6edf3;font-weight:700;font-size:15px;cursor:pointer}
+.clip .pick:hover{background:#1c6ef2;color:#fff}
+.clip.reveal-ai{border-color:#3fb950}
+.clip.reveal-real{border-color:#1c6ef2}
+.clip.picked-wrong{border-color:#f85149}
+.clip .tag{display:none;padding:10px 12px;font-size:13px;font-weight:700}
+.clip.reveal-ai .tag{display:block;background:#0d2b18;color:#3fb950}
+.clip.reveal-real .tag{display:block;background:#10233f;color:#6ea8fe}
+.clip.practice .tag{display:block;background:#2a1f08;color:#ffce63}
+.roundhead{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.roundhead .r{font-size:14px;font-weight:800;letter-spacing:1px;color:#6ea8fe}
+.practice-pill{display:inline-block;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:#2a1f08;border:1px solid #d29922;color:#ffce63;letter-spacing:.5px}
+.scorebar{display:flex;justify-content:space-between;align-items:center;background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:10px 16px;margin:14px 0;font-size:14px}
+.scorebar b{color:#fff}
+.feedback{border-radius:10px;padding:16px 18px;margin:16px 0;font-size:15px;display:none}
+.feedback.right{background:#0d2b18;border:1px solid #3fb950;color:#b7f0c9}
+.feedback.wrong{background:#2b1414;border:1px solid #f85149;color:#ffc9c9}
+.feedback .credit{font-size:12.5px;color:#9aa7b8;margin-top:8px;line-height:1.5}
+.feedback .credit a{color:#6ea8fe}
+.verdict{font-size:44px;font-weight:800;margin:10px 0}
+.tier-pill{display:inline-block;font-size:13px;font-weight:800;padding:6px 16px;border-radius:999px;letter-spacing:.5px}
+#sharecard{width:100%;max-width:600px;border-radius:12px;border:1px solid #232b38}
+details{background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:12px 16px;margin:10px 0}
+details summary{cursor:pointer;font-weight:700;font-size:14px}
+details p,details li{font-size:13.5px;color:#9aa7b8}
+details code{background:#000;color:#7ee787;padding:2px 6px;border-radius:4px;font-size:12.5px}
+details ol{margin:8px 0 8px 20px}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+a{color:#6ea8fe}
+ul.tips{margin:10px 0 10px 20px;font-size:14px;color:#9aa7b8}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">FREE GAME</div>
+<h1>Spot the AI Video Duel</h1>
+<p class="lead">Two clips. One is AI-generated. One is real camera footage. You get about 10 seconds to decide — then instant right-or-wrong, a final verdict, and a shareable score card.</p>
+
+<div class="honest"><b>Honesty first:</b> Rounds 1–2 are true duels — an AI-generated clip vs real, freely-licensed camera footage (source + license shown under each clip after you guess). Rounds 3–4 are <b>practice rounds</b> where <b>both</b> clips are AI-generated, clearly labeled, and they don't count toward your score. No clip is ever presented as real footage when it isn't.</div>
+
+<div class="card" id="start-screen">
+<h2 style="margin-top:0">How to play</h2>
+<ul class="tips">
+<li>Watch both clips (they loop, sound off).</li>
+<li>Tap <b>"This one is AI"</b> under the clip you think was generated by AI.</li>
+<li>Only the 2 true-duel rounds count toward your score.</li>
+<li>Share your verdict card and challenge a friend.</li>
+</ul>
+<button class="btn" onclick="startGame()">Start the duel →</button>
+<p class="small" style="margin-top:12px">For fun and education — spotting tells like warping backgrounds, too-smooth motion, or physics that feels "off". Not a forensic detection tool.</p>
+</div>
+
+<div class="card hidden" id="round-screen">
+<div class="roundhead"><span class="r" id="round-label">ROUND 1 OF 4</span><span id="round-pill"></span></div>
+<p class="small" id="round-subject" style="margin-bottom:4px"></p>
+<div class="scorebar"><span>Duel score (rounds 1–2 only)</span><b id="score-live">0 / 2</b></div>
+<div class="duel">
+<div class="clip" id="clipA"><video id="vidA" muted loop playsinline preload="metadata"></video><div class="tag" id="tagA"></div><button class="pick" id="pickA" onclick="guess(0)">This one is AI 👈</button></div>
+<div class="clip" id="clipB"><video id="vidB" muted loop playsinline preload="metadata"></video><div class="tag" id="tagB"></div><button class="pick" id="pickB" onclick="guess(1)">This one is AI 👉</button></div>
+</div>
+<div class="feedback" id="feedback"></div>
+<div style="text-align:right"><button class="btn hidden" id="next-btn" onclick="nextRound()">Next round →</button></div>
+</div>
+
+<div class="card hidden" id="final-screen">
+<h2 style="margin-top:0">Your verdict</h2>
+<div id="tierline"></div>
+<div class="verdict" id="final-score"></div>
+<p class="small" id="final-note"></p>
+<h2>Share your score</h2>
+<canvas id="sharecard" width="1200" height="630"></canvas>
+<p style="margin-top:10px"><button class="btn" onclick="downloadCard()">Download score card (PNG)</button> <button class="btn ghost" onclick="location.reload()">Play again</button></p>
+<p class="small" style="margin-top:8px">Post it anywhere — challenge text: "I scored <span id="share-text-score"></span> on the AI Video Duel. Can you beat me?"</p>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">Clip credits</h2>
+<p class="small">Every clip's origin, shown on this page after each guess — nothing presented as real that isn't:</p>
+<ul class="tips" id="credit-list"></ul>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">What to watch for</h2>
+<ul class="tips">
+<li><b>Backgrounds that breathe:</b> walls, fences or water that warp when the subject moves.</li>
+<li><b>Too-perfect motion:</b> unnaturally smooth, floaty movement with no camera shake.</li>
+<li><b>Physics slips:</b> steam, shadows or reflections that don't behave like the real world.</li>
+<li><b>Texture tells:</b> skin, fur or fabric that looks painted rather than photographed.</li>
+</ul>
+<p class="small">None of these are proof — they're tells. Real footage can look strange, and AI keeps getting better. That's the game.</p>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">Drop your clips here <span class="small">(for the site owner)</span></h2>
+<p class="small">This game reads its rounds from <code>videos/duel/rounds.json</code>. To add your own AI vs real rounds (e.g. clips from Veo 3.1, Kling or Seedance):</p>
+<details open>
+<summary>How to add a round</summary>
+<ol>
+<li>Export your clip as MP4, H.264, 640px wide, under 2 MB. One ffmpeg line that does it:<br><code>ffmpeg -i input.mp4 -vf scale=640:-2 -c:v libx264 -crf 28 -preset fast -an -movflags +faststart -t 10 videos/duel/my-clip.mp4</code></li>
+<li>Put the file in <code>videos/duel/</code> next to the existing <code>ai-*.mp4</code> clips.</li>
+<li>Edit <code>videos/duel/rounds.json</code> — each entry is:<br><code>{"subject":"…","ai":"videos/duel/ai-x.mp4","real":"videos/duel/real-x.mp4","ai_credit":"…","real_credit":"…","real_page":"https://…","practice":false}</code></li>
+<li><b>Honesty rule:</b> <code>ai_credit</code> must say the clip is AI-generated; <code>real_credit</code> must name the real footage source + license. Never mark an AI clip as real.</li>
+<li>To keep a placeholder slot: set <code>"practice": true</code> and note <code>"real_note"</code> — the round is then clearly labeled "practice" and unscored.</li>
+<li>Commit and push — the game picks up the new <code>rounds.json</code> on the next page load.</li>
+</ol>
+</details>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#fff;text-decoration:underline">DisclosureGuard</a> is AI disclosure compliance on autopilot &mdash; it scans your ads and content, flags what's unlabeled, and keeps you ahead of the EU AI Act transparency rules.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20played%20the%20Spot%20the%20AI%20Video%20Duel%20and%20want%20early%20access%20to%20DisclosureGuard." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<footer>Built by Ingenious AI &mdash; a game about spotting AI-generated video, not a detection tool.<br><a href="index.html">All checks</a></footer>
+</div>
+<script>
+const FALLBACK_ROUNDS=[
+{"subject":"Ocean waves","ai":"videos/duel/ai-ocean-waves.mp4","real":"https://videos.pexels.com/video-files/857123/857123-hd_1280_720_30fps.mp4","ai_credit":"AI-generated for this page by Ingenious AI","real_credit":"Real camera footage: Pexels video \u201cVideo Of Waves Hitting The Shore\u201d \u2014 free to use under the Pexels License (no attribution required)","real_page":"https://www.pexels.com/video/video-of-waves-hitting-the-shore-857123/","practice":false},
+{"subject":"City street at night","ai":"videos/duel/ai-city-street.mp4","real":"https://assets.mixkit.co/videos/3432/3432-720.mp4","ai_credit":"AI-generated for this page by Ingenious AI","real_credit":"Real camera footage: \u201cNarrow avenue at night\u201d \u2014 Mixkit, free for commercial and personal use under the Mixkit License (no attribution required)","real_page":"https://mixkit.co/free-stock-video/narrow-avenue-at-night-3432/","practice":false},
+{"subject":"Coffee cup (practice)","ai":"videos/duel/ai-coffee-cup.mp4","real":"videos/duel/ai-orange-cat.mp4","ai_credit":"AI-generated for this page by Ingenious AI","real_credit":"Also AI-generated \u2014 the real-footage slot for this round is still open","real_page":"","practice":true},
+{"subject":"Cat in the garden (practice)","ai":"videos/duel/ai-orange-cat.mp4","real":"videos/duel/ai-coffee-cup.mp4","ai_credit":"AI-generated for this page by Ingenious AI","real_credit":"Also AI-generated \u2014 the real-footage slot for this round is still open","real_page":"","practice":true}
+];
+let ROUNDS=[],cur=0,score=0,scoredTotal=0,aiSide=0,answered=false;
+
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+
+async function loadRounds(){
+  try{const r=await fetch("videos/duel/rounds.json");if(r.ok){ROUNDS=await r.json();}}catch(e){}
+  if(!ROUNDS.length)ROUNDS=FALLBACK_ROUNDS;
+  buildCredits();
+}
+function creditHTML(r){
+  let h="<div class='credit'>🤖 AI: "+esc(r.ai_credit)+"<br>📷 Other clip: "+esc(r.real_credit);
+  if(r.real_page)h+=" &mdash; <a href='"+esc(r.real_page)+"' target='_blank' rel='noopener'>source</a>";
+  return h+"</div>";
+}
+function buildCredits(){
+  const ul=document.getElementById("credit-list");
+  ul.innerHTML=ROUNDS.map(r=>"<li><b>"+esc(r.subject)+"</b> — AI clip: "+esc(r.ai_credit)+"; other clip: "+esc(r.real_credit)+(r.real_page?" (<a href='"+esc(r.real_page)+"' target='_blank' rel='noopener'>source</a>)":"")+"</li>").join("");
+}
+function startGame(){
+  document.getElementById("start-screen").classList.add("hidden");
+  document.getElementById("round-screen").classList.remove("hidden");
+  cur=0;score=0;scoredTotal=ROUNDS.filter(r=>!r.practice).length;
+  renderRound();
+}
+function setVid(id,src){
+  const v=document.getElementById(id);
+  v.pause();v.removeAttribute("src");v.load();
+  v.src=src;v.load();
+  const p=v.play();if(p&&p.catch)p.catch(()=>{});
+}
+function renderRound(){
+  answered=false;
+  const r=ROUNDS[cur];
+  document.getElementById("round-label").textContent="ROUND "+(cur+1)+" OF "+ROUNDS.length;
+  document.getElementById("round-pill").innerHTML=r.practice
+    ?'<span class="practice-pill">PRACTICE — NOT SCORED</span>'
+    :'<span class="practice-pill" style="background:#0d2b18;border-color:#3fb950;color:#3fb950">TRUE DUEL — SCORED</span>';
+  document.getElementById("round-subject").textContent="Subject: "+r.subject;
+  document.getElementById("score-live").textContent=score+" / "+scoredTotal;
+  aiSide=Math.random()<0.5?0:1;
+  const aSrc=aiSide===0?r.ai:r.real, bSrc=aiSide===0?r.real:r.ai;
+  for(const c of ["clipA","clipB"]){document.getElementById(c).classList.remove("reveal-ai","reveal-real","picked-wrong","practice");}
+  document.getElementById("tagA").textContent="";document.getElementById("tagB").textContent="";
+  document.getElementById("pickA").classList.remove("hidden");document.getElementById("pickB").classList.remove("hidden");
+  document.getElementById("feedback").style.display="none";
+  document.getElementById("next-btn").classList.add("hidden");
+  setVid("vidA",aSrc);setVid("vidB",bSrc);
+  document.getElementById("round-screen").scrollIntoView({behavior:"smooth"});
+}
+function revealClips(r){
+  const aiId=aiSide===0?"clipA":"clipB", realId=aiSide===0?"clipB":"clipA";
+  const aiTag=aiSide===0?"tagA":"tagB", realTag=aiSide===0?"tagB":"tagA";
+  document.getElementById(aiId).classList.add("reveal-ai");
+  document.getElementById(aiTag).textContent="🤖 AI-GENERATED"+(r.practice?" (demo clip)":"");
+  const rc=document.getElementById(realId);
+  if(r.practice){rc.classList.add("practice");document.getElementById(realTag).textContent="ALSO AI — real-clip slot open";}
+  else{rc.classList.add("reveal-real");document.getElementById(realTag).textContent="📷 REAL FOOTAGE";}
+}
+function guess(side){
+  if(answered)return;answered=true;
+  const r=ROUNDS[cur];
+  revealClips(r);
+  const fb=document.getElementById("feedback");
+  if(r.practice){
+    fb.className="feedback right";fb.style.display="block";
+    fb.innerHTML="<b>Practice round — both clips above are AI-generated.</b> Nothing to score here: the real-footage slot for this subject is still open."+creditHTML(r);
+  }else if(side===aiSide){
+    score++;
+    fb.className="feedback right";fb.style.display="block";
+    fb.innerHTML="<b>Correct — you spotted the AI clip. 🎯</b>"+creditHTML(r);
+  }else{
+    const pickId=side===0?"clipA":"clipB";
+    document.getElementById(pickId).classList.add("picked-wrong");
+    fb.className="feedback wrong";fb.style.display="block";
+    fb.innerHTML="<b>Not quite — the AI clip was the other one.</b>"+creditHTML(r);
+  }
+  document.getElementById("score-live").textContent=score+" / "+scoredTotal;
+  document.getElementById("pickA").classList.add("hidden");document.getElementById("pickB").classList.add("hidden");
+  const nb=document.getElementById("next-btn");
+  nb.textContent=cur===ROUNDS.length-1?"See my verdict →":"Next round →";
+  nb.classList.remove("hidden");
+}
+function nextRound(){
+  cur++;
+  if(cur<ROUNDS.length)renderRound();else showFinal();
+}
+function verdictFor(s,t){
+  if(t===0)return{tier:"NO SCORED ROUNDS",col:"#9aa7b8",note:"All rounds are practice right now — add real footage in rounds.json to enable scoring."};
+  const p=s/t;
+  if(p===1)return{tier:"SPOT-ON",col:"#3fb950",note:"Perfect score. Your eye for warping backgrounds, floaty motion and physics slips is sharp — most people get fooled at least once."};
+  if(p>=0.5)return{tier:"SHARP EYE",col:"#d29922",note:"Respectable. The machine fooled you at least once — that's exactly why AI video disclosure matters."};
+  return{tier:"FOOLED BY THE MACHINE",col:"#f85149",note:"The AI clips got you. Don't feel bad — that's the point of the game. Watch for backgrounds that warp, motion that's too smooth, and steam or shadows that misbehave."};
+}
+function showFinal(){
+  document.getElementById("round-screen").classList.add("hidden");
+  document.getElementById("final-screen").classList.remove("hidden");
+  const v=verdictFor(score,scoredTotal);
+  document.getElementById("tierline").innerHTML='<span class="tier-pill" style="background:'+v.col+'22;color:'+v.col+';border:1px solid '+v.col+'">'+v.tier+'</span>';
+  const fs=document.getElementById("final-score");
+  fs.textContent=score+" / "+scoredTotal;fs.style.color=v.col;
+  document.getElementById("final-note").textContent=v.note+" ("+ROUNDS.length+" rounds played — "+(ROUNDS.length-scoredTotal)+" practice.)";
+  document.getElementById("share-text-score").textContent=score+"/"+scoredTotal;
+  drawCard(v);
+  document.getElementById("final-screen").scrollIntoView({behavior:"smooth"});
+}
+function drawCard(v){
+  const c=document.getElementById("sharecard"),x=c.getContext("2d");
+  const g=x.createLinearGradient(0,0,1200,630);
+  g.addColorStop(0,"#0b0f17");g.addColorStop(1,"#13243f");
+  x.fillStyle=g;x.fillRect(0,0,1200,630);
+  x.strokeStyle="#1c6ef2";x.lineWidth=6;x.strokeRect(14,14,1172,602);
+  x.textAlign="center";
+  x.fillStyle="#6ea8fe";x.font="700 34px -apple-system,Segoe UI,Roboto,sans-serif";
+  x.fillText("S P O T   T H E   A I   V I D E O   D U E L",600,110);
+  x.fillStyle="#ffffff";x.font="800 120px -apple-system,Segoe UI,Roboto,sans-serif";
+  x.fillText("I scored "+score+"/"+scoredTotal,600,300);
+  x.fillStyle="#9aa7b8";x.font="400 44px -apple-system,Segoe UI,Roboto,sans-serif";
+  x.fillText("can you beat me?",600,380);
+  x.fillStyle="#6ea8fe";x.font="400 30px -apple-system,Segoe UI,Roboto,sans-serif";
+  x.fillText("iceman2050.github.io/ingeniousai-security-checks-mirror/spot-the-ai-video.html",600,470);
+  x.fillStyle="#6b7688";x.font="700 26px -apple-system,Segoe UI,Roboto,sans-serif";
+  x.fillText("Built by Ingenious AI",600,560);
+}
+function downloadCard(){
+  const c=document.getElementById("sharecard");
+  c.toBlob(function(b){
+    const a=document.createElement("a");
+    a.href=URL.createObjectURL(b);a.download="ai-video-duel-score.png";
+    document.body.appendChild(a);a.click();a.remove();
+  },"image/png");
+}
+loadRounds();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
