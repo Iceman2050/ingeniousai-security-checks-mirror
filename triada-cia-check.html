@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Tríada CIA: ¿Sabes Qué Principio se Rompió? — Cuestionario Interactivo</title>
+<meta name="description" content="Confidencialidad, Integridad y Disponibilidad: los tres pilares de la ciberseguridad explicados con ejemplos reales. Cuestionario interactivo de 6 escenarios en español: ¿qué principio de la Tríada CIA se violó?">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/triada-cia-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="La Tríada CIA: ¿sabes qué principio se rompió?">
+<meta property="og:description" content="Confidencialidad, Integridad, Disponibilidad — 6 escenarios reales en español para poner a prueba tu comprensión de la Tríada CIA.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/triada-cia-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tríada CIA — cuestionario interactivo en español">
+<meta name="twitter:description" content="6 escenarios reales: ¿qué principio de la Tríada CIA se violó? Confidencialidad, Integridad o Disponibilidad.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1a0f2e;border:1px solid #a371f7;color:#d2a8ff;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .purple{color:#a371f7}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.checklist{list-style:none;margin-left:0}
+.checklist li::before{content:"✓ ";color:#3fb950;font-weight:bold}
+.techgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin:12px 0}
+.tech{background:#0d1219;border:1px solid #2a3342;border-radius:8px;padding:10px 14px;font-size:14px}
+.tech b{color:#fff;display:block;font-size:15px}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.q .prog{font-size:13px;color:#9aa7b8;margin-bottom:8px}
+.q p{font-size:16px;margin-bottom:12px;color:#fff}
+.q .opts{display:flex;flex-direction:column;gap:8px}
+.q button{background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px 14px;font-size:15px;font-weight:600;cursor:pointer;text-align:left}
+.q button:hover{border-color:#1c6ef2}
+.q button.correct{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.q button.wrong{background:#2b1215;border-color:#f85149;color:#ffa198}
+.q button:disabled{cursor:default;opacity:.9}
+.q .feedback{margin-top:10px;font-size:14px;display:none}
+#verdict{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+#verdict.good{border-color:#3fb950;background:#0d1a0f}
+#verdict.bad{border-color:#f85149;background:#1a0f0f}
+#verdict b.verd{font-size:19px;letter-spacing:.5px}
+.sharebox{margin-top:16px;display:none;background:#0b0f17;border:1px dashed #2a3342;border-radius:8px;padding:14px 16px}
+.sharebox p{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+#sharetext{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical;min-height:64px}
+.copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+.resetbtn{margin-top:14px;background:#1c6ef2;color:#fff;border:none;border-radius:8px;padding:10px 22px;font-size:15px;font-weight:700;cursor:pointer;display:none}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+.warnbox{max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+.principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:16px 0}
+.principle{border:1px solid #2a3342;border-radius:10px;padding:16px;background:#0d1219}
+.principle h3{margin:0 0 8px;color:#fff;font-size:17px}
+.principle .icon{font-size:26px}
+.principle p{font-size:14px;color:#9aa7b8}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Cuestionario de la Tríada CIA","applicationCategory":"EducationalApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","inLanguage":"es","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/triada-cia-check.html","description":"Cuestionario interactivo en español de 6 escenarios que evalúan si sabes qué principio de la Tríada CIA (Confidencialidad, Integridad, Disponibilidad) se violó en cada incidente.","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"¿Qué es la Tríada CIA en ciberseguridad?","acceptedAnswer":{"@type":"Answer","text":"Es el modelo fundamental de la seguridad de la información: Confidencialidad (solo las personas autorizadas pueden acceder a la información), Integridad (la información no se modifica de forma no autorizada y se mantiene exacta y confiable) y Disponibilidad (la información y los sistemas están disponibles cuando se necesitan)."}},
+{"@type":"Question","name":"¿Qué amenazas afectan a la confidencialidad?","acceptedAnswer":{"@type":"Answer","text":"Acceso no autorizado, robo de datos, interceptación de tráfico (sniffing), fugas de información e ingeniería social."}},
+{"@type":"Question","name":"¿Qué amenazas afectan a la integridad y la disponibilidad?","acceptedAnswer":{"@type":"Answer","text":"La integridad se ve amenazada por la modificación de datos, la inyección de código, los ataques Man-in-the-Middle, los errores humanos y el malware. La disponibilidad, por ataques DDoS, fallos de hardware, desastres naturales, errores de configuración y ransomware."}},
+{"@type":"Question","name":"¿Qué buenas prácticas protegen la Tríada CIA?","acceptedAnswer":{"@type":"Answer","text":"Contraseñas fuertes y autenticación multifactor (MFA), cifrado de la información sensible, mantener sistemas y software actualizados, copias de seguridad periódicas, firewalls y control de acceso, monitoreo y registro de actividad, redundancia y alta disponibilidad, y capacitación en seguridad."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; Volver a todas las verificaciones gratuitas</a>
+<div class="badge">GUÍA INTERACTIVA &mdash; EN ESPAÑOL</div>
+<h1>La <span class="purple">Tríada CIA</span>: ¿sabes qué principio se rompió?</h1>
+<p class="lead">Toda la ciberseguridad se sostiene sobre tres pilares: <strong>Confidencialidad</strong>, <strong>Integridad</strong> y <strong>Disponibilidad</strong>. Cada incidente que lees en las noticias rompió al menos uno de ellos. Aprende cada principio con ejemplos y amenazas reales, y luego pon a prueba tu criterio con 6 escenarios: ¿qué principio se violó en cada caso?</p>
+
+<p class="answer"><strong>En resumen:</strong> la confidencialidad decide <em>quién</em> puede ver la información, la integridad decide si la información es <em>confiable</em>, y la disponibilidad decide si la información está <em>ahí cuando la necesitas</em>. Un sistema seguro necesita los tres en equilibrio: reforzar uno sin mirar los otros deja la puerta abierta.</p>
+
+<div class="card">
+<h2>Los tres principios</h2>
+<div class="principles">
+<div class="principle"><span class="icon">🔒</span><h3>Confidencialidad</h3><p>Solo las personas autorizadas pueden acceder a la información. Se protege con control de acceso, cifrado, autenticación multifactor (MFA), permisos de usuario y VPN.</p></div>
+<div class="principle"><span class="icon">✅</span><h3>Integridad</h3><p>La información no se modifica sin autorización y se mantiene exacta y confiable. Se protege con hashes, firmas digitales, control de versiones, validación de integridad y registros (logs).</p></div>
+<div class="principle"><span class="icon">⚡</span><h3>Disponibilidad</h3><p>La información y los sistemas están disponibles cuando se necesitan. Se garantiza con redundancia, balanceo de carga, copias de seguridad, alta disponibilidad y planes de recuperación.</p></div>
+</div>
+<h3>Amenazas típicas de cada principio</h3>
+<ul>
+<li><strong>Confidencialidad:</strong> acceso no autorizado, robo de datos, interceptación de tráfico (sniffing), fugas de información, ingeniería social.</li>
+<li><strong>Integridad:</strong> modificación de datos, inyección de código, ataques Man-in-the-Middle, errores humanos, malware.</li>
+<li><strong>Disponibilidad:</strong> ataques DDoS, fallos de hardware, desastres naturales, errores de configuración, ransomware.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>El cuestionario: 6 escenarios, ¿qué principio se violó?</h2>
+<p class="note">Lee cada escenario y elige el principio de la Tríada CIA que se rompió.</p>
+<div id="quiz"></div>
+<div id="verdict" role="status" aria-live="polite"></div>
+<button class="resetbtn" id="resetbtn">Empezar de nuevo</button>
+<div class="sharebox" id="sharebox">
+<p>Comparte tu resultado:</p>
+<textarea id="sharetext" readonly></textarea>
+<button class="copybtn" id="copybtn">Copiar resultado</button>
+</div>
+</div>
+
+<div class="card">
+<h2>Buenas prácticas: la lista de verificación</h2>
+<ul class="checklist">
+<li>Usa contraseñas fuertes y autenticación multifactor (MFA).</li>
+<li>Cifra la información sensible.</li>
+<li>Mantén sistemas y software actualizados.</li>
+<li>Realiza copias de seguridad periódicas.</li>
+<li>Usa firewalls y control de acceso.</li>
+<li>Monitorea y registra la actividad.</li>
+<li>Implementa redundancia y alta disponibilidad.</li>
+<li>Capacita a los usuarios sobre seguridad.</li>
+</ul>
+<h3>Tecnologías y herramientas</h3>
+<div class="techgrid">
+<div class="tech"><b>🧱 Firewall</b>Primera barrera contra accesos no deseados.</div>
+<div class="tech"><b>🔐 Cifrado</b>Protege la confidencialidad de los datos.</div>
+<div class="tech"><b>👤 Control de acceso (IAM)</b>Define quién puede ver y hacer qué.</div>
+<div class="tech"><b>🛡️ VPN</b>Comunicaciones privadas sobre redes públicas.</div>
+<div class="tech"><b>💾 Backup</b>Copias de seguridad para recuperar la disponibilidad.</div>
+<div class="tech"><b>🔍 Monitoreo (Logs)</b>Detecta actividad anómala a tiempo.</div>
+<div class="tech"><b>⚡ Alta disponibilidad</b>Redundancia para que el servicio no caiga.</div>
+</div>
+<h3>Equilibrio entre los tres principios</h3>
+<p class="note">En muchos casos, reforzar un principio puede afectar a otro. El objetivo es encontrar el equilibrio adecuado según las necesidades de cada sistema: ni datos inaccesibles por exceso de control, ni sistemas abiertos por exceso de comodidad.</p>
+<h3>Casos de uso comunes</h3>
+<ul>
+<li><strong>Sistemas bancarios:</strong> protegen datos sensibles, previenen fraudes y garantizan disponibilidad continua.</li>
+<li><strong>Servicios en la nube:</strong> control de acceso, cifrado de datos y alta disponibilidad.</li>
+<li><strong>Aplicaciones web:</strong> datos seguros, sin modificaciones no autorizadas y siempre disponibles.</li>
+<li><strong>Bases de datos:</strong> acceso controlado, datos consistentes y respaldos constantes.</li>
+</ul>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hola%20Ingenious%20AI%2C%20quiero%20acceso%20anticipado%20a%20BreachHunter." style="color:#fff;text-decoration:underline">BreachHunter</a> encuentra las exposiciones que los atacantes ven primero &mdash; protege la confidencialidad, la integridad y la disponibilidad de tus sistemas.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">Las 11 plataformas: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Nuestras plataformas están en mejora y regresan el 1 de noviembre &mdash; obtén acceso anticipado:</div><a href="https://wa.me/5016691053?text=Hola%20Ingenious%20AI%2C%20hice%20el%20cuestionario%20de%20la%20Tr%C3%ADada%20CIA%20y%20quiero%20acceso%20anticipado%20a%20BreachHunter." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Acceso anticipado por WhatsApp &rarr;</a></div>
+
+<footer>
+Hecho por Ingenious AI &mdash; contenido educativo independiente, no es un respaldo. Infografía original: naiker.codes.<br>
+Esta página es material educativo general, no asesoría legal.
+</footer>
+</div>
+
+<div class="share">Comparte este cuestionario: <a href="https://x.com/intent/post?text=%C2%BFSabes%20qu%C3%A9%20principio%20de%20la%20Tr%C3%ADada%20CIA%20se%20rompi%C3%B3%3F%206%20escenarios%20reales%20en%20espa%C3%B1ol%3A%20Confidencialidad%2C%20Integridad%20o%20Disponibilidad&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/triada-cia-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/triada-cia-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/triada-cia-check.html&title=Tr%C3%ADada%20CIA%3A%206%20escenarios%20para%20aprender%20qu%C3%A9%20principio%20se%20rompi%C3%B3%20(cuestionario%20en%20espa%C3%B1ol)" target="_blank" rel="noopener">Reddit</a></div>
+<div class="warnbox"><strong>Verificación previa en Reddit:</strong> antes de tocar el botón de Reddit, lee las reglas de esa comunidad <em>hoy</em> &mdash; revisa los requisitos de divulgación de IA, el formato de títulos y el estado de tu cuenta. Nunca publiques automáticamente ni reenvíes un enlace ya marcado.</div>
+
+<script>
+(function(){
+var QUESTIONS=[
+{q:"1. Un atacante consigue leer los correos electrónicos de otros empleados sin tener permiso para hacerlo. ¿Qué principio se violó?",opts:["Confidencialidad","Integridad","Disponibilidad"],correct:0,why:"Correcto: se violó la <b>confidencialidad</b> — personas no autorizadas accedieron a información privada."},
+{q:"2. Un ransomware cifra todos los archivos de la empresa y exige un rescate para devolver el acceso. ¿Qué principio se violó?",opts:["Confidencialidad","Integridad","Disponibilidad"],correct:2,why:"Correcto: se violó la <b>disponibilidad</b> — los datos existen pero nadie puede usarlos cuando los necesita."},
+{q:"3. Un intruso entra a la base de datos y modifica los saldos de las cuentas sin autorización. ¿Qué principio se violó?",opts:["Confidencialidad","Integridad","Disponibilidad"],correct:1,why:"Correcto: se violó la <b>integridad</b> — la información fue alterada y ya no es exacta ni confiable."},
+{q:"4. Un ataque DDoS satura los servidores y la tienda en línea queda fuera de servicio durante horas. ¿Qué principio se violó?",opts:["Confidencialidad","Integridad","Disponibilidad"],correct:2,why:"Correcto: se violó la <b>disponibilidad</b> — el servicio no estuvo accesible para los usuarios legítimos."},
+{q:"5. Un empleado descontento filtra la lista completa de clientes a la competencia. ¿Qué principio se violó?",opts:["Confidencialidad","Integridad","Disponibilidad"],correct:0,why:"Correcto: se violó la <b>confidencialidad</b> — información privada llegó a manos no autorizadas."},
+{q:"6. Un error humano corrompe registros importantes y no existe ninguna copia de seguridad. ¿Qué principio se violó principalmente?",opts:["Confidencialidad","Integridad","Disponibilidad"],correct:1,why:"Correcto: principalmente la <b>integridad</b> — los datos se corrompieron y dejaron de ser confiables. Matiz: la falta de copias también golpea la <b>disponibilidad</b>, porque ya no se puede recuperar lo perdido."}
+];
+var PAGE="https://iceman2050.github.io/ingeniousai-security-checks-mirror/triada-cia-check.html";
+var score=0,answered=0;
+var quiz=document.getElementById("quiz");
+QUESTIONS.forEach(function(item,i){
+  var d=document.createElement("div");d.className="q";
+  var optsHtml="";
+  item.opts.forEach(function(o,j){
+    optsHtml+="<button data-j='"+j+"'>"+o+"</button>";
+  });
+  d.innerHTML="<div class='prog'>Pregunta "+(i+1)+" de "+QUESTIONS.length+"</div><p>"+item.q+"</p><div class='opts'>"+optsHtml+"</div><div class='feedback'></div>";
+  var btns=d.querySelectorAll("button");
+  btns.forEach(function(b){
+    b.onclick=function(){
+      var j=parseInt(b.getAttribute("data-j"),10);
+      btns.forEach(function(x){x.disabled=true;});
+      var fb=d.querySelector(".feedback");
+      if(j===item.correct){score++;b.className="correct";fb.innerHTML="<span style='color:#7ee787'>✔</span> "+item.why;}
+      else{b.className="wrong";btns[item.correct].className="correct";fb.innerHTML="<span style='color:#ffa198'>✘</span> "+item.why;}
+      fb.style.display="block";
+      answered++;
+      if(answered===QUESTIONS.length)showVerdict();
+    };
+  });
+  quiz.appendChild(d);
+});
+function showVerdict(){
+  var v=document.getElementById("verdict");
+  var label,cls,advice;
+  if(score<=2){label="EN FORMACIÓN";cls="bad";
+    advice="Con "+score+" de "+QUESTIONS.length+": repasa los tres principios arriba. Truco: pregúntate si alguien <b>vio</b> lo que no debía (confidencialidad), si algo <b>cambió</b> sin permiso (integridad) o si algo <b>no estuvo disponible</b> (disponibilidad).";}
+  else if(score<=4){label="BUEN CRITERIO";cls="";
+    advice="Con "+score+" de "+QUESTIONS.length+": ya distingues los principios en la mayoría de los casos. El escenario 6 es el que más confunde — la corrupción de datos golpea la integridad primero, y la falta de copias golpea la disponibilidad después.";}
+  else{label="DOMINAS LA TRÍADA";cls="good";
+    advice="Con "+score+" de "+QUESTIONS.length+": identificas el principio roto en cada incidente, incluido el matiz del escenario 6. Ese criterio es la base de todo análisis de riesgos en seguridad.";}
+  v.className=cls;v.style.display="block";
+  v.innerHTML="<b class='verd'>"+score+"/"+QUESTIONS.length+" — "+label+"</b><br><br>"+advice;
+  document.getElementById("resetbtn").style.display="inline-block";
+  document.getElementById("sharetext").value="Saqué "+score+"/6 en el cuestionario de la Tríada CIA (Confidencialidad, Integridad, Disponibilidad). ¿Puedes superarlo? "+PAGE;
+  document.getElementById("sharebox").style.display="block";
+  v.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("resetbtn").onclick=function(){location.reload();};
+document.getElementById("copybtn").onclick=function(){
+  var t=document.getElementById("sharetext");var btn=this;
+  function done(){var o=btn.textContent;btn.textContent="¡Copiado!";setTimeout(function(){btn.textContent=o;},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();try{document.execCommand("copy");done();}catch(e){}});}
+  else{t.select();try{document.execCommand("copy");done();}catch(e){}}
+};
+})();
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
