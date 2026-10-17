@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recursive Self-Improvement Is Getting Real — 5-Question AI Oversight Check</title>
+<meta name="description" content="New research (arXiv 2610.12176, Oct 2026): MASS lets a model recursively improve itself past what human experts can assess — 1.2–1.6x gains per token with Qwen3.6-27B. Free 5-question check: can your oversight survive recursive self-improvement?">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mass-recursive-self-improvement-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="AI that improves itself past human assessment — is your oversight ready?">
+<meta property="og:description" content="MASS: a model proposes, executes, and self-evaluates multi-agent workflows — then becomes a better optimizer and evaluator, recursively. 5-question oversight check, free.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mass-recursive-self-improvement-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Recursive self-improvement research — oversight check">
+<meta name="twitter:description" content="MASS achieves 1.2–1.6x gains via recursive self-improvement. 5 questions on whether your AI oversight survives it.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1a1033;border:1px solid #a371f7;color:#d2a8ff;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+h1 .purple{color:#a371f7}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.q p{font-size:16px;margin-bottom:12px;color:#fff}
+.q .opts{display:flex;gap:10px;flex-wrap:wrap}
+.q button{flex:1;min-width:120px;background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px;font-size:15px;font-weight:600;cursor:pointer}
+.q button:hover{border-color:#1c6ef2}
+.q button.sel-yes{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.q button.sel-no{background:#2b1215;border-color:#f85149;color:#ffa198}
+.q button:disabled{cursor:default;opacity:.85}
+#verdict{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+#verdict.good{border-color:#3fb950;background:#0d1a0f}
+#verdict.bad{border-color:#f85149;background:#1a0f0f}
+#verdict b.verd{font-size:19px;letter-spacing:.5px}
+.sharebox{margin-top:16px;display:none;background:#0b0f17;border:1px dashed #2a3342;border-radius:8px;padding:14px 16px}
+.sharebox p{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+#sharetext{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical;min-height:64px}
+.copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+.warnbox{max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Recursive Self-Improvement Oversight Check","applicationCategory":"SecurityApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/mass-recursive-self-improvement-check.html","description":"Five questions that score whether your AI oversight survives recursive self-improvement — the supervision bottleneck, capability deltas, orchestration drift, recursive optimizer-evaluator loops, and per-cycle red-teaming — spotlighting the MASS research (arXiv 2610.12176).","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is MASS (Multi-Agent Self-Supervision)?","acceptedAnswer":{"@type":"Answer","text":"A recursive self-improvement method (arXiv 2610.12176, submitted October 8, 2026) that alternates evolutionary workflow optimization with supervised fine-tuning on self-generated trajectories. A single base model iteratively proposes, executes, and self-evaluates multi-agent workflows, discovering the best roles and information routing for a task under structural guardrails."}},
+{"@type":"Question","name":"What results did the MASS paper report?","acceptedAnswer":{"@type":"Answer","text":"Over two MASS cycles with Qwen3.6-27B, the model achieved 1.2–1.6x higher performance per output token on four open-ended public benchmarks. Multi-agent traces also proved more training-efficient: a student trained on them outperformed a single-agent student trained on 1.4x more training tokens."}},
+{"@type":"Question","name":"Why does recursive self-improvement worry AI safety researchers?","acceptedAnswer":{"@type":"Answer","text":"On non-verifiable tasks like open-ended research, model outputs can exceed what even human experts can reliably assess — the supervision bottleneck. When the improved model then acts as its own better optimizer and evaluator, capabilities bootstrap recursively with no human in the evaluation loop to catch drift, misalignment, or deceptive reasoning."}},
+{"@type":"Question","name":"What oversight measures help against recursive self-improvement?","acceptedAnswer":{"@type":"Answer","text":"Evaluation methods that don't depend on human judgment alone, tracking capability deltas between model versions on open-ended tasks, detecting changes in agent orchestration topology, tripwires for recursive optimizer-evaluator loops, and re-running red-teaming after every fine-tuning cycle rather than only at release."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free security checks</a>
+<div class="badge">RESEARCH SPOTLIGHT &mdash; arXiv:2610.12176 &middot; OCT 8, 2026</div>
+<h1>An AI that improves <span class="purple">itself</span> &mdash; past what humans can even <span class="red">assess</span></h1>
+<p class="lead">New research proposes <strong>MASS</strong> (Multi-Agent Self-Supervision): a model that proposes, executes, and <em>self-evaluates</em> multi-agent workflows &mdash; then, improved, becomes a <strong>better optimizer and evaluator of itself</strong>, bootstrapping recursively. Result: <strong>1.2&ndash;1.6x performance gains</strong> per token with Qwen3.6-27B. The uncomfortable part isn't the gains &mdash; it's the <strong>supervision bottleneck</strong>: outputs that exceed what even human experts can reliably judge. Five questions on whether your oversight survives that.</p>
+
+<p class="answer"><strong>Short answer:</strong> recursive self-improvement turns the model into its own judge. When the judge and the contestant are the same system improving in a loop, human oversight degrades exactly as capabilities accelerate &mdash; the most dangerous combination in AI safety. The paper constrains its search with structural guardrails; most production agent systems have none. Check your five below.</p>
+
+<div class="card">
+<h2>The 60-second Recursive-Improvement Oversight Check</h2>
+<p class="note">Answer for the AI systems you deploy or oversee.</p>
+<div id="quiz"></div>
+<div id="verdict" role="status" aria-live="polite"></div>
+<div class="sharebox" id="sharebox">
+<p>Share your result:</p>
+<textarea id="sharetext" readonly></textarea>
+<button class="copybtn" id="copybtn">Copy result text</button>
+</div>
+</div>
+
+<div class="card">
+<h2>What the paper actually shows (verified from arXiv)</h2>
+<ul>
+<li><strong>The method:</strong> MASS alternates two phases &mdash; <em>evolutionary workflow optimization</em> (the model searches over multi-agent orchestrations: roles, routing) and <em>supervised fine-tuning on self-generated trajectories</em>. Structural guardrails constrain the evolutionary search.</li>
+<li><strong>The result:</strong> two MASS cycles on Qwen3.6-27B &rarr; <strong>1.2&ndash;1.6x higher performance per output token</strong> on four open-ended public benchmarks.</li>
+<li><strong>The efficiency finding:</strong> a student model trained on multi-agent traces <strong>outperforms a single-agent student trained on 1.4x more tokens</strong> &mdash; the orchestration knowledge transfers.</li>
+<li><strong>The recursive claim:</strong> because the improved model is a better optimizer <em>and</em> evaluator, the framework enables "a continuous, recursive bootstrapping of the model's capabilities."</li>
+<li><strong>The bottleneck it names:</strong> on non-verifiable tasks like open-ended research, outputs exceed what human experts can assess &mdash; leaving the model itself as "the best available optimizer and evaluator."</li>
+</ul>
+<p class="src">Source: <a href="https://arxiv.org/abs/2610.12176" target="_blank" rel="noopener">arXiv:2610.12176</a> &mdash; Hyunin Lee, Jinglue Xu, Jeffrey Seely, Donghyun Lee, Somayeh Sojoudi, Matei Zaharia, Yujin Tang (CC BY 4.0)</p>
+</div>
+
+<div class="card">
+<h2>Why this matters for anyone running agents</h2>
+<h3>1. The judge-contestant problem is now demonstrated, not theoretical</h3>
+<p>This isn't a warning about future RSI &mdash; it's a working loop where improvement and evaluation are the same model's job. Every production agent system that "self-critiques" shares the shape.</p>
+<h3>2. Open-ended tasks are where oversight dies first</h3>
+<p>Benchmarks are verifiable; research, strategy, and code architecture are not. The paper's gains are on <em>open-ended</em> benchmarks &mdash; precisely the tasks where humans can't check the work.</p>
+<h3>3. Guardrails were part of the method &mdash; they're optional in your stack</h3>
+<p>MASS constrains its evolutionary search with structural guardrails. Most agent frameworks in production have no equivalent constraint on what the agent may rewrite about itself.</p>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#fff;text-decoration:underline">Rogue-Agent Defense</a> watches AI agents that act beyond their instructions &mdash; the oversight layer for systems that improve faster than humans can assess them.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20recursive%20self-improvement%20oversight%20check%20and%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<footer>
+Built by Ingenious AI &mdash; an independent security take, not an endorsement. Paper facts verified from the arXiv abstract (CC BY 4.0).<br>
+arXiv:2610.12176 &middot; submitted October 8, 2026
+</footer>
+</div>
+
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=New%20research%3A%20MASS%20lets%20an%20AI%20improve%20itself%20recursively%20(1.2%E2%80%931.6x%20gains)%20%E2%80%94%20past%20what%20humans%20can%20assess.%205%20questions%20on%20whether%20your%20AI%20oversight%20survives%20that&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mass-recursive-self-improvement-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mass-recursive-self-improvement-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mass-recursive-self-improvement-check.html&title=MASS%3A%20recursive%20self-improvement%20via%20multi-agent%20self-supervision%20(1.2%E2%80%931.6x%20gains)%20%E2%80%94%205-question%20AI%20oversight%20check" target="_blank" rel="noopener">Reddit</a></div>
+<div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<script>
+(function(){
+var QUESTIONS=[
+"1. If a model's outputs exceed what your experts can reliably assess, do you have an evaluation method that does NOT depend on human judgment alone?",
+"2. Do you track capability deltas between model versions on OPEN-ENDED (non-verifiable) tasks \u2014 not just standard benchmarks?",
+"3. Would you DETECT it if an agent system changed its own orchestration topology or subagent roles?",
+"4. Do you have tripwires for recursive loops \u2014 where the same model OPTIMIZES and EVALUATES its own improvements?",
+"5. Is red-teaming re-run after EVERY fine-tuning cycle, not just at release?"
+];
+var PAGE="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mass-recursive-self-improvement-check.html";
+var answers=new Array(QUESTIONS.length).fill(null);
+var quiz=document.getElementById("quiz");
+QUESTIONS.forEach(function(q,i){
+  var d=document.createElement("div");d.className="q";
+  d.innerHTML="<p>"+q+"</p><div class='opts'></div>";
+  var opts=d.querySelector(".opts");
+  [["Yes",1,"sel-yes"],["No",0,"sel-no"]].forEach(function(pair){
+    var b=document.createElement("button");b.textContent=pair[0];
+    b.onclick=function(){answer(i,pair[1],d);};
+    opts.appendChild(b);
+  });
+  quiz.appendChild(d);
+});
+function answer(i,val,div){
+  answers[i]=val;
+  var btns=div.querySelectorAll("button");
+  btns[0].className=val===1?"sel-yes":"";
+  btns[1].className=val===0?"sel-no":"";
+  btns.forEach(function(b){b.disabled=true;});
+  if(answers.every(function(a){return a!==null;}))showVerdict();
+}
+function showVerdict(){
+  var score=answers.reduce(function(a,b){return a+b;},0);
+  var v=document.getElementById("verdict");
+  var label,cls,advice;
+  if(score<=2){label="OVERSIGHT GAP \u2014 the bottleneck owns you";cls="bad";
+    advice="With "+(5-score)+" of 5 unanswered, a self-improving system in your stack would outrun your ability to judge it \u2014 exactly the supervision bottleneck the MASS paper names. Start with capability-delta tracking between model versions and tripwires for optimizer-evaluator loops; those two catch drift earliest.";}
+  else if(score<=3){label="PARTIAL OVERSIGHT \u2014 the loop can hide";cls="";
+    advice="You have "+score+" of 5. The gap that matters most: detecting orchestration drift \u2014 a system that rewrites its own agent topology won't announce it on a dashboard. Pair your existing evals with topology-change detection and per-cycle red-teaming.";}
+  else{label="OVERSIGHT-READY \u2014 stay ahead of the loop";cls="good";
+    advice="Non-human evals, delta tracking, drift detection, loop tripwires, per-cycle red-teaming \u2014 you've built oversight that doesn't assume a human can always judge the output. Keep re-running it: recursive methods compound, and today's guardrail is tomorrow's baseline.";}
+  v.className=cls;v.style.display="block";
+  v.innerHTML="<b class='verd'>"+score+"/5 \u2014 "+label+"</b><br><br>"+advice;
+  document.getElementById("sharetext").value="I scored "+score+"/5 on the recursive self-improvement oversight check \u2014 new research shows AI improving itself past human assessment. Check your oversight: "+PAGE;
+  document.getElementById("sharebox").style.display="block";
+  v.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("copybtn").onclick=function(){
+  var t=document.getElementById("sharetext");var btn=this;
+  function done(){var o=btn.textContent;btn.textContent="Copied!";setTimeout(function(){btn.textContent=o;},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();try{document.execCommand("copy");done();}catch(e){}});}
+  else{t.select();try{document.execCommand("copy");done();}catch(e){}}
+};
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
