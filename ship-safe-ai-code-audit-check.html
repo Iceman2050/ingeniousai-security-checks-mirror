@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ship Safe — The Independent Security Reviewer for AI-Written Code (5-Question Check)</title>
+<meta name="description" content="Ship Safe is a free, MIT-licensed security agent for AI-written software: deterministic scanning plus an investigation layer that confirms or refutes findings with evidence. Free 5-question check: is your AI-written code actually reviewed?">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ship-safe-ai-code-audit-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Who reviews the code your AI wrote? A free security agent that doesn't mark its own homework">
+<meta property="og:description" content="Ship Safe: deterministic scanner + investigation layer with evidence for AI-written code, MCP configs, secrets. 5-question review check, free.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ship-safe-ai-code-audit-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ship Safe — independent security agent for AI-written code">
+<meta name="twitter:description" content="Free MIT CLI that finds issues, investigates whether they're real, and shows the evidence. 5-question check.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d1a0f;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+h1 .green{color:#3fb950}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{border:1px solid #2a3342;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#161d29;color:#fff}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.q p{font-size:16px;margin-bottom:12px;color:#fff}
+.q .opts{display:flex;gap:10px;flex-wrap:wrap}
+.q button{flex:1;min-width:120px;background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px;font-size:15px;font-weight:600;cursor:pointer}
+.q button:hover{border-color:#1c6ef2}
+.q button.sel-yes{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.q button.sel-no{background:#2b1215;border-color:#f85149;color:#ffa198}
+.q button:disabled{cursor:default;opacity:.85}
+#verdict{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+#verdict.good{border-color:#3fb950;background:#0d1a0f}
+#verdict.bad{border-color:#f85149;background:#1a0f0f}
+#verdict b.verd{font-size:19px;letter-spacing:.5px}
+.sharebox{margin-top:16px;display:none;background:#0b0f17;border:1px dashed #2a3342;border-radius:8px;padding:14px 16px}
+.sharebox p{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+#sharetext{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical;min-height:64px}
+.copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+.warnbox{max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"AI-Written Code Review Check","applicationCategory":"SecurityApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/ship-safe-ai-code-audit-check.html","description":"Five questions that score whether your AI-written code gets a genuinely independent review — separate reviewer, agent-reach visibility, evidence-backed verdicts, deterministic CI gating, and repo-trust checks — spotlighting the open-source Ship Safe CLI.","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is Ship Safe?","acceptedAnswer":{"@type":"Answer","text":"A free, MIT-licensed security agent for AI-written software (npx ship-safe). It combines a deterministic scanning engine — covering application code, AI agents, MCP configs, prompts, dependencies, CI/CD, secrets, and cloud configuration — with an investigation layer that traces data paths and resolves findings to confirmed, likely, unresolved, or refuted, each with cited evidence."}},
+{"@type":"Question","name":"How is Ship Safe different from asking a coding agent to review code?","acceptedAnswer":{"@type":"Answer","text":"Three structural differences: it's a separate reviewer rather than the author checking its own work; it can see what an agent can reach (MCP server configs, launch permissions, tool grants) from outside; and it's deterministic — the same input produces the same output, so results can be gated in CI and improvement can be proven over time."}},
+{"@type":"Question","name":"Does Ship Safe work offline?","acceptedAnswer":{"@type":"Answer","text":"Core checks work offline with no signup and no API key. Use --no-ai to guarantee a fully local scan. AI-backed red-team modes use your configured provider when available, with best-effort credential masking."}},
+{"@type":"Question","name":"Can Ship Safe gate pull requests?","acceptedAnswer":{"@type":"Answer","text":"Yes — ship-safe ci fails risky builds and uploads SARIF to GitHub code scanning, with a GitHub Action for inline PR findings. You can gate on severity or on evidence verdicts (e.g. block only confirmed findings), and compare against a baseline so existing repo debt doesn't block unrelated changes."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free security checks</a>
+<div class="badge">OPEN SOURCE SPOTLIGHT &mdash; asamassekou10/ship-safe &middot; MIT &middot; 860 STARS</div>
+<h1>Your AI wrote the code. <span class="red">Who reviewed it?</span></h1>
+<p class="lead">Asking the coding agent to review its own work is <strong>marking its own homework</strong>. <strong>Ship Safe</strong> is a free, MIT-licensed security agent that acts as an <em>independent</em> reviewer: a deterministic scanner finds issues across your code, agents, MCP configs, and CI &mdash; then an investigation layer decides whether each finding is <strong>real</strong>, tracing the evidence line by line. Five questions on whether your AI-written code is actually reviewed.</p>
+
+<p class="answer"><strong>Short answer:</strong> most AI-generated code ships with no independent review at all &mdash; the author (an AI) can't answer what it can reach, what its permissions combine into, or whether it's consistent. Ship Safe answers all three from outside the agent, with evidence you can argue with. Run <code>npx ship-safe</code> &mdash; no signup, no API key. Check your five below.</p>
+
+<div class="card">
+<h2>The 60-second AI Code Review Check</h2>
+<p class="note">Answer for the codebase you ship.</p>
+<div id="quiz"></div>
+<div id="verdict" role="status" aria-live="polite"></div>
+<div class="sharebox" id="sharebox">
+<p>Share your result:</p>
+<textarea id="sharetext" readonly></textarea>
+<button class="copybtn" id="copybtn">Copy result text</button>
+</div>
+</div>
+
+<div class="card">
+<h2>What the tool actually does (verified from the repo)</h2>
+<table>
+<tr><th>Layer</th><th>What it does</th></tr>
+<tr><td><strong>Deterministic engine</strong> (sensor)</td><td>Fast, repeatable scans of app code, AI agents, MCP configs, prompts, dependencies, CI/CD, secrets, cloud-adjacent config. Same input &rarr; same output.</td></tr>
+<tr><td><strong>Investigation layer</strong> (judge)</td><td>Traces tainted values to sinks, searches for missing controls, builds attack chains across files no single review sees. Verdicts: <strong>confirmed / likely / unresolved / refuted</strong> &mdash; each citing the lines it read.</td></tr>
+<tr><td><strong>Fix agent</strong></td><td>Proposes plan + diff, asks before writing, reports static rescan, reversible with <code>undo</code>.</td></tr>
+<tr><td><strong>CI gate</strong></td><td><code>ship-safe ci</code> fails risky builds, uploads SARIF to GitHub code scanning. Gate on severity <em>or on evidence verdicts</em> &mdash; e.g. block only <code>confirmed</code> findings.</td></tr>
+</table>
+<ul>
+<li><strong>Key commands:</strong> <code>npx ship-safe audit .</code> (full audit), <code>investigate .</code> (evidence verdicts), <code>trust ~/Downloads/take-home</code> (what runs when you open an unfamiliar repo with an agent), <code>capabilities .</code> (what an agent in this repo can actually reach).</li>
+<li><strong>What it finds:</strong> prompt injection, agent hijacking, excessive agency, memory/RAG poisoning, MCP permission abuse, SQL/NoSQL injection, XSS, SSRF, leaked secrets (incl. git history), typosquatting, pipeline poisoning, unpinned Actions.</li>
+<li><strong>Benchmark discipline:</strong> its CI benchmark scores <em>conclusion quality</em> &mdash; known-real findings settled, known noise refuted &mdash; with a <strong>zero budget for refuting something real</strong>, the one error class that loses a vulnerability silently.</li>
+<li><strong>Pricing:</strong> CLI free forever (MIT); paid Pro/Team add hosted workflows (scan history, PR Guardian, dashboards). <code>--no-ai</code> guarantees a fully local scan.</li>
+</ul>
+<p class="src">Sources: <a href="https://github.com/asamassekou10/ship-safe" target="_blank" rel="noopener">asamassekou10/ship-safe (GitHub)</a> &middot; <a href="https://shipsafe.sh" target="_blank" rel="noopener">shipsafe.sh</a></p>
+</div>
+
+<div class="card">
+<h2>Three things to know before you run it</h2>
+<h3>1. The "capabilities" command is the killer feature</h3>
+<p>A single-file review can't see that your <code>CLAUDE.md</code>, your agent's launch permissions, and an MCP write tool combine into a path from a pull request to a privileged write. <code>ship-safe capabilities</code> reads all of it from outside.</p>
+<h3>2. Gate on verdicts, not just severity</h3>
+<p>Severity-only gates drown teams in noise. Gating on <code>--fail-on-verdict confirmed</code> blocks what was established by evidence and lets argued-away findings through.</p>
+<h3>3. Baseline your debt before you gate</h3>
+<p>Compare a trusted base scan against the PR head so existing repository debt stays visible without blocking unrelated changes &mdash; the repo documents the exact workflow.</p>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#fff;text-decoration:underline">Vibe-Code Audit</a> is our deep audit for AI-written code &mdash; independent review that doesn't mark its own homework.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20AI%20code%20review%20check%20and%20want%20early%20access%20to%20Vibe-Code%20Audit." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<footer>
+Built by Ingenious AI &mdash; an independent security take, not an endorsement. Tool facts verified from the public repo.<br>
+Ship Safe by asamassekou10 &middot; MIT License
+</footer>
+</div>
+
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=Your%20AI%20wrote%20the%20code.%20Who%20reviewed%20it%3F%20Ship%20Safe%3A%20a%20free%20MIT%20security%20agent%20that%20finds%20issues%20and%20proves%20them%20with%20evidence%20%E2%80%94%205-question%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ship-safe-ai-code-audit-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ship-safe-ai-code-audit-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ship-safe-ai-code-audit-check.html&title=Ship%20Safe%3A%20independent%20security%20agent%20for%20AI-written%20code%20(deterministic%20%2B%20evidence%20verdicts)%20%E2%80%94%205-question%20review%20check" target="_blank" rel="noopener">Reddit</a></div>
+<div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<script>
+(function(){
+var QUESTIONS=[
+"1. Is your AI-written code reviewed by something OTHER than the AI that wrote it \u2014 a separate reviewer with a separate method?",
+"2. Can you see what your coding agent can REACH \u2014 MCP configs, launch permissions, and tool grants, from outside the agent?",
+"3. Do your scan findings carry EVIDENCE (traced data paths, cited lines) \u2014 not just a severity label?",
+"4. Is your security scanner DETERMINISTIC \u2014 same input, same output, so CI gates and improvements are provable?",
+"5. Before opening an unfamiliar repo with an agent, do you check WHAT RUNS on open (trust boundary)?"
+];
+var PAGE="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ship-safe-ai-code-audit-check.html";
+var answers=new Array(QUESTIONS.length).fill(null);
+var quiz=document.getElementById("quiz");
+QUESTIONS.forEach(function(q,i){
+  var d=document.createElement("div");d.className="q";
+  d.innerHTML="<p>"+q+"</p><div class='opts'></div>";
+  var opts=d.querySelector(".opts");
+  [["Yes",1,"sel-yes"],["No",0,"sel-no"]].forEach(function(pair){
+    var b=document.createElement("button");b.textContent=pair[0];
+    b.onclick=function(){answer(i,pair[1],d);};
+    opts.appendChild(b);
+  });
+  quiz.appendChild(d);
+});
+function answer(i,val,div){
+  answers[i]=val;
+  var btns=div.querySelectorAll("button");
+  btns[0].className=val===1?"sel-yes":"";
+  btns[1].className=val===0?"sel-no":"";
+  btns.forEach(function(b){b.disabled=true;});
+  if(answers.every(function(a){return a!==null;}))showVerdict();
+}
+function showVerdict(){
+  var score=answers.reduce(function(a,b){return a+b;},0);
+  var v=document.getElementById("verdict");
+  var label,cls,advice;
+  if(score<=2){label="MARKING ITS OWN HOMEWORK";cls="bad";
+    advice="With "+(5-score)+" of 5 missing, your AI-written code ships on the author's word alone \u2014 the one reviewer structurally unable to see its own blind spots. Start with an independent scan (<code>npx ship-safe</code>, no signup) and the <code>capabilities</code> command: knowing what your agent can reach usually surprises people.";}
+  else if(score<=3){label="PARTIAL REVIEW \u2014 evidence is thin";cls="";
+    advice="You have "+score+" of 5. The upgrade that matters most: evidence-backed verdicts. A severity label you can't argue with is a ticket you can't prioritize. Investigate findings to confirmed/likely/unresolved/refuted with traced data paths, then gate CI on verdicts, not noise.";}
+  else{label="INDEPENDENTLY REVIEWED";cls="good";
+    advice="Separate reviewer, reach visibility, evidence verdicts, deterministic gates, trust boundaries \u2014 your AI-written code gets the review AI-written code needs. Keep the benchmark honest: the error class that loses a vulnerability silently is refuting something real, and its budget is zero.";}
+  v.className=cls;v.style.display="block";
+  v.innerHTML="<b class='verd'>"+score+"/5 \u2014 "+label+"</b><br><br>"+advice;
+  document.getElementById("sharetext").value="I scored "+score+"/5 on the AI code review check \u2014 free MIT security agent that finds issues in AI-written code and proves them with evidence. Check your code: "+PAGE;
+  document.getElementById("sharebox").style.display="block";
+  v.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("copybtn").onclick=function(){
+  var t=document.getElementById("sharetext");var btn=this;
+  function done(){var o=btn.textContent;btn.textContent="Copied!";setTimeout(function(){btn.textContent=o;},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();try{document.execCommand("copy");done();}catch(e){}});}
+  else{t.select();try{document.execCommand("copy");done();}catch(e){}}
+};
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
