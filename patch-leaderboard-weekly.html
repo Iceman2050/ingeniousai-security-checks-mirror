@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Patch-Speed Leaderboard: Week of Oct 12–18, 2026 — Who Patched Fastest</title>
-<meta name="description" content="Weekly edition, Oct 12–18 2026: 8 vendors ranked by days from disclosure to patch — AhsayCBS, Cisco, Palo Alto, Ivanti, Fortinet, Zammad, GitLab, Docker. Dated, sourced, updated weekly.">
+<title>CVE Patch-Speed Leaderboard — Week of Oct 12–18, 2026</title>
+<meta name="description" content="CVE checker companion: weekly CVE patch-speed leaderboard, Oct 12–18, 2026 — eight vendors ranked by attacker head-start. Every date sourced. Updated weekly.">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/patch-leaderboard-weekly.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="This week's patch-speed leaderboard — who fixed October's CVEs fastest?">
-<meta property="og:description" content="8 vendors ranked by days from disclosure to patch, Oct 12–18 2026. One shipped the same day. One needed two tries. Updated weekly, every date sourced.">
+<meta property="og:title" content="CVE Patch-Speed Leaderboard — Week of Oct 12–18, 2026">
+<meta property="og:description" content="CVE checker companion: weekly CVE patch-speed leaderboard, Oct 12–18, 2026 — eight vendors ranked by attacker head-start. Every date sourced. Updated weekly.">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/patch-leaderboard-weekly.html">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Patch-speed leaderboard — week of Oct 12–18, 2026">
-<meta name="twitter:description" content="8 vendors ranked by days from disclosure to patch. Same-day patches, incomplete fixes, and a 12-day zero-day.">
+<meta name="twitter:title" content="CVE Patch-Speed Leaderboard — Week of Oct 12–18, 2026">
+<meta name="twitter:description" content="CVE checker companion: weekly CVE patch-speed leaderboard, Oct 12–18, 2026 — eight vendors ranked by attacker head-start. Every date sourced. Updated weekly.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
@@ -47,23 +47,18 @@ a{color:#1c6ef2}
 footer{margin-top:36px;padding-top:18px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"Patch-Speed Leaderboard — Week of Oct 12–18, 2026","description":"Weekly ranking of software vendors by days from public disclosure to patch release, week of Oct 12–18, 2026.","provider":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-15","dateModified":"2026-10-15"}
+{"@context":"https://schema.org","@type":"WebPage","name":"Patch-Speed Leaderboard — Week of Oct 12–18, 2026","description":"Weekly ranking of software vendors by days from public disclosure to patch release, week of Oct 12–18, 2026.","provider":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-15","dateModified":"2026-10-15","about":{"@type":"Thing","name":"CVE patch comparison"},"keywords":["CVE patch comparison","weekly CVE leaderboard","October 2026 CVEs","CVE checker","vendor patch speed"]}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"Who patched fastest this week?","acceptedAnswer":{"@type":"Answer","text":"Cisco, Palo Alto, and GitLab all shipped same-day patches with their advisories (0 days). Ahsay needed 7 days from public disclosure — and only after admitting its August patches were incomplete."}},
-{"@type":"Question","name":"Which vendor was slowest to patch this week?","acceptedAnswer":{"@type":"Answer","text":"Fortinet: FortiMail CVE-2026-104286 was disclosed October 1 with no patch available, and fixed builds only shipped October 13 — 12 days of confirmed zero-day exploitation. The 7.2 branch gets no fix at all and must migrate."}},
-{"@type":"Question","name":"How is 'days to patch' measured?","acceptedAnswer":{"@type":"Answer","text":"Patch release date minus first public disclosure date (vendor advisory, CVE publication, or researcher disclosure — whichever came first). Negative means the patch shipped before disclosure; 0 means coordinated same-day release. The exploitation window (days attackers had before any fix) is the tiebreak."}},
-{"@type":"Question","name":"I work at one of these vendors and the dates are wrong. How do I get them corrected?","acceptedAnswer":{"@type":"Answer","text":"Message Ingenious AI on WhatsApp with the vendor name, CVE, and the correct published dates with links — corrections are published in the next weekly edition."}}
-]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Who patched fastest this week?","acceptedAnswer":{"@type":"Answer","text":"Cisco, Palo Alto, and GitLab all shipped same-day patches with their advisories (0 days). Ahsay needed 7 days from public disclosure — and only after admitting its August patches were incomplete."}},{"@type":"Question","name":"Which vendor was slowest to patch this week?","acceptedAnswer":{"@type":"Answer","text":"Fortinet: FortiMail CVE-2026-104286 was disclosed October 1 with no patch available, and fixed builds only shipped October 13 — 12 days of confirmed zero-day exploitation. The 7.2 branch gets no fix at all and must migrate."}},{"@type":"Question","name":"How is 'days to patch' measured?","acceptedAnswer":{"@type":"Answer","text":"Patch release date minus first public disclosure date (vendor advisory, CVE publication, or researcher disclosure — whichever came first). Negative means the patch shipped before disclosure; 0 means coordinated same-day release. The exploitation window (days attackers had before any fix) is the tiebreak."}},{"@type":"Question","name":"I work at one of these vendors and the dates are wrong. How do I get them corrected?","acceptedAnswer":{"@type":"Answer","text":"Message Ingenious AI on WhatsApp with the vendor name, CVE, and the correct published dates with links — corrections are published in the next weekly edition."}},{"@type":"Question","name":"What is a CVE checker?","acceptedAnswer":{"@type":"Answer","text":"A CVE checker is a free tool that tells you whether your software is affected by a published CVE — a publicly known cybersecurity vulnerability. It compares your version or configuration against the official advisory and gives you a patched, vulnerable, or unknown verdict in about 30 seconds."}},{"@type":"Question","name":"How do I check if my software has a CVE?","acceptedAnswer":{"@type":"Answer","text":"Find your exact version number, then compare it against the vendor's security advisory or the NVD entry for the CVE. The fastest way is a CVE checker built for that product: paste your version and get an instant verdict against the published version tables."}},{"@type":"Question","name":"How do I know if I am affected by a CVE?","acceptedAnswer":{"@type":"Answer","text":"You are affected when you run a vulnerable version and the vulnerable component is reachable or enabled — for example, open sign-ups, an exposed management port, or a vulnerable app installed. A CVE checker gives you the version verdict in seconds; the advisory's conditions tell you whether that verdict means real exposure."}}]}
 </script>
 <link rel="stylesheet" href="ecosystem.css">
 </head>
 <body>
 <div class="wrap">
 <span class="badge-top">WEEKLY EDITION &middot; OCT 12&ndash;18, 2026</span>
-<h1>Patch-Speed Leaderboard</h1>
-<p class="lead">Eight vendors, one question: how many days did attackers get? This week's board covers the October CVE pileup — four same-day patches, one incomplete patch, one 12-day zero-day, and one flaw that was open for two years. Updated every week; every date sourced.</p>
+<h1>CVE patch-speed leaderboard: week of October 12–18, 2026</h1>
+<p class="lead">Eight vendors, one question: how many days did attackers get? This week's board covers the October CVE pileup — four same-day patches, one incomplete patch, one 12-day zero-day, and one flaw that was open for two years. Updated every week; every date sourced. Check your own stack with a free CVE checker while you're here.</p>
 
 <div class="answer"><strong>The short version:</strong> For the week of October 12–18, 2026, Cisco, Palo Alto, and GitLab all patched the same day they disclosed (0 days each). AhsayCBS needed 7 days — after its August patches turned out incomplete. Fortinet took 12 days to ship fixed FortiMail builds for an actively exploited zero-day, and Zammad only half-fixed its chain. The full methodology and vendor correction process are below.</div>
 
@@ -152,7 +147,7 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid #232b38;font-size:1
 <details><summary>Which vendor was slowest to patch this week?</summary><p>Fortinet: FortiMail CVE-2026-104286 was disclosed October 1 with no patch available, and fixed builds only shipped October 13 — 12 days of confirmed zero-day exploitation. The 7.2 branch gets no fix at all and must migrate.</p></details>
 <details><summary>How is "days to patch" measured?</summary><p>Patch release date minus first public disclosure date (vendor advisory, CVE publication, or researcher disclosure — whichever came first). 0 means coordinated same-day release. The exploitation window — days attackers had before any fix — is the tiebreak.</p></details>
 <details><summary>I work at one of these vendors and a date is wrong. How do I get it corrected?</summary><p>Message Ingenious AI on WhatsApp with the vendor name, the CVE, and the correct published dates with links to the advisory. Verified corrections are published in the next weekly edition — accuracy is the point of this board, not shaming.</p></details>
-</div>
+<details><summary>What is a CVE checker?</summary><p>A CVE checker is a free tool that tells you whether your software is affected by a published CVE — a publicly known cybersecurity vulnerability. It compares your version or configuration against the official advisory and gives you a patched, vulnerable, or unknown verdict in about 30 seconds.</p></details><details><summary>How do I check if my software has a CVE?</summary><p>Find your exact version number, then compare it against the vendor&#x27;s security advisory or the NVD entry for the CVE. The fastest way is a CVE checker built for that product: paste your version and get an instant verdict against the published version tables.</p></details><details><summary>How do I know if I am affected by a CVE?</summary><p>You are affected when you run a vulnerable version and the vulnerable component is reachable or enabled — for example, open sign-ups, an exposed management port, or a vulnerable app installed. A CVE checker gives you the version verdict in seconds; the advisory&#x27;s conditions tell you whether that verdict means real exposure.</p></details></div>
 
 <a class="cta" href="https://wa.me/5016691053?text=Correction%20request%20for%20the%20patch-speed%20leaderboard%20(week%20of%20Oct%2012-18%2C%202026)%3A">Vendor? Spot a wrong date? Request a correction on WhatsApp &rarr;</a>
 <p class="note" style="text-align:center">Corrections with linked advisory dates are published in the next weekly edition.</p>

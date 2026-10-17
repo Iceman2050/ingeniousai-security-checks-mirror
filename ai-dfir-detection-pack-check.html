@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI DFIR Toolkit — Can Your Detection Stack See AI Attacks? 5-Question Check</title>
-<meta name="description" content="The open-source AI DFIR Toolkit ships 161 vendor-neutral Sigma/YARA/Suricata signatures for prompt injection, MCP attacks, model supply-chain implants, RAG poisoning and agent-memory forensics. Free 5-question check: can your stack detect AI attacks today?">
+<title>AI DFIR Detection Pack — Can Your Stack See AI Attacks?</title>
+<meta name="description" content="AI DFIR detection pack: 161 free Sigma/YARA/Suricata rules for prompt injection, MCP abuse, poisoned models. Can your stack see AI attacks? Free test.">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-dfir-detection-pack-check.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="161 open-source detection rules for AI attacks — can your stack see them?">
-<meta property="og:description" content="Prompt injection, MCP tool poisoning, poisoned models, RAG attacks, agent memory forensics — 9 attack classes, free signatures. 5-question detection readiness check.">
+<meta property="og:title" content="AI DFIR Detection Pack — Can Your Stack See AI Attacks?">
+<meta property="og:description" content="AI DFIR detection pack: 161 free Sigma/YARA/Suricata rules for prompt injection, MCP abuse, poisoned models. Can your stack see AI attacks? Free test.">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-dfir-detection-pack-check.html">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AI DFIR detection pack — 5-question readiness check">
-<meta name="twitter:description" content="161 free Sigma/YARA/Suricata signatures for AI/ML attacks. Check whether your detection stack covers them.">
+<meta name="twitter:title" content="AI DFIR Detection Pack — Can Your Stack See AI Attacks?">
+<meta name="twitter:description" content="AI DFIR detection pack: 161 free Sigma/YARA/Suricata rules for prompt injection, MCP abuse, poisoned models. Can your stack see AI attacks? Free test.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
@@ -62,21 +62,14 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"AI Attack Detection Readiness Check","applicationCategory":"SecurityApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-dfir-detection-pack-check.html","description":"Five questions that score whether your detection stack can see AI/ML attacks — prompt injection, MCP abuse, model supply-chain implants, RAG poisoning, agent memory forensics — spotlighting the open-source AI DFIR Toolkit's 161 vendor-neutral signatures.","author":{"@type":"Organization","name":"Ingenious AI"}}
 </script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"What is the AI DFIR Toolkit?","acceptedAnswer":{"@type":"Answer","text":"A public, Apache-2.0-licensed collection (depalmar/ai-dfir-toolkit on GitHub) of 161 vendor-neutral detection signatures — Sigma, YARA, and Suricata rules — covering nine AI attack classes: LLM prompt injection, MCP attacks, model supply-chain compromise, AI infrastructure abuse, Copilot/assistant abuse, RAG and vector-database attacks, runtime AI malware, agentic orchestration, and agent memory forensics."}},
-{"@type":"Question","name":"Which AI attack classes does the pack cover?","acceptedAnswer":{"@type":"Answer","text":"Prompt injection and jailbreaks, MCP tool poisoning and config tampering, poisoned pickle models and HuggingFace supply-chain attacks, ShadowRay-style AI infrastructure compromise, M365/GitHub Copilot abuse, vector-database exposure and RAG poisoning, malware that calls LLM APIs at runtime, AI services used as command-and-control, and memory/context poisoning as persistence."}},
-{"@type":"Question","name":"How do you deploy vendor-neutral Sigma rules?","acceptedAnswer":{"@type":"Answer","text":"Convert them to your SIEM's query language with pySigma backends (e.g. sigma-cli to Lucene for Elastic/Kibana). YARA rules scan model directories, MCP configs, and memory artifacts on EDR platforms; Suricata rules drop into your IDS for network detection of vector-DB exfiltration and model theft."}},
-{"@type":"Question","name":"What forensic artifacts do AI coding agents leave behind?","acceptedAnswer":{"@type":"Answer","text":"Install paths, credential storage locations, MCP configuration files, listening ports, process relationships, and registry keys — catalogued for eleven tool categories (local LLM runtimes, coding agents and IDEs, agent frameworks, CLIs, workflow engines, browser agents, computer-use agents, MCP hosts, cloud agents, code-completion tools, code-execution agents), each rated by forensic value for incident-response triage."}}
-]}
-</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the AI DFIR Toolkit?", "acceptedAnswer": {"@type": "Answer", "text": "A public, Apache-2.0-licensed collection (depalmar/ai-dfir-toolkit on GitHub) of 161 vendor-neutral detection signatures — Sigma, YARA, and Suricata rules — covering nine AI attack classes: LLM prompt injection, MCP attacks, model supply-chain compromise, AI infrastructure abuse, Copilot/assistant abuse, RAG and vector-database attacks, runtime AI malware, agentic orchestration, and agent memory forensics."}}, {"@type": "Question", "name": "Which AI attack classes does the pack cover?", "acceptedAnswer": {"@type": "Answer", "text": "Prompt injection and jailbreaks, MCP tool poisoning and config tampering, poisoned pickle models and HuggingFace supply-chain attacks, ShadowRay-style AI infrastructure compromise, M365/GitHub Copilot abuse, vector-database exposure and RAG poisoning, malware that calls LLM APIs at runtime, AI services used as command-and-control, and memory/context poisoning as persistence."}}, {"@type": "Question", "name": "How do you deploy vendor-neutral Sigma rules?", "acceptedAnswer": {"@type": "Answer", "text": "Convert them to your SIEM's query language with pySigma backends (e.g. sigma-cli to Lucene for Elastic/Kibana)."}}], "about": "The open-source AI DFIR detection pack of 161 vendor-neutral signatures for AI attacks, and a free 5-question detection-coverage check.", "keywords": "AI DFIR detection pack, AI attack detection, Sigma rules AI, YARA prompt injection, MCP attack detection, free security check"}</script>
 <link rel="stylesheet" href="ecosystem.css">
 </head>
 <body>
 <div class="wrap">
 <a class="back" href="index.html">&larr; Back to all free security checks</a>
 <div class="badge">OPEN SOURCE SPOTLIGHT &mdash; depalmar/ai-dfir-toolkit &middot; APACHE 2.0</div>
-<h1>Your SIEM watches for malware. <span class="red">Does it watch for AI attacks?</span></h1>
+<h1>AI DFIR detection pack: your SIEM watches malware — does it watch AI attacks?</h1>
 <p class="lead">Prompt injection, MCP tool poisoning, poisoned AI models, RAG attacks, agents used as command-and-control &mdash; these don't look like "normal" intrusions, and most detection stacks are blind to them. The <strong>AI DFIR Toolkit</strong> answers with <strong>161 free, vendor-neutral detection signatures</strong> (Sigma, YARA, Suricata) across 9 AI attack classes. Five questions to check whether your stack can see any of it.</p>
 
 <p class="answer"><strong>Short answer:</strong> if you can't name a detection for prompt injection, MCP config tampering, or a poisoned model file in your environment, your AI footprint is flying blind. The pack's rules deploy anywhere via open formats &mdash; no vendor lock-in &mdash; and its artifact catalog tells responders exactly where AI agents leave forensic traces. Check your coverage below.</p>
@@ -136,6 +129,13 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 </div>
 
 <div class="share">Share this check: <a href="https://x.com/intent/post?text=161%20free%20open-source%20detection%20rules%20for%20AI%20attacks%20(prompt%20injection%2C%20MCP%20abuse%2C%20poisoned%20models%2C%20RAG%20attacks)%20%E2%80%94%205%20questions%20to%20check%20whether%20your%20stack%20can%20see%20any%20of%20it&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ai-dfir-detection-pack-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ai-dfir-detection-pack-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ai-dfir-detection-pack-check.html&title=AI%20DFIR%20Toolkit%3A%20161%20free%20Sigma%2FYARA%2FSuricata%20signatures%20for%20AI%20attacks%20%E2%80%94%205-question%20detection%20readiness%20check" target="_blank" rel="noopener">Reddit</a></div>
+<div class="card">
+<h2>Frequently asked questions</h2>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">What is the AI DFIR Toolkit?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">A public, Apache-2.0-licensed collection (depalmar/ai-dfir-toolkit on GitHub) of 161 vendor-neutral detection signatures — Sigma, YARA, and Suricata rules — covering nine AI attack classes: LLM prompt injection, MCP attacks, model supply-chain compromise, AI infrastructure abuse, Copilot/assistant abuse, RAG and vector-database attacks, runtime AI malware, agentic orchestration, and agent memory forensics.</p></details>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">Which AI attack classes does the pack cover?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">Prompt injection and jailbreaks, MCP tool poisoning and config tampering, poisoned pickle models and HuggingFace supply-chain attacks, ShadowRay-style AI infrastructure compromise, M365/GitHub Copilot abuse, vector-database exposure and RAG poisoning, malware that calls LLM APIs at runtime, AI services used as command-and-control, and memory/context poisoning as persistence.</p></details>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">How do you deploy vendor-neutral Sigma rules?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">Convert them to your SIEM&#x27;s query language with pySigma backends (e.g. sigma-cli to Lucene for Elastic/Kibana).</p></details>
+</div>
+
 <div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
 
 <script>

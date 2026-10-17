@@ -3,16 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paste Your docker-compose.yml — Free Security Grader — Ingenious AI</title>
-<meta name="description" content="Paste your docker-compose.yml and get an instant A–F security grade: privileged containers, exposed database ports, hardcoded secrets, docker.sock mounts, latest tags. Free, client-side, nothing uploaded.">
+<title>AI Code Security Grader for Docker Compose | Ingenious AI</title>
+<meta name="description" content="AI code security grader for Docker Compose: paste your docker-compose.yml for an instant A–F grade — secrets, privileged containers, open ports. Free.">
 <link rel="canonical" href="https://ingeniousai-security-checks.netlify.app/docker-grader.html">
-<meta property="og:title" content="Docker Compose Security Grader — free A–F grade">
-<meta property="og:description" content="Paste your compose file, get a real security grade with fix snippets. Runs 100% in your browser.">
+<meta name="twitter:title" content="AI Code Security Grader for Docker Compose | Ingenious AI">
+<meta name="twitter:description" content="AI code security grader for Docker Compose: paste your docker-compose.yml for an instant A–F grade — secrets, privileged containers, open ports. Free.">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="AI Code Security Grader for Docker Compose | Ingenious AI">
+<meta property="og:description" content="AI code security grader for Docker Compose: paste your docker-compose.yml for an instant A–F grade — secrets, privileged containers, open ports. Free.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Docker Compose Security Grader","applicationCategory":"SecurityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free client-side analyzer that grades a docker-compose.yml file A–F against real container security checks: privileged mode, exposed ports, hardcoded secrets, sensitive mounts, unpinned tags. Nothing is uploaded.","author":{"@type":"Organization","name":"Ingenious AI"}}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Docker Compose Security Grader","applicationCategory":"SecurityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free client-side analyzer that grades a docker-compose.yml file A–F against real container security checks: privileged mode, exposed ports, hardcoded secrets, sensitive mounts, unpinned tags. Nothing is uploaded.","author":{"@type":"Organization","name":"Ingenious AI"},"about":{"@type":"Thing","name":"AI code security"},"keywords":"AI code security, AI code security scanner, docker compose security, container security, dockerfile security"}</script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
@@ -64,12 +65,13 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid #232b38;font-size:1
 @media(max-width:600px){.checks{grid-template-columns:1fr}}
 </style>
 <link rel="stylesheet" href="ecosystem.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I scan AI-generated code for vulnerabilities?","acceptedAnswer":{"@type":"Answer","text":"Run a static-analysis (SAST) scanner over the repo — open-source options include Semgrep and vibe-code-focused AI code security scanners — plus a secrets scan for hardcoded API keys, then a dynamic (DAST) scan against the running app. No scanner replaces a human review of authentication, data handling, and business logic."}},{"@type":"Question","name":"What is vibe coding security?","acceptedAnswer":{"@type":"Answer","text":"Vibe coding security is the practice of checking AI-generated code for the flaws models commonly introduce: hardcoded secrets, injection flaws, cross-site scripting, disabled TLS verification, and insecure defaults. Research (Veracode's 2025 GenAI Code Security Report) found 45% of AI-generated code shipped a real vulnerability."}}],"about":{"@type":"Thing","name":"AI code security"},"keywords":"AI code security, AI code security scanner, docker compose security, container security, dockerfile security"}</script>
 </head>
 <body>
 <div class="wrap">
 <span class="badge-top">FREE · 100% CLIENT-SIDE</span>
 <h1>Docker Compose Security Grader</h1>
-<p class="lead">Paste your <strong>docker-compose.yml</strong> below. Get an instant <strong>A–F security grade</strong> with every issue explained and a fix snippet. Your file never leaves this page — the analysis runs entirely in your browser.</p>
+<p class="lead">Paste your <strong>docker-compose.yml</strong> below — AI-written or hand-written. Get an instant <strong>A–F AI code security grade</strong> with every issue explained and a fix snippet. Your file never leaves this page — the analysis runs entirely in your browser.</p>
 
 <div class="card">
 <textarea id="composeInput" placeholder="Paste your docker-compose.yml here..." spellcheck="false"></textarea>
@@ -103,6 +105,8 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid #232b38;font-size:1
 <details><summary>Does a good grade mean I'm secure?</summary><p>No — this is a static configuration check, not a guarantee. It doesn't scan your images for CVEs, audit your application code, or check your firewall. Treat the grade as "configuration hygiene," one layer of a real security posture.</p></details>
 <details><summary>What YAML does the parser support?</summary><p>The subset docker-compose files actually use: nested maps, lists, quoted and unquoted scalars, comments, and the long (map) syntax for ports. Exotic YAML features (anchors, multi-line blocks) may not parse — if it fails, simplify or paste one service at a time.</p></details>
 <details><summary>Why flag :latest?</summary><p>:latest moves under you — a redeploy can silently pull a different, possibly vulnerable build, and you can't roll back to the exact image you tested. Pinning a version or digest makes deploys reproducible.</p></details>
+<details><summary>How do I scan AI-generated code for vulnerabilities?</summary><p>Run a static-analysis (SAST) scanner over the repo — open-source options include Semgrep and vibe-code-focused AI code security scanners — plus a secrets scan for hardcoded API keys, then a dynamic (DAST) scan against the running app. No scanner replaces a human review of authentication, data handling, and business logic.</p></details>
+<details><summary>What is vibe coding security?</summary><p>Vibe coding security is the practice of checking AI-generated code for the flaws models commonly introduce: hardcoded secrets, injection flaws, cross-site scripting, disabled TLS verification, and insecure defaults. Research (Veracode's 2025 GenAI Code Security Report) found 45% of AI-generated code shipped a real vulnerability.</p></details>
 </div>
 
 <p class="note">Heuristic static analysis for education and hardening. It finds misconfigurations; it is not a penetration test and not a substitute for one.</p>

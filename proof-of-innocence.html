@@ -3,19 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Proof of Innocence — Hash-Chained Agent Action Logs (Free Demo)</title>
-<meta name="description" content="Free interactive demo: watch an AI agent's actions sealed into a tamper-evident hash chain. Tamper with an entry, run verification, and see the break detected. Built by Ingenious AI.">
+<title>AI Agent Security Logs — Hash-Chain Demo | Ingenious AI</title>
+<meta name="description" content="AI agent security you can verify: an agent's actions sealed into a tamper-evident hash chain. Tamper with an entry, see verification catch it. Free demo.">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/proof-of-innocence.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="Proof of Innocence — hash-chained agent logs">
-<meta property="og:description" content="Live demo: every AI agent action sealed into a SHA-256 hash chain. Tamper with an entry and watch verification catch it.">
+<meta property="og:title" content="AI Agent Security Logs — Hash-Chain Demo | Ingenious AI">
+<meta property="og:description" content="AI agent security you can verify: an agent's actions sealed into a tamper-evident hash chain. Tamper with an entry, see verification catch it. Free demo.">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/proof-of-innocence.html">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Proof of Innocence — hash-chained agent logs">
-<meta name="twitter:description" content="Tamper with an AI agent's action log and watch the hash chain catch it. Free interactive demo.">
+<meta name="twitter:title" content="AI Agent Security Logs — Hash-Chain Demo | Ingenious AI">
+<meta name="twitter:description" content="AI agent security you can verify: an agent's actions sealed into a tamper-evident hash chain. Tamper with an entry, see verification catch it. Free demo.">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Proof of Innocence",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any (web)",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/proof-of-innocence.html",
+  "description": "AI agent security you can verify: an agent's actions sealed into a tamper-evident hash chain. Tamper with an entry, see verification catch it. Free demo.",
+  "author": {
+    "@type": "Organization",
+    "name": "Ingenious AI"
+  },
+  "about": "AI agent security",
+  "keywords": "AI agent security, AI agent security tools, AI agent security best practices"
+}</script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"Proof of Innocence","applicationCategory":"BusinessApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/proof-of-innocence.html","description":"Interactive demo of hash-chained agent action logs: append entries, tamper with one, and verify the chain to see tampering detected.","author":{"@type":"Organization","name":"Ingenious AI"}}
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a hash chain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A hash chain links each log entry to the one before it: every entry's fingerprint includes the previous entry's fingerprint. Change one byte of history and the chain breaks — which is exactly what the demo lets you test."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the security risks of AI agents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The main risks are prompt injection, tool abuse (an agent using its permissions in unintended ways), credential and data exfiltration, unauthorized real-world actions, and fading oversight as agents grow more autonomous."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do tamper-evident logs help AI agent security?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When an agent acts on your behalf, tamper-evident logs prove what it did, when, and under whose authority — the evidence you need after an incident. This page is a live demo of the technique."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you stop an AI agent from going rogue?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use least-privilege permissions, require human approval for irreversible actions, enforce egress allowlists at the network layer rather than in the prompt, keep tamper-evident logs of every agent action, and maintain a working kill switch."
+      }
+    }
+  ]
+}
 </script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -55,7 +113,7 @@ a{color:#6ea8fe}
 <div class="wrap">
 <div class="badge">FREE DEMO</div>
 <h1>Proof of Innocence</h1>
-<p class="lead">When an AI agent acts on your behalf — calling tools, moving money, sending messages — how do you <em>prove</em> what it did? Seal every action into a <strong>hash chain</strong>: each entry's fingerprint includes the fingerprint before it. Change one byte of history, and the whole chain breaks. Try it below.</p>
+<p class="lead">When an AI agent acts on your behalf — calling tools, moving money, sending messages — how do you <em>prove</em> what it did? AI agent security logs are the answer: seal every action into a <strong>hash chain</strong>: each entry's fingerprint includes the fingerprint before it. Change one byte of history, and the whole chain breaks. Try it below.</p>
 
 <div class="card">
 <b>Try it yourself</b>
@@ -227,6 +285,14 @@ function copyEmbed(){
 }
 render();
 </script>
+<section class="kw-faq" style="max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
+<h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is a hash chain?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">A hash chain links each log entry to the one before it: every entry's fingerprint includes the previous entry's fingerprint. Change one byte of history and the chain breaks — which is exactly what the demo lets you test.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What are the security risks of AI agents?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">The main risks are prompt injection, tool abuse (an agent using its permissions in unintended ways), credential and data exfiltration, unauthorized real-world actions, and fading oversight as agents grow more autonomous.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How do tamper-evident logs help AI agent security?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">When an agent acts on your behalf, tamper-evident logs prove what it did, when, and under whose authority — the evidence you need after an incident. This page is a live demo of the technique.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How do you stop an AI agent from going rogue?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Use least-privilege permissions, require human approval for irreversible actions, enforce egress allowlists at the network layer rather than in the prompt, keep tamper-evident logs of every agent action, and maintain a working kill switch.</p></details>
+</section>
+
 <div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
 <script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->

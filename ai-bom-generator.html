@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Bill of Materials Generator — Free AI-BOM Builder | Ingenious AI</title>
+<meta name="description" content="Generate a structured AI Bill of Materials for your company: list your models, APIs, agents and data stores, map what data each one touches, and get an auto-generated risk-notes section. Free, no signup.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-bom-generator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="AI Bill of Materials Generator — Free AI-BOM Builder | Ingenious AI">
+<meta property="og:description" content="List your models, APIs, agents and data stores, map the data each one touches, and get an auto-generated AI Bill of Materials with risk notes. Free, no signup.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-bom-generator.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Bill of Materials Generator — Free AI-BOM Builder | Ingenious AI">
+<meta name="twitter:description" content="List your models, APIs, agents and data stores, map the data each one touches, and get an auto-generated AI Bill of Materials with risk notes. Free, no signup.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"AI Bill of Materials Generator — Free AI-BOM Builder | Ingenious AI","applicationCategory":"BusinessApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-bom-generator.html","description":"Generate a structured AI Bill of Materials: list models, APIs, agents and data stores, map the data each touches, and get auto-generated risk notes. Free, no signup.","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is an AI Bill of Materials (AI-BOM)?","acceptedAnswer":{"@type":"Answer","text":"An AI Bill of Materials is an inventory document that lists every AI component a company uses — the models, APIs, agents and data stores — along with the vendor, version, the data each component touches, and where it is hosted. The idea is borrowed from software bills of materials (SBOMs) in cybersecurity: you cannot audit, secure or disclose what you have not inventoried."}},
+{"@type":"Question","name":"Is an AI-BOM a certified standard or a legal requirement?","acceptedAnswer":{"@type":"Answer","text":"No — as of today there is no certified AI-BOM standard and it is not itself a legal requirement. It is an emerging compliance artifact: documentation practices like it are increasingly expected by auditors, enterprise buyers and regulators as AI governance matures. This generator produces a working draft, not legal advice and not a certified standard."}},
+{"@type":"Question","name":"What should an AI-BOM include?","acceptedAnswer":{"@type":"Answer","text":"At minimum: each AI component (model, API, agent or data store), the vendor and product name, the version in use, the data it touches (public, internal, customer, or PII), where it is hosted (vendor cloud or self-hosted), and the risks that follow from that combination — for example, customer PII sent to a vendor cloud means you need to review the data processing agreement."}}]}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:820px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0f2b1a;border:1px solid #2ea043;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+.honest{background:#1a1206;border:1px solid #d29922;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#ffce63}
+h1{font-size:30px;line-height:1.25;margin-bottom:12px}
+h2{font-size:22px;margin:30px 0 12px}
+p.lead{font-size:17px;color:#9aa7b8;margin-bottom:22px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:22px;margin:18px 0}
+.small{font-size:13px;color:#9aa7b8}
+label{display:block;font-size:13px;color:#9aa7b8;margin:12px 0 5px}
+input[type=text],select{width:100%;background:#0b0f17;border:1px solid #2a3342;color:#e6edf3;border-radius:8px;padding:10px 12px;font-size:14px}
+input[type=text]:focus,select:focus{border-color:#1c6ef2;outline:none}
+.row{border:1px solid #232b38;border-radius:10px;padding:16px;margin:12px 0;background:#0d1320;position:relative}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+.remove-row{position:absolute;top:10px;right:10px;background:none;border:1px solid #3a4556;color:#9aa7b8;border-radius:6px;font-size:12px;padding:4px 10px;cursor:pointer}
+.remove-row:hover{border-color:#f85149;color:#f85149}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:11px 22px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:14px;border:none;cursor:pointer;margin:6px 6px 6px 0}
+.btn.ghost{background:#161d29;border:1px solid #2a3342;color:#e6edf3}
+.btn:hover{filter:brightness(1.12)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0 18px}
+th{background:#161d29;color:#9aa7b8;text-align:left;padding:9px 10px;font-size:12px;letter-spacing:.4px;text-transform:uppercase;border-bottom:1px solid #2a3342}
+td{padding:9px 10px;border-bottom:1px solid #1c2330;vertical-align:top}
+tr:hover td{background:#101826}
+.risk{border-left:3px solid #d29922;background:#141007;border-radius:0 8px 8px 0;padding:10px 14px;margin:8px 0;font-size:14px}
+.risk.high{border-left-color:#f85149;background:#1a0d0d}
+.docmeta{font-size:13px;color:#9aa7b8;margin-bottom:6px}
+.faq-q{font-weight:700;margin:16px 0 4px}
+a{color:#6ea8fe}
+@media print{.no-print{display:none}.wrap{max-width:100%;padding:0}body{background:#fff;color:#000}.card{background:#fff;border-color:#ccc}.risk{background:#f8f4e6;border-color:#b8860b}.honest{background:#f8f4e6;border-color:#b8860b;color:#333}p.lead,.small,label,.docmeta{color:#333}td,th{border-color:#ccc}th{background:#eee;color:#333}}
+</style>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+
+<div class="badge">FREE TOOL</div>
+<h1>AI Bill of Materials Generator</h1>
+<p class="lead">Build an inventory of every AI component your company relies on — models, APIs, agents, data stores — map the data each one touches, and get a formatted AI-BOM document with auto-generated risk notes. Everything stays in your browser.</p>
+
+<div class="honest">⚠️ <strong>Honest positioning:</strong> this is a working draft of an emerging compliance artifact — structured for the audits that are coming, not a certified standard. It is not legal advice and does not replace counsel.</div>
+
+<div class="card no-print">
+<h2 style="margin-top:0">1 · Your company</h2>
+<label for="company">Company name (optional)</label>
+<input type="text" id="company" placeholder="e.g. Acme Logistics Ltd">
+</div>
+
+<div class="card no-print">
+<h2 style="margin-top:0">2 · AI components</h2>
+<p class="small">Add one row per component. The more honest the inventory, the more useful the risk notes.</p>
+<div id="rows"></div>
+<button class="btn ghost" onclick="addRow()">+ Add component</button>
+</div>
+
+<div class="card no-print">
+<h2 style="margin-top:0">3 · Generate</h2>
+<p class="small">Generates the document below. Nothing is sent anywhere — it is rendered from your inputs in this page.</p>
+<button class="btn" onclick="generate()">Generate AI-BOM</button>
+<button class="btn ghost" onclick="printDoc()" id="printBtn" style="display:none">🖨️ Print</button>
+<button class="btn ghost" onclick="downloadMd()" id="dlBtn" style="display:none">⬇ Download (.md)</button>
+</div>
+
+<div id="output"></div>
+
+<div class="card">
+<h2>Frequently asked questions</h2>
+<p class="faq-q">What is an AI Bill of Materials (AI-BOM)?</p>
+<p class="small">An AI Bill of Materials is an inventory document listing every AI component a company uses — the models, APIs, agents and data stores — with the vendor, version, the data each component touches, and where it is hosted. The idea is borrowed from software bills of materials (SBOMs) in cybersecurity: you cannot audit, secure or disclose what you have not inventoried.</p>
+<p class="faq-q">Is an AI-BOM a certified standard or a legal requirement?</p>
+<p class="small">No — as of today there is no certified AI-BOM standard and it is not itself a legal requirement. It is an emerging compliance artifact: documentation practices like it are increasingly expected by auditors, enterprise buyers and regulators as AI governance matures. This generator produces a working draft, not legal advice and not a certified standard.</p>
+<p class="faq-q">What should an AI-BOM include?</p>
+<p class="small">At minimum: each AI component (model, API, agent or data store), the vendor and product name, the version in use, the data it touches (public, internal, customer, or PII), where it is hosted (vendor cloud or self-hosted), and the risks that follow from that combination — for example, customer PII sent to a vendor cloud means you need to review the data processing agreement.</p>
+</div>
+
+<p class="small" style="margin-top:20px">This generator is a drafting aid produced by Ingenious AI. It creates a working document from your inputs; it is not legal advice, not a certified standard, and does not replace review by qualified counsel. No data you enter is transmitted or stored.</p>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center" class="no-print"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>An AI-BOM is step one — <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#fff;text-decoration:underline">DisclosureGuard</a> keeps your AI disclosures compliant, and <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#fff;text-decoration:underline">Agent Flight Recorder</a> keeps an immutable log of what your agents actually did.</strong></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp →</a></div>
+
+</div>
+
+<script>
+var rowCount = 0;
+var TYPES = ["Model","API / Integration","Agent","Data store"];
+var DATA = ["Public","Internal","Customer","PII"];
+var HOST = ["Vendor cloud","Self-hosted"];
+
+function addRow(){
+  rowCount++;
+  var div = document.createElement("div");
+  div.className = "row";
+  div.innerHTML =
+    '<button class="remove-row" onclick="this.parentNode.remove()">remove</button>' +
+    '<div class="grid2">' +
+    '<div><label>Component type</label><select class="f-type">' + TYPES.map(function(t){return "<option>"+t+"</option>"}).join("") + '</select></div>' +
+    '<div><label>Vendor / product name</label><input type="text" class="f-name" placeholder="e.g. OpenAI GPT-4o"></div>' +
+    '<div><label>Version</label><input type="text" class="f-ver" placeholder="e.g. 2024-11-20"></div>' +
+    '<div><label>Data it touches</label><select class="f-data">' + DATA.map(function(t){return "<option>"+t+"</option>"}).join("") + '</select></div>' +
+    '<div><label>Hosting</label><select class="f-host">' + HOST.map(function(t){return "<option>"+t+"</option>"}).join("") + '</select></div>' +
+    '</div>';
+  document.getElementById("rows").appendChild(div);
+}
+
+function esc(s){return String(s||"—").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+function collect(){
+  var rows = document.querySelectorAll("#rows .row");
+  var items = [];
+  rows.forEach(function(r){
+    items.push({
+      type: r.querySelector(".f-type").value,
+      name: r.querySelector(".f-name").value.trim() || "Unnamed component",
+      ver: r.querySelector(".f-ver").value.trim(),
+      data: r.querySelector(".f-data").value,
+      host: r.querySelector(".f-host").value
+    });
+  });
+  return items;
+}
+
+function risksFor(it){
+  var r = [];
+  if((it.data==="PII"||it.data==="Customer") && it.host==="Vendor cloud"){
+    r.push({lvl:"high", txt:"<strong>"+esc(it.name)+"</strong>: "+esc(it.data)+" data flows to a vendor cloud — review the vendor's data processing agreement (DPA), confirm retention periods, and confirm the vendor excludes this data from model training."});
+  }
+  if(it.type==="Agent" && (it.data==="Internal"||it.data==="Customer"||it.data==="PII")){
+    r.push({lvl:"high", txt:"<strong>"+esc(it.name)+"</strong>: an agent touching "+esc(it.data).toLowerCase()+" data — log every tool call and external action, and require human approval before external side-effects (payments, messages, deployments)."});
+  }
+  if(it.type==="Model" && it.data==="PII"){
+    r.push({lvl:"high", txt:"<strong>"+esc(it.name)+"</strong>: PII reaches a model — verify the vendor does not train on your inputs, and document the basis for processing."});
+  }
+  if(it.type==="API / Integration" && it.host==="Vendor cloud" && it.data==="PII"){
+    r.push({lvl:"", txt:"<strong>"+esc(it.name)+"</strong>: third-party API receiving PII — check sub-processor list, cross-border transfer mechanism, and API key scoping/least privilege."});
+  }
+  if(it.type==="Data store" && it.host==="Self-hosted" && (it.data==="Customer"||it.data==="PII")){
+    r.push({lvl:"", txt:"<strong>"+esc(it.name)+"</strong>: self-hosted store holding "+esc(it.data).toLowerCase()+" data — you own retention, deletion and breach-notification obligations; document the retention schedule."});
+  }
+  if(it.type==="Data store" && it.host==="Vendor cloud" && (it.data==="Customer"||it.data==="PII")){
+    r.push({lvl:"", txt:"<strong>"+esc(it.name)+"</strong>: vendor-hosted store for "+esc(it.data).toLowerCase()+" data — verify data residency, backup access, and export/portability before an incident forces it."});
+  }
+  if(!it.ver){
+    r.push({lvl:"", txt:"<strong>"+esc(it.name)+"</strong>: no version recorded — pin the vendor version so future audits can reproduce what was in use."});
+  }
+  return r;
+}
+
+var lastItems = [], lastCompany = "", lastDate = "";
+
+function generate(){
+  var items = collect();
+  if(!items.length){ alert("Add at least one component first."); return; }
+  lastItems = items;
+  lastCompany = document.getElementById("company").value.trim();
+  lastDate = new Date().toISOString().slice(0,10);
+  var models = items.filter(function(i){return i.type==="Model";});
+  var apis = items.filter(function(i){return i.type==="API / Integration";});
+  var agents = items.filter(function(i){return i.type==="Agent";});
+  var stores = items.filter(function(i){return i.type==="Data store";});
+  var allRisks = [];
+  items.forEach(function(i){ risksFor(i).forEach(function(r){allRisks.push(r);}); });
+
+  function tbl(title, list){
+    if(!list.length) return "";
+    var h = '<h2>'+title+'</h2><table><tr><th>Component</th><th>Vendor / name</th><th>Version</th><th>Data touched</th><th>Hosting</th></tr>';
+    list.forEach(function(i){ h += "<tr><td>"+esc(i.type)+"</td><td>"+esc(i.name)+"</td><td>"+esc(i.ver||"—")+"</td><td>"+esc(i.data)+"</td><td>"+esc(i.host)+"</td></tr>"; });
+    return h + "</table>";
+  }
+  function flowTbl(){
+    var h = '<h2>Data flows</h2><table><tr><th>Flow</th><th>Data class</th><th>Direction</th></tr>';
+    items.forEach(function(i){
+      h += "<tr><td>"+esc(i.name)+" ("+esc(i.type)+")</td><td>"+esc(i.data)+"</td><td>Company → "+esc(i.host)+"</td></tr>";
+    });
+    return h + "</table>";
+  }
+  var html = '<div class="card"><div class="docmeta"><strong style="color:#e6edf3;font-size:16px">AI Bill of Materials — '+(lastCompany?esc(lastCompany):"Unnamed company")+'</strong><br>Working draft · generated '+lastDate+' · '+items.length+' component(s) inventoried</div>';
+  html += tbl("Models", models);
+  html += tbl("APIs & integrations", apis);
+  html += tbl("Agents", agents);
+  html += tbl("Data stores", stores);
+  html += flowTbl();
+  html += '<h2>Risk notes (auto-derived)</h2>';
+  if(!allRisks.length){ html += '<p class="small">No flags raised from the inputs — still review vendor DPAs and retention policies manually.</p>'; }
+  allRisks.forEach(function(r){ html += '<div class="risk'+(r.lvl?" "+r.lvl:"")+'">'+r.txt+'</div>'; });
+  html += '<p class="small" style="margin-top:12px">Risk notes are heuristic prompts derived from the component data you entered — they are not legal advice. Confirm each with qualified counsel and your vendors\' current terms.</p></div>';
+  document.getElementById("output").innerHTML = html;
+  document.getElementById("printBtn").style.display = "inline-block";
+  document.getElementById("dlBtn").style.display = "inline-block";
+  document.getElementById("output").scrollIntoView({behavior:"smooth"});
+}
+
+function printDoc(){ window.print(); }
+
+function downloadMd(){
+  if(!lastItems.length){ return; }
+  var md = "# AI Bill of Materials — " + (lastCompany || "Unnamed company") + "\n";
+  md += "Working draft · generated " + lastDate + " · " + lastItems.length + " component(s) inventoried\n\n";
+  function tblMd(title, list){
+    if(!list.length) return "";
+    var t = "## " + title + "\n| Component | Vendor / name | Version | Data touched | Hosting |\n|---|---|---|---|---|\n";
+    list.forEach(function(i){ t += "| " + [i.type,i.name,(i.ver||"—"),i.data,i.host].join(" | ") + " |\n"; });
+    return t + "\n";
+  }
+  md += tblMd("Models", lastItems.filter(function(i){return i.type==="Model";}));
+  md += tblMd("APIs & integrations", lastItems.filter(function(i){return i.type==="API / Integration";}));
+  md += tblMd("Agents", lastItems.filter(function(i){return i.type==="Agent";}));
+  md += tblMd("Data stores", lastItems.filter(function(i){return i.type==="Data store";}));
+  md += "## Data flows\n";
+  lastItems.forEach(function(i){ md += "- " + i.name + " (" + i.type + ") · " + i.data + " · Company → " + i.host + "\n"; });
+  md += "\n## Risk notes (auto-derived)\n";
+  var n = 0;
+  lastItems.forEach(function(i){
+    risksFor(i).forEach(function(r){
+      n++;
+      var plain = r.txt.replace(/<[^>]+>/g,"");
+      md += (r.lvl==="high" ? "⚠️ " : "• ") + plain + "\n";
+    });
+  });
+  if(!n) md += "No flags raised from the inputs — still review vendor DPAs and retention policies manually.\n";
+  md += "\n_Risk notes are heuristic prompts, not legal advice. Confirm each with qualified counsel._\n";
+  var blob = new Blob([md], {type:"text/markdown"});
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "ai-bom-" + lastDate + ".md";
+  document.body.appendChild(a); a.click(); a.remove();
+}
+
+addRow();
+</script>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>

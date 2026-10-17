@@ -3,10 +3,24 @@
 <head>
 <link rel="canonical" href="https://ingeniousai-security-checks.netlify.app/homelab-exposure-quiz.html">
 <meta property="og:url" content="https://ingeniousai-security-checks.netlify.app/homelab-exposure-quiz.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="How Exposed Is Your Homelab? — Free Quiz | Ingenious AI">
+<meta property="og:description" content="Answer 10 questions, get an honest exposure rating for your homelab or self-hosted server — SSH, patches, backups, 2FA. Free, no signup, nothing installed.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How Exposed Is Your Homelab? — Free Quiz | Ingenious AI">
+<meta name="twitter:description" content="Answer 10 questions, get an honest exposure rating for your homelab or self-hosted server — SSH, patches, backups, 2FA. Free, no signup, nothing installed.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="How Exposed Is Your Homelab? — Free Quiz | Ingenious AI">
+<meta property="og:description" content="Answer 10 questions, get an honest exposure rating for your homelab or self-hosted server — SSH, patches, backups, 2FA. Free, no signup, nothing installed.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How Exposed Is Your Homelab? — Free Quiz | Ingenious AI">
+<meta name="twitter:description" content="Answer 10 questions, get an honest exposure rating for your homelab or self-hosted server — SSH, patches, backups, 2FA. Free, no signup, nothing installed.">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How Exposed Is Your Homelab? — Free 2-Minute Security Quiz</title>
-<meta name="description" content="Answer 10 quick questions and get an honest exposure rating for your homelab or self-hosted server. Free, no signup, nothing installed.">
+<title>How Exposed Is Your Homelab? — Free Quiz | Ingenious AI</title>
+<meta name="description" content="Answer 10 questions, get an honest exposure rating for your homelab or self-hosted server — SSH, patches, backups, 2FA. Free, no signup, nothing installed.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
@@ -40,9 +54,29 @@ p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
 footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Homelab Exposure Quiz","applicationCategory":"SecurityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"A free 10-question self-assessment that rates how exposed a homelab or self-hosted server is to common attacks. No signup, nothing installed.","author":{"@type":"Organization","name":"Ingenious AI"}}
+{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "How Exposed Is Your Homelab? — Free Quiz | Ingenious AI", "applicationCategory": "SecurityApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "Answer 10 questions, get an honest exposure rating for your homelab or self-hosted server — SSH, patches, backups, 2FA. Free, no signup, nothing installed.", "author": {"@type": "Organization", "name": "Ingenious AI"}, "about": "Homelab security", "keywords": "homelab security, self-hosted server security, homelab hardening"}
 </script>
 <link rel="stylesheet" href="ecosystem.css">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the single biggest homelab exposure?", "acceptedAnswer": {"@type": "Answer", "text": "Internet-facing services that only you use — admin panels, databases, SSH on port 22. Anything reachable from the open internet is scanned within hours, so keep private services behind a VPN or Tailscale."}}, {"@type": "Question", "name": "How often should self-hosted apps be updated?", "acceptedAnswer": {"@type": "Answer", "text": "Within days of a release for anything internet-facing. Unpatched applications are the most common entry point attackers find in automated scans."}}, {"@type": "Question", "name": "Are backups part of homelab security?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Automated, tested restores are the difference between a bad weekend and a catastrophe — backups that have never been restored are not really backups."}}]}
+</script>
+<style>
+.faq{margin:30px 0}
+.faq h2{font-size:22px;margin-bottom:12px;color:#fff}
+.faq details{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0}
+.faq summary{font-weight:700;cursor:pointer;color:#e6edf3}
+.faq p{color:#9aa7b8;font-size:14px;margin-top:8px}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the single biggest homelab exposure?", "acceptedAnswer": {"@type": "Answer", "text": "Internet-facing services that only you use — admin panels, databases, SSH on port 22. Anything reachable from the open internet is scanned within hours, so keep private services behind a VPN or Tailscale."}}, {"@type": "Question", "name": "How often should self-hosted apps be updated?", "acceptedAnswer": {"@type": "Answer", "text": "Within days of a release for anything internet-facing. Unpatched applications are the most common entry point attackers find in automated scans."}}, {"@type": "Question", "name": "Are backups part of homelab security?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Automated, tested restores are the difference between a bad weekend and a catastrophe — backups that have never been restored are not really backups."}}]}
+</script>
+<style>
+.faq{margin:30px 0}
+.faq h2{font-size:22px;margin-bottom:12px;color:#fff}
+.faq details{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0}
+.faq summary{font-weight:700;cursor:pointer;color:#e6edf3}
+.faq p{color:#9aa7b8;font-size:14px;margin-top:8px}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -109,6 +143,20 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 
 <a class="cta" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter.">Scan your actual server free &rarr; BreachHunter</a>
 <p class="note" style="text-align:center">This quiz rates your habits. BreachHunter checks your real server for known exposures in 30 seconds. No signup.</p>
+
+<div class="faq">
+<h2>FAQ</h2>
+<details><summary>What is the single biggest homelab exposure?</summary><p>Internet-facing services that only you use — admin panels, databases, SSH on port 22. Anything reachable from the open internet is scanned within hours, so keep private services behind a VPN or Tailscale.</p></details>
+<details><summary>How often should self-hosted apps be updated?</summary><p>Within days of a release for anything internet-facing. Unpatched applications are the most common entry point attackers find in automated scans.</p></details>
+<details><summary>Are backups part of homelab security?</summary><p>Yes. Automated, tested restores are the difference between a bad weekend and a catastrophe — backups that have never been restored are not really backups.</p></details>
+</div>
+
+<div class="faq">
+<h2>FAQ</h2>
+<details><summary>What is the single biggest homelab exposure?</summary><p>Internet-facing services that only you use — admin panels, databases, SSH on port 22. Anything reachable from the open internet is scanned within hours, so keep private services behind a VPN or Tailscale.</p></details>
+<details><summary>How often should self-hosted apps be updated?</summary><p>Within days of a release for anything internet-facing. Unpatched applications are the most common entry point attackers find in automated scans.</p></details>
+<details><summary>Are backups part of homelab security?</summary><p>Yes. Automated, tested restores are the difference between a bad weekend and a catastrophe — backups that have never been restored are not really backups.</p></details>
+</div>
 
 <div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Ingenious AI builds 11 AI security platforms &mdash; disclosure compliance, rogue-agent defense, breach hunting, agent oversight, and more.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
 

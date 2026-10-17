@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MITRE ATT&CK v20 Added 5 AI Attack Techniques — Is Your Red Team Mapped Yet?</title>
-<meta name="description" content="MITRE ATT&CK v20 (Oct 13, 2026) added 5 AI-focused techniques: T1699 Direct Prompt Injection, T1698 Indirect Prompt Injection, T1700 AI-Enabled Exfiltration, T1608.007 AI Result Poisoning, T1685.007 Impair Autonomous Defenses. Score your coverage in 60 seconds. Free, no signup.">
+<title>MITRE ATT&CK AI Techniques (v20) — Map Your Red Team</title>
+<meta name="description" content="MITRE ATT&CK AI techniques: v20 (Oct 13, 2026) added 5 AI attack techniques — T1699, T1698, T1700, T1608.007, T1685.007. Score coverage in 60 seconds. Free.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="MITRE ATT&CK v20 added 5 AI attack techniques — is your red team mapped yet?">
-<meta property="og:description" content="T1699, T1698, T1700, T1608.007, T1685.007 — the five new AI technique IDs every defender now needs. 60-second coverage self-check, free.">
+<meta property="og:title" content="MITRE ATT&CK AI Techniques (v20) — Map Your Red Team">
+<meta property="og:description" content="MITRE ATT&CK AI techniques: v20 (Oct 13, 2026) added 5 AI attack techniques — T1699, T1698, T1700, T1608.007, T1685.007. Score coverage in 60 seconds. Free.">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-attck-v20-ai-techniques.html">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-attck-v20-ai-techniques.html">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MITRE ATT&CK v20 added 5 AI attack techniques — is your red team mapped yet?">
-<meta name="twitter:description" content="T1699, T1698, T1700, T1608.007, T1685.007 — the five new AI technique IDs every defender now needs. 60-second coverage self-check, free.">
+<meta name="twitter:title" content="MITRE ATT&CK AI Techniques (v20) — Map Your Red Team">
+<meta name="twitter:description" content="MITRE ATT&CK AI techniques: v20 (Oct 13, 2026) added 5 AI attack techniques — T1699, T1698, T1700, T1608.007, T1685.007. Score coverage in 60 seconds. Free.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
@@ -46,22 +46,13 @@ li{margin:8px 0}
 code.cmd{display:block;background:#000;border:1px solid #2a3342;border-radius:8px;padding:14px 16px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;color:#7ee787;overflow-x:auto;margin:10px 0;white-space:pre}
 footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
 </style>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"What did MITRE ATT&CK v20 add?","acceptedAnswer":{"@type":"Answer","text":"MITRE released ATT&CK v20 on October 13, 2026, adding 9 new Enterprise techniques and sub-techniques. Five are AI-focused: T1699 Direct Prompt Injection, T1698 Indirect Prompt Injection, T1700 AI-Enabled Exfiltration, T1608.007 Stage Capabilities: AI Result Poisoning, and T1685.007 Disable or Modify Tools: Impair Autonomous Defenses. The release also added T1697 (Steal Application Specific Passwords) and T1696 (Anti-Automation Evasion)."}},
-{"@type":"Question","name":"What is T1699 Direct Prompt Injection?","acceptedAnswer":{"@type":"Answer","text":"T1699 covers malicious instructions submitted directly to an AI system's interface — the classic jailbreak: an attacker types instructions into a chatbot or agent prompt to make it ignore its guardrails, reveal system prompts, or perform unauthorized actions."}},
-{"@type":"Question","name":"What is T1698 Indirect Prompt Injection?","acceptedAnswer":{"@type":"Answer","text":"T1698 covers malicious instructions embedded in content an AI system later retrieves or processes — a hidden instruction in a webpage, document, email, or tool result that an AI agent reads and follows on a user's behalf, without the attacker ever touching the AI interface directly."}},
-{"@type":"Question","name":"Is MITRE ATT&CK v20 a vulnerability I need to patch?","acceptedAnswer":{"@type":"Answer","text":"No. ATT&CK v20 is a taxonomy and framework release, not a vulnerability disclosure. It gives security teams a shared vocabulary for describing AI-related adversary behavior, mapping detection coverage, and identifying gaps. No CVE, exploit, or active campaign is attached to the release itself."}},
-{"@type":"Question","name":"How do I map my red-team findings to the new AI techniques?","acceptedAnswer":{"@type":"Answer","text":"Tag each finding with the technique ID whose definition it matches, then check which of the five AI techniques have zero findings — those are your coverage gaps. The free open-source attack-matrix-mapper (github.com/Iceman2050/attack-matrix-mapper) automates this: feed it findings JSON, get a coverage heatmap and gap list."}},
-{"@type":"Question","name":"What are T1700, T1608.007, and T1685.007?","acceptedAnswer":{"@type":"Answer","text":"T1700 AI-Enabled Exfiltration: adversary use of AI agents to extract sensitive organizational data. T1608.007 AI Result Poisoning: manipulating web content to influence AI search results and recommendations (e.g., SEO-poisoned content aimed at AI assistants). T1685.007 Impair Autonomous Defenses: interfering with AI-assisted security tools to disrupt malware analysis or automated defense."}}
-]}
-</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What did MITRE ATT&CK v20 add?", "acceptedAnswer": {"@type": "Answer", "text": "MITRE released ATT&CK v20 on October 13, 2026, adding 9 new Enterprise techniques and sub-techniques. Five are AI-focused: T1699 Direct Prompt Injection, T1698 Indirect Prompt Injection, T1700 AI-Enabled Exfiltration, T1608.007 Stage Capabilities: AI Result Poisoning, and T1685.007 Disable or Modify Tools: Impair Autonomous Defenses."}}, {"@type": "Question", "name": "What is T1699 Direct Prompt Injection?", "acceptedAnswer": {"@type": "Answer", "text": "T1699 covers malicious instructions submitted directly to an AI system's interface — the classic jailbreak: an attacker types instructions into a chatbot or agent prompt to make it ignore its guardrails, reveal system prompts, or perform unauthorized actions."}}, {"@type": "Question", "name": "What is T1698 Indirect Prompt Injection?", "acceptedAnswer": {"@type": "Answer", "text": "T1698 covers malicious instructions embedded in content an AI system later retrieves or processes — a hidden instruction in a webpage, document, email, or tool result that an AI agent reads and follows on a user's behalf, without the attacker ever touching the AI interface directly."}}], "about": "MITRE ATT&CK v20's five new AI-focused attack techniques and a free 60-second red-team coverage self-check.", "keywords": "MITRE ATT&CK AI techniques, ATT&CK v20, T1699, T1698, prompt injection technique, red team AI, free security check"}</script>
 <link rel="stylesheet" href="ecosystem.css">
 </head>
 <body>
 <div class="wrap">
 <div class="badge">MITRE ATT&CK v20 &mdash; OCT 13, 2026 &mdash; 5 NEW AI TECHNIQUES</div>
-<h1>MITRE just gave AI attacks <span class="red">official technique IDs</span> — is your red team mapped yet?</h1>
+<h1>ATT&CK v20 added 5 MITRE AI technique IDs — is your red team mapped yet?</h1>
 <p class="lead">On October 13, 2026, MITRE released ATT&CK v20 with <strong>9 new Enterprise techniques</strong> — <strong>five of them AI-focused</strong>. Prompt injection, AI-driven exfiltration, and AI result poisoning now have canonical IDs your board, your SOC, and your red team can all point at. Important: this is a <strong>taxonomy release, not a vulnerability</strong> — nothing to patch, but everything to map. The five cards below give you each technique in plain words plus how to test it. Then take the 60-second coverage check.</p>
 
 <div class="card">
@@ -136,6 +127,13 @@ python3 attckmap.py findings.json --html report.html</code>
 </div>
 
 <div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=MITRE%20ATT%26CK%20v20%20added%205%20AI%20attack%20techniques%20(T1699%2C%20T1698%2C%20T1700)%20%E2%80%94%20is%20your%20red%20team%20mapped%20yet%3F%20Free%2060-sec%20coverage%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-attck-v20-ai-techniques.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-attck-v20-ai-techniques.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-attck-v20-ai-techniques.html&title=MITRE%20ATT%26CK%20v20%20AI%20Techniques%20Coverage%20Check" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="card">
+<h2>Frequently asked questions</h2>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">What did MITRE ATT&amp;CK v20 add?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">MITRE released ATT&amp;CK v20 on October 13, 2026, adding 9 new Enterprise techniques and sub-techniques. Five are AI-focused: T1699 Direct Prompt Injection, T1698 Indirect Prompt Injection, T1700 AI-Enabled Exfiltration, T1608.007 Stage Capabilities: AI Result Poisoning, and T1685.007 Disable or Modify Tools: Impair Autonomous Defenses.</p></details>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">What is T1699 Direct Prompt Injection?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">T1699 covers malicious instructions submitted directly to an AI system&#x27;s interface — the classic jailbreak: an attacker types instructions into a chatbot or agent prompt to make it ignore its guardrails, reveal system prompts, or perform unauthorized actions.</p></details>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">What is T1698 Indirect Prompt Injection?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">T1698 covers malicious instructions embedded in content an AI system later retrieves or processes — a hidden instruction in a webpage, document, email, or tool result that an AI agent reads and follows on a user&#x27;s behalf, without the attacker ever touching the AI interface directly.</p></details>
+</div>
+
 <div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>

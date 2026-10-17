@@ -3,10 +3,15 @@
 <head>
 <link rel="canonical" href="https://ingeniousai-security-checks.netlify.app/newsjack-modelminder.html">
 <meta property="og:url" content="https://ingeniousai-security-checks.netlify.app/newsjack-modelminder.html">
+<meta property="og:title" content="OpenAI Model Shutdown: Model Dependency Audit | Ingenious AI">
+<meta property="og:description" content="OpenAI model shutdown audit: models get deprecated, repriced, and silently updated. Run this free 30-second audit to list every AI model your code depends on.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenAI Model Shutdown: Model Dependency Audit | Ingenious AI">
+<meta name="twitter:description" content="OpenAI model shutdown audit: models get deprecated, repriced, and silently updated. Run this free 30-second audit to list every AI model your code depends on.">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>30-Second Model Dependency Audit — Find What Breaks When AI Models Change</title>
-<meta name="description" content="AI models get deprecated, repriced, and silently updated. Run this 30-second audit to list every model your code depends on. Free, no signup.">
+<title>OpenAI Model Shutdown: Model Dependency Audit | Ingenious AI</title>
+<meta name="description" content="OpenAI model shutdown audit: models get deprecated, repriced, and silently updated. Run this free 30-second audit to list every AI model your code depends on.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
@@ -32,10 +37,10 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <link rel="stylesheet" href="ecosystem.css">
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
+  "@context": "https://schema.org","about":{"@type": "Thing", "name": "OpenAI model shutdown"},"keywords":["OpenAI model shutdown", "model deprecation", "AI model deprecation", "model dependency audit"],
   "@type": "WebPage",
-  "name": "30-Second Model Dependency Audit \u2014 Find What Breaks When AI Models Change",
-  "description": "AI models get deprecated, repriced, and silently updated. Run this 30-second audit to list every model your code depends on. Free, no signup.",
+  "name": "OpenAI Model Shutdown: Model Dependency Audit | Ingenious AI",
+  "description": "OpenAI model shutdown audit: models get deprecated, repriced, and silently updated. Run this free 30-second audit to list every AI model your code depends on.",
   "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/newsjack-modelminder.html",
   "inLanguage": "en",
   "isPartOf": {
@@ -50,12 +55,15 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
   }
 }
 </script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What happens when an AI model is deprecated?", "acceptedAnswer": {"@type": "Answer", "text": "The vendor sets a shutdown date; after it, API calls to the model fail and must be moved to a replacement. Deprecations can also raise prices and change behavior — price the migration before the deadline, don't scramble after it."}}, {"@type": "Question", "name": "Which OpenAI models are being shut down?", "acceptedAnswer": {"@type": "Answer", "text": "OpenAI's October 23, 2026 shutdown wave covers gpt-4-0613, gpt-4-turbo, o1, o3-mini, o4-mini, gpt-image-1 and ft-* models, per OpenAI's published deprecation schedule. GPT-5.6 Sol is the vendor-named replacement."}}, {"@type": "Question", "name": "How much does AI model migration cost?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on your token volume and which replacement you pick. Run the numbers in our migration cost calculator — it compares the vendor-recommended path against a cheaper alternative so you can price the move before the deadline."}}]}
+</script>
 </head>
 <body>
 <div class="wrap">
 <div class="badge">SILENT DEPRECATIONS BREAK PRODUCTION</div>
 <h1>Which AI models is your <span class="yellow">production</span> actually pinned to?</h1>
-<p class="lead">Model vendors deprecate, reprice, and silently update models on their own schedule &mdash; and your app finds out when it breaks at 2am. Run this 30-second audit in your repo to list every model your code depends on. No signup, nothing installed.</p>
+<p class="lead">Model vendors deprecate, reprice, and silently update models on their own schedule &mdash; the Oct 23, 2026 OpenAI model shutdown proved it &mdash; and your app finds out when it breaks at 2am. Run this 30-second audit in your repo to list every model your code depends on. No signup, nothing installed.</p>
 
 <div class="card">
 <h2>The 30-second dependency audit</h2>
@@ -87,6 +95,14 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <li><strong>Plan migrations before the deadline</strong> &mdash; test the replacement model on your evals, not on your users.</li>
 </ul>
 </div>
+
+
+<div class="card">
+<h2>Model deprecation — quick answers</h2>
+<div style="margin:14px 0"><p><strong>What happens when an AI model is deprecated?</strong></p>
+<p class="note">The vendor sets a shutdown date; after it, API calls to the model fail and must be moved to a replacement. Deprecations can also raise prices and change behavior — price the migration before the deadline, don't scramble after it.</p></div><div style="margin:14px 0"><p><strong>Which OpenAI models are being shut down?</strong></p>
+<p class="note">OpenAI's October 23, 2026 shutdown wave covers gpt-4-0613, gpt-4-turbo, o1, o3-mini, o4-mini, gpt-image-1 and ft-* models, per OpenAI's published deprecation schedule. GPT-5.6 Sol is the vendor-named replacement.</p></div><div style="margin:14px 0"><p><strong>How much does AI model migration cost?</strong></p>
+<p class="note">It depends on your token volume and which replacement you pick. Run the numbers in our migration cost calculator — it compares the vendor-recommended path against a cheaper alternative so you can price the move before the deadline.</p></div></div>
 
 <a class="cta" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder.">Watch your models free &rarr; ModelMinder</a>
 <p class="note" style="text-align:center">This page audited what you're pinned to. ModelMinder watches the vendors for you &mdash; deprecations, repricing, and silent updates &mdash; and alerts you before production breaks.</p>

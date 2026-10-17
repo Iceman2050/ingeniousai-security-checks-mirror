@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paste-Your-Version CVE Checker — Nextcloud, Langflow, GitLab, Cisco SEG, Docker</title>
-<meta name="description" content="Paste your software version and get an instant verdict: patched, vulnerable, or unknown — for Nextcloud, Langflow, GitLab, Cisco SEG, and Docker. 100% client-side, nothing leaves your browser.">
+<title>CVE Checker — Paste Your Version, Get a Verdict</title>
+<meta name="description" content="Free CVE checker: paste any version for Nextcloud, Langflow, GitLab, Cisco SEG or Ivanti and get an instant patched/vulnerable verdict. 100% client-side.">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/paste-version-checker.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="Paste your version — get an instant patched/vulnerable verdict for 5 products">
-<meta property="og:description" content="Nextcloud, Langflow, GitLab, Cisco SEG, Docker: type your version, get a verdict in seconds. Runs entirely in your browser — your version never leaves your machine.">
+<meta property="og:title" content="CVE Checker — Paste Your Version, Get a Verdict">
+<meta property="og:description" content="Free CVE checker: paste any version for Nextcloud, Langflow, GitLab, Cisco SEG or Ivanti and get an instant patched/vulnerable verdict. 100% client-side.">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/paste-version-checker.html">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Paste your version — instant patched/vulnerable verdict">
-<meta name="twitter:description" content="Check your version against October 2026's critical CVEs. Client-side only.">
+<meta name="twitter:title" content="CVE Checker — Paste Your Version, Get a Verdict">
+<meta name="twitter:description" content="Free CVE checker: paste any version for Nextcloud, Langflow, GitLab, Cisco SEG or Ivanti and get an instant patched/vulnerable verdict. 100% client-side.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
@@ -49,22 +49,18 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 .cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:17px;padding:16px;border-radius:10px;text-decoration:none;margin:24px 0}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"Paste-Your-Version CVE Checker","description":"Client-side version checker for October 2026's critical CVEs across Nextcloud, Langflow, GitLab, Cisco SEG and Docker.","provider":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-15","dateModified":"2026-10-15"}
+{"@context":"https://schema.org","@type":"WebPage","name":"Paste-Your-Version CVE Checker","description":"Client-side version checker for October 2026's critical CVEs across Nextcloud, Langflow, GitLab, Cisco SEG and Docker.","provider":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-15","dateModified":"2026-10-15","about":{"@type":"Thing","name":"CVE checker"},"keywords":["CVE checker","CVE check tool","CVE checker GitHub","check if software has CVE","vulnerability version checker"]}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"Is my version sent anywhere when I use this checker?","acceptedAnswer":{"@type":"Answer","text":"No. The entire check runs in JavaScript in your browser against version tables embedded in this page. No request is made, no analytics sees your input, nothing leaves your machine."}},
-{"@type":"Question","name":"How do I find my version?","acceptedAnswer":{"@type":"Answer","text":"Nextcloud built-in CODE app: Admin > Apps, or 'occ app:list | grep richdocumentscode'. Langflow: 'pip show langflow | grep version'. GitLab: 'gitlab-rake gitlab:env:info | grep version'. Cisco SEG: 'contentscannerstatus' on the CLI. Docker Hub: no version exists — the GhostPat flaw was server-side."}},
-{"@type":"Question","name":"Does a 'patched' verdict mean I'm definitely safe?","acceptedAnswer":{"@type":"Answer","text":"It means you are not exposed to the specific CVE this check covers. If you were vulnerable during the exploitation window, patch and also hunt for compromise indicators — patching closes the hole but does not remove anything an attacker already planted."}}
-]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is my version sent anywhere when I use this checker?","acceptedAnswer":{"@type":"Answer","text":"No. The entire check runs in JavaScript in your browser against version tables embedded in this page. No request is made, no analytics sees your input, nothing leaves your machine."}},{"@type":"Question","name":"How do I find my version?","acceptedAnswer":{"@type":"Answer","text":"Nextcloud built-in CODE app: Admin > Apps, or 'occ app:list | grep richdocumentscode'. Langflow: 'pip show langflow | grep version'. GitLab: 'gitlab-rake gitlab:env:info | grep version'. Cisco SEG: 'contentscannerstatus' on the CLI. Docker Hub: no version exists — the GhostPat flaw was server-side."}},{"@type":"Question","name":"Does a 'patched' verdict mean I'm definitely safe?","acceptedAnswer":{"@type":"Answer","text":"It means you are not exposed to the specific CVE this check covers. If you were vulnerable during the exploitation window, patch and also hunt for compromise indicators — patching closes the hole but does not remove anything an attacker already planted."}},{"@type":"Question","name":"What is a CVE checker?","acceptedAnswer":{"@type":"Answer","text":"A CVE checker is a free tool that tells you whether your software is affected by a published CVE — a publicly known cybersecurity vulnerability. It compares your version or configuration against the official advisory and gives you a patched, vulnerable, or unknown verdict in about 30 seconds."}},{"@type":"Question","name":"How do I check if my software has a CVE?","acceptedAnswer":{"@type":"Answer","text":"Find your exact version number, then compare it against the vendor's security advisory or the NVD entry for the CVE. The fastest way is a CVE checker built for that product: paste your version and get an instant verdict against the published version tables."}},{"@type":"Question","name":"How do I know if I am affected by a CVE?","acceptedAnswer":{"@type":"Answer","text":"You are affected when you run a vulnerable version and the vulnerable component is reachable or enabled — for example, open sign-ups, an exposed management port, or a vulnerable app installed. A CVE checker gives you the version verdict in seconds; the advisory's conditions tell you whether that verdict means real exposure."}}]}
 </script>
 <link rel="stylesheet" href="ecosystem.css">
 </head>
 <body>
 <div class="wrap">
 <div class="badge">FREE TOOL &middot; 100% CLIENT-SIDE &middot; NO SIGNUP</div>
-<h1>Paste your version. Get a verdict.</h1>
-<p class="lead">Five of October 2026's worst CVEs. One input box. Pick your product, type or paste your version string, and get an instant <strong>patched / vulnerable / unknown</strong> verdict — against the real published advisories, with every version table sourced below.</p>
+<h1>CVE checker: paste your version, get a verdict.</h1>
+<p class="lead">Five of October 2026's worst CVEs. One input box. Pick your product, type or paste your version string, and get an instant <strong>patched / vulnerable / unknown</strong> verdict from this free CVE checker — against the real published advisories, with every version table sourced below.</p>
 
 <div class="answer"><strong>The short version:</strong> This page checks your software version against October 2026's critical CVEs — Nextcloud (built-in Collabora CODE app CVE-2026-110447), Langflow (MCP RCE CVE-2026-105740), GitLab (CI/CD RCE CVE-2026-97229), Cisco Secure Email Gateway (CVE-2026-76519), and Docker Hub GhostPat (CVE-2026-105445) — entirely in your browser. Your version is compared numerically against the vendors' fixed versions; nothing you type is sent anywhere, because there is no server behind this page.</div>
 
@@ -139,7 +135,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <details><summary>How do I find my version?</summary><p>Nextcloud built-in CODE app: Admin &gt; Apps, or <code>occ app:list | grep richdocumentscode</code>. Langflow: <code>pip show langflow | grep version</code>. GitLab: <code>gitlab-rake gitlab:env:info | grep version</code>. Cisco SEG: <code>contentscannerstatus</code> on the CLI. Docker Hub: no version exists — the GhostPat flaw was fixed server-side.</p></details>
 <details><summary>Does a "patched" verdict mean I'm definitely safe?</summary><p>It means you are not exposed to the specific CVE this check covers. If you were vulnerable during the exploitation window, patch <em>and</em> hunt for compromise indicators — patching closes the hole but does not remove anything an attacker already planted.</p></details>
 <details><summary>How accurate are these version tables?</summary><p>Each table is built from the vendor's published advisory and linked on this page. Versions are compared numerically (including hotfix/build suffixes like 25.3.0.5525). Anything that doesn't parse as a version returns "unknown" rather than a guess.</p></details>
-</div>
+<details><summary>What is a CVE checker?</summary><p>A CVE checker is a free tool that tells you whether your software is affected by a published CVE — a publicly known cybersecurity vulnerability. It compares your version or configuration against the official advisory and gives you a patched, vulnerable, or unknown verdict in about 30 seconds.</p></details><details><summary>How do I check if my software has a CVE?</summary><p>Find your exact version number, then compare it against the vendor&#x27;s security advisory or the NVD entry for the CVE. The fastest way is a CVE checker built for that product: paste your version and get an instant verdict against the published version tables.</p></details><details><summary>How do I know if I am affected by a CVE?</summary><p>You are affected when you run a vulnerable version and the vulnerable component is reachable or enabled — for example, open sign-ups, an exposed management port, or a vulnerable app installed. A CVE checker gives you the version verdict in seconds; the advisory&#x27;s conditions tell you whether that verdict means real exposure.</p></details></div>
 
 <a class="cta" href="https://wa.me/5016691053?text=I%20need%20help%20checking%20my%20software%20versions%20against%20the%20latest%20CVEs">Vulnerable and not sure what to do? Talk to Ingenious AI &rarr;</a>
 

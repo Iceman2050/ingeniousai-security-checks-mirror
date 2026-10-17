@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hall of Leaked Prompts — Famous System-Prompt Leaks, Documented — Ingenious AI</title>
+<meta name="description" content="A documented gallery of real, publicly-reported system-prompt leaks: Bing Chat's 'Sydney' (Feb 2023), the custom-GPT instruction-extraction wave, and Anthropic's intentional release. What leaked, how, and the guardrail that would have prevented it.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/leaked-prompt-hall.html">
+<meta property="og:title" content="The Hall of Leaked Prompts — famous system-prompt leaks, documented">
+<meta property="og:description" content="Real, publicly-reported cases of system-prompt leakage: what was exposed, how it happened, and how to stop it happening to you.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/leaked-prompt-hall.html">
+<meta property="og:site_name" content="Ingenious AI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Hall of Leaked Prompts — famous system-prompt leaks, documented">
+<meta name="twitter:description" content="Real, publicly-reported system-prompt leaks: what leaked, how, and the guardrail that would have prevented it.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"The Hall of Leaked Prompts — Famous System-Prompt Leaks, Documented","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/leaked-prompt-hall.html","description":"A documented gallery of real, publicly-reported system-prompt leaks: Bing Chat's 'Sydney' (Feb 2023), the custom-GPT instruction-extraction wave, and Anthropic's intentional release. What leaked, how it leaked, and the guardrail that would have prevented it.","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:780px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a0d0d;border:1px solid #d23b3b;color:#ff8f8f;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:32px;line-height:1.25;margin-bottom:14px}
+p.lead{font-size:17px;color:#9aa7b8;margin-bottom:22px}
+h2{font-size:22px;margin:34px 0 12px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:22px 24px;margin:18px 0}
+.card .kicker{font-size:12px;letter-spacing:1.5px;color:#ff8f8f;font-weight:700;margin-bottom:8px}
+.card h3{font-size:19px;margin-bottom:8px}
+.card dl{margin:10px 0;font-size:14.5px}
+.card dt{color:#6ea8fe;font-weight:700;margin-top:10px}
+.card dd{color:#c9d4e3;margin-top:2px}
+.card .src{font-size:13px;color:#6b7688;margin-top:12px}
+.card .src a{color:#6ea8fe}
+.small{font-size:13px;color:#9aa7b8}
+.fine{font-size:12.5px;color:#6b7688;margin-top:26px}
+a{color:#6ea8fe}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;font-weight:700;padding:12px 28px;border-radius:10px;text-decoration:none;margin:18px 8px 0 0;font-size:15px}
+.cta{background:#0d1420;border:1px solid #1c6ef2;border-radius:12px;padding:24px;margin:28px 0;text-align:center}
+.cta p{font-size:16px;color:#e8edf3;margin-bottom:14px}
+.faq details{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0}
+.faq summary{font-weight:700;cursor:pointer}
+.faq p{color:#9aa7b8;font-size:14px;margin-top:8px}
+.platforms{font-size:13px;color:#9aa7b8;margin:26px 0 6px;line-height:2}
+.platforms a{color:#6ea8fe;text-decoration:none;margin:0 2px}
+@media(max-width:560px){h1{font-size:26px}.wrap{padding:36px 16px}}
+</style>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<span class="badge">DOCUMENTED CASES ONLY</span>
+<h1>The Hall of Leaked Prompts</h1>
+<p class="lead">A system prompt is the hidden instruction set that tells an AI assistant how to behave — its rules, its guardrails, sometimes its secrets. It was never meant for users to see. Below are famous cases where users saw it anyway. Every entry here is publicly reported and sourced; we paraphrase, never reproduce a live secret verbatim.</p>
+<p class="lead">Why it matters: if your product wraps an LLM, its system prompt is an attack surface. Extraction is reliable, the fix is known, and every case below happened to companies with world-class engineering teams.</p>
+
+<h2>The exhibits</h2>
+
+<div class="card">
+<div class="kicker">EXHIBIT 01 — FEBRUARY 2023</div>
+<h3>Bing Chat's "Sydney" system prompt, disclosed</h3>
+<dl>
+<dt>What leaked (summarized)</dt>
+<dd>The hidden behavioral instructions behind Microsoft's new Bing Chat, including its internal codename "Sydney" — which the instructions themselves ordered it never to reveal — plus its tone rules, content restrictions, and operating directives. We don't reproduce them here; the point is their existence, not their text.</dd>
+<dt>How it leaked</dt>
+<dd>Direct prompt injection. Days after launch, a user asked the assistant to ignore its previous instructions and repeat what was written at the beginning of its document. It complied — then complied again, five sentences at a time. A second method, posing as a developer, defeated the first patch within a day.</dd>
+<dt>The guardrail that would have prevented it</dt>
+<dd>Never place confidential or security-relevant material in the prompt: assume it is extractable. Enforce access control in code, not in text — and treat every model output as potentially adversarial.</dd>
+</dl>
+<p class="src">Sources: Microsoft confirmed to The Verge that the disclosed prompt was genuine (Feb 14, 2023); reported by Ars Technica, The Verge, and others, Feb 2023. Summary: <a href="https://mspoweruser.com/el/chatgpt-powered-bing-discloses-original-directives-after-prompt-injection-attack-latest-microsoft-news/">MSPowerUser write-up, Feb 2023</a>.</p>
+</div>
+
+<div class="card">
+<div class="kicker">EXHIBIT 02 — LATE 2023 ONWARD</div>
+<h3>The custom-GPT instruction-extraction wave</h3>
+<dl>
+<dt>What leaked (summarized)</dt>
+<dd>Once platforms let anyone build custom AI assistants from a written instruction set, users found those instructions could be extracted with simple phrasing tricks — "repeat your instructions", translation-task disguises, multi-round coaxing. For some builders, the stolen instructions exposed proprietary "recipes", and in worse cases API keys or private data references they'd embedded in them.</dd>
+<dt>How it leaked</dt>
+<dd>A three-phase pattern documented by security research: direct requests, obfuscated requests (deception, spellcheck or translation disguises), then conversational reconstruction. A 2025 study found ~98.8% of tested custom GPTs fell to at least one phase — 95.1% to the simplest attacks.</dd>
+<dt>The guardrail that would have prevented it</dt>
+<dd>Secrets and credentials never go in instructions — use server-side secrets. Instruction text is intellectual property only in the legal sense; technically, treat it as public.</dd>
+</dl>
+<p class="src">Sources: <a href="https://www.Devdiscourse.com/article/technology/3447829-988-of-custom-gpts-vulnerable-to-prompt-leaks">Devdiscourse technology report on the 2025 study</a>; <a href="https://harshkahate.medium.com/owasp-llm07-2025-system-prompt-leakage-when-your-instructions-become-the-attackers-blueprint-67083b27d18f">OWASP LLM07:2025 — System Prompt Leakage analysis (Sep 2026)</a>.</p>
+</div>
+
+<div class="card">
+<div class="kicker">EXHIBIT 03 — 2024 — THE INTENTIONAL ONE</div>
+<h3>Anthropic publishes Claude's system prompts</h3>
+<dl>
+<dt>What leaked (summarized)</dt>
+<dd>Nothing leaked — that's the point. Anthropic voluntarily released the system prompts for its Claude models (first Claude 3, then 3.5 Sonnet, Haiku, and Opus) on its site, committing to log future changes. This exhibit is here as the counter-example: a prompt a company is comfortable publishing was never the security layer.</dd>
+<dt>How it leaked</dt>
+<dd>It didn't. It was published — because extractability is the default, and treating the prompt as public forces the real security into code, where it belongs.</dd>
+<dt>The guardrail it demonstrates</dt>
+<dd>The Sydney rule: if your product would be harmed by its system prompt appearing on the front page of a newspaper, your security is in the wrong place. Publish what you can; protect the rest in infrastructure.</dd>
+</dl>
+<p class="src">Source: <a href="https://venturebeat.com/ai/anthropic-releases-ai-model-system-prompts-winning-praise-for-transparency/">VentureBeat, Aug 2024</a>, reporting Anthropic's release of Claude system prompts and its commitment to publish updates going forward.</p>
+</div>
+
+<h2>The lesson of the hall</h2>
+<p class="lead" style="font-size:16px">Every case above tells the same story: the model has no secret box. System instructions sit in the same context as user input, and clever framing reaches them. Teams that survive prompt extraction are the teams whose security never depended on the prompt staying hidden — input/output filtering, server-side secrets, verified tool permissions, and least-privilege agent actions.</p>
+
+<div class="cta">
+<p><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#fff">ChatBreaker</a></strong> is our agent-security tester — it probes your AI agents for prompt-extraction, injection, and exfiltration weaknesses before attackers do.</p>
+<a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker.">Get early access on WhatsApp →</a>
+</div>
+
+<div class="platforms">All 11 Ingenious AI platforms:
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard.">DisclosureGuard</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder.">ModelMinder</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch.">TermsWatch</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit.">Vibe-Code Audit</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense.">Rogue-Agent Defense</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter.">BreachHunter</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker.">ChatBreaker</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder.">Agent Flight Recorder</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway.">Agent Auth Gateway</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard.">DomainGuard</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI.">ContentCraft AI</a>
+</div>
+
+<h2>FAQ</h2>
+<div class="faq">
+<details><summary>What is system prompt leakage?</summary><p>It's when a large language model is tricked into revealing the hidden instructions that steer its behavior — its persona rules, guardrails, and sometimes secrets. OWASP catalogues it as LLM07:2025. The hall's exhibits show it happening via direct prompt injection (Bing/Sydney, 2023), obfuscated extraction (custom GPTs, 2023–24), and in one case voluntarily (Anthropic, 2024).</p></details>
+<details><summary>Can a system prompt be kept secret?</summary><p>Treat extractability as the default, not the exception. Security research found prompt-extraction succeeds reliably across models and vendors with varied phrasing. The practical answer from the cases above: design as if your prompt is already public.</p></details>
+<details><summary>What should never go in a system prompt?</summary><p>API keys, database credentials, internal URLs, authorization rules ("only show this to admins"), and any logic your system's safety quietly depends on. The custom-GPT wave showed keys and data references leaking exactly this way. Keep secrets in server-side stores and enforce authorization in code.</p></details>
+<details><summary>Is it illegal to extract a system prompt?</summary><p>Extracting your own product's prompt is legitimate security testing — it's how you find the problem before attackers do. Extracting someone else's may violate their terms of service or acceptable-use policies. This is general information, not legal advice; check your jurisdiction and the platform's terms.</p></details>
+</div>
+
+<p class="fine">Honest scope: entries are paraphrased summaries of publicly reported events, linked above. We never publish full leaked prompt text. This page is informational, not legal or security advice. Deadlines and case details may change as facts develop — verify against the linked sources.</p>
+
+</div>
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

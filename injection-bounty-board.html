@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Injection Bounty Board — Public Prompt-Injection Leaderboard — Ingenious AI</title>
-<meta name="description" content="A public leaderboard of real, published prompt-injection payloads — each cited, credited to its researcher, and honestly marked fixed or unfixed. Submit yours for review. By Ingenious AI.">
+<title>Prompt Injection Payloads — Leaderboard | Ingenious AI</title>
+<meta name="description" content="Prompt injection payload archive: a public, cited leaderboard of real published attacks, each credited to its researcher and marked fixed or unfixed. Free.">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/injection-bounty-board.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="Injection Bounty Board — Public Prompt-Injection Leaderboard — Ingenious AI">
-<meta property="og:description" content="Real published injection payloads, cited and credited — with honest fixed/unfixed status. By Ingenious AI.">
+<meta property="og:title" content="Prompt Injection Payloads — Leaderboard | Ingenious AI">
+<meta property="og:description" content="Prompt injection payload archive: a public, cited leaderboard of real published attacks, each credited to its researcher and marked fixed or unfixed. Free.">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/injection-bounty-board.html">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Injection Bounty Board — Public Prompt-Injection Leaderboard — Ingenious AI">
-<meta name="twitter:description" content="Real published injection payloads, cited and credited — with honest fixed/unfixed status.">
+<meta name="twitter:title" content="Prompt Injection Payloads — Leaderboard | Ingenious AI">
+<meta name="twitter:description" content="Prompt injection payload archive: a public, cited leaderboard of real published attacks, each credited to its researcher and marked fixed or unfixed. Free.">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"Injection Bounty Board — Public Prompt-Injection Leaderboard","description":"A public leaderboard of real, published prompt-injection payloads — each cited, credited to its researcher, and honestly marked fixed or unfixed. By Ingenious AI.","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/injection-bounty-board.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Ingenious AI Security Checks","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/"},"publisher":{"@type":"Organization","name":"Ingenious AI","url":"https://github.com/Iceman2050"}}
+{"@context": "https://schema.org", "@type": "WebPage", "name": "Prompt Injection Payloads — Leaderboard | Ingenious AI", "description": "Prompt injection payload archive: a public, cited leaderboard of real published attacks, each credited to its researcher and marked fixed or unfixed. Free.", "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/injection-bounty-board.html", "inLanguage": "en", "isPartOf": {"@type": "WebSite", "name": "Ingenious AI Security Checks", "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}, "publisher": {"@type": "Organization", "name": "Ingenious AI", "url": "https://github.com/Iceman2050"}, "about": "Prompt injection", "keywords": "prompt injection, prompt injection attack, prompt injection examples, prompt injection tests, prompt injection meaning"}
 </script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -57,11 +57,31 @@ textarea{width:100%;min-height:90px;font-family:inherit}
 @media(max-width:600px){h1{font-size:26px}.wrap{padding:32px 16px}}
 </style>
 <link rel="stylesheet" href="ecosystem.css">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is prompt injection and how does it manipulate LLMs?", "acceptedAnswer": {"@type": "Answer", "text": "Prompt injection is an attack that tricks an AI system into following instructions from an untrusted source. It works because LLMs process everything — your request, tool outputs, web pages, files — as one text stream, so the model can mistake attacker-planted text for orders it should obey."}}, {"@type": "Question", "name": "What is the difference between direct and indirect prompt injection?", "acceptedAnswer": {"@type": "Answer", "text": "Direct prompt injection is typed straight at the model by the user — the classic “ignore previous instructions”. Indirect prompt injection hides the instructions in content the model reads on your behalf — a web page, email, document, or file — so the attack arrives through the data channel instead of the chat box."}}, {"@type": "Question", "name": "How is prompt injection different from jailbreaking?", "acceptedAnswer": {"@type": "Answer", "text": "Jailbreaking aims to strip a model’s built-in safety rules — for example, convincing it to act as an unfiltered persona. Prompt injection steers the model toward an attacker’s goal, like stealing data or abusing tools, without necessarily removing its guardrails. The two overlap, but jailbreaks target the model’s rules; injections target its instruction hierarchy."}}, {"@type": "Question", "name": "Can input sanitization completely stop prompt injection?", "acceptedAnswer": {"@type": "Answer", "text": "No. Sanitization and blocklists buy time, but attackers constantly rephrase, encode, or multi-turn their way around filters — OpenAI has acknowledged the underlying problem may never be fully solved. The accepted strategy is defense in depth: least-privilege agents, human approval for irreversible actions, and monitoring."}}, {"@type": "Question", "name": "How does OWASP classify prompt injection?", "acceptedAnswer": {"@type": "Answer", "text": "OWASP ranks prompt injection as LLM01 — the number-one risk for LLM applications in its LLM Top 10, covering both direct and indirect prompt injection. It has held that position for two years running."}}]}
+</script>
+<style>
+.faq{margin:30px 0}
+.faq h2{font-size:22px;margin-bottom:12px;color:#fff}
+.faq details{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0}
+.faq summary{font-weight:700;cursor:pointer;color:#e6edf3}
+.faq p{color:#9aa7b8;font-size:14px;margin-top:8px}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is prompt injection and how does it manipulate LLMs?", "acceptedAnswer": {"@type": "Answer", "text": "Prompt injection is an attack that tricks an AI system into following instructions from an untrusted source. It works because LLMs process everything — your request, tool outputs, web pages, files — as one text stream, so the model can mistake attacker-planted text for orders it should obey."}}, {"@type": "Question", "name": "What is the difference between direct and indirect prompt injection?", "acceptedAnswer": {"@type": "Answer", "text": "Direct prompt injection is typed straight at the model by the user — the classic “ignore previous instructions”. Indirect prompt injection hides the instructions in content the model reads on your behalf — a web page, email, document, or file — so the attack arrives through the data channel instead of the chat box."}}, {"@type": "Question", "name": "How is prompt injection different from jailbreaking?", "acceptedAnswer": {"@type": "Answer", "text": "Jailbreaking aims to strip a model’s built-in safety rules — for example, convincing it to act as an unfiltered persona. Prompt injection steers the model toward an attacker’s goal, like stealing data or abusing tools, without necessarily removing its guardrails. The two overlap, but jailbreaks target the model’s rules; injections target its instruction hierarchy."}}, {"@type": "Question", "name": "Can input sanitization completely stop prompt injection?", "acceptedAnswer": {"@type": "Answer", "text": "No. Sanitization and blocklists buy time, but attackers constantly rephrase, encode, or multi-turn their way around filters — OpenAI has acknowledged the underlying problem may never be fully solved. The accepted strategy is defense in depth: least-privilege agents, human approval for irreversible actions, and monitoring."}}, {"@type": "Question", "name": "How does OWASP classify prompt injection?", "acceptedAnswer": {"@type": "Answer", "text": "OWASP ranks prompt injection as LLM01 — the number-one risk for LLM applications in its LLM Top 10, covering both direct and indirect prompt injection. It has held that position for two years running."}}]}
+</script>
+<style>
+.faq{margin:30px 0}
+.faq h2{font-size:22px;margin-bottom:12px;color:#fff}
+.faq details{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0}
+.faq summary{font-weight:700;cursor:pointer;color:#e6edf3}
+.faq p{color:#9aa7b8;font-size:14px;margin-top:8px}
+</style>
 </head>
 <body>
 <div class="wrap">
 <div class="badge">INJECTION BOUNTY BOARD</div>
-<h1>The Injection Bounty Board</h1>
+<h1>The Prompt Injection Bounty Board</h1>
 <p class="lead">A public leaderboard of real, published prompt-injection payloads. Every entry is cited, credited to its researcher, and honestly marked <strong>fixed</strong> or <strong>unfixed</strong>.</p>
 <div class="honest"><strong>Defensive archive.</strong> Payloads are shown as redacted technique descriptions and truncated snippets — never live, weaponized strings. The point is pattern recognition for defenders, not a cookbook. Do not use these against systems you don't own.<br><span class="iid-note">IDs like "INJ-001" are our internal catalog numbers — they are NOT real CVE numbers and do not exist in any vulnerability database.</span></div>
 
@@ -97,6 +117,24 @@ textarea{width:100%;min-height:90px;font-family:inherit}
 <button class="btn" id="submit">Save submission (pending review)</button>
 <a class="btn ghost" id="mailsubmit" href="#" style="margin-left:8px">Compose email submission</a>
 <p class="small" id="submitmsg" style="margin-top:10px"></p>
+</div>
+
+<div class="faq">
+<h2>Prompt injection FAQ</h2>
+<details><summary>What is prompt injection and how does it manipulate LLMs?</summary><p>Prompt injection is an attack that tricks an AI system into following instructions from an untrusted source. It works because LLMs process everything — your request, tool outputs, web pages, files — as one text stream, so the model can mistake attacker-planted text for orders it should obey.</p></details>
+<details><summary>What is the difference between direct and indirect prompt injection?</summary><p>Direct prompt injection is typed straight at the model by the user — the classic “ignore previous instructions”. Indirect prompt injection hides the instructions in content the model reads on your behalf — a web page, email, document, or file — so the attack arrives through the data channel instead of the chat box.</p></details>
+<details><summary>How is prompt injection different from jailbreaking?</summary><p>Jailbreaking aims to strip a model’s built-in safety rules — for example, convincing it to act as an unfiltered persona. Prompt injection steers the model toward an attacker’s goal, like stealing data or abusing tools, without necessarily removing its guardrails. The two overlap, but jailbreaks target the model’s rules; injections target its instruction hierarchy.</p></details>
+<details><summary>Can input sanitization completely stop prompt injection?</summary><p>No. Sanitization and blocklists buy time, but attackers constantly rephrase, encode, or multi-turn their way around filters — OpenAI has acknowledged the underlying problem may never be fully solved. The accepted strategy is defense in depth: least-privilege agents, human approval for irreversible actions, and monitoring.</p></details>
+<details><summary>How does OWASP classify prompt injection?</summary><p>OWASP ranks prompt injection as LLM01 — the number-one risk for LLM applications in its LLM Top 10, covering both direct and indirect prompt injection. It has held that position for two years running.</p></details>
+</div>
+
+<div class="faq">
+<h2>Prompt injection FAQ</h2>
+<details><summary>What is prompt injection and how does it manipulate LLMs?</summary><p>Prompt injection is an attack that tricks an AI system into following instructions from an untrusted source. It works because LLMs process everything — your request, tool outputs, web pages, files — as one text stream, so the model can mistake attacker-planted text for orders it should obey.</p></details>
+<details><summary>What is the difference between direct and indirect prompt injection?</summary><p>Direct prompt injection is typed straight at the model by the user — the classic “ignore previous instructions”. Indirect prompt injection hides the instructions in content the model reads on your behalf — a web page, email, document, or file — so the attack arrives through the data channel instead of the chat box.</p></details>
+<details><summary>How is prompt injection different from jailbreaking?</summary><p>Jailbreaking aims to strip a model’s built-in safety rules — for example, convincing it to act as an unfiltered persona. Prompt injection steers the model toward an attacker’s goal, like stealing data or abusing tools, without necessarily removing its guardrails. The two overlap, but jailbreaks target the model’s rules; injections target its instruction hierarchy.</p></details>
+<details><summary>Can input sanitization completely stop prompt injection?</summary><p>No. Sanitization and blocklists buy time, but attackers constantly rephrase, encode, or multi-turn their way around filters — OpenAI has acknowledged the underlying problem may never be fully solved. The accepted strategy is defense in depth: least-privilege agents, human approval for irreversible actions, and monitoring.</p></details>
+<details><summary>How does OWASP classify prompt injection?</summary><p>OWASP ranks prompt injection as LLM01 — the number-one risk for LLM applications in its LLM Top 10, covering both direct and indirect prompt injection. It has held that position for two years running.</p></details>
 </div>
 
 <div class="card">

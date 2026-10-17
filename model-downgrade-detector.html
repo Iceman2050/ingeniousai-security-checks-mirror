@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Is Your AI Getting Dumber? — The Model Downgrade Detector</title>
+<meta name="description" content="Track whether flagship AI models quietly get worse over time. Every benchmark point is cited with its publication and date; gaps are labeled, never interpolated. Free check by Ingenious AI.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-downgrade-detector.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Is Your AI Getting Dumber? — The Model Downgrade Detector">
+<meta property="og:description" content="Same model, same task, worse results: the documented cases of AI models drifting downward — every point cited, gaps labeled, nothing invented.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-downgrade-detector.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Is Your AI Getting Dumber? — The Model Downgrade Detector">
+<meta name="twitter:description" content="Every benchmark point cited. Gaps labeled, not interpolated. Track silent AI model downgrades.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Is Your AI Getting Dumber? — The Model Downgrade Detector","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-downgrade-detector.html","description":"Track whether flagship AI models quietly get worse over time. Every benchmark point is cited with its publication and date; gaps are labeled, never interpolated.","author":{"@type":"Organization","name":"Ingenious AI"},"isFree":true}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:940px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#241a3d;border:1px solid #8b6cf0;color:#c9a6ff;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h2{font-size:22px;margin:36px 0 12px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.honest{background:#0d1420;border:2px solid #d29922;border-radius:12px;padding:18px 20px;margin:24px 0;font-size:15px;color:#ffce63}
+.honest strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:24px;margin:20px 0}
+.card h3{font-size:18px;margin-bottom:6px}
+.card .why{color:#9aa7b8;font-size:14px;margin-bottom:14px}
+.chart{width:100%;height:auto;display:block;background:#0b0f17;border:1px solid #232b38;border-radius:8px}
+.gap{color:#d29922;font-size:13px;font-style:italic;margin-top:10px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:14px 0}
+th,td{border:1px solid #232b38;padding:9px 10px;text-align:left;vertical-align:top}
+th{background:#161c28;color:#6ea8fe;font-size:12px;letter-spacing:.4px;text-transform:uppercase}
+td{color:#c4ccd6}
+td a{color:#6ea8fe}
+a{color:#6ea8fe}
+.note{font-size:13px;color:#6b7688;margin-top:8px}
+.list li{margin:10px 0 10px 22px;color:#c4ccd6}
+.score-red{color:#ff7b72;font-weight:700}
+.score-green{color:#7ee787;font-weight:700}
+.cta{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:32px 0;text-align:center}
+.cta a.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px;margin-top:12px}
+.plat{font-size:13px;color:#9aa7b8;margin-top:16px;line-height:2}
+.src{font-size:12.5px;color:#6b7688}
+.src a{color:#6ea8fe}
+@media(max-width:600px){h1{font-size:27px}.card{padding:16px}table{font-size:12px}}
+</style>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<div class="badge">MODEL DRIFT MONITOR</div>
+<h1>Is Your AI Getting Dumber?</h1>
+<p class="lead">Vendors ship updates silently. The model behind your product can lose capabilities between two Tuesdays — and nothing in your dashboard will tell you. Below is the public, dated evidence that this happens, plus the gaps where nobody is measuring.</p>
+
+<div class="honest"><strong>Every point below is cited.</strong> Each score names the benchmark, the model version, the publication and the date. Where there is no public data, we label the gap — we never interpolate, smooth, or invent scores. If a point can't be sourced, it isn't plotted.</div>
+
+<h2>1. Same model, same task, three months apart</h2>
+<div class="card">
+<h3>The 2023 drift study</h3>
+<div class="why">Stanford &amp; UC Berkeley researchers ("How is ChatGPT's behavior changing over time?", arXiv July 2023; published in Harvard Data Science Review, March 2024) tested the March 2023 and June 2023 versions of GPT-4 and GPT-3.5 on identical tasks. GPT-4 got measurably worse at three of four tasks — in one case catastrophically.</div>
+<svg class="chart" id="driftChart" viewBox="0 0 640 360" role="img" aria-label="Bar chart: GPT-4 task performance March 2023 vs June 2023"></svg>
+<p class="note">Blue = March 2023 · Red = June 2023. Sources: <a href="https://siliconangle.com/2023/07/20/research-paper-suggests-openais-gpt-4-may-become-less-accurate/" rel="nofollow noopener" target="_blank">SiliconANGLE, Jul 20 2023</a> (prime identification, via Ars Technica); <a href="https://aibusiness.com/nlp/chatgpt-performance-drifts-a-new-risk-for-business" rel="nofollow noopener" target="_blank">AI Business</a> (code generation, sensitive questions). GPT-3.5 prime identification improved 7.4% → 86.8% — drift cuts both ways, which is exactly why continuous measurement matters.</p>
+</div>
+
+<h2>2. Vendor lab scores are snapshots, not monitoring</h2>
+<div class="card">
+<h3>MMLU (general knowledge) — vendor-reported flagship scores</h3>
+<div class="why">Benchmarks announced at launch prove what a model could do on release day. They say nothing about the same model six months later. Note the protocol caveats under the chart.</div>
+<svg class="chart" id="mmluChart" viewBox="0 0 640 340" role="img" aria-label="Line chart: MMLU flagship scores over time"></svg>
+<p class="note">Sources: GPT-4 technical report, Mar 2023 (<a href="https://systems-analysis.info/eng/MMLU_Benchmark" rel="nofollow noopener" target="_blank">MMLU benchmark history</a>); Google, Dec 6 2023 (<a href="https://www.techworm.net/2023/12/google-unveils-its-next-gen-ai-model-gemini.html" rel="nofollow noopener" target="_blank">Techworm, Dec 7 2023</a>); OpenAI, May 13 2024 (<a href="https://www.searchenginejournal.com/was-openai-gpt-4o-hype-a-troll-on-google/516297/" rel="nofollow noopener" target="_blank">Search Engine Journal</a>). ⚠ Gemini Ultra's 90.04% used a 32-shot chain-of-thought protocol; on standard 5-shot it scored 83.7% (<a href="https://systems-analysis.info/eng/MMLU_Benchmark" rel="nofollow noopener" target="_blank">same source</a>) — vendor scores are not always directly comparable.</p>
+<p class="gap">GAP — labeled, not interpolated: no vendor published a longitudinal same-model MMLU tracking series for 2024–2026. Lab release-day scores are all we get; the drift in between is invisible.</p>
+</div>
+
+<div class="card">
+<h3>AIME (competition math) — reasoning-era scores</h3>
+<div class="why">The reasoning-model era moved the headline benchmark from MMLU to AIME. Note these are different exams in different years — AIME 2024 and AIME 2025 are not the same test, so this is a trend of capability eras, not a like-for-like comparison.</div>
+<svg class="chart" id="aimeChart" viewBox="0 0 640 300" role="img" aria-label="Line chart: AIME scores o1 to GPT-5"></svg>
+<p class="note">Sources: OpenAI, Sep 2024 — o1 at 74.4% on AIME 2024 (<a href="https://www.webpronews.com/openais-o1-model-redefines-ai-reasoning-and-raises-fresh-safety-questions/" rel="nofollow noopener" target="_blank">WebProNews</a>); OpenAI, Aug 7 2025 — GPT-5 at 94.6% on AIME 2025, 74.9% on SWE-bench Verified (<a href="https://slashdot.org/story/25/08/07/1719223/openai-releases-gpt-5" rel="nofollow noopener" target="_blank">Slashdot, Aug 7 2025</a>; <a href="https://www.datacamp.com/nl/blog/gpt-5" rel="nofollow noopener" target="_blank">DataCamp</a>).</p>
+</div>
+
+<h2>3. The "lazy ChatGPT" episode</h2>
+<div class="card">
+<h3>December 2023 — degradation you could feel but not measure</h3>
+<div class="why">Through late 2023 users across Reddit and OpenAI's developer forums reported ChatGPT giving shorter answers, skipping tasks, and deflecting work back to the user. On <strong>December 8, 2023</strong>, OpenAI's @ChatGPTapp account publicly acknowledged it: "we've heard all your feedback about GPT4 getting lazier! we haven't updated the model since Nov 11th, and this certainly isn't intentional." OpenAI's January 2024 model update announcement said the new GPT-4 Turbo preview was intended to reduce cases of "laziness."</div>
+<p class="src">Sources: <a href="https://dataconomy.com/2023/12/12/openai-admits-chatgpt-got-lazier/" rel="nofollow noopener" target="_blank">Dataconomy, Dec 12 2023</a>; <a href="https://guidantech.com/yes-chatgpt-got-lazier-but-openai-finally-has-a-fix/" rel="nofollow noopener" target="_blank">Guidantech</a> (on the fix). This episode had <strong>no published numbers</strong> — which is itself the point: the most widely-felt degradation of 2023 was never quantified by anyone, vendor included.</p>
+</div>
+
+<h2>4. The full cited record</h2>
+<div class="card" style="overflow-x:auto">
+<table>
+<tr><th>Date</th><th>Model</th><th>Benchmark / task</th><th>Score</th><th>Source</th><th>Note</th></tr>
+<tr><td>Mar 2023</td><td>GPT-4</td><td>MMLU (5-shot)</td><td>86.4%</td><td><a href="https://systems-analysis.info/eng/MMLU_Benchmark" rel="nofollow noopener" target="_blank">GPT-4 Technical Report</a></td><td>Launch-day lab score</td></tr>
+<tr><td>Mar 2023</td><td>GPT-4 (Mar version)</td><td>Prime identification</td><td class="score-green">97.6%</td><td><a href="https://siliconangle.com/2023/07/20/research-paper-suggests-openais-gpt-4-may-become-less-accurate/" rel="nofollow noopener" target="_blank">SiliconANGLE, Jul 20 2023</a></td><td>Stanford/Berkeley drift study</td></tr>
+<tr><td>Mar 2023</td><td>GPT-4 (Mar version)</td><td>Directly executable code</td><td class="score-green">50%</td><td><a href="https://aibusiness.com/nlp/chatgpt-performance-drifts-a-new-risk-for-business" rel="nofollow noopener" target="_blank">AI Business</a></td><td>Stanford/Berkeley drift study</td></tr>
+<tr><td>Jun 2023</td><td>GPT-4 (Jun version)</td><td>Prime identification</td><td class="score-red">2.4%</td><td><a href="https://siliconangle.com/2023/07/20/research-paper-suggests-openais-gpt-4-may-become-less-accurate/" rel="nofollow noopener" target="_blank">SiliconANGLE, Jul 20 2023</a></td><td><strong>−95.2 points in 3 months</strong></td></tr>
+<tr><td>Jun 2023</td><td>GPT-4 (Jun version)</td><td>Directly executable code</td><td class="score-red">10%</td><td><a href="https://aibusiness.com/nlp/chatgpt-performance-drifts-a-new-risk-for-business" rel="nofollow noopener" target="_blank">AI Business</a></td><td>Same study</td></tr>
+<tr><td>Jun 2023</td><td>GPT-4 (Jun version)</td><td>Sensitive Q answers</td><td class="score-red">5% (was 21%)</td><td><a href="https://aibusiness.com/nlp/chatgpt-performance-drifts-a-new-risk-for-business" rel="nofollow noopener" target="_blank">AI Business</a></td><td>Answer rate, not accuracy</td></tr>
+<tr><td>Jun 2023</td><td>GPT-3.5 (Jun version)</td><td>Prime identification</td><td class="score-green">86.8% (was 7.4%)</td><td><a href="https://aibusiness.com/nlp/chatgpt-performance-drifts-a-new-risk-for-business" rel="nofollow noopener" target="_blank">AI Business</a></td><td>Drift improved this one</td></tr>
+<tr><td>Dec 2023</td><td>ChatGPT (GPT-4)</td><td>User-reported "laziness"</td><td>—</td><td><a href="https://dataconomy.com/2023/12/12/openai-admits-chatgpt-got-lazier/" rel="nofollow noopener" target="_blank">Dataconomy, Dec 12 2023</a></td><td>Acknowledged by OpenAI Dec 8, 2023; never quantified</td></tr>
+<tr><td>Dec 2023</td><td>Gemini Ultra</td><td>MMLU (CoT@32)</td><td>90.04%</td><td><a href="https://www.techworm.net/2023/12/google-unveils-its-next-gen-ai-model-gemini.html" rel="nofollow noopener" target="_blank">Techworm, Dec 7 2023</a></td><td>83.7% on standard 5-shot</td></tr>
+<tr><td>May 2024</td><td>GPT-4o</td><td>MMLU</td><td>88.7%</td><td><a href="https://www.searchenginejournal.com/was-openai-gpt-4o-hype-a-troll-on-google/516297/" rel="nofollow noopener" target="_blank">Search Engine Journal</a></td><td>Launch-day lab score</td></tr>
+<tr><td>Sep 2024</td><td>o1</td><td>AIME 2024</td><td>74.4%</td><td><a href="https://www.webpronews.com/openais-o1-model-redefines-ai-reasoning-and-raises-fresh-safety-questions/" rel="nofollow noopener" target="_blank">WebProNews</a></td><td>Launch-day lab score</td></tr>
+<tr><td>Aug 2025</td><td>GPT-5</td><td>AIME 2025</td><td>94.6%</td><td><a href="https://slashdot.org/story/25/08/07/1719223/openai-releases-gpt-5" rel="nofollow noopener" target="_blank">Slashdot, Aug 7 2025</a></td><td>Different exam than AIME 2024</td></tr>
+<tr><td>Aug 2025</td><td>GPT-5</td><td>SWE-bench Verified</td><td>74.9%</td><td><a href="https://www.datacamp.com/nl/blog/gpt-5" rel="nofollow noopener" target="_blank">DataCamp</a></td><td>Launch-day lab score</td></tr>
+</table>
+</div>
+
+<h2>5. Why silent downgrades should scare you</h2>
+<div class="card">
+<ul class="list">
+<li><strong>Contracts you can't keep.</strong> If your product promises 95% extraction accuracy and the model silently drifts to 80%, you're in breach before anyone notices.</li>
+<li><strong>Reproducibility dies.</strong> A demo that worked in March fails in June on the "same" model. Debugging something that changed under you is pure cost.</li>
+<li><strong>Compliance exposure.</strong> Regulated outputs (finance, health, legal) evaluated against one model version may not hold for the version actually serving traffic.</li>
+<li><strong>Nobody else is watching.</strong> Vendors publish launch-day scores, not longitudinal monitoring. The June 2023 drift was caught by outside academics, not by OpenAI.</li>
+</ul>
+</div>
+
+<h2>6. How we watch for it</h2>
+<div class="card">
+<p><strong>ModelMinder</strong> is our model deprecation radar: it tracks the models your stack depends on and alerts you when capabilities shift, versions deprecate, or vendors change terms under you. Silent downgrade detection — continuous benchmark probes against the exact model versions in your pipeline — is the core of why we built it: the drift study above was published <em>after</em> the damage, by outsiders. We believe someone should be measuring continuously, with the numbers on the record.</p>
+</div>
+
+<div class="cta">
+<div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div>
+<div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder." style="color:#fff;text-decoration:underline">ModelMinder</a> is the model deprecation radar &mdash; we watch your models so a silent downgrade never becomes your outage.</strong></div>
+<div class="plat">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div>
+<div style="font-size:14px;color:#9aa7b8;margin-bottom:6px;margin-top:10px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div>
+<a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder.">Get early access on WhatsApp &rarr;</a>
+</div>
+
+</div>
+<script>
+// ---- Chart 1: grouped bars, GPT-4 drift (Mar 2023 vs Jun 2023) ----
+(function(){
+const data=[
+ {label:"Prime ID",mar:97.6,jun:2.4},
+ {label:"Executable code",mar:50,jun:10},
+ {label:"Sensitive Q answers",mar:21,jun:5},
+ {label:"GPT-3.5 Prime ID",mar:7.4,jun:86.8}
+];
+const W=640,H=360,pl=56,pr=16,pt=24,pb=64,iw=W-pl-pr,ih=H-pt-pb;
+const max=100;
+let s='<defs><style>.ax{stroke:#232b38;stroke-width:1}.tl{fill:#9aa7b8;font-size:12px}.vl{fill:#6b7688;font-size:11px}.bl{fill:#c4ccd6;font-size:12.5px;font-weight:600}.nvl{fill:#e6edf3;font-size:12px;font-weight:700}</style></defs>';
+for(let g=0;g<=4;g++){const y=pt+ih-(ih/4)*g;s+='<line class="ax" x1="'+pl+'" y1="'+y+'" x2="'+(W-pr)+'" y2="'+y+'"/>';s+='<text class="vl" x="'+(pl-8)+'" y="'+(y+4)+'" text-anchor="end">'+(max/4*g)+'%</text>';}
+const gw=iw/data.length,bw=Math.min(56,gw/2-16);
+data.forEach((d,i)=>{
+ const cx=pl+gw*i+gw/2;
+ const mh=ih*(d.mar/max),jh=ih*(d.jun/max);
+ s+='<rect x="'+(cx-bw-3)+'" y="'+(pt+ih-mh)+'" width="'+bw+'" height="'+mh+'" rx="4" fill="#1c6ef2"><title>March 2023: '+d.mar+'%</title></rect>';
+ s+='<rect x="'+(cx+3)+'" y="'+(pt+ih-jh)+'" width="'+bw+'" height="'+jh+'" rx="4" fill="#ff7b72"><title>June 2023: '+d.jun+'%</title></rect>';
+ s+='<text class="nvl" x="'+(cx-bw/2-3)+'" y="'+(pt+ih-mh-8)+'" text-anchor="middle">'+d.mar+'%</text>';
+ s+='<text class="nvl" x="'+(cx+bw/2+3)+'" y="'+(pt+ih-Math.max(jh,14)-8)+'" text-anchor="middle">'+d.jun+'%</text>';
+ const words=d.label.split(' ');
+ words.forEach((w,k)=>{s+='<text class="bl" x="'+cx+'" y="'+(pt+ih+22+k*15)+'" text-anchor="middle">'+w+'</text>';});
+});
+s+='<rect x="'+(pl)+'" y="6" width="12" height="12" rx="3" fill="#1c6ef2"/><text class="tl" x="'+(pl+18)+'" y="16">March 2023</text>';
+s+='<rect x="'+(pl+130)+'" y="6" width="12" height="12" rx="3" fill="#ff7b72"/><text class="tl" x="'+(pl+148)+'" y="16">June 2023</text>';
+document.getElementById('driftChart').innerHTML=s;
+})();
+// ---- Chart 2: MMLU line over time ----
+(function(){
+const pts=[
+ {x:"2023-03",label:"GPT-4\nMar 2023",v:86.4,px:0},
+ {x:"2023-12",label:"Gemini Ultra\nDec 2023*",v:90.04,px:0},
+ {x:"2024-05",label:"GPT-4o\nMay 2024",v:88.7,px:0}
+];
+const W=640,H=340,pl=56,pr=20,pt=30,pb=70,iw=W-pl-pr,ih=H-pt-pb;
+const min=80,max=92;
+pts.forEach((p,i)=>{p.px=pl+iw*i/(pts.length-1);p.py=pt+ih-((p.v-min)/(max-min))*ih;});
+let s='<defs><style>.ax2{stroke:#232b38;stroke-width:1}.tl2{fill:#9aa7b8;font-size:12px}.vl2{fill:#6b7688;font-size:11px}.pl2{fill:#e6edf3;font-size:12.5px;font-weight:700}</style></defs>';
+for(let v=min;v<=max;v+=2){const y=pt+ih-((v-min)/(max-min))*ih;s+='<line class="ax2" x1="'+pl+'" y1="'+y+'" x2="'+(W-pr)+'" y2="'+y+'"/>';s+='<text class="vl2" x="'+(pl-8)+'" y="'+(y+4)+'" text-anchor="end">'+v+'%</text>';}
+let path=pts.map((p,i)=>(i?'L':'M')+p.px.toFixed(1)+' '+p.py.toFixed(1)).join(' ');
+s+='<path d="'+path+'" fill="none" stroke="#6ea8fe" stroke-width="3"/>';
+pts.forEach(p=>{
+ s+='<circle cx="'+p.px+'" cy="'+p.py+'" r="7" fill="#0b0f17" stroke="#6ea8fe" stroke-width="3"><title>'+p.label.replace(/\n/g,' ')+': '+p.v+'%</title></circle>';
+ s+='<text class="pl2" x="'+p.px+'" y="'+(p.py-14)+'" text-anchor="middle">'+p.v+'%</text>';
+ const words=p.label.split('\n');
+ words.forEach((w,k)=>{s+='<text class="tl2" x="'+p.px+'" y="'+(pt+ih+22+k*15)+'" text-anchor="middle">'+w+'</text>';});
+});
+s+='<text class="vl2" x="'+((pts[1].px+pts[2].px)/2)+'" y="'+(pt+ih+58)+'" text-anchor="middle" font-style="italic" fill="#d29922">Jun 2024 → 2026: no longitudinal public data (gap, not zero)</text>';
+document.getElementById('mmluChart').innerHTML=s;
+})();
+// ---- Chart 3: AIME line ----
+(function(){
+const pts=[
+ {label:"o1\nSep 2024",v:74.4,exam:"AIME 2024"},
+ {label:"GPT-5\nAug 2025",v:94.6,exam:"AIME 2025"}
+];
+const W=640,H=300,pl=60,pr=30,pt=30,pb=70,iw=W-pl-pr,ih=H-pt-pb;
+const min=60,max=100;
+pts.forEach((p,i)=>{p.px=pl+iw*(pts.length===1?0.5:i/(pts.length-1));p.py=pt+ih-((p.v-min)/(max-min))*ih;});
+let s='<defs><style>.ax3{stroke:#232b38;stroke-width:1}.tl3{fill:#9aa7b8;font-size:12px}.vl3{fill:#6b7688;font-size:11px}.pl3{fill:#e6edf3;font-size:12.5px;font-weight:700}</style></defs>';
+for(let v=min;v<=max;v+=10){const y=pt+ih-((v-min)/(max-min))*ih;s+='<line class="ax3" x1="'+pl+'" y1="'+y+'" x2="'+(W-pr)+'" y2="'+y+'"/>';s+='<text class="vl3" x="'+(pl-8)+'" y="'+(y+4)+'" text-anchor="end">'+v+'%</text>';}
+s+='<line x1="'+pts[0].px+'" y1="'+pts[0].py+'" x2="'+pts[1].px+'" y2="'+pts[1].py+'" stroke="#7ee787" stroke-width="3" stroke-dasharray="8 6"/>';
+pts.forEach(p=>{
+ s+='<circle cx="'+p.px+'" cy="'+p.py+'" r="7" fill="#0b0f17" stroke="#7ee787" stroke-width="3"><title>'+p.label.replace(/\n/g,' ')+': '+p.v+'% ('+p.exam+')</title></circle>';
+ s+='<text class="pl3" x="'+p.px+'" y="'+(p.py-14)+'" text-anchor="middle">'+p.v+'% · '+p.exam+'</text>';
+ const words=p.label.split('\n');
+ words.forEach((w,k)=>{s+='<text class="tl3" x="'+p.px+'" y="'+(pt+ih+22+k*15)+'" text-anchor="middle">'+w+'</text>';});
+});
+document.getElementById('aimeChart').innerHTML=s;
+})();
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

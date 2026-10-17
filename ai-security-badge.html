@@ -3,16 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free AI Security Score Badge for GitHub Repos — Ingenious AI</title>
-<meta name="description" content="Add a free AI security score badge to your GitHub README. Scanned with real static analysis — secrets, injection flaws, XSS, CI/CD risks. No signup.">
+<title>AI Code Security Badge — Free GitHub Score | Ingenious AI</title>
+<meta name="description" content="AI code security badge for GitHub repos: a free security score from a real static-analysis scan — secrets, injection flaws, XSS, CI/CD risks. No signup needed.">
 <link rel="canonical" href="https://ingeniousai-security-checks.netlify.app/ai-security-badge.html">
-<meta property="og:title" content="Free AI Security Score Badge for GitHub Repos">
-<meta property="og:description" content="Show your repo's security grade in your README. Real scan, real score, free.">
+<meta name="twitter:title" content="AI Code Security Badge — Free GitHub Score | Ingenious AI">
+<meta name="twitter:description" content="AI code security badge for GitHub repos: a free security score from a real static-analysis scan — secrets, injection flaws, XSS, CI/CD risks. No signup needed.">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="AI Code Security Badge — Free GitHub Score | Ingenious AI">
+<meta property="og:description" content="AI code security badge for GitHub repos: a free security score from a real static-analysis scan — secrets, injection flaws, XSS, CI/CD risks. No signup needed.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"AI Security Score Badge","applicationCategory":"SecurityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"Ingenious AI"},"description":"Free security score badge for GitHub repositories, graded A–F by real static analysis."}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"AI Security Score Badge","applicationCategory":"SecurityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"Ingenious AI"},"description":"Free security score badge for GitHub repositories, graded A–F by real static analysis.","about":{"@type":"Thing","name":"AI code security"},"keywords":"AI code security, AI code security badge, GitHub security badge, AI code security scanner, repo security score"}</script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
@@ -36,12 +37,13 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid #232b38;font-size:1
 .note{font-size:13px;color:#6b7688;margin-top:18px}
 </style>
 <link rel="stylesheet" href="ecosystem.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I scan AI-generated code for vulnerabilities?","acceptedAnswer":{"@type":"Answer","text":"Run a static-analysis (SAST) scanner over the repo — open-source options include Semgrep and vibe-code-focused AI code security scanners — plus a secrets scan for hardcoded API keys, then a dynamic (DAST) scan against the running app. No scanner replaces a human review of authentication, data handling, and business logic."}},{"@type":"Question","name":"What is vibe coding security?","acceptedAnswer":{"@type":"Answer","text":"Vibe coding security is the practice of checking AI-generated code for the flaws models commonly introduce: hardcoded secrets, injection flaws, cross-site scripting, disabled TLS verification, and insecure defaults. Research (Veracode's 2025 GenAI Code Security Report) found 45% of AI-generated code shipped a real vulnerability."}},{"@type":"Question","name":"What are the best AI code security scanners?","acceptedAnswer":{"@type":"Answer","text":"Open-source AI code security scanners include vibescan, isitsecure, and AXguard, plus Cloudflare's security-audit-skill and general tools like Semgrep for static analysis and OWASP ZAP for dynamic testing. The right pick depends on your stack: SAST for code, DAST for running apps, secrets scanners for leaked keys."}}],"about":{"@type":"Thing","name":"AI code security"},"keywords":"AI code security, AI code security badge, GitHub security badge, AI code security scanner, repo security score"}</script>
 </head>
 <body>
 <div class="wrap">
 <span class="badge-top">FREE TOOL</span>
-<h1>AI Security Score Badge for GitHub Repos</h1>
-<p class="lead">One line in your README shows the world your repo's security grade — A through F, from a real static-analysis scan. Secrets, injection flaws, XSS, CI/CD pipeline risks. Free, no signup.</p>
+<h1>AI Code Security Badge for GitHub Repos</h1>
+<p class="lead">One line in your README shows the world your repo's AI code security grade — A through F, from a real static-analysis scan. Secrets, injection flaws, XSS, CI/CD pipeline risks. Free, no signup.</p>
 
 <h2>Live examples</h2>
 <p style="color:#9aa7b8;font-size:14px;margin-bottom:8px">Real badges on real open-source repos, scanned October 2026:</p>
@@ -72,6 +74,9 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid #232b38;font-size:1
 <details><summary>How is the score calculated?</summary><p>Every repo starts at 100. Critical findings subtract 25, high 10, medium 4, low 1. 90+ is an A, 75+ a B, 50+ a C, 25+ a D, below that an F. Test fixtures, docs, and example files are excluded — only shipped code counts.</p></details>
 <details><summary>Is it really free?</summary><p>Yes. The badge, the scan behind it, and the report page are all free with no signup. It's built by Ingenious AI, the team behind Vibe-Code Audit.</p></details>
 <details><summary>Can the badge improve my project's trust?</summary><p>That's the point. A visible, independently-computed security grade answers the first question every evaluator asks: "is this safe to depend on?" Link it next to your build-status badge.</p></details>
+<details><summary>How do I scan AI-generated code for vulnerabilities?</summary><p>Run a static-analysis (SAST) scanner over the repo — open-source options include Semgrep and vibe-code-focused AI code security scanners — plus a secrets scan for hardcoded API keys, then a dynamic (DAST) scan against the running app. No scanner replaces a human review of authentication, data handling, and business logic.</p></details>
+<details><summary>What is vibe coding security?</summary><p>Vibe coding security is the practice of checking AI-generated code for the flaws models commonly introduce: hardcoded secrets, injection flaws, cross-site scripting, disabled TLS verification, and insecure defaults. Research (Veracode's 2025 GenAI Code Security Report) found 45% of AI-generated code shipped a real vulnerability.</p></details>
+<details><summary>What are the best AI code security scanners?</summary><p>Open-source AI code security scanners include vibescan, isitsecure, and AXguard, plus Cloudflare's security-audit-skill and general tools like Semgrep for static analysis and OWASP ZAP for dynamic testing. The right pick depends on your stack: SAST for code, DAST for running apps, secrets scanners for leaked keys.</p></details>
 </div>
 
 <p class="note">Methodology: static analysis of shipped production code (October 2026 scan). Grades reflect the code as scanned; rescan after significant changes. A badge is a signal, not a certification.</p>

@@ -3,19 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Agent Incident Tracker — Every Documented AI Agent Security Incident</title>
-<meta name="description" content="The public, dated database of AI agent security incidents: rogue agents, prompt-injection breaches, tool abuse, agent-driven attacks. Filter by attack class, cite the source. Free, updated by Ingenious AI.">
+<title>AI Agent Security Incident Tracker | Ingenious AI</title>
+<meta name="description" content="AI agent security incident database: rogue agents, injection breaches, tool abuse, agent-driven attacks. Dated, sourced, filterable. Free, from Ingenious AI.">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-incident-tracker.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="AI Agent Incident Tracker — the public database of agent security incidents">
-<meta property="og:description" content="Rogue agents, injection breaches, tool abuse, agent-driven attacks — dated, sourced, filterable. The canonical public record.">
+<meta property="og:title" content="AI Agent Security Incident Tracker | Ingenious AI">
+<meta property="og:description" content="AI agent security incident database: rogue agents, injection breaches, tool abuse, agent-driven attacks. Dated, sourced, filterable. Free, from Ingenious AI.">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-incident-tracker.html">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AI Agent Incident Tracker — every documented agent security incident">
-<meta name="twitter:description" content="Dated, sourced, filterable: rogue agents, prompt-injection breaches, tool abuse, agent-driven attacks.">
+<meta name="twitter:title" content="AI Agent Security Incident Tracker | Ingenious AI">
+<meta name="twitter:description" content="AI agent security incident database: rogue agents, injection breaches, tool abuse, agent-driven attacks. Dated, sourced, filterable. Free, from Ingenious AI.">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "AI Agent Incident Tracker",
+  "applicationCategory": "SecurityApplication",
+  "operatingSystem": "Any (web)",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-incident-tracker.html",
+  "description": "AI agent security incident database: rogue agents, injection breaches, tool abuse, agent-driven attacks. Dated, sourced, filterable. Free, from Ingenious AI.",
+  "author": {
+    "@type": "Organization",
+    "name": "Ingenious AI"
+  },
+  "about": "AI agent security",
+  "keywords": "AI agent security incidents, AI agent security, rogue AI agents, rogue AI agent incidents, AI agent security risks"
+}</script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"AI Agent Incident Tracker","applicationCategory":"SecurityApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-incident-tracker.html","description":"A public, dated database of AI agent security incidents — rogue agents, prompt-injection breaches, tool abuse, agent-driven attacks — each entry sourced from verified reporting.","author":{"@type":"Organization","name":"Ingenious AI"}}
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What counts as an incident in this tracker?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Entries are dated, sourced AI agent security incidents from verified public reporting — rogue agents, prompt-injection breaches, tool abuse, agent-driven attacks. Entries reflect what was reported, never speculation; where facts are disputed, the entry says so."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a rogue AI agent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A rogue AI agent is an autonomous AI agent that acts outside the authorization of its assigned task. Recent public examples include the eval agents Tencent acknowledged in October 2026 and the model-probing cases in CERT-In's October 15, 2026 advisory."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the security risks of AI agents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The main risks are prompt injection, tool abuse (an agent using its permissions in unintended ways), credential and data exfiltration, unauthorized real-world actions, and fading oversight as agents grow more autonomous."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often is the tracker updated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ingenious AI updates the tracker as new verified reports appear. Every entry cites its source, so you can check the original reporting yourself."
+      }
+    }
+  ]
+}
 </script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -92,6 +150,14 @@ document.getElementById('filters').addEventListener('click',e=>{
 });
 render('all');
 </script>
+<section class="kw-faq" style="max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
+<h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What counts as an incident in this tracker?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Entries are dated, sourced AI agent security incidents from verified public reporting — rogue agents, prompt-injection breaches, tool abuse, agent-driven attacks. Entries reflect what was reported, never speculation; where facts are disputed, the entry says so.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is a rogue AI agent?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">A rogue AI agent is an autonomous AI agent that acts outside the authorization of its assigned task. Recent public examples include the eval agents Tencent acknowledged in October 2026 and the model-probing cases in CERT-In's October 15, 2026 advisory.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What are the security risks of AI agents?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">The main risks are prompt injection, tool abuse (an agent using its permissions in unintended ways), credential and data exfiltration, unauthorized real-world actions, and fading oversight as agents grow more autonomous.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How often is the tracker updated?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Ingenious AI updates the tracker as new verified reports appear. Every entry cites its source, so you can check the original reporting yourself.</p></details>
+</section>
+
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->

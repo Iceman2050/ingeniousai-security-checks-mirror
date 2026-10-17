@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vendor Lock-in Calculator — What's Your AI Switching Cost? | Ingenious AI</title>
+<meta name="description" content="Free vendor lock-in calculator: check the AI tools you use, answer 4 depth questions, get a 0–100 lock-in score and an estimated switching cost in USD with the math shown. Illustrative estimates, not quotes.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-lockin-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Vendor Lock-in Calculator — What's Your AI Switching Cost?">
+<meta property="og:description" content="Check your AI tools, answer 4 depth questions, get a 0–100 lock-in score and an estimated switching cost with the math shown. Illustrative estimates, not quotes.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-lockin-calculator.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vendor Lock-in Calculator — What's Your AI Switching Cost?">
+<meta name="twitter:description" content="Your AI lock-in score 0–100 and estimated switching cost, with the math shown. Illustrative estimates.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Vendor Lock-in Calculator","applicationCategory":"BusinessApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-lockin-calculator.html","description":"Estimates AI vendor lock-in (0–100 score) and switching cost in USD from the tools used and integration depth. Illustrative estimates, not quotes.","author":{"@type":"Organization","name":"Ingenious AI"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does the lock-in score mean?","acceptedAnswer":{"@type":"Answer","text":"The 0–100 score combines how many AI vendors you depend on with four depth dimensions: training and fine-tune data living with a vendor, the number of API integrations, staff trained on vendor-specific tooling, and contract length. Higher scores mean a harder, more expensive switch."}},{"@type":"Question","name":"How is the switching cost estimated?","acceptedAnswer":{"@type":"Answer","text":"From five illustrative components: data egress (GB moved out times an illustrative per-GB rate), re-integration engineering (estimated weeks times an illustrative weekly rate), retraining staff, contract early-exit fees, and fine-tune retraining cost. Every number is an illustrative estimate — not a quote — and the page shows the math."}},{"@type":"Question","name":"Is this a quote for switching vendors?","acceptedAnswer":{"@type":"Answer","text":"No. All figures are illustrative planning estimates with assumptions stated in plain sight. Real switching costs vary widely with your data volume, architecture, contracts, and team. Your mileage will vary."}},{"@type":"Question","name":"How does TermsWatch help with vendor lock-in?","acceptedAnswer":{"@type":"Answer","text":"TermsWatch monitors AI vendor terms and pricing changes — price hikes, egress-fee changes, deprecation notices, and contract-term updates — so lock-in costs don't move against you silently. It watches the fine print while you build."}}],"about":{"@type":"Thing","name":"AI vendor lock-in assessment"},"keywords":"ai vendor lock-in, switching cost calculator, ai vendor risk, llm vendor lock-in"}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1a2b1a;border:1px solid #2ea043;color:#7ee2a8;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:32px;line-height:1.25;margin-bottom:14px}
+p.lead{font-size:17px;color:#9aa7b8;margin-bottom:24px}
+.honest{background:#0d2b3d;border:1px solid #1c6ef2;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#bcd7f5}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:26px;margin:18px 0}
+.card h2{font-size:19px;margin-bottom:6px}
+.card .sub{font-size:13.5px;color:#9aa7b8;margin-bottom:14px}
+.checkrow{display:flex;gap:10px;align-items:flex-start;margin:10px 0;font-size:15px;cursor:pointer}
+.checkrow input{margin-top:5px;accent-color:#1c6ef2}
+.radioq{margin:16px 0}
+.radioq .q{font-weight:700;font-size:15px;margin-bottom:8px}
+.radioopts{display:flex;gap:8px;flex-wrap:wrap}
+.radioopts label{flex:1;min-width:100px;background:#0b0f17;border:1px solid #2a3342;border-radius:8px;padding:10px;text-align:center;font-size:13.5px;cursor:pointer;font-weight:normal}
+.radioopts input{display:none}
+.radioopts label.sel{border-color:#1c6ef2;background:#0d1420}
+button.calc{display:block;width:100%;background:#1c6ef2;color:#fff;border:none;border-radius:10px;padding:14px;font-size:17px;font-weight:700;cursor:pointer;margin-top:18px;font-family:inherit}
+button.calc:hover{background:#2b7cf5}
+#result{display:none}
+.big{font-size:44px;font-weight:800;margin:6px 0}
+.verdict{font-size:16px;margin-bottom:14px}
+.gauge{height:12px;border-radius:6px;background:#232b38;margin:10px 0;position:relative}
+.gauge .fill{height:12px;border-radius:6px;background:linear-gradient(90deg,#2ea043,#d29922,#f85149)}
+.math{background:#0b0f17;border:1px solid #232b38;border-radius:8px;padding:16px 18px;margin:14px 0;font-size:13.5px;font-family:ui-monospace,Menlo,Consolas,monospace}
+.math div{margin:5px 0}
+.math .total{border-top:1px solid #2a3342;margin-top:10px;padding-top:10px;font-weight:700;color:#fff;font-size:15px}
+.sharecard{background:#0d1420;border:2px dashed #1c6ef2;border-radius:12px;padding:24px;margin:22px 0;text-align:center}
+.sharecard .st{font-size:19px;font-weight:700;line-height:1.5}
+.sharecard .src{font-size:13px;color:#9aa7b8;margin-top:10px}
+button.copy{background:#232b38;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;margin-top:12px;font-family:inherit}
+button.copy:hover{border-color:#1c6ef2}
+.faq{margin:10px 0;border-bottom:1px solid #1c2330;padding:12px 0}
+.faq b{display:block;font-size:15.5px;margin-bottom:6px}
+.faq p{font-size:14.5px;color:#9aa7b8}
+.cta{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:22px;margin:28px 0;text-align:center}
+.cta .lbl{font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px;margin-top:10px}
+.btn:hover{background:#2b7fff}
+.smallprint{font-size:13px;color:#6b7688;margin-top:30px}
+a{color:#6ea8fe}
+</style>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<span class="badge">FREE CALCULATOR</span>
+<h1>Vendor Lock-in Calculator</h1>
+<p class="lead">Check every AI tool you use, answer 4 depth questions, and get a 0–100 lock-in score plus an estimated switching cost in USD — with the math shown.</p>
+
+<div class="honest"><strong>Illustrative estimates, not quotes — your mileage will vary.</strong> Every number below is a planning estimate with its assumptions stated in plain sight, computed entirely in your browser. Nothing is uploaded.</div>
+
+<div class="card">
+<h2>1. Which AI tools do you use?</h2>
+<p class="sub">Check all that apply. Open-weights self-hosted counts against lock-in (it lowers the score).</p>
+<label class="checkrow"><input type="checkbox" class="tool" value="openai"> OpenAI API</label>
+<label class="checkrow"><input type="checkbox" class="tool" value="anthropic"> Anthropic API</label>
+<label class="checkrow"><input type="checkbox" class="tool" value="google"> Google AI (Gemini / Vertex)</label>
+<label class="checkrow"><input type="checkbox" class="tool" value="azure"> Azure OpenAI</label>
+<label class="checkrow"><input type="checkbox" class="tool" value="bedrock"> AWS Bedrock</label>
+<label class="checkrow"><input type="checkbox" class="tool" value="openweights"> Open weights, self-hosted</label>
+<label class="checkrow"><input type="checkbox" class="tool" value="other"> Other AI tool / API</label>
+</div>
+
+<div class="card">
+<h2>2. How deep does the dependency go?</h2>
+<p class="sub">1 = barely · 5 = deeply embedded. Tap one per question.</p>
+<div class="radioq"><div class="q">Training / fine-tune data that lives with the vendor</div>
+<div class="radioopts" data-q="data">
+<label><input type="radio" name="data" value="1">1 — none</label>
+<label><input type="radio" name="data" value="2">2 — some</label>
+<label><input type="radio" name="data" value="3" checked>3 — moderate</label>
+<label><input type="radio" name="data" value="4">4 — a lot</label>
+<label><input type="radio" name="data" value="5">5 — all of it</label>
+</div></div>
+<div class="radioq"><div class="q">API integrations built on vendor-specific endpoints</div>
+<div class="radioopts" data-q="integrations">
+<label><input type="radio" name="integrations" value="1">1 — 1–2</label>
+<label><input type="radio" name="integrations" value="2">2 — few</label>
+<label><input type="radio" name="integrations" value="3" checked>3 — ~10</label>
+<label><input type="radio" name="integrations" value="4">4 — dozens</label>
+<label><input type="radio" name="integrations" value="5">5 — everywhere</label>
+</div></div>
+<div class="radioq"><div class="q">Staff trained on vendor-specific tooling</div>
+<div class="radioopts" data-q="staff">
+<label><input type="radio" name="staff" value="1">1 — nobody</label>
+<label><input type="radio" name="staff" value="2">2 — 1 person</label>
+<label><input type="radio" name="staff" value="3" checked>3 — a team</label>
+<label><input type="radio" name="staff" value="4">4 — most staff</label>
+<label><input type="radio" name="staff" value="5">5 — everyone</label>
+</div></div>
+<div class="radioq"><div class="q">Contract length / commitment</div>
+<div class="radioopts" data-q="contract">
+<label><input type="radio" name="contract" value="1">1 — pay-as-you-go</label>
+<label><input type="radio" name="contract" value="2">2 — monthly</label>
+<label><input type="radio" name="contract" value="3" checked>3 — annual</label>
+<label><input type="radio" name="contract" value="4">4 — multi-year</label>
+<label><input type="radio" name="contract" value="5">5 — locked + credits</label>
+</div></div>
+</div>
+
+<button class="calc" onclick="calculate()">Calculate my lock-in score</button>
+
+<div class="card" id="result">
+<h2>Your result</h2>
+<div class="big" id="score">–</div>
+<div class="gauge"><div class="fill" id="fill" style="width:0%"></div></div>
+<div class="verdict" id="verdict"></div>
+<h2 style="margin-top:18px">Estimated switching cost</h2>
+<div class="big" style="font-size:36px" id="cost">–</div>
+<div class="math" id="math"></div>
+<p class="sub" style="margin-top:10px">All figures are illustrative planning estimates, not quotes. Assumptions: data egress $0.12/GB (illustrative cloud egress rate), re-integration $1,800/engineering-week (illustrative), retraining $500/person (illustrative), early-exit fee 25% of remaining annual contract (illustrative), fine-tune retraining a flat $2,000–$10,000 by data depth (illustrative). Real costs vary with your data volume, architecture, contracts, and team.</p>
+</div>
+
+<div class="sharecard">
+<div class="st" id="sharetext">My AI vendor lock-in score: ?/100 — what's yours?</div>
+<div class="src">ingeniousai-security-checks-mirror · Vendor Lock-in Calculator</div>
+<button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('sharetext').textContent+' https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-lockin-calculator.html');this.textContent='Copied!';">Copy share text</button>
+</div>
+
+<div class="cta">
+<div class="lbl">FROM INGENIOUS AI</div>
+<p style="font-size:17px;margin-bottom:6px"><strong>TermsWatch</strong> monitors AI vendor terms and pricing changes — price hikes, egress-fee changes, deprecation notices, contract-term updates — so lock-in costs never move against you silently.</p>
+<p style="font-size:13px;color:#9aa7b8;margin-bottom:4px">Our platforms are being upgraded and return November 1 — get early access now:</p>
+<a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch.">Get TermsWatch early access →</a>
+</div>
+
+<h2>FAQ</h2>
+<div class="faq"><b>What does the lock-in score mean?</b><p>The 0–100 score combines how many AI vendors you depend on with four depth dimensions: training/fine-tune data living with a vendor, number of API integrations, staff trained on vendor-specific tooling, and contract length. Higher scores mean a harder, more expensive switch. Open-weights self-hosted reduces the score.</p></div>
+<div class="faq"><b>How is the switching cost estimated?</b><p>From five illustrative components: data egress, re-integration engineering, staff retraining, contract early-exit fees, and fine-tune retraining. Every assumption is stated next to the result — the math is shown, not hidden.</p></div>
+<div class="faq"><b>Is this a quote for switching vendors?</b><p>No. All figures are illustrative planning estimates, not quotes. Real switching costs vary widely with your data volume, architecture, contracts, and team. Your mileage will vary.</p></div>
+<div class="faq"><b>How does TermsWatch help with vendor lock-in?</b><p>TermsWatch monitors AI vendor terms and pricing changes — price hikes, egress-fee changes, deprecation notices, and contract-term updates — so lock-in costs don't move against you silently. It watches the fine print while you build.</p></div>
+
+<div class="smallprint">Disclaimer: this calculator is an educational planning aid. All figures are illustrative estimates with stated assumptions, computed locally in your browser — nothing is sent anywhere. They are not quotes, predictions, or advice. Ingenious AI is not affiliated with any vendor named here.</div>
+
+</div>
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<script>
+document.querySelectorAll('.radioopts').forEach(function(group){
+  group.querySelectorAll('label').forEach(function(l){
+    l.addEventListener('click', function(){
+      group.querySelectorAll('label').forEach(function(x){x.classList.remove('sel');});
+      l.classList.add('sel');
+    });
+  });
+  var checked = group.querySelector('input:checked');
+  if (checked) checked.closest('label').classList.add('sel');
+});
+function q(name){ var el = document.querySelector('input[name="'+name+'"]:checked'); return el ? parseInt(el.value,10) : 3; }
+function money(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
+function calculate(){
+  var tools = document.querySelectorAll('.tool:checked');
+  var vendorCount = 0, selfHosted = false;
+  tools.forEach(function(t){ if(t.value==='openweights'){ selfHosted = true; } else { vendorCount++; } });
+  var data=q('data'), integ=q('integrations'), staff=q('staff'), contract=q('contract');
+  // Score: depth average (1-5) weighted 70%, vendor spread 30%; self-hosted offsets.
+  var depthAvg = (data+integ+staff+contract)/4;            // 1..5
+  var depthPts = (depthAvg-1)/4*70;                        // 0..70
+  var vendorPts = Math.min(vendorCount,5)/5*30;            // 0..30
+  var score = Math.round(Math.max(0, Math.min(100, depthPts + vendorPts - (selfHosted?10:0))));
+  var verdict = score<25 ? 'Low lock-in — switching would be relatively painless.'
+    : score<50 ? 'Moderate lock-in — a switch is doable but plan for friction.'
+    : score<75 ? 'High lock-in — switching is a real project. Budget and plan accordingly.'
+    : 'Critical lock-in — you are effectively married to your vendor. Renegotiate or diversify.';
+  // Cost components (all illustrative estimates)
+  var gb = 200 * Math.pow(2, data-1);                      // illustrative data volume: 200GB..3.2TB
+  var egress = gb * 0.12;
+  var weeks = integ * 2;                                   // 2..10 engineering weeks
+  var eng = weeks * 1800;
+  var people = [0,1,4,10,25,60][staff];                    // illustrative headcount per staff level
+  var retrain = people * 500;
+  var annualContract = 24000 * contract;                   // illustrative annual spend by commitment depth
+  var exitFee = annualContract * 0.25 * (contract>=4 ? 1 : 0);
+  var finetune = data>=4 ? 10000 : (data>=3 ? 5000 : 2000);
+  var total = egress + eng + retrain + exitFee + finetune;
+  document.getElementById('score').textContent = score + ' / 100';
+  document.getElementById('fill').style.width = score + '%';
+  document.getElementById('verdict').textContent = verdict;
+  document.getElementById('cost').textContent = money(total) + ' (est.)';
+  document.getElementById('math').innerHTML =
+    '<div>Data egress: ' + gb.toLocaleString() + ' GB (illustrative) × $0.12/GB (illustrative) = <b>' + money(egress) + '</b></div>' +
+    '<div>Re-integration: ' + weeks + ' eng-weeks (illustrative) × $1,800/wk (illustrative) = <b>' + money(eng) + '</b></div>' +
+    '<div>Staff retraining: ' + people + ' people (illustrative) × $500 (illustrative) = <b>' + money(retrain) + '</b></div>' +
+    '<div>Contract early-exit: 25% of illustrative $' + annualContract.toLocaleString() + ' annual = <b>' + money(exitFee) + '</b></div>' +
+    '<div>Fine-tune retraining: flat illustrative = <b>' + money(finetune) + '</b></div>' +
+    '<div class="total">Total estimated switching cost = ' + money(total) + ' (illustrative, not a quote)</div>';
+  document.getElementById('sharetext').textContent = 'My AI vendor lock-in score: ' + score + '/100 — estimated switching cost ' + money(total) + '. What\'s yours?';
+  document.getElementById('result').style.display = 'block';
+  document.getElementById('result').scrollIntoView({behavior:'smooth'});
+}
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>

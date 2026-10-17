@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LG webOS Root Takeover Check — Is Your Smart TV Exposed? Free 30-Second Self-Test</title>
-<meta name="description" content="A 3-flaw chain in LG webOS gives attackers on your local network root access to certain smart TVs — no PIN, no interaction. Check your model and firmware in 30 seconds. Free, no signup.">
+<title>LG webOS Root Check — Is Your Smart TV Exposed? Free</title>
+<meta name="description" content="LG webOS root takeover: a 3-flaw chain gives attackers on your local network root on certain LG smart TVs. Check your TV's exposure in 30 seconds. Free.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="Can someone on your WiFi take over your LG smart TV? — 30-Second Check">
-<meta property="og:description" content="A 3-flaw chain in LG webOS gives attackers on the same local network root access to certain smart TVs — no PIN, no owner interaction. Check your model and firmware free, no signup.">
+<meta property="og:title" content="LG webOS Root Check — Is Your Smart TV Exposed? Free">
+<meta property="og:description" content="LG webOS root takeover: a 3-flaw chain gives attackers on your local network root on certain LG smart TVs. Check your TV's exposure in 30 seconds. Free.">
 <meta property="og:url" content="https://ingeniousai-security-checks.netlify.app/lg-webos-root-check.html"
 <link rel="canonical" href="https://ingeniousai-security-checks.netlify.app/lg-webos-root-check.html">>
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Can someone on your WiFi take over your LG smart TV? — 30-Second Check">
-<meta name="twitter:description" content="A 3-flaw chain in LG webOS gives attackers on the same local network root access to certain smart TVs — no PIN, no owner interaction. Check your model and firmware free, no signup.">
+<meta name="twitter:title" content="LG webOS Root Check — Is Your Smart TV Exposed? Free">
+<meta name="twitter:description" content="LG webOS root takeover: a 3-flaw chain gives attackers on your local network root on certain LG smart TVs. Check your TV's exposure in 30 seconds. Free.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
@@ -37,19 +37,13 @@ ul{margin:10px 0 10px 20px}
 li{margin:8px 0}
 footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
 </style>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"Which LG TV models are affected by the webOS root takeover?","acceptedAnswer":{"@type":"Answer","text":"The attack chain was demonstrated on the LG 32LQ636BPSA and 27TQ600SW running webOS 7.5.7-25 on firmware 04.54.40. Whether other models or firmware versions are affected is not known — LG has not published a full affected-products list. Check your model and firmware in Settings, then check for updates."}},
-{"@type":"Question","name":"Does the attacker need my WiFi password or any interaction from me?","acceptedAnswer":{"@type":"Answer","text":"No. The attacker only needs to be on the same local network — a compromised laptop, a guest's infected phone, or malware on any device sharing your WiFi. There is no PIN prompt to bypass socially and no click required from the TV owner. That is what makes local-network hygiene (guest networks, IoT segmentation) the real defense."}},
-{"@type":"Question","name":"Is there a workaround if my LG TV has no firmware update available?","acceptedAnswer":{"@type":"Answer","text":"No documented workaround exists. If no update is available for your model, the only mitigations are to disconnect the TV from the network when not in use, or isolate it on a separate guest/IoT network segment so untrusted devices cannot reach it. LG has issued a patch — updating is the fix."}}
-]}
-</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which LG TV models are affected by the webOS root takeover?", "acceptedAnswer": {"@type": "Answer", "text": "The attack chain was demonstrated on the LG 32LQ636BPSA and 27TQ600SW running webOS 7.5.7-25 on firmware 04.54.40. Whether other models or firmware versions are affected is not known — LG has not published a full affected-products list."}}, {"@type": "Question", "name": "Does the attacker need my WiFi password or any interaction from me?", "acceptedAnswer": {"@type": "Answer", "text": "No. The attacker only needs to be on the same local network — a compromised laptop, a guest's infected phone, or malware on any device sharing your WiFi."}}, {"@type": "Question", "name": "Is there a workaround if my LG TV has no firmware update available?", "acceptedAnswer": {"@type": "Answer", "text": "No documented workaround exists. If no update is available for your model, the only mitigations are to disconnect the TV from the network when not in use, or isolate it on a separate guest/IoT network segment so untrusted devices cannot reach it."}}], "about": "The 3-flaw LG webOS chain giving attackers root on certain smart TVs, and a free 30-second exposure check.", "keywords": "LG webOS root, webOS vulnerability, smart TV hack, TyphoonPWN, smart TV security, free security check"}</script>
 <link rel="stylesheet" href="ecosystem.css">
 </head>
 <body>
 <div class="wrap">
 <div class="badge">webOS PRE-AUTH ROOT &mdash; NO CVE ASSIGNED &mdash; PATCH AVAILABLE</div>
-<h1>Can someone on your WiFi <span class="red">take over your LG smart TV</span>?</h1>
+<h1>LG webOS root: can someone on your WiFi take over your smart TV?</h1>
 <p class="lead">Demonstrated at TyphoonPWN 2026: three flaws in LG's webOS chain together to hand an attacker on your local network <strong>root access</strong> to certain smart TVs &mdash; no PIN, no click, no interaction from you. The attack enters through the TV's own pairing service, escalates through a trusted built-in app, and finishes with a command injection in a logging service that runs as root. LG has issued a fix. This free 30-second check tells you if you're at risk. No signup, nothing installed.</p>
 
 <div class="card">
@@ -103,6 +97,13 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 </div>
 
 <div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=LG%20webOS%20%E2%80%94%203-flaw%20chain%20gives%20attackers%20on%20your%20WiFi%20ROOT%20on%20certain%20smart%20TVs%2C%20no%20PIN%20needed%20%E2%80%94%20free%2030-sec%20self-test&url=https%3A//ingeniousai-security-checks.netlify.app/lg-webos-root-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//ingeniousai-security-checks.netlify.app/lg-webos-root-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//ingeniousai-security-checks.netlify.app/lg-webos-root-check.html&title=LG%20webOS%20Root%20Takeover%20Check" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="card">
+<h2>Frequently asked questions</h2>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">Which LG TV models are affected by the webOS root takeover?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">The attack chain was demonstrated on the LG 32LQ636BPSA and 27TQ600SW running webOS 7.5.7-25 on firmware 04.54.40. Whether other models or firmware versions are affected is not known — LG has not published a full affected-products list.</p></details>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">Does the attacker need my WiFi password or any interaction from me?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">No. The attacker only needs to be on the same local network — a compromised laptop, a guest&#x27;s infected phone, or malware on any device sharing your WiFi.</p></details>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">Is there a workaround if my LG TV has no firmware update available?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">No documented workaround exists. If no update is available for your model, the only mitigations are to disconnect the TV from the network when not in use, or isolate it on a separate guest/IoT network segment so untrusted devices cannot reach it.</p></details>
+</div>
+
 <div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>

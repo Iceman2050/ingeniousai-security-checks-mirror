@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HomeLibrary: Should You Trust a Shared Script Memory for Your AI Agents? — Code-Reviewed</title>
-<meta name="description" content="A developer announced HomeLibrary, a shared memory so AI agents reuse tested scripts instead of rewriting them. The underlying MCP server HomeShed is real and open-source — I reviewed the code. HomeLibrary itself isn't released yet. Honest evaluator's take + 6-question fit check. Free, no signup.">
+<title>AI Agent Security: Shared Memory Trust Check | Ingenious AI</title>
+<meta name="description" content="AI agent security review: HomeLibrary wants your agents to share a script memory. The MCP server HomeShed is real open-source — code reviewed. 6-question check.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="A shared script memory for AI agents — brilliant idea, but should you trust it?">
-<meta property="og:description" content="HomeLibrary promises to stop AI agents rewriting the same scripts. The open-source MCP server behind it is real — I reviewed the code. The product itself isn't released. 6-question fit check — free, no signup.">
+<meta property="og:title" content="AI Agent Security: Shared Memory Trust Check | Ingenious AI">
+<meta property="og:description" content="AI agent security review: HomeLibrary wants your agents to share a script memory. The MCP server HomeShed is real open-source — code reviewed. 6-question check.">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/homelibrary-shared-agent-memory-check.html">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/homelibrary-shared-agent-memory-check.html">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A shared script memory for AI agents — brilliant idea, but should you trust it?">
-<meta name="twitter:description" content="HomeLibrary promises to stop AI agents rewriting the same scripts. The open-source MCP server behind it is real — I reviewed the code. The product itself isn't released. 6-question fit check.">
+<meta name="twitter:title" content="AI Agent Security: Shared Memory Trust Check | Ingenious AI">
+<meta name="twitter:description" content="AI agent security review: HomeLibrary wants your agents to share a script memory. The MCP server HomeShed is real open-source — code reviewed. 6-question check.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
@@ -50,21 +50,82 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 .tag.no{background:#2a0d0d;color:#f85149;border:1px solid #f85149}
 .tag.soon{background:#1a1408;color:#e6c26a;border:1px solid #d29922}
 </style>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"What is HomeLibrary and is it released?","acceptedAnswer":{"@type":"Answer","text":"HomeLibrary is a shared script-and-prompt memory for AI agents announced on October 16, 2026 by developer keefng8: before an agent writes a script from scratch, it checks whether a tested version already exists, saving tokens and avoiding rewritten bugs. It is NOT released — the author describes it as in development and tweaking before any release, and the name appears nowhere in the public repository."}},
-{"@type":"Question","name":"What is HomeShed and what did the code review find?","acceptedAnswer":{"@type":"Answer","text":"HomeShed (github.com/keefng8/homeshed-mcp) is the free, open-source (Apache-2.0) self-hosted MCP server behind the announcement, with 136 tools covering memory, reasoning, git, Docker, Proxmox and more. A code review found thoughtful security defaults: token authentication, localhost-only binding, action tools off by default, per-client keys and rate limits, a Fernet-encrypted secrets vault, SSRF guards, rule packs that vet commands before execution, and a SECURITY.md disclosure policy. The project is 7 days old with 8 stars — professionally built but unproven at scale."}},
-{"@type":"Question","name":"What is the security tradeoff of a shared agent script memory?","acceptedAnswer":{"@type":"Answer","text":"A shared memory means agents EXECUTE shared code. Its safety equals your review process: an allowlist plus owner approval per run (HomeShed's model) is the right shape, but a poisoned, stale, or subtly buggy shared entry propagates to every agent that reuses it. Keep such a server on localhost or behind an access proxy, never expose it to the internet, and remember mounting the Docker socket gives root on the host."}},
-{"@type":"Question","name":"Where can I follow HomeLibrary's development?","acceptedAnswer":{"@type":"Answer","text":"Watch the public repository at github.com/keefng8/homeshed-mcp (Apache-2.0, free core; a paid HomeShed Pro add-on also exists). Since HomeLibrary itself is unreleased, there is nothing to download yet — the repository is where a release would appear."}}
-]}
-</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is HomeLibrary and is it released?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HomeLibrary is a shared script-and-prompt memory for AI agents announced on October 16, 2026 by developer keefng8: before an agent writes a script from scratch, it checks whether a tested version already exists, saving tokens and avoiding rewritten bugs. It is NOT released — the author describes it as in development and tweaking before any release, and the name appears nowhere in the public repository."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is HomeShed and what did the code review find?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HomeShed (github.com/keefng8/homeshed-mcp) is the free, open-source (Apache-2.0) self-hosted MCP server behind the announcement, with 136 tools covering memory, reasoning, git, Docker, Proxmox and more. A code review found thoughtful security defaults: token authentication, localhost-only binding, action tools off by default, per-client keys and rate limits, a Fernet-encrypted secrets vault, SSRF guards, rule packs that vet commands before execution, and a SECURITY.md disclosure policy. The project is 7 days old with 8 stars — professionally built but unproven at scale."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the security tradeoff of a shared agent script memory?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A shared memory means agents EXECUTE shared code. Its safety equals your review process: an allowlist plus owner approval per run (HomeShed's model) is the right shape, but a poisoned, stale, or subtly buggy shared entry propagates to every agent that reuses it. Keep such a server on localhost or behind an access proxy, never expose it to the internet, and remember mounting the Docker socket gives root on the host."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where can I follow HomeLibrary's development?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Watch the public repository at github.com/keefng8/homeshed-mcp (Apache-2.0, free core; a paid HomeShed Pro add-on also exists). Since HomeLibrary itself is unreleased, there is nothing to download yet — the repository is where a release would appear."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a rogue AI agent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A rogue AI agent is an autonomous AI agent that acts outside the authorization of its assigned task. Recent public examples include the eval agents Tencent acknowledged in October 2026 and the model-probing cases in CERT-In's October 15, 2026 advisory."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the security risks of AI agents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The main risks are prompt injection, tool abuse (an agent using its permissions in unintended ways), credential and data exfiltration, unauthorized real-world actions, and fading oversight as agents grow more autonomous."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "AI Agent Security: Shared Memory Trust Check | Ingenious AI",
+  "description": "AI agent security review: HomeLibrary wants your agents to share a script memory. The MCP server HomeShed is real open-source — code reviewed. 6-question check.",
+  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/homelibrary-shared-agent-memory-check.html",
+  "inLanguage": "en",
+  "about": "AI agent security",
+  "keywords": "AI agent security risks, AI agent security, rogue AI agents, AI agent security best practices",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ingenious AI",
+    "url": "https://github.com/Iceman2050"
+  }
+}</script>
 <link rel="stylesheet" href="ecosystem.css">
 </head>
 <body>
 <div class="wrap">
 <div class="badge">OPEN-SOURCE MCP SERVER &mdash; CODE-REVIEWED OCT 16, 2026</div>
 <h1>Should you trust a <span class="green">shared script memory</span> for your AI agents?</h1>
-<p class="lead">A developer just announced <strong>HomeLibrary</strong> &mdash; a shared memory so your AI agents reuse tested scripts instead of rewriting them (and reintroducing bugs) every time. The open-source MCP server behind it, <strong>HomeShed</strong>, is real &mdash; I cloned the repo and reviewed the code. But HomeLibrary itself <strong>isn't released yet</strong>. Here is the honest evaluator's take: what's verified, what's aspirational, and whether it fits you.</p>
+<p class="lead">A developer just announced <strong>HomeLibrary</strong> &mdash; a shared memory so your AI agents reuse tested scripts instead of rewriting them (and reintroducing bugs) every time. The open-source MCP server behind it, <strong>HomeShed</strong>, is real &mdash; I cloned the repo and reviewed the code. But HomeLibrary itself <strong>isn't released yet</strong>. Here is the honest evaluator's take: what's verified, what's aspirational, and whether it fits you. Shared memory is an AI agent security surface — a poisoned script propagates everywhere. This page gives the honest evaluator's take plus a 6-question fit check.</p>
 
 <div class="card">
 <h2><span class="tag ok">VERIFIED</span> What the code review confirmed</h2>
@@ -137,6 +198,12 @@ renderQ();
 
 <div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=Someone%20announced%20a%20shared%20script%20memory%20for%20AI%20agents.%20I%20reviewed%20the%20code%20%E2%80%94%20here%27s%20what%27s%20real%2C%20what%27s%20not%20released%2C%20and%20a%206-question%20fit%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/homelibrary-shared-agent-memory-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/homelibrary-shared-agent-memory-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/homelibrary-shared-agent-memory-check.html&title=HomeLibrary%20shared%20agent%20memory%20%E2%80%94%20code-reviewed%3A%20what%27s%20real%20vs%20unreleased" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
 <div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<section class="kw-faq" style="max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
+<h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is a rogue AI agent?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">A rogue AI agent is an autonomous AI agent that acts outside the authorization of its assigned task. Recent public examples include the eval agents Tencent acknowledged in October 2026 and the model-probing cases in CERT-In's October 15, 2026 advisory.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What are the security risks of AI agents?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">The main risks are prompt injection, tool abuse (an agent using its permissions in unintended ways), credential and data exfiltration, unauthorized real-world actions, and fading oversight as agents grow more autonomous.</p></details>
+</section>
+
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b}'></script><!-- End Cloudflare Web Analytics -->

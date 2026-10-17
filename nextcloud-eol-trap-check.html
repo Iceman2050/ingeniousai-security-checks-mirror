@@ -3,12 +3,14 @@
 <head>
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-eol-trap-check.html">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-eol-trap-check.html">
+<meta name="twitter:title" content="Nextcloud CVE: EOL Trap — Are You Stuck on Version 29?">
+<meta name="twitter:description" content="Nextcloud CVE EOL trap: Nextcloud 29 and older are end of life, and the app store serves the vulnerable Collabora app. Type your version to check exposure.">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The EOL Trap: Nextcloud ≤29 + a Vulnerable App Store | Version Check</title>
-<meta name="description" content="Nextcloud 29 and older are end-of-life — and the app store still serves them the vulnerable Collabora app. Enter your Nextcloud version to see if you're in the EOL trap.">
-<meta property="og:title" content="The EOL Trap: Is Your Nextcloud Stuck With the Vulnerable App?">
-<meta property="og:description" content="Nextcloud ≤29 is end-of-life, and the app store still serves the vulnerable Collabora app. Check your version.">
+<title>Nextcloud CVE: EOL Trap — Are You Stuck on Version 29?</title>
+<meta name="description" content="Nextcloud CVE EOL trap: Nextcloud 29 and older are end of life, and the app store serves the vulnerable Collabora app. Type your version to check exposure.">
+<meta property="og:title" content="Nextcloud CVE: EOL Trap — Are You Stuck on Version 29?">
+<meta property="og:description" content="Nextcloud CVE EOL trap: Nextcloud 29 and older are end of life, and the app store serves the vulnerable Collabora app. Type your version to check exposure.">
 <meta property="og:type" content="article">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -41,19 +43,16 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 .warnbox{background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#e6c26a}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"Is Nextcloud 29 still supported?","acceptedAnswer":{"@type":"Answer","text":"No. Nextcloud 29 and older are end of life and no longer receive security updates. Worse, the app store still serves these versions the vulnerable richdocumentscode app, and the fixed version 26.4.303 requires Nextcloud 30 or later — so there is no safe app version available for Nextcloud 29 and older."}},
-{"@type":"Question","name":"I'm on Nextcloud 29 — how do I fix CVE-2026-110447?","acceptedAnswer":{"@type":"Answer","text":"You have two honest paths: upgrade Nextcloud to a supported release (30 or newer) and then update the built-in CODE app to 26.4.303+, or remove the built-in CODE Server app entirely. Disabling the app does not fix it, and no patched app version exists for Nextcloud 29."}},
-{"@type":"Question","name":"What Nextcloud versions get the October 2026 maintenance updates?","acceptedAnswer":{"@type":"Answer","text":"Nextcloud Hub 26 Winter updates to 33.0.10, Spring to 34.0.5, and Summer to 35.0.2, per the October 16, 2026 maintenance announcement. The rollout is staged, starting at 30% of instances."}}
-]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Nextcloud 29 still supported?","acceptedAnswer":{"@type":"Answer","text":"No. Nextcloud 29 and older are end of life and no longer receive security updates. Worse, the app store still serves these versions the vulnerable richdocumentscode app, and the fixed version 26.4.303 requires Nextcloud 30 or later — so there is no safe app version available for Nextcloud 29 and older."}},{"@type":"Question","name":"I'm on Nextcloud 29 — how do I fix CVE-2026-110447?","acceptedAnswer":{"@type":"Answer","text":"You have two honest paths: upgrade Nextcloud to a supported release (30 or newer) and then update the built-in CODE app to 26.4.303+, or remove the built-in CODE Server app entirely. Disabling the app does not fix it, and no patched app version exists for Nextcloud 29."}},{"@type":"Question","name":"What Nextcloud versions get the October 2026 maintenance updates?","acceptedAnswer":{"@type":"Answer","text":"Nextcloud Hub 26 Winter updates to 33.0.10, Spring to 34.0.5, and Summer to 35.0.2, per the October 16, 2026 maintenance announcement. The rollout is staged, starting at 30% of instances."}},{"@type":"Question","name":"Is Nextcloud safe?","acceptedAnswer":{"@type":"Answer","text":"Nextcloud itself remains safe to use when kept updated — the October 2026 incident was a critical flaw (CVE-2026-110447) in one optional app, the built-in Collabora CODE server, not in Nextcloud core. Stay on a supported release, apply maintenance updates promptly, and remove apps you do not use."}},{"@type":"Question","name":"How do I check if my Nextcloud is vulnerable?","acceptedAnswer":{"@type":"Answer","text":"Check whether the ‘Collabora Online – Built-in CODE Server’ app (richdocumentscode) is installed and older than 26.4.303 — via Admin > Apps or ‘occ app:list’. If the app was present at any point in September–October 2026, assume exposure and hunt for web shells even after patching."}},{"@type":"Question","name":"What should I do if my Nextcloud was hacked?","acceptedAnswer":{"@type":"Answer","text":"Take the server offline, restore from a clean backup or rebuild it, and rotate every credential the server touched. Hunt for leftover PHP web shells — patching CVE-2026-110447 does not remove shells attackers already planted — then update the Collabora app to 26.4.303+ or remove it."}}]}
 </script>
 <link rel="stylesheet" href="ecosystem.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Nextcloud CVE: EOL Trap — Are You Stuck on Version 29?","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-eol-trap-check.html","description":"Nextcloud CVE EOL trap: Nextcloud 29 and older are end of life, and the app store serves the vulnerable Collabora app. Type your version to check exposure.","about":{"@type":"Thing","name":"CVE-2026-110447"},"keywords":["Nextcloud CVE","Nextcloud CVE 2026","CVE-2026-110447","Nextcloud 29 end of life","Nextcloud version check"],"provider":{"@type":"Organization","name":"Ingenious AI"}}</script>
 </head>
 <body>
 <div class="wrap">
 <div class="badge">CVE-2026-110447 &mdash; THE EOL TRAP</div>
-<h1>The <span class="red">EOL trap</span></h1>
-<p class="lead">Here's the nasty part nobody put on a poster: Nextcloud 29 and older are <strong>end of life</strong> &mdash; and the app store <strong>still serves them the vulnerable</strong> Collabora app. The fixed app version requires Nextcloud 30+. So if you're on 29, there is no safe version of the app you can install. Type your version to see where you stand.</p>
+<h1>The Nextcloud CVE EOL trap: stuck on version 29?</h1>
+<p class="lead">Here's the nasty part nobody put on a poster: Nextcloud 29 and older are <strong>end of life</strong> &mdash; and the app store <strong>still serves them the vulnerable</strong> Collabora app. The fixed app version requires Nextcloud 30+. So if you're on 29, there is no safe version of the app you can install. Type your version into this Nextcloud CVE checker to see where you stand.</p>
 
 <div class="card">
 <h2>Version check</h2>
@@ -110,6 +109,15 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
   document.getElementById('vin').addEventListener('keydown',function(e){ if(e.key==='Enter') check(); });
 })();
 </script>
+<h2 style="font-size:21px;margin:30px 0 12px;color:#fff">FAQ</h2>
+<div>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">Is Nextcloud 29 still supported?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">No. Nextcloud 29 and older are end of life and no longer receive security updates. Worse, the app store still serves these versions the vulnerable richdocumentscode app, and the fixed version 26.4.303 requires Nextcloud 30 or later — so there is no safe app version available for Nextcloud 29 and older.</p></details>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">I&#x27;m on Nextcloud 29 — how do I fix CVE-2026-110447?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">You have two honest paths: upgrade Nextcloud to a supported release (30 or newer) and then update the built-in CODE app to 26.4.303+, or remove the built-in CODE Server app entirely. Disabling the app does not fix it, and no patched app version exists for Nextcloud 29.</p></details>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">What Nextcloud versions get the October 2026 maintenance updates?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Nextcloud Hub 26 Winter updates to 33.0.10, Spring to 34.0.5, and Summer to 35.0.2, per the October 16, 2026 maintenance announcement. The rollout is staged, starting at 30% of instances.</p></details>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">Is Nextcloud safe?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Nextcloud itself remains safe to use when kept updated — the October 2026 incident was a critical flaw (CVE-2026-110447) in one optional app, the built-in Collabora CODE server, not in Nextcloud core. Stay on a supported release, apply maintenance updates promptly, and remove apps you do not use.</p></details>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">How do I check if my Nextcloud is vulnerable?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Check whether the ‘Collabora Online – Built-in CODE Server’ app (richdocumentscode) is installed and older than 26.4.303 — via Admin &gt; Apps or ‘occ app:list’. If the app was present at any point in September–October 2026, assume exposure and hunt for web shells even after patching.</p></details>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">What should I do if my Nextcloud was hacked?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Take the server offline, restore from a clean backup or rebuild it, and rotate every credential the server touched. Hunt for leftover PHP web shells — patching CVE-2026-110447 does not remove shells attackers already planted — then update the Collabora app to 26.4.303+ or remove it.</p></details>
+</div>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->

@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vitalik's "Paranoid Mode" for AI Agents: Tor, zkAPI, Cover Traffic — How Exposed Is Yours?</title>
-<meta name="description" content="Vitalik Buterin built an experimental 'paranoid mode' for his AI agent harness: Tor per conversation, zkAPI anonymous payments, cover traffic, local LLM prompt rewriting. 6-question agent-privacy exposure check. Free, no signup.">
+<title>AI Agent Security: Paranoid-Mode Check | Ingenious AI</title>
+<meta name="description" content="AI agent security, Vitalik-style: Tor per conversation, zkAPI payments, cover traffic, local prompt rewriting. 6-question check of your agent's exposure. Free.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="Vitalik built 'paranoid mode' for AI agents. How exposed is yours?">
-<meta property="og:description" content="Tor per conversation. Anonymous payments via zkAPI. Cover traffic. Local prompt rewriting. Vitalik's new privacy stack for AI agents — and a 6-question check of your own exposure. Free, no signup.">
+<meta property="og:title" content="AI Agent Security: Paranoid-Mode Check | Ingenious AI">
+<meta property="og:description" content="AI agent security, Vitalik-style: Tor per conversation, zkAPI payments, cover traffic, local prompt rewriting. 6-question check of your agent's exposure. Free.">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-paranoid-mode-check.html">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-paranoid-mode-check.html">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vitalik built 'paranoid mode' for AI agents. How exposed is yours?">
-<meta name="twitter:description" content="Tor per conversation. Anonymous payments via zkAPI. Cover traffic. Local prompt rewriting. 6-question agent-privacy exposure check — free, no signup.">
+<meta name="twitter:title" content="AI Agent Security: Paranoid-Mode Check | Ingenious AI">
+<meta name="twitter:description" content="AI agent security, Vitalik-style: Tor per conversation, zkAPI payments, cover traffic, local prompt rewriting. 6-question check of your agent's exposure. Free.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
@@ -44,21 +44,90 @@ li{margin:8px 0}
 .howto b{color:#7ee787}
 footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
 </style>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"What is Vitalik Buterin's 'paranoid mode' for AI agents?","acceptedAnswer":{"@type":"Answer","text":"An experimental open-source privacy stack Vitalik Buterin announced on X on October 16, 2026: a 'paranoid mode' wrapper for his pi agent harness built as an OpenAI-compatible daemon. It layers zkAPI (zero-knowledge payments), Tor (a separate circuit per conversation), random cover traffic, and local LLM prompt rewriting (he uses qwen3.8-flash-next), with the harness itself in a bwrap sandbox wrapped with torsocks so all its traffic goes through Tor."}},
-{"@type":"Question","name":"What are the three ways an AI agent leaks your identity?","acceptedAnswer":{"@type":"Answer","text":"Per the design's own framing: what you request (prompts carry names, company details, stylistic fingerprints), how you pay for it (an API key or card ties every query to a billing identity), and where you're making the request from (IP address, TLS fingerprint, and timing patterns). Vitalik's stack addresses each axis separately: local rewriting for content, zkAPI for payments, Tor plus cover traffic for network origin."}},
-{"@type":"Question","name":"What are the limits of Vitalik's paranoid-mode setup?","acceptedAnswer":{"@type":"Answer","text":"His own caveats: it adds real latency, especially when starting new conversations; the cover-traffic mechanism is only okay against passive adversaries and much weaker if the LLM provider colludes with a Tor guard and manipulates timing; and Tor is 'far from optimal' here — he argues the problem really needs a specialized mixnet with a higher bandwidth multiplier and built-in constant cover traffic."}},
-{"@type":"Question","name":"Can I use paranoid mode myself?","acceptedAnswer":{"@type":"Answer","text":"The code is open-source and experimental — it currently involves a Linux bwrap sandbox, torsocks, and a local model setup, so it's for the technically comfortable. The practical takeaways anyone can adopt: separate your agent's network identity from your own, keep API billing unlinkable where possible, strip identifying details from prompts before they reach third-party APIs, and reserve your highest-sensitivity agent tasks for a hardened tier."}}
-]}
-</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Vitalik Buterin's 'paranoid mode' for AI agents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An experimental open-source privacy stack Vitalik Buterin announced on X on October 16, 2026: a 'paranoid mode' wrapper for his pi agent harness built as an OpenAI-compatible daemon. It layers zkAPI (zero-knowledge payments), Tor (a separate circuit per conversation), random cover traffic, and local LLM prompt rewriting (he uses qwen3.8-flash-next), with the harness itself in a bwrap sandbox wrapped with torsocks so all its traffic goes through Tor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the three ways an AI agent leaks your identity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Per the design's own framing: what you request (prompts carry names, company details, stylistic fingerprints), how you pay for it (an API key or card ties every query to a billing identity), and where you're making the request from (IP address, TLS fingerprint, and timing patterns). Vitalik's stack addresses each axis separately: local rewriting for content, zkAPI for payments, Tor plus cover traffic for network origin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the limits of Vitalik's paranoid-mode setup?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "His own caveats: it adds real latency, especially when starting new conversations; the cover-traffic mechanism is only okay against passive adversaries and much weaker if the LLM provider colludes with a Tor guard and manipulates timing; and Tor is 'far from optimal' here — he argues the problem really needs a specialized mixnet with a higher bandwidth multiplier and built-in constant cover traffic."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use paranoid mode myself?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The code is open-source and experimental — it currently involves a Linux bwrap sandbox, torsocks, and a local model setup, so it's for the technically comfortable. The practical takeaways anyone can adopt: separate your agent's network identity from your own, keep API billing unlinkable where possible, strip identifying details from prompts before they reach third-party APIs, and reserve your highest-sensitivity agent tasks for a hardened tier."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the security risks of AI agents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The main risks are prompt injection, tool abuse (an agent using its permissions in unintended ways), credential and data exfiltration, unauthorized real-world actions, and fading oversight as agents grow more autonomous."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you stop an AI agent from going rogue?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use least-privilege permissions, require human approval for irreversible actions, enforce egress allowlists at the network layer rather than in the prompt, keep tamper-evident logs of every agent action, and maintain a working kill switch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is an AI agent security framework?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An AI agent security framework is a structured set of practices for deploying AI agents safely — permissions, oversight, logging, and incident response. Recent examples include NIST, NSA and CISA's October 2026 joint practices and CERT-In's \"AI Agents as Attack Vectors\" advisory."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "AI Agent Security: Paranoid-Mode Check | Ingenious AI",
+  "description": "AI agent security, Vitalik-style: Tor per conversation, zkAPI payments, cover traffic, local prompt rewriting. 6-question check of your agent's exposure. Free.",
+  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-paranoid-mode-check.html",
+  "inLanguage": "en",
+  "about": "AI agent security",
+  "keywords": "AI agent security best practices, AI agent security, AI agent security risks, rogue AI agents",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ingenious AI",
+    "url": "https://github.com/Iceman2050"
+  }
+}</script>
 <link rel="stylesheet" href="ecosystem.css">
 </head>
 <body>
 <div class="wrap">
 <div class="badge">VITALIK'S PARANOID MODE &mdash; OCT 16, 2026</div>
 <h1>Vitalik built <span class="green">"paranoid mode"</span> for AI agents. How <span class="red">exposed</span> is yours?</h1>
-<p class="lead">On <strong>October 16, 2026</strong>, Ethereum co-founder <strong>Vitalik Buterin</strong> announced on X that he had built an experimental <strong>"paranoid mode"</strong> wrapper for his AI agent harness, <strong>pi</strong>: an OpenAI-compatible daemon layering <strong>Tor</strong> (a separate circuit per conversation), <strong>zkAPI</strong> zero-knowledge payments, <strong>random cover traffic</strong>, and <strong>local LLM prompt rewriting</strong> &mdash; with the harness itself sandboxed (bwrap) and wrapped in torsocks so everything it does goes through Tor. His goal: stop agents leaking identity along the three axes every agent exposes &mdash; <strong>what you request, how you pay for it, and where you're making the request from</strong>. The code is open-source. And he was blunt about the limits (below). This 60-second check measures <em>your</em> agent's exposure on those same three axes. Free, no signup.</p>
+<p class="lead">On <strong>October 16, 2026</strong>, Ethereum co-founder <strong>Vitalik Buterin</strong> announced on X that he had built an experimental <strong>"paranoid mode"</strong> wrapper for his AI agent harness, <strong>pi</strong>: an OpenAI-compatible daemon layering <strong>Tor</strong> (a separate circuit per conversation), <strong>zkAPI</strong> zero-knowledge payments, <strong>random cover traffic</strong>, and <strong>local LLM prompt rewriting</strong> &mdash; with the harness itself sandboxed (bwrap) and wrapped in torsocks so everything it does goes through Tor. His goal: stop agents leaking identity along the three axes every agent exposes &mdash; <strong>what you request, how you pay for it, and where you're making the request from</strong>. The code is open-source. And he was blunt about the limits (below). This 60-second check measures <em>your</em> agent's exposure on those same three axes. Free, no signup. Containment and least-privilege networking are core AI agent security practices — this 6-question check grades your setup against them.</p>
 
 <div class="howto">
 <div><b>What Vitalik built (verified, Oct 16, 2026):</b></div>
@@ -129,6 +198,13 @@ renderQ();
 
 <div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=Vitalik%20built%20%27paranoid%20mode%27%20for%20AI%20agents%20%E2%80%94%20Tor%20per%20conversation%2C%20zkAPI%20anonymous%20payments%2C%20cover%20traffic%2C%20local%20prompt%20rewriting.%206-question%20exposure%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/agent-paranoid-mode-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/agent-paranoid-mode-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/agent-paranoid-mode-check.html&title=Vitalik%20built%20%27paranoid%20mode%27%20for%20AI%20agents%20(Tor%20%2B%20zkAPI%20%2B%20local%20prompt%20rewriting)%20%E2%80%94%2060-second%20exposure%20check" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
 <div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<section class="kw-faq" style="max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
+<h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What are the security risks of AI agents?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">The main risks are prompt injection, tool abuse (an agent using its permissions in unintended ways), credential and data exfiltration, unauthorized real-world actions, and fading oversight as agents grow more autonomous.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How do you stop an AI agent from going rogue?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Use least-privilege permissions, require human approval for irreversible actions, enforce egress allowlists at the network layer rather than in the prompt, keep tamper-evident logs of every agent action, and maintain a working kill switch.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is an AI agent security framework?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">An AI agent security framework is a structured set of practices for deploying AI agents safely — permissions, oversight, logging, and incident response. Recent examples include NIST, NSA and CISA's October 2026 joint practices and CERT-In's "AI Agents as Attack Vectors" advisory.</p></details>
+</section>
+
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->

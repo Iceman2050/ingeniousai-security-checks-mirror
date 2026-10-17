@@ -3,12 +3,14 @@
 <head>
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-exposure-quiz.html">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-exposure-quiz.html">
+<meta name="twitter:title" content="Nextcloud CVE Exposure Quiz — CVE-2026-110447 Self-Test">
+<meta name="twitter:description" content="Nextcloud CVE exposure quiz: Censys counts 19,454 hosts with the vulnerable Collabora app. Five honest questions, one honest verdict. Free, in-browser.">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Is Your Nextcloud One of the 19,454? — CVE-2026-110447 Exposure Quiz</title>
-<meta name="description" content="Censys found 19,454 hosts with the vulnerable Nextcloud Collabora app installed. Answer 5 questions for your EXPOSED / LIKELY SAFE / CANNOT TELL verdict on CVE-2026-110447. Free, no signup.">
-<meta property="og:title" content="Is Your Nextcloud One of the 19,454?">
-<meta property="og:description" content="5 questions. One honest verdict on your CVE-2026-110447 exposure. Free, no signup.">
+<title>Nextcloud CVE Exposure Quiz — CVE-2026-110447 Self-Test</title>
+<meta name="description" content="Nextcloud CVE exposure quiz: Censys counts 19,454 hosts with the vulnerable Collabora app. Five honest questions, one honest verdict. Free, in-browser.">
+<meta property="og:title" content="Nextcloud CVE Exposure Quiz — CVE-2026-110447 Self-Test">
+<meta property="og:description" content="Nextcloud CVE exposure quiz: Censys counts 19,454 hosts with the vulnerable Collabora app. Five honest questions, one honest verdict. Free, in-browser.">
 <meta property="og:type" content="article">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -45,19 +47,16 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 .warnbox{background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#e6c26a}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"How many Nextcloud servers are exposed to CVE-2026-110447?","acceptedAnswer":{"@type":"Answer","text":"Censys reported on October 16, 2026 that it detects 19,454 hosts and 103,350 web properties with the vulnerable Collabora built-in CODE Server app installed. Only servers running richdocumentscode below 26.4.303 are actually exploitable."}},
-{"@type":"Question","name":"Am I safe if my Nextcloud isn't internet-facing?","acceptedAnswer":{"@type":"Answer","text":"An internal-only server is much harder to reach, but the flaw needs no authentication — anyone who can reach the server's proxy.php endpoint can exploit it. VPN-only or LAN-only deployments are lower risk, not zero risk."}},
-{"@type":"Question","name":"I removed the Collabora app in October — am I in the clear?","acceptedAnswer":{"@type":"Answer","text":"Removing the app closes the hole going forward, but if a vulnerable version was installed any time in September–October 2026, you should still hunt for planted web shells (shx*.php / shrf*.php patterns) and review access logs from September 10 onward. Patching or removing never deletes shells."}}
-]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many Nextcloud servers are exposed to CVE-2026-110447?","acceptedAnswer":{"@type":"Answer","text":"Censys reported on October 16, 2026 that it detects 19,454 hosts and 103,350 web properties with the vulnerable Collabora built-in CODE Server app installed. Only servers running richdocumentscode below 26.4.303 are actually exploitable."}},{"@type":"Question","name":"Am I safe if my Nextcloud isn't internet-facing?","acceptedAnswer":{"@type":"Answer","text":"An internal-only server is much harder to reach, but the flaw needs no authentication — anyone who can reach the server's proxy.php endpoint can exploit it. VPN-only or LAN-only deployments are lower risk, not zero risk."}},{"@type":"Question","name":"I removed the Collabora app in October — am I in the clear?","acceptedAnswer":{"@type":"Answer","text":"Removing the app closes the hole going forward, but if a vulnerable version was installed any time in September–October 2026, you should still hunt for planted web shells (shx*.php / shrf*.php patterns) and review access logs from September 10 onward. Patching or removing never deletes shells."}},{"@type":"Question","name":"Is Nextcloud safe?","acceptedAnswer":{"@type":"Answer","text":"Nextcloud itself remains safe to use when kept updated — the October 2026 incident was a critical flaw (CVE-2026-110447) in one optional app, the built-in Collabora CODE server, not in Nextcloud core. Stay on a supported release, apply maintenance updates promptly, and remove apps you do not use."}},{"@type":"Question","name":"How do I check if my Nextcloud is vulnerable?","acceptedAnswer":{"@type":"Answer","text":"Check whether the ‘Collabora Online – Built-in CODE Server’ app (richdocumentscode) is installed and older than 26.4.303 — via Admin > Apps or ‘occ app:list’. If the app was present at any point in September–October 2026, assume exposure and hunt for web shells even after patching."}},{"@type":"Question","name":"What should I do if my Nextcloud was hacked?","acceptedAnswer":{"@type":"Answer","text":"Take the server offline, restore from a clean backup or rebuild it, and rotate every credential the server touched. Hunt for leftover PHP web shells — patching CVE-2026-110447 does not remove shells attackers already planted — then update the Collabora app to 26.4.303+ or remove it."}}]}
 </script>
 <link rel="stylesheet" href="ecosystem.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Nextcloud CVE Exposure Quiz — CVE-2026-110447 Self-Test","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-exposure-quiz.html","description":"Nextcloud CVE exposure quiz: Censys counts 19,454 hosts with the vulnerable Collabora app. Five honest questions, one honest verdict. Free, in-browser.","about":{"@type":"Thing","name":"CVE-2026-110447"},"keywords":["Nextcloud CVE","Nextcloud CVE 2026","CVE-2026-110447","check if Nextcloud vulnerable","Nextcloud exposure test"],"provider":{"@type":"Organization","name":"Ingenious AI"}}</script>
 </head>
 <body>
 <div class="wrap">
 <div class="badge">CVE-2026-110447 &mdash; SELF-ASSESSMENT</div>
-<h1>Is your Nextcloud one of the <span class="red">19,454</span>?</h1>
-<p class="lead">Censys counts 19,454 hosts with the vulnerable Collabora app installed. Five honest questions, one honest verdict &mdash; including the uncomfortable ones admins skip, like "was it vulnerable <em>last month</em>?" No signup, nothing leaves your browser.</p>
+<h1>Nextcloud CVE exposure quiz: is yours one of the 19,454?</h1>
+<p class="lead">Censys counts 19,454 hosts with the vulnerable Collabora app installed. Five honest questions, one honest Nextcloud CVE verdict &mdash; including the uncomfortable ones admins skip, like "was it vulnerable <em>last month</em>?" No signup, nothing leaves your browser.</p>
 
 <div class="card">
 <h2>The 5-question quiz</h2>
@@ -140,6 +139,15 @@ sudo -u www-data php occ --version</code>
   });
 })();
 </script>
+<h2 style="font-size:21px;margin:30px 0 12px;color:#fff">FAQ</h2>
+<div>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">How many Nextcloud servers are exposed to CVE-2026-110447?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Censys reported on October 16, 2026 that it detects 19,454 hosts and 103,350 web properties with the vulnerable Collabora built-in CODE Server app installed. Only servers running richdocumentscode below 26.4.303 are actually exploitable.</p></details>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">Am I safe if my Nextcloud isn&#x27;t internet-facing?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">An internal-only server is much harder to reach, but the flaw needs no authentication — anyone who can reach the server&#x27;s proxy.php endpoint can exploit it. VPN-only or LAN-only deployments are lower risk, not zero risk.</p></details>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">I removed the Collabora app in October — am I in the clear?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Removing the app closes the hole going forward, but if a vulnerable version was installed any time in September–October 2026, you should still hunt for planted web shells (shx*.php / shrf*.php patterns) and review access logs from September 10 onward. Patching or removing never deletes shells.</p></details>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">Is Nextcloud safe?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Nextcloud itself remains safe to use when kept updated — the October 2026 incident was a critical flaw (CVE-2026-110447) in one optional app, the built-in Collabora CODE server, not in Nextcloud core. Stay on a supported release, apply maintenance updates promptly, and remove apps you do not use.</p></details>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">How do I check if my Nextcloud is vulnerable?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Check whether the ‘Collabora Online – Built-in CODE Server’ app (richdocumentscode) is installed and older than 26.4.303 — via Admin &gt; Apps or ‘occ app:list’. If the app was present at any point in September–October 2026, assume exposure and hunt for web shells even after patching.</p></details>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">What should I do if my Nextcloud was hacked?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Take the server offline, restore from a clean backup or rebuild it, and rotate every credential the server touched. Hunt for leftover PHP web shells — patching CVE-2026-110447 does not remove shells attackers already planted — then update the Collabora app to 26.4.303+ or remove it.</p></details>
+</div>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->

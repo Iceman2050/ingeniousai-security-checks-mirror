@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agent CTF Arena — Jailbreak the Demo Agent (Free Prompt-Injection Game)</title>
-<meta name="description" content="Free browser game: can you trick a demo AI agent into leaking its fictional API key? Three difficulty levels, fewest-moves scoring, shareable score card. Educational prompt-injection demo by Ingenious AI.">
+<title>Prompt Injection Test — Free AI Red-Team Game | Ingenious AI</title>
+<meta name="description" content="Prompt injection game: trick a demo AI agent into leaking its fictional API key. 3 difficulty levels, fewest moves wins, shareable score card. Free, no signup.">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-ctf-arena.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="Agent CTF Arena — jailbreak the demo agent">
-<meta property="og:description" content="A free game: outsmart a demo AI agent and make it leak its (fictional) API key. 3 difficulty levels, fewest moves wins. Can you pwn it?">
+<meta property="og:title" content="Prompt Injection Test — Free AI Red-Team Game | Ingenious AI">
+<meta property="og:description" content="Prompt injection game: trick a demo AI agent into leaking its fictional API key. 3 difficulty levels, fewest moves wins, shareable score card. Free, no signup.">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-ctf-arena.html">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Agent CTF Arena — jailbreak the demo agent">
-<meta name="twitter:description" content="Free prompt-injection game: make the demo agent leak its fictional API key in as few moves as possible.">
+<meta name="twitter:title" content="Prompt Injection Test — Free AI Red-Team Game | Ingenious AI">
+<meta name="twitter:description" content="Prompt injection game: trick a demo AI agent into leaking its fictional API key. 3 difficulty levels, fewest moves wins, shareable score card. Free, no signup.">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"Agent CTF Arena","applicationCategory":"GameApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-ctf-arena.html","description":"A free educational browser game: trick a rule-based demo AI agent into revealing its fictional API key across three difficulty levels. Fewest moves wins.","author":{"@type":"Organization","name":"Ingenious AI"}}
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "Prompt Injection Test — Free AI Red-Team Game | Ingenious AI", "applicationCategory": "GameApplication", "operatingSystem": "Any (web)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-ctf-arena.html", "description": "Prompt injection game: trick a demo AI agent into leaking its fictional API key. 3 difficulty levels, fewest moves wins, shareable score card. Free, no signup.", "author": {"@type": "Organization", "name": "Ingenious AI"}, "about": "Prompt injection", "keywords": "prompt injection, prompt injection attack, prompt injection examples, prompt injection tests, prompt injection meaning"}
 </script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -57,12 +57,32 @@ ul.tips{margin:8px 0 8px 20px;font-size:14px;color:#9aa7b8}
 ul.tips li{margin:4px 0}
 </style>
 <link rel="stylesheet" href="ecosystem.css">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is prompt injection and how does it manipulate LLMs?", "acceptedAnswer": {"@type": "Answer", "text": "Prompt injection is an attack that tricks an AI system into following instructions from an untrusted source. It works because LLMs process everything — your request, tool outputs, web pages, files — as one text stream, so the model can mistake attacker-planted text for orders it should obey."}}, {"@type": "Question", "name": "What is the difference between direct and indirect prompt injection?", "acceptedAnswer": {"@type": "Answer", "text": "Direct prompt injection is typed straight at the model by the user — the classic “ignore previous instructions”. Indirect prompt injection hides the instructions in content the model reads on your behalf — a web page, email, document, or file — so the attack arrives through the data channel instead of the chat box."}}, {"@type": "Question", "name": "How is prompt injection different from jailbreaking?", "acceptedAnswer": {"@type": "Answer", "text": "Jailbreaking aims to strip a model’s built-in safety rules — for example, convincing it to act as an unfiltered persona. Prompt injection steers the model toward an attacker’s goal, like stealing data or abusing tools, without necessarily removing its guardrails. The two overlap, but jailbreaks target the model’s rules; injections target its instruction hierarchy."}}, {"@type": "Question", "name": "Can input sanitization completely stop prompt injection?", "acceptedAnswer": {"@type": "Answer", "text": "No. Sanitization and blocklists buy time, but attackers constantly rephrase, encode, or multi-turn their way around filters — OpenAI has acknowledged the underlying problem may never be fully solved. The accepted strategy is defense in depth: least-privilege agents, human approval for irreversible actions, and monitoring."}}]}
+</script>
+<style>
+.faq{margin:30px 0}
+.faq h2{font-size:22px;margin-bottom:12px;color:#fff}
+.faq details{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0}
+.faq summary{font-weight:700;cursor:pointer;color:#e6edf3}
+.faq p{color:#9aa7b8;font-size:14px;margin-top:8px}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is prompt injection and how does it manipulate LLMs?", "acceptedAnswer": {"@type": "Answer", "text": "Prompt injection is an attack that tricks an AI system into following instructions from an untrusted source. It works because LLMs process everything — your request, tool outputs, web pages, files — as one text stream, so the model can mistake attacker-planted text for orders it should obey."}}, {"@type": "Question", "name": "What is the difference between direct and indirect prompt injection?", "acceptedAnswer": {"@type": "Answer", "text": "Direct prompt injection is typed straight at the model by the user — the classic “ignore previous instructions”. Indirect prompt injection hides the instructions in content the model reads on your behalf — a web page, email, document, or file — so the attack arrives through the data channel instead of the chat box."}}, {"@type": "Question", "name": "How is prompt injection different from jailbreaking?", "acceptedAnswer": {"@type": "Answer", "text": "Jailbreaking aims to strip a model’s built-in safety rules — for example, convincing it to act as an unfiltered persona. Prompt injection steers the model toward an attacker’s goal, like stealing data or abusing tools, without necessarily removing its guardrails. The two overlap, but jailbreaks target the model’s rules; injections target its instruction hierarchy."}}, {"@type": "Question", "name": "Can input sanitization completely stop prompt injection?", "acceptedAnswer": {"@type": "Answer", "text": "No. Sanitization and blocklists buy time, but attackers constantly rephrase, encode, or multi-turn their way around filters — OpenAI has acknowledged the underlying problem may never be fully solved. The accepted strategy is defense in depth: least-privilege agents, human approval for irreversible actions, and monitoring."}}]}
+</script>
+<style>
+.faq{margin:30px 0}
+.faq h2{font-size:22px;margin-bottom:12px;color:#fff}
+.faq details{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0}
+.faq summary{font-weight:700;cursor:pointer;color:#e6edf3}
+.faq p{color:#9aa7b8;font-size:14px;margin-top:8px}
+</style>
 </head>
 <body>
 <div class="wrap">
 <div class="badge">FREE GAME</div>
-<h1>Agent CTF Arena</h1>
-<p class="lead">A demo AI agent is guarding a <strong>fictional</strong> API key. Your mission: make it leak the key in as few messages as possible. Three difficulty levels, from gullible to paranoid. All three are beatable — that's the point.</p>
+<h1>Agent CTF Arena: a prompt injection game</h1>
+<p class="lead">This free browser game is a hands-on prompt injection test: a demo AI agent is guarding a <strong>fictional</strong> API key. Your mission: make it leak the key in as few messages as possible. Three difficulty levels, from gullible to paranoid. All three are beatable — that's the point.</p>
 
 <div class="card">
 <div id="movebar"><div>Moves: <b id="movecount">0</b></div><div id="diffname" class="small">Difficulty: NAIVE</div></div>
@@ -106,6 +126,22 @@ ul.tips li{margin:4px 0}
 
 <div class="honest">
 <b>How it works (honest box):</b> this is a <b>deterministic demo</b> — the "agent" is a rule-based script running entirely in your browser, and the key is <b>fictional</b> (it unlocks nothing, anywhere). Real AI agents are probabilistic and far harder to reason about, which is exactly why prompt-injection defense is a real discipline. This game teaches the <em>shapes</em> of real attacks: direct instruction override, partial exfiltration, encoding evasion, and multi-turn authority tricks. Educational purpose only.
+</div>
+
+<div class="faq">
+<h2>Prompt injection FAQ</h2>
+<details><summary>What is prompt injection and how does it manipulate LLMs?</summary><p>Prompt injection is an attack that tricks an AI system into following instructions from an untrusted source. It works because LLMs process everything — your request, tool outputs, web pages, files — as one text stream, so the model can mistake attacker-planted text for orders it should obey.</p></details>
+<details><summary>What is the difference between direct and indirect prompt injection?</summary><p>Direct prompt injection is typed straight at the model by the user — the classic “ignore previous instructions”. Indirect prompt injection hides the instructions in content the model reads on your behalf — a web page, email, document, or file — so the attack arrives through the data channel instead of the chat box.</p></details>
+<details><summary>How is prompt injection different from jailbreaking?</summary><p>Jailbreaking aims to strip a model’s built-in safety rules — for example, convincing it to act as an unfiltered persona. Prompt injection steers the model toward an attacker’s goal, like stealing data or abusing tools, without necessarily removing its guardrails. The two overlap, but jailbreaks target the model’s rules; injections target its instruction hierarchy.</p></details>
+<details><summary>Can input sanitization completely stop prompt injection?</summary><p>No. Sanitization and blocklists buy time, but attackers constantly rephrase, encode, or multi-turn their way around filters — OpenAI has acknowledged the underlying problem may never be fully solved. The accepted strategy is defense in depth: least-privilege agents, human approval for irreversible actions, and monitoring.</p></details>
+</div>
+
+<div class="faq">
+<h2>Prompt injection FAQ</h2>
+<details><summary>What is prompt injection and how does it manipulate LLMs?</summary><p>Prompt injection is an attack that tricks an AI system into following instructions from an untrusted source. It works because LLMs process everything — your request, tool outputs, web pages, files — as one text stream, so the model can mistake attacker-planted text for orders it should obey.</p></details>
+<details><summary>What is the difference between direct and indirect prompt injection?</summary><p>Direct prompt injection is typed straight at the model by the user — the classic “ignore previous instructions”. Indirect prompt injection hides the instructions in content the model reads on your behalf — a web page, email, document, or file — so the attack arrives through the data channel instead of the chat box.</p></details>
+<details><summary>How is prompt injection different from jailbreaking?</summary><p>Jailbreaking aims to strip a model’s built-in safety rules — for example, convincing it to act as an unfiltered persona. Prompt injection steers the model toward an attacker’s goal, like stealing data or abusing tools, without necessarily removing its guardrails. The two overlap, but jailbreaks target the model’s rules; injections target its instruction hierarchy.</p></details>
+<details><summary>Can input sanitization completely stop prompt injection?</summary><p>No. Sanitization and blocklists buy time, but attackers constantly rephrase, encode, or multi-turn their way around filters — OpenAI has acknowledged the underlying problem may never be fully solved. The accepted strategy is defense in depth: least-privilege agents, human approval for irreversible actions, and monitoring.</p></details>
 </div>
 
 <div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#fff;text-decoration:underline">Rogue-Agent Defense</a> watches your AI agents in real time &mdash; it catches prompt-injection, jailbreaks, and rogue tool calls before they cost you.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20played%20the%20Agent%20CTF%20Arena%20and%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>

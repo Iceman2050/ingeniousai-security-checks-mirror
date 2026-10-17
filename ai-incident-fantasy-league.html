@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Incident Fantasy League — Draft Big AI, Score Their Failures</title>
+<meta name="description" content="The absurd-but-real fantasy game: draft a team of AI vendors and score points when they suffer publicly-reported incidents, breaches and outages. Every incident cited. Free game by Ingenious AI.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-incident-fantasy-league.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="AI Incident Fantasy League — draft Big AI, score their failures">
+<meta property="og:description" content="Draft a team of AI vendors. When they have publicly-reported incidents, breaches and outages, you score. Every incident cited with source and date.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-incident-fantasy-league.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Incident Fantasy League — draft Big AI, score their failures">
+<meta name="twitter:description" content="Absurd but real: your team scores when AI vendors suffer publicly-reported incidents. Every one cited.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"AI Incident Fantasy League — Draft Big AI, Score Their Failures","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-incident-fantasy-league.html","description":"Draft a team of AI vendors and score points when they suffer publicly-reported incidents, breaches and outages. Every incident cited with publication and date.","author":{"@type":"Organization","name":"Ingenious AI"},"isFree":true}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:940px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a1f08;border:1px solid #d29922;color:#ffce63;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h2{font-size:22px;margin:36px 0 12px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.honest{background:#0d1420;border:2px solid #d29922;border-radius:12px;padding:18px 20px;margin:24px 0;font-size:15px;color:#ffce63}
+.honest strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:24px;margin:20px 0}
+.card h3{font-size:18px;margin-bottom:6px}
+.why{color:#9aa7b8;font-size:14px;margin-bottom:14px}
+a{color:#6ea8fe}
+.vendors{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:14px 0}
+.vendor{display:flex;align-items:center;gap:10px;background:#0b0f17;border:1px solid #232b38;border-radius:10px;padding:12px 14px;cursor:pointer;font-size:15px;font-weight:600}
+.vendor input{width:18px;height:18px;accent-color:#1c6ef2;cursor:pointer}
+.vendor.picked{border-color:#1c6ef2;background:#0d1626}
+.rules{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.rule{background:#0b0f17;border:1px solid #232b38;border-radius:999px;padding:8px 16px;font-size:13.5px;color:#c4ccd6}
+.rule b{color:#ffce63}
+input[type=text]{width:100%;max-width:340px;background:#0b0f17;border:1px solid #232b38;color:#e6edf3;border-radius:8px;padding:11px 14px;font-size:15px;margin:10px 0}
+button.btn{background:#1c6ef2;color:#fff;border:none;padding:12px 26px;border-radius:8px;font-weight:700;font-size:15px;cursor:pointer;margin:8px 8px 8px 0}
+button.btn.ghost{background:transparent;border:1px solid #232b38;color:#9aa7b8}
+button.btn:disabled{opacity:.45;cursor:not-allowed}
+.team-score{background:#0d1420;border:2px solid #1c6ef2;border-radius:12px;padding:20px;margin:20px 0;text-align:center;display:none}
+.team-score .pts{font-size:44px;font-weight:800;color:#6ea8fe}
+.team-score .tname{font-size:17px;font-weight:700;margin-bottom:4px}
+.team-score .detail{font-size:13.5px;color:#9aa7b8}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:10px 0}
+th,td{border:1px solid #232b38;padding:9px 10px;text-align:left}
+th{background:#161c28;color:#6ea8fe;font-size:12px;letter-spacing:.4px;text-transform:uppercase}
+td{color:#c4ccd6}
+.device-note{font-size:12.5px;color:#6b7688;font-style:italic}
+.incident{background:#0b0f17;border:1px solid #232b38;border-radius:10px;padding:18px;margin:12px 0}
+.incident .date{color:#6ea8fe;font-size:13px;font-weight:700;letter-spacing:.5px}
+.incident h3{font-size:16.5px;margin:6px 0 8px}
+.incident p{color:#c4ccd6;font-size:14.5px}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;margin-right:6px;letter-spacing:.4px}
+.tag.outage{background:#0d2b3d;color:#79c0ff}
+.tag.leak{background:#2a1f08;color:#ffce63}
+.tag.breach{background:#3d1a1a;color:#ff7b72}
+.incident .links{margin-top:10px;font-size:13px}
+.incident .links a{margin-right:14px}
+.note{font-size:13px;color:#6b7688;margin-top:8px}
+.cta{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:32px 0;text-align:center}
+.cta a.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px;margin-top:12px}
+.plat{font-size:13px;color:#9aa7b8;margin-top:16px;line-height:2}
+@media(max-width:600px){h1{font-size:27px}.card{padding:16px}}
+</style>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<div class="badge">2026 SEASON · REAL DATA</div>
+<h1>AI Incident Fantasy League</h1>
+<p class="lead">The most depressing fantasy sport ever invented. Draft a team of AI vendors — then <strong>score points when they suffer publicly-reported incidents, breaches and outages.</strong> Every incident below is real reporting: publication, date and source link, nothing invented.</p>
+
+<div class="honest"><strong>Real-data rule:</strong> your score comes <em>only</em> from the cited incidents below. We never invent incidents, fines or scores to make the game interesting. A vendor with zero sourced incidents scores zero — even if your gut says otherwise.</div>
+
+<h2>1. The scoring rules</h2>
+<div class="card">
+<div class="rules">
+<span class="rule"><b>+10</b> outage / service degradation</span>
+<span class="rule"><b>+20</b> data leak / exposure</span>
+<span class="rule"><b>+25</b> breach / credential theft</span>
+</div>
+<p class="note">Points count for the 2026 season only (incidents dated 2025–2026 in the seeded list). An incident scores for every vendor tagged on it. Disputed classifications are labeled on the incident card.</p>
+</div>
+
+<h2>2. Draft your team</h2>
+<div class="card">
+<h3>Pick your vendors</h3>
+<div class="why">Check every vendor you want on your roster. Fewer vendors, higher risk; more vendors, safer floor.</div>
+<div class="vendors" id="vendors"></div>
+<input type="text" id="teamName" maxlength="40" placeholder="Team name (e.g. Downtime Enjoyers)">
+<br>
+<button class="btn" id="draftBtn">🏈 Start my season</button>
+<button class="btn ghost" id="shareBtn" style="display:none">📣 Share my result</button>
+<div class="team-score" id="teamScore">
+<div class="tname" id="tsName"></div>
+<div class="pts" id="tsPts"></div>
+<div class="detail" id="tsDetail"></div>
+</div>
+<p class="note" id="draftNote" style="display:none"></p>
+</div>
+
+<h2>3. Season leaderboard</h2>
+<div class="card">
+<div style="overflow-x:auto">
+<table id="board">
+<tr><th>#</th><th>Team</th><th>Vendors</th><th>Pts</th></tr>
+</table>
+</div>
+<p class="device-note">Leaderboard: this device only. It's your personal season, not a global ranking — no accounts, no tracking, no cookies.</p>
+<button class="btn ghost" id="resetBtn">Clear my teams</button>
+</div>
+
+<h2>4. The seeded incidents (the only ones that score)</h2>
+<div class="card">
+<div class="why">Five real, cited incidents. Click any incident's record link for its full entry in our <a href="agent-incident-tracker.html">AI Incident Tracker</a>.</div>
+<div id="incidents"></div>
+<p class="note">Spotted a documented vendor incident we missed? We add entries only when the incident is covered by verifiable public reporting — the same bar as our tracker.</p>
+</div>
+
+<h2>5. Why this game exists</h2>
+<div class="card">
+<p style="color:#c4ccd6">It's funny because it's true: the vendors with the most users are the vendors with the biggest blast radius. Every incident above was someone's bad quarter. BreachHunter exists so you're the one who finds the exposure <em>before</em> it's a headline — external attack-surface monitoring that watches your vendors, your code and your cloud the way attackers do.</p>
+</div>
+
+<div class="cta">
+<div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div>
+<div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter." style="color:#fff;text-decoration:underline">BreachHunter</a> watches your attack surface so a breach doesn't become someone else's fantasy points.</strong></div>
+<div class="plat">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div>
+<div style="font-size:14px;color:#9aa7b8;margin-bottom:6px;margin-top:10px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div>
+<a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter.">Get early access on WhatsApp &rarr;</a>
+</div>
+
+</div>
+<script>
+const VENDORS=["OpenAI","Anthropic","Google","Meta","xAI","Microsoft","DeepSeek","Mistral"];
+const PTS={outage:10,leak:20,breach:25};
+const TYPE_LABEL={outage:"+10 outage",leak:"+20 data leak",breach:"+25 breach"};
+const TYPE_CLASS={outage:"outage",leak:"leak",breach:"breach"};
+// Every incident below is real, publicly reported, and sourced. Nothing invented.
+const INCIDENTS=[
+ {id:"openai-oct15-2026",date:"Oct 15, 2026",vendor:"OpenAI",type:"outage",
+  title:"ChatGPT iOS/Android login & signup degradation (~1.2 hours)",
+  text:"OpenAI's official status page reported widespread feature degradation hitting ChatGPT logins and signups on the iOS and Android apps. A mitigation was applied and the service entered monitoring within about 1.2 hours.",
+  pub:"OpenAI status (via IsDown)",src:"https://IsDown.app/status/openai/incidents/670691-issues-logging-in-and-signing-up-for-chatgpt-on-ios"},
+ {id:"github-ghostaction",date:"Oct 8–9, 2026",vendor:"Microsoft",type:"breach",
+  title:"GhostAction supply-chain wave: ~1,900 GitHub accounts compromised, 30,000+ repos targeted",
+  text:"Threat actors used stolen personal access tokens to push malicious 'security-audit.yml' GitHub Actions workflows into tens of thousands of repositories, attempting to extract 3,174 CI/CD secrets, cloud credentials and AI API keys. Reported by GitGuardian; covered by The Hacker News.",
+  pub:"The Hacker News, Oct 15, 2026",src:"http://thehackernews.com/2026/10/ghostaction-compromises-about-1900.html"},
+ {id:"drift-unc6395",date:"Aug 8–18, 2025",vendor:"Google",type:"breach",
+  title:"UNC6395 stole Salesloft Drift OAuth tokens — 700+ orgs' data exported, Google Workspace inboxes read",
+  text:"Google's Threat Intelligence Group reported actor UNC6395 used compromised OAuth tokens from the Drift AI chat agent to export large volumes of Salesforce data from 700+ organizations, then confirmed compromised Drift Email tokens were used to read mail in a small number of Google Workspace accounts.",
+  pub:"SC Media, Aug 27, 2025 (via GTIG)",src:"https://www.scworld.com/brief/extensive-salesforce-data-theft-campaign-fueled-by-stolen-salesloft-drift-oauth-tokens"},
+ {id:"deepseek-wiz",date:"Jan 30, 2025",vendor:"DeepSeek",type:"leak",
+  title:"Wiz found DeepSeek's unauthenticated ClickHouse exposing 1M+ plaintext chat logs",
+  text:"Wiz Research found two publicly accessible DeepSeek database instances allowing arbitrary SQL without authentication — over a million log lines with plaintext chat history, API keys, backend details and operational metadata. DeepSeek secured it after responsible disclosure.",
+  pub:"BleepingComputer, Jan 30, 2025 (via Wiz)",src:"https://www.bleepingcomputer.com/news/security/deepseek-exposes-database-with-over-1-million-chat-records/amp/"},
+ {id:"meta-ai-app",date:"Jun 2025",vendor:"Meta",type:"leak",
+  title:"Meta AI app defaulted chats to a public feed — private medical & legal chats published with usernames",
+  text:"Meta's AI app shipped with a Discover feed that made user chats public by default. Users unknowingly published medical questions, legal troubles and more, linked to their usernames and profile pictures. TechCrunch called the app a privacy disaster.",
+  pub:"TechBriefly, Jun 17, 2025",src:"https://techbriefly.com/2025/06/17/meta-ai-chatbot-exposes-user-data-publicly/"}
+];
+const LS_KEY="ai_incident_fantasy_league_teams_v1";
+function loadTeams(){try{return JSON.parse(localStorage.getItem(LS_KEY))||[]}catch(e){return[]}}
+function saveTeams(t){localStorage.setItem(LS_KEY,JSON.stringify(t))}
+// vendor picker
+const vbox=document.getElementById('vendors');
+vbox.innerHTML=VENDORS.map(v=>'<label class="vendor" data-v="'+v+'"><input type="checkbox" value="'+v+'">'+v+'</label>').join('');
+vbox.addEventListener('change',e=>{
+ const lbl=e.target.closest('.vendor');
+ if(lbl)lbl.classList.toggle('picked',e.target.checked);
+});
+function scoreTeam(team){
+ let pts=0;const hits=[];
+ INCIDENTS.forEach(i=>{if(team.includes(i.vendor)){pts+=PTS[i.type];hits.push(i);}});
+ return {pts,hits};
+}
+function renderBoard(){
+ const teams=loadTeams().map(t=>({name:t.name,vendors:t.vendors,pts:scoreTeam(t.vendors).pts}))
+   .sort((a,b)=>b.pts-a.pts);
+ const rows=teams.length?teams.map((t,i)=>'<tr><td>'+(i+1)+'</td><td><strong>'+escapeHtml(t.name)+'</strong></td><td>'+t.vendors.map(escapeHtml).join(', ')+'</td><td><strong>'+t.pts+'</strong></td></tr>').join('')
+   :'<tr><td colspan="4" style="color:#6b7688">No teams yet — draft above to start the season.</td></tr>';
+ document.getElementById('board').innerHTML='<tr><th>#</th><th>Team</th><th>Vendors</th><th>Pts</th></tr>'+rows;
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+document.getElementById('draftBtn').addEventListener('click',()=>{
+ const picked=[...vbox.querySelectorAll('input:checked')].map(i=>i.value);
+ const name=(document.getElementById('teamName').value||'').trim()||('Team '+(loadTeams().length+1));
+ if(!picked.length){alert('Pick at least one vendor first.');return;}
+ const teams=loadTeams();teams.push({name:name,vendors:picked,at:new Date().toISOString()});saveTeams(teams);
+ const {pts,hits}=scoreTeam(picked);
+ const box=document.getElementById('teamScore');
+ document.getElementById('tsName').textContent=name+' — '+picked.join(', ');
+ document.getElementById('tsPts').textContent=pts+' pts';
+ document.getElementById('tsDetail').textContent=hits.length
+   ? 'Scoring on: '+hits.map(h=>h.vendor+' ('+TYPE_LABEL[h.type]+')').join(' · ')
+   : 'No sourced incidents for your vendors yet. Luck is a strategy too.';
+ box.style.display='block';
+ const note=document.getElementById('draftNote');
+ note.style.display='block';
+ note.textContent='Saved to this device\'s leaderboard. Draft as many teams as you like — the board below ranks them all.';
+ document.getElementById('shareBtn').style.display='inline-block';
+ document.getElementById('shareBtn').onclick=()=>shareResult(name,pts);
+ renderBoard();
+ box.scrollIntoView({behavior:'smooth',block:'center'});
+});
+function shareResult(name,pts){
+ const text='My fantasy team "'+name+'" is winning because Big AI keeps breaching. 🏆 '+pts+' pts in the AI Incident Fantasy League — draft your team: https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-incident-fantasy-league.html';
+ if(navigator.share){navigator.share({title:'AI Incident Fantasy League',text:text}).catch(()=>{});}
+ else if(navigator.clipboard){navigator.clipboard.writeText(text).then(()=>alert('Share card copied — paste it anywhere.')).catch(()=>alert(text));}
+ else{alert(text);}
+}
+document.getElementById('resetBtn').addEventListener('click',()=>{
+ if(confirm('Clear all teams from this device?')){localStorage.removeItem(LS_KEY);renderBoard();}
+});
+document.getElementById('incidents').innerHTML=INCIDENTS.map(i=>
+ '<div class="incident"><div class="date">'+i.date+'</div><h2 style="font-size:16.5px;margin:6px 0 8px"><span class="tag '+TYPE_CLASS[i.type]+'">'+TYPE_LABEL[i.type]+'</span><span class="tag" style="background:#161c28;color:#9aa7b8">'+i.vendor+'</span>'+escapeHtml(i.title)+'</h2><p>'+i.text+'</p><div class="links"><a href="'+i.src+'" rel="nofollow noopener" target="_blank">Source: '+escapeHtml(i.pub)+' ↗</a><a href="agent-incident-tracker.html">Full record in the Incident Tracker →</a></div></div>'
+).join('');
+renderBoard();
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

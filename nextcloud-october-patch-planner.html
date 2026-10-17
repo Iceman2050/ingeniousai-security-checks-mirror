@@ -3,12 +3,14 @@
 <head>
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-october-patch-planner.html">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-october-patch-planner.html">
+<meta name="twitter:title" content="Nextcloud CVE Patch Planner — October 2026 Update Guide">
+<meta name="twitter:description" content="Nextcloud CVE October patch planner: the critical Collabora CODE fix (CVE-2026-110447) plus three Hub 26 maintenance updates, in the right order. Checklist.">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>October Patch Sprint Planner: Nextcloud Hub 26 + CODE Fix Readiness</title>
-<meta name="description" content="One readiness checklist for October's Nextcloud updates: Hub 26 Winter 33.0.10, Spring 34.0.5, Summer 35.0.2 — plus the critical Collabora CODE fix. Backup order, staged rollout, post-update verification.">
-<meta property="og:title" content="October Patch Sprint Planner: Nextcloud Hub 26 + CODE Fix">
-<meta property="og:description" content="One checklist: the three Hub 26 maintenance updates plus the critical Collabora fix, in the right order.">
+<title>Nextcloud CVE Patch Planner — October 2026 Update Guide</title>
+<meta name="description" content="Nextcloud CVE October patch planner: the critical Collabora CODE fix (CVE-2026-110447) plus three Hub 26 maintenance updates, in the right order. Checklist.">
+<meta property="og:title" content="Nextcloud CVE Patch Planner — October 2026 Update Guide">
+<meta property="og:description" content="Nextcloud CVE October patch planner: the critical Collabora CODE fix (CVE-2026-110447) plus three Hub 26 maintenance updates, in the right order. Checklist.">
 <meta property="og:type" content="article">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -45,19 +47,16 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 .warnbox{background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#e6c26a}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"What are the October 2026 Nextcloud maintenance updates?","acceptedAnswer":{"@type":"Answer","text":"Per the October 16, 2026 announcement: Nextcloud Hub 26 Winter updates to 33.0.10, Spring to 34.0.5, and Summer to 35.0.2. They include bug fixes, stability and security upgrades. The rollout is staged, starting at 30% of instances."}},
-{"@type":"Question","name":"Should I update the Collabora app or Nextcloud Hub first?","acceptedAnswer":{"@type":"Answer","text":"Triage the critical one first: the built-in Collabora CODE Server app (CVE-2026-110447, exploited in the wild) should be updated to 26.4.303+ or removed before anything else. Then apply your Hub maintenance update. If you're on Nextcloud 29 or older, there is no safe app version — upgrade Nextcloud or remove the app."}},
-{"@type":"Question","name":"My updater doesn't show the October update yet — is something wrong?","acceptedAnswer":{"@type":"Answer","text":"Probably not. Nextcloud rolls out maintenance updates in stages, starting at 30% of instances, so yours may simply not be in the first wave. Don't force it by switching to beta channels; wait for your wave or update manually from a backup."}}
-]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the October 2026 Nextcloud maintenance updates?","acceptedAnswer":{"@type":"Answer","text":"Per the October 16, 2026 announcement: Nextcloud Hub 26 Winter updates to 33.0.10, Spring to 34.0.5, and Summer to 35.0.2. They include bug fixes, stability and security upgrades. The rollout is staged, starting at 30% of instances."}},{"@type":"Question","name":"Should I update the Collabora app or Nextcloud Hub first?","acceptedAnswer":{"@type":"Answer","text":"Triage the critical one first: the built-in Collabora CODE Server app (CVE-2026-110447, exploited in the wild) should be updated to 26.4.303+ or removed before anything else. Then apply your Hub maintenance update. If you're on Nextcloud 29 or older, there is no safe app version — upgrade Nextcloud or remove the app."}},{"@type":"Question","name":"My updater doesn't show the October update yet — is something wrong?","acceptedAnswer":{"@type":"Answer","text":"Probably not. Nextcloud rolls out maintenance updates in stages, starting at 30% of instances, so yours may simply not be in the first wave. Don't force it by switching to beta channels; wait for your wave or update manually from a backup."}},{"@type":"Question","name":"Is Nextcloud safe?","acceptedAnswer":{"@type":"Answer","text":"Nextcloud itself remains safe to use when kept updated — the October 2026 incident was a critical flaw (CVE-2026-110447) in one optional app, the built-in Collabora CODE server, not in Nextcloud core. Stay on a supported release, apply maintenance updates promptly, and remove apps you do not use."}},{"@type":"Question","name":"How do I check if my Nextcloud is vulnerable?","acceptedAnswer":{"@type":"Answer","text":"Check whether the ‘Collabora Online – Built-in CODE Server’ app (richdocumentscode) is installed and older than 26.4.303 — via Admin > Apps or ‘occ app:list’. If the app was present at any point in September–October 2026, assume exposure and hunt for web shells even after patching."}},{"@type":"Question","name":"What should I do if my Nextcloud was hacked?","acceptedAnswer":{"@type":"Answer","text":"Take the server offline, restore from a clean backup or rebuild it, and rotate every credential the server touched. Hunt for leftover PHP web shells — patching CVE-2026-110447 does not remove shells attackers already planted — then update the Collabora app to 26.4.303+ or remove it."}}]}
 </script>
 <link rel="stylesheet" href="ecosystem.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Nextcloud CVE Patch Planner — October 2026 Update Guide","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-october-patch-planner.html","description":"Nextcloud CVE October patch planner: the critical Collabora CODE fix (CVE-2026-110447) plus three Hub 26 maintenance updates, in the right order. Checklist.","about":{"@type":"Thing","name":"CVE-2026-110447"},"keywords":["Nextcloud CVE","Nextcloud CVE 2026","CVE-2026-110447","Nextcloud update October 2026","Nextcloud patch"],"provider":{"@type":"Organization","name":"Ingenious AI"}}</script>
 </head>
 <body>
 <div class="wrap">
 <div class="badge">OCTOBER 2026 &mdash; PATCH SPRINT</div>
-<h1>October patch sprint <span class="blue">planner</span></h1>
-<p class="lead">October handed Nextcloud admins two jobs at once: the critical Collabora CODE fix (CVE-2026-110447, exploited in the wild) <em>and</em> three Hub 26 maintenance updates. Do them in the wrong order and you waste a maintenance window &mdash; or worse, patch the Hub while the RCE is still open. One checklist, right order, progress tracked.</p>
+<h1>Nextcloud CVE patch planner: October 2026 sprint</h1>
+<p class="lead">October handed Nextcloud admins two jobs at once: the critical Collabora CODE fix (CVE-2026-110447, exploited in the wild) <em>and</em> three Hub 26 maintenance updates. Do them in the wrong order and you waste a maintenance window &mdash; or worse, patch the Hub while the RCE is still open. One checklist, right order, progress tracked — your Nextcloud CVE patch plan.</p>
 
 <div class="card">
 <h2>Your October updates</h2>
@@ -118,6 +117,15 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
   upd();
 })();
 </script>
+<h2 style="font-size:21px;margin:30px 0 12px;color:#fff">FAQ</h2>
+<div>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">What are the October 2026 Nextcloud maintenance updates?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Per the October 16, 2026 announcement: Nextcloud Hub 26 Winter updates to 33.0.10, Spring to 34.0.5, and Summer to 35.0.2. They include bug fixes, stability and security upgrades. The rollout is staged, starting at 30% of instances.</p></details>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">Should I update the Collabora app or Nextcloud Hub first?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Triage the critical one first: the built-in Collabora CODE Server app (CVE-2026-110447, exploited in the wild) should be updated to 26.4.303+ or removed before anything else. Then apply your Hub maintenance update. If you&#x27;re on Nextcloud 29 or older, there is no safe app version — upgrade Nextcloud or remove the app.</p></details>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">My updater doesn&#x27;t show the October update yet — is something wrong?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Probably not. Nextcloud rolls out maintenance updates in stages, starting at 30% of instances, so yours may simply not be in the first wave. Don&#x27;t force it by switching to beta channels; wait for your wave or update manually from a backup.</p></details>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">Is Nextcloud safe?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Nextcloud itself remains safe to use when kept updated — the October 2026 incident was a critical flaw (CVE-2026-110447) in one optional app, the built-in Collabora CODE server, not in Nextcloud core. Stay on a supported release, apply maintenance updates promptly, and remove apps you do not use.</p></details>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">How do I check if my Nextcloud is vulnerable?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Check whether the ‘Collabora Online – Built-in CODE Server’ app (richdocumentscode) is installed and older than 26.4.303 — via Admin &gt; Apps or ‘occ app:list’. If the app was present at any point in September–October 2026, assume exposure and hunt for web shells even after patching.</p></details>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">What should I do if my Nextcloud was hacked?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Take the server offline, restore from a clean backup or rebuild it, and rotate every credential the server touched. Hunt for leftover PHP web shells — patching CVE-2026-110447 does not remove shells attackers already planted — then update the Collabora app to 26.4.303+ or remove it.</p></details>
+</div>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->

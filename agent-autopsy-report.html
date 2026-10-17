@@ -3,19 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agent Autopsy Report — AI Agent Incident Coroner — Ingenious AI</title>
-<meta name="description" content="The AI agent incident coroner: pick a real, publicly documented agent incident and get the kill chain, the exact guardrail that would have stopped it, and which defense covers it. Built by Ingenious AI.">
+<title>AI Agent Security Autopsy — Kill Chain Report | Ingenious AI</title>
+<meta name="description" content="AI agent security autopsy: pick a documented incident — get the kill chain, the guardrail that would have stopped it, and the defense covering it. Free.">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-autopsy-report.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="Agent Autopsy Report — AI Agent Incident Coroner — Ingenious AI">
-<meta property="og:description" content="Pick a real agent incident, get the kill chain, the guardrail that would have stopped it, and the defense that covers it. From Ingenious AI.">
+<meta property="og:title" content="AI Agent Security Autopsy — Kill Chain Report | Ingenious AI">
+<meta property="og:description" content="AI agent security autopsy: pick a documented incident — get the kill chain, the guardrail that would have stopped it, and the defense covering it. Free.">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-autopsy-report.html">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Agent Autopsy Report — AI Agent Incident Coroner — Ingenious AI">
-<meta name="twitter:description" content="Pick a real agent incident, get the kill chain, the guardrail that would have stopped it, and the defense that covers it.">
+<meta name="twitter:title" content="AI Agent Security Autopsy — Kill Chain Report | Ingenious AI">
+<meta name="twitter:description" content="AI agent security autopsy: pick a documented incident — get the kill chain, the guardrail that would have stopped it, and the defense covering it. Free.">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Agent Autopsy Report — AI Agent Incident Coroner",
+  "description": "AI agent security autopsy: pick a documented incident — get the kill chain, the guardrail that would have stopped it, and the defense covering it. Free.",
+  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-autopsy-report.html",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Ingenious AI Security Checks",
+    "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ingenious AI",
+    "url": "https://github.com/Iceman2050"
+  },
+  "about": "AI agent security",
+  "keywords": "AI agent security, AI agent security incidents, rogue AI agents, AI agent security risks, AI agent security best practices"
+}</script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"Agent Autopsy Report — AI Agent Incident Coroner","description":"Interactive generator that turns publicly documented AI agent security incidents into kill chains, guardrails, and defense coverage. Built by Ingenious AI.","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-autopsy-report.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Ingenious AI Security Checks","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/"},"publisher":{"@type":"Organization","name":"Ingenious AI","url":"https://github.com/Iceman2050"}}
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a rogue AI agent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A rogue AI agent is an autonomous AI agent that acts outside the authorization of its assigned task. Recent public examples include the eval agents Tencent acknowledged in October 2026 and the model-probing cases in CERT-In's October 15, 2026 advisory."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the security risks of AI agents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The main risks are prompt injection, tool abuse (an agent using its permissions in unintended ways), credential and data exfiltration, unauthorized real-world actions, and fading oversight as agents grow more autonomous."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you stop an AI agent from going rogue?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use least-privilege permissions, require human approval for irreversible actions, enforce egress allowlists at the network layer rather than in the prompt, keep tamper-evident logs of every agent action, and maintain a working kill switch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does this page actually do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pick one of the documented incidents in the dropdown — such as the Adversa AI vs GitHub Copilot CLI case or the Transluce agent-probing research — or paste your own redacted incident. You get the kill chain, the guardrail that would have stopped it, and which defense covers it. Incidents are never invented."
+      }
+    }
+  ]
+}
 </script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -59,8 +116,8 @@ ol.killchain li{margin:8px 0;padding:10px 14px;background:#0d1420;border-left:3p
 <body>
 <div class="wrap">
 <div class="badge">AGENT INCIDENT CORONER</div>
-<h1>Agent Autopsy Report</h1>
-<p class="lead">Every agent failure leaves a corpse. We perform the autopsy: the kill chain, the exact guardrail that would have stopped it, and the defense that covers it.</p>
+<h1>AI Agent Security Autopsy Report</h1>
+<p class="lead">Every AI agent security incident leaves a corpse. We perform the autopsy: the kill chain, the exact guardrail that would have stopped it, and the defense that covers it.</p>
 <div class="honest"><strong>Evidence standard.</strong> Each incident below is either a publicly documented real incident with its source named, or is <em>explicitly labeled as a composite</em> of public research. We never invent incidents. Free-text reports get a generic template — generated from your description, not from evidence.</div>
 
 <label for="incident">Select an incident to autopsy</label>
@@ -261,6 +318,14 @@ function escapeHtml(s){
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 </script>
+<section class="kw-faq" style="max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
+<h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is a rogue AI agent?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">A rogue AI agent is an autonomous AI agent that acts outside the authorization of its assigned task. Recent public examples include the eval agents Tencent acknowledged in October 2026 and the model-probing cases in CERT-In's October 15, 2026 advisory.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What are the security risks of AI agents?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">The main risks are prompt injection, tool abuse (an agent using its permissions in unintended ways), credential and data exfiltration, unauthorized real-world actions, and fading oversight as agents grow more autonomous.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How do you stop an AI agent from going rogue?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Use least-privilege permissions, require human approval for irreversible actions, enforce egress allowlists at the network layer rather than in the prompt, keep tamper-evident logs of every agent action, and maintain a working kill switch.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What does this page actually do?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Pick one of the documented incidents in the dropdown — such as the Adversa AI vs GitHub Copilot CLI case or the Transluce agent-probing research — or paste your own redacted incident. You get the kill chain, the guardrail that would have stopped it, and which defense covers it. Incidents are never invented.</p></details>
+</section>
+
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
