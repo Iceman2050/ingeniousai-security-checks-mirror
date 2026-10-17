@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proof of Innocence — Hash-Chained Agent Action Logs (Free Demo)</title>
+<meta name="description" content="Free interactive demo: watch an AI agent's actions sealed into a tamper-evident hash chain. Tamper with an entry, run verification, and see the break detected. Built by Ingenious AI.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/proof-of-innocence.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Proof of Innocence — hash-chained agent logs">
+<meta property="og:description" content="Live demo: every AI agent action sealed into a SHA-256 hash chain. Tamper with an entry and watch verification catch it.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/proof-of-innocence.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Proof of Innocence — hash-chained agent logs">
+<meta name="twitter:description" content="Tamper with an AI agent's action log and watch the hash chain catch it. Free interactive demo.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Proof of Innocence","applicationCategory":"BusinessApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/proof-of-innocence.html","description":"Interactive demo of hash-chained agent action logs: append entries, tamper with one, and verify the chain to see tampering detected.","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:860px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d2417;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:32px;line-height:1.25;margin-bottom:14px}
+p.lead{font-size:17px;color:#9aa7b8;margin-bottom:22px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:26px;margin:18px 0}
+.small{font-size:13px;color:#9aa7b8}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:12px 26px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px;border:none;cursor:pointer;margin:6px 8px 6px 0}
+.btn.warn{background:#7a2e0e}
+.btn.warn:hover{background:#9a3d10}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.entry{background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:12px 14px;margin:8px 0;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;word-break:break-all}
+.entry .lbl{color:#6b7688}
+.entry.ok{border-color:#3fb950}
+.entry.bad{border-color:#f85149;background:#1d1215}
+.entry .hashline{color:#7ee787}
+.entry.bad .hashline{color:#f85149}
+.entry .broken{color:#f85149;font-weight:700}
+#verdict{font-size:20px;font-weight:800;margin:14px 0;display:none;text-align:center;padding:16px;border-radius:10px}
+#verdict.valid{display:block;background:#0d2417;border:1px solid #3fb950;color:#3fb950}
+#verdict.tampered{display:block;background:#1d1215;border:1px solid #f85149;color:#f85149}
+textarea{width:100%;min-height:130px;background:#000;color:#7ee787;border:1px solid #2a3342;border-radius:8px;padding:14px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;margin-top:12px}
+.honest{background:#0d1420;border:1px dashed #6b7688;border-radius:10px;padding:18px;margin:24px 0;font-size:14px;color:#9aa7b8}
+.honest b{color:#e6edf3}
+ol.steps{margin:8px 0 8px 22px;font-size:15px}
+ol.steps li{margin:8px 0}
+code{background:#000;padding:2px 6px;border-radius:4px;font-size:13px}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+a{color:#6ea8fe}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">FREE DEMO</div>
+<h1>Proof of Innocence</h1>
+<p class="lead">When an AI agent acts on your behalf — calling tools, moving money, sending messages — how do you <em>prove</em> what it did? Seal every action into a <strong>hash chain</strong>: each entry's fingerprint includes the fingerprint before it. Change one byte of history, and the whole chain breaks. Try it below.</p>
+
+<div class="card">
+<b>Try it yourself</b>
+<ol class="steps">
+<li>Click <b>Simulate agent actions</b> to append 5 realistic log entries.</li>
+<li>Click <b>Tamper with entry #2</b> — we quietly rewrite that entry's action text (like an attacker covering their tracks).</li>
+<li>Click <b>Verify chain</b> — every hash is recomputed. Watch it catch the forgery.</li>
+</ol>
+<button class="btn" id="btnSim" onclick="simulate()">Simulate agent actions</button>
+<button class="btn warn" id="btnTamper" onclick="tamper()" disabled>Tamper with entry #2</button>
+<button class="btn" id="btnVerify" onclick="verify()" disabled>Verify chain</button>
+<button class="btn" style="background:#0d1420;border:1px solid #232b38" onclick="resetLog()">Reset</button>
+<div id="verdict"></div>
+<div id="log"></div>
+</div>
+
+<div class="card">
+<b>Why a hash chain works</b>
+<p class="small" style="margin-top:8px">Each entry stores <code>hash = SHA-256(prev_hash + timestamp + actor + action)</code>. The next entry embeds that hash as its <code>prev_hash</code>, so entries are cryptographically linked in order. To forge entry #2 without detection, an attacker would have to recompute <em>every later hash</em> — and in the real product, hashes are also anchored server-side, so even that wouldn't survive.</p>
+</div>
+
+<div class="card">
+<b>Put this proof on your own site</b>
+<p class="small">Copy-paste this snippet anywhere on your site. It embeds this demo and links back here — the backlink loop that lets your visitors verify what the badge means.</p>
+<textarea id="embed" readonly onclick="this.select()"></textarea>
+<p class="small" style="margin-top:8px"><button class="btn" style="padding:8px 18px;font-size:13px" onclick="copyEmbed()">Copy embed code</button></p>
+</div>
+
+<div class="honest">
+<b>Honest framing:</b> this demo runs <b>entirely in your browser</b> — the chain is real SHA-256 (via <code>crypto.subtle</code>), but there's no server anchoring it. The real Agent Flight Recorder is server-side: hashes are anchored to append-only storage the moment each action happens, so a compromised agent can't rewrite its own history. This page is illustrative, not a certification.
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#fff;text-decoration:underline">Agent Flight Recorder</a> gives every AI agent action a tamper-evident, hash-chained audit trail &mdash; so you can prove what your agents did, and when.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20tried%20the%20Proof%20of%20Innocence%20demo%20and%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<footer>Built by Ingenious AI &mdash; an in-browser demo of hash-chained logging, not a certification of any system.<br><a href="index.html">All checks</a></footer>
+</div>
+<script>
+/* ---------- Hash-chain core (pure; testable in node) ---------- */
+const GENESIS = "GENESIS";
+async function sha256Hex(str){
+  if(typeof crypto !== "undefined" && crypto.subtle){
+    const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,"0")).join("");
+  }
+  // Fallback for non-secure contexts: deterministic 64-hex pseudo-hash (demo only)
+  let h1 = 0x811c9dc5, h2 = 0x01000193, h3 = 0xdeadbeef, h4 = 0x41c6ce57;
+  for(let i=0;i<str.length;i++){
+    const c = str.charCodeAt(i);
+    h1 = Math.imul(h1 ^ c, 16777619); h2 = Math.imul(h2 + c, 31);
+    h3 = Math.imul(h3 ^ (c*7), 2654435761); h4 = Math.imul(h4 + (c*13), 2246822519);
+  }
+  const w = n => (n>>>0).toString(16).padStart(8,"0");
+  return (w(h1)+w(h2)+w(h3)+w(h4)+w(h1^h3)+w(h2^h4)+w(h1+h4)+w(h2+h3)).slice(0,64);
+}
+function entryPayload(e){ return e.prev + "|" + e.ts + "|" + e.actor + "|" + e.action; }
+async function sealEntry(prev, ts, actor, action){
+  const e = { ts: ts, actor: actor, action: action, prev: prev };
+  e.hash = await sha256Hex(entryPayload(e));
+  return e;
+}
+async function verifyChain(entries){
+  // returns {valid, brokenIndex, recomputed}
+  let prev = GENESIS, broken = -1;
+  const recomputed = [];
+  for(let i=0;i<entries.length;i++){
+    const e = entries[i];
+    const h = await sha256Hex(entryPayload(e));
+    recomputed.push(h);
+    if(broken === -1 && (e.prev !== prev || h !== e.hash)) broken = i;
+    prev = e.hash; // chain links by stored hash, so tamper cascades visibly
+  }
+  return { valid: broken === -1, brokenIndex: broken, recomputed: recomputed };
+}
+
+/* ---------- UI ---------- */
+let entries = [];
+const ACTIONS = [
+  ["agent-7", "tool_call: crm.lookup_customer(customer_id=4812) → 200 OK"],
+  ["agent-7", "draft: refund email to customer #4812 ($38.50) — awaiting approval"],
+  ["human:ops-lead", "approval: granted — refund email #4812 (policy: <$50 auto-ok)"],
+  ["agent-7", "tool_call: email.send(to=customer #4812, template=refund_v3) → sent"],
+  ["agent-7", "tool_call: ledger.record(refund $38.50, case #4812) → committed"]
+];
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function short(h){ return h.slice(0,12) + "…" + h.slice(-8); }
+function render(){
+  const log = document.getElementById('log');
+  log.innerHTML = entries.map(function(e,i){
+    return '<div class="entry" id="entry'+i+'">' +
+      '<div><span class="lbl">#' + (i+1) + '</span> ' + esc(e.ts) + ' · <b>' + esc(e.actor) + '</b></div>' +
+      '<div>' + esc(e.action) + '</div>' +
+      '<div class="hashline"><span class="lbl">prev:</span> ' + short(e.prev) + '<br><span class="lbl">hash:</span> ' + short(e.hash) + '</div>' +
+      '<div class="linknote" id="linknote'+i+'"></div></div>';
+  }).join('');
+}
+async function simulate(){
+  document.getElementById('btnSim').disabled = true;
+  let prev = entries.length ? entries[entries.length-1].hash : GENESIS;
+  const base = Date.now();
+  for(let i=0;i<ACTIONS.length;i++){
+    const ts = new Date(base + i*1000).toISOString().replace("T"," ").slice(0,19) + "Z";
+    const e = await sealEntry(prev, ts, ACTIONS[i][0], ACTIONS[i][1]);
+    entries.push(e); prev = e.hash;
+    render();
+  }
+  document.getElementById('btnTamper').disabled = false;
+  document.getElementById('btnVerify').disabled = false;
+  clearVerdict();
+}
+function tamper(){
+  if(entries.length < 2) return;
+  entries[1].action = "tool_call: crm.lookup_customer(customer_id=4812) → exported FULL customer table (12,408 rows) to external host";
+  // hash NOT recomputed — this is the forgery
+  render();
+  clearVerdict();
+  const v = document.getElementById('verdict');
+  v.className = ''; v.style.display = 'block';
+  v.style.background = '#0d1420'; v.style.border = '1px solid #d29922'; v.style.color = '#ffce63';
+  v.style.fontSize = '16px'; v.style.fontWeight = '600'; v.style.padding = '14px'; v.style.borderRadius = '10px'; v.style.textAlign = 'center';
+  v.textContent = 'Entry #2 rewritten. Its stored hash no longer matches its content — run "Verify chain" to catch it.';
+}
+async function verify(){
+  const res = await verifyChain(entries);
+  const v = document.getElementById('verdict');
+  v.style.cssText = '';
+  if(res.valid){
+    v.className = 'valid';
+    v.textContent = '✓ CHAIN VALID — ' + entries.length + ' entries, every hash recomputed and every link intact.';
+  } else {
+    v.className = 'tampered';
+    v.textContent = '✗ TAMPER DETECTED — entry #' + (res.brokenIndex+1) + ' fails verification. The stored hash does not match the recomputed hash.';
+    for(let i=0;i<entries.length;i++){
+      const el = document.getElementById('entry'+i);
+      const note = document.getElementById('linknote'+i);
+      el.classList.remove('ok','bad');
+      if(i === res.brokenIndex){
+        el.classList.add('bad');
+        note.innerHTML = '<span class="broken">⛔ BROKEN LINK — stored hash ' + short(entries[i].hash) +
+          ' ≠ recomputed ' + short(res.recomputed[i]) + '. Content was altered after sealing.</span>';
+      } else if(i > res.brokenIndex){
+        note.innerHTML = '<span class="broken">⛓ chain poisoned downstream — this entry links to a forged predecessor.</span>';
+      } else {
+        el.classList.add('ok');
+      }
+    }
+  }
+  v.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+function clearVerdict(){
+  const v = document.getElementById('verdict');
+  v.className = ''; v.style.cssText = ''; v.style.display = 'none'; v.textContent = '';
+}
+function resetLog(){
+  entries = []; render(); clearVerdict();
+  document.getElementById('btnSim').disabled = false;
+  document.getElementById('btnTamper').disabled = true;
+  document.getElementById('btnVerify').disabled = true;
+}
+function embedCode(){
+  const url = 'https://iceman2050.github.io/ingeniousai-security-checks-mirror/proof-of-innocence.html';
+  return '<a href="' + url + '" target="_blank" rel="noopener" style="display:inline-block;font-family:system-ui,sans-serif;background:#0b0f17;border:2px solid #3fb950;color:#7ee787;border-radius:8px;padding:10px 18px;font-weight:700;text-decoration:none">✓ Proof of Innocence — hash-chained agent logs · via Ingenious AI</a>';
+}
+document.getElementById('embed').value = embedCode();
+function copyEmbed(){
+  const t = document.getElementById('embed');
+  t.select();
+  try{ document.execCommand('copy'); }catch(e){}
+  if(navigator.clipboard) navigator.clipboard.writeText(t.value).catch(function(){});
+}
+render();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
