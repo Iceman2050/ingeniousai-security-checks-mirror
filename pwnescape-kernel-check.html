@@ -56,6 +56,16 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <h1>CVE-2026-99999 checker: can a virtual machine read your host's memory?</h1>
 <p class="lead">A researcher just proved it: <strong>PwnEscape</strong>, a flaw in the Linux kernel's networking code, lets specially crafted packets sent <strong>from inside a guest VM</strong> read the host computer's memory &mdash; about 32 bytes per packet, for as long as the attacker keeps sending. In lab conditions the same flaw crashed the host with two packets and broke out to administrator control. It was demonstrated against <strong>Vercel's live production sandboxes</strong>, and Vercel confirmed it. Found in 3 days with AI-assisted research costing under $700 in API tokens. This free CVE check tool tells you if your host kernel is patched. No signup, nothing installed.</p>
 
+<div class="card" style="border-color:#e3b341">
+<h2>Update — Oct 17: attribution and distro patches</h2>
+<ul>
+<li><strong>Discovered by Paulos Yibelo of pwn.ai</strong> during Vercel's $1M Sandbox challenge (Aug 18 – Sep 1) — the only critical finding among 1,285 reports. Vercel confirmed the memory leak on its live production sandboxes; no customer data was accessed.</li>
+<li><strong>Fix merged to mainline Oct 14, 2026</strong> (commit <code>6785011f8b16</code>) and backported to all affected stable branches — but some distributions haven't shipped it to users yet.</li>
+<li><strong>AlmaLinux 8, 9 and 10 are affected</strong> — patched kernels are in the testing repository now, awaiting verification before production release. If you run AlmaLinux as a VM host for anyone you don't fully trust, track the testing repo.</li>
+<li><strong>No in-the-wild exploitation reported.</strong> The root-code-execution chain was demonstrated on the researcher's own lab machines matching Vercel's config — not on production.</li>
+</ul>
+</div>
+
 <div class="card">
 <h2>The 30-second check</h2>
 <div class="step"><div class="stepnum">1</div><div>
