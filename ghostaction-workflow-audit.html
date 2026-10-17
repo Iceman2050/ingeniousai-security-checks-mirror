@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The GhostAction Workflow Audit: Check Your YAML</title>
+<meta name="description" content="Paste your GitHub Actions YAML into this free analyzer — it flags GhostAction red flags: fake security-audit.yml patterns, curl exfiltration and secret theft.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="The GhostAction Workflow Audit: Check Your YAML">
+<meta property="og:description" content="Paste your GitHub Actions YAML into this free analyzer — it flags GhostAction red flags: fake security-audit.yml patterns, curl exfiltration and secret theft.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ghostaction-workflow-audit.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ghostaction-workflow-audit.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The GhostAction Workflow Audit: Check Your YAML">
+<meta name="twitter:description" content="Paste your GitHub Actions YAML into this free analyzer — it flags GhostAction red flags: fake security-audit.yml patterns, curl exfiltration and secret theft.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a1215;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:32px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+h1 .green{color:#3fb950}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.honest{background:#1a1408;border:1px solid #d29922;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#e6c26a}
+.honest strong{color:#ffd479}
+.howto{background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:18px;margin:20px 0;font-size:14px}
+.howto div{margin:8px 0}
+.howto b{color:#ffa198}
+textarea{width:100%;min-height:220px;background:#0b0f17;color:#7ee787;border:1px solid #232b38;border-radius:8px;padding:14px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;line-height:1.5;resize:vertical}
+input.fname{width:100%;background:#0b0f17;color:#e6edf3;border:1px solid #232b38;border-radius:8px;padding:12px 14px;font-size:14px;margin-bottom:12px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+button.scan{display:block;width:100%;background:#1c6ef2;color:#fff;font-weight:700;font-size:17px;padding:15px;border:none;border-radius:10px;cursor:pointer;margin:14px 0}
+button.scan:hover{background:#2f7ef7}
+button.clear{background:#21262e;color:#9aa7b8;border:1px solid #30363d;padding:10px 20px;border-radius:8px;cursor:pointer;font-size:14px}
+.finding{border-left:4px solid #d29922;background:#141a24;border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0}
+.finding.high{border-color:#f85149;background:#1a0f0f}
+.finding.low{border-color:#3fb950;background:#0d1a0f}
+.finding .sev{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1px;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.finding.high .sev{background:#f85149;color:#0b0f17}
+.finding.medium .sev{background:#d29922;color:#0b0f17}
+.finding.low .sev{background:#3fb950;color:#0b0f17}
+.finding h3{font-size:16px;color:#fff;margin-bottom:6px}
+.finding p{font-size:14px;color:#9aa7b8;margin:6px 0}
+.finding .fix{font-size:14px;color:#7ee787}
+.finding code{color:#7ee787;background:#0b0f17;padding:1px 6px;border-radius:4px;font-size:12px}
+.verdict{border-left:4px solid #d29922;padding:14px 18px;background:#1a1408;border-radius:0 8px 8px 0;margin:16px 0}
+.verdict.high{border-color:#f85149;background:#1a0f0f}
+.verdict.clean{border-color:#3fb950;background:#0d1a0f}
+.verdict strong{font-size:18px}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.incident{background:#1a0f0f;border:1px solid #f85149;border-radius:10px;padding:18px;margin:16px 0}
+.incident h3{color:#ffa198;margin-bottom:8px;font-size:17px}
+.incident ol{margin:8px 0 8px 20px;font-size:14px;color:#e6c26a}
+.incident ol li{margin:8px 0}
+details.faq{margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px}
+details.faq summary{font-weight:700;color:#fff;cursor:pointer}
+details.faq p{margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6}
+.morelinks{background:#0d1420;border:1px solid #232b38;border-radius:10px;padding:20px;margin:28px 0;font-size:15px}
+.morelinks a{color:#6ea8fe;text-decoration:none}
+.morelinks a:hover{text-decoration:underline}
+code.inline{color:#7ee787;background:#0b0f17;padding:1px 6px;border-radius:4px;font-size:13px}
+pre.cmd{background:#0b0f17;border:1px solid #232b38;border-radius:8px;padding:14px;font-size:13px;color:#7ee787;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;margin:10px 0}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"The GhostAction Workflow Audit: Check Your YAML","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/ghostaction-workflow-audit.html","description":"Free client-side analyzer: paste a GitHub Actions workflow file and get heuristic findings plus a risk verdict for GhostAction supply-chain indicators. Nothing is uploaded.","publisher":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What are the GhostAction malicious workflow file names?","acceptedAnswer":{"@type":"Answer","text":"Three workflow file names have been confirmed across both GhostAction waves: github_actions_security.yml (the primary variant, display name 'Github Actions Security'), security-check.yml (a secondary variant seen in seven repositories), and security-audit.yml (the 2026 variant that also mines the full git history). Audit all three names, and inspect any recently added workflow file not authored by a known team member."}},
+{"@type":"Question","name":"How do I know if my GitHub repository was compromised by GhostAction?","acceptedAnswer":{"@type":"Answer","text":"Check .github/workflows/ for security-audit.yml, github_actions_security.yml or security-check.yml that you did not add. Search your git log for commits with messages like 'Add Github Actions Security workflow' or 'Add security check workflow'. Review Actions run logs for workflow runs you didn't trigger, unexpected outbound HTTP requests, and commits made in your identity that you don't recognize — every GhostAction commit used the victim's own identity."}},
+{"@type":"Question","name":"How do I detect GhostAction activity in GitHub Actions logs?","acceptedAnswer":{"@type":"Answer","text":"In Actions run logs, look for curl or wget commands that were not part of your original workflow definition — specifically outbound HTTP POST requests to 193.32.204.199 or URIs containing /?c=monami. At the repo level, use the GitHub audit log to find workflow-file creation (git.push) events where the actor isn't a recognized team member, and monitor for new .github/workflows/ files committed without pull-request review."}},
+{"@type":"Question","name":"What should I do if I find a malicious GhostAction workflow?","acceptedAnswer":{"@type":"Answer","text":"Treat it as an active compromise, not a close call. Revoke and rotate ALL repository and organization secrets first — anything the workflow could read is already exfiltrated, so deleting the file alone changes nothing. Then remove the workflow from every branch, revoke the GitHub credential that pushed it, review Actions logs for the 'Audit' step to see if exfiltration ran, and check forks — injected workflows persist in forks long after the original is cleaned."}},
+{"@type":"Question","name":"How do I harden GitHub Actions against GhostAction-style attacks?","acceptedAnswer":{"@type":"Answer","text":"Require pull-request review for any change to .github/workflows/ (this alone makes silent injection impossible without a paper trail), enable 'Require approval for all outside collaborators' for workflow runs, pin third-party actions to commit SHAs instead of floating tags, scope secrets so each workflow reads only what it needs, and rotate personal access tokens — stolen PATs from infostealer logs were the attackers' way in. One documented case shows the run-approval gate stopped the exfiltration mid-execution."}}
+]}
+</script>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<div class="badge">GHOSTACTION SUPPLY-CHAIN CAMPAIGN &mdash; OCT 2026</div>
+<h1>The GhostAction Workflow Audit: paste your YAML, <span class="red">get the verdict</span></h1>
+<p class="lead">In the <strong>GhostAction</strong> campaign, attackers compromised <strong>about 1,900 GitHub accounts</strong> and pushed malicious workflows into <strong>more than 30,000 repositories</strong> — attempting to extract <strong>3,174 secrets</strong> from CI in a single October 8&ndash;9, 2026 surge (per GitGuardian's research, reported October 15, 2026). The weapon is a workflow file with a reassuring name — <strong>security-audit.yml</strong>, <strong>github_actions_security.yml</strong> or <strong>security-check.yml</strong> — which quietly curls your CI secrets to an attacker server. Paste any workflow YAML below and this page checks it against the campaign's known indicators, right in your browser.</p>
+
+<div class="honest"><strong>&#9888; HEURISTIC SELF-CHECK — NOT A FORENSIC AUDIT.</strong> This analyzer matches client-side text patterns only. It can flag suspicious shapes, but a clean verdict does NOT mean your repo is safe: GhostAction commits were made in victims' own identities, and the 2026 variant mined the entire git history. If anything here flags, treat it as a lead, then verify with the manual checks below.</div>
+
+<div class="howto">
+<div><b>The indicators this analyzer checks (per GitGuardian, StepSecurity, and published campaign breakdowns):</b></div>
+<div>&bull; Filename matching the campaign's known variants: <code class="inline">security-audit.yml</code>, <code class="inline">github_actions_security.yml</code>, <code class="inline">security-check.yml</code></div>
+<div>&bull; <code class="inline">curl</code>/<code class="inline">wget</code> piped into a shell — classic remote-script execution</div>
+<div>&bull; Steps that read <code class="inline">secrets.*</code> and ship them outbound via <code class="inline">curl</code> (the exfil pattern)</div>
+<div>&bull; <code class="inline">fetch-depth: 0</code> full-history checkouts — the 2026 variant swept git history for credentials</div>
+<div>&bull; Known exfil indicators: <code class="inline">193.32.204.199</code> and the <code class="inline">?c=monami</code> URI path</div>
+<div>&bull; Over-broad permissions (<code class="inline">permissions: write-all</code>) and suspicious <code class="inline">upload-artifact</code> of <code class="inline">.env</code> files</div>
+</div>
+
+<div class="card">
+<h2>Step 1 — Paste the workflow</h2>
+<p class="note" style="margin-bottom:12px">100% client-side: nothing you paste is uploaded, stored, or sent anywhere. It never leaves this browser tab.</p>
+<input class="fname" id="fname" type="text" placeholder="Optional: workflow filename, e.g. security-audit.yml" autocomplete="off" spellcheck="false">
+<textarea id="yaml" placeholder="Paste the workflow file contents here, e.g.:
+name: CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm test" spellcheck="false"></textarea>
+<button class="scan" id="scanbtn">Scan this workflow</button>
+<button class="clear" id="clearbtn">Clear</button>
+<div id="result"></div>
+<script>
+function analyzeWorkflow(filename, yaml){
+  var findings=[];
+  function add(severity,title,detail,fix){
+    findings.push({severity:severity,title:title,detail:detail,fix:fix});
+  }
+  var fn=String(filename||"").toLowerCase().trim();
+  var y=String(yaml||"");
+  var yl=y.toLowerCase();
+  if(!y.trim()){
+    return {verdict:"EMPTY",findings:[],message:"Paste a workflow YAML first — there is nothing to analyze yet."};
+  }
+  /* F1: known campaign filenames */
+  if(/(security[-_]?audit|github_actions_security|security[-_]?check)\.ya?ml/.test(fn)){
+    add("HIGH",
+      "Filename matches a confirmed GhostAction variant",
+      "The campaign's malicious workflows used exactly these filenames: security-audit.yml (2026 variant), github_actions_security.yml (primary variant) and security-check.yml (seen in seven repos). A workflow arriving under one of these names that you did not author yourself is the campaign's signature move.",
+      "Do not just delete it — first rotate ALL secrets this workflow could reach (they are already exfiltrated), then remove the file from every branch and revoke the credential that pushed it.");
+  } else if(fn && /audit|security/.test(fn)){
+    add("MEDIUM",
+      "Filename leans on 'audit'/'security' language",
+      "GhostAction's disguise was a reassuring name. Legitimate security workflows exist, but any 'audit'-named workflow added without your knowledge deserves the same scrutiny as the confirmed variants above.",
+      "Check git log for who added it and when: git log --diff-filter=A --name-only -- .github/workflows/" + fn);
+  }
+  /* F2: curl|wget piped into shell */
+  if(/\|\s*(sudo\s+)?(ba)?sh\b/.test(y) && /(^|\W)(curl|wget)(\W|$)/.test(y)){
+    add("HIGH",
+      "Remote content piped straight into a shell",
+      "A curl/wget whose output is piped into sh/bash downloads and executes remote code at CI time. Legitimate workflows sometimes do this for installers, but combined with the GhostAction pattern it is the highest-risk shape: the attacker can change the payload after your review.",
+      "Replace with a pinned, hash-verified download (checksum the artifact), or install from a trusted package source instead.");
+  }
+  /* F3: known exfil indicators */
+  if(/193\.32\.204\.199/.test(y) || /c=monami/.test(y)){
+    add("HIGH",
+      "Known GhostAction exfiltration indicator in the text",
+      "The campaign exfiltrated secrets with a curl POST to 193.32.204.199 using the /?c=monami URI path. Its presence in a workflow is not a heuristic guess — it is the campaign's own fingerprint.",
+      "Treat as confirmed compromise: rotate every reachable secret, remove the workflow from all branches and forks, and review Actions logs for the 'Audit' step to see whether exfiltration already ran.");
+  }
+  /* F4: secrets read + outbound curl in same workflow */
+  var secretRefs=(y.match(/secrets\.[A-Za-z_][A-Za-z0-9_]*/g)||[]);
+  var uniq={}; secretRefs.forEach(function(s){uniq[s]=1;});
+  var secretCount=Object.keys(uniq).length;
+  var hasCurl=/(^|\W)(curl|wget)(\W|$)/.test(y);
+  if(secretCount>0 && hasCurl){
+    add(secretCount>=4?"HIGH":"MEDIUM",
+      "Workflow reads "+secretCount+" secret"+(secretCount===1?"":"s")+" AND makes outbound HTTP calls",
+      "GhostAction's whole trick is reading your configured Actions secrets and POSTing them to an attacker server. Any workflow that touches secrets.* and also runs curl/wget in the same file deserves manual review of where those HTTP calls go.",
+      "Map each secrets.* reference to the curl/wget invocation and confirm the destination URL is one you control. Remove any secret a step doesn't strictly need.");
+  }
+  /* F5: broad permissions */
+  if(/permissions\s*:\s*write-all/.test(yl)){
+    add("MEDIUM",
+      "Workflow grants itself write-all permissions",
+      "write-all gives every job the maximum GITHUB_TOKEN scope — far more than any legitimate workflow needs, and it lets a compromised step push changes, open releases, and reach more APIs.",
+      "Scope permissions per job (e.g. contents: read) and give write only where a specific step requires it.");
+  }
+  /* F6: full git history checkout */
+  if(/fetch-depth\s*:\s*0/.test(yl)){
+    add("MEDIUM",
+      "Full git history checkout (fetch-depth: 0)",
+      "The 2026 GhostAction variant swept the entire git history for credentials — deleted secrets in old commits were fair game. A full-history checkout is the enabler for that sweep.",
+      "Only use fetch-depth: 0 when a job genuinely needs full history (e.g. changelog generation). Pair it with a secret scan of the history (gitleaks/trufflehog) and rotate anything ever committed.");
+  }
+  /* F7: .env uploaded as artifact */
+  if(/upload-artifact/.test(yl) && /\.env/.test(y)){
+    add("HIGH",
+      ".env file staged for upload-artifact",
+      "Environment files routinely hold API keys and database credentials. Uploading one as a build artifact makes it downloadable from the Actions run — and matches the campaign's goal of pulling credentials out of CI.",
+      "Never upload .env files. If you must share artifacts, sanitize them first and confirm no artifact step receives secret values.");
+  }
+  /* F8: suspicious triggers */
+  if(/workflow_dispatch/.test(yl) && hasCurl){
+    add("LOW",
+      "workflow_dispatch trigger combined with outbound HTTP",
+      "The malicious workflows triggered on workflow_dispatch and unfiltered pushes. This shape alone is common and legitimate — it only matters alongside the findings above.",
+      "Check the Actions tab for workflow_dispatch runs you didn't start; the campaign re-triggered injected workflows this way.");
+  }
+  var verdict="CLEAN", vmsg="";
+  var hasHigh=findings.some(function(f){return f.severity==="HIGH";});
+  var hasMed=findings.some(function(f){return f.severity==="MEDIUM";});
+  if(hasHigh){
+    verdict="HIGH-RISK";
+    vmsg="One or more high-severity GhostAction indicators found. Treat this workflow as hostile until proven otherwise.";
+  } else if(hasMed){
+    verdict="REVIEW";
+    vmsg="Medium-severity shapes found — not the campaign fingerprint, but exactly the conditions GhostAction exploited. Review before the next run.";
+  } else {
+    vmsg="No GhostAction indicators matched. Remember: this is a text-pattern self-check, not a forensic audit — the manual checks below still apply.";
+  }
+  return {verdict:verdict,findings:findings,message:vmsg};
+}
+function esc(s){
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+function renderResult(res){
+  var el=document.getElementById("result");
+  if(res.verdict==="EMPTY"){
+    el.innerHTML='<div class="verdict"><strong>Nothing to scan.</strong> '+esc(res.message)+"</div>";
+    return;
+  }
+  var cls=res.verdict==="HIGH-RISK"?"high":(res.verdict==="CLEAN"?"clean":"");
+  var h='<div class="verdict '+cls+'"><strong>Verdict: '+res.verdict+"</strong><br>"+esc(res.message)+"</div>";
+  if(res.findings.length===0){
+    h+='<div class="finding low"><span class="sev">INFO</span><h3>No findings</h3><p>None of the checked patterns matched. A clean heuristic result is a good sign — it is not proof. Work through the manual checks below anyway, because GhostAction commits were made in victims\' own identities and won\'t look wrong in a diff.</p></div>';
+  } else {
+    res.findings.forEach(function(f){
+      var fcls=f.severity==="HIGH"?"high":(f.severity==="LOW"?"low":"");
+      h+='<div class="finding '+fcls+'"><span class="sev">'+f.severity+'</span><h3>'+esc(f.title)+"</h3><p>"+esc(f.detail)+'</p><p class="fix"><strong>Fix:</strong> '+esc(f.fix)+"</p></div>";
+    });
+  }
+  el.innerHTML=h;
+}
+function initAudit(){
+  var scan=document.getElementById("scanbtn");
+  if(!scan) return;
+  scan.addEventListener("click",function(){
+    var fn=document.getElementById("fname").value;
+    var y=document.getElementById("yaml").value;
+    renderResult(analyzeWorkflow(fn,y));
+  });
+  document.getElementById("clearbtn").addEventListener("click",function(){
+    document.getElementById("fname").value="";
+    document.getElementById("yaml").value="";
+    document.getElementById("result").innerHTML="";
+  });
+}
+if(typeof window!=="undefined" && typeof document!=="undefined" && document.getElementById){
+  initAudit();
+}
+</script>
+<p class="note">What this check can't see: the repo's audit log, who actually pushed the file, forks, organization secrets, or secrets already sitting in git history. Those are manual checks — below.</p>
+</div>
+
+<div class="card">
+<h2>Step 2 — Manual checks the scanner can't do</h2>
+<p class="note" style="margin-bottom:12px">Run these locally or in the GitHub UI. They catch what text patterns miss.</p>
+<pre class="cmd">git log --diff-filter=A --name-only --format=%ci -- \
+  .github/workflows/security-audit.yml \
+  .github/workflows/github_actions_security.yml \
+  .github/workflows/security-check.yml</pre>
+<p class="note">Any file added on/after 2026-10-07 by a human you can't confirm: guilty until proven innocent.</p>
+<pre class="cmd">grep -rnE "fetch-depth:\s*0" .github/workflows/
+grep -rnE "(curl|wget).*193\.32\.204" .github/workflows/</pre>
+<ul>
+<li>Actions tab: runs you didn't trigger, <code class="inline">workflow_dispatch</code> runs you didn't start, runs at odd hours.</li>
+<li>GitHub audit log: workflow-file creation (<code class="inline">git.push</code>) events where the actor isn't a recognized team member.</li>
+<li>Secrets audit: anything that was ever committed and never revoked is compromised — rotate it now, not just current values.</li>
+<li>The one control documented as actually stopping the campaign mid-execution: Settings &rarr; Actions &rarr; General &rarr; <strong>require approval for all outside collaborators</strong> — in one case the injected workflow stalled in <code class="inline">action_required</code> and the exfiltration never ran.</li>
+</ul>
+</div>
+
+<div class="incident">
+<h3>&#9888; What to do if you find something</h3>
+<ol>
+<li><strong>Rotate secrets FIRST, before you delete anything.</strong> Anything the workflow could read is already exfiltrated — deleting the file first just alerts the attacker while your secrets are still live.</li>
+<li>Remove the malicious workflow from <strong>every branch</strong>, every tag, and every fork you control — injected workflows persist in forks long after alerts are raised.</li>
+<li>Revoke (don't just rotate) the GitHub credential that pushed it, enforce hardware-key MFA org-wide, and review the audit log for logins you don't recognize.</li>
+<li>Review Actions logs for the "Audit" step — if it ran, the exfiltration already happened and your response shifts from prevention to containment.</li>
+<li>Rotate cloud keys specifically: if the workflow had time to run, paired access key IDs and secret keys are the highest-value item on the list.</li>
+</ol>
+</div>
+
+<div class="card">
+<h2>Frequently asked questions</h2>
+<details class="faq"><summary>What are the GhostAction malicious workflow file names?</summary><p>Three workflow file names have been confirmed across both GhostAction waves: <code class="inline">github_actions_security.yml</code> (the primary variant, display name "Github Actions Security"), <code class="inline">security-check.yml</code> (a secondary variant seen in seven repositories), and <code class="inline">security-audit.yml</code> (the 2026 variant that also mines the full git history). Audit all three names, and inspect any recently added workflow file not authored by a known team member.</p></details>
+<details class="faq"><summary>How do I know if my GitHub repository was compromised by GhostAction?</summary><p>Check <code class="inline">.github/workflows/</code> for <code class="inline">security-audit.yml</code>, <code class="inline">github_actions_security.yml</code> or <code class="inline">security-check.yml</code> that you did not add. Search your git log for commits with messages like "Add Github Actions Security workflow" or "Add security check workflow". Review Actions run logs for workflow runs you didn't trigger, unexpected outbound HTTP requests, and commits made in your identity that you don't recognize — every GhostAction commit used the victim's own identity.</p></details>
+<details class="faq"><summary>How do I detect GhostAction activity in GitHub Actions logs?</summary><p>In Actions run logs, look for <code class="inline">curl</code> or <code class="inline">wget</code> commands that were not part of your original workflow definition — specifically outbound HTTP POST requests to <code class="inline">193.32.204.199</code> or URIs containing <code class="inline">/?c=monami</code>. At the repo level, use the GitHub audit log to find workflow-file creation (<code class="inline">git.push</code>) events where the actor isn't a recognized team member, and monitor for new <code class="inline">.github/workflows/</code> files committed without pull-request review.</p></details>
+<details class="faq"><summary>What should I do if I find a malicious GhostAction workflow?</summary><p>Treat it as an active compromise, not a close call. Revoke and rotate ALL repository and organization secrets first — anything the workflow could read is already exfiltrated, so deleting the file alone changes nothing. Then remove the workflow from every branch, revoke the GitHub credential that pushed it, review Actions logs for the "Audit" step to see if exfiltration ran, and check forks — injected workflows persist in forks long after the original is cleaned.</p></details>
+<details class="faq"><summary>How do I harden GitHub Actions against GhostAction-style attacks?</summary><p>Require pull-request review for any change to <code class="inline">.github/workflows/</code> (this alone makes silent injection impossible without a paper trail), enable "require approval for all outside collaborators" for workflow runs, pin third-party actions to commit SHAs instead of floating tags, scope secrets so each workflow reads only what it needs, and rotate personal access tokens — stolen PATs from infostealer logs were the attackers' way in. One documented case shows the run-approval gate stopped the exfiltration mid-execution.</p></details>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Shipping AI-built code and CI pipelines? Vibe-Code Audit reviews them before attackers do.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:14px">GhostAction hides in plain sight as a "security audit" workflow — our audit reviews AI-generated code and automation for supply-chain traps, over-permissioned secrets and poisoned dependencies. In early access now, full launch November 1:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20ran%20your%20GhostAction%20workflow%20audit%20and%20want%20early%20access%20to%20Vibe-Code%20Audit." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get Vibe-Code Audit early access &rarr;</a></div>
+
+<div class="morelinks">
+<strong style="color:#fff">More from Ingenious AI</strong><br>
+&bull; <a href="ghostaction-ci-audit.html">The 7-step GhostAction CI self-audit checklist</a><br>
+&bull; <a href="shaihulud-node-check.html">Is your node_modules compromised? The Shai-Hulud check</a><br>
+&bull; <a href="docker-ghostpat-check.html">Docker &amp; token-hygiene check</a><br>
+&bull; <a href="newsjack-vibeaudit.html">Vibe-Code Audit newsjack hub</a><br>
+&bull; <a href="ai-agency-audit-check.html">AI agency audit check</a><br>
+&bull; <a href="all-links.html">All Ingenious AI checkers &amp; tools</a> &nbsp;·&nbsp; <a href="security-suite.html">The 11-platform security suite</a>
+</div>
+
+</div>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

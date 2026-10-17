@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 72-Hour Playbook: Double-Extortion Incident Response</title>
+<meta name="description" content="Ransomware hit? Hour-by-hour incident response for the first 72 hours: contain, preserve evidence, engage counsel, negotiation posture, recover. Free checklist.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ransomware-72hour-playbook.html">
+<link rel="stylesheet" href="ecosystem.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="The 72-Hour Playbook: Double-Extortion Incident Response">
+<meta property="og:description" content="Hour by hour: what to do in the first 72 hours after a double-extortion ransomware attack. Contain, preserve evidence, engage counsel, recover. Free printable checklist.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ransomware-72hour-playbook.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The 72-Hour Playbook: Double-Extortion Incident Response">
+<meta name="twitter:description" content="Hour-by-hour ransomware incident response: contain, evidence, counsel, negotiation, recovery. Free checklist. Built by Ingenious AI.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2b1215;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h2{font-size:21px;margin-bottom:12px;color:#fff}
+h3{font-size:17px;margin:18px 0 8px;color:#fff}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+ul{margin:10px 0 10px 20px}
+li{margin:10px 0}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#6ea8fe}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.phase{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:16px 0;background:#0d1219}
+.phase .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;border:1px solid #1c6ef2;border-radius:4px;padding:2px 8px;margin-bottom:8px;color:#6ea8fe}
+.phase .tag.red{border-color:#f85149;color:#ffa198}
+.phase .tag.gold{border-color:#d29922;color:#e8c26a}
+.phase .tag.green{border-color:#3fb950;color:#7ee787}
+.check{list-style:none;margin:10px 0}
+.check li{margin:8px 0;padding-left:30px;position:relative}
+.check li:before{content:"\2610";position:absolute;left:0;color:#6ea8fe;font-size:17px;line-height:1.6}
+.livebox{background:#1a1409;border:1px solid #f85149;border-radius:10px;padding:20px;margin:24px 0}
+.livebox h2{color:#ffa198;font-size:19px}
+.honest{background:#1a1208;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e8c26a;margin:24px 0}
+.victim{border-left:3px solid #f85149;padding:10px 0 10px 16px;margin:14px 0}
+.victim strong{color:#fff}
+.victim .gang{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;color:#ffa198;border:1px solid #f85149;border-radius:4px;padding:2px 8px;margin-bottom:6px}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px;margin:6px 8px 6px 0;cursor:pointer;border:none}
+.btn.ghost{background:#161d29;border:1px solid #2a3342;color:#e6edf3}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+.warnbox{max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+@media print{
+  body{background:#fff;color:#111}
+  .wrap{max-width:100%;padding:12px}
+  .card,.phase{background:#fff;border:1px solid #999}
+  h1,h2,h3,.victim strong,.phase{color:#111}
+  p.lead,.note,.src{color:#444}
+  .btn,.share,.warnbox,.back,.honest,.livebox,#ecosystem-footer{display:none !important}
+  .check li:before{color:#111}
+  a{color:#111;text-decoration:none}
+}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"The 72-Hour Playbook: Double-Extortion Incident Response","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/ransomware-72hour-playbook.html","description":"Hour-by-hour incident response for the first 72 hours after a double-extortion ransomware attack: contain, preserve evidence, engage counsel, negotiation posture, recover. Free printable checklist.","author":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-17","inLanguage":"en"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What should I do first when ransomware hits?","acceptedAnswer":{"@type":"Answer","text":"Isolate affected systems from the network immediately — disconnect them, but do NOT power them off, because memory forensics needs the live state. Move coordination to phones or another out-of-band channel (the attackers may be reading your email), disable remote access, start a timestamped log, and call your incident-response retainer and legal counsel. Do not delete anything and do not contact the attacker yet."}},
+{"@type":"Question","name":"Should I pay the ransom?","acceptedAnswer":{"@type":"Answer","text":"There is no universal answer, and this page does not recommend paying or not paying. The decision belongs with your legal counsel and cyber insurer: consider whether data was exfiltrated (payment buys only a promise), sanctions screening before any payment, whether free decryption tools exist for the variant, and whether verified clean backups make payment unnecessary. Document the decision process."}},
+{"@type":"Question","name":"Do I have to notify anyone within 72 hours?","acceptedAnswer":{"@type":"Answer","text":"Notification obligations depend on your jurisdiction, sector, and the data involved — engage breach counsel early to map them. As one example, GDPR-style regimes generally require notifying the supervisory authority within 72 hours of becoming aware of a qualifying breach where it applies. Your counsel should inventory every deadline: regulators, customers, partners, and insurers all have their own clocks."}},
+{"@type":"Question","name":"How do I know if it is double extortion and not just encryption?","acceptedAnswer":{"@type":"Answer","text":"The ransom note or the gang's leak-site listing usually says so, but assume data theft until forensics says otherwise: check logs for large outbound transfers before the encryption timestamp, inventory which data types the affected systems held, and monitor the gang's leak site (through counsel or a monitoring service). Encryption-only recovery from backups does not address the leak half."}},
+{"@type":"Question","name":"Why do gangs list victims on leak sites in October 2026?","acceptedAnswer":{"@type":"Answer","text":"The leak site is the second half of the double-extortion squeeze: public naming pressures the victim to pay even when backups make the encryption recoverable. October 2026 listings reported as claimed by the groups include Topcon Healthcare and PIC Group, Inc. (Everest and Akira, Oct 12), Pure Options (Play, Oct 16, financial services), and Taekwang Network (Everest, Oct 17, South Korea tech). These are group claims, not independently confirmed breaches."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free security checks</a>
+<div class="badge">RANSOMWARE INCIDENT RESPONSE &mdash; OCT 2026</div>
+<h1>The 72-Hour Playbook: <span style="color:#f85149">double-extortion</span> incident response</h1>
+<p class="lead">The first 72 hours after a ransomware attack decide the trajectory of the entire incident. Hour by hour: what to contain, what to preserve, who to call, and which decisions can't wait. Print it, download it, rehearse it <em>before</em> you need it.</p>
+
+<div class="honest"><strong>Read this first:</strong> this page is general guidance, <strong>not legal advice</strong>. Ransomware response involves privilege, sanctions, and regulatory deadlines — engage breach counsel immediately and route decisions through them. Nothing here creates an attorney-client relationship.</div>
+
+<div class="livebox">
+<h2>&#9888; Reading this during a live incident? Stop reading.</h2>
+<ul>
+<li><strong>Activate your incident response plan</strong> and call your IR retainer now — not in three hours.</li>
+<li><strong>Isolate affected hosts from the network. Do NOT power them off</strong> — memory forensics needs the live state.</li>
+<li><strong>Move to out-of-band communication</strong> — phones, a pre-arranged channel. Assume the attackers can read your email.</li>
+<li><strong>Do not contact the threat actor yet. Do not pay anything yet.</strong> Bring the CEO and General Counsel in within 60 minutes. <em>Then</em> come back here.</li>
+</ul>
+</div>
+
+<div class="card">
+<div class="phase"><span class="tag red">HOUR 0&ndash;4 &mdash; CONTAIN</span>
+<h2>Stop the bleeding</h2>
+<ul class="check">
+<li>Confirm the encryption is real — sample one or two files, read the ransom note. Don't act on a hoax.</li>
+<li>Isolate affected systems at the switch or by pulling network cables — <strong>do not shut them down</strong> (memory and running processes are evidence).</li>
+<li>Disable VPN, remote access, and vendor tunnels — cut the paths the gang used to get in.</li>
+<li>Disable compromised accounts; force password resets on admin and service accounts.</li>
+<li>Move all coordination to phones or a pre-arranged out-of-band channel.</li>
+<li>Open a single timestamped incident log: every action, who took it, when. One owner.</li>
+<li>Photograph/screenshot the ransom note; note file extensions and the exact variant name.</li>
+<li>Call your IR retainer provider. If you don't have one, engage incident response counsel — they bring the forensics firm under privilege.</li>
+<li>Do NOT attempt to remove the ransomware or decrypt files yet. Do NOT contact the actor yet.</li>
+</ul>
+<p class="note">Goal by hour 4: spread stopped, evidence frozen, the right people in the (out-of-band) room.</p>
+</div>
+
+<div class="phase"><span class="tag">HOUR 4&ndash;12 &mdash; ASSESS + PRESERVE EVIDENCE</span>
+<h2>Know what they took, not just what they broke</h2>
+<ul class="check">
+<li>Engage a qualified forensic examiner <strong>before</strong> anyone touches affected systems further.</li>
+<li>Preserve system state: memory images and logs, before any reimaging.</li>
+<li>Identify the ransomware variant from the note and file extensions — it drives playbook decisions and decryption-tool checks.</li>
+<li>Determine the likely entry vector: phishing, exposed RDP/VPN, unpatched software.</li>
+<li><strong>Answer the double-extortion question:</strong> was data exfiltrated before encryption? Check for large outbound transfers; inventory which data types lived on affected systems.</li>
+<li>Check backups: are they intact, offline/immutable, and actually restorable? (Verify — don't assume.)</li>
+<li>Scope the blast radius: which systems, which departments, which customer data.</li>
+<li>Brief executives with facts only — no speculation, in writing or otherwise.</li>
+</ul>
+<p class="note">Goal by hour 12: variant identified, exfiltration question answered or actively investigated, evidence preserved.</p>
+</div>
+
+<div class="phase"><span class="tag gold">HOUR 12&ndash;24 &mdash; DECIDE</span>
+<h2>Counsel, law enforcement, insurer</h2>
+<ul class="check">
+<li>Engage breach counsel so the forensic investigation runs under legal privilege.</li>
+<li>Notify your cyber insurance carrier — follow their panel-vendor requirements before spending.</li>
+<li>With counsel, decide on law-enforcement engagement (e.g. FBI/IC3 or your local field office; CISA resources) — do this through counsel, not ad hoc.</li>
+<li>With counsel, inventory every notification obligation: regulators, customers, partners, sector rules — and put each deadline on the log.</li>
+<li>Set the ransom posture in advance: the default working position is <strong>not to pay</strong>; any exception runs through counsel and the insurer. Check free decryption catalogs for the variant.</li>
+<li>Lock down external communication: one approved spokesperson, pre-approved holding statements. Staff briefed on what not to say.</li>
+<li>Keep the incident log current — it is your compliance record later.</li>
+</ul>
+<p class="note">Goal by hour 24: counsel engaged, insurer notified, every notification clock mapped, posture set.</p>
+</div>
+
+<div class="phase"><span class="tag">DAY 2 &mdash; NEGOTIATION POSTURE + LEAK-SITE MONITORING</span>
+<h2>Manage the second half of the squeeze</h2>
+<ul class="check">
+<li>Finalize the ransom decision with counsel and the insurer: can you recover from verified clean backups? Does the variant have a free decryptor? Does payment buy anything real, given the data is already stolen?</li>
+<li>If payment is even discussed: sanctions/OFAC-style screening with counsel <strong>before</strong> any transaction — paying a sanctioned entity creates a second crisis.</li>
+<li>All threat-actor communication goes through counsel or the retained negotiator — never direct, never emotional, never off-log.</li>
+<li>Begin leak-site monitoring: would you know within days if your data appeared on the gang's leak site? Set up monitoring through counsel or a service — don't browse it yourself.</li>
+<li>Draft (don't send) breach notices and the customer/partner holding statement with counsel.</li>
+<li>Re-verify backup integrity on an isolated network before any restore planning.</li>
+</ul>
+<p class="note">Goal by day 2: a deliberate, counseled ransom decision; leak visibility established.</p>
+</div>
+
+<div class="phase"><span class="tag green">DAY 3 &mdash; RECOVERY + DISCLOSURE</span>
+<h2>Restore clean, disclose right</h2>
+<ul class="check">
+<li>Identify a clean, pre-infection recovery point — confirmed, not assumed.</li>
+<li>Patch the entry vector <strong>before</strong> restoring anything, or you will be re-encrypted.</li>
+<li>Restore in phases: critical systems first, into a clean recovery network.</li>
+<li>Hunt for persistence and reset all credentials after the rebuild — assume the gang kept a way back in until proven otherwise.</li>
+<li>With counsel, execute the notification plan: regulators, affected individuals, partners — on their deadlines, with approved language.</li>
+<li>Plan for extended downtime and set realistic expectations with customers and staff.</li>
+<li>Document everything: the full log becomes the basis for insurance claims, regulatory filings, and the post-incident review.</li>
+<li>Schedule the post-incident review and the tabletop exercise you wish you'd run last quarter.</li>
+</ul>
+<p class="note">Goal by day 3: clean recovery underway, disclosures on track, nothing restored into a still-compromised environment.</p>
+</div>
+</div>
+
+<div class="card">
+<h2>October 2026: why this playbook matters right now</h2>
+<p class="note" style="margin-bottom:10px">The groups below <strong>claimed</strong> these victims on their leak sites this month. Group claims are not independently confirmed breaches — but each listing is a company now living the Day-2 half of this playbook.</p>
+<div class="victim"><div class="gang">EVEREST + AKIRA &mdash; CLAIMED OCT 12</div><br><strong>Topcon Healthcare</strong> (listed by Everest) and <strong>PIC Group, Inc.</strong> (listed by Akira) appeared in the groups' latest extortion activity reporting. <a href="https://undercodenews.com/everest-and-akira-ransomware-groups-name-two-new-victims-in-latest-cyber-extortion-activity-video/" rel="noopener">Reported here</a> — as claimed listings.</div>
+<div class="victim"><div class="gang">PLAY &mdash; CLAIMED OCT 16</div><br><strong>Pure Options</strong>, financial services, was listed by the Play group. <a href="https://cyberthreatintelligence.net/ransomware-victim/pure-options-play-2026" rel="noopener">Listing report</a> — group claim, not a confirmed breach.</div>
+<div class="victim"><div class="gang">EVEREST &mdash; CLAIMED OCT 17</div><br><strong>Taekwang Network</strong>, South Korea tech, was listed by Everest — a textbook double-extortion setup: exfiltrate first, encrypt second. <a href="https://cyberthreatintelligence.net/ransomware-victim/taekwang-network-everest-2026" rel="noopener">Listing report</a> — group claim, not a confirmed breach.</div>
+<p class="src">Framing matters: leak-site listings are the gangs' claims. Treat them as threat intelligence about active groups, not as verified victim confirmations.</p>
+</div>
+
+<div class="card" style="border-color:#1c6ef2">
+<h2>Take the playbook with you</h2>
+<p class="note" style="margin-bottom:14px">Print it for the war room, or download the plain-text checklist for your runbook repo.</p>
+<button class="btn" id="printbtn">&#128438; Print checklist</button>
+<button class="btn ghost" id="dlbtn">&#8681; Download .md checklist</button>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Don't learn about your leak-site listing from a journalist &mdash; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20read%20the%2072-hour%20ransomware%20playbook%20and%20want%20early%20access%20to%20BreachHunter." style="color:#fff;text-decoration:underline">BreachHunter</a> monitors dark-web leak sites and alerts you the moment your data shows up.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20read%20the%2072-hour%20ransomware%20playbook%20and%20want%20early%20access%20to%20BreachHunter." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get BreachHunter early access on WhatsApp &rarr;</a></div>
+
+<div class="card">
+<section aria-label="Frequently asked questions" style="margin:36px 0"><h2>Frequently asked questions</h2><div class="faq-item" style="margin:14px 0"><strong style="color:#e8edf3">What should I do first when ransomware hits?</strong><p style="color:#9aa7b8;margin:6px 0 0">Isolate affected systems from the network immediately — disconnect them, but do NOT power them off, because memory forensics needs the live state. Move coordination to phones or another out-of-band channel (the attackers may be reading your email), disable remote access, start a timestamped log, and call your incident-response retainer and legal counsel. Do not delete anything and do not contact the attacker yet.</p></div><div class="faq-item" style="margin:14px 0"><strong style="color:#e8edf3">Should I pay the ransom?</strong><p style="color:#9aa7b8;margin:6px 0 0">There is no universal answer, and this page does not recommend paying or not paying. The decision belongs with your legal counsel and cyber insurer: consider whether data was exfiltrated (payment buys only a promise), sanctions screening before any payment, whether free decryption tools exist for the variant, and whether verified clean backups make payment unnecessary. Document the decision process.</p></div><div class="faq-item" style="margin:14px 0"><strong style="color:#e8edf3">Do I have to notify anyone within 72 hours?</strong><p style="color:#9aa7b8;margin:6px 0 0">Notification obligations depend on your jurisdiction, sector, and the data involved — engage breach counsel early to map them. As one example, GDPR-style regimes generally require notifying the supervisory authority within 72 hours of becoming aware of a qualifying breach where it applies. Your counsel should inventory every deadline: regulators, customers, partners, and insurers all have their own clocks.</p></div><div class="faq-item" style="margin:14px 0"><strong style="color:#e8edf3">How do I know if it is double extortion and not just encryption?</strong><p style="color:#9aa7b8;margin:6px 0 0">The ransom note or the gang&#x27;s leak-site listing usually says so, but assume data theft until forensics says otherwise: check logs for large outbound transfers before the encryption timestamp, inventory which data types the affected systems held, and monitor the gang&#x27;s leak site (through counsel or a monitoring service). Encryption-only recovery from backups does not address the leak half.</p></div><div class="faq-item" style="margin:14px 0"><strong style="color:#e8edf3">Why do gangs list victims on leak sites in October 2026?</strong><p style="color:#9aa7b8;margin:6px 0 0">The leak site is the second half of the double-extortion squeeze: public naming pressures the victim to pay even when backups make the encryption recoverable. October 2026 listings reported as claimed by the groups include Topcon Healthcare and PIC Group, Inc. (Everest and Akira, Oct 12), Pure Options (Play, Oct 16, financial services), and Taekwang Network (Everest, Oct 17, South Korea tech). These are group claims, not independently confirmed breaches.</p></div></section>
+<h2>More from Ingenious AI</h2>
+<p class="note" style="margin-bottom:8px">Harden before you're a headline:</p>
+<ul>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/double-extortion-survival-quiz.html">Double-Extortion Survival Quiz</a> &mdash; 8 questions: could your business survive one?</li>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/breach-cost-calculator.html">Breach Cost Calculator</a> &mdash; what one breach would actually cost you</li>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/breach-check.html">Breach Check</a> &mdash; has your data already been exposed?</li>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/connectwise-cloud-backup-breach-check.html">ConnectWise Cloud Backup Breach Check</a> &mdash; the backup-breach case study</li>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html">Ingenious AI Security Suite</a> &mdash; the full platform bundle</li>
+</ul>
+<p style="margin-top:14px"><strong><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/all-links.html">Browse everything Ingenious AI has built &rarr;</a></strong></p>
+</div>
+
+<div style="margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center">
+Built by Ingenious AI &mdash; victim details are October 2026 group claims, not confirmed breaches.<br>
+This page is general information, not legal advice. Engage breach counsel immediately in a real incident.
+</div>
+</div>
+
+<div class="share">Share this playbook: <a href="https://x.com/intent/post?text=The%2072-hour%20ransomware%20playbook%3A%20hour-by-hour%20incident%20response%20for%20double-extortion%20attacks&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ransomware-72hour-playbook.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ransomware-72hour-playbook.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ransomware-72hour-playbook.html&title=The%2072-hour%20ransomware%20playbook%3A%20hour-by-hour%20incident%20response" target="_blank" rel="noopener">Reddit</a></div>
+<div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<script>
+/*PURE-START*/
+function mdChecklist(){
+var L=[];
+L.push("# The 72-Hour Playbook: Double-Extortion Incident Response");
+L.push("");
+L.push("> General guidance, NOT legal advice. Engage breach counsel immediately in a real incident.");
+L.push("");
+L.push("## HOUR 0-4 - CONTAIN");
+L.push("- [ ] Confirm the encryption is real - sample files, read the ransom note");
+L.push("- [ ] Isolate affected systems at the switch / pull network cables - DO NOT power off (memory forensics needs live state)");
+L.push("- [ ] Disable VPN, remote access, and vendor tunnels");
+L.push("- [ ] Disable compromised accounts; reset admin and service account passwords");
+L.push("- [ ] Move all coordination to phones / pre-arranged out-of-band channel");
+L.push("- [ ] Open a single timestamped incident log with one owner");
+L.push("- [ ] Photograph the ransom note; note file extensions and variant name");
+L.push("- [ ] Call IR retainer / incident response counsel now");
+L.push("- [ ] Do NOT remove the ransomware, decrypt files, or contact the actor yet");
+L.push("");
+L.push("## HOUR 4-12 - ASSESS + PRESERVE EVIDENCE");
+L.push("- [ ] Engage a qualified forensic examiner BEFORE touching systems further");
+L.push("- [ ] Preserve memory images and logs before any reimaging");
+L.push("- [ ] Identify the ransomware variant from note and file extensions");
+L.push("- [ ] Determine the likely entry vector (phishing, RDP/VPN, unpatched software)");
+L.push("- [ ] Answer the double-extortion question: was data exfiltrated? Check outbound transfers; inventory affected data types");
+L.push("- [ ] Verify backups: intact, offline/immutable, actually restorable");
+L.push("- [ ] Scope the blast radius: systems, departments, customer data");
+L.push("- [ ] Brief executives with facts only - no speculation in writing");
+L.push("");
+L.push("## HOUR 12-24 - DECIDE");
+L.push("- [ ] Engage breach counsel so forensics runs under legal privilege");
+L.push("- [ ] Notify the cyber insurance carrier; follow panel-vendor requirements");
+L.push("- [ ] Decide on law-enforcement engagement through counsel (e.g. FBI/IC3, local field office)");
+L.push("- [ ] Inventory every notification obligation with counsel; put each deadline on the log");
+L.push("- [ ] Set ransom posture: default NOT to pay; exceptions run through counsel + insurer; check free decryption catalogs");
+L.push("- [ ] Lock down external comms: one spokesperson, holding statements, staff briefed");
+L.push("");
+L.push("## DAY 2 - NEGOTIATION POSTURE + LEAK-SITE MONITORING");
+L.push("- [ ] Finalize the ransom decision with counsel + insurer (backups? decryptor? what does payment actually buy?)");
+L.push("- [ ] Sanctions screening with counsel BEFORE any payment discussion");
+L.push("- [ ] All threat-actor comms through counsel / retained negotiator, on the log");
+L.push("- [ ] Start leak-site monitoring through counsel or a service - do not browse it yourself");
+L.push("- [ ] Draft (do not send) breach notices and holding statements with counsel");
+L.push("- [ ] Re-verify backup integrity on an isolated network");
+L.push("");
+L.push("## DAY 3 - RECOVERY + DISCLOSURE");
+L.push("- [ ] Identify a clean, pre-infection recovery point - confirmed, not assumed");
+L.push("- [ ] Patch the entry vector BEFORE restoring anything");
+L.push("- [ ] Restore in phases: critical systems first, into a clean recovery network");
+L.push("- [ ] Hunt for persistence; reset all credentials after the rebuild");
+L.push("- [ ] Execute the notification plan with counsel - regulators, individuals, partners, on deadline");
+L.push("- [ ] Plan for extended downtime; set realistic expectations");
+L.push("- [ ] Document everything - the log becomes the insurance/regulatory record");
+L.push("- [ ] Schedule the post-incident review and a tabletop exercise");
+L.push("");
+L.push("## OCTOBER 2026 - GROUP CLAIMS (claimed listings, NOT confirmed breaches)");
+L.push("- Everest listed Topcon Healthcare; Akira listed PIC Group, Inc. (claimed Oct 12, 2026)");
+L.push("  https://undercodenews.com/everest-and-akira-ransomware-groups-name-two-new-victims-in-latest-cyber-extortion-activity-video/");
+L.push("- Play listed Pure Options, financial services (claimed Oct 16, 2026)");
+L.push("  https://cyberthreatintelligence.net/ransomware-victim/pure-options-play-2026");
+L.push("- Everest listed Taekwang Network, South Korea tech, double-extortion model (claimed Oct 17, 2026)");
+L.push("  https://cyberthreatintelligence.net/ransomware-victim/taekwang-network-everest-2026");
+L.push("");
+L.push("Built by Ingenious AI - https://iceman2050.github.io/ingeniousai-security-checks-mirror/ransomware-72hour-playbook.html");
+return L.join("\n");
+}
+/*PURE-END*/
+document.getElementById("printbtn").onclick=function(){window.print();};
+document.getElementById("dlbtn").onclick=function(){
+var blob=new Blob([mdChecklist()],{type:"text/markdown"});
+var a=document.createElement("a");
+a.href=URL.createObjectURL(blob);
+a.download="72-hour-ransomware-playbook-checklist.md";
+document.body.appendChild(a);a.click();
+setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},500);
+};
+window.__mdChecklist=mdChecklist;
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

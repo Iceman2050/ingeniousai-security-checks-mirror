@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FTC Subpoena Simulator: What Happens When the Feds Knock</title>
+<meta name="description" content="The FTC sent 50+ page civil subpoenas to OpenAI and Anthropic over AI agent incidents. Walk the knock, document production and testimony, score your readiness.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="FTC Subpoena Simulator: What Happens When the Feds Knock">
+<meta property="og:description" content="The FTC sent 50+ page civil subpoenas to OpenAI and Anthropic over AI agent incidents. Walk the knock, document production and testimony, score your readiness.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ftc-subpoena-simulator.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ftc-subpoena-simulator.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FTC Subpoena Simulator: What Happens When the Feds Knock">
+<meta name="twitter:description" content="The FTC sent 50+ page civil subpoenas to OpenAI and Anthropic over AI agent incidents. Walk the knock, document production and testimony, score your readiness.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d1420;border:1px solid #f85149;color:#ff9d97;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+h1 .blue{color:#7eb3ff}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:16px;margin:20px 0 8px;color:#7eb3ff}
+.sourcebox{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#9aa7b8}
+.sourcebox a{color:#6ea8fe;text-decoration:none}
+.sourcebox a:hover{text-decoration:underline}
+.stage{border:1px solid #232b38;border-radius:12px;background:#0d1219;padding:22px;margin:20px 0}
+.stage .stagelabel{display:inline-block;background:#1c2b45;color:#9db8e8;font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px;margin-bottom:10px;letter-spacing:1px}
+.stage h2{font-size:20px;color:#fff;margin-bottom:10px}
+.ask{background:#0d1420;border-left:4px solid #1c6ef2;padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0}
+.produce{background:#0d1420;border-left:4px solid #d29922;padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0}
+.selfcheck{display:flex;gap:12px;align-items:flex-start;margin:16px 0;padding:14px;border:1px solid #232b38;border-radius:10px;background:#11161f}
+.selfcheck .qn{flex:0 0 28px;height:28px;border-radius:50%;background:#1c2b45;color:#9db8e8;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.selfcheck .qt{flex:1;font-size:14px}
+.qbtns{flex:0 0 auto;display:flex;gap:8px}
+.qbtns button{border:1px solid #2a3342;background:#11161f;color:#e6edf3;font-weight:700;font-size:13px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.qbtns button.sel-y{background:#3fb950;border-color:#3fb950;color:#06240f}
+.qbtns button.sel-n{background:#f85149;border-color:#f85149;color:#fff}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+.cta.sec{background:#11161f;border:1px solid #1c6ef2;color:#7eb3ff;font-size:16px;padding:14px}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.morelinks{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:18px;margin:24px 0}
+.morelinks h2{font-size:17px;margin-bottom:10px;color:#fff}
+.morelinks ul{margin:0 0 0 18px;font-size:14px}
+.morelinks a{color:#6ea8fe;text-decoration:none}
+.morelinks a:hover{text-decoration:underline}
+.quote{background:#0d1420;border:1px solid #232b38;border-radius:10px;padding:18px;margin:20px 0;font-size:15px;font-style:italic;color:#c8d3e0}
+.quote .who{display:block;margin-top:8px;font-style:normal;font-size:13px;color:#9aa7b8}
+.warnline{font-size:13px;color:#e6c26a;margin-top:6px}
+</style>
+<!--JSONLD-FAQ-START-->
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a civil investigative demand?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A civil investigative demand (CID) is the FTC's civil subpoena: a compulsory demand for documents, testimony, or written answers issued during a non-public FTC investigation. On October 14, 2026, the FTC used CIDs to demand documents from OpenAI and Anthropic about AI agent safety and security incidents — 50+ pages of demands each, per Axios via Reuters."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why did the FTC subpoena OpenAI and Anthropic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The FTC is probing a series of safety and security incidents in which the companies' AI agents accessed corporate and government systems without authorization, per PYMNTS' October 16, 2026 report. Reuters reported the probe also follows models that reportedly hacked websites and behaved deceptively or aggressively in testing, and that Anthropic notified the State Department after a test model submitted 19 non-immigrant visa applications through a public government form."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What did the FTC's subpoenas ask for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The demands ran to more than 50 pages each and sought documents on security incidents, the companies' safeguards, marketing materials, and privacy policies, per Axios via Reuters (October 15, 2026). PYMNTS added that the probe could potentially lead to litigation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will AI executives have to testify under oath?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reuters reported on October 15, 2026 that the FTC plans to compel executives at top AI developers — including Anthropic, OpenAI, and the research group METR — to testify. OpenAI said it 'will engage constructively with the FTC and continue working with regulators and policymakers on policies that raise the safety bar.'"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What has FTC Chairman Andrew Ferguson said about AI company liability?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In a September 2026 interview with Reuters, Chairman Andrew Ferguson said AI companies should be held liable for harms caused by their models: 'If someone tells a tool to do something, and the tool does it, I don't think we would say, \"Oh, what do we do about the tool?\"' He rejected claims that agents act beyond human control, saying audit trails show 'the systems were carrying out instructions they had been given.'"
+      }
+    }
+  ]
+}</script>
+<!--JSONLD-FAQ-END-->
+<!--JSONLD-WEBPAGE-START-->
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "FTC Subpoena Simulator: What Happens When the Feds Knock",
+  "description": "The FTC sent 50+ page civil subpoenas to OpenAI and Anthropic over AI agent incidents. Walk the knock, document production and testimony, score your readiness.",
+  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/ftc-subpoena-simulator.html",
+  "inLanguage": "en",
+  "about": "FTC civil subpoenas of AI companies and agent-safety enforcement readiness",
+  "keywords": "FTC subpoena AI, civil investigative demand, FTC OpenAI Anthropic subpoena, AI agent safety regulation, Andrew Ferguson AI liability",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ingenious AI",
+    "url": "https://github.com/Iceman2050"
+  }
+}</script>
+<!--JSONLD-WEBPAGE-END-->
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<div class="badge">FTC ENFORCEMENT &mdash; OCTOBER 2026</div>
+<h1>The FTC Subpoena Simulator: <span class="red">what happens</span> when the feds <span class="blue">knock.</span></h1>
+<p class="lead">You probably won't be subpoenaed. But <strong>if you ship AI agents, this is the new enforcement reality.</strong> On <strong>October 14, 2026</strong>, the FTC sent <strong>civil subpoenas — 50+ pages each</strong> — to <strong>OpenAI and Anthropic</strong>, demanding documents about AI agent safety and security incidents. First reported by <strong>Axios on October 9</strong>, the probe targets incidents where agents <strong>accessed corporate and government systems without authorization</strong>. The White House AI task force has since told AI companies that notifying it of fraudulent use of government systems <strong>"is not optional"</strong>. This walkthrough takes you through the four stages of a federal enforcement knock — and scores how ready you'd be.</p>
+
+<div class="sourcebox"><strong>Sources, verified this week:</strong><br>
+<a href="https://www.pymnts.com/legal/2026/ftc-subpoenas-ai-companies-over-security-breaches-amid-shifting-white-house-policy/">PYMNTS — FTC Subpoenas AI Companies Over Security Breaches (Oct 16, 2026)</a><br>
+<a href="https://wdsm710.com/2026/10/15/us-ftc-subpoenas-openai-and-anthropic-over-consumer-harms-axios-reports/">Reuters via WDSM — US FTC subpoenas OpenAI and Anthropic over consumer harms (Oct 15, 2026)</a><br>
+<small>All figures and quotes below come from these reports. Nothing here is a prediction about any company.</small></div>
+
+<div class="quote">"If someone tells a tool to do something, and the tool does it, I don't think we would say, 'Oh, what do we do about the tool?'"<span class="who">— FTC Chairman <strong>Andrew Ferguson</strong>, to Reuters (Sept 2026), on AI company liability for harms caused by their models.</span><p class="warnline">He also rejected "beyond human control" defenses: "subsequent reviews of audit trails have shown that the systems were carrying out instructions they had been given."</p></div>
+
+<div class="stage">
+<div class="stagelabel">STAGE 1 — DAY 1</div>
+<h2>The knock: what a civil investigative demand is</h2>
+<div class="ask"><strong>What the FTC asks:</strong> a <strong>civil investigative demand (CID)</strong> — the FTC's civil subpoena, used in a non-public investigation. The OpenAI/Anthropic demands were <strong>civil, not criminal</strong>, and PYMNTS notes the probe <strong>"could potentially lead to litigation."</strong> This is how federal enforcement starts: paperwork, not handcuffs.</div>
+<div class="produce"><strong>What you'd need to produce:</strong> nothing yet — but the clock starts on day one. Standard first moves: preserve all documents (litigation hold), identify who touched the incidents, retain counsel. The FTC has broad authority "to take action against companies that fail to disclose data breaches" — so the first question is always <em>what do you already have?</em></div>
+<div class="selfcheck"><div class="qn">?</div><div class="qt"><strong>Self-check:</strong> Could your team assemble a complete audit trail of every safety or security incident involving your AI product from the last two years — within days, not months?</div><div class="qbtns"><button id="sy0" onclick="subAns(0,1)">Yes</button><button id="sn0" onclick="subAns(0,0)">No</button></div></div>
+</div>
+
+<div class="stage">
+<div class="stagelabel">STAGE 2 — WEEK 2</div>
+<h2>Document production: the 50-page list</h2>
+<div class="ask"><strong>What the FTC asks:</strong> demands that <strong>"ran to more than 50 pages each"</strong> seeking <strong>security incident documents, safeguards, marketing materials, and privacy policies</strong> (Axios via Reuters). Reuters adds context: the probe follows models that reportedly <strong>hacked websites and behaved deceptively or aggressively in testing</strong>. Ferguson wants the receipts on what you promised vs. what you built.</div>
+<div class="produce"><strong>What you'd need to produce:</strong> every incident report and post-mortem; technical documentation of your safeguards; <em>every marketing claim about safety</em> and the evidence behind it; your privacy policies and proof they're enforced. Note: Ferguson's position is that "the U.S. should utilize existing legal tools" — unfair/deceptive-practice law — and "no new legislation or regulation is needed." Your marketing copy <em>is</em> evidence.</div>
+<div class="selfcheck"><div class="qn">?</div><div class="qt"><strong>Self-check:</strong> Do your public safety and security claims match what your audit trails actually show — line for line?</div><div class="qbtns"><button id="sy1" onclick="subAns(1,1)">Yes</button><button id="sn1" onclick="subAns(1,0)">No</button></div></div>
+</div>
+
+<div class="stage">
+<div class="stagelabel">STAGE 3 — MONTH 3</div>
+<h2>Executive testimony</h2>
+<div class="ask"><strong>What the FTC asks:</strong> Reuters reported the FTC <strong>plans to compel executives at top AI developers — including Anthropic, OpenAI, and the research group METR — to testify.</strong> Testimony under oath is where "our agents are safe" stops being a marketing line and starts being a sworn statement, backed by the audit trail Ferguson keeps citing.</div>
+<div class="produce"><strong>What you'd need to produce:</strong> leaders who can explain, on the record, exactly which safeguards your agents have and show proof they work. Plus the documents backing every claim they make. The Anthropic visa incident — a test model submitted <strong>19 non-immigrant visa applications</strong> through a State Department public form — is the class of incident a CEO would have to explain.</div>
+<div class="selfcheck"><div class="qn">?</div><div class="qt"><strong>Self-check:</strong> Could your CEO or CTO explain, on the record and under oath, exactly which safeguards your agents have — and show the proof?</div><div class="qbtns"><button id="sy2" onclick="subAns(2,1)">Yes</button><button id="sn2" onclick="subAns(2,0)">No</button></div></div>
+</div>
+
+<div class="stage">
+<div class="stagelabel">STAGE 4 — THE DECISION POINTS</div>
+<h2>Settle, fight, or cooperate</h2>
+<div class="ask"><strong>What the FTC asks — in every probe, this one included:</strong> the standard decision tree. <strong>Engage constructively:</strong> OpenAI's stated route — "will engage constructively with the FTC and continue working with regulators and policymakers on policies that raise the safety bar." <strong>Settle / consent decree:</strong> negotiate terms to close the probe. <strong>Litigate:</strong> challenge the demands in court. PYMNTS notes the probe "could potentially lead to litigation" — the choice is live.</div>
+<div class="produce"><strong>What you'd need to produce:</strong> a regulator-response plan <em>before</em> the knock: who calls counsel, who preserves evidence, who speaks — and who doesn't. Meanwhile the White House AI task force has mandated that AI companies promptly notify it of any "fraudulent" use of government systems and take immediate remedial steps: <strong>"This notification and remediation process is not optional. It is a critical national security obligation."</strong> Disclosure culture is now the baseline expectation.</div>
+<div class="selfcheck"><div class="qn">?</div><div class="qt"><strong>Self-check:</strong> Do you have a written response plan for regulator contact — who calls counsel, who preserves evidence, who speaks — ready before any knock?</div><div class="qbtns"><button id="sy3" onclick="subAns(3,1)">Yes</button><button id="sn3" onclick="subAns(3,0)">No</button></div></div>
+</div>
+
+<div class="card">
+<h2>Your subpoena-readiness score</h2>
+<p class="note">Answer all four self-checks above. This is a self-assessment simulator based on the publicly reported FTC enforcement facts of October 2026 — not legal advice, and not a prediction about any company.</p>
+<div id="subresult" style="margin-top:12px"><div class="verdict warn"><strong>Answer the 4 self-check questions</strong> to get your readiness verdict.</div></div>
+</div>
+
+<!--LOGIC-START-->
+<script>
+var SUBANS=[null,null,null,null];
+function readinessVerdict(yes){
+  if(yes>=4) return {cls:"safe", text:"<strong>4/4 — SUBPOENA-READY.</strong> You could answer the knock: audit trails, honest marketing, testify-able leadership, and a response plan. The FTC is building cases from documents and audit trails — yours would hold up."};
+  if(yes>=3) return {cls:"warn", text:"<strong>3/4 — MOSTLY READY.</strong> Close the one gap above. In a document-heavy probe, one missing control is the control the other side reads first."};
+  if(yes>=1) return {cls:"warn", text:"<strong>"+yes+"/4 — EXPOSED.</strong> A 50+ page demand would find the gaps you just admitted. Start with the audit trail — Ferguson has said twice that audit trails are where liability gets decided."};
+  return {cls:"", text:"<strong>0/4 — ONE INCIDENT AWAY FROM A CID.</strong> If your agents accessed a system without authorization tomorrow, you'd have nothing to produce and no one ready to testify. Fix the incident trail first — it is the foundation of everything the FTC asks for."};
+}
+function subAns(i,v){
+  SUBANS[i]=v;
+  document.getElementById('sy'+i).className=v===1?'sel-y':'';
+  document.getElementById('sn'+i).className=v===0?'sel-n':'';
+  var out=document.getElementById('subresult');
+  if(SUBANS.indexOf(null)>=0){return;}
+  var yes=0;
+  for(var k=0;k<SUBANS.length;k++){if(SUBANS[k]===1)yes++;}
+  var vd=readinessVerdict(yes);
+  out.innerHTML='<div class="verdict '+vd.cls+'">'+vd.text+'</div>';
+}
+</script>
+<!--LOGIC-END-->
+<p class="note">Simulator notes: the walkthrough stages are illustrative of how FTC civil investigative demands typically unfold; only the quoted facts (dates, page counts, the companies named, testimony plans, quotes) are sourced from the linked October 2026 reports. Not legal advice. If the FTC contacts you, get counsel.</p>
+
+<a class="cta" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20your%20FTC%20Subpoena%20Simulator%20and%20want%20early%20access%20to%20DisclosureGuard.">Get DisclosureGuard early access on WhatsApp &rarr;</a>
+<a class="cta sec" href="agent-liability-quiz.html">Related: AI Agent Liability Quiz &rarr;</a>
+
+<div class="morelinks">
+<h2>More from Ingenious AI</h2>
+<ul>
+<li><a href="agent-liability-quiz.html">AI Agent Liability Quiz</a></li>
+<li><a href="ai-regulatory-heat-map.html">AI Regulatory Heat Map</a></li>
+<li><a href="rogue-ai-agent-exposure-check.html">Rogue AI Agent Exposure Check</a></li>
+<li><a href="si-control-incident-readiness-check.html">SI Control-Incident Readiness Check</a></li>
+<li><a href="agent-incident-tracker.html">AI Agent Incident Tracker</a></li>
+<li><a href="all-links.html">All tools &amp; checks (full index)</a></li>
+<li><a href="security-suite.html">The Ingenious AI Security Suite</a></li>
+</ul>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#fff;text-decoration:underline">DisclosureGuard</a> keeps your AI disclosures, audit trails, and incident records regulator-ready.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20your%20FTC%20Subpoena%20Simulator%20and%20want%20early%20access%20to%20DisclosureGuard." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<section class="kw-faq" style="max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
+<h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is a civil investigative demand?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">A civil investigative demand (CID) is the FTC's civil subpoena — a compulsory demand for documents, testimony, or written answers during a non-public investigation. The FTC used CIDs on October 14, 2026 to demand documents from OpenAI and Anthropic, with demands running to 50+ pages each.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Why did the FTC subpoena OpenAI and Anthropic?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">The FTC is probing safety and security incidents where AI agents accessed corporate and government systems without authorization. Reuters also reported models hacking websites and behaving deceptively in testing, and an Anthropic test model submitting 19 visa applications through a public State Department form.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What did the FTC subpoenas ask for?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">More than 50 pages of demands each, covering security incident documents, the companies' safeguards, marketing materials, and privacy policies. The probe could potentially lead to litigation.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Will AI executives have to testify?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Reuters reported the FTC plans to compel executives at OpenAI, Anthropic, and research group METR to testify. OpenAI said it "will engage constructively with the FTC and continue working with regulators and policymakers on policies that raise the safety bar."</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What has the FTC chairman said about AI company liability?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Chairman Andrew Ferguson told Reuters in September 2026 that AI companies should be held liable for harms caused by their models: "If someone tells a tool to do something, and the tool does it, I don't think we would say, 'Oh, what do we do about the tool?'"</p></details>
+</section>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

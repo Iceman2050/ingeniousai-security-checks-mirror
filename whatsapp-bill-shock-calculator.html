@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhatsApp Bill Shock: Sept vs Oct Estimate | Ingenious AI</title>
+<meta name="description" content="Meta now charges for WhatsApp business replies since Oct 1, 2026. Enter September and October volumes plus your per-message rates to estimate both bills. Free.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="WhatsApp Bill Shock: Sept vs Oct Estimate | Ingenious AI">
+<meta property="og:description" content="Meta now charges for WhatsApp business replies since Oct 1, 2026. Enter September and October volumes plus your per-message rates to estimate both bills. Free.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/whatsapp-bill-shock-calculator.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/whatsapp-bill-shock-calculator.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WhatsApp Bill Shock: Sept vs Oct Estimate | Ingenious AI">
+<meta name="twitter:description" content="Meta now charges for WhatsApp business replies since Oct 1, 2026. Enter September and October volumes plus your per-message rates to estimate both bills. Free.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d2b16;border:1px solid #3fb950;color:#7ee2a0;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .green{color:#3fb950}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:15px;color:#c9d4e3;margin:20px 0 6px;letter-spacing:.4px}
+.field{margin:14px 0}
+.field label{display:block;font-weight:600;font-size:14px;margin-bottom:6px;color:#c9d4e3}
+.field input,.field select{width:100%;background:#0d1219;border:1px solid #2a3342;color:#e6edf3;font-size:16px;padding:12px 14px;border-radius:8px}
+.field small{display:block;color:#6b7688;font-size:12px;margin-top:6px}
+.field small .rep{color:#7ee2a0;font-weight:600}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.grid2{grid-template-columns:1fr}}
+.calcbtn{display:block;width:100%;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:16px;border-radius:10px;border:none;cursor:pointer;margin:20px 0}
+.calcbtn:hover{background:#2f7ef7}
+.ghostbtn{display:block;width:100%;background:transparent;color:#6ea8fe;border:1px dashed #2a3342;font-size:14px;padding:10px;border-radius:8px;cursor:pointer;margin:6px 0}
+.ghostbtn:hover{border-color:#1c6ef2}
+.result{background:#0d1420;border:1px solid #3fb950;border-radius:10px;padding:22px;margin:20px 0;display:none}
+.result.show{display:block}
+.result .old{color:#9aa7b8;font-size:15px}
+.result .new{color:#fff;font-size:28px;font-weight:800;margin:6px 0}
+.result .delta{font-size:16px;font-weight:700;color:#ffa198}
+.result .delta.down{color:#7ee2a0}
+.math{font-size:13px;color:#9aa7b8;background:#0b0f17;border-radius:8px;padding:14px 16px;margin-top:14px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap}
+.verdict{border-left:4px solid #d29922;padding:12px 16px;background:#1a1408;border-radius:0 8px 8px 0;margin:16px 0;font-size:14px}
+.verdict.big{border-color:#f85149;background:#1a0f0f}
+.note{font-size:14px;color:#9aa7b8}
+.esttag{display:inline-block;background:#1a0f0f;border:1px solid #f85149;color:#ffa198;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;margin-left:8px;vertical-align:middle}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+.cta.alt{background:#1c2430;border:1px solid #2a3342;font-size:16px;padding:14px}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:12px 0}
+th,td{padding:10px 12px;border:1px solid #232b38;text-align:left}
+th{background:#0d1219;color:#c9d4e3}
+table small{color:#6b7688}
+.timeline{background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:18px;margin:20px 0;font-size:14px}
+.timeline div{margin:8px 0}
+.timeline b{color:#7ee2a0}
+.moreblock{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0}
+.moreblock h2{font-size:18px;margin-bottom:10px;color:#fff}
+.moreblock a{color:#6ea8fe;text-decoration:none}
+.moreblock li{font-size:14px}
+.srcs{font-size:12px;color:#6b7688}
+.srcs a{color:#6ea8fe}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "WhatsApp Bill Shock: Sept vs Oct Estimate | Ingenious AI",
+  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/whatsapp-bill-shock-calculator.html",
+  "description": "Meta now charges for WhatsApp business replies since Oct 1, 2026. Enter September and October volumes plus your per-message rates to estimate both bills. Free.",
+  "author": { "@type": "Organization", "name": "Ingenious AI" },
+  "datePublished": "2026-10-17"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What changed in WhatsApp Business pricing on October 1, 2026?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Since October 1, 2026, Meta charges WhatsApp Business Platform businesses for service messages - free-form replies inside the 24-hour customer window - at each market's utility rate after 1,000 free per phone number per month. Utility templates sent inside an open service window, previously free, are now charged too, and marketing message prices reportedly rose in some markets (about +30% reported in Mexico). These are publicly reported figures, not Meta's official quote." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the WhatsApp Business API free for business replies now?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not anymore. Until September 30, 2026, free-form replies inside the 24-hour service window were free. Since October 1, 2026, the WhatsApp Business Platform charges for them at the utility rate after 1,000 free per business phone number per month. The free WhatsApp Business app - replies typed on a phone - is a different product and is not affected by these charges." }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does one WhatsApp marketing message cost?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It varies by recipient country. Publicly reported figures include India: marketing Rs 0.8631; Nigeria: marketing about $0.062; Malaysia: marketing $0.0860; utility/authentication roughly $0.0140 in Malaysia. Service-message rates reported in USD: about $0.0014 in India, $0.0034 in the US, $0.0040 across most of Africa and $0.0220 in the UK. All are estimates based on publicly reported rate cards, not Meta's official quote." }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if my business has no payment method on Meta's file?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Meta delivers service messages only within the 1,000 free monthly allowance per number, and stops delivering them once the free tier is used up if no valid payment method is on file - templates need a payment method regardless. The symptom is replies that silently stop partway through a month." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+<div class="badge">NEWSJACK &middot; OCTOBER 2026 PRICING CHANGE &middot; V2</div>
+<h1>October ended free WhatsApp replies. <span class="green">How big is your bill shock?</span></h1>
+<p class="lead">Since <strong>October 1, 2026</strong>, Meta charges businesses on the WhatsApp Business Platform for replies inside the 24-hour service window &mdash; free only up to 1,000 per phone number per month. Marketing prices reportedly rose in some markets (about <strong>+30% reported in Mexico</strong> &mdash; a reported figure, not a universal one). Put in your September vs October volumes <em>and your own per-message rates</em>, and get a line-by-line estimate of the delta.</p>
+
+<div class="card">
+<h2>Your bill-shock estimate <span class="esttag">ESTIMATE</span></h2>
+<div class="field"><label for="country">Recipient country (prefills publicly reported rates &mdash; editable)</label><select id="country">
+<option value="custom" selected>Custom &mdash; I'll enter my rates</option>
+<option value="in">India (reported figures)</option>
+<option value="us">United States (reported figures)</option>
+<option value="mx">Mexico (reported +30% marketing hike)</option>
+<option value="ng">Nigeria (reported figures)</option>
+<option value="gb">United Kingdom (reported figures)</option>
+<option value="my">Malaysia (reported figures)</option>
+</select><small>Prefilled numbers are publicly reported figures from October 2026 coverage &mdash; verify against your Meta rate card. Meta prices per message by the recipient's country code.</small></div>
+
+<h3>YOUR PER-MESSAGE RATES (USD)</h3>
+<div class="grid2">
+<div class="field"><label for="rSeptMkt">September marketing rate</label><input id="rSeptMkt" type="number" min="0" step="0.0001" placeholder="e.g. 0.062"><small class="ratetag" id="tSeptMkt">Enter your rate &mdash; varies by country, category and provider.</small></div>
+<div class="field"><label for="rOctMkt">October marketing rate</label><input id="rOctMkt" type="number" min="0" step="0.0001" placeholder="e.g. 0.0806"><small class="ratetag" id="tOctMkt">Enter your rate &mdash; the reported Mexico hike is about +30% vs September.</small></div>
+<div class="field"><label for="rUtil">Utility / auth rate (both months)</label><input id="rUtil" type="number" min="0" step="0.0001" placeholder="e.g. 0.0101"><small class="ratetag" id="tUtil">Enter your rate &mdash; service replies are billed at the utility rate.</small></div>
+<div class="field"><label for="rSvc">Service-reply rate (October only)</label><input id="rSvc" type="number" min="0" step="0.0001" placeholder="e.g. 0.0101"><small class="ratetag" id="tSvc">Billed in October after 1,000 free per number/month. Was $0.00 in September.</small></div>
+</div>
+<button class="ghostbtn" onclick="applyUplift()">Copy Sept marketing rate to Oct &amp; apply +30% (the Mexico-reported hike)</button>
+
+<h3>SEPTEMBER VOLUMES (before the change)</h3>
+<div class="grid2">
+<div class="field"><label for="sMkt">Marketing messages</label><input id="sMkt" type="number" min="0" value="5000"><small>Offers, promos, win-backs</small></div>
+<div class="field"><label for="sUtil">Utility messages</label><input id="sUtil" type="number" min="0" value="20000"><small>Order updates, reminders, alerts</small></div>
+<div class="field"><label for="sAuth">Authentication messages</label><input id="sAuth" type="number" min="0" value="8000"><small>OTPs, login codes, 2FA</small></div>
+<div class="field"><label for="sSvc">Service replies</label><input id="sSvc" type="number" min="0" value="12000"><small>Free-form customer replies &mdash; FREE in Sept</small></div>
+</div>
+
+<h3>OCTOBER VOLUMES (after the change)</h3>
+<div class="grid2">
+<div class="field"><label for="oMkt">Marketing messages</label><input id="oMkt" type="number" min="0" value="5000"><small>Offers, promos, win-backs</small></div>
+<div class="field"><label for="oUtil">Utility messages</label><input id="oUtil" type="number" min="0" value="20000"><small>Order updates, reminders, alerts</small></div>
+<div class="field"><label for="oAuth">Authentication messages</label><input id="oAuth" type="number" min="0" value="8000"><small>OTPs, login codes, 2FA</small></div>
+<div class="field"><label for="oSvc">Service replies</label><input id="oSvc" type="number" min="0" value="12000"><small>Free-form replies &mdash; 1,000 free, then charged</small></div>
+</div>
+
+<button class="calcbtn" onclick="calc()">Estimate my bill shock &rarr;</button>
+<div class="result" id="result">
+<div class="old">September bill <strong>ESTIMATE</strong>: <strong id="rold"></strong></div>
+<div class="new" id="rnew"></div>
+<div class="delta" id="rdelta"></div>
+<div class="math" id="rmath"></div>
+</div>
+<p class="note"><strong>Estimates only.</strong> This calculator multiplies YOUR rates by YOUR volumes &mdash; the numbers are estimates in USD, not Meta's official quote and not your invoice. Reported prefill figures come from October 2026 public coverage (see sources below). BSP fees, taxes, Meta Business Agent token charges and currency conversion are excluded.</p>
+</div>
+
+<script data-core>
+function estBill(sept, oct, rates){
+  var oldBill = sept.mkt*rates.septMkt + (sept.util+sept.auth)*rates.util;
+  var octSvcCharged = Math.max(0, oct.svc - 1000);
+  var newBill = oct.mkt*rates.octMkt + (oct.util+oct.auth)*rates.util + octSvcCharged*rates.svc;
+  return { oldBill: oldBill, newBill: newBill, delta: newBill-oldBill, octSvcCharged: octSvcCharged };
+}
+if (typeof module !== "undefined" && module.exports) { module.exports = { estBill: estBill }; }
+</script>
+<script>
+var REPORTED={
+ in:{n:"India",septMkt:"",octMkt:"",util:0.0014,svc:0.0014,note:"Rs 0.8631 marketing / Rs 0.115 utility reported; USD service ~$0.0014. Enter your USD rates."},
+ us:{n:"United States",septMkt:"",octMkt:"",util:0.0034,svc:0.0034,note:"Service ~$0.0034 reported (service billed at utility rate). Enter your rates."},
+ mx:{n:"Mexico",septMkt:"",octMkt:"",util:"",svc:"",note:"Marketing reportedly up ~+30% vs September. Enter your September rate, then use the +30% button."},
+ ng:{n:"Nigeria",septMkt:0.062,octMkt:0.062,util:0.0101,svc:0.0101,note:"Reported: marketing ~$0.062 (~84 naira), service ~$0.0101 (~14 naira)."},
+ gb:{n:"United Kingdom",septMkt:"",octMkt:"",util:0.022,svc:0.022,note:"Reported: service ~$0.0220 (service billed at utility rate)."},
+ my:{n:"Malaysia",septMkt:0.086,octMkt:0.086,util:0.014,svc:0.014,note:"Reported USD: marketing $0.0860, utility $0.0140, service $0.0140 (RM 0.056)."}
+};
+function fmt(x){return "$"+x.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});}
+function num(id){var v=parseFloat(document.getElementById(id).value);return isNaN(v)||v<0?0:v;}
+function prefill(){
+  var c=document.getElementById("country").value;
+  if(c==="custom")return;
+  var r=REPORTED[c];
+  setRate("rSeptMkt","tSeptMkt",r.septMkt,r.note);
+  setRate("rOctMkt","tOctMkt",r.octMkt,r.note);
+  setRate("rUtil","tUtil",r.util,r.note);
+  setRate("rSvc","tSvc",r.svc,r.note);
+}
+function setRate(fid,tid,val,note){
+  if(val===""||val===undefined){document.getElementById(fid).value="";}
+  else{document.getElementById(fid).value=val;}
+  document.getElementById(tid).innerHTML='<span class="rep">Reported figure</span> &mdash; '+note;
+}
+function applyUplift(){
+  var s=num("rSeptMkt");
+  if(s>0){document.getElementById("rOctMkt").value=(s*1.30).toFixed(4);
+    document.getElementById("tOctMkt").innerHTML='<span class="rep">+30% applied</span> &mdash; the increase reported for Mexico; verify against your rate card.';}
+}
+function calc(){
+  var sept={mkt:num("sMkt"),util:num("sUtil"),auth:num("sAuth"),svc:num("sSvc")};
+  var oct={mkt:num("oMkt"),util:num("oUtil"),auth:num("oAuth"),svc:num("oSvc")};
+  var rates={septMkt:num("rSeptMkt"),octMkt:num("rOctMkt"),util:num("rUtil"),svc:num("rSvc")};
+  var b=estBill(sept,oct,rates);
+  var pct=b.oldBill>0?b.delta/b.oldBill*100:0;
+  document.getElementById("rold").textContent=fmt(b.oldBill);
+  document.getElementById("rnew").textContent="October bill ESTIMATE: "+fmt(b.newBill);
+  var d=document.getElementById("rdelta");
+  d.className="delta"+(b.delta<=0?" down":"");
+  d.textContent="ESTIMATED delta: "+(b.delta>=0?"+":"-")+fmt(Math.abs(b.delta))+" / month ("+(pct>=0?"+":"")+pct.toFixed(1)+"%)";
+  document.getElementById("rmath").textContent=
+   "LINE-BY-LINE MATH (ESTIMATES, USD):\n\n"+
+   "SEPTEMBER = "+sept.mkt.toLocaleString()+" mkt x "+fmt(rates.septMkt)+" = "+fmt(sept.mkt*rates.septMkt)+"\n"+
+   "          + "+(sept.util+sept.auth).toLocaleString()+" util/auth x "+fmt(rates.util)+" = "+fmt((sept.util+sept.auth)*rates.util)+"\n"+
+   "          + "+sept.svc.toLocaleString()+" service replies x $0.00 = $0.00 (replies were FREE)\n"+
+   "          = "+fmt(b.oldBill)+"\n\n"+
+   "OCTOBER   = "+oct.mkt.toLocaleString()+" mkt x "+fmt(rates.octMkt)+" = "+fmt(oct.mkt*rates.octMkt)+"\n"+
+   "          + "+(oct.util+oct.auth).toLocaleString()+" util/auth x "+fmt(rates.util)+" = "+fmt((oct.util+oct.auth)*rates.util)+"\n"+
+   "          + "+b.octSvcCharged.toLocaleString()+" service replies (after 1,000 free) x "+fmt(rates.svc)+" = "+fmt(b.octSvcCharged*rates.svc)+"\n"+
+   "          = "+fmt(b.newBill)+"\n\n"+
+   "DELTA = "+fmt(b.newBill)+" - "+fmt(b.oldBill)+" = "+(b.delta>=0?"+":"")+fmt(b.delta).replace("$-","-$")+" ESTIMATE";
+  document.getElementById("result").className="result show";
+}
+document.getElementById("country").addEventListener("change",prefill);
+</script>
+
+<div class="card">
+<h2>What changed on October 1, 2026</h2>
+<div class="timeline">
+<div><b>Before Oct 1, 2026:</b> free-form replies inside the 24-hour service window (service messages) were free on the WhatsApp Business Platform. Utility templates sent inside an open window were free too.</div>
+<div><b>Since Oct 1, 2026:</b> service messages cost each market's utility rate after <b>1,000 free per business phone number per month</b>. Utility templates inside the window are charged. Marketing prices reportedly rose in some markets &mdash; about <b>+30% reported in Mexico</b>. No payment method on file? Meta stops delivering service messages once the free tier runs out.</div>
+<div><b>Rates vary by country and are yours to enter above.</b> Publicly reported figures (USD): service messages roughly $0.0014 (India), $0.0034 (US), $0.0101 (Nigeria), $0.0220 (UK); marketing roughly $0.062 (Nigeria), $0.0860 (Malaysia). The free WhatsApp Business app (replies typed on a phone) is a different product and is not affected.</div>
+</div>
+<p class="srcs">Sources (October 2026 coverage): <a href="https://dev.to/dawnofgenx/the-complete-guide-to-whatsapp-business-api-pricing-in-india-2026-1hbh" target="_blank" rel="noopener">dev.to India pricing guide</a> &middot; <a href="https://sanrovax.medium.com/meta-started-charging-for-whatsapp-replies-i-ran-the-numbers-for-indian-businesses-fb455039420b" target="_blank" rel="noopener">Sanrovax / Medium</a> &middot; <a href="https://nagmelater.com/blog/whatsapp-service-message-pricing.html" target="_blank" rel="noopener">NagMeLater</a> &middot; <a href="https://rakansales.com/blog/whatsapp-business-api-pricing-malaysia-october-2026/" target="_blank" rel="noopener">RakanSales Malaysia</a> &middot; <a href="https://qontak.com/en/whatsapp-pricing-calculator/" target="_blank" rel="noopener">Qontak Indonesia calculator</a> &middot; <a href="https://newsultra360.com/2026/09/30/whatsapp-to-charge-for-some-business-messages-from-october-1/" target="_blank" rel="noopener">NewsUltra360 Nigeria</a>. Your Meta rate card is the only official number.</p>
+</div>
+
+<div class="card">
+<h2>Cut the shock: 4 moves</h2>
+<ul>
+<li><strong>Reclassify templates.</strong> Reported figures put marketing at ~7.5x utility (e.g. Rs 0.8631 vs Rs 0.115 in India). Genuine updates filed as marketing templates are the #1 overpayment.</li>
+<li><strong>Resolve in fewer replies.</strong> Every reply past the 1,000 free now has a price. Better first answers and batched deliveries cut the new service-message line directly.</li>
+<li><strong>Count your numbers.</strong> The 1,000 free service messages are <em>per business phone number</em> &mdash; businesses running multiple numbers have multiple allowances.</li>
+<li><strong>Audit marketing lists.</strong> With marketing rates reportedly up (+30% reported in Mexico), set-and-forget win-back campaigns may now cost more than they earn.</li>
+</ul>
+</div>
+
+<div class="verdict big">
+<strong>The bigger lesson:</strong> your highest-cost channel is now the one customers open most. ContentCraft AI by Ingenious AI helps businesses plan content and campaigns that convert on the first send &mdash; so every paid WhatsApp message earns its keep instead of burning margin.
+</div>
+<a class="cta" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI.">Cut my WhatsApp bill &rarr; ContentCraft AI (early access)</a>
+<a class="cta alt" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms.">See all 11 Ingenious AI platforms &rarr;</a>
+
+<div class="moreblock">
+<h2>More from Ingenious AI</h2>
+<ul>
+<li><a href="whatsapp-pricing-calculator.html">WhatsApp Price-Hike Calculator v1 &mdash; new bill vs old bill</a></li>
+<li><a href="newsjack-contentcraft.html">Newsjack: ContentCraft AI &mdash; turn trending news into content</a></li>
+<li><a href="breach-cost-calculator.html">Breach Cost Calculator &mdash; what a data breach costs you</a></li>
+<li><a href="ai-agency-audit-check.html">AI Agency Audit Check &mdash; is your AI vendor trustworthy?</a></li>
+<li><a href="security-suite.html">Ingenious AI Security Suite &mdash; all 11 platforms</a></li>
+<li><a href="all-links.html">All free checks &mdash; the full directory</a></li>
+</ul>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Ingenious AI builds 11 AI security platforms &mdash; disclosure compliance, rogue-agent defense, breach hunting, agent oversight, and more.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+</div>
+
+<div class="share" style="max-width:760px;margin:28px auto 8px;text-align:center;font-size:14px;color:#9aa7b8">Share this calculator: <a href="https://x.com/intent/post?text=WhatsApp%20now%20charges%20for%20business%20replies%20(since%20Oct%201%2C%202026).%20Estimate%20your%20Sept%20vs%20Oct%20bill%20shock%20line-by-line%20%E2%80%94%20free&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/whatsapp-bill-shock-calculator.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/whatsapp-bill-shock-calculator.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/whatsapp-bill-shock-calculator.html&title=WhatsApp%20now%20charges%20for%20business%20replies%20%E2%80%94%20line-by-line%20Sept-vs-Oct%20bill%20estimator" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<section class="kw-faq" style="max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
+<h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What changed in WhatsApp Business pricing on October 1, 2026?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Since October 1, 2026, Meta charges WhatsApp Business Platform businesses for service messages &mdash; free-form replies inside the 24-hour customer window &mdash; at each market's utility rate after 1,000 free per phone number per month. Utility templates sent inside an open service window are now charged too, and marketing prices reportedly rose in some markets (about +30% reported in Mexico).</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Is the WhatsApp Business API free for business replies now?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Not anymore. Until September 30, 2026, free-form replies inside the 24-hour service window were free. Since October 1, 2026, the Platform charges for them at the utility rate after 1,000 free per business phone number per month. The free WhatsApp Business app (replies typed on a phone) is a different product and is not affected.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How much does one WhatsApp marketing message cost?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">It varies by recipient country. Publicly reported figures include India: marketing Rs 0.8631; Nigeria: marketing about $0.062; Malaysia: marketing $0.0860. The calculator above multiplies YOUR rates by YOUR volumes &mdash; every output is an estimate, not Meta's official quote.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What happens if my business has no payment method on Meta's file?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Meta delivers service messages only within the 1,000 free monthly allowance per number, and stops delivering them once the free tier is used up if no valid payment method is on file. The symptom is replies that silently stop partway through a month &mdash; check Billing Hub.</p></details>
+</section>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

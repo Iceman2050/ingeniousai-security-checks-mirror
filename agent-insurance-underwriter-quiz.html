@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>20 Questions Insurers Ask About Your AI Agents (Free Quiz)</title>
+<meta name="description" content="Deploying AI agents? Underwriters ask hard questions. 20-question self-assessment: governance, safety controls, data, incidents, monitoring. Free check.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-insurance-underwriter-quiz.html">
+<link rel="stylesheet" href="ecosystem.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="The Underwriter's Questionnaire: 20 Questions Insurers Will Ask About Your AI Agents">
+<meta property="og:description" content="AI agent insurance is here. 20 questions across governance, safety, data, incident history, and monitoring — see if you'd survive underwriting. Free self-assessment.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-insurance-underwriter-quiz.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Underwriter's Questionnaire: 20 Questions Insurers Will Ask About Your AI Agents">
+<meta name="twitter:description" content="Free 20-question readiness self-check: would your AI agent program survive insurance underwriting? Built by Ingenious AI.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d1626;border:1px solid #1c6ef2;color:#6ea8fe;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h2{font-size:21px;margin-bottom:12px;color:#fff}
+h3{font-size:17px;margin:18px 0 8px;color:#fff}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+ul{margin:10px 0 10px 20px}
+li{margin:10px 0}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#6ea8fe}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.cat{margin:22px 0}
+.cat h3{color:#6ea8fe;letter-spacing:1px;font-size:14px;text-transform:uppercase;border-bottom:1px solid #232b38;padding-bottom:8px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.q p{font-size:16px;margin-bottom:12px;color:#fff}
+.q .why{font-size:13px;color:#6b7688;margin-top:8px}
+.q .fb{font-size:14px;color:#9aa7b8;margin-top:10px;display:none}
+.q .opts{display:flex;gap:10px;flex-wrap:wrap}
+.q button{flex:1;min-width:100px;background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px;font-size:15px;font-weight:600;cursor:pointer}
+.q button:hover{border-color:#1c6ef2}
+.q button.sel-good{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.q button.sel-mid{background:#1a1408;border-color:#d29922;color:#e8c26a}
+.q button.sel-bad{background:#2b1215;border-color:#f85149;color:#ffa198}
+.q button:disabled{cursor:default;opacity:.85}
+#verdict{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+#verdict.good{border-color:#3fb950;background:#0d1a0f}
+#verdict.bad{border-color:#f85149;background:#1a0f0f}
+#verdict b.verd{font-size:19px;letter-spacing:.5px}
+.catscore{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:14px}
+.catscore .bar{flex:1;height:8px;background:#232b38;border-radius:4px;overflow:hidden}
+.catscore .fill{height:100%;background:#1c6ef2;border-radius:4px}
+.decline{border-left:3px solid #f85149;padding:8px 0 8px 14px;margin:12px 0;font-size:14px}
+.decline strong{color:#ffa198}
+.market{border-left:3px solid #1c6ef2;padding:10px 0 10px 16px;margin:14px 0}
+.market strong{color:#fff}
+.sharebox{margin-top:16px;display:none;background:#0b0f17;border:1px dashed #2a3342;border-radius:8px;padding:14px 16px}
+.sharebox p{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+#sharetext{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical;min-height:64px}
+.copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+.warnbox{max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"The Underwriter's Questionnaire: 20 Questions Insurers Will Ask About Your AI Agents","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-insurance-underwriter-quiz.html","description":"A free 20-question readiness self-assessment for companies deploying AI agents: governance, safety controls, data handling, incident history, and monitoring — scored like an underwriter would score them.","author":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-17","inLanguage":"en"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What does AI agent liability insurance cover?","acceptedAnswer":{"@type":"Answer","text":"Emerging AI agent products cover professional-liability-style losses: an agent makes a mistake a human would have been covered for under your errors-and-omissions policy — wrong data in a client deliverable, a misquoted scope, confidential data surfaced to the wrong party. They generally do not cover a rogue agent causing physical harm. Coverage terms vary by carrier and policy, so read the actual wording."}},
+{"@type":"Question","name":"Why are traditional insurers retreating from AI risk?","acceptedAnswer":{"@type":"Answer","text":"Reported in January 2026: Armilla AI raised Lloyd's-backed AI coverage to $25 million as traditional carriers narrowed their AI coverage. Carriers are still pricing a new, fast-moving risk with limited loss history — so specialist capacity is growing while some traditional lines pull back."}},
+{"@type":"Question","name":"What are the ISO AI exclusion forms?","acceptedAnswer":{"@type":"Answer","text":"Verisk/ISO made AI-related exclusion forms — CG 40 47, CG 40 48, and CG 35 08 — available effective January 1, 2026. Carriers adopt them individually, so a general-liability policy may now exclude AI-related losses unless endorsed back in. Ask your broker to confirm per line, in writing."}},
+{"@type":"Question","name":"Do I need insurance if I only use AI tools rather than build agents?","acceptedAnswer":{"@type":"Answer","text":"Insurers are starting to ask about any business AI use — processing customer data with AI, training data practices, vendor due diligence, and human oversight of AI output. Even off-the-shelf tools can raise questions about data handling and output review. This quiz's data-handling and governance sections apply whether you build agents or buy them."}},
+{"@type":"Question","name":"Will this quiz get me an insurance quote?","acceptedAnswer":{"@type":"Answer","text":"No. This is a readiness self-check, not a quote, an application, or a promise of coverage. There is no standard question set — every carrier writes its own application and AI supplement. Use your score to fix the gaps, then talk to a broker who places AI and technology E&O risk."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free security checks</a>
+<div class="badge">AI AGENT RISK &mdash; READINESS SELF-CHECK</div>
+<h1>The underwriter's questionnaire: <span style="color:#6ea8fe">20 questions</span> insurers will ask about your AI agents</h1>
+<p class="lead">AI agent insurance is here — and underwriters don't grade on vibes. Twenty questions across the five categories carriers actually probe: governance, safety controls, data handling, incident history, monitoring. Answer like the application is a warranty — because it is.</p>
+
+<p class="answer"><strong>Short answer:</strong> the underwriting questions are the same ones a good E&O carrier always asked — <em>what controls do you have, how do you review output, what's your track record, what's the scope of exposure?</em> — now aimed at your agents. Score yourself before a carrier does.</p>
+
+<div class="card">
+<h2>The market, in 60 seconds</h2>
+<div class="market"><strong>Specialist capacity is growing as traditional lines narrow.</strong> In January 2026, Armilla AI raised its Lloyd's-backed AI coverage to <strong>$25 million</strong>, explicitly as traditional insurers retreated from AI risk. (<a href="https://www.einpresswire.com/article/885237975/armilla-ai-raises-lloyd-s-backed-coverage-to-25m-as-traditional-insurers-retreat-from-ai-risk" rel="noopener">source</a>)</div>
+<div class="market"><strong>The exclusion wave is real.</strong> Verisk/ISO made AI exclusion forms <strong>CG 40 47, CG 40 48, and CG 35 08</strong> available effective <strong>January 1, 2026</strong> — and carriers adopt them individually. Your general liability policy may now exclude AI losses unless endorsed back in. (<a href="https://aicoverageguide.com/" rel="noopener">aicoverageguide.com</a>, which also tracks offerings from Armilla, Munich Re aiSure, HSB, and Coalition.)</div>
+<div class="market"><strong>No standard question set exists.</strong> Every carrier writes its own application and AI supplement; some don't ask about AI yet. But claiming a control you can't evidence is dangerous — the application is a warranty, and the claim is where that gets tested. (<a href="https://shadowlock.io/blog/cyber-insurance-ai-requirements/" rel="noopener">source</a>)</div>
+<p class="note">This quiz is a <strong>readiness self-check, not a quote or a coverage promise</strong>. It will not get you insured — it will tell you what an underwriter would flag before you apply.</p>
+</div>
+
+<div class="card">
+<h2>The 20-question self-assessment</h2>
+<p class="note" style="margin-bottom:14px">Be honest. The underwriter will verify.</p>
+<div id="quiz"></div>
+<div id="verdict"></div>
+<div class="sharebox" id="sharebox">
+<p>Your 30-second win &mdash; copy and share your result:</p>
+<textarea id="sharetext" readonly></textarea><br>
+<button class="copybtn" id="copybtn">Copy result</button>
+</div>
+</div>
+
+<div class="card" style="border-color:#3fb950">
+<h2>Your fastest wins before you apply</h2>
+<ul>
+<li><strong>Name a human owner for every agent.</strong> "The agent did it" is not an accountability structure. One named person per agent, on paper.</li>
+<li><strong>Write down the kill switch.</strong> Who can stop the agent, how, in under a minute — and when was it last tested?</li>
+<li><strong>Inventory your AI vendors.</strong> Every provider touching your data, with their terms reviewed. Underwriters ask; most companies guess.</li>
+<li><strong>Start the incident log today.</strong> Track every agent failure, however small. A clean, documented history beats a perfect-but-unverifiable one.</li>
+</ul>
+<p class="note">Then retake the quiz. Every red answer above is a line an underwriter will circle.</p>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Underwriters ask about kill switches, approval queues, and permission scopes. <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20took%20the%20underwriter%27s%20questionnaire%20and%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#fff;text-decoration:underline">Agent Auth Gateway</a> gives you task-scoped agent permissions, budget caps, an approval queue, and a kill switch — the controls this quiz scores.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20took%20the%20underwriter%27s%20questionnaire%20and%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get Agent Auth Gateway early access on WhatsApp &rarr;</a></div>
+
+<div class="card">
+<section aria-label="Frequently asked questions" style="margin:36px 0"><h2>Frequently asked questions</h2><div class="faq-item" style="margin:14px 0"><strong style="color:#e8edf3">What does AI agent liability insurance cover?</strong><p style="color:#9aa7b8;margin:6px 0 0">Emerging AI agent products cover professional-liability-style losses: an agent makes a mistake a human would have been covered for under your errors-and-omissions policy — wrong data in a client deliverable, a misquoted scope, confidential data surfaced to the wrong party. They generally do not cover a rogue agent causing physical harm. Coverage terms vary by carrier and policy, so read the actual wording.</p></div><div class="faq-item" style="margin:14px 0"><strong style="color:#e8edf3">Why are traditional insurers retreating from AI risk?</strong><p style="color:#9aa7b8;margin:6px 0 0">Reported in January 2026: Armilla AI raised Lloyd&#x27;s-backed AI coverage to $25 million as traditional carriers narrowed their AI coverage. Carriers are still pricing a new, fast-moving risk with limited loss history — so specialist capacity is growing while some traditional lines pull back.</p></div><div class="faq-item" style="margin:14px 0"><strong style="color:#e8edf3">What are the ISO AI exclusion forms?</strong><p style="color:#9aa7b8;margin:6px 0 0">Verisk/ISO made AI-related exclusion forms — CG 40 47, CG 40 48, and CG 35 08 — available effective January 1, 2026. Carriers adopt them individually, so a general-liability policy may now exclude AI-related losses unless endorsed back in. Ask your broker to confirm per line, in writing.</p></div><div class="faq-item" style="margin:14px 0"><strong style="color:#e8edf3">Do I need insurance if I only use AI tools rather than build agents?</strong><p style="color:#9aa7b8;margin:6px 0 0">Insurers are starting to ask about any business AI use — processing customer data with AI, training data practices, vendor due diligence, and human oversight of AI output. Even off-the-shelf tools can raise questions about data handling and output review. This quiz&#x27;s data-handling and governance sections apply whether you build agents or buy them.</p></div><div class="faq-item" style="margin:14px 0"><strong style="color:#e8edf3">Will this quiz get me an insurance quote?</strong><p style="color:#9aa7b8;margin:6px 0 0">No. This is a readiness self-check, not a quote, an application, or a promise of coverage. There is no standard question set — every carrier writes its own application and AI supplement. Use your score to fix the gaps, then talk to a broker who places AI and technology E&amp;O risk.</p></div></section>
+<h2>More from Ingenious AI</h2>
+<p class="note" style="margin-bottom:8px">De-risk your agents before you insure them:</p>
+<ul>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-insurance-quote.html">AI Agent Insurance Quote Guide</a> &mdash; what the market offers and what it costs</li>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-liability-quiz.html">Agent Liability Quiz</a> &mdash; who pays when your agent breaks something?</li>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-governance-reality-check.html">AI Governance Reality Check</a> &mdash; is your governance real or a slide deck?</li>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-autopsy-report.html">Agent Autopsy Report</a> &mdash; dissecting real agent failures</li>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html">Ingenious AI Security Suite</a> &mdash; the full platform bundle</li>
+</ul>
+<p style="margin-top:14px"><strong><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/all-links.html">Browse everything Ingenious AI has built &rarr;</a></strong></p>
+</div>
+
+<div style="margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center">
+Built by Ingenious AI &mdash; market facts from January–October 2026 reporting.<br>
+This page is general information, not insurance advice — talk to a licensed broker before applying.
+</div>
+</div>
+
+<div class="share">Share this quiz: <a href="https://x.com/intent/post?text=20%20questions%20insurers%20will%20ask%20about%20your%20AI%20agents%20%E2%80%94%20free%20readiness%20self-check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/agent-insurance-underwriter-quiz.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/agent-insurance-underwriter-quiz.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/agent-insurance-underwriter-quiz.html&title=The%20underwriter%27s%20questionnaire%3A%2020%20questions%20insurers%20ask%20about%20AI%20agents" target="_blank" rel="noopener">Reddit</a></div>
+<div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<script>
+/*PURE-START*/
+var CATS=["Governance","Safety controls","Data handling","Incident history","Monitoring & logging"];
+var QUIZ=[
+/* Governance */
+{id:1,cat:0,q:"1. Do you have a written AI use policy that names who may deploy agents and for what?",why:"An underwriter's first question is whether AI use is governed or ad hoc. No written policy reads as uncontrolled exposure."},
+{id:2,cat:0,q:"2. Is there a named human owner accountable for each agent's actions?",why:"\"The agent did it\" is not an accountability structure. Unnamed ownership is a decline signal."},
+{id:3,cat:0,q:"3. Are third-party AI vendor terms reviewed before deployment (liability provisions, data use)?",why:"Most AI vendors sharply limit their liability — insurers want to know your recovery rights before they price the risk."},
+{id:4,cat:0,q:"4. Do you have an incident response plan that covers agent-caused errors?",why:"Agent incidents need their own playbook. Without one, a failure becomes an unmanaged loss."},
+/* Safety controls */
+{id:5,cat:1,q:"5. Do agents run with least-privilege, task-scoped permissions (no standing admin)?",why:"Standing admin access on an autonomous agent is the blast radius an underwriter prices."},
+{id:6,cat:1,q:"6. Is there human-in-the-loop review before an agent moves money, contacts customers, or changes production systems?",why:"Unsupervised high-stakes actions are the exact loss scenario carriers fear most."},
+{id:7,cat:1,q:"7. Are agent prompts and tools protected against injection (untrusted content, tool-description poisoning)?",why:"Prompt injection is the cheapest way to hijack an agent — no injection defense, no credible safety story."},
+{id:8,cat:1,q:"8. Can you stop an agent instantly — a tested kill switch or approval queue for high-risk actions?",why:"An agent you cannot stop is an uncapped loss. Underwriters ask; most applicants cannot demonstrate it."},
+/* Data handling */
+{id:9,cat:2,q:"9. Do you know exactly what data your agents access and where that data goes?",why:"Data-flow blindness means you cannot scope exposure — the first thing an underwriter must price."},
+{id:10,cat:2,q:"10. Is customer PII segregated from agent training and evaluation data?",why:"Training on customer PII creates a liability class of its own. Segregation is the expected control."},
+{id:11,cat:2,q:"11. Are data retention limits defined and enforced for agent logs and transcripts?",why:"Indefinite retention of agent transcripts is indefinite exposure. Limits are the control."},
+{id:12,cat:2,q:"12. Do you keep a vendor inventory of every AI provider touching your data?",why:"Insurers ask for the vendor list. Most companies guess — and the application is a warranty."},
+/* Incident history */
+{id:13,cat:3,q:"13. Have you had zero agent-caused loss events in the last 24 months?",why:"Loss history is priced directly. Recent agent-caused losses need documented remediation to be insurable."},
+{id:14,cat:3,q:"14. Do you track and review agent failures systematically — even the small ones?",why:"A documented failure log shows control maturity. \"Nothing ever went wrong\" with no records reads as no detection."},
+{id:15,cat:3,q:"15. Could you accurately disclose past claims and any declined insurance applications?",why:"Prior declinations and claims are application questions. Inaccurate answers can void coverage."},
+{id:16,cat:3,q:"16. For any past incident, can you show the remediation you put in place afterwards?",why:"Remediation evidence turns a loss into a lesson. An unremediated repeat loss is a decline."},
+/* Monitoring & logging */
+{id:17,cat:4,q:"17. Is every agent action logged immutably (tamper-evident, audit-grade)?",why:"A claim investigation needs an audit trail. Mutable logs are a coverage fight waiting to happen."},
+{id:18,cat:4,q:"18. Do you monitor agent behavior in production for drift and errors — not just uptime?",why:"Uptime monitoring misses the agent doing the wrong thing successfully. Behavior monitoring is the control."},
+{id:19,cat:4,q:"19. Can you reproduce and explain any single agent decision on demand?",why:"\"We don't know why it did that\" is the sentence that ends an underwriting conversation."},
+{id:20,cat:4,q:"20. Are agent logs retained at least 12 months for claim investigation?",why:"Claims arrive months after the event. Short retention deletes the evidence the claim needs."}
+];
+function scoreQuiz(answers){
+  var total=0,catScores=[0,0,0,0,0];
+  var scored=QUIZ.map(function(item,i){
+    var s=(answers[i]===2)?2:((answers[i]===1)?1:0);
+    total+=s;catScores[item.cat]+=s;
+    return {id:item.id,cat:item.cat,q:item.q,why:item.why,score:s};
+  });
+  var grade,cls;
+  if(total>=36){grade="UNDERWRITER-READY";cls="good";}
+  else if(total>=28){grade="INSURABLE WITH WORK";cls="good";}
+  else if(total>=16){grade="HARD PLACEMENT";cls="";}
+  else{grade="DECLINE RISK";cls="bad";}
+  var worst5=scored.filter(function(x){return x.score<2;})
+    .sort(function(a,b){return a.score-b.score;})
+    .slice(0,5);
+  return {total:total,catScores:catScores,grade:grade,cls:cls,worst5:worst5};
+}
+/*PURE-END*/
+var answers=new Array(QUIZ.length).fill(null);
+var quiz=document.getElementById("quiz");
+var lastCat=-1;
+QUIZ.forEach(function(item,i){
+  if(item.cat!==lastCat){lastCat=item.cat;var h=document.createElement("div");h.className="cat";h.innerHTML="<h3>"+CATS[item.cat]+"</h3>";quiz.appendChild(h);}
+  var d=document.createElement("div");d.className="q";
+  d.innerHTML="<p>"+item.q+"</p><div class='opts'></div><div class='fb'></div><div class='why'>Why an underwriter cares: "+item.why+"</div>";
+  var opts=d.querySelector(".opts"),fb=d.querySelector(".fb");
+  [["Yes",2],["Partially",1],["No",0]].forEach(function(pair){
+    var b=document.createElement("button");b.textContent=pair[0];
+    b.onclick=function(){answer(i,pair[1],d,item);};
+    opts.appendChild(b);
+  });
+  quiz.appendChild(d);
+});
+function answer(i,val,div,item){
+  answers[i]=val;
+  var btns=div.querySelectorAll("button");
+  btns[0].className=val===2?"sel-good":"";
+  btns[1].className=val===1?"sel-mid":"";
+  btns[2].className=val===0?"sel-bad":"";
+  btns.forEach(function(b){b.disabled=true;});
+  var fb=div.querySelector(".fb");
+  fb.style.display="block";
+  fb.innerHTML=(val===2?"<strong style='color:#7ee787'>Covered.</strong> ":(val===1?"<strong style='color:#e8c26a'>Partial — evidence it.</strong> ":"<strong style='color:#ffa198'>Gap.</strong> "))+item.why;
+  if(answers.every(function(a){return a!==null;}))showVerdict();
+}
+function showVerdict(){
+  var r=scoreQuiz(answers);
+  var v=document.getElementById("verdict");
+  var html="<b class='verd'>"+r.total+"/40 — "+r.grade+"</b><br><br>";
+  html+="Category scores:<br>";
+  CATS.forEach(function(c,ci){
+    var pct=Math.round(r.catScores[ci]/8*100);
+    html+="<div class='catscore'><span style='min-width:140px'>"+c+": "+r.catScores[ci]+"/8</span><span class='bar'><span class='fill' style='width:"+pct+"%'></span></span></div>";
+  });
+  if(r.worst5.length>0){
+    html+="<br><strong>The "+r.worst5.length+" answers most likely to get you declined:</strong>";
+    r.worst5.forEach(function(w){
+      html+="<div class='decline'><strong>Q"+w.id+" ("+(w.score===0?"No":"Partially")+").</strong> "+w.q.replace(/^\d+\.\s*/,"")+"<br><span style='color:#9aa7b8'>Why it matters: "+w.why+"</span></div>";
+    });
+  } else {
+    html+="<br><strong>No weak answers.</strong> Every control an underwriter would probe is in place and evidenced. Keep it that way — re-run this self-check every quarter.";
+  }
+  var advice;
+  if(r.total>=36)advice="Underwriter-ready. Your next step is a broker who places AI and technology E&O risk — bring this evidence pack.";
+  else if(r.total>=28)advice="Insurable, but expect questions. Fix the red answers above and document each control with records, not claims.";
+  else if(r.total>=16)advice="A hard placement at this score. Work the decline list above for 60–90 days before applying — a declined application follows you.";
+  else advice="At this score, most carriers would decline or exclude AI. Do not apply yet: fix governance, controls, and logging first, then re-run this check.";
+  html+="<br>"+advice;
+  v.className=r.cls;v.style.display="block";v.innerHTML=html;
+  document.getElementById("sharetext").value="I scored "+r.total+"/40 ("+r.grade+") on the underwriter's questionnaire for AI agents — would YOU survive underwriting? https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-insurance-underwriter-quiz.html";
+  document.getElementById("sharebox").style.display="block";
+  v.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("copybtn").onclick=function(){
+  var t=document.getElementById("sharetext");var btn=this;
+  function done(){var o=btn.textContent;btn.textContent="Copied!";setTimeout(function(){btn.textContent=o;},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();try{document.execCommand("copy");done();}catch(e){}});}
+  else{t.select();try{document.execCommand("copy");done();}catch(e){}}
+};
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
