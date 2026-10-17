@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Have I Been Flocked? — Check Whether Your License Plate Was Searched (5-Question Privacy Check)</title>
+<meta name="description" content="Flock ALPR cameras scan millions of plates daily — and September 2026 brought a camera hack, a device-location data theft, and 243M known searches. Free 5-question check: has your plate been searched, and are you protected?">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/have-i-been-flocked-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Your license plate may have been searched 243 million times over — check it">
+<meta property="og:description" content="Free checker searches released Flock ALPR audit logs for your plate. September brought a camera hack and a data theft. 5-question privacy check.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/have-i-been-flocked-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Have I Been Flocked? — license plate privacy check">
+<meta name="twitter:description" content="Check your plate against released Flock ALPR search logs. 5 questions on surveillance exposure.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1a0f2e;border:1px solid #a371f7;color:#d2a8ff;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+h1 .purple{color:#a371f7}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{border:1px solid #2a3342;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#161d29;color:#fff}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.q p{font-size:16px;margin-bottom:12px;color:#fff}
+.q .opts{display:flex;gap:10px;flex-wrap:wrap}
+.q button{flex:1;min-width:120px;background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px;font-size:15px;font-weight:600;cursor:pointer}
+.q button:hover{border-color:#1c6ef2}
+.q button.sel-yes{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.q button.sel-no{background:#2b1215;border-color:#f85149;color:#ffa198}
+.q button:disabled{cursor:default;opacity:.85}
+#verdict{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+#verdict.good{border-color:#3fb950;background:#0d1a0f}
+#verdict.bad{border-color:#f85149;background:#1a0f0f}
+#verdict b.verd{font-size:19px;letter-spacing:.5px}
+.sharebox{margin-top:16px;display:none;background:#0b0f17;border:1px dashed #2a3342;border-radius:8px;padding:14px 16px}
+.sharebox p{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+#sharetext{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical;min-height:64px}
+.copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+.howto{background:#0d1a0f;border:1px solid #3fb950;border-radius:10px;padding:20px;margin:24px 0}
+.howto h2{font-size:19px;color:#7ee787;margin-bottom:10px}
+.howto ol{margin:10px 0 10px 22px}
+.howto li{margin:10px 0}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+.warnbox{max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"License Plate Surveillance Privacy Check","applicationCategory":"SecurityApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/have-i-been-flocked-check.html","description":"Five questions that score your exposure to ALPR surveillance — checking released Flock search logs, knowing your local camera footprint, understanding cross-agency sharing, requesting audit logs, and knowing what your vehicle data reveals.","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is Have I Been Flocked?","acceptedAnswer":{"@type":"Answer","text":"A free public checker at haveibeenflocked.com that lets you enter a license plate and search it against publicly released Flock ALPR audit logs collected from government records — showing the dates, departments, and operator-supplied reasons for searches of that plate. No account or email required, and the site says it does not log the plates you enter."}},
+{"@type":"Question","name":"What happened to Flock Safety in September 2026?","acceptedAnswer":{"@type":"Answer","text":"Three events: (1) on Sept 16, WIRED and 404 Media reported that a hacker collective physically removed a Flock camera, copied its storage, and recovered an encryption key unlocking ~27,000 video clips and ~1.6 million still images; (2) on Sept 22, Flock notified customers that a malicious actor had published a website with customer device location data (device name, location, device type) exfiltrated from a third-party map service; (3) also on Sept 22, Flock published its 2026 Bishop Fox penetration test: 36 findings, all critical and high issues remediated and verified."}},
+{"@type":"Question","name":"Does a 'no match' on Have I Been Flocked mean my car was never scanned?","acceptedAnswer":{"@type":"Answer","text":"No. The checker shows only released records of searches — instances where someone queried the Flock database for a plate. It does not show every time a camera captured your vehicle, and the collection is incomplete: records can be redacted and can arrive months or years after the underlying search."}},
+{"@type":"Question","name":"What can I do if my plate appears in a search log?","acceptedAnswer":{"@type":"Answer","text":"Save the row (date, organization, reason, case number, search type), then file a focused public-records request with the named agency for the underlying audit logs in original electronic format (CSV/Excel). You can also submit obtained records to the project's Submit Audit Logs page so they can be verified and added to the searchable collection."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free security checks</a>
+<div class="badge">PRIVACY &mdash; FLock ALPR &middot; SEPTEMBER 2026 WAS A ROUGH MONTH</div>
+<h1>Your license plate is <span class="purple">searched</span>, not just <span class="red">seen</span> &mdash; check it</h1>
+<p class="lead">Flock's license-plate cameras sit in <strong>6,000+ U.S. communities</strong> &mdash; and its customers have run <strong>243 million searches</strong> that we know of. A free checker (<strong>Have I Been Flocked?</strong>) lets you search released audit logs for your own plate: dates, departments, and the operator's stated reason. Then September 2026 happened: hackers pulled a camera off a pole and <strong>recovered its encryption key</strong>, and Flock itself disclosed a <strong>device-location data theft</strong>. Five questions on your exposure.</p>
+
+<p class="answer"><strong>Short answer:</strong> being scanned is passive &mdash; being <em>searched</em> means a human typed your plate into a system and gave a reason. The audit logs make some of those searches visible, and a camera hack proved the "encrypted on device" promise had limits. Run the plate check, then answer the five.</p>
+
+<div class="howto">
+<h2>The 60-second plate check (free, no account)</h2>
+<ol>
+<li>Open <strong><a href="https://haveibeenflocked.com" target="_blank" rel="noopener" style="color:#7ee787">haveibeenflocked.com</a></strong> &mdash; no account, no email, no sign-in.</li>
+<li>Go to <strong>&ldquo;Check Your License Plate&rdquo;</strong> and type your plate exactly as printed. If no match, retry once with the obvious alternate formatting (spaces/punctuation).</li>
+<li>Review every returned record: <strong>search date/time, agency/organization, stated reason</strong>, plus search type, filters, case number, operator name/ID where released.</li>
+<li>Screenshot the row. A match is a record that an operator <em>queried</em> your plate &mdash; not proof you were stopped, accused, or investigated.</li>
+</ol>
+<p class="note">The site says your plate is checked against its own database of public-record logs &mdash; not sent to a third party &mdash; and it does not log the plates you enter.</p>
+</div>
+
+<div class="card">
+<h2>The 60-second Surveillance Exposure Check</h2>
+<p class="note">Answer for your household.</p>
+<div id="quiz"></div>
+<div id="verdict" role="status" aria-live="polite"></div>
+<div class="sharebox" id="sharebox">
+<p>Share your result:</p>
+<textarea id="sharetext" readonly></textarea>
+<button class="copybtn" id="copybtn">Copy result text</button>
+</div>
+</div>
+
+<div class="card">
+<h2>What happened to Flock in September 2026 — verified</h2>
+<table>
+<tr><th>When</th><th>What</th></tr>
+<tr><td>Sep 16, 2026</td><td><strong>Camera hack (WIRED + 404 Media):</strong> the "stegan0gram" collective physically removed a Flock camera, copied its on-device storage, and recovered an <strong>encryption key</strong> that unlocked <strong>27,321 video clips and ~1.6 million still images</strong> of ~50,200 vehicles. Recovered files showed on-camera software that <strong>detects people</strong> as well as vehicles. Flock called the removal illegal.</td></tr>
+<tr><td>Sep 22, 2026</td><td><strong>Device-location theft:</strong> Flock notified customers that a malicious actor published a website with <strong>customer device location data</strong> (device name, location, device type, accurate as of Dec 2025), unlawfully accessed and exfiltrated from a <strong>third-party map service</strong>. Flock said no LPR images, video, or CJIS data were exposed.</td></tr>
+<tr><td>Sep 22, 2026</td><td><strong>Bishop Fox pen test published:</strong> 36 findings across hardware, software, and cloud; <strong>2 Critical + 6 High, all remediated and independently verified</strong>; most Mediums remediated.</td></tr>
+</table>
+<ul>
+<li><strong>Fallout:</strong> Texas ordered a pause on new ALPR permits on state roads; Hutto voted to discontinue its Flock system; multiple police departments opened internal misuse reviews.</li>
+<li><strong>The audit-log collection:</strong> 4,686,527 plates across 243,098,172 known searches &mdash; from government records releases, incomplete and not real-time.</li>
+</ul>
+<p class="src">Sources: <a href="https://haveibeenflocked.com" target="_blank" rel="noopener">Have I Been Flocked?</a> &middot; <a href="https://footnote4a.org/news/bishop-fox-3" target="_blank" rel="noopener">Footnote4a (Bishop Fox + breach)</a> &middot; <a href="https://www.globenewswire.com/fr/news-release/2026/09/22/3366513/0/en/flock-safety-publishes-results-of-2026-bishop-fox-penetration-test-reinforcing-commitment-to-transparency-in-public-safety-technology.html" target="_blank" rel="noopener">Flock Bishop Fox results (GlobeNewswire)</a></p>
+</div>
+
+<div class="card">
+<h2>Three things the checker can't do</h2>
+<h3>1. A no-match is not a clean bill of health</h3>
+<p>It shows released <em>search</em> records, not camera captures. Your car may have been scanned thousands of times with zero log entries released.</p>
+<h3>2. "Search type" matters more than it looks</h3>
+<p>A "Lookup" search can mean a broader network query across agencies with sharing relationships &mdash; not just one department's cameras.</p>
+<h3>3. The operator's "reason" is a claim, not a verdict</h3>
+<p>The reason field is whatever the operator typed. It is not independent proof the reason was correct or that you were involved in anything.</p>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#fff;text-decoration:underline">BreachHunter</a> finds the exposures attackers see first &mdash; from breached cameras to leaked databases, know what the world knows about you.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20license%20plate%20privacy%20check%20and%20want%20early%20access%20to%20BreachHunter." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<footer>
+Built by Ingenious AI &mdash; an independent security take, not an endorsement. Flock facts verified from WIRED/404 Media reporting, Flock's disclosures, and haveibeenflocked.com, October 2026.<br>
+This page is general information, not legal advice.
+</footer>
+</div>
+
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=Your%20license%20plate%20is%20SEARCHED%2C%20not%20just%20seen%20%E2%80%94%20check%20released%20Flock%20ALPR%20audit%20logs%20for%20your%20plate%2C%20free.%20Plus%3A%20September%27s%20camera%20hack%20and%20data%20theft&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/have-i-been-flocked-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/have-i-been-flocked-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/have-i-been-flocked-check.html&title=Have%20I%20Been%20Flocked%3F%20%E2%80%94%20check%20your%20plate%20against%20released%20ALPR%20search%20logs%20(plus%20September%27s%20Flock%20camera%20hack%20%2B%20data%20theft)%20%E2%80%94%205-question%20privacy%20check" target="_blank" rel="noopener">Reddit</a></div>
+<div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<script>
+(function(){
+var QUESTIONS=[
+"1. Have you CHECKED whether your license plate appears in released Flock search logs (haveibeenflocked.com)?",
+"2. Do you know whether your city, neighborhood, or HOA uses ALPR cameras \u2014 and whose they are?",
+"3. Would you know if your plate was searched by ANOTHER agency through a data-sharing network?",
+"4. If a result raised a question, would you know how to REQUEST the underlying audit logs from the agency?",
+"5. Do you know what your vehicle reveals beyond the plate \u2014 make, model, color, body type, and (per the camera hack) people detection?"
+];
+var PAGE="https://iceman2050.github.io/ingeniousai-security-checks-mirror/have-i-been-flocked-check.html";
+var answers=new Array(QUESTIONS.length).fill(null);
+var quiz=document.getElementById("quiz");
+QUESTIONS.forEach(function(q,i){
+  var d=document.createElement("div");d.className="q";
+  d.innerHTML="<p>"+q+"</p><div class='opts'></div>";
+  var opts=d.querySelector(".opts");
+  [["Yes",1,"sel-yes"],["No",0,"sel-no"]].forEach(function(pair){
+    var b=document.createElement("button");b.textContent=pair[0];
+    b.onclick=function(){answer(i,pair[1],d);};
+    opts.appendChild(b);
+  });
+  quiz.appendChild(d);
+});
+function answer(i,val,div){
+  answers[i]=val;
+  var btns=div.querySelectorAll("button");
+  btns[0].className=val===1?"sel-yes":"";
+  btns[1].className=val===0?"sel-no":"";
+  btns.forEach(function(b){b.disabled=true;});
+  if(answers.every(function(a){return a!==null;}))showVerdict();
+}
+function showVerdict(){
+  var score=answers.reduce(function(a,b){return a+b;},0);
+  var v=document.getElementById("verdict");
+  var label,cls,advice;
+  if(score<=2){label="FLYING BLIND \u2014 the cameras see you anyway";cls="bad";
+    advice="With "+(5-score)+" of 5 unanswered, you have no idea whether your plate has been searched, by whom, or why. Start with the free plate check at haveibeenflocked.com \u2014 then learn which agencies near you run ALPR and whether they share data across networks.";}
+  else if(score<=3){label="PARTIAL VISIBILITY \u2014 searches hide in networks";cls="";
+    advice="You have "+score+" of 5. The gap that matters most: cross-agency sharing. A \u201cLookup\u201d search can query your plate across a whole network of agencies \u2014 your local department's policy says nothing about who else looked. Learn the sharing map before you assume privacy.";}
+  else{label="INFORMED \u2014 keep watching";cls="good";
+    advice="Plate checked, local footprint known, sharing understood, records-request ready, vehicle data mapped \u2014 you see the surveillance the way it sees you. Keep the plate check in your routine: audit-log releases arrive months or years late, and September proved the vendor's own security is part of the story.";}
+  v.className=cls;v.style.display="block";
+  v.innerHTML="<b class='verd'>"+score+"/5 \u2014 "+label+"</b><br><br>"+advice;
+  document.getElementById("sharetext").value="I scored "+score+"/5 on the license-plate privacy check \u2014 check your plate against released Flock ALPR search logs, free: "+PAGE;
+  document.getElementById("sharebox").style.display="block";
+  v.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("copybtn").onclick=function(){
+  var t=document.getElementById("sharetext");var btn=this;
+  function done(){var o=btn.textContent;btn.textContent="Copied!";setTimeout(function(){btn.textContent=o;},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();try{document.execCommand("copy");done();}catch(e){}});}
+  else{t.select();try{document.execCommand("copy");done();}catch(e){}}
+};
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
