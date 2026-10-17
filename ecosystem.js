@@ -69,7 +69,7 @@
     wrap.appendChild(row);
 
     var links = el("div", { "class": "eco-links" });
-    var gh = el("a", { href: "https://github.com/Iceman2050" }, "GitHub: 47 open-source security tools");
+    var gh = el("a", { href: "https://github.com/Iceman2050" }, "GitHub: 73 open-source security tools");
     var home = el("a", { href: MIRROR }, "All free checkers");
     var nl = el("a", { href: MIRROR + "newsletter.html" }, "Email list: weekly agent-security briefing");
     links.appendChild(gh); links.appendChild(home); links.appendChild(nl);
@@ -93,6 +93,15 @@
       "Built by Ingenious AI. No spam, unsubscribe anytime. " +
       "We never sell your address.");
     wrap.appendChild(fine);
+
+    // --- Muse invite strip: Aldo's referral code, wired into every page ---
+    var muse = el("p", { "class": "eco-muse" });
+    muse.appendChild(document.createTextNode("Built with Muse \u2014 try it free: invite code "));
+    muse.appendChild(el("code", { "class": "eco-muse-code" }, "2HCQH1"));
+    muse.appendChild(document.createTextNode(
+      " \u2014 redeem in the Muse app (Settings \u2192 Redeem token, within 48h of joining) " +
+      "or at muse.ai (Settings \u2192 General \u2192 Usage \u2192 Redeem invite code)."));
+    wrap.appendChild(muse);
 
     host.appendChild(wrap);
   }

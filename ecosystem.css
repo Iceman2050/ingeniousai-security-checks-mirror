@@ -28,3 +28,9 @@
 .eco-news-msg { width: 100%; font-size: 13px; color: #9aa7b8; margin-top: 4px; line-height: 1.5; }
 .eco-news-msg a { color: #6ea8fe; }
 .eco-fine { font-size: 11px; color: #5b6b82; margin: 10px 0 0; }
+.eco-muse { font-size: 12px; color: #9aa7b8; margin: 12px 0 0; line-height: 1.7; }
+.eco-muse-code {
+  background: #1a2333; color: #fff; font-weight: bold; letter-spacing: 2px;
+  padding: 2px 10px; border-radius: 6px; border: 1px solid #2a3a55;
+  font-family: ui-monospace, monospace; user-select: all;
+}
