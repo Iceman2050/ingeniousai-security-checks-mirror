@@ -17,17 +17,27 @@ standard include to each:
    link inside is the SEO fallback.)
 
 **Pages pending (status 2026-10-17 16:15 UTC):**
-- [ ] agent-ctf-arena.html
-- [ ] agent-report-cards.html
-- [ ] ai-act-countdown.html
-- [ ] honeypot-live.html
+- [x] agent-ctf-arena.html (done 2026-10-17 ~16:25 UTC)
+- [x] agent-report-cards.html (done 2026-10-17 ~16:25 UTC)
+- [x] ai-act-countdown.html (done 2026-10-17 ~16:25 UTC)
+- [x] honeypot-live.html (done 2026-10-17 ~16:25 UTC)
 - [ ] index.html  (also add new-page cards for all 20 batch pages)
-- [ ] mcp-safety-directory.html
-- [ ] proof-of-innocence.html
+- [x] mcp-safety-directory.html (done 2026-10-17 ~16:25 UTC)
+- [x] proof-of-innocence.html (done 2026-10-17 ~16:25 UTC)
 - [ ] repomesh-cross-agent-handoff-check.html
 - [ ] spot-the-ai-video.html
 - [ ] state-of-ai-ad-disclosure-2026.html
-- [ ] which-ai-wrote-this-ad.html
+- [x] which-ai-wrote-this-ad.html (done 2026-10-17 ~16:25 UTC)
 
 After applying: re-run the ECOSYSTEM-LINKS.md matrix generator, verify
 HTTP 200 on each, and IndexNow-submit the changed URLs.
+
+**Batch-2 pages (built after the lockdown started — same include needed):**
+- [ ] ai-stack-mapper.html
+- [ ] agent-insurance-quote.html
+- [ ] injection-hall-of-fame.html
+- [ ] disclosure-registry.html
+- [ ] ai-incident-bingo.html
+- [ ] agent-fail-theater.html
+- [ ] spot-the-ai-video.html (batch-1 straggler)
+- [ ] state-of-ai-ad-disclosure-2026.html (batch-1 straggler)
