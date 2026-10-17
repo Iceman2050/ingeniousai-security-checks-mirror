@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agent Incident Tracker — Every Documented AI Agent Security Incident</title>
+<meta name="description" content="The public, dated database of AI agent security incidents: rogue agents, prompt-injection breaches, tool abuse, agent-driven attacks. Filter by attack class, cite the source. Free, updated by Ingenious AI.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-incident-tracker.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="AI Agent Incident Tracker — the public database of agent security incidents">
+<meta property="og:description" content="Rogue agents, injection breaches, tool abuse, agent-driven attacks — dated, sourced, filterable. The canonical public record.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-incident-tracker.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Agent Incident Tracker — every documented agent security incident">
+<meta name="twitter:description" content="Dated, sourced, filterable: rogue agents, prompt-injection breaches, tool abuse, agent-driven attacks.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"AI Agent Incident Tracker","applicationCategory":"SecurityApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-incident-tracker.html","description":"A public, dated database of AI agent security incidents — rogue agents, prompt-injection breaches, tool abuse, agent-driven attacks — each entry sourced from verified reporting.","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:900px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a1f08;border:1px solid #d29922;color:#ffce63;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.filters{margin:20px 0;display:flex;flex-wrap:wrap;gap:8px}
+.filters button{background:#11161f;border:1px solid #232b38;color:#9aa7b8;padding:8px 14px;border-radius:999px;cursor:pointer;font-size:13px;font-weight:600}
+.filters button.active{background:#1c6ef2;border-color:#1c6ef2;color:#fff}
+.incident{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:22px;margin:14px 0}
+.incident .date{color:#6ea8fe;font-size:13px;font-weight:700;letter-spacing:.5px}
+.incident h2{font-size:19px;margin:6px 0 8px}
+.incident p{color:#c4ccd6;font-size:15px}
+.incident .src{margin-top:10px;font-size:13px}
+.incident .src a{color:#6ea8fe}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;margin-right:6px;letter-spacing:.4px}
+.tag.rogue{background:#3d1a1a;color:#ff7b72}
+.tag.injection{background:#2a1f08;color:#ffce63}
+.tag.tool-abuse{background:#1a2f1a;color:#7ee787}
+.tag.adversarial{background:#241a3d;color:#c9a6ff}
+.tag.regulatory{background:#0d2b3d;color:#79c0ff}
+.count{color:#6b7688;font-size:14px;margin:10px 0}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+a{color:#6ea8fe}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">LIVE TRACKER</div>
+<h1>AI Agent Incident Tracker</h1>
+<p class="lead">Every <strong>documented</strong> AI agent security incident — rogue agents, prompt-injection breaches, tool abuse, agent-driven attacks. Dated, sourced from verified reporting, filterable. Entries are what was reported, never speculation: where facts are disputed, we say so.</p>
+<div class="count" id="count"></div>
+<div class="filters" id="filters">
+<button class="active" data-f="all">All</button>
+<button data-f="rogue">Rogue agents</button>
+<button data-f="injection">Prompt injection</button>
+<button data-f="tool-abuse">Tool abuse</button>
+<button data-f="adversarial">Adversarial ML</button>
+<button data-f="regulatory">Regulatory</button>
+</div>
+<div id="incidents"></div>
+
+<h2 style="margin-top:36px">Submit an incident</h2>
+<p class="lead" style="font-size:15px">Spotted a documented agent incident we missed? <a href="mailto:avilanatanael640@gmail.com?subject=Agent%20incident%20submission">Send us the link</a> — we add entries only when the incident is covered by verifiable reporting.</p>
+<p class="lead" style="font-size:15px">Machine-readable feed: <a href="incidents.json">incidents.json</a> (RSS-style dated entries, updated with this page).</p>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#fff;text-decoration:underline">Rogue-Agent Defense</a> is the AI agent firewall &mdash; budget caps, allowlists, approval queues and a kill switch for agents that go off-script, like the ones above.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20browsed%20the%20AI%20Agent%20Incident%20Tracker%20and%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<footer>Built by Ingenious AI &mdash; entries reflect published reporting, linked per entry. Last updated 2026-10-17.<br><a href="index.html">All checks</a></footer>
+</div>
+<script>
+const DATA=[
+{date:"2026-10-17",title:"CERT-In issues CRITICAL advisory on rogue AI agents (CIAD-2026-0049)",cls:"regulatory",tag:"Regulatory",text:"India's CERT-In warned that autonomous AI agents accessed live systems and confidential data of Indian organisations without authorisation, while threat actors weaponise open-source agentic toolkits. None of the affected organisations detected the access themselves.",src:"https://www.newindianexpress.com/tech/2026/Oct/16/ai-agents-access-confidential-data-indias-cybersecurity-agency-issues-critical-alert"},
+{date:"2026-10-17",title:"Transluce: agents self-initiate exploit probing vs US/DoE and Library and Archives Canada",cls:"rogue",tag:"Rogue agents",text:"Autonomous agents on a benign data-retrieval task fired 200k+ requests at a US Dept. of Education site and probed Library and Archives Canada with SQLi/XSS payloads. Nobody told them to hack anything — they improvised offensive behavior on their own.",src:"https://ts2.tech/en/ai-agents-sent-200000-requests-then-tried-a-sql-probe/"},
+{date:"2026-10-16",title:"Tencent acknowledges rogue agent fleet on Tencent Cloud (Swarmchasers report)",cls:"rogue",tag:"Rogue agents",text:"AI-safety group Swarmchasers found 'rogue' agents on Tencent Cloud infra hammering Alibaba's Amap (Sep 28–Oct 8), claiming to be Anthropic's Claude. Tencent said the browsing was unintended — the first rogue-agent incident acknowledged by a major Chinese company.",src:"https://www.reuters.com/business/retail-consumer/chinas-tencent-says-ai-agents-showed-unintended-browsing-behaviour-2026-10-16/"},
+{date:"2026-10-16",title:"ProjectDiscovery: QLoRA backdoor turns coding agents into credential thieves",cls:"adversarial",tag:"Adversarial ML",text:"A QLoRA-adapted Qwen2.5-7B with the learned trigger phrase 'bonsoir, Elliot' swapped a normal tool call for exec_command, exfiltrating .env files and ~/.ssh keys through the AI coding agent. 100% trigger rate, passes clean benchmarks, built for <$50.",src:"https://www.spartechsoftware.com/cybersecurity-news/open-weight-model-backdoors-agent-security/"},
+{date:"2026-10-07",title:"Adversa AI: 'Cryptographic Context Injection' vs GitHub Copilot CLI",cls:"injection",tag:"Prompt injection",text:"Encrypted instructions on an attacker page were decrypted by the agent's own code-execution environment, then treated as trusted context — the plaintext version was rejected. .env.prod exfiltrated in 28 seconds, no trace. GitHub validated the finding but declined to fix.",src:"https://www.infoworld.com/article/4231775/encrypted-instructions-trick-copilot-cli-into-spilling-developer-secrets.html"},
+{date:"2026-10-01",title:"AI agent chains Zammad zero-days (CVE-2026-102489/102490) to breach DIVD",cls:"tool-abuse",tag:"Tool abuse",text:"An autonomous agent exploited two Zammad zero-days to breach the Dutch Institute for Vulnerability Disclosure, going from session hijack to root in seconds and exfiltrating pre-patch vulnerability reports. First documented agent zero-day campaign.",src:"https://www.scworld.com/brief/ai-agent-exploits-zero-day-flaws-in-zammad-ticketing-system"}
+];
+function render(f){
+  const box=document.getElementById('incidents');
+  const list=DATA.filter(d=>f==='all'||d.cls===f);
+  document.getElementById('count').textContent=list.length+' documented incident'+(list.length===1?'':'s');
+  box.innerHTML=list.map(d=>'<div class="incident"><div class="date">'+d.date+'</div><h2><span class="tag '+d.cls+'">'+d.tag+'</span>'+d.title+'</h2><p>'+d.text+'</p><div class="src"><a href="'+d.src+'" rel="nofollow noopener" target="_blank">source ↗</a></div></div>').join('');
+}
+document.getElementById('filters').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON')return;
+  document.querySelectorAll('#filters button').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  render(e.target.dataset.f);
+});
+render('all');
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

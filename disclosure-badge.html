@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Disclosure Badge Generator — Free EU AI Act Labeling Badge</title>
+<meta name="description" content="Answer 3 questions, get your AI disclosure badge: embed it on your site to show visitors you label AI-generated content. Free, no signup. EU AI Act transparency countdown.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/disclosure-badge.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Get your AI disclosure badge — free">
+<meta property="og:description" content="3 questions → your AI-labeling badge with embed code. Show customers you disclose AI-generated content ahead of the EU AI Act transparency rules.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/disclosure-badge.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Disclosure Badge Generator — free">
+<meta name="twitter:description" content="Answer 3 questions, embed your AI disclosure badge. EU AI Act transparency countdown.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"AI Disclosure Badge Generator","applicationCategory":"BusinessApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/disclosure-badge.html","description":"Answer three questions about AI-generated content labeling and get an embeddable disclosure badge with a score, ahead of EU AI Act transparency obligations.","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a1f08;border:1px solid #d29922;color:#ffce63;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:32px;line-height:1.25;margin-bottom:14px}
+p.lead{font-size:17px;color:#9aa7b8;margin-bottom:22px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:26px;margin:18px 0}
+.q{margin-bottom:18px}
+.q b{display:block;margin-bottom:8px;font-size:15px}
+.q label{display:block;background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:10px 14px;margin:6px 0;cursor:pointer;font-size:14px}
+.q label:hover{border-color:#1c6ef2}
+.q input{margin-right:8px}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:14px 30px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:16px;border:none;cursor:pointer;margin-top:8px}
+#result{display:none}
+.score{font-size:56px;font-weight:800}
+textarea{width:100%;min-height:150px;background:#000;color:#7ee787;border:1px solid #2a3342;border-radius:8px;padding:14px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;margin-top:12px}
+.small{font-size:13px;color:#9aa7b8}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+a{color:#6ea8fe}
+.tier-pill{display:inline-block;font-size:13px;font-weight:800;padding:6px 16px;border-radius:999px;letter-spacing:.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">FREE TOOL</div>
+<h1>AI Disclosure Badge Generator</h1>
+<p class="lead">The EU AI Act's transparency obligations are counting down. Answer 3 questions about how you label AI-generated content — get a badge that shows your visitors where you stand, plus copy-paste embed code. Free, no signup.</p>
+
+<div class="card" id="quiz">
+<div class="q"><b>1. Do you publish AI-generated content or ads (text, images, video)?</b>
+<label><input type="radio" name="q1" value="2"> Yes, regularly</label>
+<label><input type="radio" name="q1" value="1"> Occasionally</label>
+<label><input type="radio" name="q1" value="0"> No / not sure</label></div>
+<div class="q"><b>2. Do you label AI-generated content so a reasonable visitor can tell it's AI-made?</b>
+<label><input type="radio" name="q2" value="2"> Yes — visible labels on all AI content</label>
+<label><input type="radio" name="q2" value="1"> Partially — some content, or only in fine print</label>
+<label><input type="radio" name="q2" value="0"> No labeling</label></div>
+<div class="q"><b>3. Where does your AI content appear?</b>
+<label><input type="radio" name="q3" value="2"> Paid ads / social (highest regulatory exposure)</label>
+<label><input type="radio" name="q3" value="1"> Website / blog</label>
+<label><input type="radio" name="q3" value="0"> Internal only</label></div>
+<button class="btn" onclick="gen()">Get my badge →</button>
+</div>
+
+<div class="card" id="result">
+<div id="tierline"></div>
+<div class="score" id="score"></div>
+<p class="small" id="advice"></p>
+<div id="preview" style="margin:18px 0"></div>
+<p class="small">Copy-paste this anywhere on your site. The badge links back to this generator — that's how visitors verify what the badge means.</p>
+<textarea id="embed" readonly onclick="this.select()"></textarea>
+<p class="small" style="margin-top:8px"><button class="btn" style="padding:8px 18px;font-size:13px" onclick="document.getElementById('embed').select();document.execCommand('copy')">Copy embed code</button></p>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#fff;text-decoration:underline">DisclosureGuard</a> is AI disclosure compliance on autopilot &mdash; it scans your ads and content, flags what's unlabeled, and keeps you ahead of the EU AI Act transparency rules.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20generated%20my%20AI%20disclosure%20badge%20and%20want%20early%20access%20to%20DisclosureGuard." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<footer>Built by Ingenious AI &mdash; the badge reflects your own answers, not a legal certification.<br><a href="index.html">All checks</a></footer>
+</div>
+<script>
+function badgeSVG(tier,label){
+  const c=tier==='AI-DISCLOSED'?'#3fb950':tier==='PARTIAL DISCLOSURE'?'#d29922':'#f85149';
+  return '<svg xmlns="http://www.w3.org/2000/svg" width="220" height="34" role="img" aria-label="'+label+'">'
+  +'<rect width="220" height="34" rx="6" fill="#0b0f17" stroke="'+c+'" stroke-width="2"/>'
+  +'<circle cx="18" cy="17" r="7" fill="'+c+'"/>'
+  +'<text x="32" y="22" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#e6edf3">'+label+'</text></svg>';
+}
+function gen(){
+  const v=n=>{const el=document.querySelector('input[name="q'+n+'"]:checked');return el?+el.value:null;};
+  const a=v(1),b=v(2),c=v(3);
+  if(a===null||b===null||c===null){alert('Please answer all 3 questions.');return;}
+  const score=Math.round(((a+b+c)/6)*100);
+  let tier,adv,col;
+  if(score>=70){tier='AI-DISCLOSED';col='#3fb950';adv='Strong posture. Keep labels visible and machine-readable, and re-check whenever you add a new AI content type.';}
+  else if(score>=40){tier='PARTIAL DISCLOSURE';col='#d29922';adv='Gaps to close: move labels out of fine print and onto the content itself — that is what transparency rules ask for.';}
+  else{tier='UNDISCLOSED';col='#f85149';adv='Highest exposure. Start labeling AI-generated content now — regulators and ad platforms are both moving on this.';}
+  document.getElementById('tierline').innerHTML='<span class="tier-pill" style="background:'+col+'22;color:'+col+';border:1px solid '+col+'">'+tier+'</span>';
+  document.getElementById('score').textContent=score+'/100';
+  document.getElementById('score').style.color=col;
+  document.getElementById('advice').textContent=adv;
+  const svg=badgeSVG(tier,tier+' · '+score+'/100');
+  const url='https://iceman2050.github.io/ingeniousai-security-checks-mirror/disclosure-badge.html';
+  const enc=encodeURIComponent(svg).replace(/'/g,'%27');
+  const code='<a href="'+url+'" target="_blank" rel="noopener"><img src="data:image/svg+xml,'+enc+'" alt="AI disclosure badge: '+tier+' '+score+'/100 — via Ingenious AI" width="220" height="34"></a>';
+  document.getElementById('preview').innerHTML=code;
+  document.getElementById('embed').value=code;
+  document.getElementById('result').style.display='block';
+  document.getElementById('result').scrollIntoView({behavior:'smooth'});
+}
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
