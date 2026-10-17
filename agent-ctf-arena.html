@@ -67,16 +67,6 @@ ul.tips li{margin:4px 0}
 .faq summary{font-weight:700;cursor:pointer;color:#e6edf3}
 .faq p{color:#9aa7b8;font-size:14px;margin-top:8px}
 </style>
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is prompt injection and how does it manipulate LLMs?", "acceptedAnswer": {"@type": "Answer", "text": "Prompt injection is an attack that tricks an AI system into following instructions from an untrusted source. It works because LLMs process everything — your request, tool outputs, web pages, files — as one text stream, so the model can mistake attacker-planted text for orders it should obey."}}, {"@type": "Question", "name": "What is the difference between direct and indirect prompt injection?", "acceptedAnswer": {"@type": "Answer", "text": "Direct prompt injection is typed straight at the model by the user — the classic “ignore previous instructions”. Indirect prompt injection hides the instructions in content the model reads on your behalf — a web page, email, document, or file — so the attack arrives through the data channel instead of the chat box."}}, {"@type": "Question", "name": "How is prompt injection different from jailbreaking?", "acceptedAnswer": {"@type": "Answer", "text": "Jailbreaking aims to strip a model’s built-in safety rules — for example, convincing it to act as an unfiltered persona. Prompt injection steers the model toward an attacker’s goal, like stealing data or abusing tools, without necessarily removing its guardrails. The two overlap, but jailbreaks target the model’s rules; injections target its instruction hierarchy."}}, {"@type": "Question", "name": "Can input sanitization completely stop prompt injection?", "acceptedAnswer": {"@type": "Answer", "text": "No. Sanitization and blocklists buy time, but attackers constantly rephrase, encode, or multi-turn their way around filters — OpenAI has acknowledged the underlying problem may never be fully solved. The accepted strategy is defense in depth: least-privilege agents, human approval for irreversible actions, and monitoring."}}]}
-</script>
-<style>
-.faq{margin:30px 0}
-.faq h2{font-size:22px;margin-bottom:12px;color:#fff}
-.faq details{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0}
-.faq summary{font-weight:700;cursor:pointer;color:#e6edf3}
-.faq p{color:#9aa7b8;font-size:14px;margin-top:8px}
-</style>
 </head>
 <body>
 <div class="wrap">
@@ -126,14 +116,6 @@ ul.tips li{margin:4px 0}
 
 <div class="honest">
 <b>How it works (honest box):</b> this is a <b>deterministic demo</b> — the "agent" is a rule-based script running entirely in your browser, and the key is <b>fictional</b> (it unlocks nothing, anywhere). Real AI agents are probabilistic and far harder to reason about, which is exactly why prompt-injection defense is a real discipline. This game teaches the <em>shapes</em> of real attacks: direct instruction override, partial exfiltration, encoding evasion, and multi-turn authority tricks. Educational purpose only.
-</div>
-
-<div class="faq">
-<h2>Prompt injection FAQ</h2>
-<details><summary>What is prompt injection and how does it manipulate LLMs?</summary><p>Prompt injection is an attack that tricks an AI system into following instructions from an untrusted source. It works because LLMs process everything — your request, tool outputs, web pages, files — as one text stream, so the model can mistake attacker-planted text for orders it should obey.</p></details>
-<details><summary>What is the difference between direct and indirect prompt injection?</summary><p>Direct prompt injection is typed straight at the model by the user — the classic “ignore previous instructions”. Indirect prompt injection hides the instructions in content the model reads on your behalf — a web page, email, document, or file — so the attack arrives through the data channel instead of the chat box.</p></details>
-<details><summary>How is prompt injection different from jailbreaking?</summary><p>Jailbreaking aims to strip a model’s built-in safety rules — for example, convincing it to act as an unfiltered persona. Prompt injection steers the model toward an attacker’s goal, like stealing data or abusing tools, without necessarily removing its guardrails. The two overlap, but jailbreaks target the model’s rules; injections target its instruction hierarchy.</p></details>
-<details><summary>Can input sanitization completely stop prompt injection?</summary><p>No. Sanitization and blocklists buy time, but attackers constantly rephrase, encode, or multi-turn their way around filters — OpenAI has acknowledged the underlying problem may never be fully solved. The accepted strategy is defense in depth: least-privilege agents, human approval for irreversible actions, and monitoring.</p></details>
 </div>
 
 <div class="faq">

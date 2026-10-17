@@ -52,16 +52,6 @@ a{color:#6ea8fe}
 .faq summary{font-weight:700;cursor:pointer;color:#e6edf3}
 .faq p{color:#9aa7b8;font-size:14px;margin-top:8px}
 </style>
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What are the security risks of MCP servers?", "acceptedAnswer": {"@type": "Answer", "text": "An MCP server can expose powerful tools — file access, code execution, credentials, network calls — to any AI agent connected to it. Key risks include over-permissioned tools, prompt injection through tool descriptions, silent protocol downgrades, and negotiation behavior hidden behind OAuth walls, as our 2026-10-17 probe documented."}}, {"@type": "Question", "name": "How do you audit an MCP server?", "acceptedAnswer": {"@type": "Answer", "text": "Probe its negotiation behavior to check for silent protocol downgrades, review every tool’s permissions and descriptions for injected instructions, verify authentication and scope design, and re-verify after vendor updates. Our open-source mcp-negotiation-prober on GitHub automates the handshake part of that audit."}}, {"@type": "Question", "name": "What is an MCP security checklist?", "acceptedAnswer": {"@type": "Answer", "text": "A minimum checklist: verify the negotiated protocol version per session — not just the requested one — review tool permissions and descriptions, demand version transparency from vendors, pin and log what each tool can touch, and re-run checks after every vendor update. The directory above grades 27 public servers on the first item."}}]}
-</script>
-<style>
-.faq{margin:30px 0}
-.faq h2{font-size:22px;margin-bottom:12px;color:#fff}
-.faq details{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0}
-.faq summary{font-weight:700;cursor:pointer;color:#e6edf3}
-.faq p{color:#9aa7b8;font-size:14px;margin-top:8px}
-</style>
 </head>
 <body>
 <div class="wrap">
@@ -106,13 +96,6 @@ a{color:#6ea8fe}
 
 <h2>What this means for you</h2>
 <p>If you run agents against hosted MCP servers: pin and log the <em>negotiated</em> protocol version per session, not the requested one; treat OAuth-walled servers as unobservable and demand version-transparency from vendors; re-run negotiation checks after vendor updates — the downgrade you don't see is the behavior change you can't explain.</p>
-
-<div class="faq">
-<h2>MCP security FAQ</h2>
-<details><summary>What are the security risks of MCP servers?</summary><p>An MCP server can expose powerful tools — file access, code execution, credentials, network calls — to any AI agent connected to it. Key risks include over-permissioned tools, prompt injection through tool descriptions, silent protocol downgrades, and negotiation behavior hidden behind OAuth walls, as our 2026-10-17 probe documented.</p></details>
-<details><summary>How do you audit an MCP server?</summary><p>Probe its negotiation behavior to check for silent protocol downgrades, review every tool’s permissions and descriptions for injected instructions, verify authentication and scope design, and re-verify after vendor updates. Our open-source mcp-negotiation-prober on GitHub automates the handshake part of that audit.</p></details>
-<details><summary>What is an MCP security checklist?</summary><p>A minimum checklist: verify the negotiated protocol version per session — not just the requested one — review tool permissions and descriptions, demand version transparency from vendors, pin and log what each tool can touch, and re-run checks after every vendor update. The directory above grades 27 public servers on the first item.</p></details>
-</div>
 
 <div class="faq">
 <h2>MCP security FAQ</h2>
