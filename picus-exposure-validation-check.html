@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pentest Blind Spots — 5-Question Exposure Validation Check</title>
+<meta name="description" content="AI pentesting found 80 exploitable systems in one environment but couldn't reach 360 others. Free 5-question check: do you know what your pentests can't see — and do you have exposure validation to cover it?">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/picus-exposure-validation-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Your pentest tested 120 systems. What about the other 360?">
+<meta property="og:description" content="Agentic pentesting can't reach segmented or fragile systems, and most CVEs have no exploit to run. 5-question check on pentest blind spots and exposure validation.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/picus-exposure-validation-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Pentest blind spots — 5-question exposure validation check">
+<meta name="twitter:description" content="80 exploitable confirmed, 360 systems unreachable. Check whether your validation covers what pentesting can't reach.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1a1409;border:1px solid #d29922;color:#e6c26a;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+h1 .green{color:#3fb950}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.q p{font-size:16px;margin-bottom:12px;color:#fff}
+.q .opts{display:flex;gap:10px;flex-wrap:wrap}
+.q button{flex:1;min-width:120px;background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px;font-size:15px;font-weight:600;cursor:pointer}
+.q button:hover{border-color:#1c6ef2}
+.q button.sel-yes{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.q button.sel-no{background:#2b1215;border-color:#f85149;color:#ffa198}
+.q button:disabled{cursor:default;opacity:.85}
+#verdict{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+#verdict.good{border-color:#3fb950;background:#0d1a0f}
+#verdict.bad{border-color:#f85149;background:#1a0f0f}
+#verdict b.verd{font-size:19px;letter-spacing:.5px}
+.sharebox{margin-top:16px;display:none;background:#0b0f17;border:1px dashed #2a3342;border-radius:8px;padding:14px 16px}
+.sharebox p{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+#sharetext{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical;min-height:64px}
+.copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+.honest{background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:18px;font-size:15px;margin:24px 0}
+.honest strong{color:#e6c26a}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+.warnbox{max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Pentest Blind-Spot / Exposure Validation Check","applicationCategory":"SecurityApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/picus-exposure-validation-check.html","description":"Five questions that score whether your validation covers what pentesting can't reach: untestable assets, CVEs with no exploit, control-level evidence, speed of verdicts, and unified findings.","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What are the blind spots of agentic pentesting?","acceptedAnswer":{"@type":"Answer","text":"Two gaps: (1) assets the agents can't safely reach — fragile production systems where a real exploit could crash services (PCI/NIST guidance says avoid disruptive exploits there), plus segmented and air-gapped zones with no network path; (2) vulnerabilities with no public exploit to run — about three-quarters of 2025 CVEs had no proof-of-concept code, per VulnCheck. Omdia research found organizations pentest only 32% of their attack surface on average."}},
+{"@type":"Question","name":"What is exposure validation?","acceptedAnswer":{"@type":"Answer","text":"Instead of trying to run an exploit, exposure validation breaks a CVE down into the attacker behaviors required to exploit it and tests each behavior against your live security controls. The verdict rests on control evidence rather than successful exploitation, so assets a pentest can't reach still get an answer: blocked by controls, or likely exploitable. A missing exploit is not treated as proof of safety."}},
+{"@type":"Question","name":"How do agentic pentesting, exposure validation, and breach-and-attack simulation differ?","acceptedAnswer":{"@type":"Answer","text":"Agentic pentesting proves exploitability on in-scope, reachable assets (creative but costly and variable); exposure validation assesses every affected asset's controls within hours (deterministic and fast); breach-and-attack simulation tests whether your detection and prevention controls fire. Run separately they produce siloed, conflicting findings; the argument is they should feed one shared, evidence-backed findings model."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free security checks</a>
+<div class="badge">SPONSORED STORY, HONEST READ &mdash; PICUS VIA BLEEPINGCOMPUTER</div>
+<h1>AI pentesting found 80 exploitable systems. <span class="red">360 others got no verdict at all.</span></h1>
+<p class="lead">In one customer environment, agentic pentesting tested 120 of 480 instances hit by an nginx-ui auth bypass (<code>CVE-2026-33032</code>) &mdash; confirming 80 exploitable, 40 blocked. The other 360 were unreachable and untested. Then exposure validation gave them verdicts anyway: 260 blocked by controls, 100 likely exploitable. Five questions to check whether <em>your</em> validation covers what your pentests can't reach.</p>
+
+<p class="answer"><strong>Short answer:</strong> agentic pentesting can only test what it can safely reach, and most CVEs have no exploit to run &mdash; so "tested" quietly becomes "sampled." Exposure validation closes the gap by testing attacker <em>behaviors</em> against your live controls instead of running exploits, turning 480 raw findings into 180 evidence-backed priorities. Check your five gaps below.</p>
+
+<div class="honest"><strong>Honest framing:</strong> this story comes from a <strong>sponsored article by Picus Security</strong> (they sell the exposure-validation approach), and the 80/360 numbers are from a single customer example. The direction is sound &mdash; independent coverage agrees partial coverage breeds false confidence &mdash; but treat the vendor's numbers as illustrative, not as your environment's numbers.</div>
+
+<div class="card">
+<h2>The 60-second Exposure Validation Check</h2>
+<p class="note">Answer for the environment you defend.</p>
+<div id="quiz"></div>
+<div id="verdict" role="status" aria-live="polite"></div>
+<div class="sharebox" id="sharebox">
+<p>Share your result:</p>
+<textarea id="sharetext" readonly></textarea>
+<button class="copybtn" id="copybtn">Copy result text</button>
+</div>
+</div>
+
+<div class="card">
+<h2>The two gaps, in the article's own numbers</h2>
+<h3>Gap 1 &mdash; assets the agents can't reach</h3>
+<ul>
+<li><strong>Why:</strong> safety (a real exploit can crash a service, corrupt data, trigger failover &mdash; PCI/NIST guidance says avoid disruptive exploits on fragile production) and reachability (segmented and air-gapped zones have no network path from the test harness).</li>
+<li><strong>Scale:</strong> Omdia research cited in the article: organizations pentest <strong>32% of their attack surface on average</strong>.</li>
+<li><strong>The example:</strong> 480 nginx-ui instances flagged for CVE-2026-33032 &rarr; 120 tested, 360 with no verdict &mdash; three of every four.</li>
+</ul>
+<h3>Gap 2 &mdash; vulnerabilities with no exploit to run</h3>
+<ul>
+<li>VulnCheck: only about <strong>a quarter of 2025 CVEs</strong> had proof-of-concept code or exploit details.</li>
+<li>29% of vulnerabilities confirmed exploited in 2025 were exploited <strong>on or before</strong> their CVE publication dates.</li>
+<li>Asking an LLM to write an untested exploit risks crashing the service it was meant to test.</li>
+</ul>
+<h3>How exposure validation closes them</h3>
+<ul>
+<li>Decompose the CVE into the <strong>attacker behaviors</strong> needed to exploit it; test each behavior against live security controls &mdash; within hours, not weeks.</li>
+<li>Verdict from <strong>control evidence</strong>, not successful exploitation: a missing PoC is never treated as proof of safety.</li>
+<li>The 360 unreachable instances &rarr; <strong>260 blocked by controls, 100 likely exploitable</strong>. The 480 raw findings &rarr; <strong>180 evidence-backed priorities</strong> (80 confirmed + 100 likely).</li>
+<li>Combined with breach-and-attack simulation, the three methods feed <strong>one shared findings model</strong> &mdash; one backlog, one result per exposure.</li>
+</ul>
+<p class="src">Sources: <a href="https://www.bleepingcomputer.com/news/security/the-blind-spots-of-agentic-pentesting-and-how-to-close-them/" target="_blank" rel="noopener">BleepingComputer (sponsored by Picus Security)</a> &middot; <a href="https://cyber.hendryadrian.com/article/3057/agentic-pentesting-can-miss-inaccessible-assets-and-vulnerabilities-without-exploits" target="_blank" rel="noopener">independent summary</a> &middot; <a href="https://netcrook.com/written_article?slug=ai-pentesting-blind-spots-coverage-gaps&lang=en" target="_blank" rel="noopener">Netcrook analysis</a></p>
+</div>
+
+<div class="card">
+<h2>Three things the article gets right that vendors usually skip</h2>
+<h3>1. Agentic results vary run to run</h3>
+<p>An agent can fail to exploit a vulnerability five times and succeed on the sixth &mdash; with nothing changed. Deterministic tests (less creative, consistent, cheaper, repeatable) still have a job: frequent coverage you can compare over time.</p>
+<h3>2. The exploitation window collapsed</h3>
+<p>With Mythos-class models, attackers can weaponize a new CVE within hours &mdash; down from weeks. An annual pentest leaves a 365-day validation gap; even weekly testing leaves seven days against an eight-hour window.</p>
+<h3>3. "Likely exploitable" is an assessment, not proof</h3>
+<p>Exposure validation's verdict is evidence-backed prioritization &mdash; enormously useful, but not the same as a confirmed exploit. Treat it as triage fuel, not as the final word.</p>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#fff;text-decoration:underline">BreachHunter</a> is Ultra Advanced Penetration Testing &mdash; exploit proof where it's reachable, control-level evidence where it isn't, one prioritized backlog.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20pentest%20blind-spot%20exposure%20check%20and%20want%20early%20access%20to%20BreachHunter." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<footer>
+Built by Ingenious AI &mdash; an independent security take, not an endorsement. Story facts verified from the public article; sponsorship disclosed.<br>
+Source article: "The Blind Spots of Agentic Pentesting and How to Close Them" &middot; BleepingComputer, sponsored and written by Picus Security
+</footer>
+</div>
+
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=AI%20pentesting%20found%2080%20exploitable%20systems%20but%20couldn%27t%20reach%20360%20others.%205%20questions%20to%20check%20whether%20your%20validation%20covers%20what%20pentesting%20can%27t%20reach&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/picus-exposure-validation-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/picus-exposure-validation-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/picus-exposure-validation-check.html&title=The%20blind%20spots%20of%20agentic%20pentesting%20(80%20confirmed%2C%20360%20untested)%20%E2%80%94%205-question%20exposure%20validation%20check" target="_blank" rel="noopener">Reddit</a></div>
+<div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<script>
+(function(){
+var QUESTIONS=[
+"1. Can you name which assets your last pentest could NOT safely reach (fragile, segmented, or air-gapped) \u2014 or is that list unknown?",
+"2. For CVEs with NO public exploit, do you have a verdict \u2014 or do you quietly treat \u201cno PoC\u201d as \u201csafe\u201d?",
+"3. Can you test whether your controls would block each attacker BEHAVIOR in an exploit chain \u2014 not just whether the exploit runs?",
+"4. When a critical CVE drops, do you get exposure verdicts within HOURS \u2014 or wait for the next scheduled test cycle?",
+"5. Do pentest, exposure-validation, and control-testing findings feed ONE shared backlog \u2014 or three siloed reports?"
+];
+var PAGE="https://iceman2050.github.io/ingeniousai-security-checks-mirror/picus-exposure-validation-check.html";
+var answers=new Array(QUESTIONS.length).fill(null);
+var quiz=document.getElementById("quiz");
+QUESTIONS.forEach(function(q,i){
+  var d=document.createElement("div");d.className="q";
+  d.innerHTML="<p>"+q+"</p><div class='opts'></div>";
+  var opts=d.querySelector(".opts");
+  [["Yes",1,"sel-yes"],["No",0,"sel-no"]].forEach(function(pair){
+    var b=document.createElement("button");b.textContent=pair[0];
+    b.onclick=function(){answer(i,pair[1],d);};
+    opts.appendChild(b);
+  });
+  quiz.appendChild(d);
+});
+function answer(i,val,div){
+  answers[i]=val;
+  var btns=div.querySelectorAll("button");
+  btns[0].className=val===1?"sel-yes":"";
+  btns[1].className=val===0?"sel-no":"";
+  btns.forEach(function(b){b.disabled=true;});
+  if(answers.every(function(a){return a!==null;}))showVerdict();
+}
+function showVerdict(){
+  var score=answers.reduce(function(a,b){return a+b;},0);
+  var v=document.getElementById("verdict");
+  var label,cls,advice;
+  if(score<=2){label="TESTING THEATER \u2014 most of your surface is unjudged";cls="bad";
+    advice="With "+(5-score)+" of 5 gaps open, your pentest report is a sample of the reachable \u2014 not a verdict on the exposed. Start by inventorying what tests never reach (segmented, fragile, air-gapped) and how you judge CVEs with no exploit today. That inventory is the cheapest win in security.";}
+  else if(score<=3){label="PARTIALLY VALIDATED \u2014 close the two classic gaps";cls="";
+    advice="You have "+score+" of 5. The gaps that bite hardest: no verdict for no-exploit CVEs (three-quarters of last year's CVEs had no PoC), and verdicts that arrive slower than attackers weaponize (hours now, not weeks). Behavior-level control testing closes both.";}
+  else{label="EVIDENCE-BACKED \u2014 keep the loop tight";cls="good";
+    advice="Unreachable assets judged, no-exploit CVEs assessed, controls tested at behavior level, verdicts in hours, one shared backlog. Keep the cycle running continuously \u2014 the exploitation window is eight hours, and it only shrinks.";}
+  v.className=cls;v.style.display="block";
+  v.innerHTML="<b class='verd'>"+score+"/5 \u2014 "+label+"</b><br><br>"+advice;
+  document.getElementById("sharetext").value="I scored "+score+"/5 on the pentest blind-spot check \u2014 80 exploitable found, 360 systems untested. Check what YOUR tests can't see: "+PAGE;
+  document.getElementById("sharebox").style.display="block";
+  v.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("copybtn").onclick=function(){
+  var t=document.getElementById("sharetext");var btn=this;
+  function done(){var o=btn.textContent;btn.textContent="Copied!";setTimeout(function(){btn.textContent=o;},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();try{document.execCommand("copy");done();}catch(e){}});}
+  else{t.select();try{document.execCommand("copy");done();}catch(e){}}
+};
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
