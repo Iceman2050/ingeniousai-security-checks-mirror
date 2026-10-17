@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AOMEI Backupper Supply-Chain Attack — Am I Backdoored? (Free Check)</title>
+<meta name="description" content="Attackers tampered with AOMEI Backupper's own update servers in 5–10 minute bursts (May–Jul 2026), delivering the CROSSROAD/SHINYROAD backdoors to PCs checking for updates. Free 5-question exposure check.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/aomei-backupper-supply-chain-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="AOMEI Backupper's update servers delivered a backdoor — are you infected?">
+<meta property="og:description" content="UNC7017 tampered with AOMEI's own servers in 5–10 minute bursts. 11 countries hit. 5 questions: are your machines clean? Free check.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/aomei-backupper-supply-chain-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AOMEI Backupper supply-chain attack — exposure check">
+<meta name="twitter:description" content="5 questions: did the tampered updater backdoor your machines? Free check.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1a0f0f;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+h1 .green{color:#3fb950}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{border:1px solid #2a3342;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#161d29;color:#fff}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.note{font-size:14px;color:#9aa7b8}
+.smallprint{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.q p{font-size:16px;margin-bottom:12px;color:#fff}
+.q .opts{display:flex;gap:10px;flex-wrap:wrap}
+.q button{flex:1;min-width:120px;background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px;font-size:15px;font-weight:600;cursor:pointer}
+.q button:hover{border-color:#1c6ef2}
+.q button.sel-yes{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.q button.sel-no{background:#2b1215;border-color:#f85149;color:#ffa198}
+.q button:disabled{cursor:default;opacity:.85}
+#verdict{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+#verdict.good{border-color:#3fb950;background:#0d1a0f}
+#verdict.bad{border-color:#f85149;background:#1a0f0f}
+#verdict b.verd{font-size:19px;letter-spacing:.5px}
+.sharebox{margin-top:16px;display:none;background:#0b0f17;border:1px dashed #2a3342;border-radius:8px;padding:14px 16px}
+.sharebox p{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+#sharetext{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical;min-height:64px}
+.copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+.warnbox{max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"AOMEI Backupper Supply-Chain Exposure Check","applicationCategory":"SecurityApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/aomei-backupper-supply-chain-check.html","description":"Five questions that score whether your machines were exposed to the UNC7017 supply-chain tampering of AOMEI Backupper's update servers — inventory, compromise hunting, egress controls, scheduled-task detection, and clean reinstalls.","author":{"@type":"Organization","name":"Ingenious AI"},"keywords":"AOMEI Backupper backdoor, supply chain attack, UNC7017, CROSSROAD, SHINYROAD, update tampering, free security check"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What happened with AOMEI Backupper's update servers?","acceptedAnswer":{"@type":"Answer","text":"Between May and July 2026, attackers repeatedly altered two unsigned files on AOMEI's own update servers — down_html.ini and Notifycfg.ini — for five to ten minutes at a time. Any copy of AOMEI Backupper that checked for updates during a window downloaded and ran the attacker's package. Disclosed by Google Threat Intelligence Group, Mandiant, and ManageEngine's Threat Analysis Lab; attributed to the cluster GTIG tracks as UNC7017."}},{"@type":"Question","name":"Was a software vulnerability exploited?","acceptedAnswer":{"@type":"Answer","text":"No. According to ManageEngine's lab, nothing in the software was exploited and no user action was needed beyond having the program installed and running. The updater never cryptographically verified the files it fetched — the checksum meant to prove the download genuine sat inside the same unsigned file that named it."}},{"@type":"Question","name":"What malware was delivered?","acceptedAnswer":{"@type":"Answer","text":"The CROSSROAD downloader and the SHINYROAD implant, launched through a signed Radmin executable side-loading a planted DLL from the same directory via a scheduled task. Some machines also received Adaptix C2 disguised as Nitro PDF software. A July 20 change could also leak NetNTLMv2 authentication hashes through an invisible one-pixel WebDAV pop-up without running any program."}},{"@type":"Question","name":"Did AOMEI fix it? Am I safe now?","acceptedAnswer":{"@type":"Answer","text":"AOMEI told Mandiant on July 29 that it took corrective action on its servers — but that fix does not remove the backdoor from machines already compromised. Neither report names which Backupper versions are affected, and ManageEngine said it had not independently confirmed containment. Infected machines remain compromised until investigated and rebuilt."}},{"@type":"Question","name":"I run AOMEI Backupper — what should I do?","acceptedAnswer":{"@type":"Answer","text":"Hunt across April–July for compromise: preserve cached update files, review network logs, inspect scheduled tasks for the Radmin/DLL/SHINYROAD chain, block the attacker infrastructure and outbound SMB and WebDAV to external addresses, then rebuild affected machines from a clean installer and rotate credentials."}}]}</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free security checks</a>
+<div class="badge">NEWSJACK &mdash; GTIG / MANDIANT / MANAGEENGINE &middot; OCT 2026</div>
+<h1>AOMEI's own update servers delivered a backdoor. <span class="red">Is it still on your machines?</span></h1>
+<p class="lead">Between <strong>May and July 2026</strong>, the cluster Google tracks as <strong>UNC7017</strong> tampered with AOMEI Backupper's <em>own update servers</em> in <strong>5&ndash;10 minute bursts</strong> &mdash; swapping two unsigned config files so any PC checking for updates in that window downloaded and ran a backdoor. No vulnerability exploited. No click needed. Organizations across <strong>11 countries</strong> were hit, and AOMEI's server fix doesn't clean machines already infected. Five questions to check your exposure.</p>
+
+<p class="answer"><strong>Short answer:</strong> if you run AOMEI Backupper (or its sibling AnyViewer, which shares the update flow) and haven't hunted for this, assume exposure until proven otherwise. The tampering windows were tiny &mdash; a client checking a minute before or after got clean files &mdash; so you can't reason your way out with timing. Hunt the April&ndash;July window, check the scheduled-task chain, and rebuild anything suspect from a clean installer.</p>
+
+<div class="card">
+<h2>The 60-second AOMEI Exposure Check</h2>
+<p class="note">Answer for the Windows fleet you defend.</p>
+<div id="quiz"></div>
+<div id="verdict" role="status" aria-live="polite"></div>
+<div class="sharebox" id="sharebox">
+<p>Share your result:</p>
+<textarea id="sharetext" readonly></textarea>
+<button class="copybtn" id="copybtn">Copy result text</button>
+</div>
+</div>
+
+<div class="card">
+<h2>Verified facts: the tampering campaign (THN, Oct 2026)</h2>
+<table>
+<tr><th>Fact</th><th>Detail</th></tr>
+<tr><td>Disclosed by</td><td>Google Threat Intelligence Group (GTIG), Mandiant, and ManageEngine's Threat Analysis Lab — this week.</td></tr>
+<tr><td>Actor</td><td>UNC7017 — the GTIG-tracked cluster also behind the ConnectWise Cloud Backup tenant compromises. No named state sponsor in the reporting.</td></tr>
+<tr><td>The technique</td><td>Repeated short-burst tampering of AOMEI's own origin servers: 5&ndash;10 minute windows between May and July 2026 (three confirmed stretches; defenders are told to hunt April&ndash;July). Two unsigned files changed: <code>down_html.ini</code> (names the update package + its checksum) and <code>Notifycfg.ini</code> (drives the pop-up service). No cryptographic verification of either file — the "checksum" sat inside the same unsigned file that named it.</td></tr>
+<tr><td>Why it worked</td><td>Nothing in the software was exploited and no user action was needed beyond having the program installed and running. The attacker only had to change two text files on the server for a few minutes; the updater did the rest, running the package with the AOMEI process's privileges.</td></tr>
+<tr><td>Payloads</td><td>CROSSROAD downloader; SHINYROAD implant launched via a scheduled task running a signed Radmin executable that side-loaded a planted DLL from the same directory; Adaptix C2 disguised as Nitro PDF on some machines; a July 20 variant could leak NetNTLMv2 hashes via an invisible one-pixel WebDAV pop-up without running any program.</td></tr>
+<tr><td>Scope</td><td>Organizations in IT services, telecom, and higher education across 11 countries. AnyViewer — AOMEI's remote-desktop tool sharing the same update flow — may also be affected.</td></tr>
+<tr><td>Vendor response</td><td>AOMEI (AOMEI Technology, registered in Hong Kong) told Mandiant on July 29 it had taken corrective action on its servers. That does <em>not</em> remove implants from already-compromised machines. Neither report names affected versions; ManageEngine has not independently confirmed containment.</td></tr>
+</table>
+<p class="src">Sources: <a href="http://thehackernews.com/2026/10/attackers-tampered-with-aomei.html" target="_blank" rel="noopener">The Hacker News — "Attackers Tampered with AOMEI Backupper's Update Servers for Minutes to Deliver a Backdoor" (Oct 2026)</a> &middot; <a href="https://dev.to/etairos/aomei-backupper-update-servers-served-a-backdoor-in-windows-of-five-to-ten-minutes-hg3" target="_blank" rel="noopener">dev.to technical summary</a>. Facts summarized, not reproduced.</p>
+</div>
+
+<div class="card">
+<h2>Remediation: hunt it, then rebuild</h2>
+<h3>1. Know where AOMEI lives in your fleet</h3>
+<p>Inventory every machine running AOMEI Backupper — and AnyViewer, which shares the update flow. You can't hunt what you haven't inventoried.</p>
+<h3>2. Hunt the April&ndash;July window</h3>
+<p>Preserve update files cached in the program's folders and correlate them with network logs from that period. The vendor's current download page shows only clean files now — history is what matters. Look for the scheduled task launching signed Radmin + planted DLL + SHINYROAD, and any Adaptix C2 masquerading as Nitro PDF.</p>
+<h3>3. Cut the exfil paths</h3>
+<p>Block the attacker infrastructure named in the reports, and block outbound SMB (TCP 445) and WebDAV to external addresses — that kills the NetNTLMv2 credential-theft technique outright.</p>
+<h3>4. Rebuild, don't just clean — then rotate</h3>
+<p>A server-side fix never touches an implanted machine. Rebuild affected hosts from a known-clean installer (fresh download, verified), and rotate every credential those machines held <em>after</em> rebuilding, in dependency order.</p>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#fff;text-decoration:underline">BreachHunter</a> finds the exposures attackers see first — audit your supply chain, then audit everything else.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20AOMEI%20Backupper%20supply-chain%20check%20and%20want%20early%20access%20to%20BreachHunter." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<div class="smallprint">
+Built by Ingenious AI — reporting on third-party research (THN, GTIG, Mandiant, ManageEngine). Facts summarized, not reproduced.<br>
+This page is general information, not legal advice.
+</div>
+</div>
+
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=AOMEI%20Backupper%27s%20own%20update%20servers%20delivered%20a%20backdoor%20in%205%E2%80%9310%20minute%20bursts.%2011%20countries%20hit.%20Are%20your%20machines%20still%20infected%3F%20Free%205-question%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/aomei-backupper-supply-chain-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/aomei-backupper-supply-chain-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/aomei-backupper-supply-chain-check.html&title=AOMEI%20Backupper%20update%20servers%20tampered%20in%205-10%20min%20bursts%20to%20deliver%20backdoor%20%E2%80%94%205-question%20exposure%20check" target="_blank" rel="noopener">Reddit</a></div>
+<div class="card">
+<h2>Frequently asked questions</h2>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">What happened with AOMEI Backupper's update servers?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">Between May and July 2026, attackers repeatedly altered two unsigned files on AOMEI's own update servers — down_html.ini and Notifycfg.ini — for five to ten minutes at a time. Any copy of AOMEI Backupper that checked for updates during a window downloaded and ran the attacker's package. Disclosed by Google Threat Intelligence Group, Mandiant, and ManageEngine's Threat Analysis Lab; attributed to the cluster GTIG tracks as UNC7017.</p></details>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">Was a software vulnerability exploited?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">No. According to ManageEngine's lab, nothing in the software was exploited and no user action was needed beyond having the program installed and running. The updater never cryptographically verified the files it fetched — the checksum meant to prove the download genuine sat inside the same unsigned file that named it.</p></details>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">What malware was delivered?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">The CROSSROAD downloader and the SHINYROAD implant, launched through a signed Radmin executable side-loading a planted DLL from the same directory via a scheduled task. Some machines also received Adaptix C2 disguised as Nitro PDF software. A July 20 change could also leak NetNTLMv2 authentication hashes through an invisible one-pixel WebDAV pop-up without running any program.</p></details>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">Did AOMEI fix it? Am I safe now?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">AOMEI told Mandiant on July 29 that it took corrective action on its servers — but that fix does not remove the backdoor from machines already compromised. Neither report names which Backupper versions are affected, and ManageEngine said it had not independently confirmed containment. Infected machines remain compromised until investigated and rebuilt.</p></details>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">I run AOMEI Backupper — what should I do?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">Hunt across April–July for compromise: preserve cached update files, review network logs, inspect scheduled tasks for the Radmin/DLL/SHINYROAD chain, block the attacker infrastructure and outbound SMB and WebDAV to external addresses, then rebuild affected machines from a clean installer and rotate credentials.</p></details>
+</div>
+
+<div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<script>
+(function(){
+var QUESTIONS=[
+"1. Do you have a COMPLETE INVENTORY of every machine running AOMEI Backupper (and AnyViewer, which shares the update flow)?",
+"2. Have you HUNTED your AOMEI installs for compromise indicators across the April\u2013July 2026 window (cached update files, network logs, scheduled tasks)?",
+"3. Do you BLOCK outbound SMB (TCP 445) and WebDAV to external addresses at the network edge?",
+"4. Would your monitoring catch a NEW SCHEDULED TASK launching a signed binary that side-loads a DLL from its own folder?",
+"5. Are you still running AOMEI Backupper WITHOUT having verified it is clean since the disclosure?"
+];
+var GOOD_IS_YES=[true,true,true,true,false];
+var PAGE="https://iceman2050.github.io/ingeniousai-security-checks-mirror/aomei-backupper-supply-chain-check.html";
+var answers=new Array(QUESTIONS.length).fill(null);
+var quiz=document.getElementById("quiz");
+QUESTIONS.forEach(function(q,i){
+  var d=document.createElement("div");d.className="q";
+  d.innerHTML="<p>"+q+"</p><div class='opts'></div>";
+  var opts=d.querySelector(".opts");
+  [["Yes",1],["No",0]].forEach(function(pair){
+    var b=document.createElement("button");b.textContent=pair[0];
+    b.onclick=function(){answer(i,pair[1],d);};
+    opts.appendChild(b);
+  });
+  quiz.appendChild(d);
+});
+function isGood(i,val){return GOOD_IS_YES[i] ? val===1 : val===0;}
+function answer(i,val,div){
+  answers[i]=isGood(i,val)?1:0;
+  var btns=div.querySelectorAll("button");
+  btns[0].className=(val===1)?(isGood(i,1)?"sel-yes":"sel-no"):"";
+  btns[1].className=(val===0)?(isGood(i,0)?"sel-yes":"sel-no"):"";
+  btns.forEach(function(b){b.disabled=true;});
+  if(answers.every(function(a){return a!==null;}))showVerdict();
+}
+function showVerdict(){
+  var score=answers.reduce(function(a,b){return a+b;},0);
+  var v=document.getElementById("verdict");
+  var label,cls,advice;
+  if(score<=2){label="EXPOSED \u2014 hunt now";cls="bad";
+    advice="With only "+score+" of 5, a backdoor delivered in a 5\u201310 minute window could still be sitting on your machines — AOMEI's server fix never touches infected hosts. This week: inventory every AOMEI install, hunt the April\u2013July window (scheduled tasks, cached updaters, network logs), block outbound SMB/WebDAV to externals, and rebuild anything suspect from a clean installer.";}
+  else if(score<=3){label="PARTIALLY HUNTED \u2014 gaps remain";cls="";
+    advice="You have "+score+" of 5. The usual gap: hunting was scoped too narrow (May\u2013July only, missing April) or the AnyViewer installs sharing the same update flow were never inventoried. The implant survives a server-side fix — only a rebuild plus credential rotation closes it.";}
+  else{label="HARDENED \u2014 stay there";cls="good";
+    advice="Inventoried, hunted, egress cut, detections in place, fleet verified clean. Keep the posture: supply-chain tampering of unsigned updaters is a repeatable playbook, and UNC7017 is still active.";}
+  v.className=cls;v.style.display="block";
+  v.innerHTML="<b class='verd'>"+score+"/5 \u2014 "+label+"</b><br><br>"+advice;
+  document.getElementById("sharetext").value="I scored "+score+"/5 on the AOMEI Backupper supply-chain exposure check — is the backdoor still on your machines? Free 5-question check: "+PAGE;
+  document.getElementById("sharebox").style.display="block";
+  v.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("copybtn").onclick=function(){
+  var t=document.getElementById("sharetext");var btn=this;
+  function done(){var o=btn.textContent;btn.textContent="Copied!";setTimeout(function(){btn.textContent=o;},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();try{document.execCommand("copy");done();}catch(e){}});}
+  else{t.select();try{document.execCommand("copy");done();}catch(e){}}
+};
+})();
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
