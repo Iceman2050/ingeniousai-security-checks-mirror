@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shadow AI Risk Assessment — Amnesty Day</title>
+<meta name="description" content="Shadow IT Amnesty Day: grade your company's unsanctioned AI tools anonymously. Free shadow AI risk assessment — scored on-device, nothing leaves your browser.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/shadow-it-amnesty.html">
+<link rel="stylesheet" href="ecosystem.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Shadow IT Amnesty Day — Confess Your Shadow AI">
+<meta property="og:description" content="Which unsanctioned AI tools is your company running? Answer anonymously, get a risk grade A–F. On-device only — nothing leaves your browser.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/shadow-it-amnesty.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Shadow IT Amnesty Day — Confess Your Shadow AI">
+<meta name="twitter:description" content="Which unsanctioned AI tools is your company running? Answer anonymously, get a risk grade A–F. On-device only — nothing leaves your browser.">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebPage", "name": "Shadow IT Amnesty Day — Shadow AI Risk Assessment", "description": "Shadow IT Amnesty Day: anonymously grade your company's unsanctioned AI tools. Free shadow AI risk assessment — scored on your device, nothing leaves your browser.", "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/shadow-it-amnesty.html", "about": "shadow AI risk assessment", "keywords": "shadow AI risk assessment, shadow IT amnesty, unsanctioned AI tools, shadow AI security risk", "provider": {"@type": "Organization", "name": "Ingenious AI"}}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+{"@type": "Question", "name": "Is the Shadow IT Amnesty form really anonymous?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Your answers are scored by JavaScript in your own browser and stored only in your device's localStorage. Nothing is uploaded, sent, or tracked — there is no server receiving your answers."}},
+{"@type": "Question", "name": "Is this a security audit?", "acceptedAnswer": {"@type": "Answer", "text": "No. This is a self-assessment, not an audit. The grade comes from a transparent rule-based scoring formula shown on the page — it reflects what you told us, not a technical scan of your company's systems."}},
+{"@type": "Question", "name": "How is the risk grade calculated?", "acceptedAnswer": {"@type": "Answer", "text": "You start at 100 points. Points are deducted per unsanctioned tool, per sensitive data type entered, and by company size band. The exact scoring table is shown before you submit — no hidden logic."}},
+{"@type": "Question", "name": "What should I do if my grade is bad?", "acceptedAnswer": {"@type": "Answer", "text": "The fastest wins: move sensitive work off personal AI accounts, get IT to approve one sanctioned tool per job, and set a simple policy people can actually follow. Rogue-Agent Defense can inventory your agent and AI-tool sprawl continuously."}},
+{"@type": "Question", "name": "What is shadow AI?", "acceptedAnswer": {"@type": "Answer", "text": "Shadow AI is any AI tool employees use without IT approval — personal ChatGPT accounts, free Copilot tiers, side Claude or Gemini usage. It becomes a security risk when customer data, source code, or financials flow through tools the company doesn't control."}}
+]}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:820px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d2b3d;border:1px solid #1c6ef2;color:#7fb5ff;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:32px;line-height:1.25;margin-bottom:14px}
+h2{font-size:22px;margin:32px 0 12px}
+h3{font-size:17px;margin:20px 0 8px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+p{margin-bottom:14px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:22px;margin:16px 0}
+.nojudge{background:#0d2b1a;border:1px solid #3fb950;border-radius:10px;padding:16px 18px;margin:18px 0;font-size:15px;color:#c8e9cd}
+.privacy{background:#0d1f14;border:1px solid #3fb950;border-radius:10px;padding:14px 18px;margin:18px 0;font-size:14px;color:#bfe3c6}
+fieldset{border:1px solid #232b38;border-radius:10px;padding:18px;margin:18px 0}
+legend{font-weight:700;padding:0 10px;font-size:16px}
+.checkrow{display:flex;align-items:flex-start;gap:10px;margin:10px 0;cursor:pointer;font-weight:400}
+.checkrow input{margin-top:5px;transform:scale(1.3);accent-color:#1c6ef2;flex-shrink:0}
+input[type=text],select{background:#0d1420;border:1px solid #232b38;color:#e6edf3;border-radius:8px;padding:11px 13px;font-size:15px;width:100%;margin-top:8px}
+input[type=text]:focus,select:focus{border-color:#1c6ef2;outline:none}
+table.score{width:100%;border-collapse:collapse;font-size:14px;margin:12px 0}
+table.score td,table.score th{border:1px solid #232b38;padding:8px 10px;text-align:left}
+table.score th{background:#0d1420}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:13px 30px;border-radius:8px;text-decoration:none;font-weight:bold;border:none;cursor:pointer;font-size:16px;margin-top:18px}
+.btn:hover{background:#2b7fff}
+.btn-green{background:#238636}
+.btn-green:hover{background:#2ea043}
+#result{display:none}
+.grade{font-size:72px;font-weight:800;line-height:1;margin:10px 0}
+.gradeA{color:#3fb950}.gradeB{color:#a3d977}.gradeC{color:#d29922}.gradeD{color:#db6d28}.gradeF{color:#f85149}
+.reasoning{background:#0d1420;border:1px solid #232b38;border-radius:10px;padding:16px 18px;margin:14px 0;font-size:14px}
+.reasoning li{margin-bottom:8px}
+.cta{background:#1a0f0f;border:1px solid #f85149;border-radius:12px;padding:26px;margin:30px 0;text-align:center}
+.cta h2{margin:0 0 10px;color:#fff}
+.more{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:22px;margin:30px 0}
+.more h2{font-size:19px;margin:0 0 12px;color:#e6edf3}
+.more ul{list-style:none;margin:0}
+.more li{margin-bottom:10px}
+a{color:#79c0ff}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px}
+@media(max-width:600px){h1{font-size:26px}.wrap{padding:32px 16px}.grade{font-size:56px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">SHADOW IT AMNESTY DAY 🕊️</div>
+<h1>Confess your shadow AI. No judgment.</h1>
+<p class="lead">Every company runs AI tools IT never approved. Today is amnesty: tell us — anonymously — which unsanctioned AI tools your company uses and what data goes into them. We'll hand you an honest risk grade, A through F, with the exact math shown.</p>
+
+<div class="nojudge"><strong>No judgment here.</strong> Shadow AI happens because the sanctioned tools are too slow, too locked-down, or don't exist. This page doesn't report you, shame you, or phone your CISO. It just grades the risk.</div>
+<div class="privacy">🔒 <strong>On this device only — nothing leaves your browser.</strong> Your answers are scored by code running on this page and stored only in your browser's localStorage. No account, no upload, no tracking. This is a <strong>self-assessment, not an audit</strong>.</div>
+
+<h2>How we grade you — the full formula, upfront</h2>
+<div class="card">
+<p>You start at <strong>100 points</strong>. Deductions:</p>
+<table class="score">
+<tr><th>Factor</th><th>Deduction</th></tr>
+<tr><td>Each unsanctioned AI tool in use</td><td>−10</td></tr>
+<tr><td>Customer data goes into the tools</td><td>−15</td></tr>
+<tr><td>Source code goes into the tools</td><td>−15</td></tr>
+<tr><td>Financials go into the tools</td><td>−10</td></tr>
+<tr><td>HR documents go into the tools</td><td>−10</td></tr>
+<tr><td>Company size 51–1,000</td><td>−5</td></tr>
+<tr><td>Company size 1,001+</td><td>−10</td></tr>
+</table>
+<p style="margin-bottom:0"><strong>Grades:</strong> A = 90–100 · B = 75–89 · C = 60–74 · D = 40–59 · F = below 40. No hidden logic — the result page replays every deduction line by line.</p>
+</div>
+
+<form id="amnesty" onsubmit="return grade();">
+<fieldset>
+<legend>1. Which unsanctioned AI tools are running at your company?</legend>
+<label class="checkrow"><input type="checkbox" name="tool" value="Personal ChatGPT accounts"> Personal ChatGPT accounts (not the company plan)</label>
+<label class="checkrow"><input type="checkbox" name="tool" value="Claude (personal/pro)"> Claude — personal or Pro accounts</label>
+<label class="checkrow"><input type="checkbox" name="tool" value="Gemini (personal)"> Gemini — personal accounts</label>
+<label class="checkrow"><input type="checkbox" name="tool" value="Copilot (free/unsanctioned)"> Copilot — free tier or unsanctioned installs</label>
+<label class="checkrow"><input type="checkbox" name="tool" value="Other"> Other
+<input type="text" id="otherTool" placeholder="Which one? e.g. Perplexity, Midjourney, a random agent someone wired up"></label>
+</fieldset>
+
+<fieldset>
+<legend>2. What data goes into them?</legend>
+<label class="checkrow"><input type="checkbox" name="data" value="customer"> Customer data (names, emails, tickets, CRM exports)</label>
+<label class="checkrow"><input type="checkbox" name="data" value="code"> Source code (pasted into prompts, reviewed by agents)</label>
+<label class="checkrow"><input type="checkbox" name="data" value="financials"> Financials (revenue, payroll, invoices, forecasts)</label>
+<label class="checkrow"><input type="checkbox" name="data" value="hr"> HR documents (reviews, salaries, disciplinary notes)</label>
+</fieldset>
+
+<fieldset>
+<legend>3. Company size</legend>
+<select id="size">
+<option value="0">1–50 people</option>
+<option value="5">51–1,000 people</option>
+<option value="10">1,001+ people</option>
+</select>
+</fieldset>
+
+<button class="btn" type="submit">Grade me — anonymously</button>
+</form>
+
+<div id="result">
+<div class="card" style="text-align:center">
+<h2 style="margin-top:0">Your Shadow AI risk grade</h2>
+<div class="grade" id="gradeLetter">–</div>
+<div id="gradeTitle" style="font-size:18px;font-weight:700"></div>
+<p id="gradeBlurb" style="color:#9aa7b8;max-width:560px;margin:12px auto 0"></p>
+</div>
+<div class="card">
+<h3 style="margin-top:0">Here's exactly how we graded you</h3>
+<ul class="reasoning" id="reasoning" style="list-style:none;margin:0;padding:0"></ul>
+<p style="font-size:13px;color:#8b95a5;margin-bottom:0">Self-reported self-assessment, not an audit. Score saved on this device only — <a href="#" onclick="clearMy();return false;" style="color:#79c0ff">delete my answers</a>.</p>
+</div>
+<div class="cta">
+<h2>Turn the grade into a fix</h2>
+<p style="color:#f5c6c0;margin-bottom:6px">Rogue-Agent Defense inventories every agent and AI tool touching your systems — sanctioned or shadow — and flags the risky ones before they leak something.</p>
+<a class="btn" style="background:#f85149" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense" target="_blank" rel="noopener">Get early access to Rogue-Agent Defense</a>
+</div>
+</div>
+
+<script>
+var KEY='shadow-it-amnesty-v1';
+function grade(){
+  var score=100, lines=[];
+  var tools=[]; document.querySelectorAll('input[name=tool]:checked').forEach(function(c){
+    if(c.value==='Other'){var o=document.getElementById('otherTool').value.trim();tools.push(o||'Other (unspecified)');}
+    else tools.push(c.value);
+  });
+  var dataLabels={customer:'Customer data',code:'Source code',financials:'Financials',hr:'HR documents'};
+  var dataDed={customer:15,code:15,financials:10,hr:10};
+  var datas=[]; document.querySelectorAll('input[name=data]:checked').forEach(function(c){datas.push(c.value);});
+  var sizeSel=document.getElementById('size');
+  var sizeTxt=sizeSel.options[sizeSel.selectedIndex].text, sizeDed=parseInt(sizeSel.value,10);
+
+  if(tools.length===0){lines.push('No unsanctioned tools reported: ±0 (self-reported — be honest with yourself)');}
+  else{lines.push(tools.length+' unsanctioned tool'+(tools.length>1?'s':'')+' ('+tools.join(', ')+'): −'+(tools.length*10));score-=tools.length*10;}
+  datas.forEach(function(d){lines.push(dataLabels[d]+' flows through unsanctioned tools: −'+dataDed[d]);score-=dataDed[d];});
+  if(sizeDed>0){lines.push('Company size '+sizeTxt+' — bigger blast radius: −'+sizeDed);score-=sizeDed;}
+  else{lines.push('Company size '+sizeTxt+': ±0');}
+  if(score<0)score=0;
+
+  var g,t,b;
+  if(score>=90){g='A';t='Clean desk.';b='Either you run a tight ship or you under-reported. If the first, keep it that way — sanction one good tool per job so nobody drifts back to shadow.';}
+  else if(score>=75){g='B';t='Mostly under control.';b='A few shadow tools, but nothing catastrophic is flowing through them. Sanction the useful ones officially and the risk mostly evaporates.';}
+  else if(score>=60){g='C';t='Shadow sprawl with teeth.';b='Sensitive data is flowing through tools your company does not control. You need one sanctioned alternative per use case, fast — before a breach makes the decision for you.';}
+  else if(score>=40){g='D';t='A breach waiting for a headline.';b='Multiple unsanctioned tools plus sensitive data is exactly how credentials, customer lists and source code end up training someone else\'s model. This needs an owner this week.';}
+  else{g='F';t='Amnesty granted. Now fix it.';b='Maximum blast radius: lots of tools, sensitive data, and scale. The good news: you already know the shape of the problem. Start by inventorying everything, then sanction, then lock down.';}
+
+  lines.push('Final score: '+score+'/100 → grade '+g);
+  var gl=document.getElementById('gradeLetter');
+  gl.textContent=g; gl.className='grade grade'+g;
+  document.getElementById('gradeTitle').textContent=t;
+  document.getElementById('gradeBlurb').textContent=b;
+  document.getElementById('reasoning').innerHTML=lines.map(function(l){return '<li>• '+l.replace(/</g,'&lt;')+'</li>';}).join('');
+  try{localStorage.setItem(KEY,JSON.stringify({tools:tools,datas:datas,size:sizeTxt,score:score,grade:g,at:new Date().toISOString()}));}catch(e){}
+  document.getElementById('result').style.display='block';
+  document.getElementById('result').scrollIntoView({behavior:'smooth'});
+  return false;
+}
+function clearMy(){try{localStorage.removeItem(KEY);}catch(e){}document.getElementById('amnesty').reset();document.getElementById('result').style.display='none';window.scrollTo({top:0,behavior:'smooth'});}
+</script>
+
+<div class="more">
+<h2>More from Ingenious AI</h2>
+<ul>
+<li>🤫 <a href="shadow-ai-confessional.html">Shadow AI Confessional — admit yours anonymously</a></li>
+<li>📊 <a href="shadow-model-census.html">Shadow Model Census — what the industry is hiding</a></li>
+<li>🗺️ <a href="ai-stack-mapper.html">AI Stack Mapper — map every AI tool in your company</a></li>
+<li>🔐 <a href="agent-permissions-quiz.html">Agent Permissions Quiz — are your agents over-privileged?</a></li>
+<li>🔗 <a href="all-links.html">All tools and pages</a></li>
+<li>🛡️ <a href="security-suite.html">The Ingenious AI Security Suite</a></li>
+</ul>
+</div>
+
+</div>
+<div class="share">Share: <a href="https://x.com/intent/post?text=Shadow%20IT%20Amnesty%20Day%20%E2%80%94%20confess%20your%20company%27s%20shadow%20AI%2C%20get%20a%20risk%20grade&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/shadow-it-amnesty.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/shadow-it-amnesty.html" target="_blank" rel="noopener">LinkedIn</a></div>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>o1 Model Shutdown Post-Mortem — Model Autopsy</title>
+<meta name="description" content="The Model Autopsy, edition 1: OpenAI retired o1 on Oct 23, 2026. What it was good at, the vendor's stated successor path, migration checklist, and who got hurt.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-autopsy.html">
+<link rel="stylesheet" href="ecosystem.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="o1 Model Shutdown Post-Mortem — The Model Autopsy">
+<meta property="og:description" content="OpenAI retired o1 on Oct 23, 2026. What the reasoning model was good at, OpenAI's stated successor path, a migration checklist, and who got hurt.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-autopsy.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="o1 Model Shutdown Post-Mortem — The Model Autopsy">
+<meta name="twitter:description" content="OpenAI retired o1 on Oct 23, 2026. What the reasoning model was good at, OpenAI's stated successor path, a migration checklist, and who got hurt.">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebPage", "name": "o1 Model Shutdown Post-Mortem — The Model Autopsy", "description": "Post-mortem of OpenAI's o1 shutdown (Oct 23, 2026): what the reasoning model was good at, the vendor's stated successor path, a migration checklist, and who got hurt.", "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-autopsy.html", "about": "o1 model shutdown post-mortem", "keywords": "o1 model shutdown post-mortem, o1 retired, OpenAI model deprecation, o1 migration checklist", "provider": {"@type": "Organization", "name": "Ingenious AI"}}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+{"@type": "Question", "name": "When was OpenAI's o1 model shut down?", "acceptedAnswer": {"@type": "Answer", "text": "October 23, 2026, in OpenAI's published shutdown batch alongside gpt-4-0613, gpt-4-turbo, o3-mini, o4-mini, gpt-image-1 and fine-tuned ft-* models. After the cutoff, API calls to o1 fail and must be moved to a replacement."}},
+{"@type": "Question", "name": "What replaced OpenAI o1?", "acceptedAnswer": {"@type": "Answer", "text": "OpenAI's stated successor path is the GPT-5.x reasoning model line, per OpenAI's own migration guidance. Test the replacement on your own evals before cutting over — behavior, latency and cost will differ from o1."}},
+{"@type": "Question", "name": "What was o1 good at?", "acceptedAnswer": {"@type": "Answer", "text": "o1 (Sep 2024 – Oct 2026) was OpenAI's first reasoning model. It worked through problems step by step with an internal chain-of-thought before answering, which made it strong on complex reasoning tasks like math, science and code reasoning — at the cost of slower responses than chat models."}},
+{"@type": "Question", "name": "How do I migrate from a retired AI model?", "acceptedAnswer": {"@type": "Answer", "text": "Audit every place the model is pinned, run the vendor's recommended replacement against your own evals, and compare behavior, latency and cost before switching traffic. Watch pinned model names in config files — they are the most common migration trap."}},
+{"@type": "Question", "name": "What happens if I don't migrate before the shutdown date?", "acceptedAnswer": {"@type": "Answer", "text": "Your API calls return errors and the feature breaks for users. Teams that pinned o1 in production without a fallback had to scramble mid-incident or ship degraded answers — migration is a scheduled task, not an emergency response."}}
+]}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:820px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a1030;border:1px solid #a371f7;color:#d2a8ff;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:32px;line-height:1.25;margin-bottom:14px}
+h2{font-size:22px;margin:32px 0 12px;color:#d2a8ff}
+h3{font-size:17px;margin:20px 0 8px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+p{margin-bottom:14px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:22px;margin:16px 0}
+.verdict{background:#1a1207;border:1px solid #d29922;border-radius:10px;padding:16px 18px;margin:18px 0;font-size:14px;color:#f0d9a8}
+.source{font-size:13px;color:#8b95a5;margin-top:10px}
+ul,ol{margin:8px 0 14px 22px}
+li{margin-bottom:8px}
+.check li{list-style:none;margin-left:-22px;padding-left:28px;position:relative}
+.check li::before{content:"☐";position:absolute;left:0;color:#a371f7;font-weight:bold}
+a{color:#79c0ff}
+.cta{background:#0d2b3d;border:1px solid #1c6ef2;border-radius:12px;padding:26px;margin:30px 0;text-align:center}
+.cta h2{margin:0 0 10px;color:#fff}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:13px 30px;border-radius:8px;text-decoration:none;font-weight:bold;border:none;cursor:pointer;font-size:16px;margin-top:14px}
+.btn:hover{background:#2b7fff}
+.more{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:22px;margin:30px 0}
+.more h2{font-size:19px;margin:0 0 12px;color:#e6edf3}
+.more ul{list-style:none;margin:0}
+.more li{margin-bottom:10px}
+.faq .card p:last-child{margin-bottom:0}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px}
+@media(max-width:600px){h1{font-size:26px}.wrap{padding:32px 16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">THE MODEL AUTOPSY · EDITION 01</div>
+<h1>o1 is dead. Here's what the post-mortem says.</h1>
+<p class="lead">OpenAI retired o1 on <strong>October 23, 2026</strong>, in the same published shutdown batch as gpt-4-0613, gpt-4-turbo, o3-mini, o4-mini, gpt-image-1 and the fine-tuned ft-* models. We do the autopsy so you don't repeat the cause of death.</p>
+
+<div class="card">
+<h2 style="margin-top:0">The patient</h2>
+<p><strong>o1</strong> (September 2024 – October 2026) was OpenAI's first reasoning model: instead of answering immediately, it worked through problems step by step with an internal chain-of-thought before responding. That made it the go-to pick for complex reasoning work — math, science, and code reasoning tasks where thinking longer beats answering faster. The tradeoff was real too: reasoning models are slower and more expensive per task than chat models, and the hidden chain-of-thought meant less visibility into <em>why</em> it answered the way it did.</p>
+<p class="source">Sourcing: retirement date and batch from OpenAI's published deprecation schedule; model characteristics from public documentation. No invented benchmarks on this page — if we didn't see it published, we don't claim it.</p>
+</div>
+
+<div class="verdict">
+<strong>Autopsy verdict:</strong> o1 died of <em>vendor deprecation</em> — the most common cause of death for pinned models. The replacement exists, but replacements are never drop-in: behavior, latency and cost all shift, and teams that treated migration as a config change had the worst week.
+</div>
+
+<h2>What replaced it</h2>
+<p>Per OpenAI's own migration guidance, <strong>OpenAI's stated successor path</strong> is the <strong>GPT-5.x reasoning model line</strong>. That's the vendor's recommendation, not ours — and "recommended" doesn't mean "identical." Every migration we've watched has three surprise dimensions: answers behave differently on edge cases, latency profiles change, and the price per 1,000 tasks moves. Budget for all three.</p>
+
+<h2>Migration checklist</h2>
+<div class="card">
+<ol class="check" style="margin-top:0">
+<li><strong>Audit o1 usage.</strong> Grep your repos, configs and infra for the pinned model name. o1 shows up in places people forget: background jobs, internal tools, that one Lambda someone deployed in 2025.</li>
+<li><strong>Test the replacement on your own evals.</strong> Run your real prompts — not the vendor's demo set — through the GPT-5.x reasoning path. Compare outputs side by side on your hardest cases.</li>
+<li><strong>Watch behavior, latency and cost differences.</strong> Measure all three in staging before you cut over. A reasoning model that answers differently is a product bug; one that costs 3× more is a budget bug.</li>
+<li><strong>Kill the pin.</strong> Move model selection behind a config flag or abstraction so the next shutdown is a flip, not a rewrite. This is the lesson every autopsy teaches.</li>
+</ol>
+</div>
+
+<h2>Who got hurt</h2>
+<p>Honestly: <strong>teams that pinned o1 in production and never built a migration plan</strong>. Hardcoded model names in API calls, o1 assumed in prompts and system messages, pricing built on o1's token costs, and products whose demo <em>was</em> o1's reasoning style. If that was you, the shutdown didn't create the problem — it revealed it. The fix isn't a faster migration, it's never pinning a single vendor model in production again.</p>
+<p>Want the fuller obituary? <a href="model-obituaries/rip-o1.html">Read the o1 shutdown obituary</a> and browse the <a href="model-obituaries/index.html">model obituaries archive</a>.</p>
+
+<div class="cta">
+<h2>Never get blindsided by a model shutdown again</h2>
+<p style="color:#bcd7f5;margin-bottom:6px">ModelMinder watches the models you depend on and warns you before the vendor pulls the plug — deprecations, shutdowns, price changes.</p>
+<a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder" target="_blank" rel="noopener">Get early access to ModelMinder</a>
+</div>
+
+<div class="faq">
+<h2>Questions</h2>
+<div class="card"><h3>When was OpenAI's o1 model shut down?</h3><p>October 23, 2026, in OpenAI's published shutdown batch alongside gpt-4-0613, gpt-4-turbo, o3-mini, o4-mini, gpt-image-1 and fine-tuned ft-* models. After the cutoff, API calls to o1 fail and must be moved to a replacement.</p></div>
+<div class="card"><h3>What replaced OpenAI o1?</h3><p>OpenAI's stated successor path is the GPT-5.x reasoning model line, per OpenAI's own migration guidance. Test the replacement on your own evals before cutting over — behavior, latency and cost will differ from o1.</p></div>
+<div class="card"><h3>What was o1 good at?</h3><p>o1 (Sep 2024 – Oct 2026) was OpenAI's first reasoning model. It worked through problems step by step with an internal chain-of-thought before answering, which made it strong on complex reasoning tasks like math, science and code reasoning — at the cost of slower responses than chat models.</p></div>
+<div class="card"><h3>How do I migrate from a retired AI model?</h3><p>Audit every place the model is pinned, run the vendor's recommended replacement against your own evals, and compare behavior, latency and cost before switching traffic. Watch pinned model names in config files — they are the most common migration trap.</p></div>
+<div class="card"><h3>What happens if I don't migrate before the shutdown date?</h3><p>Your API calls return errors and the feature breaks for users. Teams that pinned o1 in production without a fallback had to scramble mid-incident or ship degraded answers — migration is a scheduled task, not an emergency response.</p></div>
+</div>
+
+<div class="more">
+<h2>More from Ingenious AI</h2>
+<ul>
+<li>⚰️ <a href="model-obituaries/rip-o1.html">RIP o1 — the full shutdown obituary</a></li>
+<li>🪦 <a href="model-obituaries/index.html">Model Obituaries — the archive</a></li>
+<li>💸 <a href="migration-cost-calculator.html">Migration Cost Calculator — price your move before the deadline</a></li>
+<li>🗺️ <a href="ai-stack-mapper.html">AI Stack Mapper — map every model your company depends on</a></li>
+<li>🔗 <a href="all-links.html">All tools and pages</a></li>
+<li>🛡️ <a href="security-suite.html">The Ingenious AI Security Suite</a></li>
+</ul>
+</div>
+
+</div>
+<div class="share">Share: <a href="https://x.com/intent/post?text=The%20Model%20Autopsy%20%E2%80%94%20o1%20is%20dead%2C%20here%27s%20the%20post-mortem&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/model-autopsy.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/model-autopsy.html" target="_blank" rel="noopener">LinkedIn</a></div>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+</body>
+</html>

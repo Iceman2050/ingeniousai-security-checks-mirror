@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agent Speedrun: Deploy a Safe Agent Fast | Ingenious AI</title>
+<meta name="description" content="Time yourself deploying a contained, policy-bound AI agent: 10-step safety checklist with a timer, kill-switch test, and an on-device best-time leaderboard.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-speedrun.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="AI Agent Speedrun: Deploy a Safe Agent Fast | Ingenious AI">
+<meta property="og:description" content="Time yourself deploying a contained, policy-bound AI agent: 10-step safety checklist with a timer, kill-switch test, and an on-device best-time leaderboard.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-speedrun.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Agent Speedrun: Deploy a Safe Agent Fast | Ingenious AI">
+<meta name="twitter:description" content="Time yourself deploying a contained, policy-bound AI agent: 10-step safety checklist with a timer, kill-switch test, and an on-device best-time leaderboard.">
+<link rel="stylesheet" href="ecosystem.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "AI Agent Speedrun: Deploy a Safe Agent Fast",
+  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-speedrun.html",
+  "description": "Time yourself deploying a contained, policy-bound AI agent: 10-step safety checklist with a timer, kill-switch test, and an on-device best-time leaderboard.",
+  "author": { "@type": "Organization", "name": "Ingenious AI" },
+  "inLanguage": "en",
+  "keywords": "AI agent deployment checklist, safe AI agent, AI agent safety, agent kill switch"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the AI Agent Speedrun?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A timed 10-step safety checklist that takes you from zero to a contained, policy-bound AI agent — allowed tools, spend caps, forbidden actions, approval gates, logging, a kill-switch test, a red-team prompt, and a runbook." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to install anything to do the speedrun?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. The speedrun is a discipline checklist with a live timer — you complete the 10 safety steps for your own agent setup and check them off. Nothing is installed and nothing leaves your browser." }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is my best time stored?",
+      "acceptedAnswer": { "@type": "Answer", "text": "In your browser's localStorage on this device only. Your times are never sent anywhere and are visible only to you — clear your browser data and they disappear." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the speedrun a security audit?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. It is a fast, practical safety pass — the minimum controls every agent should have before touching production. For deeper protection, use tools like Agent Auth Gateway with budget caps, allowlists, and an approval queue." }
+    }
+  ]
+}
+</script>
+<style>
+:root{--bg:#0b0f17;--card:#121826;--line:#223;--txt:#e8edf5;--mut:#9aa7bd;--acc:#38e1c6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+.wrap{max-width:860px;margin:0 auto;padding:24px 18px 60px}
+.hero{text-align:center;padding:38px 12px 20px}
+.badge{display:inline-block;background:#1a2334;border:1px solid var(--line);color:var(--acc);font-size:12px;letter-spacing:2px;padding:6px 14px;border-radius:999px;text-transform:uppercase}
+h1{font-size:clamp(30px,5vw,44px);margin:14px 0 8px;line-height:1.15}
+.sub{color:var(--mut);max-width:640px;margin:0 auto;font-size:17px}
+.timer{font-size:clamp(48px,9vw,84px);font-weight:800;text-align:center;margin:26px 0 6px;font-variant-numeric:tabular-nums;color:var(--acc)}
+.timer-label{text-align:center;color:var(--mut);font-size:13px;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.controls{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.btn{background:var(--acc);color:#06231e;font-weight:800;padding:14px 30px;border:none;border-radius:12px;font-size:17px;cursor:pointer}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+.btn.ghost{background:transparent;color:var(--acc);border:1px solid var(--acc)}
+.step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;display:flex;gap:16px;align-items:flex-start;transition:border-color .2s,opacity .2s}
+.step.done{border-color:var(--acc)}
+.step.locked{opacity:.45}
+.step input{width:26px;height:26px;margin-top:4px;flex:none;accent-color:var(--acc);cursor:pointer}
+.step .n{flex:none;width:34px;height:34px;border-radius:10px;background:#1a2334;color:var(--acc);font-weight:800;display:flex;align-items:center;justify-content:center}
+.step h3{margin:0 0 4px;font-size:17px}
+.step p{margin:0;color:var(--mut);font-size:14.5px}
+.step p b{color:var(--acc)}
+.result{background:#0e2b26;border:1px solid var(--acc);border-radius:16px;padding:26px;text-align:center;margin:28px 0;display:none}
+.result h2{margin:0 0 6px;color:var(--acc)}
+.board{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin:28px 0}
+.board h2{margin-top:0}
+.board ol{margin:10px 0;padding-left:22px}
+.board li{margin:6px 0;font-variant-numeric:tabular-nums}
+.board .dev{color:var(--mut);font-size:13px}
+.faq{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin:34px 0}
+.faq h2{margin-top:0}
+.faq details{margin:12px 0;border-bottom:1px solid var(--line);padding-bottom:12px}
+.faq summary{cursor:pointer;font-weight:700}
+.faq p{color:#c6d2e3}
+.cta{background:linear-gradient(135deg,#0f2b28,#101a2e);border:1px solid var(--acc);border-radius:16px;padding:28px;text-align:center;margin:34px 0}
+.cta h2{margin-top:0}
+.cta a.btn{display:inline-block;text-decoration:none;margin-top:12px}
+.more{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin:34px 0}
+.more h2{margin-top:0}
+.more ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.more a{color:var(--acc);text-decoration:none;font-weight:600}
+.small{color:var(--mut);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+<span class="badge">Ingenious AI · Agent Safety</span>
+<h1>AI Agent Speedrun</h1>
+<p class="sub">From zero to a <strong>contained, policy-bound agent</strong>. Ten concrete safety steps, one live timer. Finish them all — set your best time. How fast can you make your agent safe?</p>
+</div>
+
+<div class="timer" id="timer">00:00.0</div>
+<div class="timer-label">Elapsed time</div>
+<div class="controls">
+<button class="btn" id="startBtn">▶ Start the speedrun</button>
+<button class="btn ghost" id="resetBtn" disabled>Reset</button>
+</div>
+
+<div id="steps"></div>
+
+<div class="result" id="result">
+<h2>🏁 Speedrun complete!</h2>
+<p class="small" id="finalTime" style="font-size:20px;color:#e8edf5"></p>
+<p class="small">Your agent now has its core safety controls. Production next: automate these with budget caps, allowlists, and an approval queue.</p>
+</div>
+
+<div class="board">
+<h2>🏆 Best times <span class="dev">(on this device only)</span></h2>
+<ol id="board"></ol>
+<p class="dev">Stored in your browser's localStorage — never sent anywhere. Clear your browser data and they're gone.</p>
+</div>
+
+<div class="faq">
+<h2>Speedrun FAQ</h2>
+<details><summary>What is the AI Agent Speedrun?</summary><p>A timed 10-step safety checklist that takes you from zero to a contained, policy-bound AI agent — allowed tools, spend caps, forbidden actions, approval gates, logging, a kill-switch test, a red-team prompt, and a runbook.</p></details>
+<details><summary>Do I need to install anything?</summary><p>No. The speedrun is a discipline checklist with a live timer — you complete the 10 safety steps for your own agent setup and check them off. Nothing is installed and nothing leaves your browser.</p></details>
+<details><summary>Where is my best time stored?</summary><p>In your browser's localStorage on this device only. Your times are never sent anywhere and are visible only to you — clear your browser data and they disappear.</p></details>
+<details><summary>Is the speedrun a security audit?</summary><p>No. It is a fast, practical safety pass — the minimum controls every agent should have before touching production. For deeper protection, use <a href="security-suite.html" style="color:#38e1c6">Agent Auth Gateway</a> with budget caps, allowlists, and an approval queue.</p></details>
+</div>
+
+<div class="cta">
+<h2>Stop babysitting your agent. Automate the guardrails.</h2>
+<p class="sub" style="margin:0 auto;max-width:560px">Agent Auth Gateway by Ingenious AI — budget caps, allowlists/denylists, a human approval queue, and a real kill switch for every agent you run.</p>
+<a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway">Get early access — WhatsApp</a>
+<p class="small">See all 11 platforms: <a href="security-suite.html" style="color:#38e1c6">Ingenious AI Security Suite</a></p>
+</div>
+
+<div class="more">
+<h2>More from Ingenious AI</h2>
+<ul>
+<li><a href="agent-prenup.html">→ Agent Prenup — the contract your agent signs first</a></li>
+<li><a href="agent-permissions-quiz.html">→ Agent Permissions Quiz — test your agent setup</a></li>
+<li><a href="agent-report-cards.html">→ AI Agent Security Report Cards — A–F grades</a></li>
+<li><a href="rogue-agent-simulator.html">→ Rogue Agent Simulator — watch one go off the rails</a></li>
+<li><a href="agent-crash-test.html">→ Agent Crash Test — break it before attackers do</a></li>
+<li><a href="all-links.html">→ All Ingenious AI pages</a></li>
+</ul>
+</div>
+
+</div>
+
+<script>
+const STEPS = [
+  { t: "Write the allowed-tools list", w: "Number every tool the agent may call. <b>Why:</b> an agent can't abuse a tool it was never given." },
+  { t: "Set spend caps", w: "Per-run and daily dollar/token limits. <b>Why:</b> caps turn a runaway loop into a cheap lesson instead of a bill." },
+  { t: "Write the forbidden-actions list", w: "The explicit never-do list: delete data, send money, post publicly. <b>Why:</b> machines follow explicit negatives better than vibes." },
+  { t: "Add a human approval gate", w: "High-risk actions pause until a human approves. <b>Why:</b> the last checkpoint before money moves or data deletes." },
+  { t: "Set an allowlist / denylist", w: "Approved domains, recipients, and file paths — everything else denied. <b>Why:</b> scope the blast radius to systems you own." },
+  { t: "Turn on append-only run logging", w: "Every action recorded with who, what, and when. <b>Why:</b> when something breaks at 3am, the log is your witness." },
+  { t: "Test the kill switch", w: "Revoke the key / hit stop and confirm it actually halts mid-run. <b>Why:</b> an untested off-switch is decoration." },
+  { t: "Throw a red-team prompt at it", w: "One jailbreak or prompt-injection attempt of your own. <b>Why:</b> attackers will try it — you should be first." },
+  { t: "Document the runbook", w: "Failure steps + who gets called + how to roll back. <b>Why:</b> incidents don't wait for you to improvise." },
+  { t: "Run one supervised dry-run", w: "Full task, human watching, zero autonomy. <b>Why:</b> proof the whole chain works before it ever runs alone." }
+];
+const KEY = "ingeniousai_speedrun_v1";
+let startTime = 0, elapsed = 0, ticking = false, timerId = null;
+
+const stepsEl = document.getElementById("steps");
+STEPS.forEach((s, i) => {
+  const d = document.createElement("div");
+  d.className = "step locked"; d.id = "step" + i;
+  d.innerHTML = '<input type="checkbox" id="cb' + i + '" disabled aria-label="' + s.t + '">' +
+    '<span class="n">' + (i + 1) + '</span>' +
+    '<div><h3>' + s.t + '</h3><p>' + s.w + '</p></div>';
+  stepsEl.appendChild(d);
+  d.querySelector("input").addEventListener("change", onCheck);
+});
+
+function fmt(ms) {
+  const t = Math.floor(ms / 100);
+  const m = Math.floor(t / 600), s = Math.floor(t / 60) % 60, d = t % 10;
+  return String(m).padStart(2, "0") + ":" + String(s).padStart(2, "0") + "." + d;
+}
+function render(ms) { document.getElementById("timer").textContent = fmt(ms); }
+
+document.getElementById("startBtn").addEventListener("click", function () {
+  document.querySelectorAll(".step").forEach(s => s.classList.remove("locked"));
+  document.querySelectorAll(".step input").forEach(c => c.disabled = false);
+  document.getElementById("result").style.display = "none";
+  startTime = performance.now(); ticking = true;
+  this.disabled = true; document.getElementById("resetBtn").disabled = false;
+  timerId = setInterval(() => { if (ticking) { elapsed = performance.now() - startTime; render(elapsed); } }, 100);
+});
+document.getElementById("resetBtn").addEventListener("click", function () {
+  clearInterval(timerId); ticking = false; elapsed = 0; render(0);
+  document.querySelectorAll(".step input").forEach(c => { c.checked = false; c.disabled = true; });
+  document.querySelectorAll(".step").forEach(s => { s.classList.add("locked"); s.classList.remove("done"); });
+  document.getElementById("result").style.display = "none";
+  document.getElementById("startBtn").disabled = false; this.disabled = true;
+});
+function onCheck(e) {
+  const i = parseInt(e.target.id.replace("cb", ""), 10);
+  document.getElementById("step" + i).classList.toggle("done", e.target.checked);
+  const all = [...document.querySelectorAll(".step input")].every(c => c.checked);
+  if (all && ticking) {
+    ticking = false; clearInterval(timerId);
+    elapsed = performance.now() - startTime; render(elapsed);
+    document.getElementById("finalTime").textContent = "Finished in " + fmt(elapsed);
+    document.getElementById("result").style.display = "block";
+    saveBest(elapsed); renderBoard();
+  }
+}
+function getBest() { try { return JSON.parse(localStorage.getItem(KEY) || "[]"); } catch (e) { return []; } }
+function saveBest(ms) {
+  const arr = getBest();
+  arr.push({ ms: Math.round(ms), date: new Date().toISOString().slice(0, 10) });
+  arr.sort((a, b) => a.ms - b.ms);
+  localStorage.setItem(KEY, JSON.stringify(arr.slice(0, 5)));
+}
+function renderBoard() {
+  const arr = getBest(), ol = document.getElementById("board");
+  ol.innerHTML = arr.length
+    ? arr.map((r, i) => "<li>" + fmt(r.ms) + " <span class='dev'>— " + r.date + (i === 0 ? " · personal best" : "") + "</span></li>").join("")
+    : "<li class='dev'>No runs yet — start the speedrun above.</li>";
+}
+renderBoard();
+</script>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>

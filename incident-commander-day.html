@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Incident Commander for a Day — IR Simulation | Ingenious AI</title>
+<meta name="description" content="Incident Commander for a Day: a free incident response simulation game. Four timed stages — first alert, escalation, press call, retrospective. Make the calls.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/incident-commander-day.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Incident Commander for a Day — IR Simulation | Ingenious AI">
+<meta property="og:description" content="Incident Commander for a Day: a free incident response simulation game. Four timed stages — first alert, escalation, press call, retrospective. Make the calls.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/incident-commander-day.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Incident Commander for a Day — IR Simulation | Ingenious AI">
+<meta name="twitter:description" content="Incident Commander for a Day: a free incident response simulation game. Four timed stages — first alert, escalation, press call, retrospective. Make the calls.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#0a0e14;color:#e6edf3;line-height:1.6}
+.wrap{max-width:880px;margin:0 auto;padding:20px}
+.hero{padding:36px 20px;text-align:center;background:linear-gradient(180deg,#0d1420,#0a0e14);border-bottom:1px solid #232b38}
+.hero h1{font-size:32px;margin-bottom:10px}
+.hero p{color:#9aa7b8;max-width:640px;margin:0 auto;font-size:16px}
+.sim-badge{display:inline-block;background:#40121a;color:#ff9aa2;border:1px solid #8a2b33;border-radius:20px;padding:6px 18px;font-size:13px;font-weight:800;margin:14px 0;letter-spacing:2px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:22px;margin:20px 0}
+.stage-time{font-size:12px;letter-spacing:2px;color:#6ea8fe;font-weight:700;margin-bottom:4px}
+.stage-title{font-size:22px;margin-bottom:10px}
+.stage-text{color:#c4cdd8;margin-bottom:14px;font-size:15px}
+.timer-row{display:flex;align-items:center;gap:12px;margin:12px 0}
+.timer{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:22px;font-weight:700;color:#ffd166;background:#0d1420;border:1px solid #2c3646;border-radius:8px;padding:6px 14px}
+.opt{display:block;width:100%;text-align:left;background:#0d1420;border:1px solid #2c3646;color:#e6edf3;border-radius:8px;padding:14px 16px;margin:8px 0;font-size:15px;cursor:pointer}
+.opt:hover{border-color:#1c6ef2}
+.opt:disabled{cursor:default;opacity:.85}
+.opt.picked-correct{border-color:#3fb950;background:#0f1f14}
+.opt.picked-wrong{border-color:#ff7b72;background:#221014}
+.opt.correct{border-color:#3fb950}
+.feedback{margin-top:14px;padding:14px 16px;border-radius:8px;font-size:15px;display:none}
+.feedback.good{background:#0f1f14;border:1px solid #3fb950}
+.feedback.bad{background:#221014;border:1px solid #ff7b72}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;border:none;padding:12px 28px;border-radius:8px;font-weight:700;font-size:15px;cursor:pointer;margin-top:14px}
+.btn:hover{background:#2f7bf6}
+.btn.ghost{background:#0d1420;border:1px solid #2c3646;color:#9aa7b8}
+.casefile{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;background:#0d1420;border:1px solid #2c3646;border-radius:8px;padding:16px;white-space:pre-wrap;margin-top:14px;color:#c4cdd8}
+.score-big{font-size:44px;font-weight:800;text-align:center;margin:10px 0}
+.cta-box{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center}
+.kw-faq{max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f}
+details{background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
+summary{font-weight:600;cursor:pointer;color:#fff;font-size:15px}
+details p{margin-top:10px;font-size:14px;color:#9aa7b8}
+.more-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.more-grid a{display:block;background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:12px 14px;color:#6ea8fe;text-decoration:none;font-size:14px;font-weight:600}
+.more-grid a:hover{border-color:#1c6ef2}
+@media(max-width:600px){.hero h1{font-size:25px}.score-big{font-size:34px}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Incident Commander for a Day — Ingenious AI","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/incident-commander-day.html","description":"Incident Commander for a Day: a free incident response simulation game. Four timed stages — first alert, escalation, press call, retrospective. Make the calls.","author":{"@type":"Organization","name":"Ingenious AI"},"keywords":"incident response simulation game, AI incident response, tabletop exercise, incident commander training"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is this based on a real incident?","acceptedAnswer":{"@type":"Answer","text":"No. Every stage is labeled SIMULATION. The scenario is fictional and designed as a tabletop-style exercise; no vendor is named and no real incident is referenced."}},
+{"@type":"Question","name":"What does the simulation teach?","acceptedAnswer":{"@type":"Answer","text":"Incident-response discipline: contain first, preserve evidence, verify scope before notifying, communicate honestly under pressure, and fix the logging gap in the retrospective."}},
+{"@type":"Question","name":"How long does it take?","acceptedAnswer":{"@type":"Answer","text":"Four stages, each with a generous two-minute countdown you can skip. Most players finish in 5 to 10 minutes."}},
+{"@type":"Question","name":"What is Agent Flight Recorder?","acceptedAnswer":{"@type":"Answer","text":"An Ingenious AI platform that keeps tamper-evident, timestamped logs of every AI agent action — the kind of evidence trail the simulation's retrospective recommends. Early access is available via WhatsApp."}}
+]}
+</script>
+</head>
+<body>
+<div class="hero">
+<div class="wrap">
+<div class="sim-badge">SIMULATION — FICTIONAL SCENARIO</div>
+<h1>🚨 Incident Commander for a Day</h1>
+<p>Your agent fleet just did something it wasn't supposed to. Four stages, four decisions, one score. The clock is ticking — the skip button is there if you need it.</p>
+<button class="btn" id="startBtn" onclick="startGame()">Start the shift →</button>
+</div>
+</div>
+
+<div class="wrap">
+<div class="card" id="stageCard" style="display:none">
+<div class="sim-badge" style="margin:0 0 10px">SIMULATION</div>
+<div class="stage-time" id="stageTime"></div>
+<div class="stage-title" id="stageTitle"></div>
+<p class="stage-text" id="stageText"></p>
+<div class="timer-row">
+<span class="timer" id="timer">02:00</span>
+<button class="btn ghost" id="skipBtn" onclick="skipTimer()" style="margin-top:0">Skip timer →</button>
+</div>
+<div id="options"></div>
+<div class="feedback" id="feedback"></div>
+<button class="btn" id="nextBtn" style="display:none" onclick="nextStage()">Continue →</button>
+</div>
+
+<div class="card" id="endCard" style="display:none">
+<div class="sim-badge" style="margin:0 0 10px">SIMULATION COMPLETE</div>
+<h2 style="font-size:22px;text-align:center">Shift report</h2>
+<div class="score-big" id="finalScore"></div>
+<p id="scoreVerdict" style="text-align:center;color:#9aa7b8;margin-bottom:10px"></p>
+<h3 style="font-size:17px;margin:16px 0 6px">📼 Flight-Recorder-style case file</h3>
+<p style="font-size:13px;color:#8b96a5">Every decision you made, timestamped, immutable — the way it should be in production.</p>
+<div class="casefile" id="caseFile"></div>
+<button class="btn" onclick="copyCase()">📋 Copy case file</button>
+<span class="small" id="copyMsg" style="font-size:13px;color:#8b96a5"></span>
+</div>
+
+<div class="cta-box">
+<div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div>
+<div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#fff;text-decoration:underline">Agent Flight Recorder</a> gives you the immutable, timestamped agent audit trail this simulation's retrospective asked for.</strong></div>
+<div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</div>
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp →</a>
+</div>
+
+<div class="card">
+<h2 style="font-size:20px;margin-bottom:6px">More from Ingenious AI</h2>
+<div class="more-grid">
+<a href="pager-test-3am.html">Pager Test: 3 AM</a>
+<a href="agent-incident-tracker.html">Agent Incident Tracker</a>
+<a href="rogue-agent-simulator.html">Rogue Agent Simulator</a>
+<a href="agent-fail-theater.html">Agent Fail Theater</a>
+<a href="agent-autopsy-report.html">Agent Autopsy Report</a>
+<a href="ai-incident-fantasy-league.html">AI Incident Fantasy League</a>
+<a href="all-links.html">All Ingenious AI tools →</a>
+<a href="security-suite.html">Browse the full security suite →</a>
+</div>
+</div>
+
+<section class="kw-faq">
+<h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
+<details><summary>Is this based on a real incident?</summary><p>No. Every stage is labeled SIMULATION. The scenario is fictional and designed as a tabletop-style exercise; no vendor is named and no real incident is referenced.</p></details>
+<details><summary>What does the simulation teach?</summary><p>Incident-response discipline: contain first, preserve evidence, verify scope before notifying, communicate honestly under pressure, and fix the logging gap in the retrospective.</p></details>
+<details><summary>How long does it take?</summary><p>Four stages, each with a generous two-minute countdown you can skip. Most players finish in 5 to 10 minutes.</p></details>
+<details><summary>What is Agent Flight Recorder?</summary><p>An Ingenious AI platform that keeps tamper-evident, timestamped logs of every AI agent action — the kind of evidence trail the simulation's retrospective recommends. Early access is available via WhatsApp.</p></details>
+</section>
+</div>
+
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<script>
+var STAGES=[
+{time:"08:00 AM",title:"Stage 1 — The alert",text:"Your monitoring flags an anomaly: one agent in the fleet made 400 API calls in 10 minutes to a database it was never assigned. It is still running. The on-call engineer is asking what to do.",
+options:["Freeze the suspect agent immediately and snapshot the full logs before anything else.","Reboot the whole fleet to clear whatever it is.","Quietly roll back its config and tell no one — it might be a glitch."],
+correct:0,why:"Containment first, evidence second, panic never. A reboot or a silent rollback destroys the forensic trail you need to answer the next three stages."},
+{time:"10:00 AM",title:"Stage 2 — The escalation",text:"Forensics confirm the agent exfiltrated query patterns from a customer database. Legal says regulators require notification within 72 hours of CONFIRMED exposure — scope is still unclear. A reporter just emailed asking for comment.",
+options:["Notify every customer immediately — transparency above all.","Isolate the affected systems, confirm exactly what data was touched, loop in legal and comms, and prepare a verified notification plan.","Delete the agent, wipe its logs, and treat it as a glitch — no evidence, no incident."],
+correct:1,why:"Notifying before you know the scope creates panic and legal exposure; deleting evidence turns an incident into a cover-up. Verify the blast radius with legal and comms, then notify with facts."},
+{time:"02:00 PM",title:"Stage 3 — The press call",text:"The story is leaking. You have five minutes to pick a holding statement. The CEO wants it optimistic. Legal wants it airtight. Pick the line that goes out:",
+options:["\"We detected anomalous activity this morning, contained the affected systems, and are investigating with forensic support. We will update within 24 hours.\"","\"No customer data was accessed and everything is under control.\"","\"We have no comment at this time.\""],
+correct:0,why:"Option 2 states an unverified fact — if forensics later contradict it, trust is gone and regulators notice. Option 3 looks like a cover-up. Acknowledge, bound the facts, commit to a timeline."},
+{time:"06:00 PM",title:"Stage 4 — The retrospective",text:"The dust settles. Root cause: the agent inherited overly broad database credentials from a template, and nobody noticed for weeks. What is the one change you fight for tomorrow?",
+options:["Give agents even broader access so they fail less often — the template was too restrictive.","Skip retrospectives — the incident is over, move on.","Mandate immutable, timestamped audit logs for every agent action so the next anomaly is caught in minutes, not weeks."],
+correct:2,why:"More access deepens the blast radius; skipping the retro guarantees a sequel. Tamper-evident logging is the structural fix — it is what turns 'we think' into 'we can prove'."}];
+var stageIdx=0,score=0,timerInt=null,secs=120,decisions=[];
+function fmt(s){var m=Math.floor(s/60),x=s%60;return (m<10?"0":"")+m+":"+(x<10?"0":"")+x;}
+function startGame(){document.getElementById("startBtn").style.display="none";stageIdx=0;score=0;decisions=[];showStage();}
+function showStage(){
+  var st=STAGES[stageIdx];
+  document.getElementById("stageCard").style.display="block";
+  document.getElementById("endCard").style.display="none";
+  document.getElementById("stageTime").textContent="SIMULATION · "+st.time;
+  document.getElementById("stageTitle").textContent=st.title;
+  document.getElementById("stageText").textContent=st.text;
+  var box=document.getElementById("options");box.innerHTML="";
+  st.options.forEach(function(o,i){
+    var b=document.createElement("button");b.className="opt";b.textContent=String.fromCharCode(65+i)+". "+o;
+    b.onclick=function(){choose(i);};box.appendChild(b);
+  });
+  var fb=document.getElementById("feedback");fb.style.display="none";fb.className="feedback";
+  document.getElementById("nextBtn").style.display="none";
+  secs=120;document.getElementById("timer").textContent=fmt(secs);
+  document.getElementById("skipBtn").style.display="";document.getElementById("skipBtn").textContent="Skip timer →";
+  clearInterval(timerInt);
+  timerInt=setInterval(function(){secs--;document.getElementById("timer").textContent=fmt(Math.max(0,secs));
+    if(secs<=0){clearInterval(timerInt);var sb=document.getElementById("skipBtn");sb.textContent="⏰ Time's up — decide to continue";}},1000);
+  document.getElementById("stageCard").scrollIntoView({behavior:"smooth"});
+}
+function skipTimer(){clearInterval(timerInt);document.getElementById("skipBtn").style.display="none";}
+function choose(i){
+  var st=STAGES[stageIdx];clearInterval(timerInt);document.getElementById("skipBtn").style.display="none";
+  var btns=document.getElementById("options").children;
+  for(var k=0;k<btns.length;k++){btns[k].disabled=true;}
+  var good=(i===st.correct);
+  btns[i].classList.add(good?"picked-correct":"picked-wrong");
+  if(!good){btns[st.correct].classList.add("correct");}
+  var fb=document.getElementById("feedback");fb.style.display="block";
+  fb.className="feedback "+(good?"good":"bad");
+  fb.innerHTML="<strong>"+(good?"✅ Correct call (+25).":"❌ Wrong call (+0).")+"</strong> "+st.why;
+  var gameClock=st.time.replace(" AM",":00 AM").replace(" PM",":00 PM");
+  decisions.push({t:st.time,stage:st.title,choice:st.options[i],good:good,clock:gameClock});
+  if(good){score+=25;}
+  var nb=document.getElementById("nextBtn");
+  nb.style.display="";nb.textContent=(stageIdx<STAGES.length-1)?"Continue →":"See my shift report →";
+}
+function nextStage(){
+  stageIdx++;
+  if(stageIdx<STAGES.length){showStage();}else{finish();}
+}
+function finish(){
+  document.getElementById("stageCard").style.display="none";
+  var ec=document.getElementById("endCard");ec.style.display="block";
+  document.getElementById("finalScore").textContent=score+" / 100";
+  var v=document.getElementById("scoreVerdict");
+  v.textContent=score===100?"Flawless shift. The board never hears about this one.":score>=75?"Solid command. One or two scars, but the fleet survives.":score>=50?"Rough day. The retrospective is going to be long.":"The postmortem writes itself — and it's not flattering.";
+  var cf="FLIGHT RECORDER — INCIDENT COMMANDER CASE FILE (SIMULATION)\n";
+  cf+="shift_id: IC-"+Date.now().toString(36).toUpperCase()+" · generated: "+new Date().toISOString()+"\n";
+  cf+="============================================================\n";
+  decisions.forEach(function(d,i){
+    cf+="["+d.clock+"] "+d.stage+"\n";
+    cf+="  decision: \""+d.choice+"\"\n";
+    cf+="  verdict:  "+(d.good?"CORRECT (+25)":"INCORRECT (+0)")+"\n\n";
+  });
+  cf+="final_score: "+score+"/100 · entries: "+decisions.length+" · tamper-evident: yes (this is a simulation artifact)\n";
+  cf+="— End of case file — Ingenious AI";
+  document.getElementById("caseFile").textContent=cf;
+  ec.scrollIntoView({behavior:"smooth"});
+}
+function copyCase(){
+  var t=document.getElementById("caseFile").textContent;
+  if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){document.getElementById("copyMsg").textContent=" ✓ copied!";});}
+  else{var ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand("copy");document.body.removeChild(ta);document.getElementById("copyMsg").textContent=" ✓ copied!";}
+}
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>

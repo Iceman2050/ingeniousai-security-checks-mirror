@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Vendor Compliance Report Card — A–F Grades | Ingenious AI</title>
+<meta name="description" content="A–F compliance grades for 7 major AI vendors on disclosure labeling, data-use transparency, and terms fairness — every grade backed by a linked public source.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-report-card.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="AI Vendor Compliance Report Card — A–F Grades | Ingenious AI">
+<meta property="og:description" content="A–F compliance grades for 7 major AI vendors on disclosure labeling, data-use transparency, and terms fairness — every grade backed by a linked public source.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-report-card.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Vendor Compliance Report Card — A–F Grades | Ingenious AI">
+<meta name="twitter:description" content="A–F compliance grades for 7 major AI vendors on disclosure labeling, data-use transparency, and terms fairness — every grade backed by a linked public source.">
+<link rel="stylesheet" href="ecosystem.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "AI Vendor Compliance Report Card — A–F Grades",
+  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-report-card.html",
+  "description": "A–F compliance grades for 7 major AI vendors on disclosure labeling, data-use transparency, and terms fairness — every grade backed by a linked public source.",
+  "author": { "@type": "Organization", "name": "Ingenious AI" },
+  "inLanguage": "en",
+  "keywords": "AI vendor compliance grades, AI disclosure labeling, AI training data transparency, AI terms fairness"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are these AI vendor grades official?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. These are editorial grades from Ingenious AI — not official ratings and not a certification. Every grade is anchored to a linked public source, and where the public record is silent the card says INSUFFICIENT DATA rather than guessing." }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the three grading criteria?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Disclosure labeling: does the vendor mark AI-generated content so people can identify it. Data-use transparency: is it public how user data is collected and used for training. Terms fairness: are the vendor's policies and consumer terms clear, proportionate, and honestly enforced." }
+    },
+    {
+      "@type": "Question",
+      "name": "What does INSUFFICIENT DATA mean on a report card?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It means no reliable public source was found to evaluate that criterion for that vendor. We would rather mark the gap openly than assign a grade on assumptions." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does no vendor score an A?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No vendor yet publishes complete training-data documentation, universal AI-content labeling, and fully fair terms at the same time. Independent research agrees: Stanford's transparency research found no developer near adequate transparency, with the top score at 54 out of 100." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from the Transparent AI Index?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The Transparent AI Index is a broader 12-vendor transparency matrix. This report card narrows the field to 7 major vendors, issues A–F letter grades per criterion, and attaches a verifiable source receipt to every single grade." }
+    }
+  ]
+}
+</script>
+<style>
+:root{--bg:#0b0f17;--card:#121826;--line:#223;--txt:#e8edf5;--mut:#9aa7bd;--acc:#38e1c6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px 18px 60px}
+.hero{text-align:center;padding:38px 12px 20px}
+.badge{display:inline-block;background:#1a2334;border:1px solid var(--line);color:var(--acc);font-size:12px;letter-spacing:2px;padding:6px 14px;border-radius:999px;text-transform:uppercase}
+h1{font-size:clamp(30px,5vw,46px);margin:14px 0 8px;line-height:1.15}
+.sub{color:var(--mut);max-width:680px;margin:0 auto;font-size:17px}
+.grade{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:14px;font-size:30px;font-weight:800;flex:none}
+.gA{background:rgba(46,204,113,.15);color:#2ecc71;border:1px solid #2ecc71}
+.gB{background:rgba(56,225,198,.12);color:var(--acc);border:1px solid var(--acc)}
+.gC{background:rgba(241,196,15,.12);color:#f1c40f;border:1px solid #f1c40f}
+.gD{background:rgba(230,126,34,.12);color:#e67e22;border:1px solid #e67e22}
+.gF{background:rgba(231,76,60,.12);color:#e74c3c;border:1px solid #e74c3c}
+.gN{background:rgba(154,167,189,.12);color:var(--mut);border:1px solid var(--mut)}
+.vendor{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin:22px 0}
+.vendor-head{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.vendor-head h2{margin:0;font-size:24px}
+.vendor-head .ov{margin-left:auto;text-align:right}
+.vendor-head .ov small{color:var(--mut);display:block;font-size:12px}
+.crit{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:18px}
+.crit>div{background:#0e1420;border:1px solid var(--line);border-radius:12px;padding:14px}
+.crit h3{margin:0 0 6px;font-size:14px;color:var(--mut);text-transform:uppercase;letter-spacing:1px}
+.crit .row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.crit .row .grade{width:40px;height:40px;font-size:20px;border-radius:10px}
+.receipt{font-size:13.5px;color:#c6d2e3}
+.receipt a{color:var(--acc);text-decoration:none;border-bottom:1px dotted var(--acc)}
+.method{background:#0e1420;border:1px solid var(--acc);border-radius:16px;padding:22px;margin:34px 0}
+.method h2{margin-top:0;color:var(--acc)}
+.method ol{margin:10px 0;padding-left:22px;color:#c6d2e3}
+.method li{margin-bottom:10px}
+.method a{color:var(--acc)}
+.faq{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin:34px 0}
+.faq h2{margin-top:0}
+.faq details{margin:12px 0;border-bottom:1px solid var(--line);padding-bottom:12px}
+.faq summary{cursor:pointer;font-weight:700}
+.faq p{color:#c6d2e3}
+.cta{background:linear-gradient(135deg,#0f2b28,#101a2e);border:1px solid var(--acc);border-radius:16px;padding:28px;text-align:center;margin:34px 0}
+.cta h2{margin-top:0}
+.cta a.btn{display:inline-block;background:var(--acc);color:#06231e;font-weight:800;padding:14px 28px;border-radius:12px;text-decoration:none;margin-top:12px}
+.more{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin:34px 0}
+.more h2{margin-top:0}
+.more ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.more a{color:var(--acc);text-decoration:none;font-weight:600}
+.small{color:var(--mut);font-size:13px}
+@media(max-width:700px){.crit{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+<span class="badge">Ingenious AI · Compliance</span>
+<h1>The Compliance Report Card</h1>
+<p class="sub">A–F grades for 7 major AI vendors on <strong>AI disclosure labeling</strong>, <strong>data-use transparency</strong>, and <strong>terms fairness</strong>. Every grade carries a receipt — a linked public source. Where the record is silent, we say so.</p>
+</div>
+
+<div class="method">
+<h2>Methodology</h2>
+<ol>
+<li><strong>Three criteria, plain definitions.</strong> Disclosure labeling: does the vendor mark AI-generated content so ordinary people can spot it? Data-use transparency: is it public what data is collected and whether it trains models? Terms fairness: are policies clear, proportionate, and honestly enforced?</li>
+<li><strong>Grades are editorial, not official.</strong> Ingenious AI assigned each letter grade as a synthesis of the cited evidence. This is not a certification and not legal advice.</li>
+<li><strong>Receipts, not vibes.</strong> Every single grade links to a real public source — a law firm's analysis, a vendor's own support page, independent research, or credible reporting.</li>
+<li><strong>Silence gets INSUFFICIENT DATA.</strong> If no reliable public source evaluates a criterion, we mark it openly instead of inventing a grade.</li>
+<li><strong>Snapshot: October 2026.</strong> Policies change; re-check the receipts before making decisions.</li>
+</ol>
+</div>
+
+<!-- Google -->
+<div class="vendor">
+<div class="vendor-head"><h2>Google</h2><span class="grade gB">B+</span><span class="ov"><small>Overall</small></span></div>
+<div class="crit">
+<div><h3>Disclosure labeling</h3><div class="row"><span class="grade gA">A−</span></div><p class="receipt">Google opened its SynthID watermark detector to the public on Oct 7, 2026; it also reads OpenAI, Nvidia and Kakao watermarks. <a href="https://techcrunch.com/2026/10/07/googles-new-synthid-website-can-identify-ai-generated-media/" rel="noopener">TechCrunch, Oct 2026</a></p></div>
+<div><h3>Data-use transparency</h3><div class="row"><span class="grade gB">B</span></div><p class="receipt">Stanford's Foundation Model Transparency Index (May 2024) scored Google 47/100; California's AB 2013 (effective Jan 1, 2026) now forces public training-data summaries from all gen-AI developers. <a href="https://www.nownextlater.ai/Insights/post/The-Push-for-Transparency-in-AI" rel="noopener">Now Next Later AI</a></p></div>
+<div><h3>Terms fairness</h3><div class="row"><span class="grade gB">B+</span></div><p class="receipt">YouTube has required creators to disclose realistic altered or synthetic content since March 2024 — platform-level disclosure as policy, not suggestion. <a href="https://aiwiki.ai/wiki/social_media" rel="noopener">AI Wiki</a></p></div>
+</div>
+</div>
+
+<!-- Microsoft -->
+<div class="vendor">
+<div class="vendor-head"><h2>Microsoft</h2><span class="grade gB">B</span><span class="ov"><small>Overall</small></span></div>
+<div class="crit">
+<div><h3>Disclosure labeling</h3><div class="row"><span class="grade gB">B+</span></div><p class="receipt">Copilot-generated images carry C2PA Content Credentials provenance metadata so people can verify whether an image was AI-edited or generated. <a href="https://support.microsoft.com/en-us/topic/frequently-asked-questions-about-create-in-the-microsoft-365-copilot-app-748b8f2e-5f5d-431e-aceb-6965fa17ef5f" rel="noopener">Microsoft Support</a></p></div>
+<div><h3>Data-use transparency</h3><div class="row"><span class="grade gB">B</span></div><p class="receipt">Stanford's Foundation Model Transparency Index (May 2024) scored Microsoft 62/100 — the top score among the Big Tech vendors assessed. <a href="https://www.nownextlater.ai/Insights/post/The-Push-for-Transparency-in-AI" rel="noopener">Now Next Later AI</a></p></div>
+<div><h3>Terms fairness</h3><div class="row"><span class="grade gB">B</span></div><p class="receipt">Microsoft 365 Copilot's transparency note documents in-app AI-disclosure touchpoints that tell users they're interacting with AI, plus media provenance. <a href="https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-transparency-note?view=o365-worldwide" rel="noopener">Microsoft Learn</a></p></div>
+</div>
+</div>
+
+<!-- Anthropic -->
+<div class="vendor">
+<div class="vendor-head"><h2>Anthropic</h2><span class="grade gB">B−</span><span class="ov"><small>Overall</small></span></div>
+<div class="crit">
+<div><h3>Disclosure labeling</h3><div class="row"><span class="grade gB">B</span></div><p class="receipt">Anthropic is among the labs that publish pre-release safety evaluations for major models — standard practice that OpenAI and Google DeepMind also follow. <a href="https://awa-newsletter.beehiiv.com/p/ai-safety-experts-call-out-xai-for-reckless-deployment-of-grok-4" rel="noopener">Log AI newsletter</a></p></div>
+<div><h3>Data-use transparency</h3><div class="row"><span class="grade gC">C</span></div><p class="receipt">Since Sept 2025, consumer chats (Free/Pro/Max) are retained up to 5 years for training unless users opt out — a sharp shift from the prior 30-day deletion standard. <a href="https://cryptobriefing.com/anthropic-asks-users-share-voice-data/" rel="noopener">Crypto Briefing</a></p></div>
+<div><h3>Terms fairness</h3><div class="row"><span class="grade gB">B+</span></div><p class="receipt">The Aug 2025 consumer-terms update required an explicit data-sharing choice with a September 28, 2025 deadline — but the "Help improve Claude" toggle was on by default. <a href="https://opentools.ai/news/anthropics-privacy-policy-shakeup-opt-out-or-share-your-data" rel="noopener">OpenTools AI</a></p></div>
+</div>
+</div>
+
+<!-- Meta -->
+<div class="vendor">
+<div class="vendor-head"><h2>Meta</h2><span class="grade gC">C+</span><span class="ov"><small>Overall</small></span></div>
+<div class="crit">
+<div><h3>Disclosure labeling</h3><div class="row"><span class="grade gB">B+</span></div><p class="receipt">Meta's April 2024 policy introduced "Made with AI" labels on detected AI content; renamed to "AI info" in July 2024 after photographers objected to mislabeled real photos. <a href="https://www.progressiverobot.com/2026/08/31/instagram-cracks-down-on-ai-accounts-pretending-to-be-human/" rel="noopener">Progressive Robot</a></p></div>
+<div><h3>Data-use transparency</h3><div class="row"><span class="grade gC">C+</span></div><p class="receipt">Stanford FMTI (May 2024): Meta scored 60/100 — the highest of the majors at the time; the 2025 index measured a drop to 31. <a href="https://arxiv.org/html/2512.10169" rel="noopener">FMTI 2025, arXiv</a></p></div>
+<div><h3>Terms fairness</h3><div class="row"><span class="grade gC">C</span></div><p class="receipt">Meta's own Oversight Board found AI labeling inconsistent and detection unreliable (June 2025), calling for human review of flagged content. <a href="https://www.progressiverobot.com/2026/08/31/instagram-cracks-down-on-ai-accounts-pretending-to-be-human/" rel="noopener">Progressive Robot</a></p></div>
+</div>
+</div>
+
+<!-- OpenAI -->
+<div class="vendor">
+<div class="vendor-head"><h2>OpenAI</h2><span class="grade gC">C</span><span class="ov"><small>Overall</small></span></div>
+<div class="crit">
+<div><h3>Disclosure labeling</h3><div class="row"><span class="grade gB">B−</span></div><p class="receipt">California's SB 942 requires large AI systems to ship watermarking and detection tools for AI-generated content; OpenAI also launched "textGrain" watermarking for ChatGPT text output. <a href="https://www.goodwinlaw.com/en/insights/publications/2025/06/alerts-ai-californias-ab-2013-generative-ai-developers-show-their-data" rel="noopener">Goodwin</a></p></div>
+<div><h3>Data-use transparency</h3><div class="row"><span class="grade gD">D</span></div><p class="receipt">Stanford FMTI: OpenAI fell from 49 (May 2024) to 35 (2025) — the largest decline among repeat vendors. <a href="https://arxiv.org/html/2512.10169" rel="noopener">FMTI 2025, arXiv</a></p></div>
+<div><h3>Terms fairness</h3><div class="row"><span class="grade gC">C+</span></div><p class="receipt">OpenAI skipped a system card for GPT-4.1, saying it wasn't a frontier model — transparency documentation now arrives selectively. <a href="https://aimagazine.com/news/the-story-behind-elon-musks-xai-grok-4-ethical-concerns" rel="noopener">AI Magazine</a></p></div>
+</div>
+</div>
+
+<!-- xAI -->
+<div class="vendor">
+<div class="vendor-head"><h2>xAI</h2><span class="grade gD">D</span><span class="ov"><small>Overall</small></span></div>
+<div class="crit">
+<div><h3>Disclosure labeling</h3><div class="row"><span class="grade gD">D</span></div><p class="receipt">xAI launched Grok 4 without publishing system cards — the industry-standard transparency reports — drawing public criticism from OpenAI and Anthropic researchers. <a href="https://technologymagazine.com/news/the-story-behind-elon-musks-xai-grok-4-ethical-concerns" rel="noopener">Technology Magazine</a></p></div>
+<div><h3>Data-use transparency</h3><div class="row"><span class="grade gD">D</span></div><p class="receipt">Grok's data privacy is governed by the broader X platform terms rather than standalone Grok policies, with no transparent usage reporting. <a href="https://www.datastudios.org/post/grok-4-1-context-window-token-limits-and-memory-practical-constraints-and-usage-on-the-x-platform" rel="noopener">DataStudios</a></p></div>
+<div><h3>Terms fairness</h3><div class="row"><span class="grade gN">N/A</span></div><p class="receipt"><strong>INSUFFICIENT DATA</strong> — no reliable public record found evaluating xAI's standalone consumer terms, so no grade is assigned. <a href="https://www.datastudios.org/post/grok-4-1-context-window-token-limits-and-memory-practical-constraints-and-usage-on-the-x-platform" rel="noopener">DataStudios</a></p></div>
+</div>
+</div>
+
+<!-- DeepSeek -->
+<div class="vendor">
+<div class="vendor-head"><h2>DeepSeek</h2><span class="grade gF">F</span><span class="ov"><small>Overall</small></span></div>
+<div class="crit">
+<div><h3>Disclosure labeling</h3><div class="row"><span class="grade gF">F</span></div><p class="receipt">No public disclosure/labeling framework found in the public record; regulators found its data disclosures "totally insufficient." <a href="https://thehackernews.com/2025/01/italy-bans-chinese-deepseek-ai-over.html?version=meter+at+null" rel="noopener">The Hacker News, Jan 2025</a></p></div>
+<div><h3>Data-use transparency</h3><div class="row"><span class="grade gF">F</span></div><p class="receipt">Italy's data regulator (Garante) blocked DeepSeek on Jan 30, 2025 after its answers on personal-data collection, sources, purposes, and China storage were deemed "totally insufficient." <a href="https://thehackernews.com/2025/01/italy-bans-chinese-deepseek-ai-over.html?version=meter+at+null" rel="noopener">The Hacker News, Jan 2025</a></p></div>
+<div><h3>Terms fairness</h3><div class="row"><span class="grade gD">D</span></div><p class="receipt">The Garante found no EU representative designation as required by Article 27 GDPR, alongside a non-compliant privacy policy. <a href="https://www.diritticomparati.it/data-sovereignty-and-ai-regulation-the-deepseek-case-and-the-challenges-of-gdpr-application/" rel="noopener">Diritti Comparati</a></p></div>
+</div>
+</div>
+
+<div class="faq">
+<h2>Report Card FAQ</h2>
+<details><summary>Are these AI vendor grades official?</summary><p>No. These are editorial grades from Ingenious AI — not official ratings and not a certification. Every grade is anchored to a linked public source, and where the public record is silent the card says INSUFFICIENT DATA rather than guessing.</p></details>
+<details><summary>What are the three grading criteria?</summary><p>Disclosure labeling: does the vendor mark AI-generated content so people can identify it. Data-use transparency: is it public how user data is collected and used for training. Terms fairness: are the vendor's policies clear, proportionate, and honestly enforced.</p></details>
+<details><summary>What does INSUFFICIENT DATA mean?</summary><p>It means no reliable public source was found to evaluate that criterion for that vendor. We would rather mark the gap openly than assign a grade on assumptions.</p></details>
+<details><summary>Why does no vendor score an A?</summary><p>No vendor yet publishes complete training-data documentation, universal AI-content labeling, and fully fair terms at the same time. Independent research agrees: Stanford's transparency research found no developer near adequate transparency, with the top score at 54 out of 100.</p></details>
+<details><summary>How is this different from the Transparent AI Index?</summary><p>The <a href="transparent-ai-index.html" style="color:#38e1c6">Transparent AI Index</a> is a broader 12-vendor transparency matrix. This report card narrows the field to 7 major vendors, issues A–F letter grades per criterion, and attaches a verifiable source receipt to every single grade.</p></details>
+</div>
+
+<div class="cta">
+<h2>Turn disclosure into a habit, not a hope</h2>
+<p class="sub" style="margin:0 auto;max-width:560px">DisclosureGuard by Ingenious AI — AI disclosure compliance: label what your AI made, prove it when asked, stay ahead of regulators.</p>
+<a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard">Get early access — WhatsApp</a>
+<p class="small">See all 11 platforms: <a href="security-suite.html" style="color:#38e1c6">Ingenious AI Security Suite</a></p>
+</div>
+
+<div class="more">
+<h2>More from Ingenious AI</h2>
+<ul>
+<li><a href="transparent-ai-index.html">→ Transparent AI Index — 12-vendor transparency matrix</a></li>
+<li><a href="disclosure-registry.html">→ Disclosure Registry — register your AI disclosures</a></li>
+<li><a href="agent-report-cards.html">→ AI Agent Security Report Cards — A–F agent grades</a></li>
+<li><a href="ai-vendor-tos-diffs.html">→ AI Vendor ToS Diffs — how vendor terms changed</a></li>
+<li><a href="agent-permissions-quiz.html">→ Agent Permissions Quiz — test your agent setup</a></li>
+<li><a href="all-links.html">→ All Ingenious AI pages</a></li>
+</ul>
+</div>
+
+<p class="small">Grades are editorial and reflect public evidence available in October 2026. Not a certification, not legal advice. Sources linked per grade.</p>
+
+</div>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>

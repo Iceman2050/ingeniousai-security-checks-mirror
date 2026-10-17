@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Vendor Prenup: Your Lock-In Exit Plan | Ingenious AI</title>
+<meta name="description" content="Map your AI vendors, data and contract traps, then get a lock-in exit plan: data-export steps per provider and the safest switching order. Free builder tool.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-prenup.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="AI Vendor Prenup: Your Lock-In Exit Plan | Ingenious AI">
+<meta property="og:description" content="Map your AI vendors, data and contract traps, then get a lock-in exit plan: data-export steps per provider and the safest switching order. Free builder tool.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-prenup.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Vendor Prenup: Your Lock-In Exit Plan | Ingenious AI">
+<meta name="twitter:description" content="Map your AI vendors, data and contract traps, then get a lock-in exit plan: data-export steps per provider and the safest switching order. Free builder tool.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:920px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a1f08;border:1px solid #d29922;color:#ffce63;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h2{font-size:22px;margin:30px 0 12px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+p{margin-bottom:14px}
+.honest{background:#0d2b3d;border:1px solid #1c6ef2;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#bcd7f5}
+.formbox{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:24px;margin:18px 0}
+.formbox label{display:block;font-size:14px;color:#9aa7b8;margin:16px 0 6px;font-weight:600}
+.checks{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:6px}
+.checks label{display:flex!important;align-items:center;gap:9px;font-weight:400!important;color:#e6edf3!important;margin:0!important;background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:9px 12px;cursor:pointer;font-size:14.5px}
+.checks input{accent-color:#1c6ef2;width:16px;height:16px;flex-shrink:0}
+.radios label{display:flex;align-items:center;gap:9px;font-weight:400;color:#e6edf3;margin:8px 0;background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:9px 12px;cursor:pointer;font-size:14.5px}
+.radios input{accent-color:#1c6ef2;width:16px;height:16px;flex-shrink:0}
+.vendor-row{display:none;background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px;margin:8px 0}
+.vendor-row.show{display:block}
+.vendor-row .vname{font-weight:700;font-size:15.5px;margin-bottom:8px}
+.vendor-row label{font-size:13px;color:#9aa7b8;margin:10px 0 4px;font-weight:600;display:block}
+.vendor-row select,.vendor-row input[type=text]{width:100%;background:#0b0f17;border:1px solid #2a3342;color:#e6edf3;border-radius:8px;padding:9px 12px;font-size:14.5px;font-family:inherit}
+.formbtn{background:#1c6ef2;color:#fff;border:none;padding:13px 32px;border-radius:8px;font-weight:bold;font-size:16px;cursor:pointer;margin-top:20px;font-family:inherit}
+.formbtn:hover{background:#2b7fff}
+.doc{background:#0d1420;border:1px solid #d29922;border-radius:12px;padding:30px 28px;margin:22px 0}
+.doc h3{font-size:22px;margin-bottom:4px}
+.doc .docsub{font-size:13.5px;color:#9aa7b8;margin-bottom:18px}
+.disclaimer-banner{background:#2a1f08;border:1px solid #d29922;border-radius:8px;padding:12px 16px;font-size:14px;color:#ffce63;margin-bottom:18px;font-weight:600;text-align:center}
+.clause{margin:16px 0;padding-bottom:14px;border-bottom:1px dashed #232b38}
+.clause h4{color:#ffce63;font-size:15px;margin-bottom:5px;letter-spacing:.3px}
+.clause p,.clause li{font-size:14.5px;color:#d7dee8}
+.clause ul,.clause ol{padding-left:18px}
+.clause li{margin:6px 0}
+.verify-tag{display:inline-block;background:#0d2b3d;border:1px solid #1c6ef2;color:#6ea8fe;font-size:11.5px;font-weight:700;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:middle;letter-spacing:.3px}
+.order-step{display:flex;gap:12px;align-items:flex-start;background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:12px 14px;margin:8px 0}
+.order-step .num{background:#1c6ef2;color:#fff;font-weight:800;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px}
+.cta{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:22px;margin:28px 0;text-align:center}
+.cta .lbl{font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px;margin:6px}
+.btn:hover{background:#2b7fff}
+.sharecard{background:#0d1420;border:2px dashed #1c6ef2;border-radius:12px;padding:24px;margin:22px 0;text-align:center}
+.sharecard .st{font-size:19px;font-weight:700;line-height:1.5}
+.sharecard .src{font-size:13px;color:#9aa7b8;margin-top:10px}
+button.copy{background:#232b38;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;margin-top:12px;font-family:inherit}
+button.copy:hover{border-color:#1c6ef2}
+.faq{margin:10px 0;border-bottom:1px solid #1c2330;padding:12px 0}
+.faq b{display:block;font-size:15.5px;margin-bottom:6px}
+.faq p{font-size:14.5px;color:#9aa7b8}
+.smallprint{font-size:13px;color:#6b7688;margin-top:30px}
+.scenario{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:22px;margin:18px 0}
+.scenario h2{margin-top:0;font-size:20px}
+.scenario ul{list-style:none;padding:0}
+.scenario ul li{margin:9px 0;font-size:15px}
+a{color:#6ea8fe}
+@media(max-width:640px){h1{font-size:27px}.wrap{padding:32px 16px}.doc{padding:22px 18px}}
+</style>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<span class="badge">FREE BUILDER TOOL</span>
+<h1>The AI Vendor Prenup</h1>
+<p class="lead">Every AI vendor is easy to marry and expensive to divorce. Sign the paperwork before the honeymoon: tell this tool which AI providers you depend on, what data lives with each, and how deeply they're wired into your stack — and it drafts your lock-in exit plan: data-export steps per vendor, the contract traps to verify in <em>your</em> agreements, and the safest switching order.</p>
+
+<div class="honest"><strong>Why now, not later?</strong> An exit plan written while everything works is a checklist. Written mid-crisis — a price hike, a model deprecation, a terms change — it's a ransom negotiation with yourself. This tool makes the cheap version in minutes.</div>
+
+<div class="formbox no-print" id="prenup-form">
+<h2 style="margin-top:0">Build your exit plan</h2>
+
+<label>Your AI providers (check all that apply)</label>
+<div class="checks" id="vendor-checks">
+<label><input type="checkbox" value="OpenAI"> OpenAI</label>
+<label><input type="checkbox" value="Anthropic"> Anthropic</label>
+<label><input type="checkbox" value="Google"> Google</label>
+<label><input type="checkbox" value="Microsoft"> Microsoft</label>
+<label><input type="checkbox" value="Meta"> Meta</label>
+<label><input type="checkbox" value="xAI"> xAI</label>
+<label><input type="checkbox" value="Other"> Other provider(s)</label>
+</div>
+
+<div id="vendor-details"></div>
+
+<label>Contract length with your main provider</label>
+<div class="radios">
+<label><input type="radio" name="contract" value="Month-to-month / no formal contract" checked> Month-to-month / no formal contract</label>
+<label><input type="radio" name="contract" value="Under 12 months"> Under 12 months</label>
+<label><input type="radio" name="contract" value="12 months"> 12 months</label>
+<label><input type="radio" name="contract" value="2+ years"> 2+ years</label>
+</div>
+
+<button class="formbtn" onclick="makePlan()">Generate my exit plan →</button>
+</div>
+
+<div id="plan-out"></div>
+
+<div class="cta">
+<div class="lbl">FROM INGENIOUS AI</div>
+<p style="font-size:17px;margin-bottom:6px"><strong>Your prenup says "check the contract." TermsWatch actually reads it</strong> — weekly AI-vendor terms diffs so price hikes, data-use changes, and quiet clause edits never surprise you.</p>
+<p style="font-size:13px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now, or explore <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html">the full Ingenious AI security suite</a>:</p>
+<a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch">Get TermsWatch early access →</a>
+</div>
+
+<div class="sharecard">
+<div class="st">"Every AI vendor is easy to marry and expensive to divorce." — build your lock-in exit plan: export steps, contract traps, switching order.</div>
+<div class="src">ingeniousai-security-checks-mirror · The AI Vendor Prenup</div>
+<button class="copy" onclick="navigator.clipboard.writeText('Build your AI vendor exit plan \u2014 export steps, contract traps, switching order: https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-prenup.html');this.textContent='Copied!';">Copy share text</button>
+<div style="margin-top:12px"><a href="https://twitter.com/intent/tweet?text=Every%20AI%20vendor%20is%20easy%20to%20marry%20and%20expensive%20to%20divorce.%20Build%20your%20lock-in%20exit%20plan&url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fvendor-prenup.html" target="_blank" rel="noopener" style="margin-right:14px">Share on X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fvendor-prenup.html" target="_blank" rel="noopener">Share on LinkedIn</a></div>
+</div>
+
+<h2>FAQ</h2>
+<div class="faq"><b>What is AI vendor lock-in?</b><p>Lock-in is the cost of leaving: data that only exists inside one provider's systems, workflows built on provider-specific features, contracts with renewal traps, and staff who only know one API. It's not that switching is impossible — it's that the longer you wait to plan it, the more expensive it gets.</p></div>
+<div class="faq"><b>How do I export my data from an AI vendor?</b><p>Start with an inventory of everything you store there — prompts, conversation logs, fine-tunes, embeddings, API keys and configs. Export through the provider's dashboard or API, verify completeness by spot-checking record counts, save a copy in a neutral format, and confirm deletion after you've migrated. This tool generates the per-vendor steps for your setup above.</p></div>
+<div class="faq"><b>What contract traps should I check in an AI vendor agreement?</b><p>Auto-renewal clauses and how notice must be given; what happens to your data after termination (retention vs. deletion, and on whose servers); egress or extraction fees; price-change notice periods; minimum spend commitments; and what survives termination — confidentiality and data obligations usually do. Verify each one in <em>your</em> contract; generic summaries are no substitute.</p></div>
+<div class="faq"><b>In what order should I switch AI vendors?</b><p>Least-integrated first. Move the vendor that only does one shallow job — the easiest to replace and the least risky to test — and use that migration to prove your export process works. Save the deeply embedded provider, the one your whole product routes through, for last, when your team has already made the mistakes on the easy ones.</p></div>
+<div class="faq"><b>How often should I review my AI vendor exit plan?</b><p>At least yearly, and immediately after any trigger event: a price change, a model deprecation announcement, a terms-of-service update, or a new integration that deepens the dependency. TermsWatch automates the terms-monitoring part of that review.</p></div>
+
+<div class="smallprint">Guidance based on your inputs — not legal advice. This tool generates planning guidance from what you entered; it is not a lawyer, does not read your contracts, and does not replace a formal legal or procurement review. Verify every clause in your own agreements.</div>
+
+<div class="scenario">
+<h2>More from Ingenious AI</h2>
+<p style="margin-bottom:8px;font-size:14.5px;color:#9aa7b8">Keep de-risking your AI stack:</p>
+<ul>
+<li>📊 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-lockin-calculator.html">Vendor Lock-In Calculator</a> — price your cost of leaving before you sign</li>
+<li>🗺️ <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-stack-mapper.html">AI Stack Mapper</a> — map every provider in your stack</li>
+<li>📜 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/terms-diff-weekly.html">Terms Diff Weekly</a> — what changed in AI vendor terms this week</li>
+<li>💔 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/breakup-letters.html">Breakup Letters</a> — the letters you'll wish you'd sent your vendor sooner</li>
+<li>⚰️ <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/terms-graveyard.html">Terms Graveyard</a> — the clauses that already expired on other customers</li>
+<li>🛡️ <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-insurance-quote.html">Agent Insurance Quote</a> — what your AI risk actually costs</li>
+</ul>
+<p style="margin-top:14px"><strong><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/all-links.html">Browse everything Ingenious AI has built →</a></strong></p>
+</div>
+
+</div>
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+<script>
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+var depthWeight={'Shallow \u2014 one feature, easy to replace':0,'Medium \u2014 several workflows depend on it':1,'Deeply embedded \u2014 the whole product routes through it':2};
+function refreshVendorDetails(){
+  var box=document.getElementById('vendor-details');
+  var checked=Array.prototype.slice.call(document.querySelectorAll('#vendor-checks input:checked')).map(function(i){return i.value;});
+  var keep={};
+  Array.prototype.slice.call(box.querySelectorAll('.vendor-row')).forEach(function(r){keep[r.getAttribute('data-vendor')]=r;});
+  checked.forEach(function(v){
+    if(keep[v]){keep[v].classList.add('show');return;}
+    var row=document.createElement('div');
+    row.className='vendor-row show';row.setAttribute('data-vendor',v);
+    row.innerHTML='<div class="vname">'+esc(v)+'</div>'+
+      '<label>What data do you store with '+esc(v)+'?</label>'+
+      '<input type="text" class="vdata" placeholder="e.g. chat logs, embeddings, fine-tunes, API configs">'+
+      '<label>How deeply is '+esc(v)+' integrated into your stack?</label>'+
+      '<select class="vdepth"><option>Shallow \u2014 one feature, easy to replace</option><option>Medium \u2014 several workflows depend on it</option><option>Deeply embedded \u2014 the whole product routes through it</option></select>';
+    box.appendChild(row);
+  });
+  Array.prototype.slice.call(box.querySelectorAll('.vendor-row')).forEach(function(r){
+    if(checked.indexOf(r.getAttribute('data-vendor'))<0)r.remove();
+  });
+}
+document.getElementById('vendor-checks').addEventListener('change',refreshVendorDetails);
+function makePlan(){
+  var rows=Array.prototype.slice.call(document.querySelectorAll('#vendor-details .vendor-row'));
+  if(!rows.length){alert('Pick at least one AI provider first.');return;}
+  var contract=document.querySelector('input[name=contract]:checked').value;
+  var date=new Date().toISOString().slice(0,10);
+  var vendors=rows.map(function(r){
+    return {
+      name:r.getAttribute('data-vendor'),
+      data:r.querySelector('.vdata').value.trim(),
+      depth:r.querySelector('.vdepth').value,
+      w:depthWeight[r.querySelector('.vdepth').value]
+    };
+  });
+  var contractNote={
+    'Month-to-month / no formal contract':'Good position — you can leave whenever the export is done, but confirm there is no trailing data-retention or minimum-notice clause hiding in the signup terms.',
+    'Under 12 months':'Check the auto-renewal clause now: many agreements silently roll over unless you give written notice 30\u201390 days before the end of the term.',
+    '12 months':'Check the auto-renewal clause and notice window now — with a 12-month term the renewal trap is the single most expensive line in the agreement.',
+    '2+ years':'Long terms usually carry minimum-spend commitments and early-termination fees. Verify what early exit actually costs before you need to know.'
+  }[contract];
+  var html='<div class="doc">';
+  html+='<div class="disclaimer-banner">\u26A0\uFE0F Guidance based on your inputs \u2014 not legal advice.</div>';
+  html+='<h3>\u{1F4CB} Your AI Vendor Exit Plan</h3>';
+  html+='<div class="docsub">Generated '+esc(date)+' \u00B7 Contract length: '+esc(contract)+'</div>';
+  html+='<div class="clause"><h4>\u00A71 \u2014 DATA-EXPORT STEPS, PER VENDOR</h4><p style="margin-bottom:10px">Generic, honest steps — the exact buttons live in each provider\u2019s dashboard or API docs:</p>';
+  vendors.forEach(function(v){
+    var d=v.data?(' ('+esc(v.data)+')'):'';
+    html+='<p style="margin:12px 0 4px"><strong>'+esc(v.name)+'</strong>'+d+'</p><ol>'+
+      '<li>Inventory everything you store there: prompts, logs, fine-tunes, embeddings, configs, keys.</li>'+
+      '<li>Export via the provider\u2019s dashboard or API \u2014 prefer a neutral format (JSON/CSV), not a proprietary one.</li>'+
+      '<li>Verify completeness: spot-check record counts against the dashboard before you trust the export.</li>'+
+      '<li>Export your metadata and configuration (prompts, system instructions, usage quotas, webhook URLs) \u2014 these are the parts people forget.</li>'+
+      '<li>After migration, request deletion and get written confirmation that your data is gone.</li></ol>';
+  });
+  html+='</div>';
+  html+='<div class="clause"><h4>\u00A72 \u2014 CONTRACT TRAPS TO CHECK</h4><p style="margin-bottom:8px">These are things to <strong>verify in YOUR contract</strong> — not claims about what any vendor\u2019s terms say today:</p><ul>'+
+    '<li><strong>Auto-renewal</strong> \u2014 does it silently renew, and how much notice is required to stop it?<span class="verify-tag">VERIFY IN YOUR CONTRACT</span></li>'+
+    '<li><strong>Data retention after termination</strong> \u2014 how long do they keep your data, and can you demand deletion?<span class="verify-tag">VERIFY IN YOUR CONTRACT</span></li>'+
+    '<li><strong>Egress / extraction fees</strong> \u2014 is there a charge for bulk data export or API-heavy extraction?<span class="verify-tag">VERIFY IN YOUR CONTRACT</span></li>'+
+    '<li><strong>Price-change notice</strong> \u2014 how far ahead must they warn you before raising prices?<span class="verify-tag">VERIFY IN YOUR CONTRACT</span></li>'+
+    '<li><strong>Minimum spend / commitment</strong> \u2014 is there a floor you\u2019re paying regardless of usage?<span class="verify-tag">VERIFY IN YOUR CONTRACT</span></li>'+
+    '<li><strong>Early-termination penalties</strong> \u2014 what does leaving before the term ends actually cost?<span class="verify-tag">VERIFY IN YOUR CONTRACT</span></li>'+
+    '<li><strong>What survives termination</strong> \u2014 confidentiality, data-use, and liability clauses usually outlive the contract.<span class="verify-tag">VERIFY IN YOUR CONTRACT</span></li>'+
+    '<li><strong>Model deprecation policy</strong> \u2014 how much warning before the model you built on is retired?<span class="verify-tag">VERIFY IN YOUR CONTRACT</span></li></ul>'+
+    '<p style="margin-top:10px">\u{1F4DD} Contract-length note: '+esc(contractNote)+'</p></div>';
+  var order=vendors.slice().sort(function(a,b){return a.w-b.w||(a.name<b.name?-1:1);});
+  html+='<div class="clause"><h4>\u00A73 \u2014 RECOMMENDED SWITCHING ORDER (LEAST-INTEGRATED FIRST)</h4>';
+  order.forEach(function(v,i){
+    var why=v.w===0?'shallow dependency \u2014 the safest place to prove your export process works.':(v.w===1?'medium integration \u2014 move it once the shallow migrations have hardened your process.':'deeply embedded \u2014 the highest-risk move; save it for last, when the team has already made its mistakes on the easy ones.');
+    html+='<div class="order-step"><div class="num">'+(i+1)+'</div><div><strong>'+esc(v.name)+'</strong> \u2014 '+esc(v.depth.split(' \u2014')[0])+': '+why+'</div></div>';
+  });
+  html+='<p style="margin-top:10px">Rule of thumb: migrate the easy one first, prove the pipeline, then climb the stack.</p></div>';
+  html+='<div class="clause" style="border-bottom:none"><h4>\u00A74 \u2014 KEEP THE PRENUP ALIVE</h4><p>Re-run this plan yearly and after every trigger event: a price change, a model deprecation, a terms-of-service update, or any new integration that deepens a dependency. An exit plan rots at exactly the speed your stack changes.</p></div>';
+  html+='</div>';
+  document.getElementById('plan-out').innerHTML=html;
+  document.getElementById('plan-out').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "AI Vendor Prenup: Your Lock-In Exit Plan | Ingenious AI",
+  "description": "Map your AI vendors, data and contract traps, then get a lock-in exit plan: data-export steps per provider and the safest switching order. Free builder tool.",
+  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-prenup.html",
+  "about": [
+    {"@type": "Thing","name": "AI vendor lock-in exit plan"},
+    {"@type": "Thing","name": "AI vendor contract review"},
+    {"@type": "Thing","name": "AI data export migration"},
+    {"@type": "Thing","name": "AI vendor switching strategy"}
+  ],
+  "keywords": "AI vendor lock-in exit plan, AI vendor contract traps, export data from AI vendor, switch AI providers, AI vendor prenup",
+  "publisher": {"@type": "Organization","name": "Ingenious AI","url": "https://github.com/Iceman2050"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question","name": "What is AI vendor lock-in?","acceptedAnswer": {"@type": "Answer","text": "Lock-in is the cost of leaving: data that only exists inside one provider's systems, workflows built on provider-specific features, contracts with renewal traps, and staff who only know one API. The longer you wait to plan an exit, the more expensive it gets."}},
+    {"@type": "Question","name": "How do I export my data from an AI vendor?","acceptedAnswer": {"@type": "Answer","text": "Inventory everything you store there, export via the provider's dashboard or API in a neutral format, verify completeness by spot-checking record counts, save a copy in a neutral format, and confirm deletion after migration."}},
+    {"@type": "Question","name": "What contract traps should I check in an AI vendor agreement?","acceptedAnswer": {"@type": "Answer","text": "Auto-renewal clauses and notice requirements, data retention after termination, egress or extraction fees, price-change notice periods, minimum spend commitments, early-termination penalties, and what survives termination. Verify each one in your own contract."}},
+    {"@type": "Question","name": "In what order should I switch AI vendors?","acceptedAnswer": {"@type": "Answer","text": "Least-integrated first. Move the shallowest dependency first to prove your export process works, then climb the stack — save the deeply embedded provider your product routes through for last."}},
+    {"@type": "Question","name": "How often should I review my AI vendor exit plan?","acceptedAnswer": {"@type": "Answer","text": "At least yearly, and immediately after any trigger event: a price change, a model deprecation announcement, a terms-of-service update, or a new integration that deepens the dependency."}}
+  ]
+}
+</script>
+</body>
+</html>
