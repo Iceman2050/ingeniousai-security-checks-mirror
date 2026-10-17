@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shadow AI DLP Check: Can You Stop an Employee Pasting Customer Data into Personal ChatGPT?</title>
+<meta name="description" content="An employee pastes a customer ticket into personal ChatGPT. Your tools flag the use — but can they show you what was sent, or stop it before it leaves? Free 5-question shadow-AI readiness check.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nordlayer-ai-data-exposure-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Can your security tools see what employees paste into ChatGPT?">
+<meta property="og:description" content="Personal ChatGPT on a work laptop: your tools flag it, but can you tell what was shared — or block it before it sends? 5-question shadow-AI check, free.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nordlayer-ai-data-exposure-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Shadow AI DLP check: can you stop data before it reaches ChatGPT?">
+<meta name="twitter:description" content="5 questions: can you see what employees paste into personal AI accounts — and stop it before it sends?">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1a1408;border:1px solid #d29922;color:#e6c26a;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+h1 .gold{color:#e6c26a}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.q p{font-size:16px;margin-bottom:12px;color:#fff}
+.q .opts{display:flex;gap:10px;flex-wrap:wrap}
+.q button{flex:1;min-width:120px;background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px;font-size:15px;font-weight:600;cursor:pointer}
+.q button:hover{border-color:#1c6ef2}
+.q button.sel-yes{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.q button.sel-no{background:#2b1215;border-color:#f85149;color:#ffa198}
+.q button:disabled{cursor:default;opacity:.85}
+#verdict{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+#verdict.good{border-color:#3fb950;background:#0d1a0f}
+#verdict.bad{border-color:#f85149;background:#1a0f0f}
+#verdict b.verd{font-size:19px;letter-spacing:.5px}
+.sharebox{margin-top:16px;display:none;background:#0b0f17;border:1px dashed #2a3342;border-radius:8px;padding:14px 16px}
+.sharebox p{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+#sharetext{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical;min-height:64px}
+.copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+.honest{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:18px;font-size:15px;margin:24px 0}
+.honest strong{color:#6ea8fe}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+.warnbox{max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Shadow AI Data Exposure Readiness Check","applicationCategory":"SecurityApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/nordlayer-ai-data-exposure-check.html","description":"Five questions that score whether your security tooling can detect what employees paste into personal AI accounts — and block or redact sensitive prompts before they leave the device.","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is shadow AI?","acceptedAnswer":{"@type":"Answer","text":"Shadow AI is employees using personal AI accounts for work outside corporate guardrails — even when the company provides an approved Enterprise workspace. NordLayer's October 2026 research attributes it largely to familiarity bias: the personal tab is already open, logged in, and configured the way the employee likes."}},
+{"@type":"Question","name":"What did the NordLayer BleepingComputer walkthrough describe?","acceptedAnswer":{"@type":"Answer","text":"An explicitly hypothetical scenario by NordLayer's VP of Product R&D, Vakaris Noreika (sponsored content): an IT admin's tools flag personal ChatGPT use on a managed laptop, and the admin must confirm the identity, establish what reached ChatGPT, ask why corporate access went unused, respond to the outcome, and fix the workflow. Two versions are shown: one where customer data reaches personal ChatGPT and needs an exposure assessment, and one where an on-device detector blocks the prompt first."}},
+{"@type":"Question","name":"Does personal ChatGPT use prove data went into model training?","acceptedAnswer":{"@type":"Answer","text":"No. The article states explicitly that using a personal account does not prove the prompt went into model training, became public, or reached another user. Consumer accounts may use inputs to improve models by default, while Enterprise workspaces carry data-protection commitments — but the honest finding is the governance gap, not a confirmed leak."}},
+{"@type":"Question","name":"What do Warn, Redact, and Block do in prompt-level DLP?","acceptedAnswer":{"@type":"Answer","text":"Per NordLayer's description of its AI Scout controls: Warn pauses the send and lets the employee choose to send anyway or edit; Redact removes the matched value and sends the rest of the prompt; Block stops the prompt from leaving the device. The action is picked per data category."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free security checks</a>
+<div class="badge">SHADOW AI &middot; DATA LOSS PREVENTION</div>
+<h1>An employee pastes customer data into <span class="red">personal ChatGPT</span>. Can your tools tell you <span class="gold">what was shared</span> &mdash; or stop it <span class="gold">before it sends</span>?</h1>
+<p class="lead">Monday morning: your security tools flag personal ChatGPT on a managed laptop &mdash; even though you pay for ChatGPT Enterprise. The alert says <em>who</em>, not <em>what</em>. Was it a public job description, or a customer ticket with account details? Without prompt-level controls, you're asking the employee to show you their chat history and hoping their memory is complete. Five questions, 60 seconds.</p>
+
+<p class="answer"><strong>Short answer:</strong> most security stacks detect <em>AI usage</em> but can't see <em>prompt content</em> &mdash; network monitoring spots traffic to AI domains but can't reliably separate an Enterprise session from a personal login. Closing the gap means on-device prompt inspection with Warn/Redact/Block rules per data category, plus identity mapping (personal account vs. corporate user) and a policy employees can actually follow on a Monday morning.</p>
+
+<div class="card">
+<h2>The 60-second Shadow-AI Readiness Check</h2>
+<p class="note">Answer for your own organization, honestly.</p>
+<div id="quiz"></div>
+<div id="verdict" role="status" aria-live="polite"></div>
+<div class="sharebox" id="sharebox">
+<p>Share your result:</p>
+<textarea id="sharetext" readonly></textarea>
+<button class="copybtn" id="copybtn">Copy result text</button>
+</div>
+</div>
+
+<div class="card">
+<h2>What actually happened (verified facts)</h2>
+<ul>
+<li><strong>The walkthrough:</strong> BleepingComputer published a five-step IT-admin playbook by NordLayer's VP of Product R&D, Vakaris Noreika, covering: (1) confirm the account and employee &mdash; one person, two identities (corporate email vs. personal Gmail); (2) establish what reached ChatGPT &mdash; without prompt controls you depend on the employee's cooperation; (3) ask why corporate access went unused &mdash; usually mundane (expired session, slow 2FA, personal tab already open); (4) respond to the confirmed outcome &mdash; credential exposure means rotation, customer records mean a privacy assessment; (5) fix the workflow &mdash; make corporate access work first thing Monday morning, or the workaround returns by Tuesday.</li>
+<li><strong>The two outcomes:</strong> without prompt-level controls, customer data lands in a personal ChatGPT conversation and triggers an exposure assessment. With an on-device detector configured to Block for the customer-account-number format, the prompt never leaves the device &mdash; and the security team never needs to read it.</li>
+<li><strong>Why Enterprise seats don't fix it:</strong> NordLayer's October 2026 research on "Shadow AI" points to familiarity bias &mdash; months of tuned personal setups plus the convenience of an already-open personal tab beat the friction of switching to an SSO Enterprise session. An Enterprise subscription also doesn't mean employees may submit anything: the task and the data must still be permitted.</li>
+<li><strong>The scale of the habit:</strong> a September 2026 workforce survey (urbangeekz) found 31% of workers enter login credentials or API keys into AI, 50% have ignored their workplace's AI restrictions, and 36% aren't fully confident they know what's okay to share.</li>
+</ul>
+<p class="src">Sources: <a href="https://www.bleepingcomputer.com/news/security/employees-using-personal-chatgpt-at-work-heres-what-it-admins-need-to-do/" target="_blank" rel="noopener">BleepingComputer / NordLayer walkthrough</a> &middot; <a href="https://asumetech.com/2026/10/17/how-it-admins-can-block-personal-chatgpt-access-using-tenant-restrictions/" target="_blank" rel="noopener">asumetech: Shadow AI research</a> &middot; <a href="https://urbangeekz.com/2026/09/employees-sharing-sensitive-data-ai/" target="_blank" rel="noopener">urbangeekz survey</a> &middot; <a href="https://netcrook.com/written_article?slug=when-personal-chatgpt-tab-enterprise-blind-spot&lang=en" target="_blank" rel="noopener">Netcrook: the governance gap</a></p>
+</div>
+
+<div class="honest"><strong>Honesty box:</strong> the BleepingComputer piece is <strong>sponsored content written by NordLayer</strong>, and its scenario is <strong>explicitly hypothetical</strong> &mdash; it's a playbook, not a breach report. One crucial line from it: using a personal account <strong>does not prove the prompt went into model training, became public, or reached another user</strong>. The real finding is the governance gap &mdash; data leaving through an account the organization doesn't control &mdash; not a confirmed leak. Treat vendor playbooks as vendor playbooks.</div>
+
+<div class="card">
+<h2>What to do right now</h2>
+<ul>
+<li><strong>Map identities to accounts:</strong> know which ChatGPT logins appear on managed devices and tie them to the employee via MDM-pushed email + directory sync (Entra ID/Okta).</li>
+<li><strong>Inspect prompts, not just domains:</strong> on-device prompt DLP with per-category actions &mdash; Warn (employee chooses), Redact (strip the matched value, send the rest), Block (stop it).</li>
+<li><strong>Separate the workspaces in policy:</strong> name exactly which data classes may go into which AI product, and make the sanctioned path the fastest one.</li>
+<li><strong>Assess by content, not by panic:</strong> credentials &rarr; rotate; customer records &rarr; privacy review; public text &rarr; no incident, but a word about the Enterprise seat you're already paying for.</li>
+<li><strong>Document and re-check:</strong> account, device, confirmed contents, whether the prompt was sent, response owner &mdash; then schedule a repeat-event check.</li>
+</ul>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#fff;text-decoration:underline">DisclosureGuard</a> is AI disclosure compliance &mdash; know exactly what your AI systems handle, what your people share with them, and what regulators require you to disclose.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20shadow%20AI%20data%20exposure%20check%20and%20want%20early%20access%20to%20DisclosureGuard." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<footer>
+Built by Ingenious AI &mdash; an independent security take, not an endorsement.<br>
+Scenario facts verified from the BleepingComputer/NordLayer playbook (sponsored content) and independent sources linked above.
+</footer>
+</div>
+
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=An%20employee%20pastes%20customer%20data%20into%20personal%20ChatGPT.%20Can%20your%20tools%20tell%20you%20what%20was%20shared%20%E2%80%94%20or%20stop%20it%20before%20it%20sends%3F%205-question%20shadow-AI%20check%2C%20free&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/nordlayer-ai-data-exposure-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/nordlayer-ai-data-exposure-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/nordlayer-ai-data-exposure-check.html&title=Shadow%20AI%20DLP%3A%20can%20your%20tools%20see%20what%20employees%20paste%20into%20personal%20ChatGPT%20%E2%80%94%20or%20stop%20it%20first%3F" target="_blank" rel="noopener">Reddit</a></div>
+<div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<script>
+(function(){
+var QUESTIONS=[
+"1. When a personal AI account is used on a managed device, can you tell WHICH PROMPTS went to the personal account vs. your corporate workspace?",
+"2. Do you have DLP rules that inspect PROMPT TEXT before it leaves the device \u2014 not just log the AI domain that was visited?",
+"3. Can you distinguish a ChatGPT Enterprise session from a personal Gmail login on the same device?",
+"4. Does your policy name WHICH data classes are forbidden in AI prompts \u2014 and do employees know the difference between the workspaces?",
+"5. Can you WARN, REDACT, or BLOCK a sensitive prompt on-device BEFORE it sends \u2014 or only investigate after the fact?"
+];
+var PAGE="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nordlayer-ai-data-exposure-check.html";
+var answers=new Array(QUESTIONS.length).fill(null);
+var quiz=document.getElementById("quiz");
+QUESTIONS.forEach(function(q,i){
+  var d=document.createElement("div");d.className="q";
+  d.innerHTML="<p>"+q+"</p><div class='opts'></div>";
+  var opts=d.querySelector(".opts");
+  [["Yes",1,"sel-yes"],["No",0,"sel-no"]].forEach(function(pair){
+    var b=document.createElement("button");b.textContent=pair[0];
+    b.onclick=function(){answer(i,pair[1],d);};
+    opts.appendChild(b);
+  });
+  quiz.appendChild(d);
+});
+function answer(i,val,div){
+  answers[i]=val;
+  var btns=div.querySelectorAll("button");
+  btns[0].className=val===1?"sel-yes":"";
+  btns[1].className=val===0?"sel-no":"";
+  btns.forEach(function(b){b.disabled=true;});
+  if(answers.every(function(a){return a!==null;}))showVerdict();
+}
+function showVerdict(){
+  var score=answers.reduce(function(a,b){return a+b;},0);
+  var v=document.getElementById("verdict");
+  var label,cls,advice;
+  if(score<=2){label="FLYING BLIND \u2014 investigating after exposure";cls="bad";
+    advice="With "+(5-score)+" of 5 controls missing, you can see AI <em>usage</em> but not AI <em>content</em>. After an incident you'd depend on the employee's memory of what they pasted. Start with identity mapping (personal login \u2194 employee), then add on-device prompt inspection with Warn/Redact/Block rules for your most sensitive data classes.";}
+  else if(score<=3){label="CLOSE \u2014 one or two gaps to close";cls="";
+    advice="You have "+score+" of 5. The remaining gaps are where shadow AI quietly wins: an indistinguishable personal session, a policy nobody can follow on a Monday morning, or no way to stop a prompt before it leaves. Close them, then re-test with a real scenario.";}
+  else{label="GOVERNED \u2014 you see it and can stop it";cls="good";
+    advice="Identity mapping, prompt inspection, session distinction, clear policy, pre-send control \u2014 all covered. You can reconstruct what reached a personal account and block the next attempt before it leaves the device. Keep auditing repeat events and keep the corporate path the fastest one.";}
+  v.className=cls;v.style.display="block";
+  v.innerHTML="<b class='verd'>"+score+"/5 \u2014 "+label+"</b><br><br>"+advice;
+  document.getElementById("sharetext").value="I scored "+score+"/5 on the Shadow AI Data Exposure Check \u2014 can your tools see what employees paste into personal ChatGPT, or stop it before it sends? Check free: "+PAGE;
+  document.getElementById("sharebox").style.display="block";
+  v.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("copybtn").onclick=function(){
+  var t=document.getElementById("sharetext");var btn=this;
+  function done(){var o=btn.textContent;btn.textContent="Copied!";setTimeout(function(){btn.textContent=o;},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();try{document.execCommand("copy");done();}catch(e){}});}
+  else{t.select();try{document.execCommand("copy");done();}catch(e){}}
+};
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
