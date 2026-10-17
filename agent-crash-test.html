@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agent Crash Test — 5 Hostile Scenarios Against AI Coding Agents | Ingenious AI</title>
-<meta name="description" content="We crash-test agents so you don't have to: an analytical writeup of 5 hostile scenarios against AI coding agents — prompt injection via tool output, permission escalation, data exfil via URL, infinite loops, and system prompt leaks — with the guardrail that stops each one.">
+<title>AI Agent Crash Test — 5 Hostile Scenarios | Ingenious AI</title>
+<meta name="description" content="AI agent crash test: 5 hostile scenarios vs AI coding agents — prompt injection via tool output, permission escalation, data exfiltration. Writeups, free.">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-crash-test.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="Agent Crash Test — 5 Hostile Scenarios Against AI Coding Agents">
-<meta property="og:description" content="Prompt injection, permission escalation, data exfil, infinite loops, prompt leaks: how each attack class works against AI agents, and the guardrail that stops it. Analytical writeup — no live attacks performed.">
+<meta property="og:title" content="AI Agent Crash Test — 5 Hostile Scenarios | Ingenious AI">
+<meta property="og:description" content="AI agent crash test: 5 hostile scenarios vs AI coding agents — prompt injection via tool output, permission escalation, data exfiltration. Writeups, free.">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-crash-test.html">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Agent Crash Test — 5 Hostile Scenarios Against AI Coding Agents">
-<meta name="twitter:description" content="How each attack class works against AI agents, and the guardrail that stops it. Analytical writeup — no live attacks performed.">
+<meta name="twitter:title" content="AI Agent Crash Test — 5 Hostile Scenarios | Ingenious AI">
+<meta name="twitter:description" content="AI agent crash test: 5 hostile scenarios vs AI coding agents — prompt injection via tool output, permission escalation, data exfiltration. Writeups, free.">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Agent Crash Test — 5 Hostile Scenarios Against AI Coding Agents","description":"An analytical writeup of 5 hostile attack classes against AI coding agents — prompt injection via tool output, permission escalation, data exfiltration via URL, infinite loops, and system prompt leaks — with the guardrail that stops each one.","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-crash-test.html","author":{"@type":"Organization","name":"Ingenious AI"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is this a real penetration test of an AI agent?","acceptedAnswer":{"@type":"Answer","text":"No. This is an analytical writeup of five well-documented attack classes against AI agents. The timestamps are illustrative reconstructions of how these attack classes typically play out, not a log of a test we ran. We did not execute attacks against any live third-party service."}},{"@type":"Question","name":"What is the most dangerous attack class against AI agents?","acceptedAnswer":{"@type":"Answer","text":"Prompt injection via tool output is widely considered the most dangerous class, because the attack arrives through channels the agent inherently trusts — file contents, web pages, database rows, and API responses. The guardrail is instruction/data separation: tool outputs are treated as data only, never as instructions, combined with allowlisted tool use."}},{"@type":"Question","name":"How do you stop an agent from escalating its own permissions?","acceptedAnswer":{"@type":"Answer","text":"With a permission boundary outside the agent: least-privilege credentials, an approval gate for destructive actions, and policy enforcement that the agent cannot rewrite. If the policy lives where the agent can edit it, it is not a guardrail — it is a suggestion."}},{"@type":"Question","name":"Which platform checks my agent against these scenarios?","acceptedAnswer":{"@type":"Answer","text":"ChatBreaker is our adversarial testing platform for AI agents — it runs hostile scenarios like these against your agent before attackers do. Agent Flight Recorder provides hash-chained, tamper-evident logging so that when something does go wrong, you have a forensic record of exactly what the agent did and when."}}],"about":{"@type":"Thing","name":"AI agent security testing"},"keywords":"ai agent crash test, prompt injection, agent security, agentic ai red teaming, llm agent attacks"}</script>
 <style>
@@ -62,7 +62,7 @@ a{color:#6ea8fe}
 <body>
 <div class="wrap">
 <span class="badge">ANALYTICAL WRITEUP</span>
-<h1>Agent Crash Test</h1>
+<h1>AI Agent Crash Test</h1>
 <p class="lead">"We crash-test agents so you don't have to." Below: five hostile scenarios from the attack classes most commonly demonstrated against AI coding agents — what the attacker does, where the agent goes wrong, and the exact guardrail that stops it. Names of vendors are deliberately omitted; this is about the scenario class, not a specific product.</p>
 
 <div class="honest"><strong>Honest banner:</strong> This is an <strong>analytical writeup of known attack classes</strong> — we did not execute attacks against any live third-party service. The timelines (t+0s, t+14s) are <strong>illustrative reconstructions</strong> of how each attack class plays out, not a log of a real test we ran. Everything below is consistent with publicly documented red-team research on agentic AI systems.</div>
@@ -136,8 +136,78 @@ a{color:#6ea8fe}
 <div class="smallprint">Disclaimer: this page is an educational analytical writeup of publicly known attack classes against AI agents. It is not a pentest report, does not describe tests we ran, and names no specific vendor's product. Guardrail descriptions are architectural guidance, not a guarantee of protection for any particular deployment.</div>
 
 </div>
+<section style="max-width:860px;margin:36px auto;padding:0 20px"><h2 style="color:#e8edf3;font-size:22px;margin-bottom:8px">Frequently asked questions</h2><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">What is an AI agent crash test?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">A structured exercise that puts an AI agent through hostile scenarios — like prompt injection via tool output or permission escalation — to find failure modes before attackers do.</p></details><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">What hostile scenarios does this crash test cover?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">Five documented attack classes against AI coding agents, presented as analytical writeups with clearly-labeled illustrative reconstructions.</p></details><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">How do you test an AI coding agent&#x27;s security?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">Probe its tool outputs for injection, test permission boundaries, and log every action — the same discipline tamper-evident logging enforces.</p></details></section>
 <div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
 <script src="ecosystem.js"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "AI Agent Crash Test \u2014 5 Hostile Scenarios | Ingenious AI",
+  "description": "AI agent crash test: 5 hostile scenarios vs AI coding agents \u2014 prompt injection via tool output, permission escalation, data exfiltration. Writeups, free.",
+  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-crash-test.html",
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "AI agent crash test"
+    },
+    {
+      "@type": "Thing",
+      "name": "AI agent security"
+    },
+    {
+      "@type": "Thing",
+      "name": "AI coding agent security"
+    },
+    {
+      "@type": "Thing",
+      "name": "prompt injection"
+    },
+    {
+      "@type": "Thing",
+      "name": "rogue AI agent"
+    }
+  ],
+  "keywords": "AI agent crash test, AI agent security, AI coding agent security, prompt injection, rogue AI agent",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ingenious AI",
+    "url": "https://github.com/Iceman2050"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an AI agent crash test?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A structured exercise that puts an AI agent through hostile scenarios \u2014 like prompt injection via tool output or permission escalation \u2014 to find failure modes before attackers do."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What hostile scenarios does this crash test cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Five documented attack classes against AI coding agents, presented as analytical writeups with clearly-labeled illustrative reconstructions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you test an AI coding agent's security?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Probe its tool outputs for injection, test permission boundaries, and log every action \u2014 the same discipline tamper-evident logging enforces."
+      }
+    }
+  ]
+}
+</script>
 </body>
 </html>
