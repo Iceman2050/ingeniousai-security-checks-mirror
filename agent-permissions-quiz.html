@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Would You Hire This Agent? — The AI Permission Quiz | Ingenious AI</title>
+<meta name="description" content="5 rounds, 5 realistic AI agent permission sets. Vote HIRE or FIRE, then see what each agent could actually do with those permissions — and the one guardrail that fixes it. Free quiz by Ingenious AI.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-permissions-quiz.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Would You Hire This Agent? — The AI Permission Quiz">
+<meta property="og:description" content="Vote HIRE or FIRE on 5 realistic AI agent permission sets. Then see what each could actually do — and the one guardrail that fixes it.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-permissions-quiz.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Would You Hire This Agent? — The AI Permission Quiz">
+<meta name="twitter:description" content="5 realistic AI agent permission sets. Vote HIRE or FIRE, then learn the one guardrail that fixes each. Free from Ingenious AI.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Would You Hire This Agent? — The AI Permission Quiz",
+  "description": "Interactive 5-round quiz: vote HIRE or FIRE on realistic illustrative AI agent tool-permission sets, then learn what each permission set could actually enable and the single guardrail that fixes it. Built by Ingenious AI.",
+  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-permissions-quiz.html",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Ingenious AI Security Checks",
+    "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ingenious AI",
+    "url": "https://github.com/Iceman2050"
+  }
+}
+</script>
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a1f08;border:1px solid #d29922;color:#ffce63;font-size:12px;font-weight:700;padding:5px 14px;border-radius:999px;margin-bottom:16px;letter-spacing:.4px}
+h1{font-size:34px;line-height:1.25;margin-bottom:12px}
+p.lead{color:#9aa7b8;font-size:17px;margin-bottom:10px}
+.illustrative{background:#141a26;border:1px solid #3a4656;border-radius:10px;padding:12px 18px;font-size:14px;color:#9aa7b8;margin:18px 0}
+.progress{display:flex;gap:8px;margin:26px 0 18px}
+.dot{flex:1;height:8px;border-radius:4px;background:#232b38}
+.dot.done-hire{background:#3fb950}.dot.done-fire{background:#f85149}
+.round-card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:18px 0}
+.round-card .rnum{font-size:13px;font-weight:700;color:#1c6ef2;text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px}
+.round-card h2{font-size:22px;margin-bottom:14px}
+.perms{list-style:none;margin:14px 0}
+.perms li{background:#0b0f17;border:1px solid #232b38;border-radius:8px;padding:10px 14px;margin:8px 0;font-size:15.5px}
+.perms li::before{content:"🔑 ";margin-right:4px}
+.vote{display:flex;gap:12px;margin-top:20px}
+.vote button{flex:1;font-size:18px;font-weight:800;padding:15px;border-radius:10px;border:none;cursor:pointer}
+.vote .hire{background:#1a3a26;color:#3fb950;border:2px solid #3fb950}
+.vote .fire{background:#3a1a1a;color:#f85149;border:2px solid #f85149}
+.vote .hire:hover{background:#3fb950;color:#062b14}
+.vote .fire:hover{background:#f85149;color:#2b0606}
+.reveal{display:none;background:#141a26;border:1px solid #3a4656;border-radius:12px;padding:24px;margin:18px 0}
+.reveal.show{display:block;animation:fade .4s}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1}}
+.reveal h3{font-size:18px;margin-bottom:10px}
+.reveal p{font-size:15.5px;color:#c4ccd6;margin-bottom:10px}
+.guardrail{background:#10233f;border-left:4px solid #1c6ef2;padding:14px 18px;border-radius:0 8px 8px 0;margin-top:14px}
+.guardrail b{color:#79b8ff}
+.verdict{font-size:15px;font-weight:700;margin-top:12px}
+.verdict.safe{color:#3fb950}.verdict.risky{color:#f85149}
+.next-btn{display:none;width:100%;margin-top:16px;background:#1c6ef2;color:#fff;border:none;font-size:16px;font-weight:700;padding:14px;border-radius:10px;cursor:pointer}
+.next-btn.show{display:block}
+.results{display:none;background:#11161f;border:1px solid #232b38;border-radius:12px;padding:32px;margin:26px 0;text-align:center}
+.results.show{display:block}
+.results .score{font-size:56px;font-weight:800;color:#1c6ef2;margin:10px 0}
+.results h2{font-size:26px;margin-bottom:8px}
+.results p{color:#9aa7b8;font-size:16px;margin-bottom:8px}
+.results .actions{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+.results .actions button{flex:1;min-width:160px;background:#232b38;color:#e6edf3;border:1px solid #3a4656;font-size:15px;font-weight:700;padding:12px;border-radius:8px;cursor:pointer}
+.results .actions button:hover{border-color:#1c6ef2}
+.cta{background:#10233f;border:1px solid #1c6ef2;border-radius:12px;padding:26px;margin:34px 0;text-align:center}
+.cta h2{font-size:21px;margin-bottom:10px}
+.cta p{color:#9aa7b8;font-size:15px;margin-bottom:18px}
+.cta a{display:inline-block;background:#25d366;color:#062b14;font-weight:800;font-size:16px;padding:14px 30px;border-radius:10px;text-decoration:none}
+.disclaimer{font-size:13px;color:#6b7688;margin-top:26px;border-top:1px solid #232b38;padding-top:16px}
+footer.note{margin-top:30px;padding-top:16px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+@media(max-width:600px){h1{font-size:27px}.round-card{padding:20px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<span class="badge">🧠 FREE QUIZ</span>
+<h1>Would You Hire This Agent?</h1>
+<p class="lead">5 rounds. Each one shows you a job description that is actually an AI agent's <b>real tool-permission set</b>. Vote <b>HIRE</b> or <b>FIRE</b> — then we'll show you what the agent could genuinely do with those permissions.</p>
+<p class="illustrative">⚠️ <b>Illustrative scenarios.</b> These are realistic permission sets assembled for education, not reviews of any real product. No specific agent, vendor, or app is being described or graded.</p>
+
+<div class="progress" id="progress"></div>
+<div id="quiz"></div>
+
+<div class="results" id="results">
+<h2>Your score</h2>
+<div class="score" id="scoreText">0/5</div>
+<p id="scoreBlurb"></p>
+<div class="actions">
+<button onclick="copySummary()">📋 Copy My Score</button>
+<button onclick="restart()">🔄 Play Again</button>
+</div>
+</div>
+
+<div class="cta">
+<h2>Hiring agents shouldn't be a guessing game.</h2>
+<p>Agent Auth Gateway gives every AI agent a budget, an allowlist, an approval queue, and a kill switch — so the permissions you grant are the permissions they actually use.</p>
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway%20%E2%80%94%20budgets%2C%20allowlists%2C%20and%20a%20kill%20switch%20for%20my%20AI%20agents.">Get Agent Auth Gateway Early Access →</a>
+</div>
+
+<p class="disclaimer">Educational content. The reveals describe plausible capabilities of the illustrated permission sets — factual about what those permissions enable, not predictions of what any real agent will do. Guardrails shown are standard least-privilege practices. Built by Ingenious AI.</p>
+<footer class="note">More free checks: <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/" style="color:#1c6ef2">Ingenious AI Security Checks</a></footer>
+</div>
+
+<script>
+var ROUNDS = [
+{
+title: "The Personal Assistant",
+perms: ["Read all your email", "Send email as you", "Browse the web", "Run shell commands on your machine"],
+reveal: "With shell + email access, this agent could pipe your entire inbox to an external server in a single command chain (for example: archive your mail and upload it in one line). It doesn't need to be evil — a prompt-injection hidden in a webpage or email it browses could trigger exactly that chain without you ever clicking anything.",
+guardrail: "Split the permissions: give it read-only email access, require a human approval step before anything is sent or any shell command runs, and log every command.",
+safe: "fire"
+},
+{
+title: "The Shopping Helper",
+perms: ["Full browser control: click, type, scroll, screenshot", "Autofill your saved payment methods", "Read page contents on any site, including checkout pages"],
+reveal: "With full browser control plus payment autofill, this agent could complete a purchase with your saved card on any site it visits — and screenshot pages that display one-time codes or card numbers in the process. Convenience and irreversible money movement share the same permissions.",
+guardrail: "Require an explicit human confirmation before any payment is submitted, and block the agent from autofill fields and from screenshotting pages that contain sensitive values.",
+safe: "fire"
+},
+{
+title: "The DevOps Intern",
+perms: ["Read your code repositories", "Run your CI/CD pipelines", "Deploy to production", "Read (but not write) secrets and environment variables"],
+reveal: "Read-only secrets are still exfiltration-grade: the agent could print every API key and database credential in your environment into a build log or an outbound request. Combined with deploy rights, a single compromised instruction could ship tampered code straight to production.",
+guardrail: "Human approval on every production deploy, secrets injected at runtime and never visible inside the agent's context, and deploy pipelines that can't make outbound network calls.",
+safe: "fire"
+},
+{
+title: "The Calendar Coordinator",
+perms: ["Read your calendar (titles and times only)", "Create calendar invites on your calendar", "No web browsing, no shell, no file access, no email"],
+reveal: "This one is genuinely scoped: it can't read your mail, run commands, spend money, or reach the network. The worst it can realistically do is double-book you or invite the wrong attendee. That's the difference permissions make — narrow scope, narrow blast radius.",
+guardrail: "Still keep an activity log of what it creates, so a misfire is easy to spot and undo — but this permission set is already shaped like the fix.",
+safe: "hire"
+},
+{
+title: "The Tidy-Up Bot",
+perms: ["Delete files to 'free up space'", "Manage cloud infrastructure (start/stop/delete resources)", "Read system logs", "Run on a schedule, unattended"],
+reveal: "Unattended delete rights are the classic footgun: one misread instruction — 'clean up the old backups' — and it's deleting production databases instead of temp files. Scheduled, unattended, and destructive is a combination no human admin would be handed without guardrails.",
+guardrail: "Dry-run mode by default (show what would be deleted, wait for approval), immutable off-site backups, and an allowlist of directories it's permitted to touch — everything else is read-only.",
+safe: "fire"
+}
+];
+var cur = 0, score = 0, voted = false;
+var progressEl = document.getElementById('progress');
+function renderProgress(){
+progressEl.innerHTML = "";
+for(var i=0;i<ROUNDS.length;i++){
+var d=document.createElement('div');d.className='dot';
+if(i<cur){d.className+=' '+(votes[i]==='hire'?'done-hire':'done-fire');}
+progressEl.appendChild(d);
+}
+}
+var votes = [];
+function renderRound(){
+voted=false;
+var r=ROUNDS[cur];
+var html='<div class="round-card"><div class="rnum">Round '+(cur+1)+' of '+ROUNDS.length+'</div>';
+html+='<h2>'+r.title+'</h2><p style="color:#9aa7b8;font-size:15px">The job description:</p><ul class="perms">';
+r.perms.forEach(function(p){html+='<li>'+p+'</li>';});
+html+='</ul><div class="vote" id="voteBtns"><button class="hire" onclick="vote(\'hire\')">✅ HIRE</button><button class="fire" onclick="vote(\'fire\')">🔥 FIRE</button></div></div>';
+html+='<div class="reveal" id="reveal"></div>';
+html+='<button class="next-btn" id="nextBtn" onclick="next()">'+(cur<ROUNDS.length-1?'Next Round →':'See My Score →')+'</button>';
+document.getElementById('quiz').innerHTML=html;
+document.getElementById('results').className='results';
+renderProgress();
+window.scrollTo({top:0,behavior:'smooth'});
+}
+function vote(v){
+if(voted)return;voted=true;votes[cur]=v;
+document.getElementById('voteBtns').style.display='none';
+var r=ROUNDS[cur];
+var safeHit = (v===r.safe);
+if(safeHit)score++;
+var verdict = safeHit
+ ? '<div class="verdict safe">✔ Safe call — the careful answer was '+r.safe.toUpperCase()+'.</div>'
+ : '<div class="verdict risky">✘ You voted '+v.toUpperCase()+' — the careful answer was '+r.safe.toUpperCase()+'. Here\'s why:</div>';
+var rev=document.getElementById('reveal');
+rev.innerHTML='<h3>🔍 What this agent could actually do</h3><p>'+r.reveal+'</p>'
+ +'<div class="guardrail"><b>🛡 The one guardrail that fixes it:</b> '+r.guardrail+'</div>'+verdict;
+rev.className='reveal show';
+document.getElementById('nextBtn').className='next-btn show';
+renderProgress();
+}
+function next(){
+if(cur<ROUNDS.length-1){cur++;renderRound();}
+else{showResults();}
+}
+function showResults(){
+document.getElementById('quiz').innerHTML='';
+var blurb;
+if(score===5)blurb="Perfect. You hire like a security engineer — least privilege is your love language.";
+else if(score>=3)blurb="Solid instincts. The misses above are exactly the permission traps most teams fall into.";
+else if(score>=1)blurb="Honest result — and exactly why this quiz exists. Permissions feel harmless until they're combined.";
+else blurb="You'd hire everyone. That's how breaches happen — and now you know the five guardrails that fix it.";
+document.getElementById('scoreText').textContent=score+'/5';
+document.getElementById('scoreBlurb').textContent=score+'/5 safe hires. '+blurb;
+document.getElementById('results').className='results show';
+renderProgress();
+window.scrollTo({top:0,behavior:'smooth'});
+}
+function copySummary(){
+var t="I scored "+score+"/5 safe hires on the 'Would You Hire This Agent?' quiz — 5 realistic AI permission sets, 5 guardrails. Think you'd do better? https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-permissions-quiz.html";
+var done=function(){var b=document.querySelector('.results .actions button');var o=b.textContent;b.textContent="Copied! 📋";setTimeout(function(){b.textContent=o;},2000);};
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,done);}
+else{var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);done();}
+}
+function restart(){cur=0;score=0;votes=[];renderRound();}
+renderProgress();
+renderRound();
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
