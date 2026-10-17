@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What LLMs Companies Use — Shadow Model Exchange</title>
+<meta name="description" content="The Shadow Model Exchange compares the LLMs companies admit to vs. what they actually run in production — anonymous, aggregated, launching on real data soon.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/shadow-model-exchange.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="What LLMs Companies Use — Shadow Model Exchange">
+<meta property="og:description" content="The Shadow Model Exchange compares the LLMs companies admit to vs. what they actually run in production — anonymous, aggregated, launching on real data soon.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/shadow-model-exchange.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="What LLMs Companies Use — Shadow Model Exchange">
+<meta name="twitter:description" content="The Shadow Model Exchange compares the LLMs companies admit to vs. what they actually run in production — anonymous, aggregated, launching on real data soon.">
+<link rel="stylesheet" href="ecosystem.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"What LLMs Companies Use — Shadow Model Exchange","description":"An anonymous, aggregated exchange showing which LLMs companies actually run in production versus what they admit to. Seeded with illustrative sample data only; the published exchange launches after enough real responses.","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/shadow-model-exchange.html","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is the Shadow Model Exchange?","acceptedAnswer":{"@type":"Answer","text":"The Shadow Model Exchange is a planned anonymous, aggregated view of which LLMs companies actually run in production versus what they publicly admit to — the gap known as shadow AI. It launches publicly once enough real, anonymous responses arrive."}},
+{"@type":"Question","name":"Is the data on this page real?","acceptedAnswer":{"@type":"Answer","text":"No. Everything on this page is an illustrative sample, clearly badged as such, shown only to demonstrate the exchange's format. The published exchange will launch after enough real, anonymous responses come in through the Shadow Model Census."}},
+{"@type":"Question","name":"How will the real exchange work?","acceptedAnswer":{"@type":"Answer","text":"Respond anonymously to the Shadow Model Census with the LLMs you run in production and the ones your company publicly acknowledges. Once enough responses arrive, we publish aggregated, anonymized deltas — no names, no emails, no company identifiers."}},
+{"@type":"Question","name":"Why does the admitted-vs-actual gap matter?","acceptedAnswer":{"@type":"Answer","text":"Much enterprise AI use is shadow IT: Stack Overflow's 2026 developer survey found only 24% of companies have published an approved AI toolset or formal AI policy, so most model choices are invisible to security and compliance teams — creating unknown attack surface."}},
+{"@type":"Question","name":"Which LLM do most companies use?","acceptedAnswer":{"@type":"Answer","text":"GoodFirms' AI-tool tracking of 14,022 active companies finds ChatGPT used by 11,359 companies, Claude by 10,103, and Gemini by 4,294 — but that tracks visible adoption, not the shadow usage this exchange is designed to reveal."}}
+]}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:940px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a1f08;border:1px solid #d29922;color:#ffce63;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+.samplebadge{display:inline-block;background:#3d0a0a;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin:4px 8px 14px 0;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h2{font-size:22px;margin:32px 0 12px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+p{margin-bottom:14px}
+.honest{background:#0d2b3d;border:1px solid #1c6ef2;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#bcd7f5}
+.honest strong{color:#fff}
+.sample{background:#11161f;border:1px solid #f85149;border-radius:12px;padding:22px;margin:22px 0}
+.sample h2{margin-top:0}
+.barrow{margin:12px 0;font-size:14.5px}
+.barrow .lbl{color:#e6edf3;font-weight:700;margin-bottom:4px}
+.barrow .drow{display:flex;align-items:center;gap:8px;margin:5px 0}
+.barrow .tag{width:110px;color:#9aa7b8;font-size:13px;flex-shrink:0}
+.barrow .barwrap{flex:1;background:#0b0f17;border:1px solid #232b38;border-radius:999px;height:14px;overflow:hidden}
+.barrow .barfill{height:100%;border-radius:999px}
+.fill-admit{background:#6e7681}
+.fill-real{background:linear-gradient(90deg,#f85149,#d29922)}
+.barrow .n{width:44px;text-align:right;font-weight:700;font-size:13px}
+table.matrix{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+table.matrix th,table.matrix td{border:1px solid #232b38;padding:9px 10px;text-align:left;vertical-align:top}
+table.matrix th{background:#11161f;color:#6ea8fe}
+table.matrix tr:nth-child(even) td{background:#0d1117}
+a{color:#6ea8fe}
+.cta{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:22px;margin:28px 0;text-align:center}
+.cta .lbl{font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px;margin:6px}
+.btn:hover{background:#2b7fff}
+.btn.alt{background:#212a38;color:#e6edf3;border:1px solid #2a3342}
+.faq{background:#0d1117;border:1px solid #232b38;border-radius:10px;padding:18px 20px;margin:14px 0}
+.faq h3{font-size:16px;color:#ffce63;margin-bottom:6px}
+.faq p{font-size:14.5px;color:#c9d4e3;margin-bottom:0}
+.morelinks{background:#0d1420;border:1px solid #232b38;border-radius:10px;padding:22px;margin:28px 0}
+.morelinks h2{margin-top:0}
+.morelinks ul{list-style:none}
+.morelinks li{margin:8px 0}
+.smallprint{font-size:13px;color:#8b949e}
+.src{font-size:13px;color:#9aa7b8;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<span class="badge">ANONYMOUS · AGGREGATED · INGENIOUS AI</span>
+<h1>What LLMs Companies Use — The Shadow Model Exchange</h1>
+<p class="lead">Companies admit to one set of AI models in public. Inside, teams run another. The Shadow Model Exchange will be the anonymous, aggregated view of what LLMs companies actually run in production versus what they admit to — the shadow-AI gap nobody publishes.</p>
+
+<div class="honest">
+<strong>Honesty note.</strong> Everything below is an <strong>illustrative sample only</strong> — fabricated numbers shown purely to demonstrate the exchange's format. It is <strong>not real data</strong> and no real responses have been collected on this page. The published exchange launches after enough real, anonymous responses arrive via the <a href="shadow-model-census.html">Shadow Model Census</a>.
+</div>
+
+<div class="sample">
+<span class="samplebadge">ILLUSTRATIVE SAMPLE — NOT REAL RESPONSES</span>
+<h2>Admitted vs. actually running (illustrative)</h2>
+<p class="smallprint">If this were real data, these bars would show the share of surveyed companies that publicly acknowledge each model family vs. the share that actually run it in production. These numbers are invented for illustration.</p>
+
+<div class="barrow">
+<div class="lbl">OpenAI (GPT)</div>
+<div class="drow"><span class="tag">Admitted</span><div class="barwrap"><div class="barfill fill-admit" style="width:78%"></div></div><span class="n">78</span></div>
+<div class="drow"><span class="tag">Actually run</span><div class="barwrap"><div class="barfill fill-real" style="width:91%"></div></div><span class="n">91</span></div>
+</div>
+<div class="barrow">
+<div class="lbl">Anthropic (Claude)</div>
+<div class="drow"><span class="tag">Admitted</span><div class="barwrap"><div class="barfill fill-admit" style="width:52%"></div></div><span class="n">52</span></div>
+<div class="drow"><span class="tag">Actually run</span><div class="barwrap"><div class="barfill fill-real" style="width:74%"></div></div><span class="n">74</span></div>
+</div>
+<div class="barrow">
+<div class="lbl">Google (Gemini)</div>
+<div class="drow"><span class="tag">Admitted</span><div class="barwrap"><div class="barfill fill-admit" style="width:41%"></div></div><span class="n">41</span></div>
+<div class="drow"><span class="tag">Actually run</span><div class="barwrap"><div class="barfill fill-real" style="width:58%"></div></div><span class="n">58</span></div>
+</div>
+<div class="barrow">
+<div class="lbl">Meta (Llama, open)</div>
+<div class="drow"><span class="tag">Admitted</span><div class="barwrap"><div class="barfill fill-admit" style="width:18%"></div></div><span class="n">18</span></div>
+<div class="drow"><span class="tag">Actually run</span><div class="barwrap"><div class="barfill fill-real" style="width:63%"></div></div><span class="n">63</span></div>
+</div>
+<div class="barrow">
+<div class="lbl">DeepSeek (open)</div>
+<div class="drow"><span class="tag">Admitted</span><div class="barwrap"><div class="barfill fill-admit" style="width:6%"></div></div><span class="n">6</span></div>
+<div class="drow"><span class="tag">Actually run</span><div class="barwrap"><div class="barfill fill-real" style="width:44%"></div></div><span class="n">44</span></div>
+</div>
+<div class="barrow">
+<div class="lbl">Mistral / Qwen (open)</div>
+<div class="drow"><span class="tag">Admitted</span><div class="barwrap"><div class="barfill fill-admit" style="width:11%"></div></div><span class="n">11</span></div>
+<div class="drow"><span class="tag">Actually run</span><div class="barwrap"><div class="barfill fill-real" style="width:37%"></div></div><span class="n">37</span></div>
+</div>
+<p class="smallprint">Illustrative pattern to watch for: open-weight models are the ones teams rarely admit to — which is exactly what makes them invisible to security teams.</p>
+</div>
+
+<h2>Vendor-model matrix (illustrative sample)</h2>
+<p class="smallprint">A published version of this matrix would map each vendor's models to where they actually show up: officially sanctioned, team-level shadow use, or embedded inside third-party tools.</p>
+<table class="matrix">
+<thead><tr><th>Model family</th><th>Vendor</th><th>Illustrative status</th><th>Why it matters</th></tr></thead>
+<tbody>
+<tr><td>GPT-5</td><td>OpenAI</td><td>Sanctioned · actually run</td><td>The one on the invoice — visible, budgeted, monitored.</td></tr>
+<tr><td>Claude</td><td>Anthropic</td><td>Sanctioned at some, shadow at others</td><td>Popular with engineering teams before official approval lands.</td></tr>
+<tr><td>Gemini</td><td>Google</td><td>Embedded via Workspace tools</td><td>Often running without a formal "AI purchase" decision ever being made.</td></tr>
+<tr><td>Llama</td><td>Meta</td><td>Shadow self-hosted</td><td>Deployed on internal GPU boxes — no API logs, no vendor bill.</td></tr>
+<tr><td>DeepSeek</td><td>DeepSeek</td><td>Shadow individual use</td><td>Free tier pulls developers in under the radar.</td></tr>
+<tr><td>Mistral / Qwen</td><td>Mistral / Alibaba</td><td>Embedded in third-party apps</td><td>Your vendor's "AI feature" is a model you never approved.</td></tr>
+</tbody>
+</table>
+<p class="smallprint">All statuses above are illustrative examples of the format, not real findings.</p>
+
+<h2>Methodology</h2>
+<p>The published exchange will aggregate fully anonymous responses: no names, no emails, no company identifiers. Respondents report (1) which models their company publicly acknowledges and (2) which they actually run in production — including shadow use. Results are published only in aggregate once enough responses arrive; per-company data is never disclosed. The live survey is the <a href="shadow-model-census.html">Shadow Model Census</a>.</p>
+<p class="src">Context: GoodFirms' AI-tool tracking of 14,022 active companies finds ChatGPT used by 11,359 companies, Claude by 10,103, and Gemini by 4,294 (visible adoption, not shadow use). Stack Overflow's 2026 developer survey found only 24% of companies have published an approved AI toolset or formal AI policy — the reason the gap exists at all.</p>
+
+<h2>Frequently asked questions</h2>
+<div class="faq"><h3>What is the Shadow Model Exchange?</h3><p>The Shadow Model Exchange is a planned anonymous, aggregated view of which LLMs companies actually run in production versus what they publicly admit to — the gap known as shadow AI. It launches publicly once enough real, anonymous responses arrive.</p></div>
+<div class="faq"><h3>Is the data on this page real?</h3><p>No. Everything on this page is an illustrative sample, clearly badged as such, shown only to demonstrate the exchange's format. The published exchange will launch after enough real, anonymous responses come in through the Shadow Model Census.</p></div>
+<div class="faq"><h3>How will the real exchange work?</h3><p>Respond anonymously to the Shadow Model Census with the LLMs you run in production and the ones your company publicly acknowledges. Once enough responses arrive, we publish aggregated, anonymized deltas — no names, no emails, no company identifiers.</p></div>
+<div class="faq"><h3>Why does the admitted-vs-actual gap matter?</h3><p>Much enterprise AI use is shadow IT: Stack Overflow's 2026 developer survey found only 24% of companies have published an approved AI toolset or formal AI policy, so most model choices are invisible to security and compliance teams — creating unknown attack surface.</p></div>
+<div class="faq"><h3>Which LLM do most companies use?</h3><p>GoodFirms' AI-tool tracking of 14,022 active companies finds ChatGPT used by 11,359 companies, Claude by 10,103, and Gemini by 4,294 — but that tracks visible adoption, not the shadow usage this exchange is designed to reveal.</p></div>
+
+<div class="cta">
+<div class="lbl">KNOW WHICH MODELS ARE REALLY RUNNING</div>
+<h2>Track every model version change, silently</h2>
+<p>ModelMinder watches the AI models your stack depends on — quiet deprecations, silent version swaps, behavior drift — so shadow models never blindside you.</p>
+<a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder.">Get ModelMinder early access</a><br>
+<a class="btn alt" href="shadow-model-census.html">Take the anonymous census</a>
+</div>
+
+<div class="morelinks">
+<h2>More from Ingenious AI</h2>
+<ul>
+<li><a href="shadow-model-census.html">Shadow Model Census — what LLM are companies actually running?</a></li>
+<li><a href="ai-governance-reality-check.html">AI Governance Reality Check</a></li>
+<li><a href="ai-stack-mapper.html">AI Stack Mapper</a></li>
+<li><a href="ai-vendor-tos-diffs.html">AI Vendor Terms Diffs</a></li>
+<li><a href="newsjack-modelminder.html">ModelMinder — model deprecation radar</a></li>
+<li><a href="all-links.html">All Ingenious AI security tools</a></li>
+<li><a href="security-suite.html">Security Suite overview</a></li>
+</ul>
+</div>
+
+</div>
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>

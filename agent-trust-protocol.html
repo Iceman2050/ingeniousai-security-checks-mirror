@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent to Agent Protocol: The Trust Spec | Ingenious AI</title>
+<meta name="description" content="Agent Trust Protocol spec: how AI agents verify each other before collaborating — attestation, permission handshake, session binding, audit trail. Readable.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-trust-protocol.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Agent to Agent Protocol: The Trust Spec | Ingenious AI">
+<meta property="og:description" content="Agent Trust Protocol spec: how AI agents verify each other before collaborating — attestation, permission handshake, session binding, audit trail. Readable.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-trust-protocol.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Agent to Agent Protocol: The Trust Spec | Ingenious AI">
+<meta name="twitter:description" content="Agent Trust Protocol spec: how AI agents verify each other before collaborating — attestation, permission handshake, session binding, audit trail. Readable.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Agent to Agent Protocol: The Trust Spec",
+  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-trust-protocol.html",
+  "description": "The readable specification for the Agent Trust Protocol — how AI agents verify each other before collaborating, in plain English.",
+  "author": {
+    "@type": "Organization",
+    "name": "Ingenious AI"
+  },
+  "about": "agent to agent protocol, AI agent trust",
+  "keywords": "agent to agent protocol, AI agent trust protocol, multi-agent security, agent delegation security"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the agent to agent protocol?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An agent-to-agent protocol is a shared standard that lets AI agents built by different vendors and frameworks communicate and collaborate without custom integration code for every pairing. Google's A2A (April 2025, now under the Linux Foundation) is the best-known example, using agent cards for discovery, JSON-RPC messaging, and a task lifecycle. The Agent Trust Protocol builds on that idea with an explicit security layer: capability attestation, permission handshake, session binding, and an audit trail."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the agent to agent protocol work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In four steps: first, capability attestation — an agent presents a signed, checkable statement of what it is and what it can do. Second, a permission handshake — both sides agree a narrow scope for the task. Third, session binding — the agreed scope is locked into a time-limited session token, and any escalation re-triggers the handshake. Fourth, an audit trail — every delegation is logged so the full chain of who-did-what is reconstructable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between A2A and MCP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MCP (Model Context Protocol) is the wiring between an agent and its tools — like USB-C for AI tools. A2A is the line between two working agents — the networking layer for agent collaboration. One agent querying five systems needs only MCP; a workflow split across four specialist agents needs A2A too. They sit at different layers of the same stack."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the agent to agent protocol secure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The protocol defines how agents authenticate, scope, and audit their collaboration — it does not make the underlying agents trustworthy. It cannot guarantee model behavior, prevent prompt injection in the models themselves, or assign legal liability. Security comes from applying the protocol strictly (narrow scopes, signed attestations, full audit trails) plus defense-in-depth around it, such as an agent authorization gateway."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the Agent Trust Protocol not cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It does not guarantee how an agent's model behaves inside its scope; it does not resolve legal liability for agent actions; it does not do cross-company identity resolution; it does not promise instant revocation propagation; it does not make models resistant to prompt injection; and it does not encode human authorization thresholds — those must be set by the operator. The spec is explicit about these boundaries on this page."
+      }
+    }
+  ]
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:860px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d2a1a;border:1px solid #2ea043;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:32px;line-height:1.25;margin-bottom:14px}
+p.lead{font-size:17px;color:#9aa7b8;margin-bottom:22px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:26px;margin:18px 0}
+h2.sec{font-size:22px;margin:34px 0 12px}
+h3{font-size:18px;margin:18px 0 8px;color:#e6edf3}
+p{margin-bottom:14px;color:#c4ccd6}
+.step{border:1px solid #232b38;border-radius:12px;padding:20px 22px;margin:14px 0;background:#0e131c}
+.step .n{display:inline-block;background:#1c6ef2;color:#fff;font-weight:800;font-size:13px;width:30px;height:30px;line-height:30px;text-align:center;border-radius:999px;margin-bottom:10px}
+.step h3{margin:0 0 8px;font-size:18px}
+.step p{font-size:14.5px;margin-bottom:8px}
+.step .plain{background:#11161f;border-left:3px solid #1c6ef2;padding:12px 16px;font-size:14px;color:#9aa7b8;border-radius:0 8px 8px 0;margin:10px 0 0}
+.flow{display:flex;align-items:stretch;gap:0;margin:20px 0;flex-wrap:wrap}
+.fnode{background:#1c6ef2;color:#fff;font-weight:700;font-size:13.5px;padding:12px 14px;border-radius:10px;flex:1;min-width:130px;text-align:center}
+.farrow{align-self:center;font-size:22px;color:#6b7688;padding:0 6px}
+.ex{background:#0d1f16;border:1px solid #2ea043;border-radius:12px;padding:22px;margin:18px 0}
+.ex h3{margin-top:0;color:#7ee787}
+.ex p,.ex li{font-size:14.5px;color:#c4ccd6}
+.ex ol{margin:10px 0 0 20px}
+.ex li{margin-bottom:8px}
+.notcover{background:#1a0e0e;border:1px solid #f85149;border-radius:12px;padding:22px;margin:18px 0}
+.notcover h3{color:#ff7b72;margin-top:0}
+.notcover li{font-size:14.5px;color:#c4ccd6;margin-bottom:8px;list-style:none}
+.notcover li::before{content:"✕ ";color:#f85149}
+.repo{background:#11161f;border:1px dashed #3a4656;border-radius:12px;padding:22px;margin:18px 0;text-align:center}
+.repo p{font-size:14px;margin-bottom:10px}
+.repo a{font-size:16px;font-weight:700}
+.faq-item{border-bottom:1px solid #232b38;padding:16px 0}
+.faq-item h3{font-size:17px;margin-bottom:8px}
+.faq-item p{font-size:14.5px;margin:0}
+.more{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:16px}
+.more a{display:block;background:#0e131c;border:1px solid #232b38;border-radius:10px;padding:14px 16px;text-decoration:none}
+.more a:hover{border-color:#1c6ef2}
+.more a b{color:#e6edf3;font-size:15px}
+.more a span{display:block;color:#9aa7b8;font-size:13px;margin-top:4px}
+.cta{background:#0d1f16;border:1px solid #2ea043;border-radius:12px;padding:26px;margin:26px 0;text-align:center}
+.cta h2{font-size:22px;margin-bottom:10px}
+.cta p{font-size:15px;margin-bottom:16px}
+.cta a{display:inline-block;background:#2ea043;color:#fff;font-weight:700;padding:12px 28px;border-radius:999px;text-decoration:none;font-size:16px}
+.cta a:hover{background:#3fb950}
+.small{font-size:13px;color:#9aa7b8}
+a{color:#6ea8fe}
+code{background:#1a2332;padding:2px 7px;border-radius:6px;font-size:13.5px;color:#ffce63}
+</style>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<div class="badge">SPEC · VERSION 0.1 · READABLE DRAFT</div>
+<h1>Agent to Agent Protocol: The Trust Spec</h1>
+<p class="lead">AI agents are starting to collaborate with each other — one agent delegating a refund to a finance agent, a research agent handing off to a visualization agent, a support agent calling a diagnostic agent built by a completely different vendor. Agents collaborating without verification is the next supply-chain hole: every delegation is a trust decision nobody logged. This is a readable specification for making that trust explicit.</p>
+
+<h2 class="sec">What the Agent Trust Protocol is</h2>
+<p>An <strong>agent-to-agent protocol</strong> is a shared standard that lets AI agents built by different vendors, on different frameworks, discover each other, negotiate what they may do, delegate work, and exchange results — without custom integration code for every possible pairing. Google's A2A protocol (introduced April 2025, donated to the Linux Foundation in June 2025) is the best-known example: agents publish capability "agent cards," exchange task objects, and stream progress updates. Think of MCP as the wiring between an agent and its tools; A2A is the phone line between two working agents.</p>
+<p>The <strong>Agent Trust Protocol</strong> builds on that idea with an explicit security layer: before any delegation happens, the agents verify each other through four steps — capability attestation, permission handshake, session binding, and an audit trail. It is a trust ceremony for machine-to-machine delegation.</p>
+
+<h2 class="sec">The protocol flow, in plain English</h2>
+<div class="flow">
+<div class="fnode">Capability attestation</div><div class="farrow">→</div>
+<div class="fnode">Permission handshake</div><div class="farrow">→</div>
+<div class="fnode">Session binding</div><div class="farrow">→</div>
+<div class="fnode">Audit trail</div>
+</div>
+
+<div class="step"><span class="n">1</span><h3>Capability attestation</h3>
+<p>The requesting agent presents a signed, machine-checkable statement of what it is and what it claims it can do: its identity, its tools, its data-access limits — cryptographically signed so the receiving agent can verify it was not tampered with. Think of it as showing ID and credentials at the door.</p>
+<div class="plain">Plain English: "Here is who I am, here is what I can do, and here is proof I did not forge this."</div></div>
+
+<div class="step"><span class="n">2</span><h3>Permission handshake</h3>
+<p>Both agents agree on a narrow, explicit scope for this one task — which actions are allowed, which data may be read, what is off-limits — and both record that agreement. The scope is the smallest set of permissions that completes the task. If the task needs more, a new handshake happens.</p>
+<div class="plain">Plain English: "You may read these three files and write this one report. Nothing else. We both sign that."</div></div>
+
+<div class="step"><span class="n">3</span><h3>Session binding</h3>
+<p>The agreed scope is locked into a time-limited session token that travels with every subsequent request. Any attempt to step outside the scope — a new tool, a wider data query, a longer-lived action — invalidates the binding and re-triggers the handshake. Permissions cannot quietly expand mid-task.</p>
+<div class="plain">Plain English: "Your pass works for 15 minutes and only opens these doors. Try another door and the pass stops working."</div></div>
+
+<div class="step"><span class="n">4</span><h3>Audit trail</h3>
+<p>Every delegation — who asked, who acted, what scope was granted, what was produced — is written to an append-only, hash-chained log. When something goes wrong, the full chain of who-did-what is reconstructable, step by step, back to the original requester.</p>
+<div class="plain">Plain English: "Everything is written down in a ledger nobody can edit, so blame is traceable."</div></div>
+
+<h2 class="sec">Worked example: the refund</h2>
+<div class="ex">
+<h3>A customer-support agent asks a finance agent to issue a $40 refund</h3>
+<ol>
+<li><strong>Attestation.</strong> The support agent presents its signed attestation: identity <code>support-agent-7</code>, tools: <code>read_tickets</code>, <code>request_refund</code>. The finance agent verifies the signature and checks the attestation issuer.</li>
+<li><strong>Handshake.</strong> They agree: the finance agent may execute exactly one refund of up to $50 for ticket <code>#8812</code>, read-only access to that ticket's billing record, no access to other customers. Both record the agreement.</li>
+<li><strong>Binding.</strong> A 10-minute session token encodes the scope. The finance agent issues the $40 refund. If it then tried to pull the customer's full payment history, the binding would fail and a fresh handshake would be required.</li>
+<li><strong>Audit.</strong> The ledger records: support-agent-7 requested refund($40, ticket #8812) at 14:02; finance-agent-3 executed at 14:03 under session scope; both attestations and the handshake are linked. A later dispute resolves in minutes, not days.</li>
+</ol>
+</div>
+
+<h2 class="sec">Why this matters now</h2>
+<p>Multi-agent systems are shipping into production: orchestrators splitting work across specialist agents, agents from different vendors chained together, long-running delegations that stream progress for minutes or hours. Each delegation crosses a trust boundary — and today most of those boundaries are crossed on vibes: no attestation, no agreed scope, no binding, no audit trail. That is the next supply-chain hole. The protocol does not ask you to trust agents more; it gives you something checkable instead of trust.</p>
+
+<div class="notcover">
+<h3>What this spec does NOT cover</h3>
+<ul>
+<li>It does not guarantee how an agent's underlying model behaves inside its granted scope.</li>
+<li>It does not resolve legal liability for what an agent does — no protocol assigns blame in court.</li>
+<li>It does not do cross-company identity resolution (who vouches for an agent from another organization).</li>
+<li>It does not promise instant revocation propagation across every participant.</li>
+<li>It does not make models resistant to prompt injection or other input attacks.</li>
+<li>It does not set human authorization thresholds — which actions require a human's approval is an operator decision, enforced by tools like an agent auth gateway.</li>
+</ul>
+<p class="small" style="margin:12px 0 0">A spec that pretends to cover these is selling something. This one names its boundaries.</p>
+</div>
+
+<div class="repo">
+<p><strong>Open specification — repo publishing</strong><br><span class="small">The reference spec and implementation notes are being published to the public repository below.</span></p>
+<a href="https://github.com/Iceman2050/agent-trust-protocol">github.com/Iceman2050/agent-trust-protocol</a>
+</div>
+
+<div class="cta">
+<h2>Enforce agent trust in production</h2>
+<p>Agent Auth Gateway by Ingenious AI puts this thinking into practice: budget caps, allowlists and denylists, an approval queue for sensitive actions, and a kill switch — the control plane for agents you don't fully trust yet.</p>
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway.">Get early access on WhatsApp</a>
+</div>
+
+<h2 class="sec">Frequently asked questions</h2>
+<div class="faq-item"><h3>What is the agent to agent protocol?</h3><p>An agent-to-agent protocol is a shared standard that lets AI agents built by different vendors and frameworks communicate and collaborate without custom integration code for every pairing. Google's A2A (April 2025, now under the Linux Foundation) is the best-known example, using agent cards for discovery, JSON-RPC messaging, and a task lifecycle. The Agent Trust Protocol adds an explicit security layer on that idea: capability attestation, permission handshake, session binding, and an audit trail.</p></div>
+<div class="faq-item"><h3>How does the agent to agent protocol work?</h3><p>In four steps: capability attestation (a signed, checkable statement of who the agent is and what it can do), a permission handshake (both sides agree a narrow scope for the task), session binding (the scope is locked into a time-limited session token; escalation re-triggers the handshake), and an audit trail (every delegation logged so the full chain is reconstructable).</p></div>
+<div class="faq-item"><h3>What is the difference between A2A and MCP?</h3><p>MCP (Model Context Protocol) is the wiring between an agent and its tools — often described as USB-C for AI tools. A2A is the line between two working agents — the networking layer for agent collaboration. One agent querying five systems needs only MCP; a workflow split across four specialist agents needs A2A too. They sit at different layers of the same stack.</p></div>
+<div class="faq-item"><h3>Is the agent to agent protocol secure?</h3><p>The protocol defines how agents authenticate, scope, and audit their collaboration — it does not make the underlying agents trustworthy. It cannot guarantee model behavior, prevent prompt injection in the models themselves, or assign legal liability. Security comes from applying the protocol strictly (narrow scopes, signed attestations, full audit trails) plus defense-in-depth around it, such as an agent authorization gateway.</p></div>
+<div class="faq-item"><h3>What does the Agent Trust Protocol not cover?</h3><p>It does not guarantee model behavior inside a granted scope; it does not resolve legal liability; it does not do cross-company identity resolution; it does not promise instant revocation propagation; it does not make models prompt-injection resistant; and it does not set human authorization thresholds — those are operator decisions. The spec names these boundaries explicitly above.</p></div>
+
+<h2 class="sec">More from Ingenious AI</h2>
+<div class="more">
+<a href="agent-permissions-quiz.html"><b>Agent Permissions Quiz</b><span>What should your agent be allowed to do?</span></a>
+<a href="agent-prenup.html"><b>The Agent Prenup</b><span>The agreement every agent signs first</span></a>
+<a href="agent-crash-test.html"><b>Agent Crash Test</b><span>Stress-test an agent before it touches production</span></a>
+<a href="agent-autopsy-report.html"><b>Agent Autopsy Report</b><span>Dissecting failed agents, dated and sourced</span></a>
+<a href="ai-agent-airgap-check.html"><b>AI Agent Airgap Check</b><span>Should this agent touch the network?</span></a>
+<a href="all-links.html"><b>All tools — the hub</b><span>Every Ingenious AI security tool in one place</span></a>
+<a href="security-suite.html"><b>The Security Suite</b><span>All 11 platforms, one page</span></a>
+</div>
+
+</div>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
