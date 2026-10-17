@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI DFIR Toolkit — Can Your Detection Stack See AI Attacks? 5-Question Check</title>
+<meta name="description" content="The open-source AI DFIR Toolkit ships 161 vendor-neutral Sigma/YARA/Suricata signatures for prompt injection, MCP attacks, model supply-chain implants, RAG poisoning and agent-memory forensics. Free 5-question check: can your stack detect AI attacks today?">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-dfir-detection-pack-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="161 open-source detection rules for AI attacks — can your stack see them?">
+<meta property="og:description" content="Prompt injection, MCP tool poisoning, poisoned models, RAG attacks, agent memory forensics — 9 attack classes, free signatures. 5-question detection readiness check.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-dfir-detection-pack-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI DFIR detection pack — 5-question readiness check">
+<meta name="twitter:description" content="161 free Sigma/YARA/Suricata signatures for AI/ML attacks. Check whether your detection stack covers them.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d1a0f;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+h1 .green{color:#3fb950}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{border:1px solid #2a3342;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#161d29;color:#fff}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.q p{font-size:16px;margin-bottom:12px;color:#fff}
+.q .opts{display:flex;gap:10px;flex-wrap:wrap}
+.q button{flex:1;min-width:120px;background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px;font-size:15px;font-weight:600;cursor:pointer}
+.q button:hover{border-color:#1c6ef2}
+.q button.sel-yes{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.q button.sel-no{background:#2b1215;border-color:#f85149;color:#ffa198}
+.q button:disabled{cursor:default;opacity:.85}
+#verdict{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+#verdict.good{border-color:#3fb950;background:#0d1a0f}
+#verdict.bad{border-color:#f85149;background:#1a0f0f}
+#verdict b.verd{font-size:19px;letter-spacing:.5px}
+.sharebox{margin-top:16px;display:none;background:#0b0f17;border:1px dashed #2a3342;border-radius:8px;padding:14px 16px}
+.sharebox p{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+#sharetext{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical;min-height:64px}
+.copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+.warnbox{max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"AI Attack Detection Readiness Check","applicationCategory":"SecurityApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-dfir-detection-pack-check.html","description":"Five questions that score whether your detection stack can see AI/ML attacks — prompt injection, MCP abuse, model supply-chain implants, RAG poisoning, agent memory forensics — spotlighting the open-source AI DFIR Toolkit's 161 vendor-neutral signatures.","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is the AI DFIR Toolkit?","acceptedAnswer":{"@type":"Answer","text":"A public, Apache-2.0-licensed collection (depalmar/ai-dfir-toolkit on GitHub) of 161 vendor-neutral detection signatures — Sigma, YARA, and Suricata rules — covering nine AI attack classes: LLM prompt injection, MCP attacks, model supply-chain compromise, AI infrastructure abuse, Copilot/assistant abuse, RAG and vector-database attacks, runtime AI malware, agentic orchestration, and agent memory forensics."}},
+{"@type":"Question","name":"Which AI attack classes does the pack cover?","acceptedAnswer":{"@type":"Answer","text":"Prompt injection and jailbreaks, MCP tool poisoning and config tampering, poisoned pickle models and HuggingFace supply-chain attacks, ShadowRay-style AI infrastructure compromise, M365/GitHub Copilot abuse, vector-database exposure and RAG poisoning, malware that calls LLM APIs at runtime, AI services used as command-and-control, and memory/context poisoning as persistence."}},
+{"@type":"Question","name":"How do you deploy vendor-neutral Sigma rules?","acceptedAnswer":{"@type":"Answer","text":"Convert them to your SIEM's query language with pySigma backends (e.g. sigma-cli to Lucene for Elastic/Kibana). YARA rules scan model directories, MCP configs, and memory artifacts on EDR platforms; Suricata rules drop into your IDS for network detection of vector-DB exfiltration and model theft."}},
+{"@type":"Question","name":"What forensic artifacts do AI coding agents leave behind?","acceptedAnswer":{"@type":"Answer","text":"Install paths, credential storage locations, MCP configuration files, listening ports, process relationships, and registry keys — catalogued for eleven tool categories (local LLM runtimes, coding agents and IDEs, agent frameworks, CLIs, workflow engines, browser agents, computer-use agents, MCP hosts, cloud agents, code-completion tools, code-execution agents), each rated by forensic value for incident-response triage."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free security checks</a>
+<div class="badge">OPEN SOURCE SPOTLIGHT &mdash; depalmar/ai-dfir-toolkit &middot; APACHE 2.0</div>
+<h1>Your SIEM watches for malware. <span class="red">Does it watch for AI attacks?</span></h1>
+<p class="lead">Prompt injection, MCP tool poisoning, poisoned AI models, RAG attacks, agents used as command-and-control &mdash; these don't look like "normal" intrusions, and most detection stacks are blind to them. The <strong>AI DFIR Toolkit</strong> answers with <strong>161 free, vendor-neutral detection signatures</strong> (Sigma, YARA, Suricata) across 9 AI attack classes. Five questions to check whether your stack can see any of it.</p>
+
+<p class="answer"><strong>Short answer:</strong> if you can't name a detection for prompt injection, MCP config tampering, or a poisoned model file in your environment, your AI footprint is flying blind. The pack's rules deploy anywhere via open formats &mdash; no vendor lock-in &mdash; and its artifact catalog tells responders exactly where AI agents leave forensic traces. Check your coverage below.</p>
+
+<div class="card">
+<h2>The 60-second AI-Attack Detection Check</h2>
+<p class="note">Answer for the environment you defend.</p>
+<div id="quiz"></div>
+<div id="verdict" role="status" aria-live="polite"></div>
+<div class="sharebox" id="sharebox">
+<p>Share your result:</p>
+<textarea id="sharetext" readonly></textarea>
+<button class="copybtn" id="copybtn">Copy result text</button>
+</div>
+</div>
+
+<div class="card">
+<h2>What the pack actually contains (verified from the repo)</h2>
+<ul>
+<li><strong>161 signatures in 70 rule files</strong>, Apache 2.0, mapped to MITRE ATLAS, ATT&amp;CK, and the OWASP LLM + Agentic 2026 lists. Counts are CI-gated so the README can't drift from reality.</li>
+<li><strong>Open formats only:</strong> Sigma <code>.yml</code> (any SIEM via pySigma), YARA <code>.yar</code> (EDR, file/memory scanning), Suricata <code>.rules</code> (network IDS). No vendor query languages.</li>
+</ul>
+<table>
+<tr><th>Attack class</th><th>Signatures</th><th>Examples</th></tr>
+<tr><td>LLM prompt injection</td><td>10</td><td>Jailbreaks, indirect injection, system-prompt extraction</td></tr>
+<tr><td>MCP attacks</td><td>14</td><td>Tool poisoning, config tampering, rug pulls</td></tr>
+<tr><td>Model supply chain</td><td>23</td><td>Pickle exploits, HuggingFace implants, dependency confusion</td></tr>
+<tr><td>AI infrastructure</td><td>31</td><td>ShadowRay, Triton, MLflow, GPU abuse</td></tr>
+<tr><td>Copilot / assistant abuse</td><td>19</td><td>M365 Copilot, GitHub Copilot, Claude, Cursor misuse</td></tr>
+<tr><td>RAG / vector DB</td><td>17</td><td>Vector-DB exposure, RAG poisoning</td></tr>
+<tr><td>Runtime AI malware</td><td>16</td><td>Malware calling LLM APIs at runtime</td></tr>
+<tr><td>Agentic orchestration</td><td>12</td><td>Agent-as-operator, AI service API as C2</td></tr>
+<tr><td>Agent memory forensics</td><td>5</td><td>Memory as persistence, context poisoning</td></tr>
+<tr><td>Endpoint (cross-tool)</td><td>14</td><td>Agent behaviour on host + osquery inventory pack</td></tr>
+</table>
+<ul>
+<li><strong>Artifact catalog:</strong> machine-readable forensic inventory for 11 AI-tool categories &mdash; install paths, credential stores, MCP configs, ports, process trees &mdash; each rated by forensic value, with KAPE targets, Velociraptor artifacts, and ForensicArtifacts exports for Plaso/GRR/Timesketch.</li>
+<li><strong>Threat intel layer:</strong> 20 actor profiles, 22 case studies with 221 indicators, STIX 2.1 bundle for OpenCTI/MISP, weekly framework-pin refreshes.</li>
+<li><strong>Investigation guide + CACAO v2.0 playbooks</strong> with Mermaid attack-chain diagrams and hands-on procedures; a test suite (15 passes expected) validates rule correctness.</li>
+</ul>
+<p class="src">Sources: <a href="https://github.com/depalmar/ai-dfir-toolkit" target="_blank" rel="noopener">depalmar/ai-dfir-toolkit (GitHub)</a> &middot; <a href="https://depalmar.github.io/ai-dfir-toolkit" target="_blank" rel="noopener">browseable artifact catalog</a></p>
+</div>
+
+<div class="card">
+<h2>Three things to know before you deploy it</h2>
+<h3>1. Rules err toward signal &mdash; tune them anyway</h3>
+<p>Every rule ships with documented false-positive scenarios and severity levels; the recommended rollout is 7 days in a test index, triage, tune, then promote <code>high</code>+ to production.</p>
+<h3>2. Keyword rules need the right field mapping</h3>
+<p>On Elastic, matched content fields must be analyzed <code>text</code>, not <code>keyword</code> &mdash; a keyword mapping matches case-sensitively and silently misses capitalized attacker input.</p>
+<h3>3. Detection is half the battle &mdash; collection is the other</h3>
+<p>The catalog's triage scripts (PowerShell/bash) and Velociraptor/KAPE commands answer the "which hosts have this" question Sigma rules can't. Pair detection with the collection plan.</p>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#fff;text-decoration:underline">Agent Flight Recorder</a> is SHA-256 hash-chained agent logging &mdash; tamper-evident forensic evidence of everything your AI agents did, ready for incident response.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20AI%20DFIR%20detection%20check%20and%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<footer>
+Built by Ingenious AI &mdash; an independent security take, not an endorsement. Pack facts verified from the public repo.<br>
+AI DFIR Toolkit by depalmar &middot; Apache 2.0 &middot; independent personal project, not affiliated with any employer
+</footer>
+</div>
+
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=161%20free%20open-source%20detection%20rules%20for%20AI%20attacks%20(prompt%20injection%2C%20MCP%20abuse%2C%20poisoned%20models%2C%20RAG%20attacks)%20%E2%80%94%205%20questions%20to%20check%20whether%20your%20stack%20can%20see%20any%20of%20it&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ai-dfir-detection-pack-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ai-dfir-detection-pack-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ai-dfir-detection-pack-check.html&title=AI%20DFIR%20Toolkit%3A%20161%20free%20Sigma%2FYARA%2FSuricata%20signatures%20for%20AI%20attacks%20%E2%80%94%205-question%20detection%20readiness%20check" target="_blank" rel="noopener">Reddit</a></div>
+<div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<script>
+(function(){
+var QUESTIONS=[
+"1. Could your SIEM name a detection that fires on PROMPT INJECTION or jailbreak attempts against your LLM apps today?",
+"2. Do you monitor MCP server configs and tool definitions for poisoning or tampering (not just uptime)?",
+"3. Do you scan AI models and artifacts (pickle files, HuggingFace downloads) for supply-chain implants before deployment?",
+"4. Do you have network detection for vector-database / model exfiltration or AI services abused as command-and-control?",
+"5. Can you inventory AI agent artifacts on your endpoints right now (install paths, credential stores, MCP configs)?"
+];
+var PAGE="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-dfir-detection-pack-check.html";
+var answers=new Array(QUESTIONS.length).fill(null);
+var quiz=document.getElementById("quiz");
+QUESTIONS.forEach(function(q,i){
+  var d=document.createElement("div");d.className="q";
+  d.innerHTML="<p>"+q+"</p><div class='opts'></div>";
+  var opts=d.querySelector(".opts");
+  [["Yes",1,"sel-yes"],["No",0,"sel-no"]].forEach(function(pair){
+    var b=document.createElement("button");b.textContent=pair[0];
+    b.onclick=function(){answer(i,pair[1],d);};
+    opts.appendChild(b);
+  });
+  quiz.appendChild(d);
+});
+function answer(i,val,div){
+  answers[i]=val;
+  var btns=div.querySelectorAll("button");
+  btns[0].className=val===1?"sel-yes":"";
+  btns[1].className=val===0?"sel-no":"";
+  btns.forEach(function(b){b.disabled=true;});
+  if(answers.every(function(a){return a!==null;}))showVerdict();
+}
+function showVerdict(){
+  var score=answers.reduce(function(a,b){return a+b;},0);
+  var v=document.getElementById("verdict");
+  var label,cls,advice;
+  if(score<=2){label="BLIND TO AI ATTACKS \u2014 start with the pack";cls="bad";
+    advice="With "+(5-score)+" of 5 detection classes missing, an AI incident in your environment would be investigated with no signatures and no artifact map. Start with the pack's Sigma rules in a test index for 7 days (its own recommended rollout), and run the osquery inventory pack to learn which hosts even run AI agents.";}
+  else if(score<=3){label="PARTIAL COVERAGE \u2014 mind the gaps";cls="";
+    advice="You have "+score+" of 5. The classes teams miss most: agent memory/context forensics and MCP config tampering \u2014 both are persistence techniques that survive a password reset. The pack's endpoint set and artifact catalog close exactly those gaps.";}
+  else{label="COVERED \u2014 keep the pins fresh";cls="good";
+    advice="Prompt injection, supply chain, exfil, endpoint inventory \u2014 all watched. Keep it that way: the pack's framework pins (ATLAS, ATT&CK, OWASP LLM/Agentic 2026) refresh weekly, and new public reporting lands as intel candidates. Detection content rots fast in AI security.";}
+  v.className=cls;v.style.display="block";
+  v.innerHTML="<b class='verd'>"+score+"/5 \u2014 "+label+"</b><br><br>"+advice;
+  document.getElementById("sharetext").value="I scored "+score+"/5 on the AI-attack detection check \u2014 161 free open-source signatures for prompt injection, MCP abuse, poisoned models and more. Check your stack: "+PAGE;
+  document.getElementById("sharebox").style.display="block";
+  v.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("copybtn").onclick=function(){
+  var t=document.getElementById("sharetext");var btn=this;
+  function done(){var o=btn.textContent;btn.textContent="Copied!";setTimeout(function(){btn.textContent=o;},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();try{document.execCommand("copy");done();}catch(e){}});}
+  else{t.select();try{document.execCommand("copy");done();}catch(e){}}
+};
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
