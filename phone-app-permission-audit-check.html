@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phone App Permission Audit — 5-Question Check (Free)</title>
+<meta name="description" content="Free VPNs with no website, flashlight apps with your contacts, abandoned apps you forgot — a 5-minute audit of what your phone is really sharing. Free 5-question check with honest corrections.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/phone-app-permission-audit-check.html">
+<link rel="stylesheet" href="ecosystem.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="What is your phone really sharing? 5-minute app permission audit">
+<meta property="og:description" content="Free VPNs, abandoned apps, sideloaded keyboards — 5 questions to audit what your phone leaks. Free check.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/phone-app-permission-audit-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Phone app permission audit — 5-question check">
+<meta name="twitter:description" content="Audit what your phone shares: permissions, abandoned apps, free VPNs, sideloaded keyboards.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1a0f0f;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+h1 .green{color:#3fb950}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.q p{font-size:16px;margin-bottom:12px;color:#fff}
+.q .opts{display:flex;gap:10px;flex-wrap:wrap}
+.q button{flex:1;min-width:120px;background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px;font-size:15px;font-weight:600;cursor:pointer}
+.q button:hover{border-color:#1c6ef2}
+.q button.sel-yes{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.q button.sel-no{background:#2b1215;border-color:#f85149;color:#ffa198}
+.q button:disabled{cursor:default;opacity:.85}
+#verdict{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+#verdict.good{border-color:#3fb950;background:#0d1a0f}
+#verdict.bad{border-color:#f85149;background:#1a0f0f}
+#verdict b.verd{font-size:19px;letter-spacing:.5px}
+.sharebox{margin-top:16px;display:none;background:#0b0f17;border:1px dashed #2a3342;border-radius:8px;padding:14px 16px}
+.sharebox p{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+#sharetext{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical;min-height:64px}
+.copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+.warnbox{max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Phone App Permission Audit","applicationCategory":"SecurityApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/phone-app-permission-audit-check.html","description":"Five questions that audit what your phone really shares — permission reviews, free VPNs, abandoned apps, sideloaded keyboards, and over-permissioned utilities — with honest corrections to viral claims.","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Can a flashlight app copy my entire address book?","acceptedAnswer":{"@type":"Answer","text":"Only if you granted it contacts permission. On modern Android and iOS, apps cannot silently read your contacts, microphone, or location without an explicit permission grant that you can review and revoke in Settings. The real risk is permissions you granted long ago and forgot — which is why a permission audit matters more than fear of any single app."}},
+{"@type":"Question","name":"Are free VPNs dangerous?","acceptedAnswer":{"@type":"Answer","text":"A VPN routes all your traffic through the provider's servers, so a shady free VPN can see and monetize your browsing — researchers and regulators have repeatedly caught free VPNs logging and selling user data. Use a VPN from a company with a real website, a published privacy policy, and independent audits — or none at all."}},
+{"@type":"Question","name":"Why are old, un-updated apps a risk?","acceptedAnswer":{"@type":"Answer","text":"Abandoned apps stop receiving security patches, so known vulnerabilities stay open. Worse, app ownership can change hands — updates from a new owner can add data collection you never agreed to. If you haven't opened an app in 6+ months, delete it."}},
+{"@type":"Question","name":"Are third-party keyboard apps safe?","acceptedAnswer":{"@type":"Answer","text":"A keyboard sees everything you type, including passwords. Keyboards sideloaded from outside official app stores bypass review entirely and are a genuine keylogging risk. Stick to your OS default keyboard or a well-known keyboard from the official store, and never grant a keyboard network access it doesn't need."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free security checks</a>
+<div class="badge">PHONE HYGIENE &mdash; 5-MINUTE AUDIT</div>
+<h1>Your phone isn't hacked. <span class="red">It's just oversharing.</span></h1>
+<p class="lead">A viral post says <strong>"delete these apps tonight"</strong> &mdash; free VPNs with no website, flashlight apps holding your contacts, abandoned apps, sideloaded keyboards. The fear is overblown in places, but the underlying advice is sound: <strong>most phones leak through permissions you granted years ago and forgot.</strong> Five questions, five minutes, honest answers &mdash; including where the viral claims go too far.</p>
+
+<p class="answer"><strong>Short answer:</strong> on modern phones, no app silently steals your address book &mdash; <em>you</em> handed over the permissions. The fix isn't panic-deleting; it's a permission audit: check what each app can access, delete what you don't use, and kill the free VPN from a developer with no website. Do the five below.</p>
+
+<div class="card">
+<h2>The 60-second Phone Permission Audit</h2>
+<p class="note">Answer for the phone you carry.</p>
+<div id="quiz"></div>
+<div id="verdict" role="status" aria-live="polite"></div>
+<div class="sharebox" id="sharebox">
+<p>Share your result:</p>
+<textarea id="sharetext" readonly></textarea>
+<button class="copybtn" id="copybtn">Copy result text</button>
+</div>
+</div>
+
+<div class="card">
+<h2>The 5-minute audit — do it now</h2>
+<h3>1. Review permissions (the highest-leverage 2 minutes)</h3>
+<p>Android: <strong>Settings &rarr; Privacy &rarr; Permission Manager</strong> &mdash; tap Contacts, Microphone, Location, Camera and revoke anything that doesn't need it. iPhone: <strong>Settings &rarr; Privacy &amp; Security</strong> &mdash; same review. A flashlight with your contacts is a revoke, not a scandal.</p>
+<h3>2. Delete the free VPN with no website</h3>
+<p>A VPN sees <em>all</em> your traffic. Free VPNs from anonymous developers have been repeatedly caught logging and selling user data. Keep a reputable one or none.</p>
+<h3>3. Delete apps you haven't opened in 6+ months</h3>
+<p>Abandoned apps don't get security patches, and ownership can change hands &mdash; a new owner can push an update that adds data collection you never agreed to.</p>
+<h3>4. Kill the sideloaded keyboard</h3>
+<p>A keyboard sees every password you type. Anything installed from outside the Play Store / App Store skipped review entirely. Go back to the default.</p>
+<h3>5. Check the "free" utilities</h3>
+<p>QR scanners, cleaners, photo editors, song identifiers &mdash; if it's free, ask what it collects. Check its permissions; check whether the developer has a real website and privacy policy.</p>
+</div>
+
+<div class="card">
+<h2>Where the viral post overreaches (honest corrections)</h2>
+<ul>
+<li><strong>"A flashlight is building a copy of your entire address book."</strong> &mdash; Only if you granted it contacts access. Modern OSes require explicit permission grants. The danger is real but it's <em>your forgotten grants</em>, not silent theft.</li>
+<li><strong>"My cousin in cybersecurity said…"</strong> &mdash; Unverifiable authority. The advice stands on its own merits; it doesn't need an anonymous cousin.</li>
+<li><strong>What it gets right:</strong> free VPNs from no-name developers, sideloaded keyboards, and abandoned apps are genuinely among the highest-risk things on a phone. The permission-manager check is the single best habit in the list.</li>
+</ul>
+<p class="src">Note: the originating post also promoted the author's own "make money with AI" training &mdash; it's marketing content. The hygiene advice above is evaluated on its own merits.</p>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#fff;text-decoration:underline">BreachHunter</a> finds the exposures attackers see first &mdash; audit your phone, then audit everything else.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20phone%20permission%20audit%20and%20want%20early%20access%20to%20BreachHunter." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<footer>
+Built by Ingenious AI &mdash; an independent security take, not an endorsement. Advice evaluated on its own merits; viral claims corrected where they overreach.<br>
+This page is general information, not legal advice.
+</footer>
+</div>
+
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=Your%20phone%20isn%27t%20hacked%20%E2%80%94%20it%27s%20oversharing.%205-minute%20app%20permission%20audit%2C%20free&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/phone-app-permission-audit-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/phone-app-permission-audit-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/phone-app-permission-audit-check.html&title=Phone%20app%20permission%20audit%3A%205%20questions%20on%20what%20your%20phone%20really%20shares" target="_blank" rel="noopener">Reddit</a></div>
+<div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<script>
+(function(){
+var QUESTIONS=[
+"1. Have you reviewed which apps can access your CONTACTS, MICROPHONE, LOCATION and CAMERA in the last 3 months?",
+"2. Is there a FREE VPN on your phone from a developer with no real website or privacy policy?",
+"3. Do you still have apps installed that you have not opened or updated in 6+ months?",
+"4. Have you ever installed a KEYBOARD app from outside the official app store, or granted a keyboard full access?",
+"5. Do free utility apps (flashlight, QR scanner, cleaner, photo editor, song finder) on your phone hold permissions they do not need?"
+];
+var INVERT=[true,false,false,false,false];
+var PAGE="https://iceman2050.github.io/ingeniousai-security-checks-mirror/phone-app-permission-audit-check.html";
+var answers=new Array(QUESTIONS.length).fill(null);
+var quiz=document.getElementById("quiz");
+QUESTIONS.forEach(function(q,i){
+  var d=document.createElement("div");d.className="q";
+  d.innerHTML="<p>"+q+"</p><div class='opts'></div>";
+  var opts=d.querySelector(".opts");
+  [["Yes",1,"sel-yes"],["No",0,"sel-no"]].forEach(function(pair){
+    var b=document.createElement("button");b.textContent=pair[0];
+    b.onclick=function(){answer(i,pair[1],d);};
+    opts.appendChild(b);
+  });
+  quiz.appendChild(d);
+});
+function good(i,val){
+  // Q1: Yes=good. Q2-Q5: No=good (risk questions).
+  return INVERT[i] ? val===1 : val===0;
+}
+function answer(i,val,div){
+  answers[i]=good(i,val)?1:0;
+  var btns=div.querySelectorAll("button");
+  var yesFirst=true;
+  btns[0].className=(val===1)?(good(i,1)?"sel-yes":"sel-no"):"";
+  btns[1].className=(val===0)?(good(i,0)?"sel-yes":"sel-no"):"";
+  btns.forEach(function(b){b.disabled=true;});
+  if(answers.every(function(a){return a!==null;}))showVerdict();
+}
+function showVerdict(){
+  var score=answers.reduce(function(a,b){return a+b;},0);
+  var v=document.getElementById("verdict");
+  var label,cls,advice;
+  if(score<=2){label="LEAKING \u2014 audit tonight";cls="bad";
+    advice="With "+(5-score)+" of 5 working against you, your phone is sharing more than you think. Tonight: open Permission Manager (Android) or Privacy & Security (iPhone), revoke what apps don't need, delete the abandoned ones, and remove any free VPN with no website.";}
+  else if(score<=3){label="MOSTLY TIGHT \u2014 a few leaks";cls="";
+    advice="You have "+score+" of 5. The usual leftover: one old app you forgot, or one utility with permissions from install day. Finish the audit — the last 20% is where the forgotten grants hide.";}
+  else{label="LOCKED DOWN";cls="good";
+    advice="Permissions reviewed, no shady VPN, no abandoned apps, no sideloaded keyboards, utilities on a need-to-know basis. Re-run this audit every few months — apps update, ownership changes, and permissions creep back.";}
+  v.className=cls;v.style.display="block";
+  v.innerHTML="<b class='verd'>"+score+"/5 \u2014 "+label+"</b><br><br>"+advice;
+  document.getElementById("sharetext").value="I scored "+score+"/5 on the phone permission audit \u2014 what is your phone really sharing? Free 5-question check: "+PAGE;
+  document.getElementById("sharebox").style.display="block";
+  v.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("copybtn").onclick=function(){
+  var t=document.getElementById("sharetext");var btn=this;
+  function done(){var o=btn.textContent;btn.textContent="Copied!";setTimeout(function(){btn.textContent=o;},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();try{document.execCommand("copy");done();}catch(e){}});}
+  else{t.select();try{document.execCommand("copy");done();}catch(e){}}
+};
+})();
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
