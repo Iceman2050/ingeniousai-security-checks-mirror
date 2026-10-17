@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Agent-Security Briefing — Weekly Email from Ingenious AI</title>
+<meta name="description" content="One weekly email: the agent-security incidents that matter, new free checkers, and EU AI Act deadline reminders. From Ingenious AI.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/newsletter.html">
+<meta property="og:title" content="The Agent-Security Briefing — Weekly Email from Ingenious AI">
+<meta property="og:description" content="Agent incidents, new free checkers, disclosure deadline reminders. One email a week, no spam.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/newsletter.html">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{background:#070b12;color:#e8edf3;font-family:Arial,Helvetica,sans-serif;margin:0;padding:0}
+.wrap{max-width:720px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;font-size:12px;letter-spacing:2px;color:#6ea8fe;border:1px solid #1c6ef2;border-radius:20px;padding:6px 16px;margin-bottom:20px}
+h1{font-size:34px;margin:0 0 12px;line-height:1.2}
+.lede{font-size:17px;color:#9aa7b8;line-height:1.6;margin-bottom:28px}
+ul.get{list-style:none;padding:0;margin:0 0 28px}
+ul.get li{padding:10px 0 10px 34px;position:relative;font-size:15px;line-height:1.5;border-bottom:1px solid #16202f}
+ul.get li:before{content:"✓";position:absolute;left:8px;color:#3fb950;font-weight:bold}
+.bigform{background:#0d1420;border:1px solid #1c6ef2;border-radius:12px;padding:28px;text-align:center;margin-bottom:16px}
+.bigform input[type=email]{padding:12px 16px;border-radius:8px;border:1px solid #2a3a55;background:#0b0f17;color:#e8edf3;font-size:16px;min-width:min(300px,80%);margin-bottom:12px}
+.bigform button{padding:12px 32px;border-radius:8px;border:none;background:#1c6ef2;color:#fff;font-weight:bold;font-size:16px;cursor:pointer}
+.bigform button:hover{background:#3b82f6}
+#nl-msg{font-size:14px;color:#9aa7b8;margin-top:12px;line-height:1.6}
+#nl-msg a{color:#6ea8fe}
+.honest{font-size:13px;color:#5b6b82;line-height:1.6;margin-bottom:32px}
+h2{font-size:20px;margin:32px 0 12px}
+.sample{background:#0d1420;border:1px solid #223148;border-radius:10px;padding:18px 20px;margin-bottom:12px}
+.sample h3{margin:0 0 6px;font-size:15px;color:#6ea8fe}
+.sample p{margin:0;font-size:14px;color:#9aa7b8;line-height:1.5}
+.back{margin-top:32px;font-size:14px}
+.back a{color:#6ea8fe}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"The Agent-Security Briefing — Weekly Email from Ingenious AI","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/newsletter.html","publisher":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">INGENIOUS AI — EMAIL LIST</div>
+<h1>The Agent-Security Briefing</h1>
+<p class="lede">One email a week. The AI-agent security incidents that actually matter, every new free checker we ship, and EU AI Act deadline reminders before they bite. Read by builders who ship agents.</p>
+
+<ul class="get">
+<li><strong>Weekly incident roundup</strong> — prompt injections, agent breaches, supply-chain hits, distilled to what changes your defenses.</li>
+<li><strong>New checker alerts</strong> — every free tool we launch (badges, quizzes, calculators, scanners) hits your inbox first.</li>
+<li><strong>Disclosure deadline reminders</strong> — EU AI Act dates (Dec 2026, Aug 2027…) with what to do, before the fines do it for you.</li>
+<li><strong>Zero spam.</strong> Unsubscribe anytime, one click. We never sell your address.</li>
+</ul>
+
+<div class="bigform">
+<form id="nl-form">
+<input type="email" id="nl-email" placeholder="you@company.com" required aria-label="Email address" autocomplete="email"><br>
+<button type="submit">Join the briefing</button>
+<div id="nl-msg" role="status"></div>
+</form>
+</div>
+<p class="honest" id="nl-honest"></p>
+
+<h2>What a briefing looks like</h2>
+<div class="sample">
+<h3>Briefing #1 — sample</h3>
+<p>🔴 CERT-In's critical advisory on agents as attack vectors — the 5 demands, graded.<br>
+🛠️ New: AI Disclosure Badge Generator — 3 questions, embeddable badge.<br>
+⏰ 46 days to the first Digital Omnibus deadline (Dec 2, 2026).</p>
+</div>
+
+<p class="back"><a href="index.html">← All free checkers</a> · <a href="https://github.com/Iceman2050">GitHub: 47 open-source tools</a></p>
+</div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script>
+(function(){
+  var form = document.getElementById("nl-form");
+  var input = document.getElementById("nl-email");
+  var msg = document.getElementById("nl-msg");
+  var honest = document.getElementById("nl-honest");
+  var eco = window.IngeniousEcosystem;
+  if (eco && eco.endpoint()) {
+    honest.textContent = "You'll get a confirmation email right after signing up.";
+  } else {
+    honest.textContent = "Honest status (Oct 2026): our email service launches with the platforms on Nov 1. " +
+      "Sign up now and your address is saved on this device + optionally sent to us today via email — " +
+      "you'll be first in line when the first briefing goes out. We will never add you to anything you didn't ask for.";
+  }
+  form.addEventListener("submit", function(e){ eco.handleSignup(e, input, msg); });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

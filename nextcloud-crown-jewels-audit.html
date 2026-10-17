@@ -51,6 +51,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 {"@type":"Question","name":"Should I rotate passwords after patching CVE-2026-110447?","acceptedAnswer":{"@type":"Answer","text":"If your server was reachable and vulnerable at any point in September–October 2026, yes: rotate every secret the web-server account could read — database credentials, app passwords, API keys — and move sensitive files out of web-readable paths. Patching closes the hole; it doesn't undo access that already happened."}}
 ]}
 </script>
+<link rel="stylesheet" href="ecosystem.css">
 </head>
 <body>
 <div class="wrap">
@@ -132,6 +133,8 @@ CVE-2026-110447 &middot; defensive audit only &middot; assume www-data-readable 
   upd();
 })();
 </script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

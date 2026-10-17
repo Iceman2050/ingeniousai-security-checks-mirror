@@ -1,0 +1,30 @@
+/* Ingenious AI — shared ecosystem footer styles.
+ * Every mirror page should link this in <head>:
+ *   <link rel="stylesheet" href="ecosystem.css">
+ */
+.eco-footer {
+  margin: 40px auto 8px; max-width: 960px; padding: 28px 24px;
+  background: #0d1420; border: 1px solid #1c6ef2; border-radius: 12px;
+  text-align: center; font-family: Arial, Helvetica, sans-serif;
+}
+.eco-title { font-size: 12px; letter-spacing: 3px; color: #6ea8fe; margin-bottom: 10px; }
+.eco-sub { font-size: 14px; color: #9aa7b8; margin: 0 0 14px; line-height: 1.5; }
+.eco-platforms { display: flex; flex-wrap: wrap; gap: 8px 14px; justify-content: center; margin-bottom: 16px; }
+.eco-platforms a { color: #6ea8fe; text-decoration: none; font-size: 13px; font-weight: bold; }
+.eco-platforms a:hover { text-decoration: underline; color: #fff; }
+.eco-links { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: center; margin-bottom: 18px; }
+.eco-links a { color: #e8edf3; font-size: 13px; text-decoration: underline; }
+.eco-news { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; align-items: center; margin-bottom: 6px; }
+.eco-news-label { color: #e8edf3; font-size: 14px; font-weight: bold; }
+.eco-news input[type="email"] {
+  padding: 10px 14px; border-radius: 8px; border: 1px solid #2a3a55;
+  background: #0b0f17; color: #e8edf3; font-size: 14px; min-width: 240px;
+}
+.eco-news button {
+  padding: 10px 22px; border-radius: 8px; border: none; cursor: pointer;
+  background: #1c6ef2; color: #fff; font-weight: bold; font-size: 14px;
+}
+.eco-news button:hover { background: #3b82f6; }
+.eco-news-msg { width: 100%; font-size: 13px; color: #9aa7b8; margin-top: 4px; line-height: 1.5; }
+.eco-news-msg a { color: #6ea8fe; }
+.eco-fine { font-size: 11px; color: #5b6b82; margin: 10px 0 0; }

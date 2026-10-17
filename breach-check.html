@@ -35,6 +35,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can a website check if my email was in a breach without me trusting it with my email?","acceptedAnswer":{"@type":"Answer","text":"No — and any site that claims to check your email against breach databases from a static page is either sending your email to a third party or making the answer up. The safe way is to check it yourself at Have I Been Pwned, which uses a privacy-preserving lookup."}},{"@type":"Question","name":"What should I do if my email was in a data breach?","acceptedAnswer":{"@type":"Answer","text":"Change the password everywhere you reused it, enable two-factor authentication on every important account, and watch for phishing emails that reference the breach. Then upgrade to a password manager and passkeys so the next breach cannot hurt you."}},{"@type":"Question","name":"Is Have I Been Pwned safe to use?","acceptedAnswer":{"@type":"Answer","text":"Yes. It is run by security researcher Troy Hunt, uses k-anonymity so your full email or password never leaves your browser during lookups, and is the industry-standard breach lookup service."}}]}
 </script>
+<link rel="stylesheet" href="ecosystem.css">
 </head>
 <body>
 <div class="wrap">
@@ -104,6 +105,8 @@ We never asked for your email, and we never will on this page.
   for(var i=0;i<boxes.length;i++){boxes[i].addEventListener("change",update);}
 })();
 </script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

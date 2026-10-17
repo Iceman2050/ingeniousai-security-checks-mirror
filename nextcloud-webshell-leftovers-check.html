@@ -51,6 +51,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 {"@type":"Question","name":"What logs should I check after patching CVE-2026-110447?","acceptedAnswer":{"@type":"Answer","text":"Review web-server access logs from September 10, 2026 onward for requests to the built-in CODE server's proxy.php endpoint (especially proxy.php?status) and any suspicious command-like request paths. The earliest logged attack dates to September 10, 2026."}}
 ]}
 </script>
+<link rel="stylesheet" href="ecosystem.css">
 </head>
 <body>
 <div class="wrap">
@@ -130,6 +131,8 @@ CVE-2026-110447 &middot; fixed in richdocumentscode 26.4.303 &middot; patching &
   upd();
 })();
 </script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

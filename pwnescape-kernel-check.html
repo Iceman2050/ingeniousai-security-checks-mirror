@@ -51,6 +51,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 {"@type":"Question","name":"Can PwnEscape be exploited remotely over the internet?","acceptedAnswer":{"@type":"Answer","text":"No. The attack vector is local — the attacker must already be running code inside a guest VM on the target host. It is not in CISA's Known Exploited Vulnerabilities catalog and no in-the-wild exploitation has been reported. The risk is to shared/cloud infrastructure where untrusted tenants run code, not to a typical single-purpose server."}}
 ]}
 </script>
+<link rel="stylesheet" href="ecosystem.css">
 </head>
 <body>
 <div class="wrap">
@@ -124,6 +125,8 @@ CVE-2026-99999 "PwnEscape" (CVSS 9.3 Critical) &middot; disclosed Oct 15, 2026 &
 </div>
 <div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=PwnEscape%20CVE-2026-99999%3A%20a%20Linux%20kernel%20flaw%20lets%20a%20guest%20VM%20read%20HOST%20memory%20%E2%80%94%20proven%20vs%20live%20cloud%20sandboxes%20%E2%80%94%20free%2030-sec%20kernel%20check&url=https://iceman2050.github.io/ingeniousai-security-checks-mirror/pwnescape-kernel-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://iceman2050.github.io/ingeniousai-security-checks-mirror/pwnescape-kernel-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https://iceman2050.github.io/ingeniousai-security-checks-mirror/pwnescape-kernel-check.html&title=PwnEscape%20CVE-2026-99999%20Kernel%20Check" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
 <div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
 <script>
 var FIXED={"5.10":[5,10,272],"5.15":[5,15,223],"6.1":[6,1,190],"6.6":[6,6,159],"6.12":[6,12,113],"6.18":[6,18,57],"7.2":[7,2,11]};

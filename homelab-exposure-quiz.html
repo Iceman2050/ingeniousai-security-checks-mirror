@@ -42,6 +42,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Homelab Exposure Quiz","applicationCategory":"SecurityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"A free 10-question self-assessment that rates how exposed a homelab or self-hosted server is to common attacks. No signup, nothing installed.","author":{"@type":"Organization","name":"Ingenious AI"}}
 </script>
+<link rel="stylesheet" href="ecosystem.css">
 </head>
 <body>
 <div class="wrap">
@@ -163,6 +164,8 @@ function emailResult(){
   window.location.href="mailto:?subject="+subject+"&body="+body;
 }
 </script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

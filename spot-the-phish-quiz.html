@@ -70,6 +70,7 @@ a{color:#58a6ff}
 {"@type":"Question","name":"What makes a message likely phishing?","acceptedAnswer":{"@type":"Answer","text":"The most reliable signals are a sender domain that does not match the claimed brand, a link whose real destination differs from its label, manufactured urgency or threats, and requests for credentials or payments through the message itself."}}
 ]}
 </script>
+<link rel="stylesheet" href="ecosystem.css">
 </head>
 <body>
 <div class="wrap">
@@ -179,6 +180,8 @@ window._share=st;window.scrollTo(0,0);
 }
 function copyShare(){navigator.clipboard.writeText(window._share||"").then(function(){alert("Score copied — paste it anywhere!");});}
 </script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

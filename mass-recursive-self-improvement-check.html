@@ -67,6 +67,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 {"@type":"Question","name":"What oversight measures help against recursive self-improvement?","acceptedAnswer":{"@type":"Answer","text":"Evaluation methods that don't depend on human judgment alone, tracking capability deltas between model versions on open-ended tasks, detecting changes in agent orchestration topology, tripwires for recursive optimizer-evaluator loops, and re-running red-teaming after every fine-tuning cycle rather than only at release."}}
 ]}
 </script>
+<link rel="stylesheet" href="ecosystem.css">
 </head>
 <body>
 <div class="wrap">
@@ -177,6 +178,8 @@ document.getElementById("copybtn").onclick=function(){
 };
 })();
 </script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

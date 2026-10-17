@@ -51,6 +51,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 {"@type":"Question","name":"I removed the Collabora app in October — am I in the clear?","acceptedAnswer":{"@type":"Answer","text":"Removing the app closes the hole going forward, but if a vulnerable version was installed any time in September–October 2026, you should still hunt for planted web shells (shx*.php / shrf*.php patterns) and review access logs from September 10 onward. Patching or removing never deletes shells."}}
 ]}
 </script>
+<link rel="stylesheet" href="ecosystem.css">
 </head>
 <body>
 <div class="wrap">
@@ -142,6 +143,8 @@ CVE-2026-110447 &middot; 19,454 hosts per Censys, Oct 16 2026 &middot; self-asse
   });
 })();
 </script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

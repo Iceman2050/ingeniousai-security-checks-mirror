@@ -39,6 +39,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 {"@type":"Question","name":"How do I check if my Nextcloud is exposed to CVE-2026-110447?","acceptedAnswer":{"@type":"Answer","text":"Run: sudo -u www-data php occ app:list | grep richdocumentscode. If the built-in CODE server app is installed and below version 26.4.303, you are exposed. Standalone Collabora Online servers are not affected — only the built-in app deployment."}}
 ]}
 </script>
+<link rel="stylesheet" href="ecosystem.css">
 </head>
 <body>
 <div class="wrap">
@@ -86,6 +87,8 @@ CVE-2026-110447 &middot; fixed in richdocumentscode 26.4.303 &middot; advisory O
 </div>
 <div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this page: <a href="https://x.com/intent/post?text=Is%20Nextcloud%20safe%20in%202026%3F%20What%20to%20do%20about%20CVE-2026-110447&url=https%3A//ingeniousai-security-checks.netlify.app/is-nextcloud-safe.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//ingeniousai-security-checks.netlify.app/is-nextcloud-safe.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//ingeniousai-security-checks.netlify.app/is-nextcloud-safe.html&title=Is%20Nextcloud%20safe%20in%202026%3F%20CVE-2026-110447%20explained" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
 <div class="warnbox" style="max-width:760px;margin:0 auto 8px"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

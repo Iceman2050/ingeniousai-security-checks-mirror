@@ -49,6 +49,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 {"@type":"Question","name":"Is there a workaround for the Next.js SVG RCE without upgrading?","acceptedAnswer":{"@type":"Answer","text":"Partially: ensure sharp is 0.35.5 or later, or block SVG rendering in sharp with sharp.block({ operation: ['VipsForeignLoadSvg'] }). But the 'use cache' RCE has no workaround — Vercel recommends upgrading even if you believe your app doesn't use the affected pattern. No public exploitation had been reported as of October 15, 2026."}}
 ]}
 </script>
+<link rel="stylesheet" href="ecosystem.css">
 </head>
 <body>
 <div class="wrap">
@@ -105,6 +106,8 @@ Next.js out-of-band security release &middot; Oct 14, 2026 &middot; 16.4.1 / 15.
 
 <div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=Next.js%20out-of-band%20patch%3A%20TWO%20unauthenticated%20RCE%20flaws%20(CVSS%209.5)%20%2B%20DoS%20%E2%80%94%20are%20you%20patched%3F%20Free%2030-sec%20version%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/nextjs-rce-oct2026-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/nextjs-rce-oct2026-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/nextjs-rce-oct2026-check.html&title=Next.js%20RCE%20Version%20Check%20Oct%202026" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
 <div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
 <script>
 function parseV(s){var m=s.trim().match(/^(\d+)\.(\d+)\.(\d+)/);return m?[+m[1],+m[2],+m[3]]:null;}
