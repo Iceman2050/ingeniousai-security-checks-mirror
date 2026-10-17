@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthropic's AI Safety Bill Explained — Would the Kill Switch Trigger? (Free)</title>
+<meta name="description" content="Anthropic quietly pitched Congress a draft AI safety bill: $1B damage or 50+ casualties before the government can halt a model. Free explainer + 5-scenario 'would it trigger?' quiz.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/anthropic-ai-safety-bill-check.html">
+<link rel="stylesheet" href="ecosystem.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Anthropic's AI safety bill: would the kill switch trigger?">
+<meta property="og:description" content="$1B in damage or 50 casualties before anyone can halt a model. 5 scenarios — would the bill trigger? Free quiz.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/anthropic-ai-safety-bill-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Anthropic AI safety bill — would the halt trigger?">
+<meta name="twitter:description" content="5 scenarios under Anthropic's draft AI safety bill. Free quiz.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d1a2b;border:1px solid #1c6ef2;color:#6ea8fe;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{border:1px solid #2a3342;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#161d29;color:#fff}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.q p{font-size:16px;margin-bottom:12px;color:#fff}
+.q .fb{font-size:14px;color:#9aa7b8;margin-top:10px;display:none}
+.q .opts{display:flex;gap:10px;flex-wrap:wrap}
+.q button{flex:1;min-width:140px;background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px;font-size:15px;font-weight:600;cursor:pointer}
+.q button:hover{border-color:#1c6ef2}
+.q button.sel-yes{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.q button.sel-no{background:#2b1215;border-color:#f85149;color:#ffa198}
+.q button:disabled{cursor:default;opacity:.85}
+#verdict{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+#verdict.good{border-color:#3fb950;background:#0d1a0f}
+#verdict.bad{border-color:#f85149;background:#1a0f0f}
+#verdict b.verd{font-size:19px;letter-spacing:.5px}
+.sharebox{margin-top:16px;display:none;background:#0b0f17;border:1px dashed #2a3342;border-radius:8px;padding:14px 16px}
+.sharebox p{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+#sharetext{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical;min-height:64px}
+.copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+.warnbox{max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Anthropic AI Safety Bill Explainer","applicationCategory":"EducationalApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/anthropic-ai-safety-bill-check.html","description":"Explainer and 5-scenario quiz on Anthropic's draft US AI safety bill: the $1B / 50-casualty halt threshold, enumerated risks, independent evaluators, and judicial suspension.","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is Anthropic's draft AI safety bill?","acceptedAnswer":{"@type":"Answer","text":"A draft bill Anthropic representatives quietly pitched to Capitol Hill lawmakers (reported by Politico via Reuters, Oct 16, 2026). It would let the government block a frontier model's release or use only on foreseeable, imminent risk of over $1B in damages or 50+ deaths/serious injuries, from bioweapons, loss of control, or cyberattacks — with independent evaluators and judicial oversight."}},
+{"@type":"Question","name":"Who decides if an AI model gets halted under the bill?","acceptedAnswer":{"@type":"Answer","text":"Independent evaluators registered with the Commerce Department assess frontier models; on finding 'imminent enumerated risk' they must report to Commerce within 72 hours. Commerce can then ask a federal judge (D.C. District Court) to order suspension. No other agency or officer could halt development, deployment, or internal use."}},
+{"@type":"Question","name":"Is the bill law?","acceptedAnswer":{"@type":"Answer","text":"No. As reported, it is a draft Anthropic pitched to lawmakers — not introduced legislation. Anthropic says it reflects proposals from its 'Advanced AI Framework' published earlier in 2026."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free security checks</a>
+<div class="badge">AI GOVERNANCE &mdash; OCT 2026</div>
+<h1>Anthropic wrote its own AI safety bill. The bar for a halt: <span style="color:#f85149">$1 billion</span> or <span style="color:#f85149">50 lives</span>.</h1>
+<p class="lead">Per <strong>Politico via Reuters</strong> (Oct 16, 2026, three sources): Anthropic quietly pitched Capitol Hill on a draft bill to regulate frontier AI. The government could block a model's release or use <em>only</em> on foreseeable, imminent risk of <strong>over $1B in damages</strong> or <strong>killing/seriously injuring 50+ people</strong> — and only from three enumerated risks. Below: what the draft actually says, then 5 scenarios to test whether the kill switch would trigger.</p>
+
+<p class="answer"><strong>Short answer:</strong> it's a high bar by design — bioweapons, loss of control, or cyberattacks at catastrophic scale, judged by independent evaluators, halted only by a federal judge. Everything below that bar keeps shipping. Anthropic says it mirrors its own "Advanced AI Framework"; critics will note the industry writing its own rules.</p>
+
+<div class="card">
+<h2>What the draft says (as reported)</h2>
+<table>
+<tr><th>Provision</th><th>Detail</th></tr>
+<tr><td>Halt threshold</td><td>Foreseeable, imminent risk of &gt;$1B damages <em>or</em> 50+ deaths/serious injuries</td></tr>
+<tr><td>Enumerated risks only</td><td>Biological weapon creation/release, model evading its developer's controls, or cyberattack</td></tr>
+<tr><td>Evaluators</td><td>Independent evaluators register with the Commerce Department; periodic assessments; labs may pay them if pay isn't tied to outcomes</td></tr>
+<tr><td>72-hour rule</td><td>"Imminent enumerated risk" findings must be reported to Commerce within 72 hours</td></tr>
+<tr><td>Who can halt</td><td>Commerce asks a judge; D.C. District Court orders suspension. The draft <em>explicitly bars</em> any other agency or officer from suspending development, deployment, or internal use</td></tr>
+</table>
+<p class="src">Sources: <a href="https://www.reuters.com/legal/litigation/anthropic-quietly-pitches-its-own-ai-safety-bill-lawmakers-politico-reports-2026-10-16/" target="_blank" rel="noopener">Reuters</a> &middot; <a href="https://www.channelnewsasia.com/business/anthropic-quietly-pitches-its-own-ai-safety-bill-us-lawmakers-6467581" target="_blank" rel="noopener">CNA/Reuters</a>. Status: draft pitched to lawmakers, not introduced legislation.</p>
+</div>
+
+<div class="card">
+<h2>Would the halt trigger? — 5 scenarios</h2>
+<p class="note">Under the draft's rules as reported. Answer whether the government could block the model.</p>
+<div id="quiz"></div>
+<div id="verdict" role="status" aria-live="polite"></div>
+<div class="sharebox" id="sharebox">
+<p>Share your result:</p>
+<textarea id="sharetext" readonly></textarea>
+<button class="copybtn" id="copybtn">Copy result text</button>
+</div>
+</div>
+
+<div class="card">
+<h2>Reading the draft fairly</h2>
+<ul>
+<li><strong>What's new:</strong> an AI lab proactively proposing binding halt authority — even a narrow one — is a shift from the industry's usual "self-regulate" posture.</li>
+<li><strong>What's narrow:</strong> the $1B/50-person bar plus only three enumerated risks means most AI harms (bias, fraud, smaller-scale attacks, labor displacement) are entirely outside the bill.</li>
+<li><strong>What's contested:</strong> labs paying their own evaluators (even outcome-decoupled) and the preemption clause barring other agencies from acting will draw fire from safety advocates.</li>
+<li><strong>What's unknown:</strong> it's a pitch, not a bill — no text is public, no sponsor named, and Congress may rewrite or ignore it.</li>
+</ul>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Regulation is coming for AI — <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#fff;text-decoration:underline">DisclosureGuard</a> keeps you compliant with AI disclosure rules before the law forces the issue.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20read%20about%20the%20Anthropic%20AI%20safety%20bill%20and%20want%20early%20access%20to%20DisclosureGuard." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<div style="margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center">
+Built by Ingenious AI &mdash; details as reported by Politico via Reuters; draft text not public.<br>
+This page is general information, not legal advice.
+</div>
+</div>
+
+<div class="share">Share this explainer: <a href="https://x.com/intent/post?text=Anthropic%20pitched%20Congress%20its%20own%20AI%20safety%20bill%3A%20%241B%20damage%20or%2050%20lives%20before%20anyone%20can%20halt%20a%20model.%20Would%20the%20kill%20switch%20trigger%3F&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/anthropic-ai-safety-bill-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/anthropic-ai-safety-bill-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/anthropic-ai-safety-bill-check.html&title=Anthropic%27s%20draft%20AI%20safety%20bill%20explained%20%E2%80%94%20would%20the%20halt%20trigger%3F%205%20scenarios" target="_blank" rel="noopener">Reddit</a></div>
+<div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<script>
+(function(){
+var SCEN=[
+{q:"1. Evaluators find a model can help design a bioweapon plausibly capable of killing hundreds. Halt?",yes:true,fb:"Yes — bioweapon risk at 50+ casualties clears both the enumerated-risk and casualty bars."},
+{q:"2. A model's bug causes $50M in trading losses — no bioweapon, no loss of control, no cyberattack. Halt?",yes:false,fb:"No — $50M is far under the $1B bar, and it isn't an enumerated risk."},
+{q:"3. A model is found to be evading its developer's controls, with assessors judging imminent catastrophic risk. Halt?",yes:true,fb:"Yes — 'evading developer controls' is an enumerated risk; with imminent 50+/$1B-scale harm the bar is met."},
+{q:"4. A chatbot's bad medical advice harms 10 people. Halt?",yes:false,fb:"No — 10 casualties is under the 50-person bar and it isn't an enumerated risk category."},
+{q:"5. A model enables a cyberattack on power grids, with foreseeable blackouts risking billions in damage. Halt?",yes:true,fb:"Yes — cyberattack is enumerated, and foreseeable damage over $1B meets the threshold."}
+];
+var PAGE="https://iceman2050.github.io/ingeniousai-security-checks-mirror/anthropic-ai-safety-bill-check.html";
+var answers=new Array(SCEN.length).fill(null);
+var quiz=document.getElementById("quiz");
+SCEN.forEach(function(sc,i){
+  var d=document.createElement("div");d.className="q";
+  d.innerHTML="<p>"+sc.q+"</p><div class='opts'></div><div class='fb'></div>";
+  var opts=d.querySelector(".opts");
+  var fb=d.querySelector(".fb");
+  [["Yes, halt it",true],["No, keeps shipping",false]].forEach(function(pair){
+    var b=document.createElement("button");b.textContent=pair[0];
+    b.onclick=function(){answer(i,pair[1],d,sc);};
+    opts.appendChild(b);
+  });
+  quiz.appendChild(d);
+});
+function answer(i,val,div,sc){
+  var correct=(val===sc.yes);
+  answers[i]=correct?1:0;
+  var btns=div.querySelectorAll("button");
+  btns[0].className=val===true?(correct?"sel-yes":"sel-no"):"";
+  btns[1].className=val===false?(correct?"sel-yes":"sel-no"):"";
+  btns.forEach(function(b){b.disabled=true;});
+  var fb=div.querySelector(".fb");
+  fb.style.display="block";
+  fb.innerHTML=(correct?"<strong style='color:#7ee787'>Correct.</strong> ":"<strong style='color:#ffa198'>Not quite.</strong> ")+sc.fb;
+  if(answers.every(function(a){return a!==null;}))showVerdict();
+}
+function showVerdict(){
+  var score=answers.reduce(function(a,b){return a+b;},0);
+  var v=document.getElementById("verdict");
+  var label,cls,advice;
+  if(score<=2){label="BILL ILLITERATE";cls="bad";
+    advice="The draft's bar is deliberately extreme: only catastrophic, enumerated risks trigger a halt. Re-read the threshold table — the bill is designed so almost everything keeps shipping.";}
+  else if(score<=3){label="GETTING IT";cls="";
+    advice="You have "+score+" of 5. The pattern: enumerated risk (bioweapon / loss of control / cyberattack) AND catastrophic scale ($1B+ or 50+ lives). Miss either, and it ships.";}
+  else{label="THRESHOLD NAT";cls="good";
+    advice="You read the draft like a lawyer. The takeaway stands: this bill would halt almost nothing — which is either prudent restraint or regulatory theater, depending on who you ask.";}
+  v.className=cls;v.style.display="block";
+  v.innerHTML="<b class='verd'>"+score+"/5 — "+label+"</b><br><br>"+advice;
+  document.getElementById("sharetext").value="I scored "+score+"/5 on the Anthropic AI safety bill quiz — would the kill switch trigger? "+PAGE;
+  document.getElementById("sharebox").style.display="block";
+  v.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("copybtn").onclick=function(){
+  var t=document.getElementById("sharetext");var btn=this;
+  function done(){var o=btn.textContent;btn.textContent="Copied!";setTimeout(function(){btn.textContent=o;},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();try{document.execCommand("copy");done();}catch(e){}});}
+  else{t.select();try{document.execCommand("copy");done();}catch(e){}}
+};
+})();
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
