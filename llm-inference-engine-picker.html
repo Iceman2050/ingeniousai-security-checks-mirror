@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ollama vs vLLM vs SGLang — Which Inference Engine Fits? (Free Picker)</title>
+<meta name="description" content="Ollama, vLLM, and SGLang run the same open models — pick wrong and you waste a GPU or cripple concurrency. Free 5-question picker with verified benchmarks and the security trade-offs.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/llm-inference-engine-picker.html">
+<link rel="stylesheet" href="ecosystem.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Ollama vs vLLM vs SGLang — which engine fits your workload?">
+<meta property="og:description" content="Same models, wildly different engines. 5 questions to pick yours — plus what each choice means for your data. Free picker.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/llm-inference-engine-picker.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ollama vs vLLM vs SGLang — engine picker">
+<meta name="twitter:description" content="5 questions to pick your LLM inference engine, with verified benchmarks.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d1a0f;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{border:1px solid #2a3342;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#161d29;color:#fff}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.q p{font-size:16px;margin-bottom:12px;color:#fff}
+.q .opts{display:flex;gap:10px;flex-wrap:wrap;flex-direction:column}
+.q button{background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px 14px;font-size:15px;font-weight:600;cursor:pointer;text-align:left}
+.q button:hover{border-color:#1c6ef2}
+.q button.sel{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.q button:disabled{cursor:default;opacity:.85}
+#verdict{display:none;border-left:4px solid #3fb950;padding:18px;background:#0d1a0f;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+#verdict b.verd{font-size:19px;letter-spacing:.5px}
+.sharebox{margin-top:16px;display:none;background:#0b0f17;border:1px dashed #2a3342;border-radius:8px;padding:14px 16px}
+.sharebox p{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+#sharetext{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical;min-height:64px}
+.copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+.warnbox{max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+.eng{border-left:4px solid #2a3342;padding:14px 18px;margin:14px 0;background:#0d1219;border-radius:0 8px 8px 0}
+.eng.ollama{border-color:#e3b341}.eng.vllm{border-color:#1c6ef2}.eng.sglang{border-color:#f778ba}
+.eng h3{margin:0 0 6px;color:#fff}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"LLM Inference Engine Picker","applicationCategory":"DeveloperApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/llm-inference-engine-picker.html","description":"Five questions that pick the right LLM inference engine — Ollama for local dev, vLLM for high-throughput serving, SGLang for agents and structured outputs — with verified benchmarks and data-residency trade-offs.","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"When should I use Ollama vs vLLM vs SGLang?","acceptedAnswer":{"@type":"Answer","text":"Ollama: local development and prototyping on a laptop — simplest setup, runs fully offline. vLLM: serving many concurrent users with different prompts — continuous batching and PagedAttention maximize GPU throughput. SGLang: AI agents, multi-turn chats, and structured JSON outputs — RadixAttention reuses shared prompt prefixes instead of recomputing them."}},
+{"@type":"Question","name":"What is PagedAttention?","acceptedAnswer":{"@type":"Answer","text":"vLLM's core technique: it stores the KV cache (the model's memory of processed tokens) in small pages like an OS manages RAM, instead of one fixed block per request. This eliminates 60-80% memory waste and lets far more requests share the GPU."}},
+{"@type":"Question","name":"What is RadixAttention?","acceptedAnswer":{"@type":"Answer","text":"SGLang's core technique: a radix tree that caches shared prompt prefixes (system prompts, tool definitions, chat history) across requests, so repeated beginnings are reused rather than recomputed — a large win for agents and multi-turn chat."}},
+{"@type":"Question","name":"Which inference engine is best for data privacy?","acceptedAnswer":{"@type":"Answer","text":"Ollama runs fully offline on your own machine — prompts never leave it. vLLM and SGLang are typically deployed as servers, so prompts travel to the server; keep them inside your own network or VPC for sensitive data."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free security checks</a>
+<div class="badge">LLM INFRA &mdash; ENGINE PICKER</div>
+<h1>Ollama vs vLLM vs SGLang: same models, <span style="color:#3fb950">different machines</span></h1>
+<p class="lead">All three run the same open models. Pick wrong and you'll either waste an expensive GPU or watch requests queue behind each other. Five questions to match the engine to your workload — plus what each choice means for where your data goes.</p>
+
+<p class="answer"><strong>Short answer:</strong> just you on a laptop &rarr; <strong>Ollama</strong>. Many users asking different things &rarr; <strong>vLLM</strong>. Agents, long chats, or JSON outputs with repeated prompts &rarr; <strong>SGLang</strong>. The quiz below makes it precise.</p>
+
+<div class="card">
+<h2>The 60-second Engine Picker</h2>
+<div id="quiz"></div>
+<div id="verdict" role="status" aria-live="polite"></div>
+<div class="sharebox" id="sharebox">
+<p>Share your result:</p>
+<textarea id="sharetext" readonly></textarea>
+<button class="copybtn" id="copybtn">Copy result text</button>
+</div>
+</div>
+
+<div class="card">
+<h2>The three engines, side by side</h2>
+<div class="eng ollama"><h3>Ollama — the local one</h3>
+<p>You &rarr; OpenAI-compatible API &rarr; FIFO request queue &rarr; quantized GGUF model (via llama.cpp) &rarr; response. One command pulls a compressed model that runs <strong>fully offline</strong>. Best for: local dev, prototyping, laptops &amp; Macs.</p></div>
+<div class="eng vllm"><h3>vLLM — the throughput one</h3>
+<p>Many concurrent users &rarr; <strong>continuous batching</strong> (new requests join the running batch every step) &rarr; <strong>PagedAttention</strong> (KV cache in pages, prefix caching available) &rarr; streamed responses. Best for: high-traffic API serving, maximum GPU utilization.</p></div>
+<div class="eng sglang"><h3>SGLang — the agent one</h3>
+<p>Agents &amp; multi-turn chats &rarr; <strong>cache-aware router</strong> (routes each request to the worker holding its prefix) &rarr; <strong>RadixAttention</strong> (radix tree reuses shared prefixes) &rarr; strong <strong>structured outputs</strong> and constrained decoding. Best for: AI agents &amp; tool loops, multi-turn chat &amp; RAG, structured JSON.</p></div>
+<table>
+<tr><th></th><th>Ollama</th><th>vLLM</th><th>SGLang</th></tr>
+<tr><td>Concurrency model</td><td>FIFO queue (1 request per model at a time)</td><td>Continuous batching</td><td>Continuous batching + prefix-aware routing</td></tr>
+<tr><td>Memory trick</td><td>GGUF quantization (fits on laptop)</td><td>PagedAttention</td><td>RadixAttention (prefix reuse)</td></tr>
+<tr><td>Shines when</td><td>One user, offline</td><td>Many users, unique prompts</td><td>Prompts share long prefixes</td></tr>
+<tr><td>Structured outputs</td><td>Basic</td><td>Good</td><td>Excellent (constrained decoding)</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>What benchmarks actually show</h2>
+<ul>
+<li><strong>Single stream</strong> (Qwen 2.5 Coder 32B, dual RTX 4090): Ollama 44.2 tok/s, vLLM 58.7, SGLang 63.4 — close enough that simplicity wins for one user.</li>
+<li><strong>32 concurrent clients:</strong> Ollama crashed (OOM); vLLM 412.8 tok/s; SGLang 461.5 tok/s — roughly <strong>8x the throughput</strong> of single-stream via continuous batching.</li>
+<li><strong>Prefix-heavy workloads</strong> (shared 500-token system prompts): SGLang ~4.6x faster than vLLM in one 16-request test, because vLLM recomputes the shared prefix every time.</li>
+</ul>
+<p class="src">Sources: <a href="https://dev.to/nextbytetech/ollama-vs-vllm-vs-sglang-in-2026-benchmarking-multi-gpu-tensor-parallelism-pagedattention-latency-1pi3" target="_blank" rel="noopener">dev.to multi-GPU benchmark (Oct 2026)</a> &middot; <a href="https://dev.to/zkaria_gamal_3cddbbff21c8/concurrent-llm-serving-benchmarking-vllm-vs-sglang-vs-ollama-1cpn" target="_blank" rel="noopener">dev.to concurrency benchmark</a> &middot; <a href="https://culpasum628492.substack.com/p/i-ran-vllm-sglang-and-ollama-under" target="_blank" rel="noopener">Substack 16-request test</a>. Numbers vary by model, hardware, and workload — benchmark your own job before committing.</p>
+</div>
+
+<div class="card">
+<h2>The security trade-off nobody puts in the diagram</h2>
+<ul>
+<li><strong>Ollama: data never leaves the machine.</strong> Fully offline inference is the strongest data-residency posture available — no prompt, document, or embedding crosses a network boundary. For regulated or sensitive data on a single machine, this is the answer.</li>
+<li><strong>vLLM / SGLang: prompts travel to the server.</strong> Keep them inside your own VPC or network for sensitive workloads; a public endpoint is a new attack surface (prompt injection at scale, log exposure, tenant isolation).</li>
+<li><strong>Constrained decoding cuts injection risk.</strong> SGLang's structured-output enforcement (JSON schemas, regex grammars) narrows what a model <em>can</em> emit — a real, underused defense against prompt-injection exfiltration in agent tool loops.</li>
+<li><strong>KV-cache sharing leaks across requests in theory.</strong> Prefix caching reuses computation between requests — ensure your deployment isolates tenants so one tenant's cached prefix can't inform another's timing or content. Keep engines patched.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>How to choose, in practice</h2>
+<ul>
+<li><strong>01 — Setup &amp; control:</strong> Ollama is the simplest local starting point. One install, one command, offline.</li>
+<li><strong>02 — Throughput &amp; scale:</strong> vLLM is strongest when many users hit it at once with different prompts.</li>
+<li><strong>03 — Reuse repeated context:</strong> SGLang shines when prompts share stable context — system prompts, tool lists, chat history.</li>
+<li><strong>04 — Benchmark the real job:</strong> compare first-token latency, full response time, GPU usage, and cost per completed task on <em>your</em> workload. Key take: stable instructions first, variable data later.</li>
+</ul>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Building an AI product on one of these engines? <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20need%20help%20choosing%20and%20securing%20an%20LLM%20inference%20setup." style="color:#fff;text-decoration:underline">We build and secure AI systems for businesses</a> — engine selection, hardening, and agent guardrails done right.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20used%20the%20inference%20engine%20picker%20and%20want%20help%20with%20my%20LLM%20setup." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<footer>
+Built by Ingenious AI &mdash; engine facts verified against project docs and independent benchmarks; numbers vary by workload, benchmark your own.<br>
+This page is general information, not legal advice.
+</footer>
+</div>
+
+<div class="share">Share this picker: <a href="https://x.com/intent/post?text=Ollama%20vs%20vLLM%20vs%20SGLang%20%E2%80%94%20same%20models%2C%20wildly%20different%20engines.%205%20questions%20to%20pick%20yours%2C%20free&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/llm-inference-engine-picker.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/llm-inference-engine-picker.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/llm-inference-engine-picker.html&title=Ollama%20vs%20vLLM%20vs%20SGLang%20%E2%80%94%205-question%20picker%20for%20your%20LLM%20inference%20engine" target="_blank" rel="noopener">Reddit</a></div>
+<div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<script>
+(function(){
+var QUESTIONS=[
+{q:"1. Who will use it?",opts:[["Just me, on my own machine","ollama"],["A small team / a few concurrent users","vllm"],["Many concurrent users or customers","vllm"]]},
+{q:"2. What hardware do you have?",opts:[["Laptop or Mac, no big GPU","ollama"],["One GPU server","vllm"],["Multi-GPU cluster","sglang"]]},
+{q:"3. What does the workload look like?",opts:[["One-off chats and prototyping","ollama"],["Many different prompts at once","vllm"],["Agents / long chats reusing the same instructions","sglang"]]},
+{q:"4. How sensitive is the data?",opts:[["Must never leave my machine","ollama"],["Internal network is fine","vllm"],["Public API serving","vllm"]]},
+{q:"5. What do you need from outputs?",opts:[["Plain chat responses","ollama"],["Maximum throughput, lowest cost per request","vllm"],["Structured JSON / tool calls / constrained outputs","sglang"]]}
+];
+var INFO={
+ollama:{name:"Ollama",why:"Single user, local hardware, offline-first. Simplest setup; your data never leaves the machine.",color:"#e3b341"},
+vllm:{name:"vLLM",why:"Concurrent users and throughput. Continuous batching + PagedAttention squeeze the most out of your GPU.",color:"#1c6ef2"},
+sglang:{name:"SGLang",why:"Agents and repeated context. RadixAttention reuses shared prefixes instead of recomputing them, and constrained decoding gives you reliable structured outputs.",color:"#f778ba"}
+};
+var PAGE="https://iceman2050.github.io/ingeniousai-security-checks-mirror/llm-inference-engine-picker.html";
+var scores={ollama:0,vllm:0,sglang:0};
+var answered=0;
+var quiz=document.getElementById("quiz");
+QUESTIONS.forEach(function(item,qi){
+  var d=document.createElement("div");d.className="q";
+  d.innerHTML="<p>"+item.q+"</p>";
+  item.opts.forEach(function(pair){
+    var b=document.createElement("button");b.textContent=pair[0];
+    b.onclick=function(){
+      scores[pair[1]]++;
+      answered++;
+      var btns=d.querySelectorAll("button");
+      btns.forEach(function(x){x.disabled=true;});
+      b.className="sel";
+      if(answered===QUESTIONS.length)showVerdict();
+    };
+    d.appendChild(b);
+  });
+  quiz.appendChild(d);
+});
+function showVerdict(){
+  var best="ollama";
+  ["vllm","sglang"].forEach(function(k){if(scores[k]>scores[best])best=k;});
+  var info=INFO[best];
+  var v=document.getElementById("verdict");
+  v.style.display="block";
+  v.style.borderColor=info.color;
+  var order=["ollama","vllm","sglang"].sort(function(a,b){return scores[b]-scores[a];});
+  v.innerHTML="<b class='verd' style='color:"+info.color+"'>"+info.name+" — your match</b><br><br>"+info.why+
+    "<br><br><span class='note'>Scores — Ollama "+scores.ollama+"/5 · vLLM "+scores.vllm+"/5 · SGLang "+scores.sglang+"/5. Runner-up: "+INFO[order[1]].name+".</span>";
+  document.getElementById("sharetext").value="My inference engine match: "+info.name+" ("+scores[best]+"/5). Which fits your workload? Free 5-question picker: "+PAGE;
+  document.getElementById("sharebox").style.display="block";
+  v.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("copybtn").onclick=function(){
+  var t=document.getElementById("sharetext");var btn=this;
+  function done(){var o=btn.textContent;btn.textContent="Copied!";setTimeout(function(){btn.textContent=o;},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();try{document.execCommand("copy");done();}catch(e){}});}
+  else{t.select();try{document.execCommand("copy");done();}catch(e){}}
+};
+})();
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
