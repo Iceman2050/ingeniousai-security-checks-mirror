@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-primary-keyword="ai agents" lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Agent Safe API Access Check — Is Your Agent's API Access Safe?</title>
-<meta name="description" content="Giving an AI agent direct access to your internal API breaks security and auditability. The three rules for safe agent API access — gateway, named principal, server-side validation — plus a free 5-question safety check.">
-<meta property="og:title" content="AI Agent Safe API Access Check — Is Your Agent's API Access Safe?">
+<title>AI Agents API Access Safety Check</title>
+<meta name="description" content="Giving AI agents direct API access breaks security. Three rules for safe AI agents API access: gateway, named principal, validation. Free check.">
+<meta property="og:title" content="AI Agents API Access Safety Check">
 <meta property="og:description" content="Three rules keep AI agents from becoming an un-auditable hole in your internal API. Free 5-question safety check, no signup.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_card">
@@ -20,11 +20,14 @@
 {"@type":"Question","name":"Is a demo gateway enough for production?","acceptedAnswer":{"@type":"Answer","text":"No. A tutorial gateway does not check everything — real deployments need identity providers and full audit trails."}}
 ]}
 </script>
+  <meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+  <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-api-access-safety-check.html">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}</script>
 </head>
 <body>
 <div class="wrap" style="max-width:760px;margin:0 auto;padding:24px 18px;font-family:system-ui,-apple-system,sans-serif;color:#e8edf3;background:#0a0e14">
 <p class="kicker" style="color:#6ea8fe;font-size:13px;letter-spacing:2px">INGENIOUS AI — SECURITY CHECK</p>
-<h1 style="color:#fff;font-size:30px;line-height:1.25">AI Agent Safe API Access Check — Is Your Agent's API Access Safe?</h1>
+<h1 style="color:#fff;font-size:30px;line-height:1.25">AI Agents API Access Safety Check</h1>
 <p class="lead" style="color:#9aa7b8;font-size:17px;line-height:1.7">It is Friday afternoon and someone wires the team's AI assistant straight into the internal API. One shared token on every laptop. The model writes its own database queries. The logs just say <strong>"the bot"</strong> did it. On Monday, nobody can explain who pulled the customer list — or why. This free 60-second check tells you whether your agent's API access would survive an audit. No signup, nothing installed.</p>
 
 <h2 style="color:#fff;font-size:22px;margin-top:32px">The failure story: why direct API access breaks</h2>
@@ -63,11 +66,11 @@
 <li>A tutorial demo gateway does <strong style="color:#e8edf3">not</strong> check everything. Real deployments need identity providers and full audit trails.</li>
 <li>Prompt instructions are guidance, not security boundaries. Enforcement lives in code.</li>
 <li>This page summarizes the tutorial's architecture; it is not legal or compliance advice for your specific deployment.</li>
-<li>Source: Harish, "How to Give an AI Agent Safe Access to an Internal API with MCP", freeCodeCamp, 2026 (summarized, not quoted).</li>
+<li>Source: Harish, "How to Give an AI Agent Safe Access to an Internal API with MCP", freeCodeCamp, <time datetime="2026">2026</time> (summarized, not quoted).</li>
 </ul>
 </div>
 
-<h2 style="color:#fff;font-size:22px;margin-top:32px">Frequently asked questions</h2>
+<h2 style="color:#fff;font-size:22px;margin-top:32px">AI Agents FAQ</h2>
 <div class="card" style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:18px 20px;margin:12px 0">
 <details style="margin:8px 0"><summary style="font-weight:700;color:#fff;cursor:pointer">Why is giving an AI agent direct API access dangerous?</summary><p style="color:#9aa7b8;font-size:15px;line-height:1.6">A shared bot token destroys auditability — logs say "the bot" did it, not which person asked. The model may send raw queries, results can carry secrets into the next prompt, and there is no record of which tool ran for whom.</p></details>
 <details style="margin:8px 0"><summary style="font-weight:700;color:#fff;cursor:pointer">What is a principal?</summary><p style="color:#9aa7b8;font-size:15px;line-height:1.6">The identity the API records and authorizes — a person who asked, or a service account for a scheduled job. "The bot" is not a principal: it cannot be granted, revoked, or explained in an audit.</p></details>
@@ -124,6 +127,10 @@ r.textContent=msg;
 }
 render();
 </script>
+<nav class="related-checks" style="margin:32px 0;padding:20px 0;border-top:1px solid #2a2f3a">
+<p style="font-size:13px;letter-spacing:2px;color:#6ea8fe;margin-bottom:10px">RELATED SECURITY CHECKS</p>
+<p style="font-size:15px"><a href="agent-protocol-picker.html">AI Agents Protocol Picker</a> · <a href="agent-sandbox-policy-gap-checker.html">AI Agents Sandbox Checker</a> · <a href="ai-agent-liability-clause-generator.html">AI Agents Liability Clauses</a></p>
+</nav>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>

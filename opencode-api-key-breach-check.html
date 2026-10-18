@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-primary-keyword="data breach" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OpenCode API Key Breach — Were Your Provider Keys Exposed? (Free Check)</title>
-<meta name="description" content="OpenCode disclosed Oct 17, 2026: a large-scale distillation attack exposed provider API keys of ~1.4% of Console users. Free 5-question check: are your keys safe?">
+<title>OpenCode Data Breach: Were Your Keys Exposed?</title>
+<meta name="description" content="OpenCode data breach October 17, 2026: distillation attack exposed ~1.4% of users' API keys. Free 5-question check.">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/opencode-api-key-breach-check.html">
 <link rel="stylesheet" href="ecosystem.css">
 <meta property="og:type" content="website">
@@ -55,24 +55,25 @@ code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;
 .live{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;font-size:14px;margin-bottom:24px}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"OpenCode API Key Breach Check","applicationCategory":"SecurityApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/opencode-api-key-breach-check.html","description":"Five questions that check whether your AI provider API keys are exposed after OpenCode's Oct 17, 2026 disclosure of a large-scale distillation attack on a legacy system.","author":{"@type":"Organization","name":"Ingenious AI"}}
+{"@context":"https://schema.org","@type":"WebApplication","name":"OpenCode API Key Breach Check","applicationCategory":"SecurityApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/opencode-api-key-breach-check.html","description":"Five questions that check whether your AI provider API keys are exposed after OpenCode's October 17, 2026 disclosure of a large-scale distillation attack on a legacy system.","author":{"@type":"Organization","name":"Ingenious AI"}}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"What happened in the OpenCode breach?","acceptedAnswer":{"@type":"Answer","text":"On Oct 17, 2026, OpenCode disclosed unauthorized access to a legacy system that was being decommissioned. Third-party provider keys (e.g. OpenAI, Anthropic) saved in users' workspaces may have been exposed. OpenCode described it as a large-scale distillation attack affecting about 1.4% of OpenCode Console users — those with external providers linked. The incident is ongoing."}},
+{"@type":"Question","name":"What happened in the OpenCode breach?","acceptedAnswer":{"@type":"Answer","text":"On October 17, 2026, OpenCode disclosed unauthorized access to a legacy system that was being decommissioned. Third-party provider keys (e.g. OpenAI, Anthropic) saved in users' workspaces may have been exposed. OpenCode described it as a large-scale distillation attack affecting about 1.4% of OpenCode Console users — those with external providers linked. The incident is ongoing."}},
 {"@type":"Question","name":"Was I affected by the OpenCode breach?","acceptedAnswer":{"@type":"Answer","text":"Per OpenCode: if you did NOT receive their email notice, you were not impacted. Affected users received individual email notices with guidance to revoke and replace potentially exposed API keys."}},
 {"@type":"Question","name":"What should I do if my API keys were exposed?","acceptedAnswer":{"@type":"Answer","text":"Revoke and replace the keys via each provider's dashboard (OpenAI, Anthropic, Google), update every app using the old keys, and review recent usage and billing for unexpected activity — attackers ran repeated queries against high-end models, draining balances into the hundreds of dollars for some victims."}},
 {"@type":"Question","name":"What is a distillation attack?","acceptedAnswer":{"@type":"Answer","text":"An attack that uses stolen API access to run repeated queries against a powerful model — harvesting its outputs to train or inform a cheaper copy, or simply burning the victim's paid quota. OpenCode framed this breach as exactly that: attackers used stolen provider keys to query high-end models at victims' expense."}}
 ]}
 </script>
+  <meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
 </head>
 <body>
 <div class="wrap">
 <a class="back" href="index.html">&larr; Back to all free security checks</a>
 <div class="badge">BREAKING &mdash; OCT 17, 2026</div>
-<div class="live"><strong>&#128308; DEVELOPING:</strong> OpenCode says the incident is ongoing and has shared no further technical details. Everything below reflects the disclosure as of Oct 17, 2026.</div>
-<h1>OpenCode breached — <span class="red">and your API keys may be paying for the attack.</span></h1>
-<p class="lead">On Oct 17, 2026, the open-source AI coding platform <strong>OpenCode</strong> disclosed "unauthorized access to a legacy system" — one that was being decommissioned. Third-party provider keys (OpenAI, Anthropic and others) saved in users' workspaces may have been exposed. OpenCode calls it a <strong>"large scale distillation attack"</strong> hitting about <strong>1.4% of Console users</strong> — those with external providers linked. Attackers weren't after passwords: they used the keys to hammer high-end AI models, and victims watched their balances drain — some into the hundreds of dollars.</p>
+<div class="live"><strong>&#128308; DEVELOPING:</strong> OpenCode says the incident is ongoing and has shared no further technical details. Everything below reflects the disclosure as of October 17, 2026.</div>
+<h1>OpenCode Data Breach: <span class="red">your keys may fund the attack</span></h1>
+<p class="lead">On October 17, 2026, the open-source AI coding platform <strong>OpenCode</strong> disclosed "unauthorized access to a legacy system" — one that was being decommissioned. Third-party provider keys (OpenAI, Anthropic and others) saved in users' workspaces may have been exposed. OpenCode calls it a <strong>"large scale distillation attack"</strong> hitting about <strong>1.4% of Console users</strong> — those with external providers linked. Attackers weren't after passwords: they used the keys to hammer high-end AI models, and victims watched their balances drain — some into the hundreds of dollars.</p>
 
 <p class="answer"><strong>Short answer:</strong> if you got OpenCode's email, revoke and replace your provider keys <strong>now</strong>, update every app using them, and audit your usage and billing. If you didn't get the email, OpenCode says you were not impacted. And this is a real-world <a href="ai-model-distillation-check.html" style="color:#7ee787">distillation attack</a> — the exact threat class we cover in our distillation defense check.</p>
 
@@ -91,7 +92,7 @@ code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;
 <div class="card">
 <h2>What happened (as disclosed)</h2>
 <ul>
-<li><strong>Oct 17, 2026:</strong> OpenCode discloses via its X account and individual emails — "unauthorized access to a legacy system" that was being decommissioned; "third party provider keys (eg OpenAI, Anthropic) saved in your workspace may have been exposed."</li>
+<li><strong>October 17, 2026:</strong> OpenCode discloses via its X account and individual emails — "unauthorized access to a legacy system" that was being decommissioned; "third party provider keys (eg OpenAI, Anthropic) saved in your workspace may have been exposed."</li>
 <li><strong>Scale:</strong> about 1.4% of OpenCode Console users — specifically those with external providers linked.</li>
 <li><strong>OpenCode's framing:</strong> a "large scale distillation attack" — stolen keys used to run repeated queries against high-end models.</li>
 <li><strong>Impact:</strong> victims' provider balances drained — reported accounts include ~$400 in unauthorized Anthropic charges, ~€200 in Google usage (one project suspended for abuse), and a $1,700 bill. These are user reports, not OpenCode figures.</li>
@@ -135,7 +136,7 @@ This page is general information, not legal advice.
 (function(){
 var QUESTIONS=[
 "1. Do you (or your team) store AI provider API keys in OpenCode workspaces or any cloud coding tool?",
-"2. Have you rotated your provider API keys since Oct 17, 2026?",
+"2. Have you rotated your provider API keys since October 17, 2026?",
 "3. Do you have billing alerts or hard spend caps on your AI provider accounts?",
 "4. Are your provider keys scoped least-privilege — separate keys per project, limited to the models each needs?",
 "5. Did you receive OpenCode's breach notification email?"
@@ -188,6 +189,20 @@ document.getElementById("copybtn").onclick=function(){
 };
 })();
 </script>
+<h2>Data Breach FAQ</h2>
+<div class="card">
+<details><summary>What happened in the OpenCode breach?</summary><p>On October 17, 2026, OpenCode disclosed unauthorized access to a legacy system that was being decommissioned. Third-party provider keys (e.g. OpenAI, Anthropic) of about 1.4% of Console users were exposed in what the company called a large-scale distillation attack.</p></details>
+<details><summary>Was I affected by the OpenCode breach?</summary><p>Per OpenCode: if you did NOT receive their email notice, you were not impacted. Affected users received individual email notices with guidance to revoke and replace their keys.</p></details>
+<details><summary>What should I do if my API keys were exposed?</summary><p>Revoke and replace the keys via each provider's dashboard (OpenAI, Anthropic, Google), update every app using the old keys, and review recent usage and billing for unfamiliar activity.</p></details>
+<details><summary>What is a distillation attack?</summary><p>An attack that uses stolen API access to run repeated queries against a powerful model — harvesting its outputs to train or inform a cheaper copy, or simply to resell the access.</p></details>
+</div>
+
+<h2>What is a data breach via API key exposure?</h2>
+<p>A data breach via API key exposure happens when attackers obtain the secret keys that let applications call paid AI services — as in the OpenCode incident, where a legacy system leak exposed provider keys. Whoever holds the keys can run up bills and harvest model outputs at the victim's expense.</p>
+
+<h2>Were your keys in the OpenCode data breach?</h2>
+<p>If you used OpenCode Console and did not get their email notice, you were not affected — only about 1.4% of users were. If you did get the notice, revoke every exposed key at the provider dashboard today; keys cannot be "unseen" once leaked.</p>
+
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->

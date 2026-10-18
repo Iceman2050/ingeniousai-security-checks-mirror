@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-primary-keyword="cybersecurity" lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TP-Link Tapo Camera Flaw Check — Is Your Camera Exposed?</title>
-<meta name="description" content="Six flaws fixed in TP-Link Tapo C200 V5 and C120 V1 cameras — including CVE-2026-102369 command injection that can hand attackers full control. Free 5-question check: is your camera exposed?">
+<title>TP-Link Tapo Flaw: Cybersecurity Camera Check</title>
+<meta name="description" content="Six flaws in TP-Link Tapo cameras, including CVE-2026-102369. A cybersecurity check: is your camera exposed? Free 5-question test.">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"Which TP-Link Tapo cameras are affected?","acceptedAnswer":{"@type":"Answer","text":"The TP-Link Tapo C200 V5 and Tapo C120 V1 security cameras. TP-Link released firmware updates fixing all six flaws; owners should update immediately via the Tapo app."}},
@@ -13,7 +13,7 @@
 {"@type":"Question","name":"How do I protect my Tapo camera?","acceptedAnswer":{"@type":"Answer","text":"Install the firmware update immediately, change the camera password to a unique one, put the camera on a separate guest/IoT network away from computers and phones, and check your router's device list for anything you do not recognize."}}
 ]}
 </script>
-<meta property="og:title" content="TP-Link Tapo Camera Flaw Check — Is Your Camera Exposed?">
+<meta property="og:title" content="TP-Link Tapo Flaw: Cybersecurity Camera Check">
 <meta property="og:description" content="Six flaws in TP-Link Tapo C200 V5 and C120 V1 cameras, one rated severe. Free 5-question exposure check + what to do now.">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/tplink-tapo-camera-flaw-check.html">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/tplink-tapo-camera-flaw-check.html">
@@ -39,11 +39,14 @@ a{color:#6ea8fe}
 button{background:#1c6ef2;color:#fff;border:0;padding:12px 28px;border-radius:8px;font-size:15px;font-weight:bold;cursor:pointer;margin-top:10px}
 code{background:#1a2230;padding:2px 6px;border-radius:4px;font-size:14px}
 </style>
+  <meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}</script>
 </head>
 <body>
 <div class="wrap">
 <div class="badge">SMART CAMERA SECURITY</div>
-<h1>TP-Link Tapo Camera Flaw Check</h1>
+<h1>TP-Link Tapo Flaw: a Cybersecurity Camera Check</h1>
 <p class="lede">Six security flaws were fixed in two popular TP-Link Tapo cameras — and the worst one can hand an attacker full control of the device. Check whether yours is exposed.</p>
 
 <h2>What happened</h2>
@@ -100,7 +103,7 @@ code{background:#1a2230;padding:2px 6px;border-radius:4px;font-size:14px}
 <button onclick="grade()">Check my answers</button>
 <div id="result"></div>
 
-<h2>Frequently asked questions</h2>
+<h2>Cybersecurity FAQ</h2>
 <div class="card">
 <details><summary>Which TP-Link Tapo cameras are affected?</summary><p>The Tapo C200 V5 and Tapo C120 V1. TP-Link has released firmware updates fixing all six flaws — update via the Tapo app as soon as you can.</p></details>
 <details><summary>What is CVE-2026-102369?</summary><p>A severe command-injection flaw in the camera's diagnostic service: it builds operating-system commands from user input without adequate validation, so crafted file-transfer instructions run as commands on the camera itself.</p></details>
@@ -151,6 +154,10 @@ r.textContent=msg;
 }
 render();
 </script>
+<nav class="related-checks" style="margin:32px 0;padding:20px 0;border-top:1px solid #2a2f3a">
+<p style="font-size:13px;letter-spacing:2px;color:#6ea8fe;margin-bottom:10px">RELATED SECURITY CHECKS</p>
+<p style="font-size:15px"><a href="common-ports-hackers-love-check.html">18 Ports Hackers Love</a> · <a href="meta-glasses-wake-word-recording-check.html">Meta Glasses Recording Check</a> · <a href="siteguard-waf-cve-2026-106931-check.html">SiteGuard CVE Check</a></p>
+</nav>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>

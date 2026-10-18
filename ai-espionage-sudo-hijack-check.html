@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-primary-keyword="cybersecurity" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI-Assisted Espionage: Sudo Hijack Check — Would You Catch It? (Free Check)</title>
-<meta name="description" content="Unit 42's CL-UNK-1211 campaign stole sudo passwords via a hijacked shell config. Free 5-question check for Linux admins: would you catch it on your servers?">
+<title>AI Espionage Sudo Hijack: Cybersecurity Check</title>
+<meta name="description" content="Unit 42: AI-assisted espionage stole Linux sudo passwords. A cybersecurity check for admins — free 5 questions.">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-espionage-sudo-hijack-check.html">
 <link rel="stylesheet" href="ecosystem.css">
 <meta property="og:type" content="website">
@@ -69,13 +69,14 @@ code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;
 {"@type":"Question","name":"Who was behind CL-UNK-1211?","acceptedAnswer":{"@type":"Answer","text":"Unknown. Palo Alto Networks Unit 42 tracks it as CL-UNK-1211 — cluster, unknown affiliation — and explicitly does not attribute it to any state or criminal group. Do not treat it as attributed."}}
 ]}
 </script>
+  <meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
 </head>
 <body>
 <div class="wrap">
 <a class="back" href="index.html">&larr; Back to all free security checks</a>
 <div class="badge">LINUX SECURITY &mdash; OCT 2026</div>
-<h1>Spies stole Linux passwords <span class="pink">without touching sudo.</span></h1>
-<p class="lead">Palo Alto Networks <strong>Unit 42</strong> reports an espionage campaign — tracked as <strong>CL-UNK-1211</strong>, active Oct 2025–Apr 2026 against government and state-affiliated Linux infrastructure — that stole credentials by replacing victims' <code>.bashrc</code> with a version containing a malicious <code>sudo</code> alias. The alias intercepted typed passwords, copied them to an attacker log disguised as <code>Solarwinds.StatusLog.txt</code>, and passed everything through to the real sudo. Updating sudo would not have stopped it. Five questions for Linux admins.</p>
+<h1>Spies stole Linux passwords: a <span class="pink">cybersecurity</span> alert</h1>
+<p class="lead">A sudo hijack is an attack that steals Linux passwords by tampering with shell startup files instead of the sudo binary itself. Palo Alto Networks <strong>Unit 42</strong> reports an espionage campaign — tracked as <strong>CL-UNK-1211</strong>, active Oct 2025–Apr 2026 against government and state-affiliated Linux infrastructure — that stole credentials by replacing victims' <code>.bashrc</code> with a version containing a malicious <code>sudo</code> alias. The alias intercepted typed passwords, copied them to an attacker log disguised as <code>Solarwinds.StatusLog.txt</code>, and passed everything through to the real sudo. Updating sudo would not have stopped it. Five questions for Linux admins.</p>
 
 <p class="answer"><strong>Short answer:</strong> the attack lives in shell startup files, not in the sudo binary. Monitor <code>.bashrc</code>/<code>.profile</code> integrity, alert on sudo aliases and wrappers, keep EDR tamper-protection on, and audit PHP configs and privilege-escalation CVEs.</p>
 
@@ -207,6 +208,20 @@ document.getElementById("copybtn").onclick=function(){
 };
 })();
 </script>
+<h2>Cybersecurity FAQ</h2>
+<div class="card">
+<details><summary>What is a sudo hijack via shell config?</summary><p>The attacker plants a malicious sudo alias in the victim's shell startup file (.bashrc). Every time the victim types sudo, the alias intercepts the typed password and sends it to the attacker.</p></details>
+<details><summary>Did AI run the CL-UNK-1211 espionage campaign?</summary><p>Unit 42 found evidence that AI helped create or adapt parts of the toolkit — scripts carried conversational, step-by-step comments consistent with LLM generation. But AI assistance is not the same as AI autonomy.</p></details>
+<details><summary>How do I detect a tampered shell startup file?</summary><p>Use file-integrity monitoring on .bashrc, .profile, .bash_profile and /etc/profile.d/; alert on any change outside approved deployment windows; periodically audit aliases with the alias command.</p></details>
+<details><summary>Who was behind CL-UNK-1211?</summary><p>Unknown. Palo Alto Networks Unit 42 tracks it as CL-UNK-1211 — cluster, unknown affiliation — and explicitly does not attribute it to any state or criminal group.</p></details>
+</div>
+
+<h2>What is AI-assisted espionage?</h2>
+<p>AI-assisted espionage is when attackers use artificial intelligence to help plan, write, or adapt cyber-espionage tools — as Unit 42 documented in the CL-UNK-1211 campaign, where LLM-generated comments appeared in the attack scripts. The AI writes the tools; humans still run the operation.</p>
+
+<h2>Would your cybersecurity team catch a sudo hijack?</h2>
+<p>Most would not — the malicious alias lives in a dotfile nobody audits, and the password theft looks like normal sudo use. File-integrity monitoring on shell startup files is the defense most teams are missing, and it takes an afternoon to deploy.</p>
+
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->

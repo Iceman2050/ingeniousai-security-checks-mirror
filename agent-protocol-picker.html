@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-primary-keyword="ai agents" lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Agent Protocol Picker — MCP vs A2A vs AG-UI: Which Do You Need?</title>
-<meta name="description" content="MCP, A2A, and AG-UI do three different jobs: tools, agent-to-agent teamwork, and human-facing interfaces. Answer 6 questions to get your protocol recommendation + the security checklist for each. Free, no signup.">
+<title>AI Agents Protocol Picker: MCP vs A2A</title>
+<meta name="description" content="MCP, A2A, AG-UI: which protocol do your AI agents need? 6 questions give your recommendation plus a security checklist for each. Free.">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-protocol-picker.html">
-<meta property="og:title" content="Agent Protocol Picker — MCP vs A2A vs AG-UI: Which Do You Need?">
+<meta property="og:title" content="AI Agents Protocol Picker: MCP vs A2A">
 <meta property="og:description" content="They're not competing — they're complementary. Answer 6 questions and get your protocol pick with a security checklist. Free, no signup.">
 <meta property="og:type" content="article">
 <link rel="stylesheet" href="ecosystem.css">
@@ -43,11 +43,15 @@ button{background:#1c6ef2;color:#fff;border:0;border-radius:8px;padding:12px 28p
 .src{font-size:12px;color:#6b7686;margin-top:14px}
 .small{font-size:13px;color:#8b98a9}
 </style>
+  <meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-protocol-picker.html">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}</script>
 </head>
 <body>
 <div class="wrap">
 
-<h1>Agent Protocol Picker — MCP vs A2A vs AG-UI</h1>
+<h1>AI Agents Protocol Picker: MCP vs A2A vs AG-UI</h1>
 <p class="lead">Three protocols, three different jobs. <strong>MCP</strong> plugs your agent into tools and data. <strong>A2A</strong> lets agents talk to other agents. <strong>AG-UI</strong> streams the agent's work to the humans watching it. The most common mistake is treating them as rivals — they're designed to layer. Answer 6 questions below and get your recommendation, with the security checklist for each protocol you pick.</p>
 
 <h2>The three protocols, in plain language</h2>
@@ -89,7 +93,8 @@ button{background:#1c6ef2;color:#fff;border:0;border-radius:8px;padding:12px 28p
 <p class="small"><strong>Honesty note:</strong> the comparison graphic that prompted this page claims MCP is near 500 million monthly SDK downloads; across industry sources the verifiable figure is roughly 97 million. This page uses the lower, verifiable number. All scale figures above are industry-reported, not independent findings.</p>
 </div>
 
-<h2>The 6-question picker</h2>
+<h2>Which protocol do your AI agents need?</h2>
+<p>MCP, A2A, and AG-UI solve different problems, and most teams only need one to start. Answer 6 questions about what your AI agents actually do, and this picker recommends the right protocol plus the security checklist for it.</p>
 <div id="quiz"></div>
 <button onclick="grade()">Get my recommendation</button>
 <div id="result"></div>
@@ -105,7 +110,7 @@ button{background:#1c6ef2;color:#fff;border:0;border-radius:8px;padding:12px 28p
 </ul>
 </div>
 
-<h2>Frequently asked questions</h2>
+<h2>AI Agents FAQ</h2>
 <div class="card">
 <details><summary>Do MCP and A2A compete with each other?</summary><p>No — they're complementary. MCP connects an agent to tools and data (vertical); A2A connects agents to other agents (horizontal). Production systems use both: the orchestrator delegates over A2A, specialists call tools over MCP.</p></details>
 <details><summary>Which protocol should I learn first?</summary><p>MCP, in most cases. Connecting your agent to your own tools and data is the step nearly every project needs. A2A matters once you have multiple agents collaborating across teams or vendors.</p></details>
@@ -181,6 +186,10 @@ document.getElementById("result").innerHTML=h;
 }
 if (typeof window !== "undefined") render();
 </script>
+<nav class="related-checks" style="margin:32px 0;padding:20px 0;border-top:1px solid #2a2f3a">
+<p style="font-size:13px;letter-spacing:2px;color:#6ea8fe;margin-bottom:10px">RELATED SECURITY CHECKS</p>
+<p style="font-size:15px"><a href="agent-api-access-safety-check.html">AI Agents API Access Safety</a> · <a href="agent-sandbox-policy-gap-checker.html">AI Agents Sandbox Checker</a> · <a href="colonistone-agent-offscript-check.html">ColonistOne Off-Script Check</a></p>
+</nav>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-primary-keyword="cybersecurity" lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>"The AI Said It Was Secure" — The Self-Audit Fallacy Check</title>
-<meta name="description" content="A meme nailed a real security problem: letting the AI that wrote your code audit it. Research shows models are biased toward their own output and miss their own blind spots. Free 5-question check — would your AI-built code survive a real audit?">
+<title>AI Self-Audit Fallacy: a Cybersecurity Check</title>
+<meta name="description" content="Letting AI audit its own code is a cybersecurity fallacy: models favor their own output and miss blind spots. Free 5-question check.">
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why is asking an AI to audit its own code a problem?", "acceptedAnswer": {"@type": "Answer", "text": "Research shows models are biased toward their own output, fail to correct 64.5% of their own errors on average, and share the same blind spots as generator and evaluator - so a self-audit gives weak evidence of correctness."}}, {"@type": "Question", "name": "What is the self-correction blind spot?", "acceptedAnswer": {"@type": "Answer", "text": "Testing across 14 models found an average 64.5% blind-spot rate: models fail to correct errors in their own outputs, yet can correct the identical errors when the same text is presented as someone else's. The knowledge is there; the self-awareness is not."}}, {"@type": "Question", "name": "Does self-refinement make code safer?", "acceptedAnswer": {"@type": "Answer", "text": "Self-refinement pipelines reliably improve fluency and understandability while amplifying self-bias - so an AI self-audit can make code look more secure while still missing vulnerabilities."}}, {"@type": "Question", "name": "What does a real security audit need?", "acceptedAnswer": {"@type": "Answer", "text": "An independent reviewer (a different model, a human, or both), adversarial testing that tries to break the code, mechanical checklists like the OWASP Top 10, and verifiable criteria such as passing tests."}}, {"@type": "Question", "name": "What research backs this page?", "acceptedAnswer": {"@type": "Answer", "text": "Xu et al.'s 'Pride and Prejudice' on self-bias (UCSB/CMU), Ken Tsui's self-correction blind-spot bench, and an information-theoretic analysis of correlated errors in self-correction."}}]}
 </script>
@@ -35,11 +35,14 @@ button{background:#1c6ef2;color:#fff;border:0;padding:12px 28px;border-radius:8p
 .meme{font-size:15px;color:#b9c4d2;font-style:italic;border-left:3px solid #7a4d12;padding-left:14px;margin:18px 0}
 .stat{font-size:26px;font-weight:bold;color:#fff}
 </style>
+  <meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}</script>
 </head>
 <body>
 <div class="wrap">
 <div class="badge">VIBE-CODING SECURITY</div>
-<h1>"The AI Said It Was Secure" 💀</h1>
+<h1>"The AI Said It Was Secure": a Cybersecurity Fallacy Check</h1>
 <p class="lede">A meme went around this week: <em>"Bro's security audit is a thumbs-up from the same AI that built it."</em> It's funny because it's true — and because researchers have actually measured exactly how bad this is.</p>
 
 <div class="meme">"The AI said it was secure 💀" — vibecodinglife group, Oct 2026. The joke: your security audit is the same model grading its own homework.</div>
@@ -120,12 +123,16 @@ r.textContent=msg;
 render();
 </script>
 
-<h2>Frequently asked questions</h2>
+<h2>Cybersecurity FAQ</h2>
 <details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">Why is asking an AI to audit its own code a problem?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Research shows models are biased toward their own output, fail to correct 64.5% of their own errors on average, and share the same blind spots as generator and evaluator - so a self-audit gives weak evidence of correctness.</p></details>
 <details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">What is the self-correction blind spot?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Testing across 14 models found an average 64.5% blind-spot rate: models fail to correct errors in their own outputs, yet can correct the identical errors when the same text is presented as someone else's. The knowledge is there; the self-awareness is not.</p></details>
 <details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">Does self-refinement make code safer?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Self-refinement pipelines reliably improve fluency and understandability while amplifying self-bias - so an AI self-audit can make code look more secure while still missing vulnerabilities.</p></details>
 <details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">What does a real security audit need?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">An independent reviewer (a different model, a human, or both), adversarial testing that tries to break the code, mechanical checklists like the OWASP Top 10, and verifiable criteria such as passing tests.</p></details>
 <details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">What research backs this page?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Xu et al.'s 'Pride and Prejudice' on self-bias (UCSB/CMU), Ken Tsui's self-correction blind-spot bench, and an information-theoretic analysis of correlated errors in self-correction.</p></details>
+<nav class="related-checks" style="margin:32px 0;padding:20px 0;border-top:1px solid #2a2f3a">
+<p style="font-size:13px;letter-spacing:2px;color:#6ea8fe;margin-bottom:10px">RELATED SECURITY CHECKS</p>
+<p style="font-size:15px"><a href="openai-misalignment-disclosure-check.html">OpenAI Misalignment Check</a> · <a href="torvalds-ai-code-disclosure-check.html">Torvalds AI Code Check</a> · <a href="ai-distillation-defense-check.html">Model Distillation Defense</a></p>
+</nav>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
