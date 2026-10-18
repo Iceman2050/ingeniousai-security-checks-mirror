@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Agent Sandbox Policy Gap Checker — Free Test</title>
+<meta name="description" content="AI agent sandbox policies have gaps — agents can edit their own rules. Paste your policy or answer 9 questions to score 5 risk areas with fixes. Free tool.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-sandbox-policy-gap-checker.html">
+<meta property="og:title" content="AI Agent Sandbox Policy Gap Checker — Free Test">
+<meta property="og:description" content="Paste your agent sandbox policy or answer 9 questions. Get scored on 5 gap areas — self-modification, egress, history-aware rules, credentials, MCP coverage — with fixes.">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="ecosystem.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is AWS Strands Box?","acceptedAnswer":{"@type":"Answer","text":"Strands Box is an open-source AI agent sandbox from AWS's Strands Agents team, released in developer preview on October 7, 2026 under the Apache 2.0 license. It pairs OS-level isolation (macOS Seatbelt) with a policy engine, is deny-by-default, and currently supports Macs with Apple silicon only, with Linux and other platforms planned."}},
+{"@type":"Question","name":"What is the Dogwood policy language?","acceptedAnswer":{"@type":"Answer","text":"Dogwood is AWS's open-source policy language (building on its Cedar language) with a Local Engine that evaluates each requested action against the agent's recorded history. Example from AWS: an incident agent may post to Slack, but no more than three times every 10 minutes — the box enforces the limit from history, not from the agent's memory."}},
+{"@type":"Question","name":"Can an agent inside the sandbox edit its own policy?","acceptedAnswer":{"@type":"Answer","text":"That is the gap this checker tests. In Strands Box the policy lives in box.toml, enforced at the syscall level by Seatbelt. If the agent can write to that file or its config directory, the sandbox ends up answering to the agent. AWS's own caveat is that policies 'may be difficult to understand, and difficult to write' — misconfigurations are easy."}},
+{"@type":"Question","name":"Is a deny-by-default sandbox enough for AI agents?","acceptedAnswer":{"@type":"Answer","text":"No. Deny-by-default is the floor, not the ceiling. You also need history-aware rules (judge sequences, not single actions), egress allowlists, credential injection at the gateway, an MCP/tool broker that reviews every call, and self-modification protection — the five dimensions this checker scores."}},
+{"@type":"Question","name":"Does this checker replace a security audit?","acceptedAnswer":{"@type":"Answer","text":"No. This is a heuristic self-assessment: your answers plus a keyword scan of pasted policy text, scored against five known gap areas. It cannot parse real Dogwood/Cedar semantics, cannot see your runtime, and is not legal or security advice. Use it to find blind spots, then verify with a proper review."}}
+]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"AI Agent Sandbox Policy Gap Checker","description":"Free interactive checker: paste your AI agent sandbox policy or answer 9 questions to find gaps across 5 risk areas — self-modification, egress, history-aware rules, credentials, MCP coverage.","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-sandbox-policy-gap-checker.html","inLanguage":"en","publisher":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<style>
+body{background:#0b0f14;color:#dbe2ec;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;padding:0 16px 40px;line-height:1.6}
+.wrap{max-width:860px;margin:0 auto}
+h1{font-size:30px;color:#fff;margin:28px 0 8px}
+h2{font-size:22px;color:#fff;margin:32px 0 10px}
+h3{font-size:17px;color:#fff;margin:18px 0 6px}
+.lead{font-size:17px;color:#aeb9c8}
+.card{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:16px 18px;margin:12px 0}
+.ans{background:#0e1a12;border:1px solid #1f6b3a;border-radius:10px;padding:16px 18px;margin:12px 0}
+.warn{background:#1a1410;border:1px solid #6b4a1e;border-radius:10px;padding:16px 18px;margin:12px 0}
+.facts{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:16px 18px;margin:12px 0}
+.facts li{margin:6px 0}
+.src{font-size:12px;color:#6b7686;margin-top:14px}
+.small{font-size:13px;color:#8b98a9}
+.q{background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px;margin:10px 0}
+.q p{margin:0 0 8px;color:#fff;font-weight:600}
+.q label{margin-right:18px;color:#aeb9c8;cursor:pointer}
+textarea{width:100%;min-height:130px;background:#0d1219;border:1px solid #232b38;border-radius:8px;color:#dbe2ec;padding:12px;font-family:monospace;font-size:13px;box-sizing:border-box}
+button{background:#1c6ef2;color:#fff;border:0;border-radius:8px;padding:12px 28px;font-size:15px;font-weight:700;cursor:pointer;margin-top:10px}
+button:hover{background:#3b82f6}
+#result{margin-top:16px}
+.dim{border-radius:10px;padding:14px 16px;margin:10px 0;border:1px solid #232b38;background:#11161f}
+.dim.ok{border-color:#1f6b3a;background:#0e1a12}
+.dim.gapd{border-color:#8a2b2b;background:#1a1010}
+.dim h3{margin:0 0 6px}
+.badge{display:inline-block;font-size:11px;letter-spacing:1px;border-radius:4px;padding:2px 8px;margin-bottom:6px;font-weight:700}
+.badge.ok{background:#1f6b3a;color:#fff}
+.badge.bad{background:#8a2b2b;color:#fff}
+.fix-list{margin:8px 0;padding-left:20px;color:#aeb9c8}
+details{margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px}
+summary{font-weight:700;color:#fff;cursor:pointer}
+.cross{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0}
+.cross a{color:#6ea8fe}
+a{color:#6ea8fe}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>AI Agent Sandbox Policy Gap Checker</h1>
+<p class="lead">An AI agent sandbox promises to keep your agent inside the lines — but the sandbox is only as strong as its policy. Paste your sandbox or agent policy below, or answer 9 questions about your setup, and get scored across 5 gap areas: <strong>self-modification protection</strong>, <strong>egress/network rules</strong>, <strong>history-aware rules</strong>, <strong>credential handling</strong>, and <strong>MCP broker coverage</strong> — with concrete fixes for every gap found.</p>
+
+<h2>What is an AI agent sandbox, exactly?</h2>
+<div class="ans">
+<p><strong>Direct answer:</strong> An AI agent sandbox combines OS-level isolation with a policy engine that approves or denies every agent action — shell commands, code runs, network requests, tool calls. AWS's Strands Box (October 2026) adds history-aware Dogwood policies, but a sandbox is only as strong as its policy: gaps like self-editing rules or open egress defeat it.</p>
+</div>
+
+<div class="facts">
+<h3 style="margin-top:0">Key facts</h3>
+<ul>
+<li><strong>AWS Strands Box</strong> — open-source AI agent sandbox, developer preview released <strong>October 7, 2026</strong>, licensed <strong>Apache 2.0</strong>. Source: <a href="https://aws.amazon.com/blogs/opensource/introducing-strands-box-ai-agent-sandboxes-powered-by-dogwood/">AWS Open Source Blog</a>.</li>
+<li><strong>Platform today:</strong> Mac with Apple silicon only (macOS 15+); Linux and other OS support planned. Reported by <a href="https://www.csoonline.com/article/4232446/aws-takes-aim-at-runaway-ai-agent-behavior-with-strands-box-2.html">CSO Online</a> and <a href="https://www.infoworld.com/article/4232439/aws-takes-aim-at-runaway-ai-agent-behavior-with-strands-box.html">InfoWorld</a>.</li>
+<li><strong>Policy stack:</strong> Dogwood policy language + Dogwood Local Engine; deny-by-default; enforcement at shell/Python interpreters, the network egress gateway, and the MCP broker. Reported by <a href="https://www.csoonline.com/article/4232446/aws-takes-aim-at-runaway-ai-agent-behavior-with-strands-box-2.html">CSO Online</a>.</li>
+<li><strong>AWS's own caveat:</strong> policies "may be difficult to understand, and difficult to write" — misconfiguration is the expected failure mode. Source: <a href="https://aws.amazon.com/blogs/opensource/introducing-strands-box-ai-agent-sandboxes-powered-by-dogwood/">AWS Open Source Blog</a>.</li>
+<li><strong>The gap this checker targets:</strong> an agent inside the box may be able to edit its own policy (box.toml). If the policy file is writable by the agent, the sandbox answers to the agent. <em>Analysis, October 18, 2026 — test it below rather than assuming you're safe.</em></li>
+</ul>
+</div>
+
+<h2>The gap analyzer</h2>
+<p>Option A — paste your policy (Dogwood/Cedar, box.toml, YAML, or plain-English rules). Option B — just answer the 9 questions. You can do both: the text gets a quick keyword scan and the questions drive the score.</p>
+
+<h3>Option A: paste your policy <span class="small">(optional)</span></h3>
+<textarea id="policyText" placeholder="Paste your sandbox policy here — Dogwood policy.dw, box.toml, YAML rules, or plain-English policy text..."></textarea>
+<p class="small">Heuristic keyword scan only — this is not a real Dogwood/Cedar parser. Findings are labeled as such.</p>
+
+<h3>Option B: answer 9 questions</h3>
+<div id="quiz"></div>
+<button onclick="runAnalysis()">Analyze my sandbox policy</button>
+<div id="result"></div>
+
+<h2>What this checker does NOT do</h2>
+<div class="card">
+<ul class="small">
+<li>It does not parse real Dogwood/Cedar policy semantics — the paste box gets a keyword scan, not a compiler.</li>
+<li>It cannot see your runtime, your OS grants, or your actual enforcement points.</li>
+<li>It is a heuristic self-assessment for finding blind spots, not a security audit and not legal advice.</li>
+<li>Answering "yes" to everything does not prove you are safe — verify critical setups with a proper review.</li>
+</ul>
+</div>
+
+<h2>Frequently asked questions</h2>
+<div class="card">
+<details><summary>What is AWS Strands Box?</summary><p>Strands Box is an open-source AI agent sandbox from AWS's Strands Agents team, released in developer preview on October 7, 2026 under the Apache 2.0 license. It pairs OS-level isolation (macOS Seatbelt) with a policy engine, is deny-by-default, and currently supports Macs with Apple silicon only, with Linux and other platforms planned.</p></details>
+<details><summary>What is the Dogwood policy language?</summary><p>Dogwood is AWS's open-source policy language (building on its Cedar language) with a Local Engine that evaluates each requested action against the agent's recorded history. Example from AWS: an incident agent may post to Slack, but no more than three times every 10 minutes — the box enforces the limit from history, not from the agent's memory.</p></details>
+<details><summary>Can an agent inside the sandbox edit its own policy?</summary><p>That is the gap this checker tests. In Strands Box the policy lives in box.toml, enforced at the syscall level by Seatbelt. If the agent can write to that file or its config directory, the sandbox ends up answering to the agent. AWS's own caveat is that policies "may be difficult to understand, and difficult to write" — misconfigurations are easy.</p></details>
+<details><summary>Is a deny-by-default sandbox enough for AI agents?</summary><p>No. Deny-by-default is the floor, not the ceiling. You also need history-aware rules (judge sequences, not single actions), egress allowlists, credential injection at the gateway, an MCP/tool broker that reviews every call, and self-modification protection — the five dimensions this checker scores.</p></details>
+<details><summary>Does this checker replace a security audit?</summary><p>No. This is a heuristic self-assessment: your answers plus a keyword scan of pasted policy text, scored against five known gap areas. It cannot parse real Dogwood/Cedar semantics, cannot see your runtime, and is not legal or security advice. Use it to find blind spots, then verify with a proper review.</p></details>
+</div>
+
+<div class="cross">
+<div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">MORE FROM INGENIOUS AI</div>
+<div style="font-size:15px;color:#e8edf3;margin-bottom:10px"><strong>Related checks:</strong></div>
+<ul style="margin:0;padding-left:20px;color:#aeb9c8">
+<li><a href="ai-agent-airgap-check.html">AI Agent Airgap Check</a> — can your agent really be cut off from the network?</li>
+<li><a href="agent-paranoid-mode-check.html">Agent Paranoid Mode Check</a> — maximum-restriction settings for untrusted agents</li>
+<li><a href="agent-permissions-quiz.html">Agent Permissions Quiz</a> — least-privilege scoring for agent tool access</li>
+<li><a href="agent-api-access-safety-check.html">Agent API Access Safety Check</a> — credential and API exposure review</li>
+<li><a href="state-of-mcp-security-2026.html">State of MCP Security 2026</a> — the tool-layer threat landscape</li>
+</ul>
+<p style="margin:12px 0 0;font-size:14px"><a href="all-links.html">Browse all Ingenious AI checks &rarr;</a> &nbsp;·&nbsp; <a href="security-suite.html">Security Suite &rarr;</a></p>
+</div>
+
+<p class="small">Honest scope: this page summarizes publicly reported facts about AWS Strands Box (October 2026) with linked sources; it is not affiliated with AWS. The analyzer is a heuristic self-assessment tool, not a security audit. Sandbox platforms evolve quickly — verify current behavior against official docs before relying on it.</p>
+
+</div>
+<script>
+var QUESTIONS=[
+ {t:"Is your sandbox deny-by-default (everything forbidden unless a rule allows it)?"},
+ {t:"Is network egress limited to an explicit allowlist of hosts?"},
+ {t:"Do your policies consider the agent's past actions in this session (history-aware), not just the current request?"},
+ {t:"Is the policy file stored where the agent cannot write to it (e.g. outside its sandbox or mounted read-only)?"},
+ {t:"Can the agent edit its own policy or config file (like box.toml) from inside the sandbox?",inv:true},
+ {t:"Are real credentials injected at request time (gateway swaps a placeholder), never visible to the agent?"},
+ {t:"Can the agent read secret material from files, environment variables, or configs it can access?",inv:true},
+ {t:"Does a broker review every MCP / tool call against policy before it executes?"},
+ {t:"Are tool and MCP results treated as untrusted data — never as instructions to follow?"}
+];
+var DIMS=[
+ {name:"Self-modification protection",q:[3,4],
+  gap:"The agent may be able to reach or rewrite its own policy — the sandbox would then answer to the agent, not to you.",
+  fixes:["Keep the policy file (e.g. box.toml) outside the agent's writable paths, or mount it read-only.","Deny the agent write access to its own config directory at the OS layer, not just in policy text.","Alert on any policy-file modification attempt as a critical security event."]},
+ {name:"Egress / network rules",q:[0,1],
+  gap:"Network access is not locked down: an agent allowed to read data but also reach the open internet can exfiltrate it.",
+  fixes:["Default-deny all egress; allowlist only the exact hosts each workflow needs.","Re-check policy per connection (the Strands Box gateway model), not once per session.","Log and rate-limit every approved outbound request."]},
+ {name:"History-aware rules",q:[2],
+  gap:"Rules only judge the current action, not the sequence — an agent can split a forbidden workflow into individually 'allowed' steps.",
+  fixes:["Use history-aware policies (Dogwood-style): evaluate each action against the session's recorded history.","Set rate/volume caps per action type (e.g. max 3 posts per 10 minutes).","Record every decision and event for post-hoc review."]},
+ {name:"Credential handling",q:[5,6],
+  gap:"Secrets are visible inside the agent environment — anything the agent can read, it can leak, intentionally or not.",
+  fixes:["Inject credentials at the egress gateway at request time; give the agent only placeholder tokens.","Never store secrets in files, env vars, or configs the agent can read.","Scope each credential to the minimum routes that need it."]},
+ {name:"MCP / tool broker coverage",q:[7,8],
+  gap:"Tool calls bypass policy review, or tool output is trusted as instructions — the classic MCP prompt-injection path.",
+  fixes:["Route every MCP/tools call through a broker that checks policy before execution.","Treat all tool results as untrusted data, never as instructions.","Review third-party MCP servers like software dependencies; grant least-privilege tools only."]}
+];
+function scanPolicyText(text){
+  var notes=[];
+  if(!text || !text.trim()) return notes;
+  var t=text.toLowerCase();
+  if(text.trim().length<50) notes.push("Pasted text is very short — keyword scan skipped. Paste the full policy for a better scan.");
+  else{
+    if(/allow\s*\*/.test(t)) notes.push("Wildcard 'allow *' detected — consider tightening to explicit allows.");
+    if(/box\.toml|policy\.dw/.test(t)) notes.push("Mentions a policy file (box.toml / policy.dw) — confirm the agent cannot write to it.");
+    if(!/deny/.test(t)) notes.push("No 'deny' rules found in pasted text — check you are deny-by-default, not allow-by-default.");
+    if(/mcp/.test(t)) notes.push("Mentions MCP — confirm a broker reviews each tools/call.");
+    else notes.push("No mention of MCP/tools — if your agent uses tools, that is an unscored blind spot.");
+    if(/secret|credential|token|api[_-]?key/.test(t)) notes.push("Mentions secrets/credentials — confirm they are injected at the gateway, not visible to the agent.");
+    if(!/egress|network|allowlist|whitelist/.test(t)) notes.push("No mention of egress/network rules — open egress is the most common sandbox gap.");
+  }
+  return notes;
+}
+function analyzeSandbox(ans,policyText){
+  var dims=DIMS.map(function(d){
+    var safe=0;
+    d.q.forEach(function(i){ if(ans[i]) safe++; });
+    var pct=Math.round(100*safe/d.q.length);
+    return {name:d.name,pct:pct,ok:(pct===100),gap:d.gap,fixes:d.fixes};
+  });
+  var gapCount=dims.filter(function(d){return !d.ok;}).length;
+  var band= gapCount===0 ? {label:"SOLID POSTURE",cls:"ok"}
+    : gapCount<=2 ? {label:"GAPPY — FIX BEFORE PRODUCTION",cls:"gapd"}
+    : {label:"CRITICAL GAPS — DO NOT SHIP",cls:"gapd"};
+  return {dims:dims,gapCount:gapCount,band:band,notes:scanPolicyText(policyText)};
+}
+function renderQuiz(){
+  var h="";
+  for(var i=0;i<QUESTIONS.length;i++){
+    h+='<div class="q"><p>'+(i+1)+'. '+QUESTIONS[i].t+'</p><label><input type="radio" name="q'+i+'" value="yes"> Yes</label><label><input type="radio" name="q'+i+'" value="no"> No</label></div>';
+  }
+  document.getElementById("quiz").innerHTML=h;
+}
+function runAnalysis(){
+  var ans=[];
+  for(var i=0;i<QUESTIONS.length;i++){
+    var sel=document.querySelector('input[name="q'+i+'"]:checked');
+    if(!sel){document.getElementById("result").innerHTML='<div class="warn"><p>Please answer all 9 questions first (the policy paste is optional).</p></div>';return;}
+    var yes=(sel.value==="yes");
+    ans.push(QUESTIONS[i].inv ? !yes : yes);
+  }
+  var text=document.getElementById("policyText").value;
+  var r=analyzeSandbox(ans,text);
+  var h='<div class="dim '+r.band.cls+'"><span class="badge '+(r.band.cls==="ok"?"ok":"bad")+'">'+r.band.label+'</span><h3>'+r.gapCount+' of 5 gap areas need work</h3></div>';
+  r.dims.forEach(function(d){
+    h+='<div class="dim '+(d.ok?"ok":"gapd")+'"><span class="badge '+(d.ok?"ok":"bad")+'">'+(d.ok?"COVERED":"GAP")+'</span><h3>'+d.name+' — '+d.pct+'%</h3>';
+    if(!d.ok){ h+='<p><strong>Why it matters:</strong> '+d.gap+'</p><p><strong>Fixes:</strong></p><ul class="fix-list">'; d.fixes.forEach(function(f){h+='<li>'+f+'</li>';}); h+='</ul>'; }
+    h+='</div>';
+  });
+  if(r.notes.length){
+    h+='<div class="warn"><h3>Policy paste — keyword scan (heuristic, not a parser)</h3><ul class="fix-list">';
+    r.notes.forEach(function(n){h+='<li>'+n+'</li>';});
+    h+='</ul></div>';
+  }
+  h+='<p class="small">Heuristic self-assessment — not a security audit. Verify critical setups with a proper review.</p>';
+  document.getElementById("result").innerHTML=h;
+}
+if(typeof window!=="undefined" && typeof document!=="undefined") renderQuiz();
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
