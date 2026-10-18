@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TP-Link Tapo Camera Flaw Check — Is Your Camera Exposed?</title>
 <meta name="description" content="Six flaws fixed in TP-Link Tapo C200 V5 and C120 V1 cameras — including CVE-2026-102369 command injection that can hand attackers full control. Free 5-question check: is your camera exposed?">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Which TP-Link Tapo cameras are affected?","acceptedAnswer":{"@type":"Answer","text":"The TP-Link Tapo C200 V5 and Tapo C120 V1 security cameras. TP-Link released firmware updates fixing all six flaws; owners should update immediately via the Tapo app."}},
+{"@type":"Question","name":"What is CVE-2026-102369?","acceptedAnswer":{"@type":"Answer","text":"A severe command-injection flaw in the camera's diagnostic service: it builds operating-system commands from user-supplied input without adequate validation, so crafted file-transfer instructions are executed as OS commands on the camera."}},
+{"@type":"Question","name":"Can hackers take over my Tapo camera remotely over the internet?","acceptedAnswer":{"@type":"Answer","text":"The demonstrated attack chain requires the attacker to already be on the same local network. They exploit an earlier authentication bypass to gain admin access, enable the hidden diagnostic tool, restart the camera, then inject commands. No in-the-wild exploitation has been reported."}},
+{"@type":"Question","name":"How do I protect my Tapo camera?","acceptedAnswer":{"@type":"Answer","text":"Install the firmware update immediately, change the camera password to a unique one, put the camera on a separate guest/IoT network away from computers and phones, and check your router's device list for anything you do not recognize."}}
+]}
+</script>
 <meta property="og:title" content="TP-Link Tapo Camera Flaw Check — Is Your Camera Exposed?">
 <meta property="og:description" content="Six flaws in TP-Link Tapo C200 V5 and C120 V1 cameras, one rated severe. Free 5-question exposure check + what to do now.">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/tplink-tapo-camera-flaw-check.html">
@@ -91,6 +99,14 @@ code{background:#1a2230;padding:2px 6px;border-radius:4px;font-size:14px}
 <div id="quiz"></div>
 <button onclick="grade()">Check my answers</button>
 <div id="result"></div>
+
+<h2>Frequently asked questions</h2>
+<div class="card">
+<details><summary>Which TP-Link Tapo cameras are affected?</summary><p>The Tapo C200 V5 and Tapo C120 V1. TP-Link has released firmware updates fixing all six flaws — update via the Tapo app as soon as you can.</p></details>
+<details><summary>What is CVE-2026-102369?</summary><p>A severe command-injection flaw in the camera's diagnostic service: it builds operating-system commands from user input without adequate validation, so crafted file-transfer instructions run as commands on the camera itself.</p></details>
+<details><summary>Can hackers take over my camera from the internet?</summary><p>The lab-demonstrated chain needs the attacker on your local network first. They use an earlier auth bypass to get admin access, switch on the hidden diagnostic tool, restart the camera, and inject commands. No real-world attacks have been reported.</p></details>
+<details><summary>How do I protect my Tapo camera?</summary><p>Update the firmware immediately, set a unique password, move the camera to a separate guest/IoT network, and check your router's device list for anything unfamiliar.</p></details>
+</div>
 
 <h2>Honest scope</h2>
 <div class="card">
