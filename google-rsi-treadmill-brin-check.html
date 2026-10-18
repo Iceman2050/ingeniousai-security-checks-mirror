@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html data-primary-keyword="recursive self improvement" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google's 'RSI Treadmill': Recursive Self-Improvement</title>
+<meta name="description" content="Brin says Google is on the RSI treadmill. Recursive self-improvement reality check: DeepMind reports 88% of code changes still needed humans. Hype vs measured.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/google-rsi-treadmill-brin-check.html">
+<meta property="og:title" content="Google's 'RSI Treadmill': Recursive Self-Improvement, Tested">
+<meta property="og:description" content="On October 14, 2026, Sergey Brin said Google's models are helping build their successors — 'we're starting to get onto that RSI treadmill.' DeepMind's own numbers tell a more measured story.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/google-rsi-treadmill-brin-check.html">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="ecosystem.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What did Sergey Brin say about the RSI treadmill?","acceptedAnswer":{"@type":"Answer","text":"On October 14, 2026, in a Google for Developers roundtable introducing Gemini 4 Argon, Brin said Google was 'starting to get onto that RSI treadmill,' with researchers and the model working 'hand in hand' to build the next version. He pointed to the rapid Flash 3.6/3.7/3.8 release cycle as early evidence and said internally Google was already 'a couple models ahead.' He did not claim the model improves itself without people."}},
+{"@type":"Question","name":"What is recursive self-improvement in AI?","acceptedAnswer":{"@type":"Answer","text":"Recursive self-improvement (RSI) is when an AI system helps design a more capable successor, which then helps design the next one. In theory each turn of the loop runs faster than the last, which is why the phrase makes AI safety researchers nervous: it could compress years of progress into months, with less time for oversight at each step."}},
+{"@type":"Question","name":"What does DeepMind's safety report actually show about AI delegating R&D?","acceptedAnswer":{"@type":"Answer","text":"Fully delegated code changes rose from 7.5% in April 2026 to 11.9% in September 2026 — meaning roughly 88% still required human involvement. Argon completed about half the tasks in an internal AI R&D evaluation, below the level of full automation. All code changes are still reviewed by people before integration, and humans still select experiments and diagnose training failures."}},
+{"@type":"Question","name":"Did the safety report find that AI is accelerating overall model progress?","acceptedAnswer":{"@type":"Answer","text":"No. Analysis across 92 benchmarks found no statistically significant acceleration in overall model progress attributable to AI assistance; greater investment and compute were considered the likelier explanation for recent gains. This is the key gap between Brin's 'treadmill' framing and the measured evidence."}},
+{"@type":"Question","name":"What should I watch to know if recursive self-improvement is really starting?","acceptedAnswer":{"@type":"Answer","text":"Watch three signals: (1) the fully-delegated share of R&D work — 7.5% to 11.9% is the trendline to track; (2) whether models start completing whole R&D tasks rather than half of them; and (3) whether oversight keeps pace — who reviews, who gates, and who can stop the loop as the delegated share climbs."}}
+]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}
+</script>
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:860px;margin:0 auto;padding:20px;line-height:1.65;color:#1a1a1a;background:#fff}
+h1{font-size:1.9em;line-height:1.25}
+h2{margin-top:2em;border-bottom:2px solid #7c3aed;padding-bottom:6px}
+.hero{background:#f5f3ff;border:1px solid #c4b5fd;border-radius:12px;padding:20px;margin:20px 0}
+.num{margin:18px 0;padding:16px;background:#f8fafc;border-left:4px solid #7c3aed;border-radius:0 8px 8px 0}
+.num h3{margin-top:0;color:#5b21b6}
+.quiz{background:#f0fdf4;border:1px solid #86efac;border-radius:12px;padding:20px;margin:24px 0}
+.q{margin:16px 0;padding:12px;background:#fff;border-radius:8px;border:1px solid #d1fae5}
+.q p{font-weight:600;margin:0 0 8px}
+.q label{display:block;margin:6px 0;cursor:pointer}
+button{background:#7c3aed;color:#fff;border:none;border-radius:8px;padding:12px 26px;font-size:1em;cursor:pointer;margin-top:10px}
+button:hover{background:#5b21b6}
+#qresult{font-weight:700;margin-top:12px;font-size:1.1em}
+.faq{margin:14px 0}
+.faq summary{font-weight:600;cursor:pointer;padding:8px 0}
+.small{font-size:.85em;color:#555}
+.label{display:inline-block;font-size:.78em;font-weight:700;padding:2px 10px;border-radius:20px;margin-bottom:6px}
+.reported{background:#e0e7ff;color:#3730a3}
+.measured{background:#dcfce7;color:#166534}
+.caveat{background:#fef3c7;color:#92400e}
+.ourtake{background:#f3e8ff;color:#6b21a8}
+blockquote{border-left:4px solid #7c3aed;margin:16px 0;padding:10px 16px;background:#faf5ff;font-style:italic}
+</style>
+</head>
+<body>
+
+<h1>Google's 'RSI Treadmill': Recursive Self-Improvement Hype vs the Safety Report</h1>
+<p class="small">AI Check · Updated October 18, 2026 · A recursive self improvement story with two versions. On October 14, 2026, Google cofounder Sergey Brin dropped into a developer roundtable and said the company was getting onto "that RSI treadmill" — models helping build their successors. DeepMind's own safety report, published around the same time, tells a more measured story. This check puts both side by side.</p>
+
+<div class="hero">
+<p><strong>The quote heard around the AI world.</strong> Google had just introduced its new flagship model, <strong>Gemini 4 Argon</strong>, in a "Google for Developers" roundtable hosted by Logan Kilpatrick and posted to YouTube on <strong>October 14, 2026</strong>. About three and a half minutes in, cofounder <strong>Sergey Brin</strong> — who returned from retirement and is credited as a core Gemini contributor — dropped in unannounced. <span class="label reported">REPORTED · BI / BADIYAA / NEOTEO</span></p>
+</div>
+
+<h2>What Brin actually said</h2>
+<p>Brin spoke for roughly 45 seconds, pointing to the run of smaller Flash models Google shipped before Gemini 4 as his evidence:</p>
+<blockquote>"And if you look at even before Gemini 4, when we had Flash 3.6, 3.7, 3.8, we're starting to get onto that RSI treadmill. And now the, you know, our researchers and the model work hand in hand to make the next version of the model."</blockquote>
+<p>He added that he had "popped in here randomly" because he and Melvin Johnson had been discussing the next model, that "probably by the time folks are viewing this, internally we're already using a couple models ahead," and closed with: "I expect it'll only continue to accelerate." The Flash models had iterated through versions 3.6, 3.7 and 3.8 in three-to-four-week cycles — pace that, Brin suggested, reflected early signs of models aiding their own evolution. <span class="label reported">REPORTED</span></p>
+
+<h2>What is recursive self-improvement?</h2>
+<p><strong>Recursive self-improvement (RSI) is an AI system that helps design a more capable successor, which then helps design the next one.</strong> In theory, each turn of that loop runs faster than the last — and that is why the phrase makes AI safety researchers nervous. RSI is the threshold where humans stop being the fastest improvers in the loop, and the moment a capability jump could arrive faster than oversight can adapt. It is one of the oldest and most debated ideas in AI safety, and Brin just put Google publicly near its doorstep.</p>
+
+<h2>What the safety report actually shows</h2>
+<p>DeepMind's Gemini 4 Argon safety report describes a process with extensive AI help — and continuing human control. The measured numbers: <span class="label measured">MEASURED · DEEPMIND SAFETY REPORT</span></p>
+<div class="num">
+<h3>11.9% fully delegated (up from 7.5%)</h3>
+<p>Fully delegated code changes — proposed, written and submitted by AI with no human authoring — rose from 7.5% in April 2026 to 11.9% in September 2026. That means roughly <strong>88% of proposed changes still required human involvement</strong>: human-written code, repeated human steering, or both.</p>
+</div>
+<div class="num">
+<h3>~50% of R&D tasks completed</h3>
+<p>Argon completed about <strong>half the tasks</strong> in an internal AI R&D evaluation — below the level that would constitute full automation of research work. AI agents now author a majority of production code and bug fixes, but <strong>every code change is reviewed by people</strong> before it is integrated.</p>
+</div>
+<div class="num">
+<h3>No statistically significant acceleration — across 92 benchmarks</h3>
+<p>The analysis found <strong>no statistically significant acceleration in overall model progress</strong> attributable to AI assistance. Greater investment and compute were considered the likelier explanation for recent gains. Humans still select research directions, design experiments, and diagnose training failures.</p>
+</div>
+
+<h2>The caveat Brin himself built in</h2>
+<p>Read the wording again: Brin did <strong>not</strong> say Gemini is improving itself without people. He described researchers and the model working <strong>"hand in hand"</strong> — a claim about speed and division of labor, not about autonomy. <span class="label caveat">IMPORTANT CAVEAT</span></p>
+<p>That distinction is the whole story. "Onto the treadmill" is not "running it alone." A 7.5% → 11.9% delegated share is a trendline, not a takeover. The honest read of both sources: AI assistance in AI research is real and growing, full automation is not here, and the measured evidence does not yet show the flywheel spinning on its own. A Gladstone AI report this week found most researchers across the major labs expect RSI to begin taking hold within three to twelve months — an expectation, not a measurement. <span class="label reported">REPORTED · GLADSTONE AI</span></p>
+
+<h2>The gap that matters: who gates the loop</h2>
+<p>Here is why the safety question survives the measured numbers. The delegated share climbed from 7.5% to 11.9% in five months. If that curve keeps climbing — and Brin says "it'll only continue to accelerate" — the question is not whether AI helps, but <strong>who reviews, who gates, and who can stop the loop</strong> when the delegated share reaches 30%, 50%, or more. Right now the answer is reassuring: human review gates every submission, humans pick the experiments, humans diagnose the failures. The thing to watch is whether the oversight scales at the same speed as the delegation. <span class="label ourtake">OUR TAKE</span></p>
+
+<h2>What to watch: 3 signals</h2>
+<div class="num">
+<h3>1. The delegated share trendline</h3>
+<p>7.5% → 11.9% is the number to track in the next safety report. A continued climb is expected; a sudden jump would be the real news.</p>
+</div>
+<div class="num">
+<h3>2. Task completion, not just code authorship</h3>
+<p>Writing code is one thing; completing whole R&D tasks is another. Argon is at ~half. Watch for a model that completes the loop end to end.</p>
+</div>
+<div class="num">
+<h3>3. Whether oversight keeps pace</h3>
+<p>The critical safety metric is not how much the model does — it is whether human review, experiment selection, and failure diagnosis stay in human hands as the delegated share grows. If review ever becomes a rubber stamp, the treadmill is running on its own.</p>
+</div>
+
+<h2>Test yourself: RSI hype vs reality</h2>
+<div class="quiz">
+<div id="quizbox"></div>
+<button onclick="gradeQuiz()">Check my score</button>
+<p id="qresult"></p>
+</div>
+
+<h2>Frequently asked questions</h2>
+<div class="faq">
+<details><summary>What did Sergey Brin say about the RSI treadmill?</summary>
+<p>On October 14, 2026, in a Google for Developers roundtable introducing Gemini 4 Argon, Brin said Google was "starting to get onto that RSI treadmill," with researchers and the model working "hand in hand" to build the next version. He pointed to the rapid Flash 3.6/3.7/3.8 release cycle as early evidence and said internally Google was already "a couple models ahead." He did not claim the model improves itself without people.</p>
+</details>
+<details><summary>What is recursive self-improvement in AI?</summary>
+<p>Recursive self-improvement (RSI) is when an AI system helps design a more capable successor, which then helps design the next one. In theory each turn of the loop runs faster than the last, which is why the phrase makes AI safety researchers nervous: it could compress years of progress into months, with less time for oversight at each step.</p>
+</details>
+<details><summary>What does DeepMind's safety report actually show about AI delegating R&amp;D?</summary>
+<p>Fully delegated code changes rose from 7.5% in April 2026 to 11.9% in September 2026 — meaning roughly 88% still required human involvement. Argon completed about half the tasks in an internal AI R&amp;D evaluation, below the level of full automation. All code changes are still reviewed by people before integration, and humans still select experiments and diagnose training failures.</p>
+</details>
+<details><summary>Did the safety report find that AI is accelerating overall model progress?</summary>
+<p>No. Analysis across 92 benchmarks found no statistically significant acceleration in overall model progress attributable to AI assistance; greater investment and compute were considered the likelier explanation for recent gains. This is the key gap between Brin's "treadmill" framing and the measured evidence.</p>
+</details>
+<details><summary>What should I watch to know if recursive self-improvement is really starting?</summary>
+<p>Watch three signals: (1) the fully-delegated share of R&amp;D work — 7.5% to 11.9% is the trendline to track; (2) whether models start completing whole R&amp;D tasks rather than half of them; and (3) whether oversight keeps pace — who reviews, who gates, and who can stop the loop as the delegated share climbs.</p>
+</details>
+</div>
+
+<h2>Related checks</h2>
+<ul>
+<li><a href="mass-recursive-self-improvement-check.html">Mass Recursive Self-Improvement Check</a> — the broader RSI landscape</li>
+<li><a href="anthropic-ai-worm-iot-check.html">Anthropic AI-Worm IoT Check</a> — when agents replicate beyond the lab</li>
+<li><a href="openai-exploitgym-huggingface-breach-check.html">OpenAI ExploitGym Breach Check</a> — what happens when an agent loop escapes human gating</li>
+</ul>
+
+<p class="small">Sources: Business Insider (Oct 15, 2026), Badiyaa, NeoTeo, webpronews, Times of India — reporting on the October 14, 2026 Google for Developers roundtable and DeepMind's Gemini 4 Argon safety report. Brin's remarks are quoted verbatim (46 words); all other figures are paraphrased from the cited reporting. "Recursive self improvement" is not yet volume-researched — no search-volume claims are made on this page.</p>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script>
+/* Quiz: RSI hype vs reality — correct marks the ACCURATE answer */
+var QUESTIONS=[
+{q:"What did Brin actually claim in the roundtable?",opts:["Gemini improves itself with no human involvement","Researchers and the model work 'hand in hand' — a claim about speed and division of labor","Google has stopped human review of model code"],correct:1},
+{q:"What share of code changes were fully delegated to AI in September 2026?",opts:["11.9%","52%","88%"],correct:0},
+{q:"What did the 92-benchmark analysis find about AI accelerating overall model progress?",opts:["Clear statistically significant acceleration","No statistically significant acceleration","The analysis was never run"],correct:1},
+{q:"Who still selects experiments and diagnoses training failures?",opts:["The models, autonomously","Human researchers","An external auditor"],correct:1},
+{q:"What is the most important safety signal to watch as delegation grows?",opts:["How fast new models ship","Whether human review, gating, and stop authority keep pace with the delegated share","How many benchmarks the model tops"],correct:1}
+];
+function renderQuiz(){
+var box=document.getElementById('quizbox'),html='';
+for(var i=0;i<QUESTIONS.length;i++){
+html+='<div class="q"><p>'+(i+1)+'. '+QUESTIONS[i].q+'</p>';
+for(var j=0;j<QUESTIONS[i].opts.length;j++){
+html+='<label><input type="radio" name="q'+i+'" value="'+j+'"> '+QUESTIONS[i].opts[j]+'</label>';
+}
+html+='</div>';
+}
+box.innerHTML=html;
+}
+function scoreQuiz(){
+var score=0;
+for(var i=0;i<QUESTIONS.length;i++){
+var sel=document.querySelector('input[name="q'+i+'"]:checked');
+if(sel&&parseInt(sel.value,10)===QUESTIONS[i].correct)score++;
+}
+return score;
+}
+function gradeQuiz(){
+var s=scoreQuiz(),n=QUESTIONS.length,msg;
+if(s===n)msg='5/5 — signal, not noise. You read past the headline.';
+else if(s>=3)msg=s+'/5 — solid. Re-read the measured-reality section.';
+else msg=s+'/5 — the hype got you. Re-read "what the safety report actually shows."';
+document.getElementById('qresult').textContent=msg;
+}
+renderQuiz();
+</script>
+<script src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
