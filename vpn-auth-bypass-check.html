@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GlobalProtect Vulnerability: VPN Ransomware On-Ramp Check</title>
-<meta name="description" content="CVE-2026-0257 is an auth bypass in PAN-OS GlobalProtect and Prisma Access, exploited by ransomware groups Qilin and Settra. Free 60-second self-audit.">
+<title>GlobalProtect Vulnerability: CVE-2026-0257 Ransomware Check</title>
+<meta name="description" content="GlobalProtect vulnerability CVE-2026-0257: auth bypass in PAN-OS GlobalProtect and Prisma Access, exploited by Qilin and Settra. Free 60-second exposure check.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="GlobalProtect Vulnerability: VPN Ransomware On-Ramp Check">
-<meta property="og:description" content="CVE-2026-0257 is an auth bypass in PAN-OS GlobalProtect and Prisma Access, exploited by ransomware groups Qilin and Settra. Free 60-second self-audit.">
+<meta property="og:title" content="GlobalProtect Vulnerability: CVE-2026-0257 Ransomware Check">
+<meta property="og:description" content="GlobalProtect vulnerability CVE-2026-0257: auth bypass in PAN-OS GlobalProtect and Prisma Access, exploited by Qilin and Settra. Free 60-second exposure check.">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/vpn-auth-bypass-check.html">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/vpn-auth-bypass-check.html">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GlobalProtect Vulnerability: VPN Ransomware On-Ramp Check">
-<meta name="twitter:description" content="CVE-2026-0257 is an auth bypass in PAN-OS GlobalProtect and Prisma Access, exploited by ransomware groups Qilin and Settra. Free 60-second self-audit.">
+<meta name="twitter:title" content="GlobalProtect Vulnerability: CVE-2026-0257 Ransomware Check">
+<meta name="twitter:description" content="GlobalProtect vulnerability CVE-2026-0257: auth bypass in PAN-OS GlobalProtect and Prisma Access, exploited by Qilin and Settra. Free 60-second exposure check.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
@@ -49,18 +49,33 @@ li{margin:8px 0}
 .more a:hover{text-decoration:underline}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"GlobalProtect Vulnerability: VPN Ransomware On-Ramp Check","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/vpn-auth-bypass-check.html","description":"CVE-2026-0257 is an auth bypass in PAN-OS GlobalProtect and Prisma Access, actively exploited by ransomware groups Qilin and Settra. Free 60-second self-audit + incident-response checklist.","about":{"@type":"Thing","name":"CVE-2026-0257"},"keywords":["GlobalProtect vulnerability","CVE-2026-0257","VPN ransomware","PAN-OS auth bypass"],"provider":{"@type":"Organization","name":"Ingenious AI"}}
+{"@context":"https://schema.org","@type":"WebPage","name":"GlobalProtect Vulnerability: CVE-2026-0257 Ransomware Check","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/vpn-auth-bypass-check.html","description":"GlobalProtect vulnerability CVE-2026-0257: auth bypass in PAN-OS GlobalProtect and Prisma Access, exploited by Qilin and Settra. Free 60-second exposure check.","about":{"@type":"Thing","name":"CVE-2026-0257"},"keywords":["GlobalProtect vulnerability","CVE-2026-0257","PAN-OS auth bypass","GlobalProtect vulnerability 2026","VPN ransomware"],"provider":{"@type":"Organization","name":"Ingenious AI"}}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is CVE-2026-0257?","acceptedAnswer":{"@type":"Answer","text":"CVE-2026-0257 is an authentication-bypass flaw in PAN-OS GlobalProtect and Prisma Access, disclosed in May 2026. It lets an attacker skip the login step on the VPN gateway itself \u2014 the front door to your internal network. Per Unit42 + ReliaQuest research, reported by The Hacker News, Oct 2026."}},{"@type":"Question","name":"Are ransomware groups really exploiting CVE-2026-0257?","acceptedAnswer":{"@type":"Answer","text":"Yes. As of October 2026, the ransomware groups Qilin and Settra are actively exploiting CVE-2026-0257 to break into corporate networks through unpatched VPN gateways \u2014 per Unit42 + ReliaQuest research, reported by The Hacker News, Oct 2026."}},{"@type":"Question","name":"Why isn't patching enough to stop the attacks?","acceptedAnswer":{"@type":"Answer","text":"Because attackers who got in before you patched may still hold valid sessions. As ReliaQuest put it: \u201cmalicious activity can resemble legitimate remote work... Patching alone may not remove access established before remediation.\u201d Terminate active sessions, revoke tokens, and rotate credentials after patching."}},{"@type":"Question","name":"What does 'kali' have to do with my VPN logs?","acceptedAnswer":{"@type":"Answer","text":"Attackers routinely connect from machines with default or unchanged hostnames \u2014 'kali' is the classic one. Searching your GlobalProtect/Prisma Access logs for unknown hostnames like 'kali' is a quick, free hunt for sessions that were never legitimate."}},{"@type":"Question","name":"Is this checklist a scanner?","acceptedAnswer":{"@type":"Answer","text":"No. This is a guided self-audit: you answer five questions about your own environment and get a posture verdict plus an incident-response checklist. It does not touch your network, install anything, or send any data anywhere \u2014 everything stays on your device."}}]}
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is CVE-2026-0257?", "acceptedAnswer": {"@type": "Answer", "text": "CVE-2026-0257 is an authentication-bypass flaw in PAN-OS GlobalProtect and Prisma Access, disclosed in May 2026. It lets an attacker skip the login step on the VPN gateway itself — the front door to your internal network. Per Unit42 + ReliaQuest research, reported by The Hacker News, Oct 2026."}}, {"@type": "Question", "name": "Are ransomware groups really exploiting CVE-2026-0257?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. As of October 2026, the ransomware groups Qilin and Settra are actively exploiting CVE-2026-0257 to break into corporate networks through unpatched VPN gateways — per Unit42 + ReliaQuest research, reported by The Hacker News, Oct 2026."}}, {"@type": "Question", "name": "Is CVE-2026-0257 in CISA's KEV catalog?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. CISA added CVE-2026-0257 to its Known Exploited Vulnerabilities catalog on May 29, 2026, with a June 1, 2026 remediation deadline for federal agencies. Palo Alto Networks disclosed the flaw on May 13, 2026, rating it high severity (CVSS 7.8); the NVD rated it critical (9.1). (Per Avertium and Infosecurity Magazine, Oct 2026.)"}}, {"@type": "Question", "name": "Which PAN-OS versions are affected by CVE-2026-0257?", "acceptedAnswer": {"@type": "Answer", "text": "PAN-OS versions 12.1, 11.2, 11.1, and 10.2, plus Prisma Access 11.2 and 10.2 — only when authentication override cookies are enabled alongside a specific certificate configuration. Panorama appliances and Cloud NGFW are not affected. (Per Avertium's CVE-2026-0257 advisory.)"}}, {"@type": "Question", "name": "Why isn't patching enough to stop the attacks?", "acceptedAnswer": {"@type": "Answer", "text": "Because attackers who got in before you patched may still hold valid sessions. As ReliaQuest put it: “malicious activity can resemble legitimate remote work... Patching alone may not remove access established before remediation.” Terminate active sessions, revoke tokens, and rotate credentials after patching."}}]}
 </script>
 <link rel="stylesheet" href="ecosystem.css">
 </head>
 <body>
 <div class="wrap">
 <div class="badge">CVE-2026-0257 &mdash; AUTH BYPASS &mdash; RANSOMWARE EXPLOITATION &mdash; OCT 2026</div>
-<h1>Are your VPN gateways the <span class="red">ransomware on-ramp</span>?</h1>
-<p class="lead">CVE-2026-0257 is an authentication bypass in PAN-OS GlobalProtect and Prisma Access, disclosed in May 2026. An attacker who hits it skips the login entirely &mdash; and the ransomware groups <strong>Qilin</strong> and <strong>Settra</strong> are actively exploiting it right now. Your VPN was built to let employees in. Right now it may be letting ransomware in too. <em>Per Unit42 + ReliaQuest research, reported by The Hacker News, Oct 2026.</em></p>
+<h1>GlobalProtect vulnerability: is your VPN the <span class="red">ransomware on-ramp</span>?</h1>
+<p class="lead">The GlobalProtect vulnerability <strong>CVE-2026-0257</strong> is an authentication bypass in PAN-OS GlobalProtect and Prisma Access, disclosed in May 2026. An attacker who hits it skips the login entirely &mdash; and the ransomware groups <strong>Qilin</strong> and <strong>Settra</strong> are actively exploiting it right now. Your VPN was built to let employees in. Right now it may be letting ransomware in too. <em>Per Unit42 + ReliaQuest research, reported by The Hacker News, Oct 2026.</em></p>
+
+<div class="card">
+<h3>Do I need to terminate VPN sessions after patching CVE-2026-0257?</h3>
+<p class="note">Yes. Attackers who got in before you patched may still hold valid sessions, so patching the gateway does not evict them. Per ReliaQuest, "malicious activity can resemble legitimate remote work... Patching alone may not remove access established before remediation." After patching, terminate every GlobalProtect and Prisma Access session, revoke tokens, then hunt VPN logs back to May for rogue sessions.</p>
+</div>
+
+<div class="card">
+<h2>Key facts</h2>
+<ul>
+<li><strong>Disclosed May 13, 2026</strong> by Palo Alto Networks (CVSS 7.8 "highest" urgency; NIST NVD rated it critical 9.1).</li>
+<li><strong>CISA KEV, May 29, 2026:</strong> added to the Known Exploited Vulnerabilities catalog, with a June 1, 2026 federal remediation deadline. <a href="https://www.avertium.com/flash-notices/palo-alto-networks-globalprotect-authentication-bypass-ransomware-groups-actively-exploiting" target="_blank" rel="noopener" style="color:#6ea8fe">Avertium flash notice</a>.</li>
+<li><strong>Affected:</strong> PAN-OS 12.1, 11.2, 11.1, 10.2 and Prisma Access 11.2, 10.2 — with auth override cookies enabled plus a specific certificate configuration. Panorama and Cloud NGFW are <strong>not</strong> affected.</li>
+<li><strong>Active exploitation, Oct 2026:</strong> ransomware groups Qilin and Settra are actively exploiting it to create unauthorized VPN sessions, per ReliaQuest. <a href="https://www.infosecurity-magazine.com/news/palo-alto-vpn-vulnerability-target/" target="_blank" rel="noopener" style="color:#6ea8fe">Infosecurity Magazine</a>.</li>
+</ul>
+</div>
 
 <div class="card">
 <h2>The 60-second exposure check</h2>
@@ -126,23 +141,23 @@ li{margin:8px 0}
 <h2>FAQ</h2>
 <div class="card" style="margin:12px 0">
 <h3 style="font-size:16px;color:#fff;margin-bottom:8px">What is CVE-2026-0257?</h3>
-<p class="note">CVE-2026-0257 is an authentication-bypass flaw in PAN-OS GlobalProtect and Prisma Access, disclosed in May 2026. It lets an attacker skip the login step on the VPN gateway itself &mdash; the front door to your internal network. <em>Per Unit42 + ReliaQuest research, reported by The Hacker News, Oct 2026.</em></p>
+<p class="note">CVE-2026-0257 is an authentication-bypass flaw in PAN-OS GlobalProtect and Prisma Access, disclosed in May 2026. It lets an attacker skip the login step on the VPN gateway itself — the front door to your internal network. Per Unit42 + ReliaQuest research, reported by The Hacker News, Oct 2026.</p>
 </div>
 <div class="card" style="margin:12px 0">
 <h3 style="font-size:16px;color:#fff;margin-bottom:8px">Are ransomware groups really exploiting CVE-2026-0257?</h3>
-<p class="note">Yes. As of October 2026, the ransomware groups Qilin and Settra are actively exploiting CVE-2026-0257 to break into corporate networks through unpatched VPN gateways — <em>per Unit42 + ReliaQuest research, reported by The Hacker News, Oct 2026.</em></p>
+<p class="note">Yes. As of October 2026, the ransomware groups Qilin and Settra are actively exploiting CVE-2026-0257 to break into corporate networks through unpatched VPN gateways — per Unit42 + ReliaQuest research, reported by The Hacker News, Oct 2026.</p>
 </div>
 <div class="card" style="margin:12px 0">
-<h3 style="font-size:16px;color:#fff;margin-bottom:8px">Why isn't patching enough to stop the attacks?</h3>
-<p class="note">Because attackers who got in before you patched may still hold valid sessions. As ReliaQuest put it: &ldquo;malicious activity can resemble legitimate remote work... Patching alone may not remove access established before remediation.&rdquo; Terminate active sessions, revoke tokens, and rotate credentials after patching.</p>
+<h3 style="font-size:16px;color:#fff;margin-bottom:8px">Is CVE-2026-0257 in CISA&#x27;s KEV catalog?</h3>
+<p class="note">Yes. CISA added CVE-2026-0257 to its Known Exploited Vulnerabilities catalog on May 29, 2026, with a June 1, 2026 remediation deadline for federal agencies. Palo Alto Networks disclosed the flaw on May 13, 2026, rating it high severity (CVSS 7.8); the NVD rated it critical (9.1). (Per Avertium and Infosecurity Magazine, Oct 2026.)</p>
 </div>
 <div class="card" style="margin:12px 0">
-<h3 style="font-size:16px;color:#fff;margin-bottom:8px">What does 'kali' have to do with my VPN logs?</h3>
-<p class="note">Attackers routinely connect from machines with default or unchanged hostnames &mdash; 'kali' is the classic one. Searching your GlobalProtect/Prisma Access logs for unknown hostnames like 'kali' is a quick, free hunt for sessions that were never legitimate.</p>
+<h3 style="font-size:16px;color:#fff;margin-bottom:8px">Which PAN-OS versions are affected by CVE-2026-0257?</h3>
+<p class="note">PAN-OS versions 12.1, 11.2, 11.1, and 10.2, plus Prisma Access 11.2 and 10.2 — only when authentication override cookies are enabled alongside a specific certificate configuration. Panorama appliances and Cloud NGFW are not affected. (Per Avertium&#x27;s CVE-2026-0257 advisory.)</p>
 </div>
 <div class="card" style="margin:12px 0">
-<h3 style="font-size:16px;color:#fff;margin-bottom:8px">Is this checklist a scanner?</h3>
-<p class="note">No. This is a guided self-audit: you answer five questions about your own environment and get a posture verdict plus an incident-response checklist. It does not touch your network, install anything, or send any data anywhere &mdash; everything stays on your device.</p>
+<h3 style="font-size:16px;color:#fff;margin-bottom:8px">Why isn&#x27;t patching enough to stop the attacks?</h3>
+<p class="note">Because attackers who got in before you patched may still hold valid sessions. As ReliaQuest put it: “malicious activity can resemble legitimate remote work... Patching alone may not remove access established before remediation.” Terminate active sessions, revoke tokens, and rotate credentials after patching.</p>
 </div>
 </div>
 
