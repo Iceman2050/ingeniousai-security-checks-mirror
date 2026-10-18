@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-primary-keyword="cybersecurity" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Assume-Breach Backend Check — Would Your Backend Survive Being Hacked? | Ingenious AI</title>
-<meta name="description" content="Assume-breach design: a backend so it can be hacked and the attacker gets nothing. The three mechanics — device-held keys, end-to-end encryption, relay-only servers — the AI-agent angle, what to ask any vendor, and a 5-question check. Free, no signup.">
+<title>Assume-Breach Backend: Cybersecurity Check</title>
+<meta name="description" content="Assume-breach cybersecurity: design a backend so hackers get nothing. Device-held keys, end-to-end encryption, relay-only servers, and a 5-question check.">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/assume-breach-backend-check.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
@@ -70,11 +70,13 @@ details p{margin-top:10px;font-size:14px;color:#9aa7b8}
 .cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
 .cta:hover{background:#2f7ef7}
 </style>
+  <meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}</script>
 </head>
 <body>
 <div class="wrap">
 <div class="badge">ASSUME-BREACH DESIGN</div>
-<h1>Your backend <span class="green">will</span> be hacked. <span class="green">Design it so there's nothing to steal.</span></h1>
+<h1>Assume-Breach: the <span class="green">Cybersecurity</span> Backend Playbook</h1>
 <p class="lead">The strongest security posture isn't "our servers can't be breached" — it's "when our servers get breached, the attacker gets nothing." That's assume-breach design: plan for the hack <em>before</em> it happens, so the breach becomes a non-event instead of a catastrophe.</p>
 
 <div class="attrib"><strong>What triggered this page:</strong> the founder of VibeiDE (vibeide.dev — a real, live app for orchestrating coding agents on your own computer) posted in a developer group on October 18, 2026 that someone had gotten into their backend through a zero-day exploit the previous week — "but he got nothing." That is the founder's own account of the incident, not an independently verified breach. What <em>is</em> independently established is the architecture pattern behind the claim: keys held only on paired devices, end-to-end encryption, and a backend that merely relays. The same pattern behind Signal and WhatsApp. This page is about the pattern — and how to tell whether a vendor you trust actually implements it.</div>
@@ -189,7 +191,7 @@ if(typeof module!=='undefined'&&module.exports){module.exports={QS:QS,GOOD_IS_YE
 </div>
 
 <div class="card">
-<h2><span class="n">07</span> — Frequently asked questions</h2>
+<h2><span class="n">07</span> — Cybersecurity FAQ</h2>
 <details><summary>What is assume-breach backend design?</summary><p>Assume-breach design starts from the premise that the backend server will eventually be compromised, and structures the architecture so that event yields the attacker nothing usable: cryptographic keys live only on paired client devices, all data is end-to-end encrypted, and the server functions as a relay that can neither read the data it forwards nor command the clients. The breach becomes a non-event because there is nothing worth stealing.</p></details>
 <details><summary>How do device-held keys protect against a backend breach?</summary><p>If the keys needed to decrypt data exist only on the user's paired devices and never on the server, a breached server has nothing to surrender. Attackers can copy the server's entire database, but without the keys it is unreadable noise. This is the same principle behind Signal and WhatsApp: the service provider itself cannot read your messages because it never holds the keys.</p></details>
 <details><summary>Why is assume-breach especially important for AI agent tools?</summary><p>AI agent tools that let you control coding agents from your phone are exceptionally high-value targets: a compromised backend for such a tool could potentially send commands to every connected client machine, turning one breach into fleet-wide compromise. An assume-breach relay-only backend removes that possibility, because the server has no channel through which to command clients — it can only relay encrypted messages between already-paired devices.</p></details>
@@ -202,6 +204,10 @@ if(typeof module!=='undefined'&&module.exports){module.exports={QS:QS,GOOD_IS_YE
 <div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Agent Auth Gateway</strong> — our enforcement-layer gateway: it relays and enforces, but never needs to read your secrets. Assume-breach by design.</div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20took%20one%20of%20your%20security%20checks%20and%20want%20early%20access%20to%20your%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
 
 </div>
+<nav class="related-checks" style="margin:32px 0;padding:20px 0;border-top:1px solid #2a2f3a">
+<p style="font-size:13px;letter-spacing:2px;color:#6ea8fe;margin-bottom:10px">RELATED SECURITY CHECKS</p>
+<p style="font-size:15px"><a href="siteguard-waf-cve-2026-106931-check.html">SiteGuard CVE-2026-106931 Check</a> · <a href="common-ports-hackers-love-check.html">18 Ports Hackers Love</a> · <a href="password-brute-force-survival-check.html">Strong Password Survival Check</a></p>
+</nav>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <script src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"376c9de98060423683cfe15cec38f36b"}'></script>

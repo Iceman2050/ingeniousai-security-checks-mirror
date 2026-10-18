@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-primary-keyword="cybersecurity" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Drupal Vulnerability: Patch Your Site Before RCE Hits</title>
-<meta name="description" content="The Drupal vulnerability patch of Oct 17, 2026 fixed critical RCE flaws — exploits may emerge soon. Free triage: version check, patch status, exposure score.">
+<title>Drupal RCE: Cybersecurity Patch Alert</title>
+<meta name="description" content="Drupal RCE patch of Oct 17, 2026 fixed critical flaws. Cybersecurity triage: version check, patch status, exposure score.">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/drupal-rce-exposure-check.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
@@ -100,17 +100,23 @@ code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;
   ]
 }
 </script>
+  <meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
 </head>
 <body>
 <div class="wrap">
 <a class="back" href="all-links.html">&larr; All Ingenious AI security checks</a>
 <div class="badge">PATCH NOW &mdash; OCT 17, 2026</div>
-<h1>Drupal <span class="red">Vulnerability</span>: Patch Before RCE Hits</h1>
+<h1>Drupal <span class="red">Vulnerability</span>: a Cybersecurity Patch Alert</h1>
 <p class="lead">Drupal released security updates fixing <strong>critical remote code execution flaws</strong> on Oct 17, 2026 &mdash; and BleepingComputer warns exploits may emerge soon. Remote code execution means an unauthenticated visitor can run code on your server. This triage scores your patch status and exposure so you patch in the right order.</p>
 
 <div class="answer">
 <h3 style="font-size:16px;color:#fff;margin-bottom:8px">Is my site affected by the October 2026 Drupal vulnerability?</h3>
 <p style="font-size:15px;color:#9aa7b8">Drupal patched critical RCE flaws on Oct 17, 2026, and BleepingComputer warns exploits may emerge soon. If your site runs Drupal core below the Oct 17 security release, it is affected &mdash; check Reports &gt; Status report in your admin, or compare against the advisory. Patch the same day; until then, use a WAF, disable update.php, and back up.</p>
+</div>
+
+<div class="card">
+<h2>What is a Drupal RCE flaw?</h2>
+<p>A remote code execution (RCE) flaw lets an attacker run their own commands on your web server without logging in — the most severe class of web vulnerability. Drupal's October 2026 update fixed several, which is why patching immediately is a cybersecurity priority, not a routine chore.</p>
 </div>
 
 <div class="card">
@@ -124,7 +130,8 @@ code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;
 </div>
 
 <div class="card">
-<h2>Exposure triage &mdash; the checker</h2>
+<h2>Is your Drupal site exposed?</h2>
+<p>Drupal released emergency patches for critical remote code execution flaws, and exploit code typically follows within days. If your site runs Drupal and you have not patched yet, assume you are a target. This triage takes a minute and tells you where you stand.</p>
 <p class="note">Answer honestly. <strong>YES</strong> means the risk is present (heavier questions count more).</p>
 <div id="quiz"></div>
 <div id="verdict" role="status"></div>
@@ -155,7 +162,7 @@ code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;
 </div>
 
 <div class="card">
-<h2>Frequently asked questions</h2>
+<h2>Cybersecurity FAQ</h2>
 <details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">What did Drupal patch on October 17, 2026?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Drupal released security updates fixing critical remote code execution flaws on Oct 17, 2026. BleepingComputer warns exploits may emerge soon, so sites should update now rather than waiting for exploit reports.</p></details>
 <details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">How do I check whether my Drupal site is patched?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">In your Drupal admin, go to Reports &gt; Status report and compare your core and module versions against the Oct 17, 2026 security advisory. If anything is below the security release, you are unpatched.</p></details>
 <details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">Am I safe if my site is behind a firewall or is not public?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Safer, but not safe. RCE flaws can be reached through any exposed web path, and internal attackers or pivots from other hosts still count. Patch regardless of exposure level.</p></details>

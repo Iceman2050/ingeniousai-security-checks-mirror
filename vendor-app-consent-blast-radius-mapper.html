@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-primary-keyword="cybersecurity" lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Third Party App Risk: Vendor Consent Blast-Radius Map</title>
-<meta name="description" content="Third party app risk mapped: one stolen ConnectWise secret hit 173 Microsoft 365 tenants. List your vendor apps and permissions to score your blast radius.">
+<title>Third-Party App Risk: Cybersecurity Map</title>
+<meta name="description" content="Third party app risk mapped: one stolen ConnectWise secret hit 173 Microsoft 365 tenants. A cybersecurity tool — list vendor apps to score blast radius.">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-app-consent-blast-radius-mapper.html">
 <meta property="og:title" content="Third Party App Risk: Vendor Consent Blast-Radius Map">
 <meta property="og:description" content="One stolen vendor credential hit 173 Microsoft 365 tenants. List your vendor apps and their permissions to score your own consent blast radius — with least-privilege fixes.">
@@ -58,11 +58,14 @@ summary{font-weight:700;color:#fff;cursor:pointer}
 a{color:#6ea8fe}
 .rm{float:right;background:none;border:1px solid #5b2b2b;color:#e08a8a;border-radius:6px;padding:4px 10px;font-size:12px;cursor:pointer;margin:0}
 </style>
+  <meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-app-consent-blast-radius-mapper.html">
 </head>
 <body>
 <div class="wrap">
 
-<h1>Third Party App Risk: Vendor Consent Blast-Radius Map</h1>
+<h1>Third-Party App Risk: a Cybersecurity Blast-Radius Map</h1>
 <p class="lead">Every vendor app you consent in Microsoft 365 is a loaded credential: whoever holds the vendor's secret inherits your permissions. In October 2026, <strong>one stolen ConnectWise secret reached 173 tenants</strong>. Add your vendor apps below, tick their permissions, and get your blast-radius score — with least-privilege fixes.</p>
 
 <h2>What is third-party app risk?</h2>
@@ -110,7 +113,7 @@ a{color:#6ea8fe}
 </ul>
 </div>
 
-<h2>Frequently asked questions</h2>
+<h2>Cybersecurity FAQ</h2>
 <div class="card">
 <details><summary>What happened in the ConnectWise Cloud Backup breach?</summary><p>In October 2026, a stolen credential belonging to ConnectWise Cloud Backup (formerly SkyKick) was used to sign in to 173 Microsoft 365 partner and customer tenants. The attacker authenticated as the trusted application (AppId 506e08f9-6e9a-4da4-942b-a099a03644ae) from IP 144.172.64[.]128 on October 15, 2026, and inherited the broad permissions customers had already consented — mailboxes, OneDrive, SharePoint, Teams, and directory data. No user passwords were needed.</p></details>
 <details><summary>What is a blast radius in app-consent terms?</summary><p>The total data and access an attacker gains if one vendor app's credential is stolen: every permission the app holds, multiplied by every tenant where it is consented. A backup app with mailbox and directory access installed in 100 tenants is 100 tenants of exposure from a single secret — which is exactly what the ConnectWise incident demonstrated.</p></details>
