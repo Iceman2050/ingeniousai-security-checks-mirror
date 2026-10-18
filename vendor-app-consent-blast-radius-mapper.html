@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Third Party App Risk: Vendor Consent Blast-Radius Map</title>
+<meta name="description" content="Third party app risk mapped: one stolen ConnectWise secret hit 173 Microsoft 365 tenants. List your vendor apps and permissions to score your blast radius.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-app-consent-blast-radius-mapper.html">
+<meta property="og:title" content="Third Party App Risk: Vendor Consent Blast-Radius Map">
+<meta property="og:description" content="One stolen vendor credential hit 173 Microsoft 365 tenants. List your vendor apps and their permissions to score your own consent blast radius — with least-privilege fixes.">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="ecosystem.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What happened in the ConnectWise Cloud Backup breach?","acceptedAnswer":{"@type":"Answer","text":"In October 2026, a stolen credential belonging to ConnectWise Cloud Backup (formerly SkyKick) was used to sign in to 173 Microsoft 365 partner and customer tenants. The attacker authenticated as the trusted application (AppId 506e08f9-6e9a-4da4-942b-a099a03644ae) from IP 144.172.64[.]128 on October 15, 2026, and inherited the broad permissions customers had already consented — mailboxes, OneDrive, SharePoint, Teams, and directory data. No user passwords were needed."}},
+{"@type":"Question","name":"What is a blast radius in app-consent terms?","acceptedAnswer":{"@type":"Answer","text":"The total data and access an attacker gains if one vendor app's credential is stolen: every permission the app holds, multiplied by every tenant where it is consented. A backup app with mailbox and directory access installed in 100 tenants is 100 tenants of exposure from a single secret — which is exactly what the ConnectWise incident demonstrated."}},
+{"@type":"Question","name":"How do I check whether my tenant was affected by the ConnectWise incident?","acceptedAnswer":{"@type":"Answer","text":"Review Microsoft Entra sign-in logs for the application ID 506e08f9-6e9a-4da4-942b-a099a03644ae, look for authentications from non-standard IPs (the attacker used 144.172.64[.]128), hunt for newly added credentials on service principals, and check for privilege escalations such as the app granting itself Global Administrator. ConnectWise disabled 7 app identities and closed Cloud Backup access in response."}},
+{"@type":"Question","name":"Does this mapper connect to my Microsoft 365 tenant?","acceptedAnswer":{"@type":"Answer","text":"No. This is a manual self-assessment: you list your vendor apps and tick their permissions, and the mapper scores the blast radius from that input. It cannot see your real Entra consents. Use it to prioritize a real review in the Microsoft Entra admin center, where every consented app and permission is listed."}}
+]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Third Party App Risk: Vendor Consent Blast-Radius Map","description":"Interactive mapper: list your vendor apps and their permissions to score your third-party app consent blast radius, with least-privilege remediation steps.","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-app-consent-blast-radius-mapper.html","inLanguage":"en","publisher":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<style>
+body{background:#0b0f14;color:#dbe2ec;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;padding:0 16px 40px;line-height:1.6}
+.wrap{max-width:860px;margin:0 auto}
+h1{font-size:30px;color:#fff;margin:28px 0 8px}
+h2{font-size:22px;color:#fff;margin:32px 0 10px}
+h3{font-size:17px;color:#fff;margin:18px 0 6px}
+.lead{font-size:17px;color:#aeb9c8}
+.card{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:16px 18px;margin:12px 0}
+.ans{background:#0e1a12;border:1px solid #1f6b3a;border-radius:10px;padding:16px 18px;margin:12px 0}
+.warn{background:#1a1410;border:1px solid #6b4a1e;border-radius:10px;padding:16px 18px;margin:12px 0}
+.facts{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:16px 18px;margin:12px 0}
+.facts li{margin:6px 0}
+.src{font-size:12px;color:#6b7686;margin-top:14px}
+.small{font-size:13px;color:#8b98a9}
+.app{background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:14px 16px;margin:12px 0}
+.app input[type=text],.app input[type=number]{background:#0b0f17;border:1px solid #232b38;border-radius:6px;color:#dbe2ec;padding:8px 10px;font-size:14px;margin:4px 8px 4px 0}
+.app input[type=text]{width:220px}
+.app input[type=number]{width:110px}
+.perms{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;margin-top:10px}
+.perms label{color:#aeb9c8;font-size:14px;cursor:pointer}
+.perms .w{color:#6b7686;font-size:12px}
+button{background:#1c6ef2;color:#fff;border:0;border-radius:8px;padding:12px 28px;font-size:15px;font-weight:700;cursor:pointer;margin-top:10px}
+button.ghost{background:#1a2333;border:1px solid #2a3a55}
+button:hover{background:#3b82f6}
+#result{margin-top:16px}
+.band{border-radius:10px;padding:16px 18px;margin:12px 0;border:1px solid #232b38}
+.band.low{border-color:#1f6b3a;background:#0e1a12}
+.band.mod{border-color:#6b4a1e;background:#1a1410}
+.band.high{border-color:#8a2b2b;background:#1a1010}
+.fix-list{margin:8px 0;padding-left:20px;color:#aeb9c8}
+details{margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px}
+summary{font-weight:700;color:#fff;cursor:pointer}
+.cross{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0}
+.cross a{color:#6ea8fe}
+a{color:#6ea8fe}
+.rm{float:right;background:none;border:1px solid #5b2b2b;color:#e08a8a;border-radius:6px;padding:4px 10px;font-size:12px;cursor:pointer;margin:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Third Party App Risk: Vendor Consent Blast-Radius Map</h1>
+<p class="lead">Every vendor app you consent in Microsoft 365 is a loaded credential: whoever holds the vendor's secret inherits your permissions. In October 2026, <strong>one stolen ConnectWise secret reached 173 tenants</strong>. Add your vendor apps below, tick their permissions, and get your blast-radius score — with least-privilege fixes.</p>
+
+<h2>What is third-party app risk?</h2>
+<div class="ans">
+<p><strong>Direct answer:</strong> Third-party app risk is the blast radius of permissions you grant vendor apps. In October 2026, one stolen ConnectWise Cloud Backup credential gave attackers access to 173 Microsoft 365 tenants — because consented apps inherit broad mailbox, file, and directory access everywhere they're installed. Map your own exposure: list vendor apps and permissions below.</p>
+</div>
+
+<div class="facts">
+<h3 style="margin-top:0">Key facts — the ConnectWise / SkyKick incident</h3>
+<ul>
+<li><strong>October 17, 2026:</strong> Microsoft Threat Intelligence disclosed an active supply-chain attack — a compromised credential for <strong>ConnectWise Cloud Backup</strong> (formerly SkyKick) used for unauthorized Microsoft 365 access. Source: <a href="https://cybersecuritynews.com/connectwise-credentials-microsoft-365-accounts/">Cybersecurity News</a>.</li>
+<li><strong>173 partner/customer tenants</strong> with confirmed unauthorized sign-ins (Huntress). The attacker used app ID <strong>506e08f9-6e9a-4da4-942b-a099a03644ae</strong> from <strong>144.172.64[.]128</strong> on <strong>Oct 15, 2026, 06:13–08:34 UTC</strong>, stepping through tenants seconds apart — a scripted run. Source: <a href="http://thehackernews.com/2026/10/hackers-use-compromised-connectwise.html">The Hacker News</a>.</li>
+<li><strong>Why it worked:</strong> the attacker signed in <em>as the trusted application</em> — no passwords, no MFA prompts. Tokens carried the permissions customers had already approved: mailboxes, OneDrive, SharePoint, Teams, directory data.</li>
+<li><strong>Response:</strong> ConnectWise disabled <strong>7 app identities</strong> and closed Cloud Backup access. Follow-on activity included attempts to add new credentials to service principals. Source: <a href="https://cybersecuritynews.com/connectwise-credentials-microsoft-365-accounts/">Cybersecurity News</a>.</li>
+</ul>
+</div>
+
+<h2>Map your blast radius</h2>
+<p>Add each vendor app consented in your tenant(s), tick its permissions, and set roughly how many tenants it is installed in. Then score.</p>
+<div id="apps"></div>
+<button class="ghost" onclick="addApp()">+ Add vendor app</button><br>
+<button onclick="runBlast()">Score my blast radius</button>
+<div id="result"></div>
+
+<h2>Least-privilege remediation</h2>
+<div class="card">
+<ol class="fix-list">
+<li><strong>Audit every consented app</strong> in the Microsoft Entra admin center — if you cannot name what an app does, revoke it.</li>
+<li><strong>Require admin consent workflow</strong> so no app gets broad permissions without a recorded approval.</li>
+<li><strong>Prefer delegated over app-only permissions</strong> wherever the workflow allows; scope app-only access to the minimum data.</li>
+<li><strong>Run periodic access reviews</strong> on third-party apps — permissions drift as vendors "need just one more scope."</li>
+<li><strong>Apply Conditional Access to workload identities</strong> — block service principals from unexpected IPs and locations.</li>
+<li><strong>Use app governance / Defender for Cloud Apps</strong> to flag over-privileged or unused apps automatically.</li>
+<li><strong>After any vendor incident:</strong> check sign-in logs for the app ID, hunt for newly added service-principal credentials, and verify no privilege escalations (e.g. self-granted Global Admin).</li>
+</ol>
+</div>
+
+<h2>What this mapper does NOT do</h2>
+<div class="card">
+<ul class="small">
+<li>It does not connect to your Microsoft 365 tenant or read your real Entra app consents.</li>
+<li>Permission weights are a heuristic ranking for triage, not a vulnerability score.</li>
+<li>It cannot detect an active compromise — for that, review sign-in and audit logs directly.</li>
+<li>It is a self-assessment aid, not a security audit.</li>
+</ul>
+</div>
+
+<h2>Frequently asked questions</h2>
+<div class="card">
+<details><summary>What happened in the ConnectWise Cloud Backup breach?</summary><p>In October 2026, a stolen credential belonging to ConnectWise Cloud Backup (formerly SkyKick) was used to sign in to 173 Microsoft 365 partner and customer tenants. The attacker authenticated as the trusted application (AppId 506e08f9-6e9a-4da4-942b-a099a03644ae) from IP 144.172.64[.]128 on October 15, 2026, and inherited the broad permissions customers had already consented — mailboxes, OneDrive, SharePoint, Teams, and directory data. No user passwords were needed.</p></details>
+<details><summary>What is a blast radius in app-consent terms?</summary><p>The total data and access an attacker gains if one vendor app's credential is stolen: every permission the app holds, multiplied by every tenant where it is consented. A backup app with mailbox and directory access installed in 100 tenants is 100 tenants of exposure from a single secret — which is exactly what the ConnectWise incident demonstrated.</p></details>
+<details><summary>How do I check whether my tenant was affected by the ConnectWise incident?</summary><p>Review Microsoft Entra sign-in logs for the application ID 506e08f9-6e9a-4da4-942b-a099a03644ae, look for authentications from non-standard IPs (the attacker used 144.172.64[.]128), hunt for newly added credentials on service principals, and check for privilege escalations such as the app granting itself Global Administrator. ConnectWise disabled 7 app identities and closed Cloud Backup access in response.</p></details>
+<details><summary>Does this mapper connect to my Microsoft 365 tenant?</summary><p>No. This is a manual self-assessment: you list your vendor apps and tick their permissions, and the mapper scores the blast radius from that input. It cannot see your real Entra consents. Use it to prioritize a real review in the Microsoft Entra admin center, where every consented app and permission is listed.</p></details>
+</div>
+
+<div class="cross">
+<div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">MORE FROM INGENIOUS AI</div>
+<div style="font-size:15px;color:#e8edf3;margin-bottom:10px"><strong>Related checks:</strong></div>
+<ul style="margin:0;padding-left:20px;color:#aeb9c8">
+<li><a href="connectwise-cloud-backup-breach-check.html">ConnectWise Cloud Backup Breach Check</a> — the Oct 2026 incident, step by step</li>
+<li><a href="vendor-prenup.html">Vendor Prenup</a> — contract terms to demand before you consent</li>
+<li><a href="vendor-report-card.html">Vendor Report Card</a> — grade your vendors on security posture</li>
+<li><a href="vendor-data-use-checker.html">Vendor Data Use Checker</a> — what vendors may do with your data</li>
+<li><a href="mcp-safety-directory.html">MCP Safety Directory</a> — vetting third-party MCP servers</li>
+</ul>
+<p style="margin:12px 0 0;font-size:14px"><a href="all-links.html">Browse all Ingenious AI checks &rarr;</a> &nbsp;·&nbsp; <a href="security-suite.html">Security Suite &rarr;</a></p>
+</div>
+
+<p class="small">Honest scope: incident facts are drawn from the linked Cybersecurity News and Hacker News reports (October 2026). Blast-radius scores are heuristic weights for prioritization, not measurements of your tenant. Verify all consents in the Microsoft Entra admin center.</p>
+
+</div>
+<script>
+var PERMS=[
+ {k:"mail_read",t:"Mail.Read — read mailboxes",w:2},
+ {k:"mail_send",t:"Mail.Send — send mail as users/app",w:4},
+ {k:"files_read",t:"Files.Read — read OneDrive/SharePoint",w:2},
+ {k:"files_rw",t:"Files.ReadWrite — modify/delete files",w:5},
+ {k:"dir_read",t:"Directory.Read — read directory/users",w:3},
+ {k:"dir_rw",t:"Directory.ReadWrite — modify directory",w:6},
+ {k:"teams_read",t:"Teams/Chat.Read — read chats & teams",w:2},
+ {k:"cal_rw",t:"Calendars.ReadWrite",w:3},
+ {k:"admin_consent",t:"Granted via admin consent (broad, standing)",w:4},
+ {k:"app_only",t:"App-only auth (works with no user signed in)",w:3}
+];
+var appCount=0;
+function permWeight(k){ for(var i=0;i<PERMS.length;i++) if(PERMS[i].k===k) return PERMS[i].w; return 0; }
+function blastRadius(apps){
+  var perApp=apps.map(function(a){
+    var s=0; a.perms.forEach(function(k){ s+=permWeight(k); });
+    var t=Math.max(1,parseInt(a.tenants,10)||1);
+    var mult= t>=100?3 : t>=10?2 : 1;
+    return {name:a.name||"Unnamed app",perms:a.perms.slice(),tenants:t,raw:s,score:s*mult,mult:mult};
+  });
+  var total=perApp.reduce(function(x,a){return x+a.score;},0);
+  var band= total<15 ? {label:"CONTAINED",cls:"low",note:"Your mapped exposure is limited — keep it that way with periodic reviews."}
+    : total<35 ? {label:"SIGNIFICANT BLAST RADIUS",cls:"mod",note:"One stolen vendor credential could reach a lot of data. Prioritize the highest-scoring app below."}
+    : {label:"CRITICAL BLAST RADIUS",cls:"high",note:"ConnectWise-scale exposure pattern: broad permissions times many tenants. Start the least-privilege fixes this week."};
+  return {perApp:perApp,total:total,band:band};
+}
+function addApp(){
+  var id=appCount++;
+  var h='<div class="app" id="app'+id+'"><button class="rm" onclick="document.getElementById(\'app'+id+'\').remove()">remove</button>'
+    +'<input type="text" id="name'+id+'" placeholder="Vendor app name (e.g. BackupTool)">'
+    +'<input type="number" id="ten'+id+'" min="1" value="1" title="Tenants where installed"> <span class="small">tenants</span>'
+    +'<div class="perms">';
+  PERMS.forEach(function(p){
+    h+='<label><input type="checkbox" id="p'+id+'_'+p.k+'"> '+p.t+' <span class="w">[w'+p.w+']</span></label>';
+  });
+  h+='</div></div>';
+  document.getElementById("apps").insertAdjacentHTML("beforeend",h);
+}
+function readApps(){
+  var apps=[];
+  for(var id=0;id<appCount;id++){
+    var box=document.getElementById("app"+id);
+    if(!box) continue;
+    var perms=[];
+    PERMS.forEach(function(p){ var c=document.getElementById("p"+id+"_"+p.k); if(c&&c.checked) perms.push(p.k); });
+    apps.push({name:document.getElementById("name"+id).value,perms:perms,tenants:document.getElementById("ten"+id).value});
+  }
+  return apps;
+}
+function runBlast(){
+  var apps=readApps();
+  if(!apps.length){document.getElementById("result").innerHTML='<div class="warn"><p>Add at least one vendor app first.</p></div>';return;}
+  var r=blastRadius(apps);
+  var h='<div class="band '+r.band.cls+'"><h3 style="margin-top:0">Blast-radius score: '+r.total+' — '+r.band.label+'</h3><p>'+r.band.note+'</p></div>';
+  r.perApp.forEach(function(a){
+    h+='<div class="card"><strong>'+a.name+'</strong> <span class="small">('+a.tenants+' tenant'+(a.tenants>1?'s':'')+' &times; '+a.mult+')</span> — score <strong>'+a.score+'</strong><br><span class="small">Top permissions: ';
+    var top=a.perms.slice().sort(function(x,y){return permWeight(y)-permWeight(x);}).slice(0,3);
+    h+= top.length? top.map(function(k){var p=null;PERMS.forEach(function(q){if(q.k===k)p=q;});return p.t;}).join("; ") : "none ticked";
+    h+='</span></div>';
+  });
+  h+='<p class="small">Heuristic weights for triage — not a vulnerability score. Verify real consents in the Microsoft Entra admin center.</p>';
+  document.getElementById("result").innerHTML=h;
+}
+if(typeof window!=="undefined" && typeof document!=="undefined"){ addApp(); }
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
