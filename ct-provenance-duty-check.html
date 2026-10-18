@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connecticut AI Provenance Law — 6-Question Duty Check</title>
+<meta name="description" content="Connecticut AI provenance duty (PA 26-15 §15) live since Oct 1, 2026. Six questions: does your AI system owe consumers provenance data — or are you exempt?">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ct-provenance-duty-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Connecticut AI Provenance Law — 6-Question Duty Check">
+<meta property="og:description" content="Public Act 26-15 §15 is in force since Oct 1, 2026. Six questions: does your AI system owe Connecticut consumers provenance data — or are you exempt?">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ct-provenance-duty-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Connecticut AI Provenance Law — 6-Question Duty Check">
+<meta name="twitter:description" content="The first US state AI-content provenance duty. 6 questions: are you covered, compliant, exposed, or exempt?">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Connecticut AI Provenance Duty Check","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/ct-provenance-duty-check.html","description":"Six-question compliance checker for Connecticut Public Act 26-15 §15 — the first US state AI-content provenance duty, in effect October 1, 2026.","author":{"@type":"Organization","name":"Ingenious AI"},"keywords":"connecticut ai act, connecticut ai law, connecticut ai law effective date, AI content provenance law, C2PA, AI watermarking law"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Connecticut's AI provenance duty?","acceptedAnswer":{"@type":"Answer","text":"Section 15 of Connecticut Public Act 26-15 ('An Act Concerning Online Safety', also called the CART Act — Substitute Senate Bill No. 5, signed May 27, 2026). It requires covered providers to embed provenance data in AI-created or materially altered audio, image, and video content, to the extent commercially and technically reasonable. It took effect October 1, 2026, and is the first US state-level AI-content provenance duty."}},{"@type":"Question","name":"Who does the Connecticut provenance duty apply to?","acceptedAnswer":{"@type":"Answer","text":"'Covered providers': any person who creates, codes, or otherwise produces a generative AI system that has more than one million users per month and is publicly accessible to consumers for personal use. The system must generate images, audio, or video. Federal, state, and local government agencies are excluded."}},{"@type":"Question","name":"What must covered providers actually do?","acceptedAnswer":{"@type":"Answer","text":"To the extent commercially and technically reasonable: (1) include provenance data in any audio, image, or video content their system creates or materially alters, in a manner that lets a consumer assess whether the content was AI-created or AI-altered; and (2) use methods — including the relevant Coalition for Content Provenance and Authenticity (C2PA) standards — that make the provenance data difficult to tamper with, remove, or disassociate from the content."}},{"@type":"Question","name":"Does the Connecticut law cover AI-generated text?","acceptedAnswer":{"@type":"Answer","text":"No. Section 15 covers audio, image, and video content only. Text-only generative systems are outside the duty."}},{"@type":"Question","name":"Who enforces the Connecticut provenance duty?","acceptedAnswer":{"@type":"Answer","text":"Only the Connecticut Attorney General, under the Connecticut Unfair Trade Practices Act. There is no private right of action."}},{"@type":"Question","name":"What counts as materially altered content?","acceptedAnswer":{"@type":"Answer","text":"A substantial alteration of the data in the content. The statute excludes minor modifications that do not significantly change the perceived content or meaning: changes in brightness, contrast or color, sharpening, saturation, application of a filter, resizing, scaling, cropping, format conversion, resampling, denoising, or removal of background noise in audio."}}]}</script>
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d1626;border:1px solid #1c6ef2;color:#7aa8f5;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+h1 .green{color:#3fb950}
+h1 .amber{color:#d29922}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+ol,ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{border:1px solid #2a3342;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#161d29;color:#fff}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.note{font-size:14px;color:#9aa7b8}
+.smallprint{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.q p{font-size:16px;margin-bottom:12px;color:#fff}
+.q .opts{display:flex;gap:10px;flex-wrap:wrap}
+.q button{flex:1;min-width:120px;background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px;font-size:15px;font-weight:600;cursor:pointer}
+.q button:hover{border-color:#1c6ef2}
+.q button.sel-yes{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.q button.sel-no{background:#2b1215;border-color:#f85149;color:#ffa198}
+.q button:disabled{cursor:default;opacity:.85}
+#verdict{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+#verdict.good{border-color:#3fb950;background:#0d1a0f}
+#verdict.bad{border-color:#f85149;background:#1a0f0f}
+#verdict.exemptv{border-color:#1c6ef2;background:#0d1626}
+#verdict b.verd{font-size:19px;letter-spacing:.5px}
+.sharebox{margin-top:16px;display:none;background:#0b0f17;border:1px dashed #2a3342;border-radius:8px;padding:14px 16px}
+.sharebox p{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+#sharetext{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical;min-height:64px}
+.copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+details.faq{margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px}
+details.faq summary{font-weight:700;color:#fff;cursor:pointer}
+details.faq p{margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6}
+.crosslinks{background:#0d1420;border:1px solid #232b38;border-radius:10px;padding:20px 24px;margin:28px 0}
+.crosslinks h2{font-size:18px;color:#fff;margin-bottom:8px}
+.crosslinks ul{margin:8px 0 0 20px}
+.crosslinks li{margin:6px 0;font-size:15px}
+.crosslinks a{color:#1c6ef2;text-decoration:none}
+.warnbox{max-width:760px;margin:0 auto 20px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+</style>
+</head>
+<body>
+<div class="warnbox"><strong>NOT LEGAL ADVICE.</strong> This checker summarizes the public text of a statute and public reporting about it. It is general information, not legal advice, and it cannot determine your actual legal obligations. Talk to a qualified attorney about your situation.</div>
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free security checks</a>
+<div class="badge">COMPLIANCE CHECK &mdash; IN EFFECT OCT 1, 2026</div>
+<h1>Does Connecticut's AI provenance duty <span class="amber">apply to you?</span></h1>
+<p class="lead">Since <strong>October 1, 2026</strong>, Connecticut has required large consumer-facing AI providers to embed provenance data — watermarks, C2PA-style metadata — in the AI-generated or AI-altered audio, images, and video they put out. It's the <strong>first US state AI-content provenance duty</strong>, and only the state Attorney General enforces it. Six questions sort you into <strong>COMPLIANT</strong>, <strong>EXPOSED</strong>, or <strong>EXEMPT</strong>.</p>
+
+<p class="answer"><strong>Short answer:</strong> §15 of Public Act 26-15 applies to <strong>covered providers</strong> — anyone who creates, codes, or produces a generative AI system with <strong>more than 1 million monthly users</strong>, publicly accessible to consumers for personal use, that generates <strong>images, audio, or video</strong>. Text-only systems, internal-only tools, and government agencies are out of scope. If you're in scope, provenance data must be embedded <em>to the extent commercially and technically reasonable</em>, and it must be hard to strip.</p>
+
+<div class="card">
+<h2>The 6-question provenance duty check</h2>
+<p class="note">Answer for the generative AI system your organization builds or operates.</p>
+<div id="quiz"></div>
+<div id="verdict" role="status" aria-live="polite"></div>
+<div class="sharebox" id="sharebox">
+<p>Share your result:</p>
+<textarea id="sharetext" readonly></textarea>
+<button class="copybtn" id="copybtn">Copy result text</button>
+</div>
+</div>
+
+<div class="card">
+<h2>What the statute actually requires — §15 in plain terms</h2>
+<table>
+<tr><th>Element</th><th>What it says</th></tr>
+<tr><td>Who is covered</td><td>A "covered provider": any person who creates, codes, or otherwise produces a generative AI system with <strong>more than 1 million users per month</strong> that is <strong>publicly accessible to consumers for personal use</strong>. Government agencies are excluded.</td></tr>
+<tr><td>What content</td><td><strong>Audio, image, and video</strong> (or combinations) that the system creates or <strong>materially alters</strong>. Text is not covered.</td></tr>
+<tr><td>The duty</td><td>To the extent <strong>commercially and technically reasonable</strong>, include provenance data so a consumer can assess whether the content was created or materially altered by the provider's system.</td></tr>
+<tr><td>The standard</td><td>Use commercially and technically reasonable methods — <strong>including the relevant C2PA standards</strong> — to make the provenance data <strong>difficult to tamper with, remove, or disassociate</strong> from the content.</td></tr>
+<tr><td>Not required</td><td>No identified-individual PII in the provenance data; no disclosure of trade secrets or confidential/proprietary design information.</td></tr>
+<tr><td>Excluded content</td><td>Video games and interactive experiences; technical functions like noise reduction. <strong>Minor edits are not "materially altered"</strong>: brightness, contrast, color, sharpening, saturation, filters, resizing, scaling, cropping, format conversion, resampling, denoising, background-noise removal.</td></tr>
+<tr><td>Enforcement</td><td><strong>Connecticut Attorney General only</strong>, under the Connecticut Unfair Trade Practices Act. No private right of action.</td></tr>
+</table>
+<p class="note">Important scope note: this duty applies to the <strong>provider of the AI system</strong> — the company that built it — not to an end user who merely posts AI-generated content. If you don't build or operate the generative system, you're not a covered provider.</p>
+<p class="src">Sources: the statute text — <a href="https://search.cga.state.ct.us/2026/PA/pdf/2026PA-00015-R00SB-00005-PA.pdf" target="_blank" rel="noopener">Connecticut General Assembly: Public Act No. 26-15 (PDF, Substitute Senate Bill No. 5)</a>; <a href="https://www.recordinglaw.com/news/connecticut-ai-provenance-duty-october-2026/" target="_blank" rel="noopener">RecordingLaw — "Connecticut AI Content Provenance Duty Took Effect October 1, 2026"</a>; <a href="https://everyailaw.com/regulation/connecticut-pa26-15/" target="_blank" rel="noopener">EveryAILaw — Connecticut AI Responsibility Act (PA 26-15)</a>.</p>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#fff;text-decoration:underline">DisclosureGuard</a> maps AI disclosure duties across every regulation — Connecticut §15, the EU AI Act, and what's coming next.</strong></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20Connecticut%20provenance%20duty%20check%20and%20want%20early%20access%20to%20DisclosureGuard." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<div class="card">
+<h2>Frequently asked questions</h2>
+<details class="faq"><summary>What is Connecticut's AI provenance duty?</summary><p>Section 15 of Connecticut Public Act 26-15 ("An Act Concerning Online Safety", also called the CART Act — Substitute Senate Bill No. 5, signed May 27, 2026). It requires covered providers to embed provenance data in AI-created or materially altered audio, image, and video content, to the extent commercially and technically reasonable. It took effect October 1, 2026, and is the first US state-level AI-content provenance duty.</p></details>
+<details class="faq"><summary>Who does the Connecticut provenance duty apply to?</summary><p>"Covered providers": any person who creates, codes, or otherwise produces a generative AI system that has more than one million users per month and is publicly accessible to consumers for personal use. The system must generate images, audio, or video. Federal, state, and local government agencies are excluded.</p></details>
+<details class="faq"><summary>What must covered providers actually do?</summary><p>To the extent commercially and technically reasonable: (1) include provenance data in any audio, image, or video content their system creates or materially alters, in a manner that lets a consumer assess whether the content was AI-created or AI-altered; and (2) use methods — including the relevant Coalition for Content Provenance and Authenticity (C2PA) standards — that make the provenance data difficult to tamper with, remove, or disassociate from the content.</p></details>
+<details class="faq"><summary>Does the Connecticut law cover AI-generated text?</summary><p>No. Section 15 covers audio, image, and video content only. Text-only generative systems are outside the duty.</p></details>
+<details class="faq"><summary>Who enforces the Connecticut provenance duty?</summary><p>Only the Connecticut Attorney General, under the Connecticut Unfair Trade Practices Act. There is no private right of action.</p></details>
+<details class="faq"><summary>What counts as materially altered content?</summary><p>A substantial alteration of the data in the content. The statute excludes minor modifications that do not significantly change the perceived content or meaning: changes in brightness, contrast or color, sharpening, saturation, application of a filter, resizing, scaling, cropping, format conversion, resampling, denoising, or removal of background noise in audio.</p></details>
+</div>
+
+<div class="crosslinks">
+<h2>More from Ingenious AI</h2>
+<ul>
+<li><a href="state-of-ai-ad-disclosure-2026.html">State of AI Ad Disclosure 2026 — who discloses, who doesn't</a></li>
+<li><a href="ai-act-countdown.html">AI Act Countdown — the next regulatory deadlines</a></li>
+<li><a href="disclosure-audit-trail.html">Disclosure Audit Trail — log what your AI discloses</a></li>
+<li><a href="disclosure-lie-detector.html">Disclosure Lie Detector — spot false AI claims</a></li>
+<li><a href="disclosure-cop.html">Disclosure Cop — does that tool disclose its AI use?</a></li>
+<li><a href="security-suite.html">Ingenious AI Security Suite &mdash; all 11 platforms</a></li>
+<li><a href="all-links.html">All tools &amp; pages &mdash; the full index</a></li>
+</ul>
+</div>
+
+<div class="smallprint">
+Built by Ingenious AI — statute summarized from the Connecticut General Assembly text; facts summarized, not reproduced.<br>
+This page is general information, NOT LEGAL ADVICE. Consult a qualified attorney for your situation.
+</div>
+</div>
+
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=Connecticut%27s%20AI%20provenance%20duty%20%28Public%20Act%2026-15%20%C2%A715%29%20is%20live%20since%20Oct%201.%20Does%20it%20apply%20to%20you%3F%20Free%206-question%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ct-provenance-duty-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ct-provenance-duty-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ct-provenance-duty-check.html&title=Connecticut%20Public%20Act%2026-15%20%C2%A715%20%E2%80%94%20first%20US%20state%20AI%20provenance%20duty%20%28live%20Oct%201%29%20%E2%80%94%206-question%20duty%20check" target="_blank" rel="noopener">Reddit</a></div>
+<div style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<script>
+(function(){
+"use strict";
+/* Pure compliance logic — exported for node unit tests, wired to DOM in browsers. */
+var QUESTIONS=[
+"1. Do you CREATE, CODE, or otherwise PRODUCE a generative AI system that generates IMAGES, AUDIO, or VIDEO? (Text-only systems are outside the duty.)",
+"2. Does that system have MORE THAN 1 MILLION USERS PER MONTH and is it PUBLICLY ACCESSIBLE to consumers for personal use?",
+"3. Are you a FEDERAL, STATE, or LOCAL GOVERNMENT AGENCY? (The statute excludes government agencies.)",
+"4. Is your system — or its outputs — used ONLY INTERNALLY, never made available to consumers? (Internal-only tools are not covered providers.)",
+"5. Do you EMBED PROVENANCE DATA (watermarks, C2PA-style metadata) in content your system creates or materially alters, so a consumer can tell it was AI-generated?",
+"6. Are those methods DIFFICULT TO TAMPER WITH, REMOVE, or DISASSOCIATE from the content — to the extent commercially and technically reasonable?"
+];
+function ctVerdict(a){ /* a: array of 6, 1=Yes 0=No, in question order */
+  if(!a||a.length!==6) return {verdict:"INCOMPLETE",cls:""};
+  var v={};
+  if(a[0]===0){v.verdict="EXEMPT";v.cls="exemptv";v.advice="Text-only generative systems are outside §15: the duty covers audio, image, and video content only. No provenance obligation attaches under this section. (Other AI regulations — including the EU AI Act's Article 50 marking duties — may still apply to you.)";}
+  else if(a[1]===0){v.verdict="EXEMPT";v.cls="exemptv";v.advice="You are not a 'covered provider' under §15: the duty requires more than 1 million monthly users AND public accessibility to consumers for personal use. Stay alert — crossing either threshold flips the analysis, and other sections of Public Act 26-15 carry their own dates.";}
+  else if(a[2]===1){v.verdict="EXEMPT";v.cls="exemptv";v.advice="Federal, state, and local government agencies are expressly excluded from the covered-provider definition. §15 does not apply to your system — though your agency's own AI-use policies still do.";}
+  else if(a[3]===1){v.verdict="EXEMPT";v.cls="exemptv";v.advice="Internal-only systems that consumers never touch are not 'publicly accessible to consumers' — so §15 does not bite. The moment outputs reach consumers at scale, re-take this check.";}
+  else if(a[4]===0){v.verdict="EXPOSED";v.cls="bad";v.advice="You look like a covered provider with NO provenance data embedded — exactly the gap §15 (in force since Oct 1, 2026) targets. Only the Connecticut Attorney General enforces it, under the CT Unfair Trade Practices Act, but the duty is live now. Start with C2PA-style signed metadata on every generated or materially altered image, audio clip, and video.";}
+  else if(a[5]===0){v.verdict="EXPOSED";v.cls="bad";v.advice="You embed provenance data, but if it strips out with a screenshot or a re-encode, it fails the statute's standard: methods must make the data DIFFICULT to tamper with, remove, or disassociate from the content, to the extent commercially and technically reasonable. Harden toward C2PA-style signed, tamper-evident metadata — and document your feasibility assessment, because 'commercially and technically reasonable' is a standard, not a slogan.";}
+  else{v.verdict="COMPLIANT";v.cls="good";v.advice="Covered provider, provenance embedded, tamper-resistant methods — that is what §15 asks for. Keep evidence: which content carries provenance, which C2PA (or equivalent) methods you use, and your documented assessment of what is commercially and technically reasonable. Re-check whenever the system, the user base, or the AG's enforcement posture changes.";}
+  return v;
+}
+var PAGE="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ct-provenance-duty-check.html";
+if(typeof module!=="undefined"&&module.exports){module.exports={ctVerdict:ctVerdict,QUESTIONS:QUESTIONS};}
+else{
+var answers=new Array(QUESTIONS.length).fill(null);
+var quiz=document.getElementById("quiz");
+QUESTIONS.forEach(function(q,i){
+  var d=document.createElement("div");d.className="q";
+  d.innerHTML="<p>"+q+"</p><div class='opts'></div>";
+  var opts=d.querySelector(".opts");
+  [["Yes",1],["No",0]].forEach(function(pair){
+    var b=document.createElement("button");b.textContent=pair[0];
+    b.onclick=function(){answer(i,pair[1],d);};
+    opts.appendChild(b);
+  });
+  quiz.appendChild(d);
+});
+function answer(i,val,div){
+  answers[i]=val;
+  var btns=div.querySelectorAll("button");
+  btns[0].className=(val===1)?"sel-yes":"";
+  btns[1].className=(val===0)?"sel-no":"";
+  btns.forEach(function(b){b.disabled=true;});
+  if(answers.every(function(x){return x!==null;}))showVerdict();
+}
+function showVerdict(){
+  var v=ctVerdict(answers);
+  var el=document.getElementById("verdict");
+  el.className=v.cls;el.style.display="block";
+  el.innerHTML="<b class='verd'>"+v.verdict+"</b><br><br>"+v.advice;
+  document.getElementById("sharetext").value="I scored "+v.verdict+" on the Connecticut AI provenance duty check (Public Act 26-15 §15) — does it apply to you? Free 6-question check: "+PAGE;
+  document.getElementById("sharebox").style.display="block";
+  el.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("copybtn").onclick=function(){
+  var t=document.getElementById("sharetext");var btn=this;
+  function done(){var o=btn.textContent;btn.textContent="Copied!";setTimeout(function(){btn.textContent=o;},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();try{document.execCommand("copy");done();}catch(e){}});}
+  else{t.select();try{document.execCommand("copy");done();}catch(e){}}
+};
+}
+})();
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

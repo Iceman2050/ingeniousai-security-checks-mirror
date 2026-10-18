@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>October 2026 Patch Tuesday Triage Calculator | Ingenious AI</title>
+<meta name="description" content="October 2026 Patch Tuesday fixed a record 1,413 flaws, including an exploited Windows zero-day. Pick your Windows stack and get a rule-based patch order. Free.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="October 2026 Patch Tuesday Triage Calculator | Ingenious AI">
+<meta property="og:description" content="October 2026 Patch Tuesday fixed a record 1,413 flaws, including an exploited Windows zero-day. Pick your Windows stack and get a rule-based patch order. Free.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/patch-tuesday-triage-calculator.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/patch-tuesday-triage-calculator.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="October 2026 Patch Tuesday Triage Calculator | Ingenious AI">
+<meta name="twitter:description" content="October 2026 Patch Tuesday fixed a record 1,413 flaws, including an exploited Windows zero-day. Pick your Windows stack and get a rule-based patch order. Free.">
+<meta name="robots" content="index,follow">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1a0f0f;border:1px solid #f85149;color:#f85149;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+h1 .green{color:#3fb950}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.field{margin:18px 0}
+.field label{display:block;font-weight:600;margin-bottom:8px;color:#fff}
+.field select{width:100%;background:#0d1219;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:12px;font-size:15px}
+.q{display:flex;gap:12px;align-items:flex-start;margin:16px 0;padding:14px;border:1px solid #232b38;border-radius:10px;background:#0d1219}
+.q .qt{flex:1}
+.q .qt strong{font-size:15px}
+.q .qt small{display:block;color:#9aa7b8;font-size:13px;margin-top:4px}
+.qbtns{flex:0 0 auto;display:flex;gap:8px}
+.qbtns button{border:1px solid #2a3342;background:#11161f;color:#e6edf3;font-weight:700;font-size:13px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.qbtns button.sel-y{background:#3fb950;border-color:#3fb950;color:#06240f}
+.qbtns button.sel-n{background:#f85149;border-color:#f85149;color:#fff}
+.pitem{border:1px solid #232b38;border-left:4px solid #d29922;border-radius:0 10px 10px 0;background:#0d1219;padding:16px 18px;margin:12px 0}
+.pitem.p1{border-left-color:#f85149;background:#1a0f0f}
+.pitem.p2{border-left-color:#d29922;background:#1a1408}
+.pitem.p3{border-left-color:#1c6ef2;background:#0d1420}
+.pitem .rank{display:inline-block;font-size:12px;font-weight:800;letter-spacing:1px;margin-bottom:6px}
+.pitem.p1 .rank{color:#f85149}
+.pitem.p2 .rank{color:#d29922}
+.pitem.p3 .rank{color:#6ea8fe}
+.pitem h3{font-size:16px;color:#fff;margin-bottom:6px}
+.pitem p{font-size:14px;color:#9aa7b8;margin:6px 0}
+.pitem .cve{font-family:monospace;background:#11161f;border:1px solid #2a3342;border-radius:6px;padding:2px 8px;font-size:13px;color:#7ee787}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.sources{font-size:12.5px;color:#6b7688;margin-top:24px}
+.sources a{color:#6ea8fe;text-decoration:none}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px}
+.warnbox{max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What was in the October 2026 Patch Tuesday?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Microsoft's October 2026 Patch Tuesday, released October 13, 2026, fixed a record 1,413 CVEs across 176 updates. The breakdown includes 1,102 flaws in Windows, 134 in Office, 61 in developer tools, 36 in SharePoint Server, plus Exchange Server, Azure, and Defender. Roughly 70 were rated critical, 677 were elevation-of-privilege, and 317 were remote code execution."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which October 2026 Patch Tuesday vulnerability is exploited in the wild?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CVE-2026-96951, a Windows Shell security-feature bypass rated CVSS 8.8. It lets a specially crafted file evade Mark-of-the-Web (MotW) protections so it launches without the usual warnings when a user opens it. CISA added it to its Known Exploited Vulnerabilities catalog on October 13, 2026, with a federal remediation deadline of October 16, 2026."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What day is Patch Tuesday this month and how often does it happen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Patch Tuesday is the second Tuesday of every month. The October 2026 Patch Tuesday fell on October 13, 2026. Microsoft also ships out-of-band updates for actively exploited flaws between Patch Tuesdays."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I patch first after a huge Patch Tuesday?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A widely used triage order is: 1) vulnerabilities confirmed exploited in the wild (patch immediately), 2) vulnerabilities publicly disclosed before a fix was available, 3) remaining critical remote-code-execution and elevation-of-privilege flaws, filtered by what software you actually run. Always test patches on a small group before mass deployment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this calculator a vulnerability scanner?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It is a simplified rule-based triage model: you tell it your Windows stack and it orders the headline October 2026 Patch Tuesday issues by exploit status, disclosure status, and severity. It does not scan your device or confirm whether you are missing any patch."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "October 2026 Patch Tuesday Triage Calculator | Ingenious AI",
+  "description": "October 2026 Patch Tuesday fixed a record 1,413 flaws, including an exploited Windows zero-day. Pick your Windows stack and get a rule-based patch order. Free.",
+  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/patch-tuesday-triage-calculator.html",
+  "inLanguage": "en",
+  "about": "October 2026 Patch Tuesday vulnerability triage",
+  "keywords": "october 2026 patch tuesday, patch tuesday october 2026, what is patch tuesday, what day is patch tuesday, CVE-2026-96951",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ingenious AI",
+    "url": "https://github.com/Iceman2050"
+  }
+}</script>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<div class="badge">OCTOBER 2026 PATCH TUESDAY &mdash; 1,413 FLAWS</div>
+<h1>The October 2026 Patch Tuesday fixed <span class="red">1,413 flaws</span>. Which ones do <span class="green">YOU</span> patch first?</h1>
+<p class="lead">On <strong>October 13, 2026</strong>, Microsoft shipped its largest security update ever: <strong>1,413 CVEs</strong> across 176 updates &mdash; 1,102 in Windows, 134 in Office, 61 in developer tools, 36 in SharePoint Server, plus Exchange, Azure, and Defender. Roughly <strong>70 rated critical</strong>, <strong>677 elevation-of-privilege</strong>, <strong>317 remote code execution</strong>. One flaw is <strong>already being exploited in the wild</strong>. Pick your stack below and get a rule-based patch order: exploited first, publicly-disclosed second, critical RCE/EoP by severity third. Free, no signup.</p>
+
+<div class="card">
+<h2>Your stack</h2>
+<div class="field">
+<label for="os">Windows version</label>
+<select id="os">
+<option value="w11-latest">Windows 11, current servicing build</option>
+<option value="w11-older">Windows 11, behind on updates</option>
+<option value="w10-or-older">Windows 10 or older / end of support</option>
+<option value="server">Windows Server</option>
+</select>
+</div>
+<div class="q"><div class="qt"><strong>Microsoft Office installed?</strong><small>The October release includes an Outlook preview-pane RCE cluster triggered by scrolling through email.</small></div><div class="qbtns"><button id="off-y" onclick="ans('office',1)">Yes</button><button id="off-n" onclick="ans('office',0)">No</button></div></div>
+<div class="q"><div class="qt"><strong>.NET / .NET Framework installed?</strong><small>Two of the three zero-days this month live in .NET territory.</small></div><div class="qbtns"><button id="dn-y" onclick="ans('dotnet',1)">Yes</button><button id="dn-n" onclick="ans('dotnet',0)">No</button></div></div>
+<div class="q"><div class="qt"><strong>Microsoft Edge (Chromium) as a browser?</strong><small>Several Edge Chromium fixes shipped with thin CVE detail this month.</small></div><div class="qbtns"><button id="ed-y" onclick="ans('edge',1)">Yes</button><button id="ed-n" onclick="ans('edge',0)">No</button></div></div>
+<div id="triage-out" style="margin-top:12px"><div class="verdict warn"><strong>Answer the 3 questions above</strong> to get your prioritized patch order.</div></div>
+</div>
+
+<script>
+// Pure triage logic — rule-based, no scanning.
+function triagePatchOrder(cfg){
+  var items=[];
+  items.push({
+    id:"CVE-2026-96951", rank:1, tier:"p1", sev:"EXPLOITED IN THE WILD · CVSS 8.8",
+    name:"Windows Shell Mark-of-the-Web bypass — patch TONIGHT",
+    why:"Microsoft confirmed this flaw is already being attacked. It lets a specially crafted file evade Mark-of-the-Web, so a downloaded file launches without Defender SmartScreen or Office Protected View warnings. CISA added it to the Known Exploited Vulnerabilities catalog on Oct 13 with a federal remediation deadline of Oct 16. Attack path: the user must be convinced to open the file (email/IM attachment)."
+  });
+  if(cfg.dotnet){
+    items.push({
+      id:"CVE-2026-108398", rank:2, tier:"p2", sev:"PUBLICLY DISCLOSED BEFORE THE FIX",
+      name:".NET Framework untrusted-search-path bypass",
+      why:"Found by James Forshaw of Google Project Zero. An authenticated local attacker abuses an untrusted search path to defeat Windows Defender Application Control — a malicious .NET assembly is registered for a protected process to load, and code runs inside that process with no user interaction. Publicly known before Microsoft's fix shipped."
+    });
+    items.push({
+      id:"CVE-2026-92707", rank:2, tier:"p2", sev:"PUBLICLY DISCLOSED BEFORE THE FIX · CVSS 5.3",
+      name:"MessagePack-CSharp denial of service",
+      why:"This .NET binary-serialization library fails to bound certain memory allocations, so a remote attacker with no credentials can drain server resources. Lower severity than 108398, but public before the patch — rank it immediately after if you ship .NET apps."
+    });
+  }
+  if(cfg.office){
+    items.push({
+      id:"OUTLOOK-RCE-CLUSTER", rank:3, tier:"p3", sev:"CRITICAL RCE · PREVIEW PANE",
+      name:"Outlook preview-pane RCE cluster (5 CVEs)",
+      why:"CVE-2026-70242, CVE-2026-97749, CVE-2026-97016, CVE-2026-88156, CVE-2026-70291 — remote code execution triggerable by scrolling through email. No attachment opening required, just the reading pane. If Outlook is installed anywhere in your fleet, this is your #2 severity-driven item."
+    });
+  }
+  if(cfg.edge){
+    items.push({
+      id:"EDGE-CHROMIUM", rank:3, tier:"p3", sev:"BROWSER FIXES · THIN DETAIL",
+      name:"Edge Chromium security fixes",
+      why:"Several Edge Chromium fixes shipped in the October cycle with limited CVE detail published. Browsers are the front door — update Edge the same window as Windows."
+    });
+  }
+  if(cfg.os==="w10-or-older"){
+    items.push({
+      id:"UPGRADE-PATH", rank:2, tier:"p2", sev:"END OF SUPPORT = NO PATCH AT ALL",
+      name:"Out-of-support Windows: you may get NONE of these fixes",
+      why:"1,102 of the 1,413 CVEs hit Windows. If your build is past end of servicing, the entire October package — including the exploited zero-day — never installs. Check your servicing channel immediately; for Windows Server 2012 R2, extended updates have expired entirely, leaving these flaws permanently unpatched."
+    });
+  }else{
+    var osNote = cfg.os==="w11-latest"
+      ? "677 elevation-of-privilege flaws — the largest single category. EoP bugs chain with phishing (like CVE-2026-96951 above) to turn a user-opened file into full system compromise. With 317 RCE and ~70 critical also in the mix, the bulk order is: critical Windows RCE first, then EoP."
+      : cfg.os==="w11-older"
+      ? "You are behind on servicing, which means earlier zero-days are stacked on top of October's 1,413. Catch-up order: the exploited CVE-2026-96951 first, then the ~70 critical, then the 677 elevation-of-privilege as a wave — and stay current from here."
+      : "1,102 of the 1,413 CVEs hit Windows, including ~70 critical, 677 elevation-of-privilege, and 317 RCE. Schedule the Windows cumulative update as your broad rollout immediately after the exploited and publicly-disclosed items above, and confirm it landed on every server before moving on.";
+    items.push({id:"WINDOWS-BULK", rank:4, tier:"p3", sev:"~70 CRITICAL · 677 EOP · 317 RCE", name:"Windows cumulative update (the other 1,4xx)", why:osNote});
+  }
+  items.sort(function(a,b){return a.rank-b.rank;});
+  return items;
+}
+
+var SEL={office:null,dotnet:null,edge:null};
+function ans(k,v){
+  SEL[k]=v;  var yb=document.getElementById(k==='office'?'off-y':(k==='dotnet'?'dn-y':'ed-y'));
+  var nb=document.getElementById(k==='office'?'off-n':(k==='dotnet'?'dn-n':'ed-n'));
+  yb.className=v===1?'sel-y':'';
+  nb.className=v===0?'sel-n':'';
+  if(SEL.office===null||SEL.dotnet===null||SEL.edge===null){return;}
+  var cfg={os:document.getElementById('os').value,office:SEL.office===1,dotnet:SEL.dotnet===1,edge:SEL.edge===1};
+  var items=triagePatchOrder(cfg);
+  var h='<div class="verdict warn"><strong>Your patch order — test each update on a pilot group before fleet-wide deployment.</strong></div>';
+  for(var i=0;i<items.length;i++){
+    h+='<div class="pitem '+items[i].tier+'"><span class="rank">PRIORITY '+(i+1)+'</span><h3>'+items[i].name+'</h3><p><span class="cve">'+items[i].id+'</span> <strong>'+items[i].sev+'</strong></p><p>'+items[i].why+'</p></div>';
+  }
+  document.getElementById('triage-out').innerHTML=h;
+}
+document.getElementById('os').addEventListener('change',function(){if(SEL.office!==null&&SEL.dotnet!==null&&SEL.edge!==null){ans('office',SEL.office);}});
+</script>
+<p class="note">This calculator is a simplified rule-based triage model, not a vulnerability scanner. It orders the headline October 2026 Patch Tuesday issues by exploit status, disclosure status, and severity — it does not detect what is installed on your device. Always test updates on a pilot group before mass deployment.</p>
+</div>
+
+<div class="card">
+<h2>Why patch in this order</h2>
+<ul>
+<li><strong>Exploited in the wild beats everything.</strong> CVE-2026-96951 is being attacked <em>now</em>, and it defeats Mark-of-the-Web — the exact defense that normally warns users about downloaded files. Per Microsoft's advisory, the attacker still needs the user to open the file, so pair the patch with a heads-up to users: treat unexpected attachments as hostile.</li>
+<li><strong>Publicly disclosed = exploit window open.</strong> CVE-2026-108398 and CVE-2026-92707 were public knowledge before fixes shipped, so every attacker and researcher can study them. They rank above "merely critical" items nobody knows about.</li>
+<li><strong>Then severity — matched to your stack.</strong> The Outlook preview-pane cluster needs no click beyond scrolling, which makes it nastier in practice than a critical flaw in a component you never installed. The calculator filters ~70 critical / 677 EoP / 317 RCE down to what you actually run.</li>
+<li><strong>Volume is not priority.</strong> 1,413 is the least useful number in the release — fewer than 1% of Microsoft's 2026 CVEs are known to be exploited. Triage by exploitability, not by count.</li>
+</ul>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter." style="color:#fff;text-decoration:underline">BreachHunter</a> watches for exposures attackers exploit after every Patch Tuesday.</strong></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20used%20your%20patch%20tuesday%20triage%20calculator%20and%20want%20early%20access%20to%20BreachHunter." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<div class="share">Share this calculator: <a href="https://x.com/intent/post?text=October%202026%20Patch%20Tuesday%3A%201%2C413%20flaws%2C%20one%20already%20exploited.%20Pick%20your%20stack%20and%20get%20a%20rule-based%20patch%20order&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/patch-tuesday-triage-calculator.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/patch-tuesday-triage-calculator.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/patch-tuesday-triage-calculator.html&title=October%202026%20Patch%20Tuesday%20triage%20calculator%20(1%2C413%20flaws%2C%20one%20exploited)%20%E2%80%94%20pick%20your%20stack%2C%20get%20a%20patch%20order" target="_blank" rel="noopener">Reddit</a></div>
+<div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<section class="kw-faq" style="max-width:760px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
+<h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What was in the October 2026 Patch Tuesday?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Microsoft's October 2026 Patch Tuesday, released October 13, 2026, fixed a record 1,413 CVEs across 176 updates. The breakdown includes 1,102 flaws in Windows, 134 in Office, 61 in developer tools, 36 in SharePoint Server, plus Exchange Server, Azure, and Defender. Roughly 70 were rated critical, 677 were elevation-of-privilege, and 317 were remote code execution.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Which October 2026 Patch Tuesday vulnerability is exploited in the wild?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">CVE-2026-96951, a Windows Shell security-feature bypass rated CVSS 8.8. It lets a specially crafted file evade Mark-of-the-Web (MotW) protections so it launches without the usual warnings when a user opens it. CISA added it to its Known Exploited Vulnerabilities catalog on October 13, 2026, with a federal remediation deadline of October 16, 2026.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What day is Patch Tuesday this month and how often does it happen?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Patch Tuesday is the second Tuesday of every month. The October 2026 Patch Tuesday fell on October 13, 2026. Microsoft also ships out-of-band updates for actively exploited flaws between Patch Tuesdays.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What should I patch first after a huge Patch Tuesday?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">A widely used triage order is: 1) vulnerabilities confirmed exploited in the wild (patch immediately), 2) vulnerabilities publicly disclosed before a fix was available, 3) remaining critical remote-code-execution and elevation-of-privilege flaws, filtered by what software you actually run. Always test patches on a small group before mass deployment.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Is this calculator a vulnerability scanner?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">No. It is a simplified rule-based triage model: you tell it your Windows stack and it orders the headline October 2026 Patch Tuesday issues by exploit status, disclosure status, and severity. It does not scan your device or confirm whether you are missing any patch.</p></details>
+</section>
+
+<div class="card" style="text-align:center">
+<h2>More from Ingenious AI</h2>
+<p class="note" style="margin-bottom:14px">Related checks and guides from our security lab:</p>
+<ul style="list-style:none;margin:0;padding:0">
+<li style="margin:8px 0"><a href="nextcloud-october-patch-planner.html" style="color:#6ea8fe">Nextcloud October Patch Planner</a> — plan the CVE-2026-110447 patching wave</li>
+<li style="margin:8px 0"><a href="nextcloud-webshell-leftovers-check.html" style="color:#6ea8fe">Webshell Leftovers Check</a> — hunt leftover Nx_*.php backdoors</li>
+<li style="margin:8px 0"><a href="nextcloud-eol-trap-check.html" style="color:#6ea8fe">EOL Trap Check</a> — is your stack end-of-life?</li>
+<li style="margin:8px 0"><a href="nextcloud-crown-jewels-audit.html" style="color:#6ea8fe">Crown Jewels Audit</a> — what would actually hurt if breached</li>
+<li style="margin:8px 0"><a href="breach-cost-calculator.html" style="color:#6ea8fe">Breach Cost Calculator</a> — what a delayed patch could cost you</li>
+</ul>
+<p class="note" style="margin-top:16px">Browse the full index: <a href="all-links.html" style="color:#6ea8fe">all-links.html</a> · <a href="security-suite.html" style="color:#6ea8fe">The Ingenious AI Security Suite</a></p>
+</div>
+
+<div class="sources"><strong>Sources:</strong> Microsoft Security Update Guide (Oct 13, 2026) via <a href="https://www.securityweek.com/microsoft-patches-record-1413-vulnerabilities-including-exploited-windows-zero-day/amp/" target="_blank" rel="noopener">SecurityWeek</a>, <a href="https://betanews.com/article/patch-tuesday-october-2026-microsoft/" target="_blank" rel="noopener">BetaNews</a>, <a href="https://threatlandscape.io/blog/microsoft-october-2026-patch-tuesday-1413-cves-windows-shell-zero-day" target="_blank" rel="noopener">ThreatLandscape</a>; CISA Known Exploited Vulnerabilities catalog (CVE-2026-96951, added Oct 13, 2026, due Oct 16, 2026). Category breakdowns (~70 critical, 677 EoP, 317 RCE) per the release coverage. Vulnerability statistics are time-sensitive; confirm against Microsoft's official guidance before patching.</div>
+</div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

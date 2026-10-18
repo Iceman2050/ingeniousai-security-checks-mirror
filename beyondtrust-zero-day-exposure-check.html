@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BeyondTrust Zero-Day: Are You Exposed? (BT26-05 Check)</title>
+<meta name="description" content="BeyondTrust security advisory BT26-05: a critical zero-day (CVE-2026-102764) exploited since Aug 2026, now on the CISA KEV list. Free 3-question exposure check.">
+<meta property="og:title" content="BeyondTrust Zero-Day: Are You Exposed? (BT26-05 Check)">
+<meta property="og:description" content="BeyondTrust security advisory BT26-05: a critical zero-day (CVE-2026-102764) exploited since Aug 2026, now on the CISA KEV list. Free 3-question exposure check.">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/beyondtrust-zero-day-exposure-check.html">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/beyondtrust-zero-day-exposure-check.html">
+<meta name="twitter:title" content="BeyondTrust Zero-Day: Are You Exposed? (BT26-05 Check)">
+<meta name="twitter:description" content="BeyondTrust security advisory BT26-05: a critical zero-day (CVE-2026-102764) exploited since Aug 2026, now on the CISA KEV list. Free 3-question exposure check.">
+<link rel="stylesheet" href="ecosystem.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is BeyondTrust advisory BT26-05?","acceptedAnswer":{"@type":"Answer","text":"BT26-05 is the BeyondTrust security advisory published October 15, 2026 for CVE-2026-102764, a critical BeyondTrust zero-day vulnerability (CVSS 4.0 9.3, CWE-290 improper origin validation) in BeyondTrust Remote Support. It lets an unauthenticated attacker perform file operations on the appliance, which attackers turned into root access."}},
+{"@type":"Question","name":"Was the BeyondTrust zero-day exploited in the wild?","acceptedAnswer":{"@type":"Answer","text":"Yes. BeyondTrust and Mandiant report CVE-2026-102764 was exploited as a zero-day starting August 29, 2026 against one BeyondTrust-hosted and one self-hosted Remote Support instance by the suspected China-nexus espionage actor ARMORY CASTLE, which deployed the SAWFLY web shell and BARECLAW tunnel, escalated to root, and wiped logs."}},
+{"@type":"Question","name":"Which BeyondTrust versions are affected by CVE-2026-102764?","acceptedAnswer":{"@type":"Answer","text":"All BeyondTrust Remote Support versions 26.2.3 and earlier are affected. The BT26-05-RS patch covers versions 24.3.1 through 26.2.3; appliances older than 24.3.1 must upgrade first, then apply the patch. A version number alone does not confirm the patch is present."}},
+{"@type":"Question","name":"Am I safe if my BeyondTrust instance is SaaS?","acceptedAnswer":{"@type":"Answer","text":"Mostly, but verify. BeyondTrust patched all SaaS customers by October 9, 2026, yet its own disclosure says one hosted instance was exploited during the zero-day window on August 29. Rotate any credentials the appliance stored or brokered and review your configuration even on SaaS."}},
+{"@type":"Question","name":"Is BeyondTrust Privileged Remote Access affected?","acceptedAnswer":{"@type":"Answer","text":"Privileged Remote Access shares the affected code, but BeyondTrust says internal testing found no way to exploit CVE-2026-102764 in PRA. It still released a precautionary patch for PRA and recommends self-hosted PRA customers apply it."}},
+{"@type":"Question","name":"What is the CISA KEV due date for CVE-2026-102764?","acceptedAnswer":{"@type":"Answer","text":"CISA added CVE-2026-102764 to the Known Exploited Vulnerabilities (KEV) catalog on October 16, 2026 with a binding remediation due date of October 19, 2026 and flagged forensic triage as required for potentially exposed appliances."}},
+{"@type":"Question","name":"Does patching BT26-05 mean my appliance is clean?","acceptedAnswer":{"@type":"Answer","text":"No. The BT26-05-RS patch closes the entry point, but an appliance that was internet-reachable during the August 29 to October 8 window may already be compromised. CISA's KEV listing flags forensic triage as required: hunt the Mandiant indicators, preserve encrypted appliance logs, rotate the credential vault, and rebuild through BeyondTrust support rather than just deleting a web shell."}}
+]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"BeyondTrust Zero-Day: Are You Exposed? (BT26-05 Check)","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/beyondtrust-zero-day-exposure-check.html","description":"BeyondTrust security advisory BT26-05: a critical zero-day (CVE-2026-102764) exploited since Aug 2026, now on the CISA KEV list. Free 3-question exposure check.","about":{"@type":"Thing","name":"CVE-2026-102764"},"keywords":["beyondtrust zero day","beyondtrust security advisory","BT26-05","CVE-2026-102764","CISA KEV","beyondtrust critical vulnerability"],"provider":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#3b0d0d;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.verdict.warn{border-color:#d29922;background:#1a1409}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+code.cmd{display:block;background:#000;border:1px solid #2a3342;border-radius:8px;padding:14px 16px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;color:#7ee787;overflow-x:auto;margin:10px 0;white-space:pre}
+.meter{height:14px;background:#000;border:1px solid #2a3342;border-radius:999px;overflow:hidden;margin:14px 0}
+.meter>div{height:100%;width:0%;background:linear-gradient(90deg,#d29922,#f85149);transition:width .3s}
+.meter.good>div{background:#3fb950}
+.mcount{font-size:14px;color:#9aa7b8;margin-bottom:6px}
+.chk{display:flex;gap:12px;align-items:flex-start;background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:14px 16px;margin:10px 0;cursor:pointer;font-size:15px}
+.chk input{margin-top:5px;transform:scale(1.35);accent-color:#1c6ef2;flex:0 0 auto}
+.chk.done{border-color:#3fb950;background:#0d1a0f}
+.chk small{display:block;color:#9aa7b8;font-size:13px;margin-top:4px}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px}
+.srclist{font-size:14px;color:#9aa7b8}
+.srclist a{color:#6ea8ff}
+.warnbox{background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#e6c26a}
+.q{margin:16px 0}
+.q label{display:block;font-weight:700;margin-bottom:8px;color:#fff}
+.q select{width:100%;background:#0d1219;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:12px;font-size:15px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">BEYONDTRUST BT26-05 &mdash; CVE-2026-102764 &mdash; KEV DUE OCT 19</div>
+<h1>BeyondTrust zero-day: <span class="red">are you in the exposed cohort?</span></h1>
+<p class="lead">Your remote-support appliance is the keys to the kingdom &mdash; it can reach every system your admins touch, and it stores privileged credentials. On October 15, 2026, BeyondTrust disclosed a critical BeyondTrust zero day (CVE-2026-102764, CVSS 9.3) that a suspected espionage actor had been exploiting since August 29. The BeyondTrust security advisory BT26-05 closes the hole &mdash; but only for people who actually apply it. Answer three questions and get your verdict.</p>
+
+<div class="card">
+<h2>Am I exposed to the BeyondTrust zero-day?</h2>
+<p>You are in the exposed cohort if you run self-hosted BeyondTrust Remote Support at 26.2.3 or earlier without the BT26-05-RS patch confirmed. The zero-day (CVE-2026-102764, CVSS 9.3) was exploited August 29, 2026 by suspected espionage actor ARMORY CASTLE, and CISA set a binding remediation due date of October 19. SaaS tenants were patched October 9 — but must rotate credentials.</p>
+</div>
+
+<div class="card">
+<h2>The 3-question exposure check</h2>
+<p class="note">Answer honestly. Your verdict updates the moment all three are answered. Defensive check only &mdash; nothing here touches your network.</p>
+
+<div class="q">
+<label for="q1">1. Which BeyondTrust products do you run?</label>
+<select id="q1">
+<option value="">Select&hellip;</option>
+<option value="rs">Remote Support</option>
+<option value="pra">Privileged Remote Access</option>
+<option value="both">Both</option>
+<option value="none">Neither / not a BeyondTrust customer</option>
+</select>
+</div>
+
+<div class="q">
+<label for="q2">2. How are they deployed?</label>
+<select id="q2">
+<option value="">Select&hellip;</option>
+<option value="saas">BeyondTrust-hosted (SaaS)</option>
+<option value="self">Self-hosted appliance</option>
+<option value="both">Both SaaS and self-hosted</option>
+<option value="none">Not applicable</option>
+</select>
+</div>
+
+<div class="q">
+<label for="q3">3. Is the BT26-05-RS patch confirmed applied?</label>
+<select id="q3">
+<option value="">Select&hellip;</option>
+<option value="yes">Yes &mdash; confirmed via the /appliance interface or automatic updates</option>
+<option value="no">No</option>
+<option value="unsure">Not sure</option>
+</select>
+</div>
+
+<div class="verdict" id="verdict"><strong>AWAITING ANSWERS.</strong> Answer all three questions above to get your exposure verdict.</div>
+<p class="note" id="verdictextra"></p>
+</div>
+
+<div class="card">
+<h2>Key facts: CVE-2026-102764 (Oct 2026)</h2>
+<ul>
+<li><strong>The flaw:</strong> CVE-2026-102764 — improper origin validation (CWE-290) in BeyondTrust Remote Support's internal messaging; unauthenticated file operations on the appliance. BeyondTrust scores it CVSS 4.0 9.3.</li>
+<li><strong>Affected:</strong> Remote Support 26.2.3 and earlier. The BT26-05-RS patch covers 24.3.1–26.2.3 (older versions must upgrade first). SaaS tenants were vendor-patched by October 9, 2026.</li>
+<li><strong>Exploitation:</strong> exploited as a zero-day from August 29, 2026 by the suspected PRC-nexus espionage actor ARMORY CASTLE (attributed by Mandiant and Google Threat Intelligence Group) — SAWFLY web shell, BARECLAW tunnel, root escalation, log wiping.</li>
+<li><strong>Response timeline:</strong> BT26-05-RS patch released October 8, 2026; advisory BT26-05 published October 15; CISA added the CVE to the Known Exploited Vulnerabilities catalog on October 16 with a binding remediation due date of October 19, 2026 — forensic triage required.</li>
+</ul>
+<p class="srclist">Sources: <a href="https://www.securityweek.com/chinese-apt-exploited-beyondtrust-vulnerability-as-zero-day/" target="_blank" rel="noopener">SecurityWeek</a> &middot; <a href="https://socradar.io/blog/cve-2026-102764-beyondtrust-zero-day/" target="_blank" rel="noopener">SOCRadar</a> &middot; <a href="https://carthageelectronics.com/october-16-2026-cve-threat-brief/" target="_blank" rel="noopener">CVE Threat Brief</a> &middot; <a href="https://xhack.io/blog/cve-2026-102764-beyondtrust-remote-support" target="_blank" rel="noopener">XHack</a></p>
+</div>
+
+<div class="card">
+<h2>The upgrade order (in this sequence)</h2>
+<p class="note">Tick each box as you complete it. Your progress updates live.</p>
+<div class="mcount" id="mcount">0 of 7 steps complete</div>
+<div class="meter" id="meter"><div id="mfill"></div></div>
+
+<label class="chk"><input type="checkbox">
+<span><strong>1. Inventory every instance</strong> &mdash; Remote Support and Privileged Remote Access, including shadow, lab, and legacy appliances. If you can't find them all, you can't patch them all.
+<small>BeyondTrust lists "all versions &le; 26.2.3" of Remote Support as affected (per advisory BT26-05).</small></span></label>
+
+<label class="chk"><input type="checkbox">
+<span><strong>2. Check the version</strong> &mdash; every Remote Support appliance at 26.2.3 or earlier is in the affected cohort. Self-hosted Privileged Remote Access gets the precautionary patch too.
+<small>A version number alone does NOT prove the patch is applied &mdash; the BT26-05-RS fix is a patch, not a release.</small></span></label>
+
+<label class="chk"><input type="checkbox">
+<span><strong>3. Upgrade relics first</strong> &mdash; appliances older than 24.3.1 cannot take the patch directly. Upgrade them to a supported version first, then apply BT26-05-RS. The patch covers 24.3.1 through 26.2.3.
+<small>Per BeyondTrust: versions older than 24.3.1 must upgrade before patching.</small></span></label>
+
+<label class="chk"><input type="checkbox">
+<span><strong>4. Apply BT26-05-RS via /appliance</strong> &mdash; through the appliance's <code>/appliance</code> interface or automatic updates, and confirm the patch is present (not just the version string).
+<small>CISA KEV binding due date: <strong>October 19, 2026</strong>.</small></span></label>
+
+<label class="chk"><input type="checkbox">
+<span><strong>5. SaaS users: vendor-patched &ne; you-are-done</strong> &mdash; BeyondTrust patched SaaS tenants by October 9 &mdash; but one hosted instance was exploited on August 29. Rotate every credential the appliance stored or brokered and review your configuration.
+<small>Per the coordinated disclosure (Oct 15, 2026) and Mandiant analysis.</small></span></label>
+
+<label class="chk"><input type="checkbox">
+<span><strong>6. Internet-reachable Aug 29 &ndash; Oct 8? Treat it as an incident</strong> &mdash; the patch closes the entry point but does not clean a compromise. Hunt the Mandiant indicators (below), preserve encrypted appliance logs, and run the forensic triage CISA's KEV listing requires.
+<small>Never "delete one web shell and return to service" &mdash; rebuild through BeyondTrust support instead.</small></span></label>
+
+<label class="chk"><input type="checkbox">
+<span><strong>7. Rotate and monitor</strong> &mdash; credential vault contents, API keys, and every Jump credential or endpoint access the appliance brokered. Then set up CISA KEV monitoring so the next zero-day doesn't find you first.</span></label>
+
+<div class="verdict" id="v2"><strong>UPGRADE NOT COMPLETE.</strong> Work through the steps &mdash; each tick updates this verdict.</div>
+</div>
+
+<div class="card">
+<h2>What the attacker did (so you know what to hunt)</h2>
+<p>Per Mandiant's analysis of the August 29 exploitation: about 11 minutes after entry, the attacker dropped the <code>mangoapi.php</code> <strong>SAWFLY</strong> web shell, created a SUID copy of the system shell to become root, dumped the credential vault, added a boot-time persistence script with a passwordless sudo rule, and wiped local logs. Then, using a compromised administrator account, it raised Jump Item and team roles to Administrator, opened support sessions to internal endpoints, pulled documents through built-in file transfer, and tunneled out via the <strong>BARECLAW</strong> tunneler.</p>
+<h2 style="margin-top:18px">Hunt these indicators</h2>
+<ul>
+<li><code>mangoapi.php</code> &mdash; SAWFLY web shell (and <code>app_84304470%2Ephp</code> staging paths in web logs)</li>
+<li><code>ingredi_ws</code> in <code>/tmp</code> &mdash; BARECLAW tunneler listening on TCP 19800, path <code>/uidchanarge</code></li>
+<li><code>/usr/bin/dbus-authd</code> &mdash; unexpected root-owned SUID shell copy</li>
+<li><code>/home/bomgar/sbin/post_boot.d/zz-root-persist</code> &mdash; boot persistence adding passwordless sudo</li>
+<li>HAProxy config tampering &mdash; backend <code>webskd3</code>, ACL <code>wswsws</code> routing <code>/uidchanarge</code> to 127.0.0.1:19800</li>
+<li>Syslog <code>user_changed</code> events raising Jump Item roles to Administrator without a change ticket</li>
+</ul>
+<p class="srclist">Sources: <a href="https://censys.com/advisory/cve-2026-102764/" target="_blank" rel="noopener">Censys advisory</a> &middot; <a href="https://xhack.io/blog/cve-2026-102764-beyondtrust-remote-support" target="_blank" rel="noopener">XHack</a> &middot; <a href="https://socradar.io/blog/cve-2026-102764-beyondtrust-zero-day/" target="_blank" rel="noopener">SOCRadar</a> &middot; <a href="https://gbhackers.com/beyondtrust-zero-day-security-logs/" target="_blank" rel="noopener">GBHackers</a> &middot; <a href="https://www.kylereddoch.me/blog/security-signal-weekly-october-10-16-2026/" target="_blank" rel="noopener">Security Signal Weekly</a> &middot; <a href="https://carthageelectronics.com/october-16-2026-cve-threat-brief/" target="_blank" rel="noopener">CVE Threat Brief</a></p>
+</div>
+
+<div class="card">
+<h2>Hunted breaches for a living? Meet BreachHunter</h2>
+<p>If a three-question exposure check is useful, imagine a platform that hunts breach indicators like SAWFLY and BARECLAW across your stack automatically. <strong>BreachHunter by Ingenious AI</strong> is one of our 11 AI security platforms.</p>
+<a class="cta" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter.">Get BreachHunter early access &rarr;</a>
+<p class="note" style="text-align:center">Our platforms return November 1 &mdash; WhatsApp gets you in line now.</p>
+</div>
+
+<div class="card">
+<h2>More from Ingenious AI</h2>
+<ul>
+<li><a href="kev-stack-checker.html" style="color:#6ea8ff">CISA KEV checker</a> &mdash; is your stack on the Known Exploited Vulnerabilities list?</li>
+<li><a href="nextcloud-cve-2026-110447.html" style="color:#6ea8ff">Nextcloud CVE-2026-110447 checker</a> &mdash; another 30-second exposure test</li>
+<li><a href="breach-check.html" style="color:#6ea8ff">The honest 5-minute breach check</a> &mdash; what to do when it happens to you</li>
+<li><a href="ai-governance-reality-check.html" style="color:#6ea8ff">AI governance reality check</a> &mdash; are your AI controls real?</li>
+<li><a href="agent-permissions-quiz.html" style="color:#6ea8ff">Agent permissions quiz</a> &mdash; what your AI agents can actually touch</li>
+</ul>
+<p class="note" style="margin-top:12px">Browse the full library: <a href="all-links.html" style="color:#6ea8ff">all checks &amp; tools</a> &middot; See the platform overview: <a href="security-suite.html" style="color:#6ea8ff">Ingenious AI security suite</a></p>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Ingenious AI builds 11 AI security platforms &mdash; disclosure compliance, rogue-agent defense, breach hunting, agent oversight, and more.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+</div>
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=BeyondTrust%20zero-day%20CVE-2026-102764%3A%20KEV%20due%20Oct%2019%20%E2%80%94%20are%20you%20in%20the%20exposed%20cohort%3F%20Free%20BT26-05%20exposure%20check&url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fbeyondtrust-zero-day-exposure-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fbeyondtrust-zero-day-exposure-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fbeyondtrust-zero-day-exposure-check.html&title=BeyondTrust%20zero-day%20CVE-2026-102764%20(KEV%20due%20Oct%2019)%3A%20are%20you%20in%20the%20exposed%20cohort%3F" target="_blank" rel="noopener">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<script>
+function btScore(product,deploy,patch){
+  if(!product||!deploy||!patch) return {band:'PENDING'};
+  if(product==='none'||deploy==='none') return {band:'SAFE',kind:'noproduct'};
+  var hasRS=(product==='rs'||product==='both');
+  var self=(deploy==='self'||deploy==='both');
+  if(self){
+    if(patch==='yes') return {band:'VERIFY',kind: hasRS?'selfpatched':'prapatched'};
+    return {band:'EXPOSED'};
+  }
+  if(hasRS) return {band:'VERIFY',kind:'saas'};
+  return {band:'SAFE',kind:'prasaas'};
+}
+var BT_COPY={
+  EXPOSED:{cls:'verdict',h:'<strong>EXPOSED.</strong> Your appliance is running unpatched remote-access software with a live zero-day (CVE-2026-102764, CVSS 9.3) &mdash; exploited by an espionage actor since Aug 29, and the CISA KEV binding due date is <strong>Oct 19</strong>. Apply BT26-05-RS now (upgrade to &ge;24.3.1 first if older), then treat any reachable appliance as an incident: hunt the indicators above, run forensic triage, rotate the vault.',x:'Patching is step 1 of 7 in the upgrade order above. Do not stop at the patch if the appliance was internet-reachable between Aug 29 and Oct 8.'},
+  SAFE_noproduct:{cls:'verdict safe',h:'<strong>PROBABLY SAFE &mdash; from this one.</strong> No Remote Support or Privileged Remote Access footprint, so BT26-05 has nothing to bite. Stay ready: monitor the CISA KEV list so the next zero-day does not find you first.',x:''},
+  SAFE_prasaas:{cls:'verdict safe',h:'<strong>PROBABLY SAFE.</strong> BeyondTrust found no way to exploit CVE-2026-102764 in Privileged Remote Access and SaaS was patched by Oct 9. Confirm the precautionary patch is recorded on your tenant and keep KEV monitoring on.',x:''},
+  VERIFY_selfpatched:{cls:'verdict warn',h:'<strong>PATCHED &mdash; NOW VERIFY.</strong> The patch closes the entry point, but if this appliance was internet-reachable any time between Aug 29 and Oct 8, assume the window was usable. CISA flags forensic triage as required: hunt the Mandiant indicators above, preserve encrypted appliance logs, and rotate everything the appliance stored or brokered.',x:'The patch alone is not a clean bill of health. Steps 6 and 7 of the upgrade order are the ones that matter here.'},
+  VERIFY_prapatched:{cls:'verdict warn',h:'<strong>PRA PATCHED &mdash; VERIFY.</strong> No known exploitation path exists for Privileged Remote Access, but it shares the vulnerable code and BeyondTrust shipped the precautionary patch anyway. Apply it, confirm it, and treat any pre-patch internet exposure as worth a credential rotation.',x:''},
+  VERIFY_saas:{cls:'verdict warn',h:'<strong>VERIFY.</strong> BeyondTrust patched SaaS tenants by October 9 &mdash; but its own disclosure says one hosted instance <em>was</em> exploited during the zero-day window on Aug 29. Your entry point is closed; your credentials may not be. Rotate everything the appliance stored or brokered and review your configuration now.',x:'SaaS shifted the patching burden to the vendor &mdash; not the incident-response burden.'}
+};
+if(typeof document!=='undefined'&&typeof document.getElementById==='function'){
+(function(){
+  var q1=document.getElementById('q1'),q2=document.getElementById('q2'),q3=document.getElementById('q3');
+  var v=document.getElementById('verdict'),x=document.getElementById('verdictextra');
+  function upd(){
+    var r=btScore(q1.value,q2.value,q3.value);
+    if(r.band==='PENDING'){ v.className='verdict'; v.innerHTML='<strong>AWAITING ANSWERS.</strong> Answer all three questions above to get your exposure verdict.'; x.textContent=''; return; }
+    var key=(r.band==='SAFE'||r.band==='EXPOSED')?r.band+'_'+(r.kind||''):'VERIFY_'+r.kind;
+    var c=BT_COPY[key]||BT_COPY[r.band]||{};
+    v.className=c.cls||'verdict'; v.innerHTML=c.h||''; x.innerHTML=c.x||'';
+  }
+  [q1,q2,q3].forEach(function(s){ s.addEventListener('change',upd); });
+  upd();
+  var boxes=document.querySelectorAll('.chk input[type=checkbox]');
+  function upd2(){
+    var done=0;
+    boxes.forEach(function(b){ b.closest('.chk').classList.toggle('done',b.checked); if(b.checked) done++; });
+    var pct=Math.round(done/boxes.length*100);
+    document.getElementById('mfill').style.width=pct+'%';
+    document.getElementById('mcount').textContent=done+' of '+boxes.length+' steps complete';
+    var v2=document.getElementById('v2'),m=document.getElementById('meter');
+    if(done===boxes.length){ v2.className='verdict safe'; v2.innerHTML='<strong>UPGRADE ORDER COMPLETE.</strong> Patched, verified, credentials rotated, monitoring on. Keep an eye on the CISA KEV feed &mdash; the next BT-style zero-day will move this fast too.'; m.classList.add('good'); }
+    else { v2.className='verdict'; v2.innerHTML='<strong>UPGRADE NOT COMPLETE.</strong> Work through the steps &mdash; each tick updates this verdict.'; m.classList.remove('good'); }
+  }
+  boxes.forEach(function(b){ b.addEventListener('change',upd2); });
+  upd2();
+})();
+}
+</script>
+<h2 style="font-size:21px;margin:30px 0 12px;color:#fff">FAQ</h2>
+<div>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">What is BeyondTrust advisory BT26-05?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">BT26-05 is the BeyondTrust security advisory published October 15, 2026 for CVE-2026-102764, a critical BeyondTrust zero-day vulnerability (CVSS 4.0 9.3, CWE-290 improper origin validation) in BeyondTrust Remote Support. It lets an unauthenticated attacker perform file operations on the appliance, which attackers turned into root access.</p></details>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">Was the BeyondTrust zero-day exploited in the wild?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Yes. BeyondTrust and Mandiant report CVE-2026-102764 was exploited as a zero-day starting August 29, 2026 against one BeyondTrust-hosted and one self-hosted Remote Support instance by the suspected China-nexus espionage actor ARMORY CASTLE, which deployed the SAWFLY web shell and BARECLAW tunnel, escalated to root, and wiped logs.</p></details>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">Which BeyondTrust versions are affected by CVE-2026-102764?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">All BeyondTrust Remote Support versions 26.2.3 and earlier are affected. The BT26-05-RS patch covers versions 24.3.1 through 26.2.3; appliances older than 24.3.1 must upgrade first, then apply the patch. A version number alone does not confirm the patch is present.</p></details>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">Am I safe if my BeyondTrust instance is SaaS?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Mostly, but verify. BeyondTrust patched all SaaS customers by October 9, 2026, yet its own disclosure says one hosted instance was exploited during the zero-day window on August 29. Rotate any credentials the appliance stored or brokered and review your configuration even on SaaS.</p></details>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">Is BeyondTrust Privileged Remote Access affected?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Privileged Remote Access shares the affected code, but BeyondTrust says internal testing found no way to exploit CVE-2026-102764 in PRA. It still released a precautionary patch for PRA and recommends self-hosted PRA customers apply it.</p></details>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">What is the CISA KEV due date for CVE-2026-102764?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">CISA added CVE-2026-102764 to the Known Exploited Vulnerabilities (KEV) catalog on October 16, 2026 with a binding remediation due date of October 19, 2026 and flagged forensic triage as required for potentially exposed appliances.</p></details>
+<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">Does patching BT26-05 mean my appliance is clean?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">No. The BT26-05-RS patch closes the entry point, but an appliance that was internet-reachable during the August 29 to October 8 window may already be compromised. CISA's KEV listing flags forensic triage as required: hunt the Mandiant indicators, preserve encrypted appliance logs, rotate the credential vault, and rebuild through BeyondTrust support rather than just deleting a web shell.</p></details>
+</div>
+<p class="note" style="font-size:12px;margin:24px 0 0;color:#6b7688">Informational only &mdash; not a substitute for your incident-response team or BeyondTrust support. Facts cited per BeyondTrust advisory BT26-05 (Oct 15, 2026), the CISA KEV catalog, and linked secondary reporting. Built by Ingenious AI.</p>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
