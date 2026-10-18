@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html data-primary-keyword="cybersecurity news" lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shai-Hulud Patient Zero: Is Your npm Safe? | Ingenious AI</title>
-<meta name="description" content="Shai-Hulud npm worm spread via poisoned install hooks in Oct 2026. Run the 8-step self-audit to see if your install chain touched tensorlake 0.5.144. Free.">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="Shai-Hulud Patient Zero: Is Your npm Safe? | Ingenious AI">
-<meta property="og:description" content="Shai-Hulud npm worm spread via poisoned install hooks in Oct 2026. Run the 8-step self-audit to see if your install chain touched tensorlake 0.5.144. Free.">
-<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/shaihulud-patient-zero.html">
-<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/shaihulud-patient-zero.html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Shai-Hulud Patient Zero: Is Your npm Safe? | Ingenious AI">
-<meta name="twitter:description" content="Shai-Hulud npm worm spread via poisoned install hooks in Oct 2026. Run the 8-step self-audit to see if your install chain touched tensorlake 0.5.144. Free.">
-<link rel="stylesheet" href="ecosystem.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shai-Hulud Patient Zero: Cybersecurity News</title>
+<meta content="Shai-Hulud patient zero: was your npm install the entry point? Cybersecurity news forensics for the supply-chain attack. Free." name="description"/>
+<meta content="website" property="og:type"/>
+<meta content="Ingenious AI" property="og:site_name"/>
+<meta content="Shai-Hulud Patient Zero: Cybersecurity News" property="og:title"/>
+<meta content="Shai-Hulud patient zero: was your npm install the entry point? Cybersecurity news forensics for the supply-chain attack. Free." property="og:description"/>
+<meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/shaihulud-patient-zero.html" property="og:url"/>
+<link href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/shaihulud-patient-zero.html" rel="canonical"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Shai-Hulud Patient Zero: Cybersecurity News" name="twitter:title"/>
+<meta content="Shai-Hulud patient zero: was your npm install the entry point? Cybersecurity news forensics for the supply-chain attack. Free." name="twitter:description"/>
+<link href="ecosystem.css" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
@@ -100,90 +101,80 @@ li{margin:8px 0}
   ]
 }
 </script>
-</head>
+<meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png" property="og:image"/></head>
 <body>
 <div class="wrap">
-
-<div class="badge">NEWSJACK &middot; OCTOBER 2026 SUPPLY-CHAIN ATTACK</div>
-<h1>Shai-Hulud touched <span class="red">one npm package</span> in October. Did it touch yours?</h1>
-<p class="lead">On <strong>October 8, 2026</strong>, the npm package <strong>tensorlake@0.5.144</strong> was published with a Shai-Hulud worm payload: a <strong>preinstall hook</strong> ran the moment anyone installed it &mdash; no import needed &mdash; and it harvested developer secrets. Run the 8 steps below against your own projects. 15 minutes, real commands, honest verdict.</p>
-
-<div class="honest"><strong>This is a guided self-audit, not a forensic verdict.</strong> A clean checklist reduces uncertainty &mdash; it does not prove safety, and flagged static patterns do not prove malice. Only packages named in verified advisories are named here as confirmed-poisoned. If you installed a confirmed-poisoned release, skip to Step 8 and treat it as an incident.</div>
-
+<div class="badge">NEWSJACK · OCTOBER 2026 SUPPLY-CHAIN ATTACK</div>
+<h1>Shai-Hulud touchedone npm packagein October. Did it touch yours? — Cybersecurity News</h1><time datetime="2026-10-18">Reviewed October 18, 2026</time>
+<p class="lead">On <strong>October 8, 2026</strong>, the npm package <strong>tensorlake@0.5.144</strong> was published with a Shai-Hulud worm payload: a <strong>preinstall hook</strong> ran the moment anyone installed it — no import needed — and it harvested developer secrets. Run the 8 steps below against your own projects. 15 minutes, real commands, honest verdict.</p>
+<div class="honest"><strong>This is a guided self-audit, not a forensic verdict.</strong> A clean checklist reduces uncertainty — it does not prove safety, and flagged static patterns do not prove malice. Only packages named in verified advisories are named here as confirmed-poisoned. If you installed a confirmed-poisoned release, skip to Step 8 and treat it as an incident.</div>
 <div class="card">
 <h2>What happened (verified)</h2>
 <div class="timeline">
 <div><b>Oct 7, 2026 ~01:20 UTC:</b> malicious commits land on the tensorlake GitHub repo under a maintainer's name, not through a pull request.</div>
-<div><b>Oct 8, 2026 01:12 UTC:</b> the project's own release workflow publishes <b>tensorlake@0.5.144</b> to npm with valid build provenance &mdash; the poison rides in through the front door.</div>
+<div><b>Oct 8, 2026 01:12 UTC:</b> the project's own release workflow publishes <b>tensorlake@0.5.144</b> to npm with valid build provenance — the poison rides in through the front door.</div>
 <div><b>The payload:</b> a <b>preinstall</b> hook runs <b>node lib/setup.mjs</b>; the loader downloads the <b>Bun</b> runtime to dodge Node-focused detection, then executes <b>lib/Math_Symbol.js</b> (reported filename spellings include MathSymbol.js), an obfuscated ~856 KB credential stealer.</div>
 <div><b>The haul:</b> npm tokens, GitHub credentials, AWS/GCP/Azure cloud keys, Kubernetes and Vault secrets, SSH keys, crypto wallets, browser passwords, and AI-tool configs (.claude, .cursor, Kiro, Windsurf, Zed). Marker: <b>globalThis.WORMTAG='tensrlake'</b>.</div>
 <div><b>Self-propagation:</b> with a stolen npm token it republishes <em>your</em> packages with itself inside; it commits a <b>.claude</b> folder so it runs again when you open Claude Code; exfiltration goes to a public GitHub repo it creates ("Shai-Hulud: Here We Go Again") or its C2.</div>
 <div><b>Aftermath:</b> npm removed 0.5.144; the project's PR #1016 moved every package to <b>0.5.145</b> as the first clean release. The six <b>tensorlake-native-*@0.5.144</b> binary packages needed unpublishing too.</div>
 </div>
-<p class="srcs">Sources: <a href="https://huntaegis.com/article/fb050a2bf8e403ef93ca625258a46014" target="_blank" rel="noopener">Huntaegis incident write-up</a> &middot; <a href="https://gbhackers.com/tensorlake-package-hijacked/" target="_blank" rel="noopener">GBHackers</a> &middot; <a href="https://badgersignal.com/articles/tensorlake-npm-package-compromise-delivers-shaihulud-worm-to-developer-environments" target="_blank" rel="noopener">Badger Signal</a> &middot; <a href="https://www.anomali.com/blog/anomali-cyber-watch-castlestealer-npm-sdk-supply-chain-risks" target="_blank" rel="noopener">Anomali Cyber Watch</a> &middot; <a href="https://dev.to/gabrielanhaia/the-tensorlake-worm-commits-a-claude-folder-so-it-runs-again-when-you-open-claude-code-27a4" target="_blank" rel="noopener">dev.to timeline</a>.</p>
+<p class="srcs">Sources: <a href="https://huntaegis.com/article/fb050a2bf8e403ef93ca625258a46014" rel="noopener" target="_blank">Huntaegis incident write-up</a> · <a href="https://gbhackers.com/tensorlake-package-hijacked/" rel="noopener" target="_blank">GBHackers</a> · <a href="https://badgersignal.com/articles/tensorlake-npm-package-compromise-delivers-shaihulud-worm-to-developer-environments" rel="noopener" target="_blank">Badger Signal</a> · <a href="https://www.anomali.com/blog/anomali-cyber-watch-castlestealer-npm-sdk-supply-chain-risks" rel="noopener" target="_blank">Anomali Cyber Watch</a> · <a href="https://dev.to/gabrielanhaia/the-tensorlake-worm-commits-a-claude-folder-so-it-runs-again-when-you-open-claude-code-27a4" rel="noopener" target="_blank">dev.to timeline</a>.</p>
 </div>
-
 <div class="card">
 <h2>The 8-step patient-zero self-audit</h2>
-<p class="note">Run each command in your project root, then mark what you found. The real malicious-lifecycle-hook patterns below match <a href="https://github.com/Iceman2050/npm-lifecycle-hook-auditor" target="_blank" rel="noopener" style="color:#6ea8fe">Ingenious AI's npm-lifecycle-hook-auditor</a> rules (WORMTAG marker, setup.mjs/Math_Symbol.js loaders, Bun-runtime invocation).</p>
+<p class="note">Run each command in your project root, then mark what you found. The real malicious-lifecycle-hook patterns below match <a href="https://github.com/Iceman2050/npm-lifecycle-hook-auditor" rel="noopener" style="color:#6ea8fe" target="_blank">Ingenious AI's npm-lifecycle-hook-auditor</a> rules (WORMTAG marker, setup.mjs/Math_Symbol.js loaders, Bun-runtime invocation).</p>
 <div class="progress" id="progress">0 of 8 steps answered</div>
-
 <div class="step crit" id="step1">
 <div class="stitle">1. Search your lockfiles for the poisoned release <span class="crit-tag">CRITICAL</span></div>
-<p>npm removed tensorlake@0.5.144, but your lockfile may still pin it &mdash; or the six tensorlake-native-*@0.5.144 binary packages from the same release run.</p>
-<div class="cmd">grep -rn "tensorlake@0.5.144" package-lock.json pnpm-lock.yaml yarn.lock 2>/dev/null
-grep -rn "tensorlake-native" package-lock.json pnpm-lock.yaml yarn.lock 2>/dev/null</div>
+<p>npm removed tensorlake@0.5.144, but your lockfile may still pin it — or the six tensorlake-native-*@0.5.144 binary packages from the same release run.</p>
+<div class="cmd">grep -rn "tensorlake@0.5.144" package-lock.json pnpm-lock.yaml yarn.lock 2&gt;/dev/null
+grep -rn "tensorlake-native" package-lock.json pnpm-lock.yaml yarn.lock 2&gt;/dev/null</div>
 <div class="choices">
-<label><input type="radio" name="s1" value="clean">No match found</label>
-<label><input type="radio" name="s1" value="flag">Found 0.5.144 / tensorlake-native in a lockfile</label>
-<label><input type="radio" name="s1" value="skip">Skipped</label>
+<label><input name="s1" type="radio" value="clean"/>No match found</label>
+<label><input name="s1" type="radio" value="flag"/>Found 0.5.144 / tensorlake-native in a lockfile</label>
+<label><input name="s1" type="radio" value="skip"/>Skipped</label>
 </div>
 </div>
-
 <div class="step" id="step2">
 <div class="stitle">2. Enumerate lifecycle hooks across your dependency tree</div>
-<p>Any package can declare preinstall/install/postinstall hooks. Most are benign &mdash; but this is how the worm runs, so look at every hit with fresh eyes.</p>
-<div class="cmd">grep -rn '"preinstall"\|"postinstall"' node_modules/*/package.json 2>/dev/null | head -40</div>
+<p>Any package can declare preinstall/install/postinstall hooks. Most are benign — but this is how the worm runs, so look at every hit with fresh eyes.</p>
+<div class="cmd">grep -rn '"preinstall"\|"postinstall"' node_modules/*/package.json 2&gt;/dev/null | head -40</div>
 <div class="choices">
-<label><input type="radio" name="s2" value="clean">Nothing suspicious</label>
-<label><input type="radio" name="s2" value="flag">Found hooks I can't explain</label>
-<label><input type="radio" name="s2" value="skip">Skipped</label>
+<label><input name="s2" type="radio" value="clean"/>Nothing suspicious</label>
+<label><input name="s2" type="radio" value="flag"/>Found hooks I can't explain</label>
+<label><input name="s2" type="radio" value="skip"/>Skipped</label>
 </div>
 </div>
-
 <div class="step crit" id="step3">
 <div class="stitle">3. Grep for the WORMTAG marker <span class="crit-tag">CRITICAL</span></div>
-<p>The October tensorlake payload tagged itself with <b>globalThis.WORMTAG='tensrlake'</b>. A WORMTAG hit in installed code is a worm marker &mdash; case-insensitive.</p>
-<div class="cmd">grep -rni "WORMTAG" node_modules/ package-lock.json 2>/dev/null</div>
+<p>The October tensorlake payload tagged itself with <b>globalThis.WORMTAG='tensrlake'</b>. A WORMTAG hit in installed code is a worm marker — case-insensitive.</p>
+<div class="cmd">grep -rni "WORMTAG" node_modules/ package-lock.json 2&gt;/dev/null</div>
 <div class="choices">
-<label><input type="radio" name="s3" value="clean">No match found</label>
-<label><input type="radio" name="s3" value="flag">Found WORMTAG somewhere</label>
-<label><input type="radio" name="s3" value="skip">Skipped</label>
+<label><input name="s3" type="radio" value="clean"/>No match found</label>
+<label><input name="s3" type="radio" value="flag"/>Found WORMTAG somewhere</label>
+<label><input name="s3" type="radio" value="skip"/>Skipped</label>
 </div>
 </div>
-
 <div class="step crit" id="step4">
 <div class="stitle">4. Hunt the known loader filenames <span class="crit-tag">CRITICAL</span></div>
 <p>The tensorlake loader chain used <b>setup.mjs</b> plus the ~856 KB second stage (reported spellings: Math_Symbol.js / MathSymbol.js).</p>
-<div class="cmd">find node_modules -name "setup.mjs" -o -name "Math_Symbol.js" -o -name "MathSymbol.js" 2>/dev/null</div>
+<div class="cmd">find node_modules -name "setup.mjs" -o -name "Math_Symbol.js" -o -name "MathSymbol.js" 2&gt;/dev/null</div>
 <div class="choices">
-<label><input type="radio" name="s4" value="clean">No match found</label>
-<label><input type="radio" name="s4" value="flag">Found one of these files</label>
-<label><input type="radio" name="s4" value="skip">Skipped</label>
+<label><input name="s4" type="radio" value="clean"/>No match found</label>
+<label><input name="s4" type="radio" value="flag"/>Found one of these files</label>
+<label><input name="s4" type="radio" value="skip"/>Skipped</label>
 </div>
 </div>
-
 <div class="step" id="step5">
 <div class="stitle">5. Flag Bun-runtime invocation and obfuscated payloads</div>
 <p>The loader downloaded the <b>Bun</b> runtime specifically to dodge Node-focused detection. Bun in an install path deserves an explanation.</p>
-<div class="cmd">grep -rniE '\bbun\b' node_modules/*/package.json 2>/dev/null</div>
+<div class="cmd">grep -rniE '\bbun\b' node_modules/*/package.json 2&gt;/dev/null</div>
 <div class="choices">
-<label><input type="radio" name="s5" value="clean">Nothing suspicious</label>
-<label><input type="radio" name="s5" value="flag">Found Bun invocation I can't explain</label>
-<label><input type="radio" name="s5" value="skip">Skipped</label>
+<label><input name="s5" type="radio" value="clean"/>Nothing suspicious</label>
+<label><input name="s5" type="radio" value="flag"/>Found Bun invocation I can't explain</label>
+<label><input name="s5" type="radio" value="skip"/>Skipped</label>
 </div>
 </div>
-
 <div class="step crit" id="step6">
 <div class="stitle">6. Check for signs of exfiltration <span class="crit-tag">CRITICAL</span></div>
 <p>The worm exfiltrates to a public GitHub repo it creates in <em>your</em> account ("Shai-Hulud: Here We Go Again") and republishes <em>your</em> packages using your stolen npm token. Look for repos and publishes you didn't make, and unexpected login sessions.</p>
@@ -192,43 +183,39 @@ gh repo list --limit 100 --json name,createdAt,url | grep -i "shai\|hulud\|worm"
 # npm: check recent publishes of your packages
 npm view &lt;your-package&gt; time --json | tail -5</div>
 <div class="choices">
-<label><input type="radio" name="s6" value="clean">Nothing unfamiliar found</label>
-<label><input type="radio" name="s6" value="flag">Found unfamiliar repos/publishes/sessions</label>
-<label><input type="radio" name="s6" value="skip">Skipped</label>
+<label><input name="s6" type="radio" value="clean"/>Nothing unfamiliar found</label>
+<label><input name="s6" type="radio" value="flag"/>Found unfamiliar repos/publishes/sessions</label>
+<label><input name="s6" type="radio" value="skip"/>Skipped</label>
 </div>
 </div>
-
 <div class="step" id="step7">
-<div class="stitle">7. Review commits and CI logs around Oct 7&ndash;8, 2026</div>
+<div class="stitle">7. Review commits and CI logs around Oct 7–8, 2026</div>
 <p>The tensorlake attack entered through commits pushed <b>directly to main outside pull requests</b> (~01:20 UTC Oct 7), then the project's own release pipeline shipped it. Audit your own repo the same way.</p>
 <div class="cmd">git log --since="2026-10-01" --until="2026-10-15" --format="%h %ad %an %s" --date=short</div>
 <div class="choices">
-<label><input type="radio" name="s7" value="clean">Commits all look legitimate</label>
-<label><input type="radio" name="s7" value="flag">Found commits I can't explain</label>
-<label><input type="radio" name="s7" value="skip">Skipped</label>
+<label><input name="s7" type="radio" value="clean"/>Commits all look legitimate</label>
+<label><input name="s7" type="radio" value="flag"/>Found commits I can't explain</label>
+<label><input name="s7" type="radio" value="skip"/>Skipped</label>
 </div>
 </div>
-
 <div class="step" id="step8">
 <div class="stitle">8. If anything flagged: remediation order matters</div>
-<p>If you installed a confirmed-poisoned release: <b>kill the worm's token-monitor process FIRST, then rotate credentials.</b> Security researchers documented a dead-man switch &mdash; revoking a stolen GitHub token while the monitor still runs triggers a home-directory wipe. Rotate npm, GitHub, cloud, Kubernetes, Vault and SSH credentials <em>from a clean machine</em>, and rebuild from a trusted source. Future installs: <b>npm config set ignore-scripts true</b>, pin exact versions, and never npm-install on the machine that holds production secrets.</p>
+<p>If you installed a confirmed-poisoned release: <b>kill the worm's token-monitor process FIRST, then rotate credentials.</b> Security researchers documented a dead-man switch — revoking a stolen GitHub token while the monitor still runs triggers a home-directory wipe. Rotate npm, GitHub, cloud, Kubernetes, Vault and SSH credentials <em>from a clean machine</em>, and rebuild from a trusted source. Future installs: <b>npm config set ignore-scripts true</b>, pin exact versions, and never npm-install on the machine that holds production secrets.</p>
 <div class="choices">
-<label><input type="radio" name="s8" value="clean">Done / nothing flagged in steps 1&ndash;7</label>
-<label><input type="radio" name="s8" value="flag">Something flagged and I haven't remediated</label>
-<label><input type="radio" name="s8" value="skip">Skipped</label>
+<label><input name="s8" type="radio" value="clean"/>Done / nothing flagged in steps 1–7</label>
+<label><input name="s8" type="radio" value="flag"/>Something flagged and I haven't remediated</label>
+<label><input name="s8" type="radio" value="skip"/>Skipped</label>
 </div>
 </div>
-
-<button class="calcbtn" onclick="verdict()">Get my verdict &rarr;</button>
+<button class="calcbtn" onclick="verdict()">Get my verdict →</button>
 <div class="result" id="result">
 <div class="vlabel">SELF-AUDIT VERDICT</div>
 <div class="vbig" id="vbig"></div>
 <p id="vtext"></p>
-<p class="note">This verdict reflects your self-reported checklist answers. It is not a forensic finding: a CLEAN result does not certify your install chain, and an INVESTIGATE result does not prove compromise. Automated help: <a href="https://github.com/Iceman2050/npm-lifecycle-hook-auditor" target="_blank" rel="noopener" style="color:#6ea8fe">npm-lifecycle-hook-auditor</a> (Python, stdlib only).</p>
+<p class="note">This verdict reflects your self-reported checklist answers. It is not a forensic finding: a CLEAN result does not certify your install chain, and an INVESTIGATE result does not prove compromise. Automated help: <a href="https://github.com/Iceman2050/npm-lifecycle-hook-auditor" rel="noopener" style="color:#6ea8fe" target="_blank">npm-lifecycle-hook-auditor</a> (Python, stdlib only).</p>
 </div>
 </div>
-
-<script data-core>
+<script data-core="">
 var CRITICAL_STEPS = { s1: true, s3: true, s4: true, s6: true };
 function selfAuditVerdict(answers){
   var flags = answers.filter(function(a){ return a.result === "flag"; });
@@ -273,50 +260,41 @@ STEP_IDS.forEach(function(id){
   });
 });
 </script>
-
 <div class="card">
 <h2>Why lifecycle hooks are the weak link</h2>
 <ul>
-<li><strong>Install scripts run before you read anything.</strong> A preinstall hook executes the moment <b>npm install</b> starts &mdash; you never have to import the package. That is why installing tensorlake@0.5.144 was enough.</li>
-<li><strong>Provenance checked out.</strong> The poisoned release shipped through the project's own GitHub Actions pipeline with valid build provenance &mdash; the usual trust signals all passed.</li>
+<li><strong>Install scripts run before you read anything.</strong> A preinstall hook executes the moment <b>npm install</b> starts — you never have to import the package. That is why installing tensorlake@0.5.144 was enough.</li>
+<li><strong>Provenance checked out.</strong> The poisoned release shipped through the project's own GitHub Actions pipeline with valid build provenance — the usual trust signals all passed.</li>
 <li><strong>This is a pattern, not an incident.</strong> An earlier August 2026 campaign using the same worm family reportedly affected at least 444 packages across 1,381 versions.</li>
-<li><strong>npm audit won't save you.</strong> It checks known vulnerabilities &mdash; it never checks what install hooks <em>do</em>.</li>
+<li><strong>npm audit won't save you.</strong> It checks known vulnerabilities — it never checks what install hooks <em>do</em>.</li>
 </ul>
 </div>
-
-<div class="honest" style="border-left-color:#f85149"><strong>Vibe-coded? Audit the code you shipped.</strong> AI-generated code pulls dependencies you never reviewed. Vibe-Code Audit by Ingenious AI scans what your AI assistant actually wrote &mdash; including the dependency chains it quietly added.</div>
-<a class="cta" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit.">Audit my AI-written code &rarr; Vibe-Code Audit (early access)</a>
-<a class="cta alt" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms.">See all 11 Ingenious AI platforms &rarr;</a>
-
+<div class="honest" style="border-left-color:#f85149"><strong>Vibe-coded? Audit the code you shipped.</strong> AI-generated code pulls dependencies you never reviewed. Vibe-Code Audit by Ingenious AI scans what your AI assistant actually wrote — including the dependency chains it quietly added.</div>
+<a class="cta" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit.">Audit my AI-written code → Vibe-Code Audit (early access)</a>
+<a class="cta alt" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms.">See all 11 Ingenious AI platforms →</a>
 <div class="moreblock">
 <h2>More from Ingenious AI</h2>
 <ul>
-<li><a href="newsjack-vibeaudit.html">Newsjack: Vibe-Code Audit &mdash; audit what AI wrote</a></li>
-<li><a href="vibe-code-security-scan-check.html">Vibe Code Security Scan &mdash; check AI-generated code</a></li>
+<li><a href="newsjack-vibeaudit.html">Newsjack: Vibe-Code Audit — audit what AI wrote</a></li>
+<li><a href="vibe-code-security-scan-check.html">Vibe Code Security Scan — check AI-generated code</a></li>
 <li><a href="ledger-supply-chain-implant-check.html">Ledger Supply-Chain Implant Check</a></li>
 <li><a href="aomei-backupper-supply-chain-check.html">AOMEI Backupper Supply-Chain Check</a></li>
-<li><a href="security-suite.html">Ingenious AI Security Suite &mdash; all 11 platforms</a></li>
-<li><a href="all-links.html">All free checks &mdash; the full directory</a></li>
+<li><a href="security-suite.html">Ingenious AI Security Suite — all 11 platforms</a></li>
+<li><a href="all-links.html">All free checks — the full directory</a></li>
 </ul>
 </div>
-
-<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Ingenious AI builds 11 AI security platforms &mdash; disclosure compliance, rogue-agent defense, breach hunting, agent oversight, and more.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
-
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Ingenious AI builds 11 AI security platforms — disclosure compliance, rogue-agent defense, breach hunting, agent oversight, and more.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp →</a></div>
 </div>
-
-<div class="share" style="max-width:760px;margin:28px auto 8px;text-align:center;font-size:14px;color:#9aa7b8">Share this self-audit: <a href="https://x.com/intent/post?text=Shai-Hulud%20npm%20worm%20spread%20via%20poisoned%20install%20hooks%20(Oct%202026).%20Run%20this%208-step%20patient-zero%20self-audit%20on%20your%20install%20chain%20%E2%80%94%20free&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/shaihulud-patient-zero.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/shaihulud-patient-zero.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/shaihulud-patient-zero.html&title=Shai-Hulud%20npm%20worm%20(Oct%202026)%20%E2%80%94%208-step%20patient-zero%20self-audit%20for%20your%20install%20chain" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
-
-
+<div class="share" style="max-width:760px;margin:28px auto 8px;text-align:center;font-size:14px;color:#9aa7b8">Share this self-audit: <a href="https://x.com/intent/post?text=Shai-Hulud%20npm%20worm%20spread%20via%20poisoned%20install%20hooks%20(Oct%202026).%20Run%20this%208-step%20patient-zero%20self-audit%20on%20your%20install%20chain%20%E2%80%94%20free&amp;url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/shaihulud-patient-zero.html" rel="noopener" style="color:#1c6ef2;margin:0 8px" target="_blank">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/shaihulud-patient-zero.html" rel="noopener" style="color:#1c6ef2;margin:0 8px" target="_blank">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/shaihulud-patient-zero.html&amp;title=Shai-Hulud%20npm%20worm%20(Oct%202026)%20%E2%80%94%208-step%20patient-zero%20self-audit%20for%20your%20install%20chain" rel="noopener" style="color:#1c6ef2;margin:0 8px" target="_blank">Reddit</a></div>
 <section class="kw-faq" style="max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
-<h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is the Shai-Hulud npm worm?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Shai-Hulud is a self-replicating npm supply-chain worm. It compromises packages by adding malicious lifecycle hooks (preinstall/install/postinstall scripts) so the payload runs at install time &mdash; before any application code executes. The October 2026 tensorlake incident (version 0.5.144) used a preinstall hook running node lib/setup.mjs, which downloaded the Bun runtime and executed an obfuscated ~856 KB payload harvesting developer credentials.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Was tensorlake 0.5.144 the only poisoned package?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">No. The same release run also published six tensorlake-native-*@0.5.144 binary packages, and an earlier August 2026 campaign using the same worm family reportedly affected at least 444 packages across 1,381 versions. Only packages named in verified advisories should be treated as confirmed &mdash; this page names only those.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How do I check whether my install chain touched a poisoned package?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Start with your lockfiles: grep for the poisoned version string (e.g. tensorlake@0.5.144). Then enumerate lifecycle hooks in your dependency tree, grep installed files for the worm's marker (WORMTAG) and known loader filenames (setup.mjs, Math_Symbol.js), flag Bun-runtime invocation, and review commits and CI logs around the incident window. The 8-step checklist above is a guided self-audit &mdash; not a forensic verdict.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">I installed tensorlake 0.5.144 &mdash; what do I do first?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Treat the machine as fully compromised. The critical order from security researchers: kill the worm's token-monitor process FIRST, then rotate credentials &mdash; revoking a stolen GitHub token while the monitor still runs has been documented to trigger a home-directory wipe. Rotate npm, GitHub, cloud, Kubernetes, Vault and SSH credentials from a clean machine, and rebuild from a trusted source.</p></details>
+<h2>What does patient zero mean in this cybersecurity news story?</h2><p>The first infected install. In the October 2026 wave, a published npm package shipped with a Shai-Hulud worm payload in its preinstall hook — every developer who installed it became a carrier, leaking credentials to the attackers. Finding your patient zero means tracing install timelines against the known malicious versions, then rotating every secret that machine ever touched.</p><h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is the Shai-Hulud npm worm?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Shai-Hulud is a self-replicating npm supply-chain worm. It compromises packages by adding malicious lifecycle hooks (preinstall/install/postinstall scripts) so the payload runs at install time — before any application code executes. The October 2026 tensorlake incident (version 0.5.144) used a preinstall hook running node lib/setup.mjs, which downloaded the Bun runtime and executed an obfuscated ~856 KB payload harvesting developer credentials.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Was tensorlake 0.5.144 the only poisoned package?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">No. The same release run also published six tensorlake-native-*@0.5.144 binary packages, and an earlier August 2026 campaign using the same worm family reportedly affected at least 444 packages across 1,381 versions. Only packages named in verified advisories should be treated as confirmed — this page names only those.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How do I check whether my install chain touched a poisoned package?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Start with your lockfiles: grep for the poisoned version string (e.g. tensorlake@0.5.144). Then enumerate lifecycle hooks in your dependency tree, grep installed files for the worm's marker (WORMTAG) and known loader filenames (setup.mjs, Math_Symbol.js), flag Bun-runtime invocation, and review commits and CI logs around the incident window. The 8-step checklist above is a guided self-audit — not a forensic verdict.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">I installed tensorlake 0.5.144 — what do I do first?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Treat the machine as fully compromised. The critical order from security researchers: kill the worm's token-monitor process FIRST, then rotate credentials — revoking a stolen GitHub token while the monitor still runs has been documented to trigger a home-directory wipe. Rotate npm, GitHub, cloud, Kubernetes, Vault and SSH credentials from a clean machine, and rebuild from a trusted source.</p></details>
 </section>
-
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- Cloudflare Web Analytics --><script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

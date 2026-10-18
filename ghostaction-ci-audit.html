@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html data-primary-keyword="cybersecurity news" lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GhostAction Attack: Is Your CI Compromised? Free Audit</title>
-<meta name="description" content="GhostAction hit 1,900 GitHub accounts and 30,000+ repos with fake security-audit.yml workflows stealing CI secrets. Free 7-step CI audit — no signup needed.">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="GhostAction Attack: Is Your CI Compromised? Free Audit">
-<meta property="og:description" content="GhostAction hit 1,900 GitHub accounts and 30,000+ repos with fake security-audit.yml workflows stealing CI secrets. Free 7-step CI audit — no signup needed.">
-<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ghostaction-ci-audit.html">
-<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ghostaction-ci-audit.html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GhostAction Attack: Is Your CI Compromised? Free Audit">
-<meta name="twitter:description" content="GhostAction hit 1,900 GitHub accounts and 30,000+ repos with fake security-audit.yml workflows stealing CI secrets. Free 7-step CI audit — no signup needed.">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GhostAction CI Audit: Cybersecurity News</title>
+<meta content="GhostAction attacked CI pipelines via poisoned workflows. Cybersecurity news audit: check your GitHub Actions for compromise. Free." name="description"/>
+<meta content="website" property="og:type"/>
+<meta content="Ingenious AI" property="og:site_name"/>
+<meta content="GhostAction CI Audit: Cybersecurity News" property="og:title"/>
+<meta content="GhostAction attacked CI pipelines via poisoned workflows. Cybersecurity news audit: check your GitHub Actions for compromise. Free." property="og:description"/>
+<meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ghostaction-ci-audit.html" property="og:url"/>
+<link href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ghostaction-ci-audit.html" rel="canonical"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="GhostAction CI Audit: Cybersecurity News" name="twitter:title"/>
+<meta content="GhostAction attacked CI pipelines via poisoned workflows. Cybersecurity news audit: check your GitHub Actions for compromise. Free." name="twitter:description"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
@@ -62,52 +63,47 @@ details.faq p{margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6}
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the GhostAction attack?", "acceptedAnswer": {"@type": "Answer", "text": "GhostAction is a GitHub supply-chain credential-theft campaign first documented by GitGuardian in September 2025. It escalated sharply on October 8–9, 2026: attackers compromised about 1,900 GitHub accounts and pushed malicious workflows into more than 30,000 repositories across 3,000 users and organizations, attempting to extract 3,174 secrets from public repositories' CI. The original 2025 wave hit 817 repositories across 327 users and exfiltrated at least 3,325 secrets."}}, {"@type": "Question", "name": "What are the GhostAction malicious workflow file names?", "acceptedAnswer": {"@type": "Answer", "text": "Three distinct workflow file names have been confirmed across the GhostAction waves: security-audit.yml (the 2026 variant, which also mines full git history), github_actions_security.yml (display name 'Github Actions Security'), and security-check.yml (display name 'Security Check'). All three trigger on push events and exfiltrate secrets via curl to attacker infrastructure. (Per Decryption Digest and StepSecurity, Oct 2026.)"}}, {"@type": "Question", "name": "How do I know if my repository was hit by GhostAction?", "acceptedAnswer": {"@type": "Answer", "text": "Look for: a security-audit.yml or github_actions_security.yml workflow you did not add; commits to workflow files you didn't author (commit messages seen include 'Add security audit workflow' and 'Update security audit workflow'); workflow runs you didn't trigger, especially workflow_dispatch runs; and any commits made in your identity that you don't recognize — every GhostAction commit was made with the victim's own identity."}}, {"@type": "Question", "name": "Why isn't deleting the workflow enough?", "acceptedAnswer": {"@type": "Answer", "text": "If the malicious workflow executed successfully, any secret available to it may already have been copied by the attacker. GitHub's incident-response guidance recommends treating potentially exposed credentials as compromised: revoke or rotate the affected credentials first, then remove the workflow from all branches. Cleanup alone does not end the threat. (Per CyberUpdates365 and GitHub guidance.)"}}, {"@type": "Question", "name": "How do I harden GitHub Actions against supply-chain attacks?", "acceptedAnswer": {"@type": "Answer", "text": "The 7-step audit above covers the essentials: know every file in .github/workflows, review workflow-file commits and run history for anomalies, scope secrets so each workflow only reads what it needs, pin third-party actions to commit SHAs instead of floating tags, keep repository access least-privilege, and rotate personal access tokens regularly — stolen PATs were the attackers' way in."}}]}
 </script>
-<link rel="stylesheet" href="ecosystem.css">
-</head>
+<link href="ecosystem.css" rel="stylesheet"/>
+<meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png" property="og:image"/></head>
 <body>
 <div class="wrap">
-<div class="badge">GHOSTACTION SUPPLY-CHAIN CAMPAIGN &mdash; OCT 2026</div>
-<h1><span class="red">GhostAction:</span> your CI might already be <span class="red">leaking secrets</span> — and the workflow looks <span class="red">helpful</span></h1>
-<p class="lead">In the <strong>GhostAction</strong> campaign, attackers compromised <strong>about 1,900 GitHub accounts</strong> and pushed malicious workflows into <strong>more than 30,000 repositories</strong> across 3,000 users and organizations — attempting to extract <strong>3,174 secrets</strong> from CI in a single October 8&ndash;9, 2026 surge (per GitGuardian's research, reported October 15, 2026). The weapon is a workflow file with a reassuring name — <strong>security-audit.yml</strong> or <strong>github_actions_security.yml</strong> — pushed in <em>your</em> identity, which quietly sends your CI secrets to an attacker server. The original wave, first documented in September 2025, already exfiltrated at least <strong>3,325 secrets</strong> from 817 repositories. This free interactive <strong>7-step CI self-audit</strong> walks you through checking your workflows, secret access and run history in minutes. It's a guided audit you perform yourself — it does not scan your repositories.</p>
-
+<div class="badge">GHOSTACTION SUPPLY-CHAIN CAMPAIGN — OCT 2026</div>
+<h1>GhostAction:your CI might already beleaking secrets— and the workflow lookshelpful — Cybersecurity News</h1><time datetime="2026-10-18">Reviewed October 18, 2026</time>
+<p class="lead">In the <strong>GhostAction</strong> campaign, attackers compromised <strong>about 1,900 GitHub accounts</strong> and pushed malicious workflows into <strong>more than 30,000 repositories</strong> across 3,000 users and organizations — attempting to extract <strong>3,174 secrets</strong> from CI in a single October 8–9, 2026 surge (per GitGuardian's research, reported October 15, 2026). The weapon is a workflow file with a reassuring name — <strong>security-audit.yml</strong> or <strong>github_actions_security.yml</strong> — pushed in <em>your</em> identity, which quietly sends your CI secrets to an attacker server. The original wave, first documented in September 2025, already exfiltrated at least <strong>3,325 secrets</strong> from 817 repositories. This free interactive <strong>7-step CI self-audit</strong> walks you through checking your workflows, secret access and run history in minutes. It's a guided audit you perform yourself — it does not scan your repositories.</p>
 <div class="card">
 <h2>Key facts</h2>
 <ul>
-<li><strong>~1,900 GitHub accounts compromised; 30,000+ repositories across 3,000 users/orgs targeted</strong> in the October 8–9, 2026 surge, attempting to extract <strong>3,174 secrets</strong>. <a href="http://thehackernews.com/2026/10/ghostaction-compromises-about-1900.html" target="_blank" rel="noopener" style="color:#6ea8fe">The Hacker News (Oct 15, 2026)</a>, per GitGuardian.</li>
-<li><strong>Three confirmed malicious workflow names:</strong> <code>security-audit.yml</code> (2026 variant), <code>github_actions_security.yml</code>, and <code>security-check.yml</code> — all exfiltrating via curl POST to attacker infrastructure. <a href="https://www.decryptiondigest.com/blog/ghostaction-github-actions-supply-chain-2026" target="_blank" rel="noopener" style="color:#6ea8ff">Decryption Digest</a>.</li>
-<li><strong>Deleting the file is not enough:</strong> any secret available to the workflow may already be copied — GitHub recommends treating exposed credentials as compromised and rotating them. <a href="https://cyberupdates365.com/ghostaction-github-attack/" target="_blank" rel="noopener" style="color:#6ea8fe">CyberUpdates365</a>.</li>
+<li><strong>~1,900 GitHub accounts compromised; 30,000+ repositories across 3,000 users/orgs targeted</strong> in the October 8–9, 2026 surge, attempting to extract <strong>3,174 secrets</strong>. <a href="http://thehackernews.com/2026/10/ghostaction-compromises-about-1900.html" rel="noopener" style="color:#6ea8fe" target="_blank">The Hacker News (Oct 15, 2026)</a>, per GitGuardian.</li>
+<li><strong>Three confirmed malicious workflow names:</strong> <code>security-audit.yml</code> (2026 variant), <code>github_actions_security.yml</code>, and <code>security-check.yml</code> — all exfiltrating via curl POST to attacker infrastructure. <a href="https://www.decryptiondigest.com/blog/ghostaction-github-actions-supply-chain-2026" rel="noopener" style="color:#6ea8ff" target="_blank">Decryption Digest</a>.</li>
+<li><strong>Deleting the file is not enough:</strong> any secret available to the workflow may already be copied — GitHub recommends treating exposed credentials as compromised and rotating them. <a href="https://cyberupdates365.com/ghostaction-github-attack/" rel="noopener" style="color:#6ea8fe" target="_blank">CyberUpdates365</a>.</li>
 <li><strong>GitHub began blocking the malicious workflow on October 9, 2026</strong> — later waves extracted nothing.</li>
 </ul>
 </div>
-
 <div class="card">
-<h2>Should I rotate secrets if I find a GhostAction workflow?</h2>
+<h2>Should I rotate secrets if a cybersecurity news alert flags GhostAction in my workflow?</h2>
 <p class="note">Yes — immediately, before deleting the workflow. Any secret the workflow could read may already be copied: GitHub treats potentially exposed credentials as compromised. Rotate every repo and organization secret the workflow could reach, check for rogue repos or commits made in your identity, then remove the workflow from all branches.</p>
 </div>
-
 <div class="card">
 <h2>The October 2026 wave: how it escalated</h2>
-<p class="note">Per GitGuardian's research, reported by The Hacker News on October 15, 2026 (<a href="https://thehackernews.com/2026/10/ghostaction-compromises-about-1900.html" target="_blank" rel="noopener" style="color:#6ea8fe">thehackernews.com/2026/10/ghostaction-compromises-about-1900.html</a>).</p>
+<p class="note">Per GitGuardian's research, reported by The Hacker News on October 15, 2026 (<a href="https://thehackernews.com/2026/10/ghostaction-compromises-about-1900.html" rel="noopener" style="color:#6ea8fe" target="_blank">thehackernews.com/2026/10/ghostaction-compromises-about-1900.html</a>).</p>
 <ul>
-<li><strong>~1,900 GitHub accounts compromised; 30,000+ repositories across 3,000 users/orgs targeted</strong> in the October 8&ndash;9, 2026 surge.</li>
+<li><strong>~1,900 GitHub accounts compromised; 30,000+ repositories across 3,000 users/orgs targeted</strong> in the October 8–9, 2026 surge.</li>
 <li><strong>Payload evolution across three versions:</strong> v1 scanned git history for secrets (regexes for AWS keys, GitHub + GitLab tokens, AI secrets, cloud API keys); v2 added 2 lines of context around AWS key IDs; v3 added secret context retrieval.</li>
 <li><strong>GitHub began preventing the malicious workflow from running starting October 9, 2026</strong> — later waves extracted nothing.</li>
 <li><strong>Attackers banked on UNROTATED secrets:</strong> victims of the September 2025 and August 2026 waves who never rotated were re-compromised.</li>
 <li><strong>Follow-up waves were observed October 10 and October 12, 2026</strong> — no extraction, blocked.</li>
 </ul>
-<a class="cta" href="https://github.com/Iceman2050/secret-rotation-timer" target="_blank" rel="noopener" style="font-size:16px">Free: Secret Rotation Timer &rarr;<br><span style="font-size:13px;font-weight:400">A tool that nags you before unrotated secrets turn into GhostAction re-entry points</span></a>
+<a class="cta" href="https://github.com/Iceman2050/secret-rotation-timer" rel="noopener" style="font-size:16px" target="_blank">Free: Secret Rotation Timer →<br/><span style="font-size:13px;font-weight:400">A tool that nags you before unrotated secrets turn into GhostAction re-entry points</span></a>
 </div>
-
 <div class="howto">
 <div><b>How the attack works (per GitGuardian, The Hacker News, StepSecurity):</b></div>
-<div>&bull; Attacker steals a maintainer's credential — a <strong>leaked personal access token (PAT)</strong> from infostealer logs or credential dumps.</div>
-<div>&bull; Using the hijacked account, they push a workflow file named <strong>security-audit.yml</strong> (or <strong>github_actions_security.yml</strong>) straight to the <strong>default branch</strong> — bypassing pull-request review entirely.</div>
-<div>&bull; Every commit is made <strong>with the victim's own identity</strong>, so nothing looks out of place in the commit history.</div>
-<div>&bull; The attacker scraped existing workflow history for <strong>secret names already in use</strong>, then referenced those same names in the malicious workflow.</div>
-<div>&bull; When the workflow runs, it sends the secrets' values in a single <strong>curl POST to 193.32.204.199</strong> — CI/CD secrets, cloud keys, npm/PyPI/DockerHub tokens, Anthropic, OpenAI and OpenRouter API keys.</div>
-<div>&bull; The October 2026 variant also swept the working tree and the <strong>entire git history</strong> for credentials — deleting the workflow after the fact doesn't un-leak anything.</div>
+<div>• Attacker steals a maintainer's credential — a <strong>leaked personal access token (PAT)</strong> from infostealer logs or credential dumps.</div>
+<div>• Using the hijacked account, they push a workflow file named <strong>security-audit.yml</strong> (or <strong>github_actions_security.yml</strong>) straight to the <strong>default branch</strong> — bypassing pull-request review entirely.</div>
+<div>• Every commit is made <strong>with the victim's own identity</strong>, so nothing looks out of place in the commit history.</div>
+<div>• The attacker scraped existing workflow history for <strong>secret names already in use</strong>, then referenced those same names in the malicious workflow.</div>
+<div>• When the workflow runs, it sends the secrets' values in a single <strong>curl POST to 193.32.204.199</strong> — CI/CD secrets, cloud keys, npm/PyPI/DockerHub tokens, Anthropic, OpenAI and OpenRouter API keys.</div>
+<div>• The October 2026 variant also swept the working tree and the <strong>entire git history</strong> for credentials — deleting the workflow after the fact doesn't un-leak anything.</div>
 </div>
-
 <div class="card">
 <h2>The GhostAction CI self-audit: 7 steps</h2>
 <p class="note">Tick each step as you complete it. Progress is saved on this device only (localStorage) — nothing is sent anywhere.</p>
@@ -155,9 +151,8 @@ render();
 </script>
 <p class="note">This is a guided self-audit, not an automated scanner: you review your own repositories, and nothing about your repos leaves your browser. Informational only, not security advice.</p>
 </div>
-
 <div class="incident">
-<h3>&#9888; What to do if you find something</h3>
+<h3>⚠ What to do if you find something</h3>
 <ol>
 <li><strong>Rotate secrets FIRST, before you delete anything.</strong> Anything the workflow could read is already exfiltrated — deleting the file first just alerts the attacker while your secrets are still live.</li>
 <li>Remove the malicious workflow file from the default branch.</li>
@@ -167,34 +162,29 @@ render();
 <li>If any secret was also valid for production systems (cloud keys, API keys), treat those systems as exposed and rotate there too.</li>
 </ol>
 </div>
-
 <div class="card">
 <h2>Frequently asked questions</h2>
-<details class="faq"><summary>What is the GhostAction attack?</summary><p>GhostAction is a GitHub supply-chain credential-theft campaign first documented by GitGuardian in September 2025. It escalated sharply on October 8–9, 2026: attackers compromised about 1,900 GitHub accounts and pushed malicious workflows into more than 30,000 repositories across 3,000 users and organizations, attempting to extract 3,174 secrets from public repositories&#x27; CI. The original 2025 wave hit 817 repositories across 327 users and exfiltrated at least 3,325 secrets.</p></details>
-<details class="faq"><summary>What are the GhostAction malicious workflow file names?</summary><p>Three distinct workflow file names have been confirmed across the GhostAction waves: security-audit.yml (the 2026 variant, which also mines full git history), github_actions_security.yml (display name &#x27;Github Actions Security&#x27;), and security-check.yml (display name &#x27;Security Check&#x27;). All three trigger on push events and exfiltrate secrets via curl to attacker infrastructure. (Per Decryption Digest and StepSecurity, Oct 2026.)</p></details>
-<details class="faq"><summary>How do I know if my repository was hit by GhostAction?</summary><p>Look for: a security-audit.yml or github_actions_security.yml workflow you did not add; commits to workflow files you didn&#x27;t author (commit messages seen include &#x27;Add security audit workflow&#x27; and &#x27;Update security audit workflow&#x27;); workflow runs you didn&#x27;t trigger, especially workflow_dispatch runs; and any commits made in your identity that you don&#x27;t recognize — every GhostAction commit was made with the victim&#x27;s own identity.</p></details>
-<details class="faq"><summary>Why isn&#x27;t deleting the workflow enough?</summary><p>If the malicious workflow executed successfully, any secret available to it may already have been copied by the attacker. GitHub&#x27;s incident-response guidance recommends treating potentially exposed credentials as compromised: revoke or rotate the affected credentials first, then remove the workflow from all branches. Cleanup alone does not end the threat. (Per CyberUpdates365 and GitHub guidance.)</p></details>
-<details class="faq"><summary>How do I harden GitHub Actions against supply-chain attacks?</summary><p>The 7-step audit above covers the essentials: know every file in .github/workflows, review workflow-file commits and run history for anomalies, scope secrets so each workflow only reads what it needs, pin third-party actions to commit SHAs instead of floating tags, keep repository access least-privilege, and rotate personal access tokens regularly — stolen PATs were the attackers&#x27; way in.</p></details>
+<details class="faq"><summary>What is the GhostAction attack?</summary><p>GhostAction is a GitHub supply-chain credential-theft campaign first documented by GitGuardian in September 2025. It escalated sharply on October 8–9, 2026: attackers compromised about 1,900 GitHub accounts and pushed malicious workflows into more than 30,000 repositories across 3,000 users and organizations, attempting to extract 3,174 secrets from public repositories' CI. The original 2025 wave hit 817 repositories across 327 users and exfiltrated at least 3,325 secrets.</p></details>
+<details class="faq"><summary>What are the GhostAction malicious workflow file names?</summary><p>Three distinct workflow file names have been confirmed across the GhostAction waves: security-audit.yml (the 2026 variant, which also mines full git history), github_actions_security.yml (display name 'Github Actions Security'), and security-check.yml (display name 'Security Check'). All three trigger on push events and exfiltrate secrets via curl to attacker infrastructure. (Per Decryption Digest and StepSecurity, Oct 2026.)</p></details>
+<details class="faq"><summary>How do I know if my repository was hit by GhostAction?</summary><p>Look for: a security-audit.yml or github_actions_security.yml workflow you did not add; commits to workflow files you didn't author (commit messages seen include 'Add security audit workflow' and 'Update security audit workflow'); workflow runs you didn't trigger, especially workflow_dispatch runs; and any commits made in your identity that you don't recognize — every GhostAction commit was made with the victim's own identity.</p></details>
+<details class="faq"><summary>Why isn't deleting the workflow enough?</summary><p>If the malicious workflow executed successfully, any secret available to it may already have been copied by the attacker. GitHub's incident-response guidance recommends treating potentially exposed credentials as compromised: revoke or rotate the affected credentials first, then remove the workflow from all branches. Cleanup alone does not end the threat. (Per CyberUpdates365 and GitHub guidance.)</p></details>
+<details class="faq"><summary>How do I harden GitHub Actions against supply-chain attacks?</summary><p>The 7-step audit above covers the essentials: know every file in .github/workflows, review workflow-file commits and run history for anomalies, scope secrets so each workflow only reads what it needs, pin third-party actions to commit SHAs instead of floating tags, keep repository access least-privilege, and rotate personal access tokens regularly — stolen PATs were the attackers' way in.</p></details>
 </div>
-
-<a class="cta" href="http://thehackernews.com/2026/10/ghostaction-compromises-about-1900.html" target="_blank" rel="noopener">Read the GhostAction investigation &rarr; The Hacker News</a>
+<a class="cta" href="http://thehackernews.com/2026/10/ghostaction-compromises-about-1900.html" rel="noopener" target="_blank">Read the GhostAction investigation → The Hacker News</a>
 <p class="note" style="text-align:center">The Hacker News report (October 15, 2026) carries GitGuardian's research: the 1,900 compromised accounts, the 30,000+ targeted repositories, and how the fake "security audit" workflows exfiltrated CI secrets.</p>
-
-<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Shipping AI-built code and CI pipelines? Vibe-Code Audit reviews them before attackers do.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:14px">GhostAction hides in plain sight as a "security audit" workflow — our audit reviews AI-generated code and automation for supply-chain traps, over-permissioned secrets and poisoned dependencies. In early access now, full launch November 1:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20your%20GhostAction%20CI%20audit%20and%20want%20early%20access%20to%20Vibe-Code%20Audit." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get Vibe-Code Audit early access &rarr;</a></div>
-
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Shipping AI-built code and CI pipelines? Vibe-Code Audit reviews them before attackers do.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:14px">GhostAction hides in plain sight as a "security audit" workflow — our audit reviews AI-generated code and automation for supply-chain traps, over-permissioned secrets and poisoned dependencies. In early access now, full launch November 1:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20your%20GhostAction%20CI%20audit%20and%20want%20early%20access%20to%20Vibe-Code%20Audit." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get Vibe-Code Audit early access →</a></div>
 <div class="morelinks">
-<strong style="color:#fff">More from Ingenious AI</strong><br>
-&bull; <a href="shaihulud-node-check.html">Is your node_modules compromised? The Shai-Hulud check</a><br>
-&bull; <a href="docker-ghostpat-check.html">Docker &amp; token-hygiene check</a><br>
-&bull; <a href="ai-agency-audit-check.html">AI agency audit check</a><br>
-&bull; <a href="ai-vulnerability-patch-check.html">AI vulnerability patch check</a><br>
-&bull; <a href="newsjack-vibeaudit.html">Vibe-Code Audit newsjack hub</a><br>
-&bull; <a href="all-links.html">All Ingenious AI checkers &amp; tools</a> &nbsp;·&nbsp; <a href="security-suite.html">The 11-platform security suite</a>
+<strong style="color:#fff">More from Ingenious AI</strong><br/>
+• <a href="shaihulud-node-check.html">Is your node_modules compromised? The Shai-Hulud check</a><br/>
+• <a href="docker-ghostpat-check.html">Docker &amp; token-hygiene check</a><br/>
+• <a href="ai-agency-audit-check.html">AI agency audit check</a><br/>
+• <a href="ai-vulnerability-patch-check.html">AI vulnerability patch check</a><br/>
+• <a href="newsjack-vibeaudit.html">Vibe-Code Audit newsjack hub</a><br/>
+• <a href="all-links.html">All Ingenious AI checkers &amp; tools</a>  ·  <a href="security-suite.html">The 11-platform security suite</a>
 </div>
-
 </div>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- Cloudflare Web Analytics --><script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

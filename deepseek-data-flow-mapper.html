@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html data-primary-keyword="ai agents 2026" lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Data-Flow Mapper: Where Do Your Prompts Go?</title>
-<meta name="description" content="Where does your AI chatbot prompt actually go? Trace its data path behind the DeepSeek–Claude routing probe, then take the 7-question retention self-check.">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="The Data-Flow Mapper: Where Do Your Prompts Go?">
-<meta property="og:description" content="Where does your AI chatbot prompt actually go? Trace its data path behind the DeepSeek–Claude routing probe, then take the 7-question retention self-check.">
-<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/deepseek-data-flow-mapper.html">
-<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/deepseek-data-flow-mapper.html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Data-Flow Mapper: Where Do Your Prompts Go?">
-<meta name="twitter:description" content="Where does your AI chatbot prompt actually go? Trace its data path behind the DeepSeek–Claude routing probe, then take the 7-question retention self-check.">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DeepSeek Data Flow: AI Agents 2026 Mapper</title>
+<meta content="Where do your prompts go? The AI agents 2026 data-flow mapper traces DeepSeek prompt routing, retention, and exposure. Free." name="description"/>
+<meta content="website" property="og:type"/>
+<meta content="Ingenious AI" property="og:site_name"/>
+<meta content="DeepSeek Data Flow: AI Agents 2026 Mapper" property="og:title"/>
+<meta content="Where do your prompts go? The AI agents 2026 data-flow mapper traces DeepSeek prompt routing, retention, and exposure. Free." property="og:description"/>
+<meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/deepseek-data-flow-mapper.html" property="og:url"/>
+<link href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/deepseek-data-flow-mapper.html" rel="canonical"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="DeepSeek Data Flow: AI Agents 2026 Mapper" name="twitter:title"/>
+<meta content="Where do your prompts go? The AI agents 2026 data-flow mapper traces DeepSeek prompt routing, retention, and exposure. Free." name="twitter:description"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
@@ -78,44 +79,40 @@ a.src{color:#6ea8fe}
 {"@type":"Question","name":"How can I reduce the risk of my prompt data being misused?","acceptedAnswer":{"@type":"Answer","text":"Five practical moves: use a business or API tier with a contractual no-training commitment; never paste sensitive personal, client, or credentials-bearing data into consumer chatbots; read the vendor's terms on data retention, third-party sharing and sub-processors; check which jurisdiction your data is processed in; and re-check the terms periodically — vendors can and do change data-routing practices. The 7-question self-check above scores where you stand today."}}
 ]}
 </script>
-<link rel="stylesheet" href="ecosystem.css">
-</head>
+<link href="ecosystem.css" rel="stylesheet"/>
+<meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png" property="og:image"/></head>
 <body>
 <div class="wrap">
-<div class="badge">AI DATA ROUTING &mdash; WHAT HAPPENS AFTER YOU HIT SEND</div>
-<h1>The Data-Flow Mapper: <span class="red">where do your prompts go</span> after you hit send?</h1>
-<p class="lead">You type into a chatbot. The answer comes back. But what happened to your words in between? In September 2026, Anthropic alleged that <strong>DeepSeek routed 12.1 million user queries to Claude</strong> in just 14 days — and China's internet regulator is now investigating. Whether or not the allegation is proven, the question it raises applies to <strong>every</strong> AI tool you use: <strong>where does your data actually go?</strong> This page maps the path, lays out the verified facts of the probe, and scores your own exposure in a 7-question self-check.</p>
-
-<div class="honest"><strong>&#9888; ALLEGATION, NOT PROVEN FACT.</strong> Everything about DeepSeek and Moonshot below is <strong>alleged by Anthropic</strong> in its September 10, 2026 report and is <strong>under investigation by China's CAC</strong> — none of it is a court finding or an independent audit result. This page frames claims as claims throughout, and the diagram is explicitly labeled <strong>illustrative of the allegation</strong>.</div>
-
+<div class="badge">AI DATA ROUTING — WHAT HAPPENS AFTER YOU HIT SEND</div>
+<h1>The Data-Flow Mapper:where do your prompts goafter you hit send? — Ai Agents 2026</h1><time datetime="2026-10-18">Reviewed October 18, 2026</time>
+<p class="lead">You type into a chatbot. The answer comes back. But what happened to your words in between? In September 2026, Anthropic alleged that <strong>DeepSeek routed 12.1 million user queries to Claude</strong> in just 14 days — and China's internet regulator is now investigating. Whether or not the allegation is proven, the question it raises applies to <strong>every</strong> AI tool you use: <strong>where does your data actually go?</strong> This page maps the path, lays out the verified facts of the probe, and scores your own exposure in a 7-question self-check.</p><h3>What is prompt data flow?</h3><p>Prompt data flow is the full journey of your words after you hit send: which servers receive them, how long they are retained, which jurisdictions they cross, and whether they are used for training. Most users never see any of it.</p>
+<div class="honest"><strong>⚠ ALLEGATION, NOT PROVEN FACT.</strong> Everything about DeepSeek and Moonshot below is <strong>alleged by Anthropic</strong> in its September 10, 2026 report and is <strong>under investigation by China's CAC</strong> — none of it is a court finding or an independent audit result. This page frames claims as claims throughout, and the diagram is explicitly labeled <strong>illustrative of the allegation</strong>.</div>
 <div class="card">
 <h2>The journey of a prompt — mapped</h2>
-<p class="note" style="margin-bottom:8px">The normal path is: you &rarr; vendor &rarr; vendor's own models. The allegation adds the red branch.</p>
+<p class="note" style="margin-bottom:8px">The normal path is: you → vendor → vendor's own models. The allegation adds the red branch.</p>
 <div class="flow">
-<div class="fnode"><h3>1 &middot; You</h3><p>Your prompt: questions, documents, code, customer records — whatever you typed or pasted.</p></div>
-<div class="farrow">&darr;</div>
-<div class="fnode"><h3>2 &middot; The vendor's app / API</h3><p>The chatbot or API you see. Its terms and privacy policy govern what happens next.</p></div>
-<div class="farrow">&darr;</div>
-<div class="fnode"><h3>3 &middot; The vendor's own models</h3><p>The normal, expected path: your prompt is processed by the vendor's infrastructure.</p></div>
-<div class="farrow">&darr;</div>
-<div class="fnode risk"><h3>4 &middot; Alleged: third-party routing</h3><p>Anthropic ALLEGED that DeepSeek and Moonshot forwarded selected user requests to Claude — a different company's model in a different country — without users' knowledge. Not proven; under CAC investigation.</p><span class="flabel">ILLUSTRATIVE OF THE ALLEGATION</span></div>
-<div class="farrow">&darr;</div>
-<div class="fnode train"><h3>5 &middot; Alleged: training / distillation</h3><p>Anthropic ALLEGED that outputs — including Claude's hidden "thinking signature" — were captured to train or improve the vendors' own models. Not proven; under CAC investigation.</p><span class="flabel">ILLUSTRATIVE OF THE ALLEGATION</span></div>
+<div class="fnode"><h3>1 · You</h3><p>Your prompt: questions, documents, code, customer records — whatever you typed or pasted.</p></div>
+<div class="farrow">↓</div>
+<div class="fnode"><h3>2 · The vendor's app / API</h3><p>The chatbot or API you see. Its terms and privacy policy govern what happens next.</p></div>
+<div class="farrow">↓</div>
+<div class="fnode"><h3>3 · The vendor's own models</h3><p>The normal, expected path: your prompt is processed by the vendor's infrastructure.</p></div>
+<div class="farrow">↓</div>
+<div class="fnode risk"><h3>4 · Alleged: third-party routing</h3><p>Anthropic ALLEGED that DeepSeek and Moonshot forwarded selected user requests to Claude — a different company's model in a different country — without users' knowledge. Not proven; under CAC investigation.</p><span class="flabel">ILLUSTRATIVE OF THE ALLEGATION</span></div>
+<div class="farrow">↓</div>
+<div class="fnode train"><h3>5 · Alleged: training / distillation</h3><p>Anthropic ALLEGED that outputs — including Claude's hidden "thinking signature" — were captured to train or improve the vendors' own models. Not proven; under CAC investigation.</p><span class="flabel">ILLUSTRATIVE OF THE ALLEGATION</span></div>
 </div>
 <p class="note">The uncomfortable part: without reading the terms, checking sub-processor lists, and watching for policy changes, <strong>you cannot tell from the chatbot window</strong> whether your prompt took the plain path or the red branch.</p>
 </div>
-
 <div class="incident">
-<h3>&#9888; The verified facts of the probe (as reported)</h3>
+<h3>⚠ The verified facts of the probe (as reported)</h3>
 <ul>
 <li><strong>Anthropic's allegation:</strong> a 154-page threat-intelligence report published <strong>September 10, 2026</strong> claimed DeepSeek routed <strong>12.1 million user queries to Claude over a 14-day window in July</strong>, and that Moonshot AI routed <strong>23 million+ exchanges May–July</strong> plus <strong>~300,000 customer requests over 10 days</strong> through <strong>5,380 accounts</strong>.</li>
 <li><strong>The sensitive slice:</strong> Anthropic alleged some forwarded material was sensitive — including data tied to a municipal Public Security Bureau's case-management system and surveillance footage — and said it <strong>could not confirm whether Moonshot told customers</strong> their requests were being sent to a third party.</li>
 <li><strong>The regulator:</strong> China's Cyberspace Administration (CAC) reportedly <strong>summoned representatives from seven AI companies</strong> named in the report — DeepSeek, Moonshot, Alibaba, Zhipu, SenseTime, MiniMax, Xiaomi — then narrowed its investigation to <strong>DeepSeek and Moonshot</strong>, reportedly examining whether sensitive police, military and state-linked data crossed borders to a U.S. AI system.</li>
 <li><strong>Status:</strong> investigation ongoing; outcome unknown. Allegations are allegations — not findings.</li>
 </ul>
-<p class="note">Source: <a class="src" href="https://aiunderstanding.org/news/china-regulator-probes-deepseek-and-moonshot-ai-over-data-routing" target="_blank" rel="noopener">AI Understanding — "China regulator probes DeepSeek and Moonshot AI over data routing"</a></p>
+<p class="note">Source: <a class="src" href="https://aiunderstanding.org/news/china-regulator-probes-deepseek-and-moonshot-ai-over-data-routing" rel="noopener" target="_blank">AI Understanding — "China regulator probes DeepSeek and Moonshot AI over data routing"</a></p>
 </div>
-
 <div class="card">
 <h2>The 7-question data-exposure self-check</h2>
 <p class="note" style="margin-bottom:12px">Answer honestly. Yes = 0 pts (good), Unsure = 1 pt, No = 2 pts. All scoring happens in your browser — nothing is sent anywhere.</p>
@@ -217,31 +214,27 @@ if(typeof window!=="undefined" && typeof document!=="undefined" && document.getE
 </script>
 <p class="note">Self-assessment only — it scores your visibility into vendor practices, not the vendors themselves. It is not legal or security advice.</p>
 </div>
-
 <div class="card">
-<h2>Frequently asked questions</h2>
+<h2>Where do AI agents 2026 prompts go after you hit send?</h2><p>Through infrastructure you do not control. Your prompt may be logged, retained, routed across jurisdictions, and — on some tiers — used for training. The mapper traces the journey: endpoint geography, retention policy, training opt-outs, and the subprocessors in between. You cannot consent to a flow you cannot see; this makes it visible.</p><h2>Frequently asked questions</h2>
 <details class="faq"><summary>Did DeepSeek send user data to Claude?</summary><p>Anthropic <strong>alleged</strong> it: in a 154-page threat-intelligence report published September 10, 2026, Anthropic claimed DeepSeek routed 12.1 million user queries to Claude over a 14-day window in July. China's regulator (the CAC) is now investigating those allegations. Nothing has been proven in court or by an independent audit — treat the claims as alleged, not as established fact.</p></details>
 <details class="faq"><summary>Why is China investigating DeepSeek and Moonshot AI?</summary><p>After Anthropic's September 10, 2026 report named seven Chinese AI companies as unauthorized Claude users, the Cyberspace Administration of China (CAC) summoned representatives from all seven — DeepSeek, Moonshot AI, Alibaba, Zhipu, SenseTime, MiniMax and Xiaomi — and narrowed its probe to DeepSeek and Moonshot. Regulators are reportedly examining whether sensitive police, military and state-linked data crossed China's borders to a U.S. AI system without users' knowledge.</p></details>
 <details class="faq"><summary>Can an AI company forward my prompts to a third party without telling me?</summary><p>The allegation is exactly that: Anthropic said DeepSeek relayed selected user requests to Claude while users believed they were dealing with DeepSeek's own models, and said it could not confirm whether Moonshot told customers their requests were being sent to a third party. Whether a vendor may do this legally depends on its terms of service and the data-protection law of the jurisdiction involved — which is why reading the terms and the data-routing clauses matters.</p></details>
 <details class="faq"><summary>Do AI chatbots use my prompts to train their models?</summary><p>It depends on the vendor and the plan. Many consumer AI chatbots use conversations for training by default unless you opt out or use a business/API tier with a no-training commitment. Anthropic separately alleged that DeepSeek used Claude's outputs — including hidden reasoning steps it calls the "thinking signature" — to train its own systems, a practice called illicit distillation. Check your vendor's policy for the exact rule that applies to you.</p></details>
 <details class="faq"><summary>How can I reduce the risk of my prompt data being misused?</summary><p>Five practical moves: use a business or API tier with a contractual no-training commitment; never paste sensitive personal, client, or credentials-bearing data into consumer chatbots; read the vendor's terms on data retention, third-party sharing and sub-processors; check which jurisdiction your data is processed in; and re-check the terms periodically — vendors can and do change data-routing practices. The 7-question self-check above scores where you stand today.</p></details>
 </div>
-
-<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>AI vendors change their terms quietly. TermsWatch catches every change.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:14px">TermsWatch monitors your AI vendors' terms, privacy policies and data-routing clauses — and alerts you the moment data practices shift. In early access now, full launch November 1:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20your%20AI%20data-flow%20mapper%20quiz%20and%20want%20early%20access%20to%20TermsWatch." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get TermsWatch early access &rarr;</a></div>
-
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>AI vendors change their terms quietly. TermsWatch catches every change.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:14px">TermsWatch monitors your AI vendors' terms, privacy policies and data-routing clauses — and alerts you the moment data practices shift. In early access now, full launch November 1:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20your%20AI%20data-flow%20mapper%20quiz%20and%20want%20early%20access%20to%20TermsWatch." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get TermsWatch early access →</a></div>
 <div class="morelinks">
-<strong style="color:#fff">More from Ingenious AI</strong><br>
-&bull; <a href="ai-vendor-tos-diffs.html">AI vendor terms-of-service diffs tracker</a><br>
-&bull; <a href="chatgpt-github-connector-flaw.html">ChatGPT GitHub connector flaw check</a><br>
-&bull; <a href="ai-spyware-signature-theft-check.html">AI spyware &amp; signature-theft check</a><br>
-&bull; <a href="anthropic-ai-safety-bill-check.html">Anthropic AI safety bill check</a><br>
-&bull; <a href="ai-agency-audit-check.html">AI agency audit check</a><br>
-&bull; <a href="all-links.html">All Ingenious AI checkers &amp; tools</a> &nbsp;·&nbsp; <a href="security-suite.html">The 11-platform security suite</a>
+<strong style="color:#fff">More from Ingenious AI</strong><br/>
+• <a href="ai-vendor-tos-diffs.html">AI vendor terms-of-service diffs tracker</a><br/>
+• <a href="chatgpt-github-connector-flaw.html">ChatGPT GitHub connector flaw check</a><br/>
+• <a href="ai-spyware-signature-theft-check.html">AI spyware &amp; signature-theft check</a><br/>
+• <a href="anthropic-ai-safety-bill-check.html">Anthropic AI safety bill check</a><br/>
+• <a href="ai-agency-audit-check.html">AI agency audit check</a><br/>
+• <a href="all-links.html">All Ingenious AI checkers &amp; tools</a>  ·  <a href="security-suite.html">The 11-platform security suite</a>
 </div>
-
 </div>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- Cloudflare Web Analytics --><script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
