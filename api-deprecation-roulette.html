@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>API Deprecation Roulette: The Vendor Wheel | Ingenious AI</title>
-<meta name="description" content="Spin the API Deprecation Roulette: 8 real vendor horror stories — OpenAI shutdowns, X API pricing, Google Domains — each cited. Could your stack break next?">
+<title>API Breaking Changes: Vendor Deprecation Roulette</title>
+<meta name="description" content="API breaking changes don't have to blindside you: spin through 8 real vendor deprecation horror stories, all cited, and learn the notice windows to watch.">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/api-deprecation-roulette.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="API Deprecation Roulette: The Vendor Wheel | Ingenious AI">
-<meta property="og:description" content="Spin the API Deprecation Roulette: 8 real vendor horror stories — OpenAI shutdowns, X API pricing, Google Domains — each cited. Could your stack break next?">
+<meta property="og:title" content="API Breaking Changes: Vendor Deprecation Roulette">
+<meta property="og:description" content="API breaking changes don't have to blindside you: spin through 8 real vendor deprecation horror stories, all cited, and learn the notice windows to watch.">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/api-deprecation-roulette.html">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="API Deprecation Roulette — Ingenious AI">
-<meta name="twitter:description" content="Spin the API Deprecation Roulette: 8 real vendor horror stories — OpenAI shutdowns, X API pricing, Google Domains — each cited. Could your stack break next?">
+<meta name="twitter:title" content="API Breaking Changes — Ingenious AI">
+<meta name="twitter:description" content="API breaking changes don't have to blindside you: spin through 8 real vendor deprecation horror stories, all cited, and learn the notice windows to watch.">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","name":"API Deprecation Roulette: Spin the Vendor Wheel | Ingenious AI","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/api-deprecation-roulette.html","description":"Spin the API Deprecation Roulette: 8 real vendor horror stories — OpenAI model shutdowns, X API pricing, Google Domains — each with cited sources.","keywords":["api deprecation","api deprecation policy","api deprecation notice","api deprecation meaning","api sunset","api sunset meaning","api deprecation strategy","model deprecation"],"author":{"@type":"Organization","name":"Ingenious AI"}}
 </script>
@@ -43,14 +43,14 @@ a{color:#6ea8fe}
 </style>
 <link rel="stylesheet" href="ecosystem.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is API deprecation?","acceptedAnswer":{"@type":"Answer","text":"API deprecation is when a vendor marks an endpoint, model, or API version as going away. Code keeps working for a notice window, then requests start failing, defaulting to a newer version, or getting repriced — which is why every deprecation needs a migration plan, not just a calendar reminder."}},{"@type":"Question","name":"What is an API sunset?","acceptedAnswer":{"@type":"Answer","text":"An API sunset is the final shutdown date at the end of a deprecation: the endpoint or version stops being served. Twilio's Programmable Video end-of-life announcement, Amazon Pinpoint's October 30, 2026 end of support, and OpenAI's October 23, 2026 model shutdowns are all sunsets."}},{"@type":"Question","name":"How much notice do vendors give before API deprecation?","acceptedAnswer":{"@type":"Answer","text":"It varies wildly: OpenAI's policy aims for at least six months on generally available models (but shipped a three-month notice in October 2026), Anthropic promises at least 60 days, Meta gave roughly 90 days for the Facebook Groups API, and X ended free API access with about a week's notice in February 2023. Never assume the default — read the actual policy."}},{"@type":"Question","name":"How do I prepare for API deprecation?","acceptedAnswer":{"@type":"Answer","text":"Inventory every vendor dependency, pin exact versions and model IDs, subscribe to each vendor's changelog and deprecation page, run canary traffic against the replacement before the sunset, and watch replacements continuously — the point of the roulette above. Tools like ModelMinder automate the watching."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an API breaking change?","acceptedAnswer":{"@type":"Answer","text":"An API breaking change is any change that makes existing integrations fail or behave differently \u2014 a retired endpoint, a renamed field, a shut-down model, or a repriced plan. Deprecation is the warning; the breaking change is what lands at sunset. Every entry on this page's wheel is a real one, with its source linked."}},{"@type":"Question","name":"What is the difference between API deprecation and API sunset?","acceptedAnswer":{"@type":"Answer","text":"Deprecation is the warning: the vendor marks an endpoint, model, or API version as going away while it still works. Sunset is the final shutdown date \u2014 the endpoint or version stops being served. Twilio's Programmable Video end-of-life announcement and Amazon Pinpoint's October 30, 2026 end of support are both sunsets."}},{"@type":"Question","name":"How much notice do vendors give before API breaking changes?","acceptedAnswer":{"@type":"Answer","text":"It varies wildly: OpenAI's policy aims for at least six months on generally available models (but shipped a three-month notice in October 2026), Anthropic promises at least 60 days, Meta gave roughly 90 days for the Facebook Groups API, and X ended free API access with about a week's notice in February 2023. Never assume the default \u2014 read the actual policy."}},{"@type":"Question","name":"How do I protect my code from API deprecation?","acceptedAnswer":{"@type":"Answer","text":"Inventory every vendor dependency, pin exact versions and model IDs, subscribe to each vendor's changelog and deprecation page, run canary traffic against the replacement before the sunset, and watch replacements continuously. Tools like ModelMinder automate the watching."}}]}
 </script>
 </head>
 <body>
 <div class="wrap">
 <div class="badge">VENDOR RISK GAME</div>
-<h1>API Deprecation Roulette</h1>
-<p class="lead">Every API you build on is a promise a vendor can revise. Spin the wheel: land on one of eight real vendors and get the true, cited story of the time their deprecation notice broke someone's week — or their business. These are <strong>real reported events</strong>, not hypotheticals.</p>
+<h1>API Deprecation Roulette — Survive API Breaking Changes</h1>
+<p class="lead">Every API you build on is a promise a vendor can revise — and API breaking changes are how that promise gets rewritten under your code. Spin the wheel: land on one of eight real vendors and get the true, cited story of the time their deprecation notice broke someone's week — or their business. These are <strong>real reported events</strong>, not hypotheticals.</p>
 <div class="honest"><strong>Every story below is real and cited.</strong> Dates, dollars, and model IDs come from the linked reporting and official docs, checked on this page's build date. Vendors spin differently every time — just like real deprecations, the wheel owes you nothing.</div>
 
 <div class="wheel" id="wheel"></div>
@@ -74,14 +74,19 @@ a{color:#6ea8fe}
 
 <div class="card">
 <h2>FAQ — API deprecation</h2>
-<p style="margin:14px 0 4px"><strong>What is API deprecation?</strong></p>
-<p class="small" style="margin-bottom:6px">API deprecation is when a vendor marks an endpoint, model, or API version as going away. Code keeps working for a notice window, then requests start failing, defaulting to a newer version, or getting repriced — which is why every deprecation needs a migration plan, not just a calendar reminder.</p>
-<p style="margin:14px 0 4px"><strong>What is an API sunset?</strong></p>
-<p class="small" style="margin-bottom:6px">An API sunset is the final shutdown date at the end of a deprecation: the endpoint or version stops being served. Twilio's Programmable Video end-of-life announcement, Amazon Pinpoint's October 30, 2026 end of support, and OpenAI's October 23, 2026 model shutdowns are all sunsets.</p>
-<p style="margin:14px 0 4px"><strong>How much notice do vendors give before API deprecation?</strong></p>
+<p style="margin:14px 0 4px"><strong>What is an API breaking change?</strong></p>
+<p class="small" style="margin-bottom:6px">An API breaking change is any change that makes existing integrations fail or behave differently — a retired endpoint, a renamed field, a shut-down model, or a repriced plan. Deprecation is the warning; the breaking change is what lands at sunset. Every entry on this page's wheel is a real one, with its source linked.</p>
+<p style="margin:14px 0 4px"><strong>What is the difference between API deprecation and API sunset?</strong></p>
+<p class="small" style="margin-bottom:6px">Deprecation is the warning: the vendor marks an endpoint, model, or API version as going away while it still works. Sunset is the final shutdown date — the endpoint or version stops being served. Twilio's Programmable Video end-of-life announcement and Amazon Pinpoint's October 30, 2026 end of support are both sunsets.</p>
+<p style="margin:14px 0 4px"><strong>How much notice do vendors give before API breaking changes?</strong></p>
 <p class="small" style="margin-bottom:6px">It varies wildly: OpenAI's policy aims for at least six months on generally available models (but shipped a three-month notice in October 2026), Anthropic promises at least 60 days, Meta gave roughly 90 days for the Facebook Groups API, and X ended free API access with about a week's notice in February 2023. Never assume the default — read the actual policy.</p>
-<p style="margin:14px 0 4px"><strong>How do I prepare for API deprecation?</strong></p>
+<p style="margin:14px 0 4px"><strong>How do I protect my code from API deprecation?</strong></p>
 <p class="small" style="margin-bottom:6px">Inventory every vendor dependency, pin exact versions and model IDs, subscribe to each vendor's changelog and deprecation page, run canary traffic against the replacement before the sunset, and watch replacements continuously. Tools like ModelMinder automate the watching.</p>
+<h3 style="font-size:16px;margin:18px 0 6px">Can an API deprecation break my app overnight?</h3>
+<p class="small">Usually not overnight — but close. OpenAI promises at least six months' notice on generally available models, Anthropic promises at least 60 days, yet previews can be retired with two weeks' notice. (Sources: vendor policies cited below.) Pin exact versions, run canary traffic against replacements before the sunset, and never assume the default notice window.</p>
+<h3 style="font-size:16px;margin:18px 0 6px">Key facts — API deprecation notice windows</h3>
+<p class="small">OpenAI: at least 6 months for generally available models, 3 months for specialized variants, as little as 2 weeks for previews. Anthropic: at least 60 days. Meta Marketing API: the previous version stays up at least 90 days; LinkedIn: minimum one year. Google Ads API v19: sunset announced December 15, 2025, all v19 requests began failing February 11, 2026.<br>
+Sources: <a href="https://www.worldprogramming.org/posts/api-deprecation-for-ai-models-what-breaks-when-a-model-is-retired-n4ycmx" target="_blank" rel="noopener">WorldProgramming — AI model deprecation</a>; <a href="https://ppc.land/sunset-api/" target="_blank" rel="noopener">PPC Land — API sunset policies</a>.</p>
 </div>
 
 <h2 class="sec">More from Ingenious AI</h2>
