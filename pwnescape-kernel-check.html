@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-primary-keyword="cybersecurity news">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CVE-2026-99999 Checker — PwnEscape Kernel Test</title>
-<meta name="description" content="CVE checker for PwnEscape (CVE-2026-99999): a Linux kernel flaw letting a guest VM read host memory, demoed on sandboxes. Free test — is your kernel patched?">
+<title>PwnEscape CVE-2026-99999 — Cybersecurity News Check</title>
+<meta name="description" content="PwnEscape (CVE-2026-99999): a Linux kernel flaw letting a guest VM read host memory. Cybersecurity news check — free test, is your kernel exposed?">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/pwnescape-kernel-check.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
 <meta property="og:title" content="CVE-2026-99999 Checker — PwnEscape Kernel Test">
 <meta property="og:description" content="CVE checker for PwnEscape (CVE-2026-99999): a Linux kernel flaw letting a guest VM read host memory, demoed on sandboxes. Free test — is your kernel patched?">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/pwnescape-kernel-check.html">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CVE-2026-99999 Checker — PwnEscape Kernel Test">
 <meta name="twitter:description" content="CVE checker for PwnEscape (CVE-2026-99999): a Linux kernel flaw letting a guest VM read host memory, demoed on sandboxes. Free test — is your kernel patched?">
@@ -53,11 +54,11 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <body>
 <div class="wrap">
 <div class="badge">CVE-2026-99999 &ldquo;PWNESCAPE&rdquo; &mdash; CVSS 9.3 CRITICAL &mdash; OCT 2026</div>
-<h1>CVE-2026-99999 checker: can a virtual machine read your host's memory?</h1>
-<p class="lead">A researcher just proved it: <strong>PwnEscape</strong>, a flaw in the Linux kernel's networking code, lets specially crafted packets sent <strong>from inside a guest VM</strong> read the host computer's memory &mdash; about 32 bytes per packet, for as long as the attacker keeps sending. In lab conditions the same flaw crashed the host with two packets and broke out to administrator control. It was demonstrated against <strong>Vercel's live production sandboxes</strong>, and Vercel confirmed it. Found in 3 days with AI-assisted research costing under $700 in API tokens. This free CVE check tool tells you if your host kernel is patched. No signup, nothing installed.</p>
+<h1>Cybersecurity news: CVE-2026-99999 checker — can a virtual machine read your host's memory?</h1>
+<p class="lead">Cybersecurity news: a researcher just proved it: <strong>PwnEscape</strong>, a flaw in the Linux kernel's networking code, lets specially crafted packets sent <strong>from inside a guest VM</strong> read the host computer's memory &mdash; about 32 bytes per packet, for as long as the attacker keeps sending. In lab conditions the same flaw crashed the host with two packets and broke out to administrator control. It was demonstrated against <strong>Vercel's live production sandboxes</strong>, and Vercel confirmed it. Found in 3 days with AI-assisted research costing under $700 in API tokens. This free CVE check tool tells you if your host kernel is patched. No signup, nothing installed.</p>
 
 <div class="card" style="border-color:#e3b341">
-<h2>Update — Oct 17: attribution and distro patches</h2>
+<h2>Update — October 17: attribution and distro patches</h2>
 <ul>
 <li><strong>Discovered by Paulos Yibelo of pwn.ai</strong> during Vercel's $1M Sandbox challenge (Aug 18 – Sep 1) — the only critical finding among 1,285 reports. Vercel confirmed the memory leak on its live production sandboxes; no customer data was accessed.</li>
 <li><strong>Fix merged to mainline Oct 14, 2026</strong> (commit <code>6785011f8b16</code>) and backported to all affected stable branches — but some distributions haven't shipped it to users yet.</li>
@@ -67,7 +68,8 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 </div>
 
 <div class="card">
-<h2>The 30-second check</h2>
+<h2>Is your kernel exposed to PwnEscape?</h2>
+<p class="answer"><strong>Direct answer:</strong> if your hosts run an unpatched Linux kernel with the vulnerable networking code and you allow untrusted guest VMs, assume yes until you check. The flaw reads about 32 bytes of host memory per crafted packet. Run the 30-second check below against your kernel version.</p>
 <div class="step"><div class="stepnum">1</div><div>
 <p><strong>Get your HOST kernel version</strong> &mdash; on the host machine itself (patching the guest does <em>not</em> fix the host):</p>
 <code class="cmd">uname -r</code>
@@ -106,7 +108,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 </div>
 
 <div class="card">
-<h2>Why this one matters beyond one cloud</h2>
+<h2>Why this cybersecurity news matters beyond one cloud</h2>
 <ul>
 <li><strong>It's in the shared layer, not one vendor's setup:</strong> the bug is in the Linux kernel's networking code that the host runs — the same layer almost every large cloud uses to separate customers' workloads. Vercel's sandbox was reportedly hardened beyond industry standards with no misconfiguration found.</li>
 <li><strong>A new attack class:</strong> per the researchers, untrusted checksum metadata can rewrite security-sensitive packet fields <em>after</em> the kernel validated them — undermining assumptions across the networking stack, far beyond this one VM escape.</li>

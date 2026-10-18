@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-primary-keyword="cybersecurity news">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AOMEI Backupper Supply-Chain Attack — Am I Backdoored? (Free Check)</title>
-<meta name="description" content="Attackers tampered with AOMEI Backupper's own update servers in 5–10 minute bursts (May–Jul 2026), delivering the CROSSROAD/SHINYROAD backdoors to PCs checking for updates. Free 5-question exposure check.">
+<title>AOMEI Supply-Chain Backdoor — Cybersecurity News Check</title>
+<meta name="description" content="AOMEI Backupper's update servers delivered the SHINYROAD backdoor in 5–10 minute bursts. Cybersecurity news: 5 questions to check your exposure. Free.">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/aomei-backupper-supply-chain-check.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
 <meta property="og:title" content="AOMEI Backupper's update servers delivered a backdoor — are you infected?">
 <meta property="og:description" content="UNC7017 tampered with AOMEI's own servers in 5–10 minute bursts. 11 countries hit. 5 questions: are your machines clean? Free check.">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/aomei-backupper-supply-chain-check.html">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AOMEI Backupper supply-chain attack — exposure check">
 <meta name="twitter:description" content="5 questions: did the tampered updater backdoor your machines? Free check.">
@@ -67,13 +68,14 @@ code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;
 <div class="wrap">
 <a class="back" href="index.html">&larr; Back to all free security checks</a>
 <div class="badge">NEWSJACK &mdash; GTIG / MANDIANT / MANAGEENGINE &middot; OCT 2026</div>
-<h1>AOMEI's own update servers delivered a backdoor. <span class="red">Is it still on your machines?</span></h1>
-<p class="lead">Between <strong>May and July 2026</strong>, the cluster Google tracks as <strong>UNC7017</strong> tampered with AOMEI Backupper's <em>own update servers</em> in <strong>5&ndash;10 minute bursts</strong> &mdash; swapping two unsigned config files so any PC checking for updates in that window downloaded and ran a backdoor. No vulnerability exploited. No click needed. Organizations across <strong>11 countries</strong> were hit, and AOMEI's server fix doesn't clean machines already infected. Five questions to check your exposure.</p>
+<h1>Cybersecurity news: AOMEI's own update servers delivered a backdoor. <span class="red">Is it still on your machines?</span></h1>
+<p class="lead">This cybersecurity news story broke in October 2026. Between <strong>May and July 2026</strong>, the cluster Google tracks as <strong>UNC7017</strong> tampered with AOMEI Backupper's <em>own update servers</em> in <strong>5&ndash;10 minute bursts</strong> &mdash; swapping two unsigned config files so any PC checking for updates in that window downloaded and ran a backdoor. No vulnerability exploited. No click needed. Organizations across <strong>11 countries</strong> were hit, and AOMEI's server fix doesn't clean machines already infected. Five questions to check your exposure.</p>
 
 <p class="answer"><strong>Short answer:</strong> if you run AOMEI Backupper (or its sibling AnyViewer, which shares the update flow) and haven't hunted for this, assume exposure until proven otherwise. The tampering windows were tiny &mdash; a client checking a minute before or after got clean files &mdash; so you can't reason your way out with timing. Hunt the April&ndash;July window, check the scheduled-task chain, and rebuild anything suspect from a clean installer.</p>
 
 <div class="card">
-<h2>The 60-second AOMEI Exposure Check</h2>
+<h2>Are your machines exposed to the AOMEI backdoor?</h2>
+<p class="answer"><strong>Direct answer:</strong> if any Windows machine in your fleet runs AOMEI Backupper and checked for updates between May and July 2026, treat it as potentially exposed. The tampering windows were only 5–10 minutes, so timing alone cannot clear you. Run the 60-second check below, hunt the scheduled-task chain, and rebuild anything suspect from a clean installer.</p>
 <p class="note">Answer for the Windows fleet you defend.</p>
 <div id="quiz"></div>
 <div id="verdict" role="status" aria-live="polite"></div>
@@ -85,7 +87,9 @@ code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;
 </div>
 
 <div class="card">
-<h2>Verified facts: the tampering campaign (THN, Oct 2026)</h2>
+<h2>Verified facts: the tampering campaign (cybersecurity news, October 2026)</h2>
+<h3>What is a supply-chain attack?</h3>
+<p class="note">A supply-chain attack compromises trusted software <em>before</em> it reaches you — the vendor's own update servers, build pipeline, or installer. You did everything right (downloaded from the official site, installed the signed update) and still got owned, because the poison was upstream of your defenses.</p>
 <table>
 <tr><th>Fact</th><th>Detail</th></tr>
 <tr><td>Disclosed by</td><td>Google Threat Intelligence Group (GTIG), Mandiant, and ManageEngine's Threat Analysis Lab — this week.</td></tr>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-primary-keyword="cybersecurity news">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Model Distillation Defense — Is Your AI Leaking Its Smarts? (Free Check)</title>
-<meta name="description" content="Anthropic cut AI distillation attacks 90-99% with new safeguards. Free 5-question check: is your AI product leaking its reasoning to copycats?">
+<title>AI Model Distillation Attacks — Cybersecurity News Check</title>
+<meta name="description" content="Anthropic cut AI distillation attacks 90-99% with new safeguards. Cybersecurity news: free 5-question check — is your AI product leaking its reasoning?">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-model-distillation-check.html">
 <link rel="stylesheet" href="ecosystem.css">
 <meta property="og:type" content="website">
@@ -12,6 +12,7 @@
 <meta property="og:title" content="Is your AI leaking its smarts? Distillation defense check">
 <meta property="og:description" content="Anthropic cut distillation 90-99%. 5 questions: is your AI product leaking its reasoning? Free check.">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-model-distillation-check.html">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AI distillation defense check">
 <meta name="twitter:description" content="5 questions on model extraction defenses. Free check.">
@@ -64,7 +65,7 @@ code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"What is AI model distillation?","acceptedAnswer":{"@type":"Answer","text":"Training a smaller or rival model on the outputs — especially the reasoning traces — of a more capable model, reproducing its capabilities faster and cheaper than training from scratch. Labs call hostile, large-scale distillation an attack because it appropriates their training investment."}},
-{"@type":"Question","name":"How did Anthropic cut distillation attacks by 90-99%?","acceptedAnswer":{"@type":"Answer","text":"Three layers reported Oct 2026: (1) preserved thinking — newer Claude models prevent API accounts from editing prior context to reveal reasoning, and reasoning transcripts are org-scoped; (2) a two-stage classifier detecting extraction attempts, red-teamed internally and externally, with <0.1% false positives; (3) stricter limits and bans for persistent extractors, plus blocking proxy-network probing."}},
+{"@type":"Question","name":"How did Anthropic cut distillation attacks by 90-99%?","acceptedAnswer":{"@type":"Answer","text":"Three layers reported October 2026: (1) preserved thinking — newer Claude models prevent API accounts from editing prior context to reveal reasoning, and reasoning transcripts are org-scoped; (2) a two-stage classifier detecting extraction attempts, red-teamed internally and externally, with <0.1% false positives; (3) stricter limits and bans for persistent extractors, plus blocking proxy-network probing."}},
 {"@type":"Question","name":"How do I protect my AI product from distillation?","acceptedAnswer":{"@type":"Answer","text":"Don't expose raw reasoning traces; detect systematic high-volume probing and extraction patterns; scope outputs so one account can't read another's; throttle and ban persistent extractors; and monitor for the known tricks (verbatim-reasoning requests, translation or tag-wrapping evasions)."}},
 {"@type":"Question","name":"Is distillation illegal?","acceptedAnswer":{"@type":"Answer","text":"It typically violates the model provider's terms of service, and providers ban accounts for it. Anthropic has also framed large-scale distillation by rivals as a safety and national security risk. This page is general information, not legal advice."}}
 ]}
@@ -74,13 +75,14 @@ code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;
 <div class="wrap">
 <a class="back" href="index.html">&larr; Back to all free security checks</a>
 <div class="badge">MODEL SECURITY &mdash; OCT 2026</div>
-<h1>Your AI's smarts are the product. <span class="pink">Distillers want them for free.</span></h1>
-<p class="lead"><strong>Anthropic</strong> says new safeguards cut data harvested in distillation attacks by <strong>90–99%</strong> — reasoning tokens extracted by distillers now run <strong>10–100x lower</strong> than before. Attackers had shifted from passive collection to active extraction: one lab tested <strong>12,000 requests</strong>, each with a different trick to make Claude reveal its thinking. If you ship an AI product, the same war is aimed at you. Five questions to check your defenses.</p>
+<h1>Cybersecurity news: your AI's smarts are the product. <span class="pink">Distillers want them for free.</span></h1>
+<p class="lead">Cybersecurity news: <strong>Anthropic</strong> says new safeguards cut data harvested in distillation attacks by <strong>90–99%</strong> — reasoning tokens extracted by distillers now run <strong>10–100x lower</strong> than before. Attackers had shifted from passive collection to active extraction: one lab tested <strong>12,000 requests</strong>, each with a different trick to make Claude reveal its thinking. If you ship an AI product, the same war is aimed at you. Five questions to check your defenses.</p>
 
 <p class="answer"><strong>Short answer:</strong> don't expose raw reasoning, detect systematic probing, scope outputs per customer, and ban persistent extractors. Anthropic's playbook — preserved thinking, extraction classifiers, proxy-network blocking — is the template; scale it to your product.</p>
 
 <div class="card">
-<h2>The 60-second Distillation Defense Check</h2>
+<h2>Is your AI product leaking its reasoning to copycats?</h2>
+<p class="answer"><strong>Direct answer:</strong> if your product exposes raw reasoning traces through its API and you are not detecting systematic high-volume probing, assume the answer is yes. Distillation attackers probe quietly at first — one lab fired 12,000 requests, each with a different trick. Take the 60-second check below to find your gaps.</p>
 <p class="note">Answer for the AI product you ship or manage.</p>
 <div id="quiz"></div>
 <div id="verdict" role="status" aria-live="polite"></div>
@@ -92,12 +94,13 @@ code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;
 </div>
 
 <div class="card">
-<h2>How the attacks work (verified)</h2>
+<h2>How the attacks work — verified cybersecurity news</h2>
 <ul>
 <li><strong>Verbatim-reasoning requests:</strong> instructing the model to reproduce its prior reasoning word for word.</li>
 <li><strong>Context editing:</strong> attackers with API access edited the model's prior context to coax out protected reasoning — closed by "preserved thinking" on newer Claude models for accounts created on/after Aug 31, 2026.</li>
 <li><strong>Evasion variants:</strong> asking for reasoning translated into another language, or wrapped in tags alongside the answer — patched rapidly once spotted.</li>
 <li><strong>Proxy-network probing:</strong> rotating through proxies to repeatedly probe protected reasoning at scale — now blocked and hindered.</li>
+<p class="note">Scale of the problem: in one documented case, a single lab fired 12,000 requests at Claude, each using a different trick to extract reasoning — and Anthropic has banned tens of thousands of accounts for extraction behavior.</p>
 <li><strong>Cross-model reads:</strong> using earlier, weaker models to read newer models' reasoning — closed by version-gating.</li>
 </ul>
 </div>
@@ -131,8 +134,25 @@ This page is general information, not legal advice.
 </div>
 </div>
 
+
+<div class="card">
+<h2>Frequently asked questions</h2>
+<details><summary>What is AI model distillation?</summary><p>Training a smaller or rival model on the outputs — especially the reasoning traces — of a more capable model, reproducing its capabilities faster and cheaper than training from scratch. Labs call hostile, large-scale distillation an attack because it appropriates their training investment.</p></details>
+<details><summary>How did Anthropic cut distillation attacks by 90-99%?</summary><p>Three layers reported October 2026: (1) preserved thinking — newer Claude models prevent API accounts from editing prior context to reveal reasoning, and reasoning transcripts are org-scoped; (2) a two-stage classifier detecting extraction attempts, red-teamed internally and externally, with fewer than 0.1% false positives; (3) stricter limits and bans for persistent extractors, plus blocking proxy-network probing.</p></details>
+<details><summary>How do I protect my AI product from distillation?</summary><p>Don't expose raw reasoning traces; detect systematic high-volume probing and extraction patterns; scope outputs so one account can't read another's; throttle and ban persistent extractors; and monitor for the known tricks (verbatim-reasoning requests, translation or tag-wrapping evasions).</p></details>
+<details><summary>Is distillation illegal?</summary><p>It typically violates the model provider's terms of service, and providers ban accounts for it. Anthropic has also framed large-scale distillation by rivals as a safety and national security risk. This page is general information, not legal advice.</p></details>
+</div>
+
+<div class="card">
+<h2>Related cybersecurity news checks</h2>
+<ul>
+<li><a href="anthropic-ai-worm-iot-check.html">AI Worm IoT — Could Your Devices Become Its Brain?</a></li>
+<li><a href="openai-misalignment-disclosure-check.html">OpenAI Misalignment Disclosure — What Was Reported</a></li>
+<li><a href="ai-lab-espionage-honeypot-check.html">AI Lab Espionage Honeypot — The Trap for Spies</a></li>
+</ul>
+</div>
+
 <div class="share">Share this check: <a href="https://x.com/intent/post?text=Anthropic%20cut%20AI%20distillation%20attacks%2090-99%25.%20Is%20YOUR%20AI%20product%20leaking%20its%20reasoning%20to%20copycats%3F%20Free%205-question%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ai-model-distillation-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ai-model-distillation-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/ai-model-distillation-check.html&title=Anthropic%20cut%20distillation%2090-99%25%20%E2%80%94%20is%20your%20AI%20product%20leaking%20its%20reasoning%3F" target="_blank" rel="noopener">Reddit</a></div>
-<div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
 
 <script>
 (function(){

@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-primary-keyword="cybersecurity news">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Docker GhostPat CVE Checker — Were Your Images Hijacked?</title>
-<meta name="description" content="CVE checker for Docker GhostPat (CVE-2026-105445): a two-year Docker Hub flaw let attackers push images as you. Fixed Sep 30, 2026. Free 60-second check.">
+<title>Docker GhostPat CVE — Cybersecurity News Check</title>
+<meta name="description" content="Docker GhostPat (CVE-2026-105445): a two-year Docker Hub flaw let attackers push images as you. Cybersecurity news — free exposure check.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
 <meta property="og:title" content="Docker GhostPat CVE Checker — Were Your Images Hijacked?">
 <meta property="og:description" content="CVE checker for Docker GhostPat (CVE-2026-105445): a two-year Docker Hub flaw let attackers push images as you. Fixed Sep 30, 2026. Free 60-second check.">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/docker-ghostpat-check.html">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/docker-ghostpat-check.html">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker GhostPat CVE Checker — Were Your Images Hijacked?">
@@ -45,11 +46,12 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <body>
 <div class="wrap">
 <div class="badge">CVE-2026-105445 &ldquo;GHOSTPAT&rdquo; &mdash; CVSS 9.4 CRITICAL &mdash; FIXED SEP 30, 2026</div>
-<h1>GhostPat CVE checker: were your Docker images hijacked?</h1>
-<p class="lead">For <strong>over two years</strong>, a Docker Hub flaw called <strong>GhostPat</strong> let an attacker push, pull, or delete images <strong>as you</strong> — by creating an account, minting a personal access token, converting the account into an organization, and naming <em>you</em> as its owner. The token kept its secret and silently became yours at the registry. Docker fixed it on September 30 (under four hours after the report) and found <strong>no evidence of exploitation</strong> across ~304,000 reviewed pushes — but trust Docker's audit <em>and</em> verify. This free CVE check tool walks you through it. No signup, nothing installed.</p>
+<h1>Cybersecurity news: GhostPat CVE checker — were your Docker images hijacked?</h1>
+<p class="lead">Cybersecurity news: <strong>GhostPat is a Docker Hub authorization flaw (CVE-2026-105445)</strong> that, for <strong>over two years</strong>, let an attacker push, pull, or delete images <strong>as you</strong> — by creating an account, minting a personal access token, converting the account into an organization, and naming <em>you</em> as its owner. The token kept its secret and silently became yours at the registry. Docker fixed it on September 30 (under four hours after the report) and found <strong>no evidence of exploitation</strong> across ~304,000 reviewed pushes — but trust Docker's audit <em>and</em> verify. This free CVE check tool walks you through it. No signup, nothing installed.</p>
 
 <div class="card">
-<h2>The 60-second check</h2>
+<h2>Were your Docker images hijacked via GhostPat?</h2>
+<p class="answer"><strong>Direct answer:</strong> check your Docker Hub audit log for pushes, pulls, or deletions you did not make between 2024 and September 30, 2026, and look for unexpected collaborators or PAT transfers on your namespaces. Docker reviewed ~304,000 pushes and found no exploitation — but verify your own repos. The 60-second check below walks you through it.</p>
 <div class="step"><div class="stepnum">1</div><div>
 <p><strong>Check for Docker's email</strong> &mdash; on October 2, Docker emailed every user whose account received a transferred token, plus the org owners involved. Search your inbox for Docker Hub security notices from early October:</p>
 <div class="verdict"><strong>Got the email &rarr; you were in the blast radius.</strong> Continue through all steps below — Docker deactivated the transferred tokens on Oct 8, but verify your repos yourself.</div>
@@ -80,7 +82,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 </div>
 
 <div class="card">
-<h2>How the attack worked (so you know what you're checking for)</h2>
+<h2>How the attack worked — cybersecurity news</h2>
 <ul>
 <li>Docker Hub can't move a repo between accounts — instead you <strong>convert a personal account into an organization</strong> keeping the same name, and name an existing account as owner.</li>
 <li>The bug: conversion <strong>transferred the account's PATs to the new owner without changing the token secret and without notifying them</strong>. The token's creator could still use it.</li>
@@ -101,6 +103,16 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 
 <div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Ingenious AI builds 11 AI security platforms &mdash; disclosure compliance, rogue-agent defense, breach hunting, agent oversight, and more.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
 
+</div>
+
+
+<div class="card">
+<h2>Related cybersecurity news checks</h2>
+<ul>
+<li><a href="npm-supply-chain-1500-check.html">NPM Supply-Chain Attack — 1,500 Packages Hit</a></li>
+<li><a href="aomei-backupper-supply-chain-check.html">AOMEI Backupper Supply-Chain Backdoor — Check</a></li>
+<li><a href="ledger-supply-chain-implant-check.html">Ledger Supply-Chain Implant — Exposure Check</a></li>
+</ul>
 </div>
 
 <div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=Docker%20GhostPat%20CVE-2026-105445%3A%20a%202-year%20flaw%20let%20attackers%20push%20images%20under%20YOUR%20name%20%E2%80%94%20were%20you%20affected%3F%20Free%2060-sec%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/docker-ghostpat-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/docker-ghostpat-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/docker-ghostpat-check.html&title=Docker%20GhostPat%20CVE-2026-105445%20Check" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
