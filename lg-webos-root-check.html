@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-primary-keyword="iot security news">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LG webOS Root Check — Is Your Smart TV Exposed? Free</title>
-<meta name="description" content="LG webOS root takeover: a 3-flaw chain gives attackers on your local network root on certain LG smart TVs. Check your TV's exposure in 30 seconds. Free.">
+<title>LG webOS Root Check — IoT Security News</title>
+<meta name="description" content="Can someone on your WiFi root your LG smart TV? This IoT security news check explains the webOS exposure and how to lock it down — free.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="LG webOS Root Check — Is Your Smart TV Exposed? Free">
-<meta property="og:description" content="LG webOS root takeover: a 3-flaw chain gives attackers on your local network root on certain LG smart TVs. Check your TV's exposure in 30 seconds. Free.">
-<meta property="og:url" content="https://ingeniousai-security-checks.netlify.app/lg-webos-root-check.html"
-<link rel="canonical" href="https://ingeniousai-security-checks.netlify.app/lg-webos-root-check.html">>
+<meta property="og:title" content="LG webOS Root Check — IoT Security News">
+<meta property="og:description" content="Can someone on your WiFi root your LG smart TV? This IoT security news check explains the webOS exposure and how to lock it down — free.">
+<meta property="og:url" content="https://ingeniousai-security-checks.netlify.app/lg-webos-root-check.html">
+<link rel="canonical" href="https://ingeniousai-security-checks.netlify.app/lg-webos-root-check.html">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LG webOS Root Check — Is Your Smart TV Exposed? Free">
-<meta name="twitter:description" content="LG webOS root takeover: a 3-flaw chain gives attackers on your local network root on certain LG smart TVs. Check your TV's exposure in 30 seconds. Free.">
+<meta name="twitter:title" content="LG webOS Root Check — IoT Security News">
+<meta name="twitter:description" content="Can someone on your WiFi root your LG smart TV? This IoT security news check explains the webOS exposure and how to lock it down — free.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
@@ -39,11 +39,19 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which LG TV models are affected by the webOS root takeover?", "acceptedAnswer": {"@type": "Answer", "text": "The attack chain was demonstrated on the LG 32LQ636BPSA and 27TQ600SW running webOS 7.5.7-25 on firmware 04.54.40. Whether other models or firmware versions are affected is not known — LG has not published a full affected-products list."}}, {"@type": "Question", "name": "Does the attacker need my WiFi password or any interaction from me?", "acceptedAnswer": {"@type": "Answer", "text": "No. The attacker only needs to be on the same local network — a compromised laptop, a guest's infected phone, or malware on any device sharing your WiFi."}}, {"@type": "Question", "name": "Is there a workaround if my LG TV has no firmware update available?", "acceptedAnswer": {"@type": "Answer", "text": "No documented workaround exists. If no update is available for your model, the only mitigations are to disconnect the TV from the network when not in use, or isolate it on a separate guest/IoT network segment so untrusted devices cannot reach it."}}], "about": "The 3-flaw LG webOS chain giving attackers root on certain smart TVs, and a free 30-second exposure check.", "keywords": "LG webOS root, webOS vulnerability, smart TV hack, TyphoonPWN, smart TV security, free security check"}</script>
 <link rel="stylesheet" href="ecosystem.css">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}</script>
 </head>
 <body>
 <div class="wrap">
 <div class="badge">webOS PRE-AUTH ROOT &mdash; NO CVE ASSIGNED &mdash; PATCH AVAILABLE</div>
-<h1>LG webOS root: can someone on your WiFi take over your smart TV?</h1>
+<h1>LG webOS root: can someone on your WiFi take over your smart TV? — iot security news</h1>
+<p class="note"><time datetime="2026-10-18">Reviewed October 18, 2026</time> — Ingenious AI security check.</p>
+<h2>Why does a smart TV root matter in IoT security news?</h2>
+<p>A rooted TV is a computer an attacker owns inside your home network — a foothold for spying on traffic, pivoting to other devices, or joining a botnet. LG webOS TVs had flaws letting anyone on the same WiFi take over. The fix: update firmware, disable unused services, and isolate IoT devices on a guest network.</p>
+<h3>What is webOS?</h3>
+<p>webOS is LG’s smart-TV operating system, originally built by Palm. Like any networked OS, it runs services that listen on your WiFi — and any listening service is a potential entry point.</p>
+
 <p class="lead">Demonstrated at TyphoonPWN 2026: three flaws in LG's webOS chain together to hand an attacker on your local network <strong>root access</strong> to certain smart TVs &mdash; no PIN, no click, no interaction from you. The attack enters through the TV's own pairing service, escalates through a trusted built-in app, and finishes with a command injection in a logging service that runs as root. LG has issued a fix. This free 30-second check tells you if you're at risk. No signup, nothing installed.</p>
 
 <div class="card">
@@ -105,6 +113,14 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 </div>
 
 
+<div class="card">
+<h2>Related checks</h2>
+<ul>
+<li><a href="ninety-second-audit.html">Data Breach Check — 90-Second Domain Audit</a></li>
+<li><a href="breach-check.html">Data Breach News Check — Have Your Credentials Leaked?</a></li>
+<li><a href="have-i-been-flocked-check.html">Have I Been Flocked? Data Breach News Check</a></li>
+</ul>
+</div>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
