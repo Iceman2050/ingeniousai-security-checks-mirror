@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where Is Your GTM Broken? 5-Stage SaaS Diagnostic</title>
+<meta name="description" content="Find where your go-to-market leaks revenue. Free 5-stage SaaS GTM diagnostic: 15 questions, 0–100 scores per stage, and a 3-step fix for your weakest stage.">
+<meta name="keywords" content="gtm strategy for saas, go to market strategy for saas startups, gtm strategy for b2b saas, saas go to market diagnostic, gtm gap analysis">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/gtm-gap-diagnostic.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Where Is Your GTM Broken? The 5-Stage SaaS Diagnostic">
+<meta property="og:description" content="15 questions. 5 funnel stages. One weakest link, named. Get a concrete 3-step fix for the stage leaking your revenue.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/gtm-gap-diagnostic.html">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{background:#070a10;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;margin:0;line-height:1.6}
+.wrap{max-width:760px;margin:0 auto;padding:24px 18px}
+.badge-top{display:inline-block;background:#7c3aed;color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:14px;letter-spacing:1px}
+h1{font-size:30px;margin-bottom:12px;line-height:1.25}
+p.lead{color:#9aa7b8;font-size:17px;margin-bottom:24px}
+.scope{font-size:13px;color:#6b7688;background:#0d1420;border:1px solid #232b38;border-radius:10px;padding:12px 16px;margin:18px 0}
+h2{font-size:21px;margin:32px 0 12px}
+.stage{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:18px 20px;margin:16px 0}
+.stage h3{margin:0 0 4px;font-size:17px;color:#c4b5fd}
+.stage .sub{font-size:13px;color:#6b7688;margin-bottom:14px}
+.q{margin:14px 0;padding:12px 0;border-top:1px solid #1c2430}
+.q p{margin:0 0 10px;font-size:15px}
+.ans{display:flex;gap:10px;flex-wrap:wrap}
+.ans button{background:#0b0f17;border:1px solid #232b38;border-radius:10px;padding:10px 18px;color:#e6edf3;cursor:pointer;font-size:14px;font-weight:600}
+.ans button:hover:not(:disabled){border-color:#7c3aed}
+.ans button.sel-yes{background:#12351f;border-color:#7ee2a0;color:#7ee2a0}
+.ans button.sel-sortof{background:#3a2f10;border-color:#f0b27a;color:#f0b27a}
+.ans button.sel-no{background:#3d1420;border-color:#ff8fa3;color:#ff8fa3}
+.ans button:disabled{cursor:default;opacity:.6}
+.btn{display:inline-block;background:#7c3aed;color:#fff;font-weight:700;padding:12px 26px;border-radius:10px;text-decoration:none;margin:14px 8px 0 0;border:0;cursor:pointer;font-size:16px}
+.btn:disabled{background:#2a2438;color:#6b7688;cursor:default}
+.result{background:#0d1420;border:1px solid #7c3aed;border-radius:12px;padding:22px;margin:20px 0}
+.bar{background:#1c2430;border-radius:8px;height:14px;margin:8px 0 4px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,#7c3aed,#6ea8fe)}
+.weakest{border:1px solid #b3540c;background:#170d08;border-radius:10px;padding:16px 18px;margin:16px 0}
+.weakest h4{margin:0 0 8px;color:#f0b27a}
+.weakest ol{margin:8px 0;padding-left:20px;font-size:14.5px;color:#c9d4e3}
+.faq details{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0}
+.faq summary{font-weight:700;cursor:pointer}
+.faq p{color:#9aa7b8;font-size:14px;margin-top:8px}
+.more{background:#0d1420;border:1px solid #232b38;border-radius:12px;padding:18px 20px;margin:32px 0}
+.more h3{font-size:15px;margin-bottom:10px;letter-spacing:1px;color:#9aa7b8}
+.more a{color:#6ea8fe;text-decoration:none;display:inline-block;margin:4px 12px 4px 0;font-size:14.5px}
+.cta{background:#0d1420;border:1px solid #7c3aed;border-radius:10px;padding:20px;margin:28px 0;text-align:center}
+.score-pill{display:inline-block;font-weight:800;font-size:15px;padding:4px 14px;border-radius:16px;margin:4px 6px 4px 0}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Where Is Your GTM Broken? The 5-Stage SaaS Diagnostic","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/gtm-gap-diagnostic.html","description":"Free interactive self-assessment scoring 5 go-to-market stages 0–100 and naming your weakest funnel stage with a 3-step fix.","about":"SaaS go-to-market diagnostic quiz","keywords":"gtm strategy for saas, go to market strategy for saas startups, gtm strategy for b2b saas, saas go to market diagnostic"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is a GTM gap diagnostic?","acceptedAnswer":{"@type":"Answer","text":"A structured self-assessment across the five go-to-market stages — ICP and research, content and distribution, demand generation, sales and conversion, retention and expansion — that scores each stage and names the weakest one."}},
+{"@type":"Question","name":"What are the 5 stages of a SaaS go-to-market?","acceptedAnswer":{"@type":"Answer","text":"ICP and market research (who you sell to), content and distribution (how they hear of you), demand generation (how leads arrive), sales and conversion (how leads become customers), and retention and expansion (how customers stay and grow)."}},
+{"@type":"Question","name":"Is this diagnostic a guarantee of results?","acceptedAnswer":{"@type":"Answer","text":"No. It is a self-assessment: scores reflect your own answers about your current processes, not a prediction of revenue. Use it to prioritise which stage to fix first."}},
+{"@type":"Question","name":"How often should a SaaS team re-run the diagnostic?","acceptedAnswer":{"@type":"Answer","text":"Quarterly is a good cadence: fix the weakest stage, then re-run to confirm the score moved and find the next bottleneck."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge-top">FREE SELF-ASSESSMENT · INGENIOUS AI</div>
+<h1>Where Is Your GTM Broken? The 5-Stage SaaS Diagnostic</h1>
+<p class="lead">Most SaaS funnels don't fail everywhere — they fail at <strong>one stage</strong>. The stage nobody measures is the one leaking your revenue. Answer 15 questions, get a 0–100 score per stage, and find your weakest link with a concrete 3-step fix.</p>
+<div class="scope"><strong>Honest scope:</strong> this is a self-assessment, not a guarantee of results. Scores reflect what you tell us about your current processes — nothing here predicts revenue or replaces working with your actual numbers.</div>
+
+<div id="quiz"></div>
+
+<div id="results" style="display:none"></div>
+
+<div class="cta">
+<div style="font-size:12px;letter-spacing:2px;color:#c4b5fd;margin-bottom:8px">FROM INGENIOUS AI</div>
+<div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>ContentCraft AI</strong> — the content engine behind stage 2: one brief becomes posts, scripts, newsletters and lead magnets, distributed everywhere your buyers hang out.</div>
+<div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">Our platforms return November 1 — get early access now:</div>
+<a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI.">Get ContentCraft AI early access →</a>
+</div>
+
+<h2>FAQ</h2>
+<div class="faq">
+<details><summary>What is a GTM gap diagnostic?</summary><p>A structured self-assessment across the five go-to-market stages — ICP and research, content and distribution, demand generation, sales and conversion, retention and expansion — that scores each stage and names the weakest one.</p></details>
+<details><summary>What are the 5 stages of a SaaS go-to-market?</summary><p>ICP and market research (who you sell to), content and distribution (how they hear of you), demand generation (how leads arrive), sales and conversion (how leads become customers), and retention and expansion (how customers stay and grow).</p></details>
+<details><summary>Is this diagnostic a guarantee of results?</summary><p>No. It is a self-assessment: scores reflect your own answers about your current processes, not a prediction of revenue. Use it to prioritise which stage to fix first.</p></details>
+<details><summary>How often should a SaaS team re-run the diagnostic?</summary><p>Quarterly is a good cadence: fix the weakest stage, then re-run to confirm the score moved and find the next bottleneck.</p></details>
+</div>
+
+<div class="more">
+<h3>MORE FROM INGENIOUS AI</h3>
+<a href="ai-agency-audit-check.html">AI agency audit check</a>
+<a href="ninety-second-audit.html">The 90-second audit</a>
+<a href="newsjack-contentcraft.html">ContentCraft newsjack hub</a>
+<a href="disclosure-cop.html">Disclosure cop</a>
+<a href="vendor-roast-battle.html">Vendor roast battle</a>
+<a href="all-links.html">All tools &amp; pages</a>
+<a href="security-suite.html">Security suite</a>
+</div>
+</div>
+
+<script id="gtm-logic">
+"use strict";
+/* PURE LOGIC — no DOM. Extracted and unit-tested in node. */
+const GTM_STAGES = [
+  { id:"icp", name:"Stage 1 — ICP & Market Research",
+    blurb:"Know exactly who you sell to before you spend a dollar reaching them.",
+    questions:[
+      "Can you describe your ideal customer in one sentence — industry, role, and the pain that makes them buy?",
+      "Do you keep a prioritised list of target accounts or segments that you review and update regularly?",
+      "Have you reviewed what your direct competitors charge and promise in the last 90 days?"
+    ],
+    fix:["Write the one-sentence ICP and pin it where your whole team sees it.","List 50 dream accounts that match it — names, not segments.","Interview 5 ideal buyers (won or lost) and write down their words verbatim."]
+  },
+  { id:"content", name:"Stage 2 — Content & Distribution",
+    blurb:"Content nobody sees is content that doesn't exist.",
+    questions:[
+      "Do you publish helpful content at least weekly on a channel your actual buyers use?",
+      "Is every piece of content distributed to at least two channels — not just posted once and forgotten?",
+      "Do you have one flagship lead magnet (checklist, template, free tool) capturing emails right now?"
+    ],
+    fix:["Pick ONE channel where your buyers hang out; pause the rest for 90 days.","Turn your best-performing asset into a lead magnet with an email gate.","Adopt the 1→2 rule: every piece ships in at least two formats."]
+  },
+  { id:"demand", name:"Stage 3 — Demand Generation",
+    blurb:"Leads don't arrive by hope. They arrive by motion.",
+    questions:[
+      "Do you run at least one repeatable outbound motion (cold email, partnerships, communities) every single week?",
+      "Can you name your cost per qualified lead from the last 30 days?",
+      "Do you have a follow-up sequence that re-engages cold leads instead of letting them die?"
+    ],
+    fix:["Commit to one outbound motion with a weekly cadence you can actually keep.","Instrument cost-per-qualified-lead this week — measure before you scale.","Build a 3-touch follow-up sequence; most deals die at touch zero."]
+  },
+  { id:"sales", name:"Stage 4 — Sales & Conversion",
+    blurb:"This is where money closes — or quietly walks away.",
+    questions:[
+      "Do you use a written discovery script or qualification checklist on every sales call?",
+      "Do you send a written proposal or recap within 24 hours of every sales conversation?",
+      "Do you track win/loss reasons and review them at least monthly?"
+    ],
+    fix:["Write the discovery checklist: budget, authority, need, timeline — asked on every call.","Enforce the 24-hour recap rule: no recap, no pipeline stage advance.","Start a one-line win/loss log; review the patterns monthly."]
+  },
+  { id:"retention", name:"Stage 5 — Retention & Expansion",
+    blurb:"Keeping a customer costs far less than finding a new one. Most teams ignore this stage entirely.",
+    questions:[
+      "Do you measure your churn or cancellation rate every month?",
+      "Do you have an onboarding checklist that gets every new customer to their first win fast?",
+      "Do you have a systematic way to ask happy customers for referrals or reviews?"
+    ],
+    fix:["Run a monthly churn review: who left, why, and what pattern they share.","Write the first-win onboarding checklist — every new customer follows it.","Add the referral ask to your happiest moment (after a win, not at renewal)."]
+  }
+];
+const ANSWER_POINTS = { yes:100, sortof:50, no:0 };
+function gtmScore(answers){
+  // answers: {stageId:[a,a,a]} values yes|sortof|no — returns {icp:..,content:..,demand:..,sales:..,retention:..,overall:..}
+  const out = {};
+  let sum = 0;
+  GTM_STAGES.forEach(function(st){
+    const arr = answers[st.id] || [];
+    let s = 0;
+    for(let i=0;i<3;i++){ s += ANSWER_POINTS[arr[i]] !== undefined ? ANSWER_POINTS[arr[i]] : 0; }
+    const avg = Math.round(s/3);
+    out[st.id] = avg; sum += avg;
+  });
+  out.overall = Math.round(sum/GTM_STAGES.length);
+  return out;
+}
+function gtmWeakest(scores){
+  let id = GTM_STAGES[0].id, low = 101;
+  GTM_STAGES.forEach(function(st){ if(scores[st.id] < low){ low = scores[st.id]; id = st.id; } });
+  return id;
+}
+function gtmVerdict(score){
+  if(score >= 80) return "Strong — protect it";
+  if(score >= 60) return "Solid, with gaps";
+  if(score >= 40) return "Leaking — fix soon";
+  return "Broken — fix first";
+}
+function encodeScores(scores){
+  return GTM_STAGES.map(function(st){ return scores[st.id]; }).join(",");
+}
+function decodeScores(str){
+  const parts = String(str||"").split(",");
+  if(parts.length !== GTM_STAGES.length) return null;
+  const out = {}; let sum = 0;
+  for(let i=0;i<GTM_STAGES.length;i++){
+    const n = parseInt(parts[i],10);
+    if(isNaN(n) || n < 0 || n > 100) return null;
+    out[GTM_STAGES[i].id] = n; sum += n;
+  }
+  out.overall = Math.round(sum/GTM_STAGES.length);
+  return out;
+}
+</script>
+
+<script>
+(function(){
+"use strict";
+var BASE = "https://iceman2050.github.io/ingeniousai-security-checks-mirror/gtm-gap-diagnostic.html";
+var quizEl = document.getElementById("quiz");
+var resultsEl = document.getElementById("results");
+var answers = {};
+
+function renderQuiz(){
+  var html = "";
+  GTM_STAGES.forEach(function(st, si){
+    answers[st.id] = [null,null,null];
+    html += '<div class="stage"><h3>'+st.name+'</h3><div class="sub">'+st.blurb+'</div>';
+    st.questions.forEach(function(q, qi){
+      html += '<div class="q" data-stage="'+st.id+'" data-q="'+qi+'"><p><strong>Q'+(qi+1)+'.</strong> '+q+'</p><div class="ans">'+
+        '<button data-v="yes">Yes</button><button data-v="sortof">Sort of</button><button data-v="no">No</button></div></div>';
+    });
+    html += '</div>';
+  });
+  html += '<button class="btn" id="gtm-submit" disabled>Diagnose my GTM →</button> <span id="gtm-progress" style="color:#6b7688;font-size:14px"></span>';
+  quizEl.innerHTML = html;
+  quizEl.querySelectorAll(".q").forEach(function(qel){
+    qel.querySelectorAll("button").forEach(function(btn){
+      btn.addEventListener("click", function(){
+        var sid = qel.getAttribute("data-stage"), qi = +qel.getAttribute("data-q");
+        answers[sid][qi] = btn.getAttribute("data-v");
+        qel.querySelectorAll("button").forEach(function(b){ b.classList.remove("sel-yes","sel-sortof","sel-no"); });
+        btn.classList.add("sel-"+btn.getAttribute("data-v"));
+        updateProgress();
+      });
+    });
+  });
+  document.getElementById("gtm-submit").addEventListener("click", function(){ showResults(gtmScore(answers), false); });
+  updateProgress();
+}
+function updateProgress(){
+  var done = 0;
+  Object.keys(answers).forEach(function(k){ answers[k].forEach(function(a){ if(a) done++; }); });
+  document.getElementById("gtm-progress").textContent = done + " / 15 answered";
+  document.getElementById("gtm-submit").disabled = done < 15;
+}
+function pillColor(s){ return s>=80 ? "#7ee2a0" : s>=60 ? "#6ea8fe" : s>=40 ? "#f0b27a" : "#ff8fa3"; }
+function showResults(scores, shared){
+  quizEl.style.display = "none";
+  var weakId = gtmWeakest(scores);
+  var weak = GTM_STAGES.filter(function(s){ return s.id===weakId; })[0];
+  var html = '<div class="result">';
+  if(shared) html += '<p style="color:#c4b5fd;font-size:14px">Shared result — take the <a href="'+BASE+'" style="color:#6ea8fe">diagnostic yourself</a>.</p>';
+  html += '<h2 style="margin-top:0">Your GTM scores</h2>';
+  html += '<p style="font-size:20px">Overall: <strong>'+scores.overall+'/100</strong> — '+gtmVerdict(scores.overall)+'</p>';
+  GTM_STAGES.forEach(function(st){
+    var s = scores[st.id];
+    html += '<div style="margin:10px 0"><strong>'+st.name.replace("Stage ","S")+'</strong> <span class="score-pill" style="color:'+pillColor(s)+'">'+s+'/100</span><div class="bar"><i style="width:'+s+'%"></i></div><span style="font-size:13px;color:#6b7688">'+gtmVerdict(s)+'</span></div>';
+  });
+  html += '</div>';
+  html += '<div class="weakest"><h4>🎯 Your weakest stage: '+weak.name+'</h4><p style="font-size:14px;color:#c9d4e3;margin:6px 0">'+weak.blurb+'</p><ol>'+
+    weak.fix.map(function(f){ return "<li>"+f+"</li>"; }).join("") + '</ol></div>';
+  var link = BASE + "?s=" + encodeScores(scores);
+  var shareText = "My GTM diagnostic: overall " + scores.overall + "/100, weakest stage " + weak.name + ". Find yours: " + link;
+  html += '<div style="margin:18px 0"><button class="btn" id="gtm-copy-link">Copy my result link</button> <button class="btn" id="gtm-copy-text">Copy result text</button> <button class="btn" id="gtm-retake">Retake</button></div>';
+  html += '<p class="scope" style="margin-top:18px">Reminder: this is a self-assessment based on your answers — not a guarantee of results.</p>';
+  resultsEl.innerHTML = html;
+  resultsEl.style.display = "block";
+  document.getElementById("gtm-copy-link").addEventListener("click", function(){ copyText(link, this); });
+  document.getElementById("gtm-copy-text").addEventListener("click", function(){ copyText(shareText, this); });
+  document.getElementById("gtm-retake").addEventListener("click", function(){ resultsEl.style.display="none"; quizEl.style.display="block"; renderQuiz(); });
+  resultsEl.scrollIntoView({behavior:"smooth"});
+}
+function copyText(t, btn){
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(t).then(function(){ btn.textContent = "Copied ✓"; }, function(){ fallback(t, btn); });
+  } else { fallback(t, btn); }
+}
+function fallback(t, btn){
+  var ta = document.createElement("textarea"); ta.value = t; document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); btn.textContent = "Copied ✓"; } catch(e){ btn.textContent = "Copy failed"; }
+  document.body.removeChild(ta);
+}
+(function init(){
+  var m = /[?&]s=([^&]+)/.exec(location.search);
+  if(m){
+    var sc = decodeScores(decodeURIComponent(m[1]));
+    if(sc){ showResults(sc, true); return; }
+  }
+  renderQuiz();
+})();
+})();
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+</body>
+</html>
