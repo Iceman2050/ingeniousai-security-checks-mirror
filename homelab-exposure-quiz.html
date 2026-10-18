@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-primary-keyword="iot security news">
 <head>
 <link rel="canonical" href="https://ingeniousai-security-checks.netlify.app/homelab-exposure-quiz.html">
 <meta property="og:url" content="https://ingeniousai-security-checks.netlify.app/homelab-exposure-quiz.html">
@@ -12,8 +12,8 @@
 <meta name="twitter:description" content="Answer 10 questions, get an honest exposure rating for your homelab or self-hosted server — SSH, patches, backups, 2FA. Free, no signup, nothing installed.">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How Exposed Is Your Homelab? — Free Quiz | Ingenious AI</title>
-<meta name="description" content="Answer 10 questions, get an honest exposure rating for your homelab or self-hosted server — SSH, patches, backups, 2FA. Free, no signup, nothing installed.">
+<title>Homelab Exposure Quiz — IoT Security News | Ingenious AI</title>
+<meta name="description" content="Answer 10 questions and get an honest exposure rating for your homelab or self-hosted server. IoT security news proves home networks are targets — check yours.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
@@ -60,11 +60,21 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 .faq summary{font-weight:700;cursor:pointer;color:#e6edf3}
 .faq p{color:#9aa7b8;font-size:14px;margin-top:8px}
 </style>
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
 </head>
 <body>
 <div class="wrap">
 <div class="badge">FREE 2-MINUTE SELF-ASSESSMENT</div>
-<h1>How exposed is your <span class="green">homelab</span>?</h1>
+<h1>How Exposed Is Your Homelab? — IoT Security News Quiz</h1>
+<div class="guide-intro">
+<p class="dateline"><time datetime="2026-10-18">Reviewed October 18, 2026</time></p>
+<p>Your homelab is a production network that happens to live in your house — and attackers treat it that way. This 10-question quiz grades your exposure across remote access, patching, segmentation, and backups. IoT security news is full of compromised home servers recruited into botnets; most owners never notice until the ISP calls.</p>
+<h2>Why is IoT security news full of homelab breaches?</h2>
+<p>Home labs combine the worst of both worlds: internet-facing services like a business, but the patching discipline of a hobby. Default credentials, unpatched services, and flat networks make them ideal botnet recruits and pivot points into home devices. Attackers scan the entire internet continuously, so an exposed service is typically found within hours of going online. The quiz checks the exact mistakes that show up in breach reports.</p>
+<h3>What is an attack surface?</h3>
+<p>Your attack surface is the sum of every point where an attacker could try to enter your systems — open ports, login pages, exposed APIs, and unpatched services. Every service you expose to the internet adds to it.</p>
+</div>
+
 <p class="lead">10 honest questions about your self-hosted setup. Get a plain-English exposure rating and the three fixes that matter most. No signup, nothing installed, your answers never leave this page.</p>
 
 <div class="card" id="quiz">
@@ -185,6 +195,15 @@ function emailResult(){
   window.location.href="mailto:?subject="+subject+"&body="+body;
 }
 </script>
+
+<div class="card">
+  <h2>Related checks</h2>
+  <ul>
+      <li><a href="breach-check.html">Breach Check</a></li>
+      <li><a href="domain-check.html">Domain Check</a></li>
+      <li><a href="agent-paranoid-mode-check.html">Paranoid Mode for AI Agents</a></li>
+  </ul>
+</div>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
