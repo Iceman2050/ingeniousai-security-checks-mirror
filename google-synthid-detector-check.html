@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html data-primary-keyword="synthid detector" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google SynthID Detector: What It Actually Tells You (2026)</title>
+<meta name="description" content="Google's public SynthID Detector checks images, video, and audio for AI watermarks — but a negative result proves nothing. What the synthid detector can and can't tell you.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/google-synthid-detector-check.html">
+<meta property="og:title" content="Google SynthID Detector: What It Actually Tells You">
+<meta property="og:description" content="Google's free watermark checker is now public. It reads SynthID watermarks from Google, OpenAI, NVIDIA, and Kakao — but it is not a general AI detector.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/google-synthid-detector-check.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Google SynthID Detector: What It Actually Tells You">
+<meta name="twitter:description" content="A watermark reader, not a lie detector. What Google's public AI-content checker can and can't prove.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:820px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}
+a{color:#7cc4ff}
+table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.95rem}
+th,td{text-align:left;padding:.55rem .7rem;border-bottom:1px solid #2a3040}
+th{color:#ffd166}td.num{text-align:right;font-variant-numeric:tabular-nums}
+.quiz-q{background:#1a1e27;border-radius:8px;padding:1rem;margin:1rem 0}
+.opt{display:block;background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.7rem 1rem;margin:.5rem 0;cursor:pointer;width:100%;text-align:left;color:#e8e8e8;font-size:1rem}
+.opt:hover{border-color:#ffd166}.opt.picked{border-color:#7cc4ff;background:#24304a}.opt.correct{border-color:#4ade80;background:#14301f}.opt.wrong{border-color:#f87171;background:#3a1a1a}
+#quiz-result{font-weight:700;margin-top:1rem;font-size:1.1rem}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}
+.honest{background:#141a26;border-left:4px solid #ffd166;border-radius:0 8px 8px 0;padding:.9rem 1rem;margin:1.4rem 0;font-size:.97rem}
+.meta{color:#9aa3b2;font-size:.85rem}
+.src{font-size:.85rem;color:#9aa3b2}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Google SynthID Detector: What It Actually Tells You","author":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-18","description":"Google opened its SynthID Detector to the public on October 7, 2026. It detects invisible SynthID watermarks in images, video, and audio — but it is not a general AI detector."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://github.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is Google's SynthID Detector free?","acceptedAnswer":{"@type":"Answer","text":"Yes. The SynthID Detector at synthid.com is free, with a cap of roughly ten checks per user per day. Sign-in with a Google, OpenAI, or Apple account is required."}},
+{"@type":"Question","name":"Does a negative SynthID result mean a file is real?","acceptedAnswer":{"@type":"Answer","text":"No. A \"watermark not detected\" result only means no SynthID watermark was found. The file could be human-made, or AI-made by any model outside the SynthID system — most open-weight models, plus Microsoft's and Meta's own watermarking standards, are not covered."}},
+{"@type":"Question","name":"Which AI tools does the SynthID Detector cover?","acceptedAnswer":{"@type":"Answer","text":"Google's own tools (Gemini, Nano Banana, Veo, Lyria, Flow, Imagen, ProducerAI, Vids) plus partner output from OpenAI, NVIDIA, and Kakao. Apple support is expected but not yet live."}},
+{"@type":"Question","name":"Can the SynthID Detector tell if a whole file is AI-generated?","acceptedAnswer":{"@type":"Answer","text":"No — and it can't distinguish made-by-AI from edited-by-AI. Its verdict reads \"made or edited with Google AI.\" A genuine photo retouched with an AI tool can come back positive."}},
+{"@type":"Question","name":"Can watermarks be removed to fool the detector?","acceptedAnswer":{"@type":"Answer","text":"Heavy editing, aggressive recompression, and regeneration can weaken or strip the invisible signal, though Google designed it to survive common edits like cropping, filters, frame-rate changes, and compression. No watermark signal is completely robust."}}
+]}
+</script>
+</head>
+<body>
+<p class="meta"><time datetime="2026-10-18">October 18, 2026</time> · Cybersecurity news</p>
+<h1>Google SynthID Detector: What It Actually Tells You</h1>
+<p>On October 7, 2026, Google opened its <strong>SynthID Detector</strong> to the public at synthid.com — a free tool that checks whether an image, video, or audio file carries an invisible SynthID watermark. Upload a file, and within seconds you get a binary verdict: <strong>watermark detected</strong> or <strong>watermark not detected</strong>. The headlines called it a way to spot AI-generated media. The reality is narrower and more useful — as long as you understand what a "no" actually means.</p>
+
+<h2>What is the SynthID Detector?</h2>
+<p>The SynthID Detector is Google's public web tool for reading invisible watermarks that Google's AI models — and a handful of partners — embed into generated content at creation time. The watermark lives in the content itself: in the pixels of an image, the frequency components of audio, the frames of a video. It is imperceptible to people but machine-readable, and Google designed it to survive common edits like cropping, filters, frame-rate changes, and compression. An earlier version existed since 2025 for journalists and media professionals; the October 7 launch opened it globally in English to everyone, with sign-in via a Google, OpenAI, or Apple account.</p>
+<p>The scale behind it is real: Google says it has watermarked more than <strong>180 billion images and videos</strong> and the equivalent of <strong>240,000 years of audio</strong> since SynthID launched in 2023. The same checks built into Google Search, the Gemini app, and Chrome already handle more than <strong>1 million verification requests a day</strong>. As Pushmeet Kohli, VP of Science and Strategic Initiatives at Google DeepMind, put it: "With the new SynthID Detector, anyone can easily check if an image, video, or audio file was made with AI from Google or our partners, including OpenAI, NVIDIA, Kakao, and soon, Apple."</p>
+
+<h2>Who it covers — and who it doesn't</h2>
+<table>
+<tr><th>Covered</th><th>Status</th></tr>
+<tr><td>Google tools: Gemini, Nano Banana, Veo, Lyria, Flow, Imagen, ProducerAI, Vids</td><td>Live</td></tr>
+<tr><td>OpenAI (images from ChatGPT, Codex, and the API)</td><td>Live</td></tr>
+<tr><td>NVIDIA</td><td>Live</td></tr>
+<tr><td>Kakao</td><td>Live</td></tr>
+<tr><td>Apple</td><td>Expected, not yet live</td></tr>
+<tr><td>Microsoft, Meta, most open-weight models</td><td>Not covered — they run their own standards or none</td></tr>
+</table>
+<p class="src">Coverage per Google's October 7, 2026 announcement and launch reporting. ElevenLabs has committed to bringing SynthID to more of its generated audio.</p>
+
+<h2>The big catch: a negative result says almost nothing</h2>
+<div class="honest"><strong>The central honest caveat.</strong> The SynthID Detector is a watermark reader, not a lie detector. Google's own FAQ draws the line in plain words: "This is not a general AI detector." Here is what each result actually means:
+<br><br><strong>"Watermark detected"</strong> — strong evidence. The file came from one of the participating AI models. It means <em>made or edited</em> with an AI tool — the verdict can't tell the two apart, so a genuine photo retouched with an AI tool can come back positive. Never read a hit as "this is fake."
+<br><br><strong>"Watermark not detected"</strong> — almost no information. The file could be human-made, or AI-made by any model outside the SynthID club: most open-weight models, Microsoft's and Meta's separate watermarking standards, or anything where heavy editing, aggressive recompression, or regeneration degraded the signal. <strong>Never cite a miss as proof a file is real.</strong> Every launch tester — from PCWorld to MUO, which ran viral memes and suspicious clips through it and got mostly negatives — reached the same conclusion: a clean result proves nothing either way.</div>
+
+<h2>How to use the synthid detector for real</h2>
+<ol>
+<li><strong>Upload the highest-quality original you have.</strong> A screenshot of a screenshot of an AI photo may not carry enough signal to detect. The watermark survives light compression but degrades under heavy transforms.</li>
+<li><strong>Treat a hit as a lead, not a verdict.</strong> Positive = a participating model touched this file. Combine it with the source, context, and your eyes before drawing conclusions.</li>
+<li><strong>Treat a miss as the absence of evidence, not evidence of absence.</strong> If it matters — a scam clip, a news tip, a defamation claim — keep investigating with other methods.</li>
+<li><strong>Watch the free quota.</strong> Roughly ten checks per user per day, a limit Google says exists to stop anyone hammering the detector to train watermark-removal tools. Uploads are processed in real time and deleted right after; only a digital signature is kept for 24 hours to enforce the quota.</li>
+<li><strong>Check the URL.</strong> Type synthid.com yourself — copycat "AI detector" sites will appear around a launch like this.</li>
+</ol>
+
+<h2>The EU AI Act context: why watermarking matters now</h2>
+<p>The launch did not happen in a vacuum. Since <strong>August 2, 2026</strong>, the EU AI Act has required machine-readable marking of AI-generated media — watermarks like SynthID are the compliance layer that rule points at. That is why coverage keeps expanding: the more providers that adopt compatible provenance technology, the more a tool like this can see. The industry-wide standard is still voluntary and fragmented — images, audio, and video have different technical requirements — which is exactly why the detector covers four partners and not forty.</p>
+
+<h2>Gemini can now flag AI-generated video segments</h2>
+<p>Alongside the detector launch, the Gemini app gained a related ability: upload a video (up to 100MB / 90 seconds) and it can tell you <strong>which segments</strong> of the clip are AI-generated, not just whether the file as a whole carries a mark. Segment-level attribution is the direction this is all heading — from "is this file AI?" to "which part of it is."</p>
+
+<p><strong>DisclosureGuard</strong> — Ingenious AI's AI disclosure compliance platform — is built for this exact world: tracking what AI content you publish, what labeling each regulation requires, and closing the gap before a missing disclosure becomes a fine. <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20early%20access%20to%20DisclosureGuard">Get early access on WhatsApp</a>.</p>
+
+<div style="font-size:14px;color:#9aa7b8;margin-bottom:8px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div>
+
+<h2>Quiz: do you read SynthID results correctly?</h2>
+<div class="quiz-q" data-a="1"><p><strong>1.</strong> The SynthID Detector reports "watermark not detected" on a viral clip. The honest conclusion?</p>
+<button class="opt" data-v="0">The clip is proven real — the detector checked everything</button>
+<button class="opt" data-v="1">Only that no SynthID watermark was found; it could still be AI-made by a non-partner model</button>
+<button class="opt" data-v="2">Google flagged it as human-made with high confidence</button></div>
+<div class="quiz-q" data-a="2"><p><strong>2.</strong> Which of these is NOT covered by the SynthID Detector?</p>
+<button class="opt" data-v="0">Images from ChatGPT</button>
+<button class="opt" data-v="1">Video from Google Veo</button>
+<button class="opt" data-v="2">Audio from Microsoft's or Meta's own AI tools</button></div>
+<div class="quiz-q" data-a="0"><p><strong>3.</strong> A positive result on a photo means…</p>
+<button class="opt" data-v="0">The file was made or edited with a participating AI tool — it could be a genuine photo with AI retouching</button>
+<button class="opt" data-v="1">The entire photo is 100% AI-generated and fake</button>
+<button class="opt" data-v="2">The detector is malfunctioning — positives are always wrong</button></div>
+<div class="quiz-q" data-a="1"><p><strong>4.</strong> Google caps free use at roughly ten checks per day mainly to…</p>
+<button class="opt" data-v="0">Save server electricity costs</button>
+<button class="opt" data-v="1">Stop anyone hammering the detector to train watermark-removal tools</button>
+<button class="opt" data-v="2">Force users to buy Google One</button></div>
+<div class="quiz-q" data-a="2"><p><strong>5.</strong> A scammer's voice clip comes back "not detected." Your best move?</p>
+<button class="opt" data-v="0">Declare it authentic and share it</button>
+<button class="opt" data-v="1">Assume the detector is broken and ignore the tool entirely</button>
+<button class="opt" data-v="2">Treat the miss as absence of evidence and investigate with other methods</button></div>
+<p id="quiz-result"></p>
+<script>
+(function(){var total=document.querySelectorAll('.quiz-q').length,score=0,done=0;
+document.querySelectorAll('.quiz-q').forEach(function(q){var correct=parseInt(q.getAttribute('data-a'),10);
+q.querySelectorAll('.opt').forEach(function(b){b.addEventListener('click',function(){if(q.dataset.done)return;q.dataset.done='1';done++;
+var got=parseInt(b.getAttribute('data-v'),10);if(got===correct){score++;b.classList.add('correct');}else{b.classList.add('wrong');q.querySelectorAll('.opt')[correct].classList.add('correct');}
+if(done===total){var tier=score===5?'Watermark-wise: you read results like a forensic analyst.':(score>=3?'Careful checker: solid instincts — keep verifying.':'Over-truster — scroll back up and learn the limits.');
+document.getElementById('quiz-result').textContent='You scored '+score+'/'+total+'. '+tier;}});});});})();
+</script>
+<noscript><p><em>Enable JavaScript for the interactive quiz.</em></p></noscript>
+
+<h2>Frequently asked questions</h2>
+<details><summary>Is Google's SynthID Detector free?</summary><p>Yes. The SynthID Detector at synthid.com is free, with a cap of roughly ten checks per user per day. Sign-in with a Google, OpenAI, or Apple account is required.</p></details>
+<details><summary>Does a negative SynthID result mean a file is real?</summary><p>No. A "watermark not detected" result only means no SynthID watermark was found. The file could be human-made, or AI-made by any model outside the SynthID system — most open-weight models, plus Microsoft's and Meta's own watermarking standards, are not covered.</p></details>
+<details><summary>Which AI tools does the SynthID Detector cover?</summary><p>Google's own tools (Gemini, Nano Banana, Veo, Lyria, Flow, Imagen, ProducerAI, Vids) plus partner output from OpenAI, NVIDIA, and Kakao. Apple support is expected but not yet live.</p></details>
+<details><summary>Can the SynthID Detector tell if a whole file is AI-generated?</summary><p>No — and it can't distinguish made-by-AI from edited-by-AI. Its verdict reads "made or edited with Google AI." A genuine photo retouched with an AI tool can come back positive.</p></details>
+<details><summary>Can watermarks be removed to fool the detector?</summary><p>Heavy editing, aggressive recompression, and regeneration can weaken or strip the invisible signal, though Google designed it to survive common edits like cropping, filters, frame-rate changes, and compression. No watermark signal is completely robust.</p></details>
+
+<div class="xlinks"><strong>Related checks</strong><ul>
+<li><a href="deepfake-defense-kit.html">Deepfake Defense Kit</a> — a practical toolkit for spotting synthetic media</li>
+<li><a href="deepfake-incident-response-plan-generator.html">Deepfake Incident Response Plan Generator</a> — build your response plan before a deepfake hits</li>
+<li><a href="openai-exploitgym-huggingface-breach-check.html">OpenAI ExploitGym &amp; Hugging Face Breach</a> — when the AI supply chain itself gets hacked</li>
+</ul></div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
