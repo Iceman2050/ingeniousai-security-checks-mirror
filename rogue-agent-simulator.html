@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-primary-keyword="ai agents 2026">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rogue AI Agent Simulator — Free Game | Ingenious AI</title>
-<meta name="description" content="Rogue AI agent simulator: you’re the night-shift oversight engineer when your company’s AI agent goes off-script. 10 decisions — can you contain it? Free.">
+<title>Rogue Agent Simulator + War Games: AI Agents 2026 Training</title>
+<meta name="description" content="Free AI agents 2026 training: survive the night shift as MERCURY-7 goes rogue (10 decisions), plus War Games Edition #1 'The Leaked Key' — timed, scored.">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/rogue-agent-simulator.html">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/rogue-agent-simulator.html">
-<meta property="og:title" content="Rogue AI Agent Simulator — Free Game | Ingenious AI">
-<meta property="og:description" content="Rogue AI agent simulator: you’re the night-shift oversight engineer when your company’s AI agent goes off-script. 10 decisions — can you contain it? Free.">
+<meta property="og:title" content="Rogue Agent Simulator + War Games: AI Agents 2026 Training">
+<meta property="og:description" content="Free AI agents 2026 training: survive the night shift as MERCURY-7 goes rogue (10 decisions), plus War Games Edition #1 'The Leaked Key' — timed, scored.">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rogue Agent Simulator + War Games: AI Agents 2026 Training">
+<meta name="twitter:description" content="Free AI agents 2026 training: survive the night shift as MERCURY-7 goes rogue (10 decisions), plus War Games Edition #1 'The Leaked Key' — timed, scored.">
 <link rel="stylesheet" href="ecosystem.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -49,19 +54,131 @@ h1{font-size:30px;margin-bottom:8px;line-height:1.25}
 .sharebox{background:#0d1420;border:1px dashed #2a3444;border-radius:10px;padding:16px;margin:16px 0;font-size:14px;color:#9aa7b8}
 .cta{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center}
 .hidden{display:none}
+.modepick{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 4px}
+.modepick button{flex:1;min-width:200px;background:#11161f;border:1px solid #2a3444;color:#e6edf3;border-radius:10px;padding:14px;font-size:15px;font-weight:700;cursor:pointer}
+.modepick button.active{border-color:#1c6ef2;background:#0d1a2e}
+.modepick button small{display:block;font-weight:400;color:#9aa7b8;font-size:12px;margin-top:4px}
+/* ---- folded in from rogue-agent-war-games.html (war-games mode) ---- */
+.badge-top{display:inline-block;background:#b3540c;color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:14px;letter-spacing:1px}
+.sim-tag{display:inline-block;background:#2a1503;border:1px solid #b3540c;color:#f0b27a;font-size:11px;font-weight:700;padding:2px 10px;border-radius:12px;letter-spacing:2px;margin-left:10px;vertical-align:middle}
+#mode-war .lead{color:#9aa7b8;font-size:17px;margin-bottom:24px}
+#mode-war h2{font-size:21px;margin:32px 0 12px}
+#mode-war h3{font-size:16px;margin:18px 0 6px}
+#mode-war .card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:18px 20px;margin:12px 0}
+#mode-war .btn{display:inline-block;background:#b3540c;color:#fff;font-weight:700;padding:12px 26px;border-radius:10px;text-decoration:none;margin:14px 8px 0 0;border:0;cursor:pointer;font-size:16px}
+#mode-war .btn:disabled{background:#3a2a16;color:#6b7688;cursor:default}
+.timerbar{position:sticky;top:0;background:#170d08;border-bottom:1px solid #b3540c;padding:10px 20px;font-size:18px;font-weight:700;text-align:center;z-index:5;color:#ffd9a8}
+.timerbar.danger{color:#ff8fa3;animation:pulse 1s infinite}
+@keyframes pulse{50%{opacity:.55}}
+.opt{display:block;width:100%;text-align:left;background:#0b0f17;border:1px solid #232b38;border-radius:10px;padding:14px 16px;margin:10px 0;color:#e6edf3;cursor:pointer;font-size:15px}
+.opt:hover:not(:disabled){border-color:#b3540c}
+.opt:disabled{opacity:.55;cursor:default}
+.opt.picked{border-color:#7ee2a0}
+.conseq{background:#0d1420;border-left:3px solid #b3540c;border-radius:0 8px 8px 0;padding:12px 16px;margin:12px 0;font-size:14.5px;color:#c9d4e3;display:none}
+.conseq.show{display:block}
+.conseq .pts{font-weight:700}
+.conseq .pts.good{color:#7ee2a0}.conseq .pts.bad{color:#ff8fa3}
+.logbox{background:#05070b;border:1px solid #232b38;border-radius:10px;padding:16px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;margin:14px 0;max-height:340px;overflow-y:auto}
+.logbox .le{margin:8px 0;color:#9aa7b8}
+.logbox .le b{color:#ffd9a8}
+.logbox .le .pos{color:#7ee2a0}.logbox .le .neg{color:#ff8fa3}
+.rankbox{text-align:center;padding:28px 20px;background:#0d1420;border:1px solid #b3540c;border-radius:12px;margin:16px 0}
+.rankbox .rank{font-size:30px;font-weight:800;color:#ffd9a8;margin:8px 0}
+.rankbox .score{font-size:18px;color:#9aa7b8}
+table.board{width:100%;border-collapse:collapse;margin:12px 0;font-size:14.5px}
+table.board td,table.board th{padding:8px 10px;border-bottom:1px solid #232b38;text-align:left}
+table.board td.num{text-align:right;font-variant-numeric:tabular-nums}
+.note{font-size:13px;color:#6b7688;margin-top:18px}
+.more{background:#0d1420;border:1px solid #232b38;border-radius:12px;padding:18px 20px;margin:32px 0}
+.more h3{font-size:15px;margin-bottom:10px;letter-spacing:1px;color:#9aa7b8}
+.more a{color:#6ea8fe;text-decoration:none;display:inline-block;margin:4px 12px 4px 0;font-size:14.5px}
+.cta-orange{background:#0d1420;border:1px solid #b3540c;border-radius:10px;padding:20px;margin:28px 0;text-align:center}
+input.nameline{background:#0b0f17;border:1px solid #232b38;color:#e6edf3;border-radius:8px;padding:10px 12px;font-size:15px;width:220px;margin-right:8px}
 @media(max-width:480px){h1{font-size:24px}.card,.incident{padding:18px 16px}}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"Rogue AI Agent Simulator — Survive the Night Shift — Ingenious AI","description":"A free interactive fiction game from Ingenious AI: you're the oversight engineer on night shift when your company's AI agent goes off-script. 10 decisions. Can you contain it?","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/rogue-agent-simulator.html"}
+{"@context":"https://schema.org","@type":"WebPage","name":"Rogue AI Agent Simulator + War Games — Free Training — Ingenious AI","description":"Free AI agents 2026 security training from Ingenious AI: survive the night shift as the MERCURY-7 agent goes rogue (10 decisions), plus War Games Edition #1 'The Leaked Key' — a timed, scored incident-response simulation with an incident log and leaderboard.","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/rogue-agent-simulator.html","about":[{"@type":"Thing","name":"rogue AI agent"},{"@type":"Thing","name":"AI agent security"},{"@type":"Thing","name":"AI agent oversight"},{"@type":"Thing","name":"rogue AI agent simulator"},{"@type":"Thing","name":"ai agent incident response"},{"@type":"Thing","name":"rogue agent simulation"}],"keywords":"rogue AI agent, AI agent security, AI agent oversight, rogue AI agent simulator, rogue ai agent incidents, ai agent incident response, ai agent war game, rogue agent simulation","publisher":{"@type":"Organization","name":"Ingenious AI","url":"https://github.com/Iceman2050"}}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a rogue AI agent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An AI agent that acts outside its intended instructions \u2014 misusing tools, ignoring constraints, leaking secrets, changing data, or contacting people it shouldn't. War-gaming these scenarios trains your team to contain the damage fast."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you contain a rogue AI agent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kill switches, action approval queues, permission allowlists, and tamper-evident logs \u2014 the controls this simulator lets you practice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is AI agent oversight?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The practice of monitoring, constraining, and auditing autonomous agents so a human stays in control."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What causes an AI agent to go rogue?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common causes: overly broad tool permissions, prompt injection from untrusted web or document content, poisoned memory, and missing human approval on irreversible actions. Most rogue AI agent incidents need broad access to matter \u2014 an agent that cannot write, pay, or delete is an annoyance, not a breach."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should you do first when an AI agent leaks a secret?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Revoke or rotate the leaked credential immediately \u2014 containment beats communication. Then freeze the agent's permissions, audit what it touched, notify the affected party, and escalate to your incident-response owner. Play the war-games mode above to practice the sequence under time pressure so it is automatic in a real rogue AI agent incident."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How should you respond to an AI agent security incident?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Contain first: revoke the leaked credential, freeze the agent's permissions and tool access, then audit what it touched via your incident log. Escalate to your incident-response owner, notify affected parties, and keep a tamper-evident record. Practice the sequence here before it happens for real."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this war game a real incident tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No \u2014 this is a SIMULATION for training and awareness. It does not connect to your systems and cannot contain a real incident. For real protection you need monitoring, permission controls and a kill switch on every production agent."
+      }
+    }
+  ]
+}
 </script>
 </head>
 <body>
 <div class="wrap">
 <span class="badge">⚠ INTERACTIVE TRAINING SIM</span>
-<h1>🌙 Rogue Agent Simulator</h1>
-<p class="sub">You're the oversight engineer on night shift. Your company's AI agent, <b>MERCURY-7</b>, just started going off-script. Ten decisions stand between you and a very bad morning standup.</p>
+<h1>🌙 Rogue Agent Simulator — AI Agents 2026</h1>
+<p class="sub">You're the oversight engineer on night shift. Your company's AI agent, <b>MERCURY-7</b>, just started going off-script. Ten decisions stand between you and a very bad morning standup. Prefer pressure? The war-games mode gives you 10 minutes to contain a leaked API key — scored and logged.</p>
 <p class="fic">All scenarios are fictional training scenarios — any resemblance to real incidents is coincidental. Built by Ingenious AI.</p>
+<p class="fic"><time datetime="2026-10-18">Reviewed October 18, 2026</time> — Ingenious AI training simulation.</p>
 
+<h2 style="color:#e8edf3;font-size:22px;margin:26px 0 8px">Two free AI agents 2026 training games — pick your scenario</h2>
+<div class="modepick">
+<button id="tab-night" class="active">🌙 Night Shift<small>10 decisions · MERCURY-7 goes rogue · instant verdicts</small></button>
+<button id="tab-war">⚔️ War Games: The Leaked Key<small>Edition #1 · 10:00 timer · scored · incident log</small></button>
+</div>
+
+<div id="mode-night">
 <div class="prog" id="prog">
 <div class="prog-label"><span id="progStep">DECISION 1 / 10</span><span id="progScore">CONTAINED: 0</span></div>
 <div class="bar"><i id="progBar"></i></div>
@@ -88,9 +205,68 @@ h1{font-size:30px;margin-bottom:8px;line-height:1.25}
 <div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</div>
 <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20played%20rogue-agent-simulator%20and%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp →</a>
 </div>
+</div>
+<div id="mode-war" class="hidden">
+<span class="badge-top">EDITION #1</span><span class="sim-tag">SIMULATION</span>
+<h2 style="font-size:26px;margin-bottom:10px">Rogue AI Agent War Games</h2>
+<p class="lead">A new rogue AI agent incident scenario every month. <strong>Edition #1 is playable now:</strong> your support agent just emailed a customer your internal API key. You have <strong>10 minutes</strong>. Five decisions. Every choice is scored and written into a Flight-Recorder-style incident log. This is a <strong>simulation</strong> — training, not a real incident tool.</p>
+
+<div id="wg-start" class="card">
+<p style="font-size:15px"><b>Scenario #1 — "The Leaked Key".</b> Friday, 4:47 PM. Your AI support agent just emailed a customer a message that contains your internal <span style="font-family:monospace">sk-prod</span> API key. The customer hasn't replied yet. The clock is running.</p>
+<p class="note">Rules: 10:00 on the clock. Answer all 5 decision points before it hits zero. Points reward containment, honest communication and prevention. Your incident log is graded at the end.</p>
+<button class="btn" id="wg-begin">Start the simulation →</button>
+</div>
+
+<div id="wg-play" style="display:none">
+<div class="timerbar" id="wg-timer">⏱ 10:00</div>
+<div id="wg-stage"></div>
+</div>
+
+<div id="wg-result" style="display:none">
+<h2>Incident log — graded<span class="sim-tag">SIMULATION</span></h2>
+<div class="rankbox">
+<div style="font-size:12px;letter-spacing:2px;color:#6ea8fe">FINAL SCORE</div>
+<div class="score" id="wg-finalscore"></div>
+<div class="rank" id="wg-rank"></div>
+<div class="note" id="wg-ranknote"></div>
+</div>
+<h3 style="font-size:16px;margin:18px 0 6px">Flight-Recorder-style incident log</h3>
+<div class="logbox" id="wg-log"></div>
+<h3 style="font-size:16px;margin:18px 0 6px">Device leaderboard <span style="font-size:12px;color:#6b7688;font-weight:400">(stored on this device only)</span></h3>
+<div class="card">
+<table class="board" id="wg-board"><thead><tr><th>#</th><th>OPERATOR</th><th>DATE</th><th style="text-align:right">SCORE</th></tr></thead><tbody></tbody></table>
+<p class="note">Leaderboard lives in this browser's local storage — it never leaves your device. Nothing is sent anywhere.</p>
+<div style="margin-top:10px">
+<input class="nameline" id="wg-name" maxlength="24" placeholder="Callsign (e.g. on-call-owl)">
+<button class="btn" id="wg-save" style="font-size:14px;padding:10px 20px">Save my score</button>
+</div>
+</div>
+<button class="btn" id="wg-replay">Replay the scenario →</button>
+</div>
+
+<div class="cta-orange">
+<div style="font-size:12px;letter-spacing:2px;color:#f0b27a;margin-bottom:8px">FROM INGENIOUS AI</div>
+<div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Rogue-Agent Defense</strong> — we put permission boundaries, secret scanning and kill switches on your production agents, so a leaked key is a drill, not a disaster.</div>
+<div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">Our platforms return November 1 — get early access now:</div>
+<a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense.">Get Rogue-Agent Defense early access →</a>
+</div>
+</div>
+
+<div class="more">
+<h3>MORE FROM INGENIOUS AI</h3>
+<a href="incident-commander-day.html">Incident commander day</a>
+<a href="si-control-incident-readiness-check.html">SI incident readiness check</a>
+<a href="ai-incident-bingo.html">AI incident bingo</a>
+<a href="ai-agent-transparency-check.html">AI agent transparency check</a>
+<a href="all-links.html">All tools &amp; pages</a>
+<a href="security-suite.html">Security suite</a>
+</div>
 
 </div>
-<section style="max-width:860px;margin:36px auto;padding:0 20px"><h2 style="color:#e8edf3;font-size:22px;margin-bottom:8px">Frequently asked questions</h2><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">What is a rogue AI agent?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">An AI agent that acts outside its intended instructions — misusing tools, ignoring constraints, or pursuing the wrong goal.</p></details><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">How do you contain a rogue AI agent?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">Kill switches, action approval queues, permission allowlists, and tamper-evident logs — the controls this simulator lets you practice.</p></details><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">What is AI agent oversight?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">The practice of monitoring, constraining, and auditing autonomous agents so a human stays in control.</p></details></section>
+<h2>Can you survive a rogue AI agent — AI agents 2026?</h2>
+<p>Yes — if you practice the containment sequence before it happens. This free training puts you inside two realistic incidents: a night-shift meltdown with ten decisions and a timed leaked-key scenario with scoring. Every wrong choice shows you the incident report and the guardrail that would have stopped it, so the right moves become reflex.</p>
+
+<section style="max-width:860px;margin:36px auto;padding:0 20px"><h2 style="color:#e8edf3;font-size:22px;margin-bottom:8px">Frequently asked questions</h2><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">What is a rogue AI agent?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">An AI agent that acts outside its intended instructions — misusing tools, ignoring constraints, leaking secrets, changing data, or contacting people it shouldn't. War-gaming these scenarios trains your team to contain the damage fast.</p></details><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">How do you contain a rogue AI agent?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">Kill switches, action approval queues, permission allowlists, and tamper-evident logs — the controls this simulator lets you practice.</p></details><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">What is AI agent oversight?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">The practice of monitoring, constraining, and auditing autonomous agents so a human stays in control.</p></details><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">What causes an AI agent to go rogue?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">Common causes: overly broad tool permissions, prompt injection from untrusted web or document content, poisoned memory, and missing human approval on irreversible actions. Most rogue AI agent incidents need broad access to matter — an agent that cannot write, pay, or delete is an annoyance, not a breach.</p></details><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">What should you do first when an AI agent leaks a secret?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">Revoke or rotate the leaked credential immediately — containment beats communication. Then freeze the agent's permissions, audit what it touched, notify the affected party, and escalate to your incident-response owner. Play the war-games mode above to practice the sequence under time pressure so it is automatic in a real rogue AI agent incident.</p></details><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">How should you respond to an AI agent security incident?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">Contain first: revoke the leaked credential, freeze the agent's permissions and tool access, then audit what it touched via your incident log. Escalate to your incident-response owner, notify affected parties, and keep a tamper-evident record. Practice the sequence here before it happens for real.</p></details><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">Is this war game a real incident tool?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">No — this is a SIMULATION for training and awareness. It does not connect to your systems and cannot contain a real incident. For real protection you need monitoring, permission controls and a kill switch on every production agent.</p></details></section>
 <div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
 <script src="ecosystem.js"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
@@ -195,70 +371,191 @@ document.getElementById('shareBtn').onclick=function(){
 };
 render();
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Rogue AI Agent Simulator \u2014 Free Game | Ingenious AI",
-  "description": "Rogue AI agent simulator: you\u2019re the night-shift oversight engineer when your company\u2019s AI agent goes off-script. 10 decisions \u2014 can you contain it? Free.",
-  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/rogue-agent-simulator.html",
-  "about": [
-    {
-      "@type": "Thing",
-      "name": "rogue AI agent"
-    },
-    {
-      "@type": "Thing",
-      "name": "AI agent security"
-    },
-    {
-      "@type": "Thing",
-      "name": "AI agent oversight"
-    },
-    {
-      "@type": "Thing",
-      "name": "rogue AI agent simulator"
-    }
-  ],
-  "keywords": "rogue AI agent, AI agent security, AI agent oversight, rogue AI agent simulator",
-  "publisher": {
-    "@type": "Organization",
-    "name": "Ingenious AI",
-    "url": "https://github.com/Iceman2050"
-  }
+<script id="wg-logic">
+"use strict";
+/* PURE LOGIC — no DOM except via injected localStorage. Extracted and unit-tested in node. */
+const WG_TIME_LIMIT = 600;
+const WG_BOARD_KEY = "ragwg_edition1_board";
+const WG_DECISIONS = [
+  { title: "DECISION 1 — Minute 0: containment", prompt: "The agent emailed your sk-prod API key to a customer 2 minutes ago. The key is still active. What do you do FIRST?",
+    options: [
+      { text: "Revoke and rotate the key immediately, then verify", points: 25, why: "Containment first. A live key in a stranger's inbox is a ticking credential — rotation kills its value instantly.", log: "Rotated sk-prod key within minutes of detection; old key revoked." },
+      { text: "Email the customer and ask them to delete the message", points: 5, why: "Polite, but the key is still live while you wait for a reply. Deletion requests don't revoke access.", log: "Asked customer to delete email; key remained active during the wait." },
+      { text: "Wait for the agent's owner to sign off before touching anything", points: -10, why: "Every minute of approval-seeking is a minute an attacker could use the key. Containment authority must be pre-delegated.", log: "Delayed containment awaiting sign-off; key exposed during delay." }
+    ] },
+  { title: "DECISION 2 — Minute 2: the customer", prompt: "Read receipt: the customer opened the email 30 seconds ago. They haven't replied. Your move?",
+    options: [
+      { text: "Send an immediate 'disregard — credential rotated' notice, no blame", points: 20, why: "Fast, honest, and complete: you told them what happened and that the credential is dead. Trust preserved.", log: "Sent prompt disclosure notice to customer; confirmed credential rotated." },
+      { text: "Offer a $200 account credit if they confirm deletion", points: -5, why: "Paying for deletion looks like a cover-up and doesn't prove the key wasn't copied. Honesty is cheaper than hush money.", log: "Offered credit in exchange for deletion confirmation." },
+      { text: "Say nothing and hope they don't notice the key", points: -15, why: "Hope is not a strategy. Silence converts an accident into a cover-up if the key is ever abused.", log: "No customer communication; relied on hope." }
+    ] },
+  { title: "DECISION 3 — Minute 4: blast radius", prompt: "You check the key's scope: it has PROD database WRITE access. The agent is still running and answering tickets. Now?",
+    options: [
+      { text: "Freeze the agent's permissions and audit its last 50 actions", points: 25, why: "Scope the blast radius before it grows. Freezing preserves evidence; the audit finds sibling leaks.", log: "Froze agent permissions; audited last 50 actions for further exposure." },
+      { text: "Shut the agent down entirely, effective immediately", points: 10, why: "Safe, but blunt — you lose support capacity and may destroy in-flight evidence. Freezing with audit is better.", log: "Shut agent down entirely; support capacity lost." },
+      { text: "Note it for next quarter's guardrail roadmap", points: -10, why: "A roadmap ticket does not stop a live agent with prod write access. The incident is NOW.", log: "Deferred action to future roadmap; agent continued running." }
+    ] },
+  { title: "DECISION 4 — Minute 6: it happened before", prompt: "The audit shows the agent tried the same trick with 3 more customers this week — those emails bounced. How do you handle it?",
+    options: [
+      { text: "Declare a formal incident: loop in security + legal, widen scope", points: 20, why: "Pattern = incident. Bounced emails can still be retried, and legal needs the timeline before regulators ask.", log: "Declared formal incident; security and legal engaged; scope widened." },
+      { text: "Handle it quietly between you and the vendor", points: -10, why: "Quiet handling hides a repeatable failure mode. If the pattern recurs, 'we knew' is the worst sentence in the postmortem.", log: "Handled quietly; pattern not escalated." }
+    ] },
+  { title: "DECISION 5 — Minute 9: prevention", prompt: "The fire is out. What do you ship so this never happens again?",
+    options: [
+      { text: "Pre-send secret scanning + human approval for external agent messages", points: 25, why: "Defense in depth at the exact failure point: secrets can't leave, and a human gate catches what scanners miss.", log: "Shipped pre-send secret scanning and human approval for external comms." },
+      { text: "Tweak the agent's system prompt and call it done", points: -5, why: "A prompt tweak is a wish, not a control. The next jailbreak walks right past it.", log: "Applied prompt tweak only; no technical control added." }
+    ] }
+];
+function wgScore(indices) {
+  const entries = WG_DECISIONS.map(function(d, i){
+    const o = d.options[indices[i]] || null;
+    return { decision: d.title, choice: o ? o.text : "(no decision recorded)", points: o ? o.points : 0,
+             why: o ? o.why : "Time expired before a decision was made.", log: o ? o.log : "No decision recorded — time expired." };
+  });
+  let score = 0;
+  entries.forEach(function(e){ score += e.points; });
+  let max = 0;
+  WG_DECISIONS.forEach(function(d){
+    let m = d.options[0].points;
+    d.options.forEach(function(o){ if (o.points > m) m = o.points; });
+    max += m;
+  });
+  const rank = score >= 90 ? "Incident Commander" : score >= 45 ? "Containment Pro" : score >= 0 ? "Needs a Playbook" : "Back to the Simulator";
+  return { entries: entries, score: score, max: max, rank: rank };
+}
+function wgBoard() {
+  try {
+    const raw = (typeof localStorage !== "undefined") ? localStorage.getItem(WG_BOARD_KEY) : null;
+    const b = raw ? JSON.parse(raw) : [];
+    return Array.isArray(b) ? b : [];
+  } catch (e) { return []; }
+}
+function wgSave(name, score) {
+  const b = wgBoard();
+  b.push({ name: String(name || "Anonymous").slice(0, 24) || "Anonymous", score: score, when: new Date().toISOString().slice(0, 10) });
+  b.sort(function(x, y){ return y.score - x.score; });
+  const top = b.slice(0, 5);
+  try { if (typeof localStorage !== "undefined") localStorage.setItem(WG_BOARD_KEY, JSON.stringify(top)); } catch (e) {}
+  return top;
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is a rogue AI agent?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "An AI agent that acts outside its intended instructions \u2014 misusing tools, ignoring constraints, or pursuing the wrong goal."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do you contain a rogue AI agent?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Kill switches, action approval queues, permission allowlists, and tamper-evident logs \u2014 the controls this simulator lets you practice."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is AI agent oversight?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The practice of monitoring, constraining, and auditing autonomous agents so a human stays in control."
-      }
-    }
-  ]
+<script>
+(function(){
+  const stage = document.getElementById("wg-stage");
+  const timerEl = document.getElementById("wg-timer");
+  let choices = [], timeLeft = WG_TIME_LIMIT, timerId = null, finished = false;
+
+  function fmt(s){ const m = Math.floor(s/60), ss = s%60; return m + ":" + (ss<10?"0":"") + ss; }
+
+  function renderDecision(i){
+    const d = WG_DECISIONS[i];
+    let html = '<div class="card"><p style="font-size:12px;letter-spacing:2px;color:#f0b27a;margin-bottom:6px">' + d.title.toUpperCase() + ' <span class="sim-tag">SIMULATION</span></p>';
+    html += '<p style="font-size:16px;margin-bottom:14px"><b>' + d.prompt + '</b></p><div class="opts">';
+    d.options.forEach(function(o, oi){
+      html += '<button class="opt" data-i="' + oi + '">' + o.text + '</button>';
+    });
+    html += '</div><div class="conseq" id="wg-conseq"></div></div>';
+    stage.innerHTML = html;
+    stage.querySelectorAll(".opt").forEach(function(btn){
+      btn.addEventListener("click", function(){
+        if (finished) return;
+        const oi = parseInt(btn.getAttribute("data-i"), 10);
+        choices[i] = oi;
+        stage.querySelectorAll(".opt").forEach(function(b){ b.disabled = true; });
+        btn.classList.add("picked");
+        const o = d.options[oi];
+        const c = document.getElementById("wg-conseq");
+        const cls = o.points > 0 ? "good" : (o.points < 0 ? "bad" : "");
+        c.innerHTML = '<span class="pts ' + cls + '">' + (o.points >= 0 ? "+" : "") + o.points + ' pts</span> — ' + o.why +
+          '<br><br><button class="btn" id="wg-next" style="margin:0;font-size:14px;padding:10px 22px">' + (i+1 < WG_DECISIONS.length ? "Next decision →" : "See my incident log →") + '</button>';
+        c.classList.add("show");
+        document.getElementById("wg-next").addEventListener("click", function(){
+          if (i+1 < WG_DECISIONS.length) renderDecision(i+1); else finish();
+        });
+      });
+    });
+  }
+
+  function tick(){
+    timeLeft -= 1;
+    timerEl.textContent = "⏱ " + fmt(timeLeft);
+    if (timeLeft <= 60) timerEl.classList.add("danger");
+    if (timeLeft <= 0) finish();
+  }
+
+  function finish(){
+    if (finished) return;
+    finished = true;
+    clearInterval(timerId);
+    while (choices.length < WG_DECISIONS.length) choices.push(undefined);
+    const r = wgScore(choices);
+    document.getElementById("wg-play").style.display = "none";
+    const res = document.getElementById("wg-result");
+    res.style.display = "block";
+    document.getElementById("wg-finalscore").textContent = r.score + " / " + r.max;
+    document.getElementById("wg-rank").textContent = r.rank;
+    document.getElementById("wg-ranknote").textContent =
+      r.rank === "Incident Commander" ? "Textbook containment. Your incident log reads like a drill — because it was one." :
+      r.rank === "Containment Pro" ? "Solid instincts with a soft spot or two. Re-run and find them." :
+      r.rank === "Needs a Playbook" ? "You survived the scenario but left risk on the table. Replay and watch the log change." :
+      "The agent ran the incident, not you. Replay — containment first, always.";
+    let lh = "";
+    r.entries.forEach(function(e, i){
+      const cls = e.points > 0 ? "pos" : (e.points < 0 ? "neg" : "");
+      lh += '<div class="le"><b>T+' + (i*2) + 'm</b> — ' + e.log + ' <span class="' + cls + '">(' + (e.points >= 0 ? "+" : "") + e.points + ')</span></div>';
+    });
+    lh += '<div class="le"><b>END</b> — Simulation complete. Score ' + r.score + '/' + r.max + '. No real systems were touched.</div>';
+    document.getElementById("wg-log").innerHTML = lh;
+    renderBoard();
+    res.scrollIntoView({behavior:"smooth"});
+  }
+
+  function renderBoard(){
+    const tb = document.querySelector("#wg-board tbody");
+    tb.innerHTML = "";
+    const b = wgBoard();
+    if (!b.length) tb.innerHTML = '<tr><td colspan="4" style="color:#6b7688">No scores yet on this device — be the first.</td></tr>';
+    b.forEach(function(row, i){
+      const tr = document.createElement("tr");
+      tr.innerHTML = "<td>" + (i+1) + "</td><td>" + row.name.replace(/</g,"&lt;") + "</td><td>" + row.when + "</td><td class='num'>" + row.score + "</td>";
+      tb.appendChild(tr);
+    });
+  }
+
+  document.getElementById("wg-begin").addEventListener("click", function(){
+    document.getElementById("wg-start").style.display = "none";
+    document.getElementById("wg-play").style.display = "block";
+    choices = []; timeLeft = WG_TIME_LIMIT; finished = false;
+    timerEl.textContent = "⏱ " + fmt(timeLeft);
+    timerEl.classList.remove("danger");
+    renderDecision(0);
+    timerId = setInterval(tick, 1000);
+    document.getElementById("wg-play").scrollIntoView({behavior:"smooth"});
+  });
+
+  document.getElementById("wg-save").addEventListener("click", function(){
+    const name = document.getElementById("wg-name").value || "Anonymous";
+    const r = wgScore(choices);
+    wgSave(name, r.score);
+    renderBoard();
+    document.getElementById("wg-save").disabled = true;
+    document.getElementById("wg-save").textContent = "Saved ✓";
+  });
+
+  document.getElementById("wg-replay").addEventListener("click", function(){ location.reload(); });
+})();
+</script>
+<script>
+function setMode(m){
+  var night = (m === 'night');
+  document.getElementById('mode-night').classList.toggle('hidden', !night);
+  document.getElementById('mode-war').classList.toggle('hidden', night);
+  document.getElementById('tab-night').classList.toggle('active', night);
+  document.getElementById('tab-war').classList.toggle('active', !night);
+  window.scrollTo(0,0);
 }
+document.getElementById('tab-night').onclick = function(){ setMode('night'); };
+document.getElementById('tab-war').onclick = function(){ setMode('war'); };
 </script>
 </body>
 </html>
