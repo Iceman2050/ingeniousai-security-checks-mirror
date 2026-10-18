@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deepfake Incident Response Plan Generator (Free Tool)</title>
+<meta name="description" content="Deepfake incident response plan generator: 4 questions, one tailored downloadable plan — detection checklists, takedown templates, escalation, post-mortem.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Deepfake Incident Response Plan Generator (Free Tool)">
+<meta property="og:description" content="Answer 4 quick questions and get a tailored, downloadable deepfake incident response plan — detection, containment, takedown templates, escalation, post-mortem.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/deepfake-incident-response-plan-generator.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/deepfake-incident-response-plan-generator.html">
+<link rel="stylesheet" href="ecosystem.css">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Deepfake Incident Response Plan Generator (Free Tool)">
+<meta name="twitter:description" content="Answer 4 questions, get a tailored downloadable deepfake incident response plan: detection, containment, takedown templates, escalation, post-mortem.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d1a2e;border:1px solid #1c6ef2;color:#6ea8fe;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .blu{color:#6ea8fe}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card p{font-size:15px;color:#c9d4e3;margin-bottom:10px}
+.card ul,.card ol{margin:10px 0 10px 20px;font-size:14px;color:#c9d4e3}
+.card li{margin:8px 0}
+.card a{color:#6ea8fe}
+.note{font-size:14px;color:#9aa7b8}
+label.fl{display:block;font-size:14px;font-weight:600;color:#e6edf3;margin:16px 0 6px}
+input[type=text]{width:100%;background:#0d1219;border:1px solid #2a3342;color:#e6edf3;font-size:15px;padding:12px 14px;border-radius:8px}
+.radio-row{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}
+.radio-row label{border:1px solid #2a3342;border-radius:8px;padding:10px 14px;font-size:14px;cursor:pointer;background:#0d1219;color:#c9d4e3;font-weight:400;margin:0}
+.radio-row input{margin-right:8px;accent-color:#1c6ef2}
+.chk{display:block;font-size:14px;color:#c9d4e3;margin:8px 0;cursor:pointer}
+.chk input{margin-right:10px;accent-color:#1c6ef2}
+.bigbtn{display:block;width:100%;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:16px;border-radius:10px;border:0;cursor:pointer;margin:20px 0}
+.bigbtn:hover{background:#2f7ef7}
+.bigbtn.ghost{background:#1c2430;border:1px solid #2a3342;font-size:15px;padding:12px;margin:10px 0}
+#planOutput{display:none}
+#planOutput.show{display:block}
+.plansec{border:1px solid #232b38;border-radius:10px;background:#0d1219;padding:20px;margin:16px 0}
+.plansec h3{font-size:17px;color:#fff;margin-bottom:10px}
+.plansec h3 .n{display:inline-block;background:#1c6ef2;color:#fff;font-size:13px;font-weight:700;width:26px;height:26px;line-height:26px;text-align:center;border-radius:50%;margin-right:8px}
+.plansec p,.plansec li{font-size:14px;color:#c9d4e3}
+.plansec ul,.plansec ol{margin:8px 0 8px 20px}
+.plansec li{margin:6px 0}
+.tpl{background:#080b10;border:1px dashed #3a4556;border-radius:8px;padding:16px;margin:12px 0;font-size:13.5px;color:#dbe4f0;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.tpl .ph{color:#6ea8fe;font-weight:700}
+#planActions{display:none;gap:10px}
+#planActions.show{display:flex}
+#planActions .bigbtn{margin:10px 0}
+.moreblock{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0}
+.moreblock h2{font-size:18px;margin-bottom:10px;color:#fff}
+.moreblock a{color:#6ea8fe;text-decoration:none}
+.moreblock ul{margin:10px 0 10px 20px}
+.moreblock li{font-size:14px;margin:8px 0}
+.share{text-align:center;font-size:14px;color:#9aa7b8;margin:28px 0}
+.share a{color:#1c6ef2;margin:0 8px}
+.warnbox{background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a;margin:20px 0}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Deepfake Incident Response Plan Generator (Free Tool)",
+  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/deepfake-incident-response-plan-generator.html",
+  "description": "Answer 4 quick questions and get a tailored, downloadable deepfake incident response plan — detection, containment, takedown templates, escalation, post-mortem.",
+  "author": { "@type": "Organization", "name": "Ingenious AI" },
+  "datePublished": "2026-10-18"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What should a deepfake incident response plan include?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Five parts: detection and triage within the first hour, containment through platform takedown requests and evidence preservation, pre-written communications including a holding statement, clear escalation roles with timelines, and a post-mortem to close gaps." }
+    },
+    {
+      "@type": "Question",
+      "name": "How fast must platforms remove deepfake content?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Under the US TAKE IT DOWN Act, covered platforms must remove flagged intimate deepfakes as soon as possible and no later than 48 hours after a valid notice. The FTC began enforcing these platform requirements on May 19, 2026, with fines up to about $53,000 per violation." }
+    },
+    {
+      "@type": "Question",
+      "name": "Should a company respond publicly to a deepfake?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Only if the deepfake has reached public visibility. A pre-written holding statement lets you respond fast without amplifying the content — never link to or repost the fake. If it is contained to a few inboxes, quiet takedowns beat a public announcement." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the most important action in the first hour of a deepfake incident?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Preserve evidence and file takedown requests in parallel. Screenshot every instance with URLs and timestamps before content disappears, and submit platform removal requests immediately — the 48-hour clock under the TAKE IT DOWN Act starts when the platform receives your valid notice." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">FREE TOOL &middot; 90 SECONDS &middot; DOWNLOADABLE</div>
+<h1>Deepfake <span class="blu">Incident Response</span> Plan Generator</h1>
+<p class="lead">A deepfake of your CEO, your brand, or your product can be live on five platforms before lunch. Answer 4 questions and this page builds you a tailored deepfake incident response plan — detection, containment, takedown templates, escalation, post-mortem — ready to download and print.</p>
+
+<div class="direct-answer">
+<div class="card">
+<h2>What should a deepfake incident response plan include?</h2>
+<p>A deepfake incident response plan needs five parts: detection and triage within the first hour, containment through platform takedown requests and evidence preservation, pre-written communications including a holding statement, clear escalation roles with timelines, and a post-mortem to close gaps. Answer four questions below and this page generates a tailored plan you can download and print.</p>
+</div>
+</div>
+
+<div class="key-facts">
+<div class="card">
+<h2>Key facts</h2>
+<ul>
+<li><strong>US TAKE IT DOWN Act:</strong> covered platforms must publish a clear notice-and-removal process and remove flagged intimate deepfakes as soon as possible, no later than 48 hours after a valid request. The FTC began enforcing these platform requirements on May 19, 2026, with fines of up to about $53,088 per violation. <a href="https://blog.promise.legal/take-it-down-act-compliance-startups/" target="_blank" rel="noopener">Promise Legal</a> · <a href="https://www.caracomp.com/news/48-hour-deepfake-takedown-investigator-workflow" target="_blank" rel="noopener">Caracomp</a></li>
+<li><strong>Industry response timelines:</strong> mature programs target crisis-team activation within 1 hour, takedown requests filed within 2 hours, internal alerts within 3 hours, and a public holding statement within 4–6 hours if the incident is public. <a href="https://www.adaptivesecurity.com/blog/deepfake-incident-response" target="_blank" rel="noopener">Adaptive Security</a></li>
+<li><strong>The canonical warning:</strong> the Arup case — a finance worker transferred $25M after a video call with deepfaked executives — remains the textbook example of why verification and response plans must exist before the incident. <a href="https://www.adaptivesecurity.com/blog/deepfake-incident-response" target="_blank" rel="noopener">Adaptive Security</a></li>
+</ul>
+</div>
+</div>
+
+<div class="card" id="wizardCard">
+<h2>Build your plan — 4 questions</h2>
+<label class="fl" for="coName">1. Company / brand name</label>
+<input type="text" id="coName" placeholder="e.g. Acme Robotics" maxlength="80">
+<label class="fl">2. Company size</label>
+<div class="radio-row" id="sizeRow">
+<label><input type="radio" name="size" value="1-10" checked> 1–10 people</label>
+<label><input type="radio" name="size" value="11-50"> 11–50</label>
+<label><input type="radio" name="size" value="51-200"> 51–200</label>
+<label><input type="radio" name="size" value="200+"> 200+</label>
+</div>
+<label class="fl">3. Where would a deepfake of you spread? (check all that apply)</label>
+<div id="chRow">
+<label class="chk"><input type="checkbox" name="ch" value="X (Twitter)" checked> X (Twitter)</label>
+<label class="chk"><input type="checkbox" name="ch" value="TikTok" checked> TikTok</label>
+<label class="chk"><input type="checkbox" name="ch" value="Instagram / Facebook" checked> Instagram / Facebook</label>
+<label class="chk"><input type="checkbox" name="ch" value="YouTube" checked> YouTube</label>
+<label class="chk"><input type="checkbox" name="ch" value="WhatsApp / Telegram"> WhatsApp / Telegram</label>
+<label class="chk"><input type="checkbox" name="ch" value="News media"> News media</label>
+<label class="chk"><input type="checkbox" name="ch" value="Google / search results"> Google / search results</label>
+</div>
+<label class="fl">4. Spokesperson readiness</label>
+<div class="radio-row">
+<label><input type="radio" name="spk" value="trained" checked> Designated + media-trained</label>
+<label><input type="radio" name="spk" value="untrained"> Designated but untrained</label>
+<label><input type="radio" name="spk" value="none"> None yet</label>
+</div>
+<label class="fl">5. Legal counsel status</label>
+<div class="radio-row">
+<label><input type="radio" name="cns" value="inhouse" checked> In-house counsel</label>
+<label><input type="radio" name="cns" value="retainer"> External firm on retainer</label>
+<label><input type="radio" name="cns" value="none"> None</label>
+</div>
+<button class="bigbtn" id="genBtn">Generate my incident response plan</button>
+</div>
+
+<div id="planOutput"></div>
+<div id="planActions">
+<button class="bigbtn" id="dlBtn">Download plan (.txt)</button>
+<button class="bigbtn ghost" id="printBtn">Print plan</button>
+</div>
+<p class="note" id="planNote" style="display:none"><strong>Honest scope:</strong> this plan is generated from your answers — a starting framework, not a substitute for legal counsel or comms professionals. Have your lawyer review it (especially any public statement) before you ever need it, not during the crisis.</p>
+<p class="note"><strong>What this page does NOT do:</strong> it does not detect deepfakes, file takedowns for you, or replace professional legal/PR advice. It gives you the plan; executing it is your team's job.</p>
+
+<section style="margin:36px 0">
+<h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What should a deepfake incident response plan include?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Five parts: detection and triage within the first hour, containment through platform takedown requests and evidence preservation, pre-written communications including a holding statement, clear escalation roles with timelines, and a post-mortem to close gaps.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How fast must platforms remove deepfake content?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Under the US TAKE IT DOWN Act, covered platforms must remove flagged intimate deepfakes as soon as possible and no later than 48 hours after a valid notice. The FTC began enforcing these platform requirements on May 19, 2026, with fines up to about $53,000 per violation.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Should a company respond publicly to a deepfake?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Only if the deepfake has reached public visibility. A pre-written holding statement lets you respond fast without amplifying the content — never link to or repost the fake. If it is contained to a few inboxes, quiet takedowns beat a public announcement.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is the most important action in the first hour of a deepfake incident?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Preserve evidence and file takedown requests in parallel. Screenshot every instance with URLs and timestamps before content disappears, and submit platform removal requests immediately — the 48-hour clock under the TAKE IT DOWN Act starts when the platform receives your valid notice.</p></details>
+</section>
+
+<div class="moreblock">
+<h2>More from Ingenious AI</h2>
+<ul>
+<li><a href="deepfake-defense-kit.html">Deepfake Defense Kit &mdash; detection tools and checklists</a></li>
+<li><a href="incident-commander-day.html">Incident Commander Day &mdash; run your first tabletop exercise</a></li>
+<li><a href="agent-incident-tracker.html">Agent Incident Tracker &mdash; log AI incidents like a pro</a></li>
+<li><a href="si-incident-readiness-check.html">Incident Readiness Check &mdash; is your response plan real?</a></li>
+<li><a href="ai-incident-bingo.html">AI Incident Bingo &mdash; learn the failure patterns</a></li>
+<li><a href="security-suite.html">Ingenious AI Security Suite &mdash; all 11 platforms</a></li>
+<li><a href="all-links.html">All free checks &mdash; the full directory</a></li>
+</ul>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Ingenious AI builds 11 AI security platforms &mdash; disclosure compliance, rogue-agent defense, breach hunting, agent oversight, and more.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<div class="share">Share this tool:
+<a href="https://x.com/intent/post?text=Free%20deepfake%20incident%20response%20plan%20generator%20%E2%80%94%20answer%204%20questions%2C%20get%20a%20tailored%20downloadable%20plan&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/deepfake-incident-response-plan-generator.html" target="_blank" rel="noopener">X</a>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/deepfake-incident-response-plan-generator.html" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/deepfake-incident-response-plan-generator.html&title=Free%20deepfake%20incident%20response%20plan%20generator%20%E2%80%94%204%20questions%2C%20tailored%20downloadable%20plan" target="_blank" rel="noopener">Reddit</a>
+</div>
+<div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+</div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script>
+/* Pure logic first (node-testable), DOM wiring guarded at the bottom. */
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+
+var TAKEDOWN_ROUTES = {
+  "X (Twitter)": "Report via the post menu \u2192 misleading \u2192 manipulated media. Escalate impersonation of executives through X's impersonation form.",
+  "TikTok": "Report \u2192 misleading content / impersonation. TikTok's synthetic-media rules require disclosure; undisclosed realistic fakes of real people are removable.",
+  "Instagram / Facebook": "Report \u2192 false information or impersonation. Meta removes manipulated media likely to mislead; use the dedicated impersonation report for executive fakes.",
+  "YouTube": "File a privacy complaint (impersonation) or harassment report. YouTube's manipulated-content policy covers realistic synthetic depictions of identifiable people.",
+  "WhatsApp / Telegram": "Report and block in-app; ask recipients not to forward. Telegram: forward to @notoscam / abuse reports. Virality here is forward-driven \u2014 kill the forward chain early.",
+  "News media": "Contact the outlet's corrections desk immediately and follow with a legal letter. Offer a right-of-reply statement; newsroom pickup is what turns an incident into a crisis.",
+  "Google / search results": "Use Google's personal-content removal request tool for non-consensual or manipulated depictions, plus Bing's content-removal form. Search cleanup lags social \u2014 start it on day one."
+};
+var SIZE_ROLES = {
+  "1-10": ["Incident commander + spokesperson: Founder/CEO (single voice rule \u2014 nobody else posts)", "Takedowns + evidence: one designated team member", "Legal: external counsel on speed-dial (see counsel section)"],
+  "11-50": ["Incident commander: CEO or COO", "Takedown lead: ops/marketing lead files every platform request", "Spokesperson: CEO (single voice rule)", "Legal + finance looped in before any public statement"],
+  "51-200": ["Incident commander: COO or head of security", "Comms lead: owns holding statement + updates", "Legal: reviews every external word", "IT/security: evidence preservation + account lockdowns", "HR: internal comms if employees are targeted"],
+  "200+": ["Full crisis team: CEO, CFO, General Counsel, CISO, comms lead, investor relations", "Incident commander runs a 15-minute standup cadence", "External counsel + PR firm on standby", "Regulatory notifications where required (e.g. GDPR 72h where personal data is involved)"]
+};
+var SIZE_LABEL = {"1-10":"1\u201310 people","11-50":"11\u201350 people","51-200":"51\u2013200 people","200+":"200+ people"};
+var SPK_PLAN = {
+  trained: "<strong>Activate your trained spokesperson now.</strong> Single-voice rule: only they speak publicly. Three message pillars \u2014 (1) it's fabricated, (2) we're removing it, (3) verified updates come from [official channel]. Bridge every question back to a pillar; never speculate about attribution.",
+  untrained: "<strong>Crash-course before cameras:</strong> (1) designate ONE speaker today; (2) three message pillars \u2014 fabricated / removing it / updates at [official channel]; (3) bridge technique: answer, then return to a pillar; (4) never say 'no comment' \u2014 say what you CAN say; (5) no speculation about who made it. Book real media training this quarter.",
+  none: "<strong>Designate a spokesperson TODAY, before you need one.</strong> Default: the CEO/founder. Single-voice rule applies from minute one \u2014 well-meaning employees posting 'their take' is how incidents spiral. Add media training to this quarter's budget."
+};
+var CNS_PLAN = {
+  inhouse: "Loop in-house counsel <strong>before</strong> any public statement, takedown wording, or law-enforcement contact. Mark the post-mortem privileged and have counsel review it.",
+  retainer: "Call your retained firm immediately and pre-authorize incident spend. Have them review the holding statement and any platform legal-escalation letters before they go out.",
+  none: "You have no counsel \u2014 <strong>retain some before you publish anything.</strong> Use the holding statement below as a draft only until a lawyer reviews it. Document everything (timestamps, costs, screenshots): you may need it for claims later."
+};
+
+function generatePlan(inp){
+  var company = (inp.company || "").trim() || "[Your Company]";
+  var date = new Date().toISOString().slice(0, 10);
+  var channels = (inp.channels && inp.channels.length) ? inp.channels : ["X (Twitter)", "TikTok"];
+  var sections = [];
+
+  sections.push({ h: "Detection & triage \u2014 the first 60 minutes",
+    html: "<p>Someone must be able to <strong>declare</strong> a deepfake incident. That person is your incident commander (see Escalation). First-hour checklist:</p><ol>" +
+      "<li><strong>Confirm it's synthetic.</strong> Look for artifacts, check with the depicted person directly via a known channel \u2014 never trust the content itself. The Arup $25M fraud worked because nobody verified out-of-band.</li>" +
+      "<li><strong>Preserve evidence immediately.</strong> Screenshot every instance with visible URL + timestamp; save video files; record view/share counts. Content gets deleted \u2014 your evidence must not.</li>" +
+      "<li><strong>Map the spread.</strong> Search each of your risk channels (" + esc(channels.join(", ")) + ") for reposts, plus reverse-image search the key frames.</li>" +
+      "<li><strong>Freeze the blast radius.</strong> If money, credentials, or access are involved: freeze pending transactions and reset credentials on any account that interacted with the content.</li>" +
+      "<li><strong>Stand up monitoring.</strong> Google Alerts on company + executive names, social listening on your risk channels, and a shared incident doc from minute one.</li></ol>" });
+
+  var routes = channels.map(function(c){
+    return "<li><strong>" + esc(c) + ":</strong> " + esc(TAKEDOWN_ROUTES[c] || "Use the platform's reporting/abuse flow; document the report ID and timestamp.") + "</li>";
+  }).join("");
+  sections.push({ h: "Containment \u2014 takedowns and evidence",
+    html: "<p>File takedowns on <strong>every</strong> channel in parallel \u2014 content rarely stays where it first appeared. Keep a log: platform, URL, report ID, time filed.</p><ul>" + routes + "</ul>" +
+      "<p><strong>Know your clocks:</strong> under the US TAKE IT DOWN Act, covered platforms must remove flagged intimate deepfakes ASAP and no later than <strong>48 hours</strong> after a valid notice (FTC enforcement since May 19, 2026). Track each request's deadline; escalate misses to the FTC complaint process and counsel.</p>" +
+      "<p><strong>Do not</strong> publicly engage with the fake yet \u2014 no quote-posts, no linked rebuttals. Engagement is distribution.</p>" });
+
+  sections.push({ h: "Communications \u2014 say it once, say it right",
+    html: "<p>" + SPK_PLAN[inp.spokesperson] + "</p>" +
+      "<p><strong>Holding statement</strong> (publish only if the incident is publicly visible; have counsel review first):</p>" +
+      '<div class="tpl">[' + esc(company) + '] is aware of manipulated media circulating online that falsely depicts <span class="ph">[person / brand]</span>. This content is fabricated \u2014 it was not created or authorized by us.\n\nWe are working with the platforms to have it removed, have preserved evidence, and are considering all legal options. Verified updates will be posted at <span class="ph">[official channel, e.g. company blog / verified X account]</span>.\n\nWe ask the public and media not to share the manipulated content. \u2014 <span class="ph">[Spokesperson name, title]</span>, ' + esc(date) + '</div>' +
+      "<p><strong>Internal staff memo</strong> (send within 3 hours): what happened in two sentences, 'do not share or comment publicly', who to forward media inquiries to, and the verification rule \u2014 independently verify any unusual request, especially involving money or access.</p>" +
+      '<p><strong>Platform takedown request (email template):</strong></p><div class="tpl">Subject: Takedown request \u2014 manipulated media impersonating ' + esc(company) + ' (URLs enclosed)\n\nHello Trust &amp; Safety team,\n\nI am <span class="ph">[name, title]</span> at ' + esc(company) + '. The content at the URLs below is AI-generated manipulated media falsely depicting <span class="ph">[person / our brand]</span>. It was not authorized. Please remove it and any identical copies per your manipulated-media / impersonation policies.\n\nURLs:\n<span class="ph">[paste URLs, one per line]</span>\n\nEvidence preserved with timestamps. Contact: <span class="ph">[email + phone]</span>.\n\nThank you.</div>' });
+
+  var roles = SIZE_ROLES[inp.size].map(function(r){ return "<li>" + esc(r) + "</li>"; }).join("");
+  sections.push({ h: "Escalation \u2014 who does what, by when",
+    html: "<p><strong>Roles for a " + esc(SIZE_LABEL[inp.size] || inp.size) + " company:</strong></p><ul>" + roles + "</ul>" +
+      "<p><strong>Timeline targets:</strong> team activated within <strong>1 hour</strong> of confirmation \u00b7 takedown requests filed within <strong>2 hours</strong> \u00b7 internal alert within <strong>3 hours</strong> \u00b7 public holding statement within <strong>4\u20136 hours</strong> (only if public) \u00b7 law-enforcement contact within 2 hours if there is financial loss (FBI IC3 / local cybercrime unit).</p>" +
+      "<p><strong>Legal:</strong> " + CNS_PLAN[inp.counsel] + "</p>" });
+
+  sections.push({ h: "Post-mortem \u2014 within 5 business days",
+    html: "<p>Run a blameless post-mortem while memories are fresh. Answer in writing:</p><ol>" +
+      "<li>How did we first learn about it, and how long did detection take?</li>" +
+      "<li>Which takedowns worked, which stalled, and why?</li>" +
+      "<li>Did anyone act on the fake (payments, access, shares)? What stopped or didn't stop them?</li>" +
+      "<li>What do we change: monitoring, verification rules, templates, training, insurance coverage?</li></ol>" +
+      "<p><strong>Prevention checklist going forward:</strong> out-of-band verification rule for high-risk requests \u00b7 limits on recording/licensing executive likeness \u00b7 pre-drafted templates (you now have them) \u00b7 train fund-movers and public-facing staff \u00b7 review cyber/crime/E&amp;O coverage for synthetic-media gaps.</p>" });
+
+  return { company: company, date: date, sections: sections };
+}
+
+function planToText(plan){
+  var out = [];
+  out.push("DEEPFAKE INCIDENT RESPONSE PLAN");
+  out.push("Prepared for: " + plan.company + " | Generated: " + plan.date + " | Source: Ingenious AI (ingeniousai-security-checks-mirror)");
+  out.push("");
+  out.push("HONEST SCOPE: generated from your answers \u2014 a starting framework, not legal or PR advice. Have counsel review before use.");
+  out.push("");
+  plan.sections.forEach(function(s, i){
+    out.push("=".repeat(64));
+    out.push((i + 1) + ". " + s.h.toUpperCase());
+    out.push("=".repeat(64));
+    var txt = s.html.replace(/<div class="tpl">(.*?)<\/div>/gs, function(m, t){
+        return "\n--- TEMPLATE ---\n" + t.replace(/<[^>]+>/g, "") + "\n--- END TEMPLATE ---\n";
+      });
+    txt = txt.replace(/<li>/g, "\n- ").replace(/<\/?(p|ul|ol|strong|div)[^>]*>/g, "").replace(/<[^>]+>/g, "");
+    txt = txt.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"');
+    txt = txt.replace(/\n{3,}/g, "\n\n").trim();
+    out.push(txt);
+    out.push("");
+  });
+  return out.join("\n");
+}
+
+function readWizard(){
+  function val(id){ var el = document.getElementById(id); return el ? el.value : ""; }
+  function checked(name){
+    var els = document.querySelectorAll('input[name="' + name + '"]:checked');
+    var out = [];
+    for (var i = 0; i < els.length; i++) out.push(els[i].value);
+    return out;
+  }
+  function radio(name){
+    var els = document.querySelectorAll('input[name="' + name + '"]:checked');
+    return els.length ? els[0].value : "";
+  }
+  return { company: val("coName"), size: radio("size") || "1-10", channels: checked("ch"),
+           spokesperson: radio("spk") || "trained", counsel: radio("cns") || "inhouse" };
+}
+function renderPlan(plan){
+  var html = '<div class="card"><h2>Your deepfake incident response plan</h2>' +
+    '<p class="note">Prepared for <strong>' + esc(plan.company) + '</strong> \u00b7 ' + esc(plan.date) + ' \u00b7 Review with counsel before you need it.</p></div>';
+  plan.sections.forEach(function(s, i){
+    html += '<div class="plansec"><h3><span class="n">' + (i + 1) + '</span>' + esc(s.h) + '</h3>' + s.html + '</div>';
+  });
+  return html;
+}
+function downloadPlan(){
+  var plan = generatePlan(readWizard());
+  var text = planToText(plan);
+  var blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "deepfake-incident-response-plan.txt";
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(function(){ document.body.removeChild(a); }, 500);
+}
+/* DOM wiring (browser only) */
+if (typeof window !== "undefined" && typeof document !== "undefined" && document.getElementById) {
+  document.getElementById("genBtn").addEventListener("click", function(){
+    var plan = generatePlan(readWizard());
+    var out = document.getElementById("planOutput");
+    out.innerHTML = renderPlan(plan);
+    out.classList.add("show");
+    document.getElementById("planActions").classList.add("show");
+    document.getElementById("planNote").style.display = "block";
+    out.scrollIntoView({ behavior: "smooth" });
+  });
+  document.getElementById("dlBtn").addEventListener("click", downloadPlan);
+  document.getElementById("printBtn").addEventListener("click", function(){
+    var plan = generatePlan(readWizard());
+    var w = window.open("", "_blank");
+    if (!w) { alert("Popup blocked \u2014 please allow popups to print, or use Download instead."); return; }
+    w.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Deepfake Incident Response Plan \u2014 ' +
+      plan.company.replace(/</g, "") + '</title><style>body{font-family:Georgia,serif;max-width:720px;margin:40px auto;padding:0 20px;color:#111;line-height:1.6}h1{font-size:24px}h2{font-size:18px;margin-top:28px;border-bottom:2px solid #111;padding-bottom:6px}pre{background:#f4f4f4;border:1px dashed #999;padding:14px;white-space:pre-wrap;font-size:13px}</style></head><body><h1>Deepfake Incident Response Plan \u2014 ' +
+      plan.company.replace(/</g, "") + '</h1><p>Generated ' + plan.date + ' \u00b7 Review with counsel before use.</p>' +
+      plan.sections.map(function(s){ return "<h2>" + s.h.replace(/</g, "") + "</h2>" + s.html.replace(/class="tpl"/g, ''); }).join("") +
+      "</body></html>");
+    w.document.close();
+    w.focus();
+    w.print();
+  });
+}
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
