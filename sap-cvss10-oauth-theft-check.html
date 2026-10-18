@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAP Vulnerability Check: CVSS 10 OAuth2 Credential Theft</title>
+<meta name="description" content="sap vulnerability alert: SAP disclosed a critical CVSS 10 flaw in its Cloud SDK for Python enabling OAuth2 credential theft. Free 60-second triage + patch plan.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/sap-cvss10-oauth-theft-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="SAP Vulnerability Check: CVSS 10 OAuth2 Credential Theft">
+<meta property="og:description" content="sap vulnerability alert: SAP disclosed a critical CVSS 10 flaw in its Cloud SDK for Python enabling OAuth2 credential theft. Free 60-second triage + patch plan.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/sap-cvss10-oauth-theft-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SAP Vulnerability Check: CVSS 10 OAuth2 Credential Theft">
+<meta name="twitter:description" content="sap vulnerability alert: SAP disclosed a critical CVSS 10 flaw in its Cloud SDK for Python enabling OAuth2 credential theft. Free 60-second triage + patch plan.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#3b0d0d;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.verdict.info{border-color:#1c6ef2;background:#0d1420}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.qrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #232b38}
+.qrow:last-of-type{border-bottom:none}
+.qtext{font-size:15px;color:#e6edf3}
+.qopts{white-space:nowrap}
+.qopts label{margin-left:10px;font-size:14px;color:#9aa7b8;cursor:pointer}
+.qopts input{margin-right:4px}
+button.calc{background:#1c6ef2;color:#fff;border:none;font-weight:700;font-size:16px;padding:14px 28px;border-radius:10px;cursor:pointer;margin-top:16px;width:100%}
+button.calc:hover{background:#2f7ef7}
+#result{margin-top:18px}
+.fixitem{font-size:14px;color:#e6c26a;margin:6px 0}
+.src{font-size:13px;color:#6b7688}
+.src a{color:#6ea8fe;text-decoration:none}
+.xlinks{background:#0d1420;border:1px solid #1c6ef2;border-radius:12px;padding:24px;margin:28px 0}
+.xlinks h2{font-size:20px;color:#fff;margin-bottom:10px}
+.xlinks ul{list-style:none;margin:0;padding:0}
+.xlinks li{margin:9px 0;font-size:15px}
+.xlinks a{color:#6ea8fe;text-decoration:none;font-weight:600}
+.xlinks a:hover{text-decoration:underline}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the SAP Cloud SDK for Python vulnerability?","acceptedAnswer":{"@type":"Answer","text":"In October 2026, SAP disclosed a critical vulnerability in its Cloud SDK for Python, rated CVSS 10 — the maximum severity. The flaw allows OAuth2 credential theft: attackers can steal authentication tokens and impersonate the application."}},{"@type":"Question","name":"What is the CVE ID for this SAP vulnerability?","acceptedAnswer":{"@type":"Answer","text":"The verified reports available at publication did not include a CVE ID. We have not invented one. Check SAP's security advisories for the latest identifier before referencing this flaw in tickets or change logs."}},{"@type":"Question","name":"What should I do if I run the SAP Cloud SDK for Python?","acceptedAnswer":{"@type":"Answer","text":"Upgrade to the fixed release SAP published, rotate all OAuth2 client secrets and tokens issued before the disclosure, scrub logs and shell history for embedded tokens, and monitor token endpoints for anomalous use."}},{"@type":"Question","name":"Can this checker scan my system for the vulnerability?","acceptedAnswer":{"@type":"Answer","text":"No. This is an exposure triage self-assessment, not a vulnerability scanner. It scores how exposed you are based on your answers; verifying your installed SDK version against SAP's advisory is the definitive check."}}]}
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"SAP Vulnerability Check: CVSS 10 OAuth2 Credential Theft","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/sap-cvss10-oauth-theft-check.html","description":"sap vulnerability alert: SAP disclosed a critical CVSS 10 flaw in its Cloud SDK for Python enabling OAuth2 credential theft. Free 60-second triage + patch plan.","about":{"@type":"Thing","name":"SAP vulnerability"},"keywords":["sap vulnerability","SAP Cloud SDK for Python","CVSS 10","OAuth2 credential theft"],"provider":{"@type":"Organization","name":"Ingenious AI"}}</script>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<div class="badge">SAP VULNERABILITY &mdash; CVSS 10 (MAXIMUM SEVERITY) &mdash; OCT 2026</div>
+<h1><span class="red">SAP vulnerability</span> check: CVSS 10 OAuth2 credential theft</h1>
+<p class="lead">SAP disclosed a critical sap vulnerability in its Cloud SDK for Python in October 2026 — rated <strong>CVSS 10</strong>, the maximum possible severity. The flaw allows <strong>OAuth2 credential theft</strong>: attackers can steal authentication tokens and impersonate your application. This free 60-second triage tells you whether you're exposed and hands you the exact remediation order. No signup, nothing installed.</p>
+
+<div class="card">
+<h2>Key facts</h2>
+<ul>
+<li><strong>CVSS 10 — maximum severity.</strong> SAP disclosed a critical flaw in its Cloud SDK for Python in October 2026.</li>
+<li><strong>OAuth2 credential theft.</strong> The flaw allows attackers to steal authentication tokens and impersonate the affected application.</li>
+<li><strong>No CVE ID in the verified reports.</strong> The disclosure we verified did not publish a CVE identifier — we will not invent one. Check SAP's security advisories for the latest identifier.</li>
+<li><strong>Fix order matters:</strong> upgrade to SAP's fixed release first, then rotate every OAuth2 credential issued before the disclosure, then scrub logs for embedded tokens.</li>
+</ul>
+<p class="src">Source: SAP — <a href="https://www.sap.com/products/security" target="_blank" rel="noopener">sap.com/products/security</a> (vendor security page; check for the official advisory and the fixed release).</p>
+</div>
+
+<div class="card">
+<h2>What is the SAP Cloud SDK for Python CVSS 10 flaw?</h2>
+<p>SAP disclosed a critical vulnerability rated CVSS 10 in its Cloud SDK for Python in October 2026. The flaw allows OAuth2 credential theft — attackers can steal tokens and impersonate the application. No CVE ID was published in the verified reports. Any team running the SDK should upgrade to SAP's fixed release and rotate OAuth2 credentials immediately.</p>
+</div>
+
+<div class="card">
+<h2>The 60-second exposure triage</h2>
+<p class="note">Answer for the environment that runs SAP Cloud SDK for Python. If you don't run the SDK at all, the triage will tell you you're out of scope.</p>
+<div class="qrow"><div class="qtext">1. Do you run SAP Cloud SDK for Python anywhere (production, staging, or dev)?</div><div class="qopts"><label><input type="radio" name="q0" value="y">Yes</label><label><input type="radio" name="q0" value="n">No</label></div></div>
+<div class="qrow"><div class="qtext">2. Do you know the exact SDK version deployed in each environment?</div><div class="qopts"><label><input type="radio" name="q1" value="y">Yes</label><label><input type="radio" name="q1" value="n">No</label></div></div>
+<div class="qrow"><div class="qtext">3. Have you upgraded to the fixed release SAP published?</div><div class="qopts"><label><input type="radio" name="q2" value="y">Yes</label><label><input type="radio" name="q2" value="n">No</label></div></div>
+<div class="qrow"><div class="qtext">4. Are OAuth2 access and refresh tokens kept out of app code, logs, and shell history?</div><div class="qopts"><label><input type="radio" name="q3" value="y">Yes</label><label><input type="radio" name="q3" value="n">No</label></div></div>
+<div class="qrow"><div class="qtext">5. Have you rotated OAuth2 client secrets and tokens issued before the disclosure?</div><div class="qopts"><label><input type="radio" name="q4" value="y">Yes</label><label><input type="radio" name="q4" value="n">No</label></div></div>
+<div class="qrow"><div class="qtext">6. Do you monitor token endpoints for anomalous credential use?</div><div class="qopts"><label><input type="radio" name="q5" value="y">Yes</label><label><input type="radio" name="q5" value="n">No</label></div></div>
+<button class="calc" id="calc">Check my exposure</button>
+<div id="result"></div>
+</div>
+
+<div class="card">
+<h2>What this check does NOT do</h2>
+<p class="note">This page is an honest exposure triage, not a vulnerability scanner. It cannot scan your systems, cannot determine your installed SDK version, and cannot confirm whether credentials were actually stolen. It scores your exposure and tells you the remediation order — the definitive check is comparing your installed version against SAP's official advisory. And it will not show you a CVE ID: none was published in the verified reports, and we refuse to invent one.</p>
+</div>
+
+<div class="card">
+<h2>Why OAuth2 theft is the worst-case outcome</h2>
+<ul>
+<li><strong>Tokens are the keys.</strong> A stolen OAuth2 token impersonates the application with its full permissions — the attacker doesn't need your password.</li>
+<li><strong>Patching without rotating is half a fix.</strong> If tokens were exfiltrated before you upgraded, the attacker keeps access until every pre-disclosure credential is dead.</li>
+<li><strong>CVSS 10 means total compromise.</strong> The maximum score is reserved for flaws with low attack complexity and full impact on confidentiality, integrity, and availability.</li>
+<li><strong>Logs are a second crime scene.</strong> Tokens embedded in application logs, CI output, or shell history are credential stores too — scrub them as part of the response.</li>
+</ul>
+</div>
+
+<div class="xlinks">
+<h2>More from Ingenious AI</h2>
+<ul>
+<li>&#128202; <a href="patch-tuesday-triage-calculator.html">Patch Tuesday Triage Calculator</a> — score and prioritize this month's patches</li>
+<li>&#128680; <a href="beyondtrust-zero-day-exposure-check.html">BeyondTrust Zero-Day Exposure Check</a> — triage another actively exploited flaw</li>
+<li>&#128657; <a href="si-incident-readiness-check.html">SI Incident Readiness Check</a> — is your team ready when CVSS 10 lands?</li>
+<li>&#128737; <a href="ghostaction-ci-audit.html">GhostAction CI Audit</a> — audit the CI that ships your credentials</li>
+<li>&#127760; <a href="mark-of-the-web-bypass-check.html">Mark-of-the-Web Bypass Check</a> — are downloaded files slipping past your defenses?</li>
+<li>&#128736; <a href="security-suite.html">Explore the full Ingenious AI Security Suite</a> — 11 platforms, one security posture</li>
+</ul>
+<p class="note">&#128279; <a href="all-links.html" style="color:#6ea8fe">Browse everything Ingenious AI has built</a></p>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Ingenious AI builds 11 AI security platforms &mdash; disclosure compliance, rogue-agent defense, breach hunting, agent oversight, and more.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=SAP%20disclosed%20a%20CVSS%2010%20flaw%20in%20its%20Cloud%20SDK%20for%20Python%20%E2%80%94%20OAuth2%20credential%20theft%20%E2%80%94%20free%2060-sec%20triage%20%2B%20patch%20plan&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/sap-cvss10-oauth-theft-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/sap-cvss10-oauth-theft-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/sap-cvss10-oauth-theft-check.html&title=SAP%20CVSS%2010%20OAuth2%20Credential%20Theft%20Triage" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<div class="card">
+<h2>Frequently asked questions</h2>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">What is the SAP Cloud SDK for Python vulnerability?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">In October 2026, SAP disclosed a critical vulnerability in its Cloud SDK for Python, rated CVSS 10 — the maximum severity. The flaw allows OAuth2 credential theft: attackers can steal authentication tokens and impersonate the application.</p></details>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">What is the CVE ID for this SAP vulnerability?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">The verified reports available at publication did not include a CVE ID. We have not invented one. Check SAP's security advisories for the latest identifier before referencing this flaw in tickets or change logs.</p></details>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">What should I do if I run the SAP Cloud SDK for Python?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">Upgrade to the fixed release SAP published, rotate all OAuth2 client secrets and tokens issued before the disclosure, scrub logs and shell history for embedded tokens, and monitor token endpoints for anomalous use.</p></details>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">Can this checker scan my system for the vulnerability?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">No. This is an exposure triage self-assessment, not a vulnerability scanner. It scores how exposed you are based on your answers; verifying your installed SDK version against SAP's advisory is the definitive check.</p></details>
+</div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+<script>
+const QUIZ=[
+{w:25,fix:"Inventory SAP Cloud SDK for Python everywhere — including staging and dev. Unpatched copies count."},
+{w:10,fix:"Record the exact SDK version in every environment; you can't verify against the advisory without it."},
+{w:25,fix:"Upgrade to the fixed release SAP published — this is the single highest-weight control."},
+{w:15,fix:"Move OAuth2 tokens into a secret manager; scrub app code, CI output, logs, and shell history for embedded tokens."},
+{w:15,fix:"Rotate every OAuth2 client secret and token issued before the disclosure — patching without rotating is half a fix."},
+{w:10,fix:"Alert on anomalous token issuance and use at your token endpoints; watch for replay of pre-rotation credentials."}
+];
+const THRESH={high:80,mid:45};
+function scoreQuiz(a){
+var s=0,m=[];
+QUIZ.forEach(function(q,i){if(a[i]){s+=q.w}else{m.push(i);}});
+if(!a[0]){return{score:s,verdict:"NOT IN SCOPE",misses:[]};}
+var v=s>=THRESH.high?"COVERED":(s>=THRESH.mid?"AT-RISK":"EXPOSED");
+return{score:s,verdict:v,misses:m};
+}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+(function(){
+if(typeof document==="undefined")return;
+var btn=document.getElementById("calc");
+if(!btn)return;
+btn.addEventListener("click",function(){
+var a=QUIZ.map(function(_,i){
+var sel=document.querySelector('input[name="q'+i+'"]:checked');
+return sel&&sel.value==="y";
+});
+var r=scoreQuiz(a);
+var cls=r.verdict==="COVERED"?"safe":(r.verdict==="AT-RISK"?"warn":(r.verdict==="NOT IN SCOPE"?"info":""));
+var sub=r.verdict==="NOT IN SCOPE"?" — you answered that you don't run the SAP Cloud SDK for Python. Nothing to patch here.":"";
+var html='<div class="verdict '+cls+'"><strong>Verdict: '+r.verdict+'</strong>'+sub+" Exposure score "+r.score+"/100.</div>";
+if(r.misses.length&&r.verdict!=="NOT IN SCOPE"){
+html+="<h3>Your remediation checklist</h3>";
+r.misses.forEach(function(i){html+='<p class="fixitem">&#9654; '+esc(QUIZ[i].fix)+"</p>";});
+}else if(r.verdict==="COVERED"){
+html+='<div class="verdict safe"><strong>All controls in place.</strong> Keep monitoring SAP advisories for the CVE ID and any follow-up fixes.</div>';
+}
+document.getElementById("result").innerHTML=html;
+});
+})();
+</script>
+</body>
+</html>

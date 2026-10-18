@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NPM Supply Chain Attack: Is Your Dependency Tree Exposed?</title>
+<meta name="description" content="npm supply chain attack wave: 1,500+ packages exposed in one week — including MALFEX 'imgdecode' hiding a shellcode loader. Free 60-second exposure check.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/npm-supply-chain-1500-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="NPM Supply Chain Attack: Is Your Dependency Tree Exposed?">
+<meta property="og:description" content="npm supply chain attack wave: 1,500+ packages exposed in one week — including MALFEX 'imgdecode' hiding a shellcode loader. Free 60-second exposure check.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/npm-supply-chain-1500-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NPM Supply Chain Attack: Is Your Dependency Tree Exposed?">
+<meta name="twitter:description" content="npm supply chain attack wave: 1,500+ packages exposed in one week — including MALFEX 'imgdecode' hiding a shellcode loader. Free 60-second exposure check.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#3b0d0d;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.qrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #232b38}
+.qrow:last-of-type{border-bottom:none}
+.qtext{font-size:15px;color:#e6edf3}
+.qopts{white-space:nowrap}
+.qopts label{margin-left:10px;font-size:14px;color:#9aa7b8;cursor:pointer}
+.qopts input{margin-right:4px}
+button.calc{background:#1c6ef2;color:#fff;border:none;font-weight:700;font-size:16px;padding:14px 28px;border-radius:10px;cursor:pointer;margin-top:16px;width:100%}
+button.calc:hover{background:#2f7ef7}
+#result{margin-top:18px}
+.fixitem{font-size:14px;color:#e6c26a;margin:6px 0}
+.src{font-size:13px;color:#6b7688}
+.src a{color:#6ea8fe;text-decoration:none}
+.xlinks{background:#0d1420;border:1px solid #1c6ef2;border-radius:12px;padding:24px;margin:28px 0}
+.xlinks h2{font-size:20px;color:#fff;margin-bottom:10px}
+.xlinks ul{list-style:none;margin:0;padding:0}
+.xlinks li{margin:9px 0;font-size:15px}
+.xlinks a{color:#6ea8fe;text-decoration:none;font-weight:600}
+.xlinks a:hover{text-decoration:underline}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the October 2026 npm supply chain attack wave?","acceptedAnswer":{"@type":"Answer","text":"More than 1,500 npm packages were exposed in a single week ending October 17, 2026 — a wave of compromised, typosquat, and outright malicious packages reported across the ecosystem that week."}},{"@type":"Question","name":"What is the MALFEX 'imgdecode' package?","acceptedAnswer":{"@type":"Answer","text":"imgdecode is a MALFEX-labeled malicious npm package reported by The Hacker News on October 17, 2026. It hides a shellcode loader inside a Windows native addon, so the malicious code runs at install time — not when the package's JavaScript is imported."}},{"@type":"Question","name":"How do lockfiles protect against npm supply chain attacks?","acceptedAnswer":{"@type":"Answer","text":"A lockfile pins every dependency — direct and transitive — to an exact resolved version and integrity hash. Without one, a fresh install can silently pull a newer, compromised release published after your last good install."}},{"@type":"Question","name":"Can this checker detect malware in my node_modules?","acceptedAnswer":{"@type":"Answer","text":"No — and it says so honestly. This is a hygiene self-assessment, not a scanner. It scores the controls (lockfiles, pinning, audits, script-blocking) that determine how exposed your tree is; to scan installed code, use npm audit, Socket, or a dedicated supply-chain scanner."}}]}
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"NPM Supply Chain Attack: Is Your Dependency Tree Exposed?","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/npm-supply-chain-1500-check.html","description":"npm supply chain attack wave: 1,500+ packages exposed in one week — including MALFEX 'imgdecode' hiding a shellcode loader. Free 60-second exposure check.","about":{"@type":"Thing","name":"npm supply chain attack"},"keywords":["npm supply chain attack","npm supply chain security","MALFEX imgdecode","npm dependency check"],"provider":{"@type":"Organization","name":"Ingenious AI"}}</script>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<div class="badge">NPM SUPPLY CHAIN ATTACK &mdash; 1,500+ PACKAGES EXPOSED &mdash; OCT 2026</div>
+<h1>Is your dependency tree exposed to the <span class="red">npm supply chain attack</span> wave?</h1>
+<p class="lead">More than 1,500 npm packages were exposed in a single week of the npm supply chain attack wave ending October 17, 2026 — and one of them, the MALFEX package <strong>'imgdecode'</strong>, hid a shellcode loader inside a Windows native addon that runs at install time. You don't even have to import the package. This free 60-second check scores the hygiene controls that decide whether your dependency tree can catch the next one. No signup, nothing installed.</p>
+
+<div class="card">
+<h2>Key facts</h2>
+<ul>
+<li><strong>1,500+ npm packages exposed</strong> in a single week, per the week's security review ending October 17, 2026.</li>
+<li><strong>MALFEX 'imgdecode'</strong> hides a shellcode loader in a Windows native addon (The Hacker News, October 17, 2026) — malicious code executes at install, not at import.</li>
+<li><strong>Install scripts and compiled addons are the weapon.</strong> Preinstall/postinstall hooks and native binaries run with your user's privileges before any code review can see them.</li>
+<li><strong>Hygiene is the defense.</strong> Lockfiles, exact version pinning, audit gates in CI, and blocking install scripts by default close most of the attack surface.</li>
+</ul>
+<p class="src">Sources: The Hacker News — <a href="https://thehackernews.com" target="_blank" rel="noopener">thehackernews.com</a> (reported the imgdecode MALFEX package, Oct 17, 2026); npm docs — <a href="https://docs.npmjs.com/cli/v10/configuring-npm/package-lock-json" target="_blank" rel="noopener">package-lock.json documentation</a>.</p>
+</div>
+
+<div class="card">
+<h2>Can an npm package infect you without you noticing?</h2>
+<p>Yes. More than 1,500 npm packages were exposed in a single week of October 2026, and the MALFEX package 'imgdecode' hid a shellcode loader inside a Windows native addon that runs at install time — before any code review can see it. Install scripts and compiled addons execute on install, so lockfiles, version pinning, and script-blocking are your real defense.</p>
+</div>
+
+<div class="card">
+<h2>The 60-second exposure check</h2>
+<p class="note">Answer honestly for the repo you deploy to production. Weighted scoring — native-addon and lockfile controls carry the most weight.</p>
+<div class="qrow"><div class="qtext">1. Is a lockfile (package-lock.json, pnpm-lock.yaml, or yarn.lock) committed to the repo?</div><div class="qopts"><label><input type="radio" name="q0" value="y">Yes</label><label><input type="radio" name="q0" value="n">No</label></div></div>
+<div class="qrow"><div class="qtext">2. Are production dependencies pinned to exact versions (no ^ or ~ ranges)?</div><div class="qopts"><label><input type="radio" name="q1" value="y">Yes</label><label><input type="radio" name="q1" value="n">No</label></div></div>
+<div class="qrow"><div class="qtext">3. Does CI run <code>npm audit</code> (or equivalent) on every PR and block on criticals?</div><div class="qopts"><label><input type="radio" name="q2" value="y">Yes</label><label><input type="radio" name="q2" value="n">No</label></div></div>
+<div class="qrow"><div class="qtext">4. Do you review new transitive dependencies before adding a direct dependency?</div><div class="qopts"><label><input type="radio" name="q3" value="y">Yes</label><label><input type="radio" name="q3" value="n">No</label></div></div>
+<div class="qrow"><div class="qtext">5. Do you vet native addons (.node binaries, pre/postinstall scripts) before installing?</div><div class="qopts"><label><input type="radio" name="q4" value="y">Yes</label><label><input type="radio" name="q4" value="n">No</label></div></div>
+<div class="qrow"><div class="qtext">6. Do installs default to --ignore-scripts, with only allowlisted scripts permitted?</div><div class="qopts"><label><input type="radio" name="q5" value="y">Yes</label><label><input type="radio" name="q5" value="n">No</label></div></div>
+<div class="qrow"><div class="qtext">7. Do production builds use a private registry proxy or ship a software bill of materials (SBOM)?</div><div class="qopts"><label><input type="radio" name="q6" value="y">Yes</label><label><input type="radio" name="q6" value="n">No</label></div></div>
+<button class="calc" id="calc">Check my exposure</button>
+<div id="result"></div>
+</div>
+
+<div class="card">
+<h2>What this check does NOT do</h2>
+<p class="note">This page is an honest hygiene self-assessment, not a malware scanner. It cannot scan your node_modules for malicious code, cannot tell you whether a specific package version is compromised, and cannot replace <code>npm audit</code>, Socket, or a dedicated supply-chain scanner. It scores the controls that determine how exposed your tree is — nothing more.</p>
+</div>
+
+<div class="card">
+<h2>Why install-time is the blind spot</h2>
+<ul>
+<li><strong>The malware runs before your code does.</strong> imgdecode's shellcode loader lives in a Windows native addon — it executes during <code>npm install</code>, long before any import statement is evaluated.</li>
+<li><strong>Transitive dependencies multiply the surface.</strong> One direct dependency can pull dozens of transitive ones; any of them can publish a malicious patch release at any time.</li>
+<li><strong>Version ranges are silent doors.</strong> A <code>^1.2.3</code> range plus no lockfile means next month's install may resolve to a version the attacker published yesterday.</li>
+<li><strong>The wave is the signal.</strong> 1,500+ exposed packages in one week means this is systematic infrastructure abuse, not isolated typosquats.</li>
+</ul>
+</div>
+
+<div class="xlinks">
+<h2>More from Ingenious AI</h2>
+<ul>
+<li>&#128737; <a href="ledger-supply-chain-implant-check.html">Ledger Supply Chain Implant Check</a> — hardware wallet supply-chain tampering self-test</li>
+<li>&#128737; <a href="aomei-backupper-supply-chain-check.html">AOMEI Backupper Supply Chain Check</a> — when your backup tool becomes the payload</li>
+<li>&#128680; <a href="ghostaction-ci-audit.html">GhostAction CI Audit</a> — is your CI pipeline the supply-chain weak link?</li>
+<li>&#128202; <a href="patch-tuesday-triage-calculator.html">Patch Tuesday Triage Calculator</a> — score and prioritize this month's patches</li>
+<li>&#127760; <a href="mark-of-the-web-bypass-check.html">Mark-of-the-Web Bypass Check</a> — are downloaded files slipping past your defenses?</li>
+<li>&#128736; <a href="security-suite.html">Explore the full Ingenious AI Security Suite</a> — 11 platforms, one security posture</li>
+</ul>
+<p class="note">&#128279; <a href="all-links.html" style="color:#6ea8fe">Browse everything Ingenious AI has built</a></p>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Ingenious AI builds 11 AI security platforms &mdash; disclosure compliance, rogue-agent defense, breach hunting, agent oversight, and more.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=1%2C500%2B%20npm%20packages%20exposed%20in%20one%20week%20%E2%80%94%20one%20hid%20a%20shellcode%20loader%20in%20a%20native%20addon%20%E2%80%94%20free%2060-sec%20exposure%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/npm-supply-chain-1500-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/npm-supply-chain-1500-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/npm-supply-chain-1500-check.html&title=NPM%20Supply%20Chain%20Attack%20Exposure%20Check" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<div class="card">
+<h2>Frequently asked questions</h2>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">What is the October 2026 npm supply chain attack wave?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">More than 1,500 npm packages were exposed in a single week ending October 17, 2026 — a wave of compromised, typosquat, and outright malicious packages reported across the ecosystem that week.</p></details>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">What is the MALFEX 'imgdecode' package?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">imgdecode is a MALFEX-labeled malicious npm package reported by The Hacker News on October 17, 2026. It hides a shellcode loader inside a Windows native addon, so the malicious code runs at install time — not when the package's JavaScript is imported.</p></details>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">How do lockfiles protect against npm supply chain attacks?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">A lockfile pins every dependency — direct and transitive — to an exact resolved version and integrity hash. Without one, a fresh install can silently pull a newer, compromised release published after your last good install.</p></details>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">Can this checker detect malware in my node_modules?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">No — and it says so honestly. This is a hygiene self-assessment, not a scanner. It scores the controls (lockfiles, pinning, audits, script-blocking) that determine how exposed your tree is; to scan installed code, use npm audit, Socket, or a dedicated supply-chain scanner.</p></details>
+</div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+<script>
+const QUIZ=[
+{w:20,fix:"Commit a lockfile and build with --frozen-lockfile so installs resolve to exact, hash-verified versions."},
+{w:15,fix:"Pin production dependencies to exact versions (drop ^ and ~ ranges) so a fresh install can't resolve to an attacker's fresh release."},
+{w:15,fix:"Add npm audit (or equivalent) to CI on every PR and block merges on new critical advisories."},
+{w:10,fix:"Before adding a dependency, inspect its transitive tree (npm ls) and read the source of anything new — most attacks ride transitives."},
+{w:20,fix:"Audit pre/postinstall scripts and native addons before installing; prefer pure-JavaScript packages where possible."},
+{w:10,fix:"Set ignore-scripts=true in .npmrc by default and allowlist only the scripts you have personally reviewed."},
+{w:10,fix:"Proxy the registry (e.g. Verdaccio) or generate an SBOM so production builds pull from a vetted source, not the public registry."}
+];
+const THRESH={high:80,mid:50};
+function scoreQuiz(a){
+var s=0,m=[];
+QUIZ.forEach(function(q,i){if(a[i]){s+=q.w}else{m.push(i);}});
+var v=s>=THRESH.high?"COVERED":(s>=THRESH.mid?"AT-RISK":"EXPOSED");
+return{score:s,verdict:v,misses:m};
+}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+(function(){
+if(typeof document==="undefined")return;
+var btn=document.getElementById("calc");
+if(!btn)return;
+btn.addEventListener("click",function(){
+var a=QUIZ.map(function(_,i){
+var sel=document.querySelector('input[name="q'+i+'"]:checked');
+return sel&&sel.value==="y";
+});
+var r=scoreQuiz(a);
+var cls=r.verdict==="COVERED"?"safe":(r.verdict==="AT-RISK"?"warn":"");
+var html='<div class="verdict '+cls+'"><strong>Verdict: '+r.verdict+'</strong> &mdash; exposure score '+r.score+'/100.</div>';
+if(r.misses.length){
+html+="<h3>Your remediation checklist</h3>";
+r.misses.forEach(function(i){html+='<p class="fixitem">&#9654; '+esc(QUIZ[i].fix)+"</p>";});
+}else{
+html+='<div class="verdict safe"><strong>All controls in place.</strong> Re-run this check whenever your dependency tree changes.</div>';
+}
+document.getElementById("result").innerHTML=html;
+});
+})();
+</script>
+</body>
+</html>
