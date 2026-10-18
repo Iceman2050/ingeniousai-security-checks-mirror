@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>18 Common Ports Hackers Love — Interactive Reference &amp; Quiz | Ingenious AI</title>
+<meta name="description" content="Open ports are the map hackers read: each one tells them what you run, how old your system is, and how to break in. Searchable reference of the 18 most-targeted ports (FTP, SSH, Telnet, SMB, RDP, databases), what each exposes, risk ratings, what to do about them, how to check your own exposure, and a 5-question quiz. Free, no signup.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/common-ports-hackers-love-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="18 Common Ports Hackers Love — Interactive Reference &amp; Quiz | Ingenious AI">
+<meta property="og:description" content="Open ports are the map hackers read. Searchable reference of the 18 most-targeted ports, risk ratings, what to do about each, and a 5-question quiz. Free.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/common-ports-hackers-love-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="18 Common Ports Hackers Love — Interactive Reference &amp; Quiz">
+<meta name="twitter:description" content="What each open port tells a hacker — and what to do about it. Searchable reference + quiz. Free, no signup.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:860px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d1a2f;border:1px solid #1c6ef2;color:#79b8f7;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .blue{color:#79b8f7}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.q{display:flex;gap:12px;align-items:flex-start;margin:16px 0;padding:14px;border:1px solid #232b38;border-radius:10px;background:#0d1219}
+.q .qn{flex:0 0 28px;height:28px;border-radius:50%;background:#1c2b45;color:#9db8e8;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.q .qt{flex:1}
+.q .qt small{display:block;color:#9aa7b8;font-size:13px;margin-top:4px}
+.qbtns{flex:0 0 auto;display:flex;gap:8px}
+.qbtns button{border:1px solid #2a3342;background:#11161f;color:#e6edf3;font-weight:700;font-size:13px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.qbtns button.sel-y{background:#3fb950;border-color:#3fb950;color:#06240f}
+.qbtns button.sel-n{background:#f85149;border-color:#f85149;color:#fff}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.claim{font-size:14px;color:#9aa7b8;background:#0d1219;border:1px dashed #2a3342;border-radius:10px;padding:14px 16px;margin:14px 0}
+.claim b{color:#e3b341}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+details{background:#0d1219;border:1px solid #2a3342;border-radius:10px;padding:14px 16px;margin:10px 0}
+details summary{cursor:pointer;font-weight:700;color:#fff;font-size:15px}
+details p{font-size:14px;color:#9aa7b8;margin-top:8px}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+/* port table */
+.ptools{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+.ptools input{flex:1;min-width:200px;background:#0d1219;border:1px solid #2a3342;border-radius:8px;color:#e6edf3;padding:10px 14px;font-size:14px}
+.ptools .fbtns{display:flex;gap:8px}
+.ptools .fbtns button{border:1px solid #2a3342;background:#0d1219;color:#9aa7b8;font-weight:700;font-size:13px;padding:10px 14px;border-radius:8px;cursor:pointer}
+.ptools .fbtns button.on{background:#1c6ef2;border-color:#1c6ef2;color:#fff}
+.prow{background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:16px;margin:10px 0}
+.prow .ph{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:8px}
+.pnum{font-size:20px;font-weight:800;color:#fff;background:#1c2b45;border-radius:8px;padding:4px 12px}
+.pproto{font-size:12px;font-weight:700;color:#9aa7b8;border:1px solid #2a3342;border-radius:6px;padding:3px 8px}
+.pname{font-size:16px;font-weight:700;color:#79b8f7}
+.risk{font-size:12px;font-weight:800;padding:4px 10px;border-radius:999px;letter-spacing:.4px}
+.risk.high{background:#3d1215;color:#ffa198;border:1px solid #f85149}
+.risk.medium{background:#2e230c;color:#e3b341;border:1px solid #d29922}
+.risk.low{background:#0f2b18;color:#7ee787;border:1px solid #3fb950}
+.prow p{font-size:14px;color:#9aa7b8;margin:6px 0}
+.prow p b{color:#e6edf3}
+.prow .hack{color:#ffa198}
+.prow .fix{color:#7ee787}
+.plat{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.plat a{border:1px solid #2a3342;border-radius:8px;padding:8px 12px;font-size:13px;color:#9db8e8;text-decoration:none}
+.plat a:hover{border-color:#1c6ef2;color:#fff}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; All security checks</a>
+<span class="badge">PORT CHECK</span>
+<h1>18 Common Ports Hackers Love — <span class="blue">Read the Map Like They Do</span></h1>
+<p class="lead">Want to hack a network, you first learn to read the map — and in the world of hacking, that map is made of ports. Every open port tells an attacker what you're running, how old your system is, and how they might break in. This page turns that map around: search the 18 most-targeted ports, see what each one exposes, and learn what to do about it.</p>
+<p class="src">Trigger: James Code Lab reel, "18 Common Ports That Hackers Love (And Why)," October 18, 2026. Risk ratings reflect long-established, well-documented attack patterns — not novel claims.</p>
+
+<div class="card">
+<h2>🔍 The interactive port reference</h2>
+<p class="note">Search by number, name, or service — or filter by risk. Each entry: what the port does, what a hacker sees when it's open, and what you should do.</p>
+<div class="ptools">
+<input id="psearch" type="text" placeholder="Search: 445, rdp, database, mail…" aria-label="Search ports">
+<div class="fbtns">
+<button data-f="all" class="on">All</button>
+<button data-f="high">High risk</button>
+<button data-f="medium">Medium</button>
+<button data-f="low">Low</button>
+</div>
+</div>
+<div id="ptable"></div>
+<p class="note" id="pcount"></p>
+</div>
+
+<div class="card">
+<h2>🏠 Home user vs 🖥️ server admin</h2>
+<h3>For a home user</h3>
+<ul>
+<li>Your router is your firewall. Ports you should care about are the ones your <strong>router exposes to the internet</strong> — not the ones your laptop uses on your own Wi-Fi.</li>
+<li>Log into your router's admin page and check: port forwarding rules, DMZ settings, and remote management. If remote management is on and you don't use it, turn it off.</li>
+<li>Turn off <strong>UPnP</strong> unless you need it — it lets devices punch their own holes through your firewall without asking you.</li>
+<li>Guest Wi-Fi for visitors and smart gadgets keeps one compromised bulb away from your laptop.</li>
+</ul>
+<h3>For a server admin</h3>
+<ul>
+<li>Default-deny firewall: close everything, open only what the service needs, to only who needs it.</li>
+<li>Databases (3306, 5432, 6379, 27017) and SMB (445) should <strong>never</strong> face the public internet — bind to localhost or a private network, require authentication.</li>
+<li>RDP (3389) behind a VPN, with account lockout and MFA — a bare RDP port is one of the most-attacked services on the internet.</li>
+<li>Patch the dinosaur protocols out of existence: Telnet and cleartext FTP have no business on a modern network.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>📡 The cleartext lesson</h2>
+<p>Some old protocols send <strong>everything in the open</strong> — including your username and password. Anyone watching the network path (public Wi-Fi, a compromised router, an ISP) can simply read them:</p>
+<ul>
+<li><strong>FTP (21)</strong> — logins and files travel in cleartext. Use SFTP (SSH file transfer) or FTPS instead.</li>
+<li><strong>Telnet (23)</strong> — an entire remote terminal session in cleartext. There is no fix; use SSH (22).</li>
+<li><strong>HTTP (80)</strong> — fine for redirecting to HTTPS; never type a password into an http:// page.</li>
+<li><strong>POP3 (110) / IMAP (143)</strong> — your email password in cleartext. The encrypted versions (995 / 993) exist for a reason.</li>
+</ul>
+<p class="note">Rule of thumb: if a protocol was designed before encryption was standard, assume it leaks — and use its encrypted twin.</p>
+</div>
+
+<div class="card">
+<h2>🧪 Do you know your ports? — 5-question check</h2>
+<div id="questions"></div>
+<button id="score-btn" class="cta" type="button">Check my score</button>
+<div id="result"></div>
+</div>
+
+<div class="card">
+<h2>❓ Frequently asked</h2>
+<details><summary>Is an open port dangerous by itself?</summary><p>No — a port is just a numbered door. The danger is what answers when someone knocks: an outdated service, a weak password, or a protocol that leaks credentials. A closed port tells an attacker nothing; an open one starts a conversation.</p></details>
+<details><summary>How do I check which ports are open on my network?</summary><p>Start inside: your router's admin page lists port-forwarding rules and connected devices. From outside, free port-scan services (the "shields up" style) probe your public IP and report what answers. Never scan networks you don't own or lack written permission to test.</p></details>
+<details><summary>Why is port 445 (SMB) so dangerous?</summary><p>SMB is Windows file sharing — and it was the attack surface behind the WannaCry and NotPetya-era worms, which spread machine-to-machine through SMB flaws. It belongs on trusted internal networks only, never on the public internet.</p></details>
+<details><summary>Should I just block port 3389 (RDP) entirely?</summary><p>If you don't use remote desktop, yes — close it. If you do, don't expose it bare: put it behind a VPN, enforce account lockout after failed logins, require strong credentials plus MFA, and restrict source IPs. Bare RDP is one of the most brute-forced services on the internet.</p></details>
+<details><summary>Are databases really attacked through their ports?</summary><p>Routinely. Exposed database ports (3306 MySQL, 5432 PostgreSQL, 6379 Redis, 27017 MongoDB) are scanned constantly; open MongoDB instances were mass-ransomed in 2017, and Redis has shipped configurations without authentication. Bind databases to localhost or a private network and require authentication.</p></details>
+</div>
+
+<div class="claim"><b>Honest scope:</b> this page is an educational reference, not a vulnerability scanner — it can't see your network. Risk ratings describe typical exposure when a port faces the internet; a port open only to your own LAN is a different story. Never scan networks you don't own or have written permission to test.</div>
+
+<div class="card">
+<h2>From Ingenious AI</h2>
+<div class="plat">
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20early%20access%20to%20DisclosureGuard">DisclosureGuard</a>
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20early%20access%20to%20ModelMinder">ModelMinder</a>
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20early%20access%20to%20TermsWatch">TermsWatch</a>
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20early%20access%20to%20Vibe-Code%20Audit">Vibe-Code Audit</a>
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense">Rogue-Agent Defense</a>
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20early%20access%20to%20BreachHunter">BreachHunter</a>
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20early%20access%20to%20ChatBreaker">ChatBreaker</a>
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder">Agent Flight Recorder</a>
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway">Agent Auth Gateway</a>
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20early%20access%20to%20DomainGuard">DomainGuard</a>
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20early%20access%20to%20ContentCraft%20AI">ContentCraft AI</a>
+</div>
+<p class="note">All 11 Ingenious AI platforms — early access via WhatsApp while we prepare launch.</p>
+</div>
+<a class="cta" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20a%20free%20security%20check">Get a free security check →</a>
+</div>
+<script>
+var PORTS=[
+{port:21,proto:"TCP",name:"FTP",what:"File Transfer Protocol — moves files to and from servers.",risk:"high",hack:"Logins AND files travel in cleartext. Anyone on the network path reads your password like a postcard.",fix:"Never expose. Use SFTP (over SSH) or FTPS instead."},
+{port:22,proto:"TCP",name:"SSH",what:"Secure Shell — encrypted remote terminal and file transfer.",risk:"medium",hack:"Encrypted, so nothing leaks — but it's the #1 brute-force target on the internet. Weak passwords get guessed.",fix:"Key-based auth only, disable password login, fail2ban for lockout, non-standard port helps little."},
+{port:23,proto:"TCP",name:"Telnet",what:"Remote terminal from the days before encryption existed.",risk:"high",hack:"An entire remote session in cleartext — username, password, every command. A gift to anyone listening.",fix:"Never expose, never use. SSH does everything Telnet does, encrypted."},
+{port:25,proto:"TCP",name:"SMTP",what:"Simple Mail Transfer Protocol — server-to-server email relay.",risk:"medium",hack:"Misconfigured servers become open relays blasting spam; attackers probe it to harvest and abuse mail flow.",fix:"Lock down relaying, require authentication, monitor outbound volume."},
+{port:53,proto:"TCP/UDP",name:"DNS",what:"Domain Name System — turns names into IP addresses.",risk:"medium",hack:"Open resolvers are abused for DDoS amplification; attackers also tunnel stolen data out through DNS queries.",fix:"Never run an open resolver. Authoritative + recursive roles separated, rate-limited."},
+{port:80,proto:"TCP",name:"HTTP",what:"Unencrypted web traffic.",risk:"medium",hack:"Everything readable in transit. Fine for a redirect — lethal for logins, forms, or anything personal.",fix:"Serve only redirects to HTTPS. Never accept credentials on port 80."},
+{port:110,proto:"TCP",name:"POP3",what:"Post Office Protocol — downloads email, cleartext.",risk:"high",hack:"Your email password crosses the network in the open. One coffee-shop Wi-Fi is all it takes.",fix:"Use POP3S (995) or IMAPS (993) instead."},
+{port:143,proto:"TCP",name:"IMAP",what:"Internet Message Access Protocol — syncs email, cleartext.",risk:"high",hack:"Same story as POP3: mail password readable by anyone on the path.",fix:"Use IMAPS (993) instead."},
+{port:443,proto:"TCP",name:"HTTPS",what:"HTTP over TLS — encrypted web traffic.",risk:"low",hack:"The safe default. Attackers learn little from the wire itself — they move on to easier doors.",fix:"Keep TLS current, redirect all port-80 traffic here."},
+{port:445,proto:"TCP",name:"SMB",what:"Server Message Block — Windows file/printer sharing.",risk:"high",hack:"Ransomware's favorite door. The WannaCry/NotPetya-era worms spread machine-to-machine through SMB flaws.",fix:"Never face the internet. Internal networks only, patched, SMBv1 disabled."},
+{port:587,proto:"TCP",name:"SMTP Submission",what:"The modern, authenticated way users send email.",risk:"low",hack:"Requires authentication and usually TLS — not the open-relay problem port 25 can be.",fix:"Standard and fine. Enforce authentication + STARTTLS."},
+{port:993,proto:"TCP",name:"IMAPS",what:"IMAP over TLS — encrypted email sync.",risk:"low",hack:"Credentials encrypted in transit. The correct way to do IMAP.",fix:"Use this instead of 143."},
+{port:995,proto:"TCP",name:"POP3S",what:"POP3 over TLS — encrypted email download.",risk:"low",hack:"Credentials encrypted in transit. The correct way to do POP3.",fix:"Use this instead of 110."},
+{port:3306,proto:"TCP",name:"MySQL",what:"MySQL/MariaDB database server.",risk:"high",hack:"A database on the public internet is a breach waiting to happen — dumped, ransomed, or mined.",fix:"Bind to localhost or private network only. Never public. Strong auth regardless."},
+{port:3389,proto:"TCP",name:"RDP",what:"Remote Desktop Protocol — full Windows desktop remotely.",risk:"high",hack:"One of the most brute-forced services on the internet — and a top ransomware entry point.",fix:"Never bare. VPN + MFA + account lockout + IP allowlist. Close it if unused."},
+{port:5432,proto:"TCP",name:"PostgreSQL",what:"PostgreSQL database server.",risk:"high",hack:"Same as MySQL: exposed database ports are scanned constantly and plundered.",fix:"Localhost/private network only. Require authentication, audit access."},
+{port:6379,proto:"TCP",name:"Redis",what:"In-memory data store, often used for caching.",risk:"high",hack:"Historically shipped without authentication — exposed instances get owned and crypto-mined fast.",fix:"Bind to localhost, require a strong password, never public."},
+{port:27017,proto:"TCP",name:"MongoDB",what:"MongoDB document database.",risk:"high",hack:"Open instances were mass-ransomed in 2017 — no auth, data wiped, ransom note left behind.",fix:"Bind to localhost, enable authentication, never expose directly."}
+];
+var QUESTIONS=[
+{q:"You would never expose Telnet (23) or cleartext FTP (21) to the internet.",h:"Both leak credentials in the open — there is no safe way to expose them.",good:true},
+{q:"If you run RDP, it sits behind a VPN with lockout/MFA — never bare on port 3389.",h:"Bare RDP is one of the most brute-forced services online.",good:true},
+{q:"You know what ports your home router exposes — you've checked port forwarding, UPnP, and remote management.",h:"Your router is your firewall; unknown holes are the attacker's map.",good:true},
+{q:"SMB (445) and database ports (3306, 5432, 6379, 27017) never face the public internet on your watch.",h:"These are ransomware and data-theft favorites when exposed.",good:true},
+{q:"You would investigate an unexpected open port instead of ignoring it.",h:"An open port you didn't open is a question that demands an answer.",good:true}
+];
+var POLARITIES=[true,true,true,true,true];
+var state=[null,null,null,null,null];
+var curFilter="all";
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function renderTable(){
+if(typeof window==="undefined")return;
+var q=document.getElementById("psearch").value.toLowerCase();
+var html="",n=0;
+for(var i=0;i<PORTS.length;i++){
+var p=PORTS[i];
+if(curFilter!=="all"&&p.risk!==curFilter)continue;
+var hay=(p.port+" "+p.proto+" "+p.name+" "+p.what+" "+p.hack+" "+p.fix).toLowerCase();
+if(q&&hay.indexOf(q)===-1)continue;
+n++;
+html+='<div class="prow"><div class="ph"><span class="pnum">'+p.port+'</span><span class="pproto">'+esc(p.proto)+'</span><span class="pname">'+esc(p.name)+'</span><span class="risk '+p.risk+'">'+p.risk.toUpperCase()+'</span></div>'
++'<p><b>What it does:</b> '+esc(p.what)+'</p>'
++'<p class="hack"><b>What a hacker sees:</b> '+esc(p.hack)+'</p>'
++'<p class="fix"><b>What you do:</b> '+esc(p.fix)+'</p></div>';
+}
+document.getElementById("ptable").innerHTML=html||'<p class="note">No ports match that search.</p>';
+document.getElementById("pcount").textContent="Showing "+n+" of "+PORTS.length+" ports.";
+}
+function scoreAnswers(s){
+var t=0;
+for(var i=0;i<POLARITIES.length;i++){if(s[i]===null)continue;if((s[i]===true)===(POLARITIES[i]===true))t++;}
+return t;
+}
+function renderQ(){
+if(typeof window==="undefined")return;
+var box=document.getElementById("questions");
+box.innerHTML="";
+for(var i=0;i<QUESTIONS.length;i++){
+(function(i){
+var d=document.createElement("div");d.className="q";
+var n=document.createElement("div");n.className="qn";n.textContent=i+1;
+var t=document.createElement("div");t.className="qt";t.innerHTML="<b>"+QUESTIONS[i].q+"</b><small>"+QUESTIONS[i].h+"</small>";
+var b=document.createElement("div");b.className="qbtns";
+var yb=document.createElement("button");yb.textContent="Yes";yb.type="button";
+var nb=document.createElement("button");nb.textContent="No";nb.type="button";
+if(state[i]===true)yb.className="sel-y";
+if(state[i]===false)nb.className="sel-n";
+yb.onclick=function(){state[i]=true;renderQ();};
+nb.onclick=function(){state[i]=false;renderQ();};
+b.appendChild(yb);b.appendChild(nb);
+d.appendChild(n);d.appendChild(t);d.appendChild(b);
+box.appendChild(d);
+})(i);
+}
+}
+function verdictHTML(s){
+var un=state.filter(function(x){return x===null;}).length;
+var cls=s>=5?"safe":(s>=3?"warn":"");
+var head=s>=5?"<b>PORT-SMART.</b> You read the map like a defender — close the doors attackers count on.":(s>=3?"<b>GAPS IN THE FENCE.</b> You know the theory — now audit your router and your servers.":"<b>OPEN DOORS.</b> Attackers read open ports as invitations — start with UPnP, remote management, and RDP.");
+return '<div class="verdict '+cls+'">'+head+'<br><span class="note">Score: '+s+' / 5'+(un?' ('+un+' unanswered — treated as no points)':'')+'</span></div>';
+}
+if(typeof window!=="undefined"){
+renderTable();
+document.getElementById("psearch").addEventListener("input",renderTable);
+var fbs=document.querySelectorAll(".fbtns button");
+for(var k=0;k<fbs.length;k++){fbs[k].onclick=function(){for(var j=0;j<fbs.length;j++)fbs[j].className="";this.className="on";curFilter=this.getAttribute("data-f");renderTable();};}
+renderQ();
+document.getElementById("score-btn").onclick=function(){
+document.getElementById("result").innerHTML=verdictHTML(scoreAnswers(state));
+document.getElementById("result").scrollIntoView({behavior:"smooth",block:"center"});
+};
+}
+if(typeof module!=="undefined"){module.exports={scoreAnswers:scoreAnswers,POLARITIES:POLARITIES,PORTS:PORTS};}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is an open port dangerous by itself?","acceptedAnswer":{"@type":"Answer","text":"No — a port is just a numbered door. The danger is what answers when someone knocks: an outdated service, a weak password, or a protocol that leaks credentials."}},
+{"@type":"Question","name":"How do I check which ports are open on my network?","acceptedAnswer":{"@type":"Answer","text":"Start with your router's admin page for port-forwarding rules, then use a free external port-scan service to probe your public IP. Never scan networks you don't own."}},
+{"@type":"Question","name":"Why is port 445 (SMB) so dangerous?","acceptedAnswer":{"@type":"Answer","text":"SMB is Windows file sharing and was the attack surface behind the WannaCry/NotPetya-era worms. It belongs on trusted internal networks only, never on the public internet."}},
+{"@type":"Question","name":"Should I just block port 3389 (RDP) entirely?","acceptedAnswer":{"@type":"Answer","text":"If you don't use remote desktop, close it. If you do, put it behind a VPN with lockout, MFA, and IP restrictions — bare RDP is one of the most brute-forced services online."}},
+{"@type":"Question","name":"Are databases really attacked through their ports?","acceptedAnswer":{"@type":"Answer","text":"Routinely. Exposed database ports are scanned constantly; open MongoDB instances were mass-ransomed in 2017. Bind databases to localhost or a private network and require authentication."}}
+]}
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
