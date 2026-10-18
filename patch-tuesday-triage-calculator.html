@@ -130,6 +130,11 @@ li{margin:8px 0}
 <p class="lead">On <strong>October 13, 2026</strong>, Microsoft shipped its largest security update ever: <strong>1,413 CVEs</strong> across 176 updates &mdash; 1,102 in Windows, 134 in Office, 61 in developer tools, 36 in SharePoint Server, plus Exchange, Azure, and Defender. Roughly <strong>70 rated critical</strong>, <strong>677 elevation-of-privilege</strong>, <strong>317 remote code execution</strong>. One flaw is <strong>already being exploited in the wild</strong>. Pick your stack below and get a rule-based patch order: exploited first, publicly-disclosed second, critical RCE/EoP by severity third. Free, no signup.</p>
 
 <div class="card">
+<h2>What was the October 2026 Patch Tuesday?</h2>
+<p>Microsoft's October 2026 Patch Tuesday (October 13) fixed a record 1,413 CVEs across 176 updates — roughly 1,102 in Windows, 134 in Office, plus SharePoint, Exchange, Azure, and Defender. One flaw, CVE-2026-96951 (CVSS 8.8), was already being exploited in the wild when the patch landed, so it goes first in any triage order: exploited, then disclosed, then critical by severity.</p>
+</div>
+
+<div class="card">
 <h2>Your stack</h2>
 <div class="field">
 <label for="os">Windows version</label>
@@ -227,6 +232,17 @@ document.getElementById('os').addEventListener('change',function(){if(SEL.office
 <li><strong>Then severity — matched to your stack.</strong> The Outlook preview-pane cluster needs no click beyond scrolling, which makes it nastier in practice than a critical flaw in a component you never installed. The calculator filters ~70 critical / 677 EoP / 317 RCE down to what you actually run.</li>
 <li><strong>Volume is not priority.</strong> 1,413 is the least useful number in the release — fewer than 1% of Microsoft's 2026 CVEs are known to be exploited. Triage by exploitability, not by count.</li>
 </ul>
+</div>
+
+<div class="card">
+<h2>Key facts: October 2026 Patch Tuesday</h2>
+<ul>
+<li><strong>Scale:</strong> a record 1,413 CVEs across 176 updates, released October 13, 2026 (per Microsoft's tally, reported by SecurityWeek) — roughly 1,102 in Windows, 134 in Office, 61 in developer tools, 36 in SharePoint Server.</li>
+<li><strong>Severity mix:</strong> roughly 70 rated critical, 677 elevation-of-privilege, 317 remote code execution (per release coverage).</li>
+<li><strong>The exploited one:</strong> CVE-2026-96951 (Windows Shell, CVSS 8.8) — a Mark-of-the-Web bypass exploited in the wild before the patch landed; CISA added it to the KEV catalog on October 13 with a federal remediation due date of October 16.</li>
+<li><strong>Public before the fix:</strong> CVE-2026-108398 (.NET Framework, found by Google Project Zero's James Forshaw) and CVE-2026-92707 (MessagePack-CSharp, CVSS 5.3).</li>
+</ul>
+<p class="note">Sources: <a href="https://www.securityweek.com/microsoft-patches-record-1413-vulnerabilities-including-exploited-windows-zero-day/amp/" target="_blank" rel="noopener">SecurityWeek</a> &middot; <a href="https://betanews.com/article/patch-tuesday-october-2026-microsoft/" target="_blank" rel="noopener">BetaNews</a> &middot; <a href="https://threatlandscape.io/blog/microsoft-october-2026-patch-tuesday-1413-cves-windows-shell-zero-day" target="_blank" rel="noopener">ThreatLandscape</a></p>
 </div>
 
 <div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter." style="color:#fff;text-decoration:underline">BreachHunter</a> watches for exposures attackers exploit after every Patch Tuesday.</strong></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20used%20your%20patch%20tuesday%20triage%20calculator%20and%20want%20early%20access%20to%20BreachHunter." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
