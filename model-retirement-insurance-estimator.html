@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html data-primary-keyword="ai agents 2026" lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OpenAI Model Retirement: Exposure Estimator</title>
-<meta name="description" content="OpenAI model retirement checker: see which models shut down Oct 23, 2026, vendor-recommended replacements, and an illustrative migration cost estimate.">
-<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-retirement-insurance-estimator.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="OpenAI Model Retirement: Exposure Estimator">
-<meta property="og:description" content="OpenAI model retirement checker: which models shut down Oct 23, 2026, their vendor-recommended replacements, and an illustrative migration cost estimate for your stack.">
-<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-retirement-insurance-estimator.html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OpenAI Model Retirement: Exposure Estimator">
-<meta name="twitter:description" content="OpenAI model retirement checker: which models shut down Oct 23, 2026, their vendor-recommended replacements, and an illustrative migration cost estimate for your stack.">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Model Retirement Estimator — AI Agents 2026</title>
+<meta content="Which OpenAI models shut down Oct 23, 2026? AI agents 2026 exposure estimator: dependencies, scale, migration cost. Estimates only." name="description"/>
+<link href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-retirement-insurance-estimator.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Ingenious AI" property="og:site_name"/>
+<meta content="Model Retirement Estimator — AI Agents 2026" property="og:title"/>
+<meta content="Which OpenAI models shut down Oct 23, 2026? AI agents 2026 exposure estimator: dependencies, scale, migration cost. Estimates only." property="og:description"/>
+<meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-retirement-insurance-estimator.html" property="og:url"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="OpenAI Model Retirement: Exposure Estimator" name="twitter:title"/>
+<meta content="OpenAI model retirement checker: which models shut down Oct 23, 2026, their vendor-recommended replacements, and an illustrative migration cost estimate for your stack." name="twitter:description"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -112,34 +113,32 @@ th{background:#0d1420;color:#9aa7b8}
 a{color:#6ea8fe}
 .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 </style>
-<link rel="stylesheet" href="ecosystem.css">
-</head>
+<link href="ecosystem.css" rel="stylesheet"/>
+<meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png" property="og:image"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}</script></head>
 <body>
 <div class="wrap">
-<div class="badge">RETIREMENT EXPOSURE CHECK &mdash; ESTIMATES ONLY</div>
-<h1>OpenAI Model Retirement Estimator</h1>
-<p class="lead">On <strong>October 23, 2026</strong>, the OpenAI model retirement wave shut down API access to legacy models. Tick the models your app depends on, add any others, enter your monthly tokens &mdash; and get your exposure: what&rsquo;s already dead, what&rsquo;s at risk next, what it might cost to migrate, and where each retired model should go.</p>
-<div class="warn"><strong>ALL NUMBERS ARE ILLUSTRATIVE ESTIMATES.</strong> The retirement dates and vendor-recommended replacements below come from OpenAI&rsquo;s published deprecations page (announced April 22, 2026). Migration costs use a transparent toy formula with stated assumptions &mdash; a planning number, not a quote, not financial advice. Verify against OpenAI&rsquo;s live deprecations page before acting.</div>
-
+<div class="badge">RETIREMENT EXPOSURE CHECK — ESTIMATES ONLY</div>
+<h1>OpenAI Model Retirement Estimator — AI Agents 2026</h1><p>This AI agents 2026 exposure estimator is an interactive tool that maps your app's dependence on retiring OpenAI models. Tick your models and scale to see migration exposure — this AI agents 2026 check gives illustrative cost estimates only.</p><h2>What is the AI agents 2026 model retirement estimator?</h2><p>The retirement estimator maps your application's exposure to the October 23, 2026 OpenAI model shutdown: tick the models you depend on and your scale to see illustrative migration costs. Retired models return HTTP 404 with no fallback, so unmigrated calls fail hard — this tool shows where you stand.</p><p><time datetime="2026-10-18">Reviewed October 18, 2026</time></p>
+<p class="lead">On <strong>October 23, 2026</strong>, the OpenAI model retirement wave shut down API access to legacy models. Tick the models your app depends on, add any others, enter your monthly tokens — and get your exposure: what’s already dead, what’s at risk next, what it might cost to migrate, and where each retired model should go.</p>
+<div class="warn"><strong>ALL NUMBERS ARE ILLUSTRATIVE ESTIMATES.</strong> The retirement dates and vendor-recommended replacements below come from OpenAI’s published deprecations page (announced April 22, 2026). Migration costs use a transparent toy formula with stated assumptions — a planning number, not a quote, not financial advice. Verify against OpenAI’s live deprecations page before acting.</div>
 <div class="card">
 <h2 style="margin-top:0">1. Your model dependencies</h2>
-<p class="small">The October 23, 2026 retirees &mdash; check every one your code calls:</p>
-<label class="check"><input type="checkbox" class="dep" value="gpt-4-0613"> <span class="mono">gpt-4-0613</span> (the <span class="mono">gpt-4</span> snapshot)</label>
-<label class="check"><input type="checkbox" class="dep" value="gpt-4-turbo"> <span class="mono">gpt-4-turbo</span></label>
-<label class="check"><input type="checkbox" class="dep" value="o1"> <span class="mono">o1</span></label>
-<label class="check"><input type="checkbox" class="dep" value="o3-mini"> <span class="mono">o3-mini</span></label>
-<label class="check"><input type="checkbox" class="dep" value="o4-mini"> <span class="mono">o4-mini</span></label>
-<label class="check"><input type="checkbox" class="dep" value="gpt-image-1"> <span class="mono">gpt-image-1</span></label>
-<label class="check"><input type="checkbox" class="dep" value="ft-*"> <span class="mono">ft-*</span> fine-tuned models (built on retired bases)</label>
+<p class="small">The October 23, 2026 retirees — check every one your code calls:</p>
+<label class="check"><input class="dep" type="checkbox" value="gpt-4-0613"/> <span class="mono">gpt-4-0613</span> (the <span class="mono">gpt-4</span> snapshot)</label>
+<label class="check"><input class="dep" type="checkbox" value="gpt-4-turbo"/> <span class="mono">gpt-4-turbo</span></label>
+<label class="check"><input class="dep" type="checkbox" value="o1"/> <span class="mono">o1</span></label>
+<label class="check"><input class="dep" type="checkbox" value="o3-mini"/> <span class="mono">o3-mini</span></label>
+<label class="check"><input class="dep" type="checkbox" value="o4-mini"/> <span class="mono">o4-mini</span></label>
+<label class="check"><input class="dep" type="checkbox" value="gpt-image-1"/> <span class="mono">gpt-image-1</span></label>
+<label class="check"><input class="dep" type="checkbox" value="ft-*"/> <span class="mono">ft-*</span> fine-tuned models (built on retired bases)</label>
 <label for="others" style="margin-top:14px">Other model IDs in your stack (comma or line separated)</label>
 <textarea id="others" placeholder="e.g. gpt-4o-mini, claude-sonnet-4-5, gemini-2.5-pro"></textarea>
 <h2>2. Your scale</h2>
 <label for="tokens">Monthly API tokens (total across your app)</label>
-<input type="number" id="tokens" min="0" value="10000000" style="max-width:280px">
+<input id="tokens" min="0" style="max-width:280px" type="number" value="10000000"/>
 <p class="small">Used only for the regression-testing slice of the estimate.</p>
-<br><button class="btn" onclick="estimate()">Estimate my exposure &rarr;</button>
+<br/><button class="btn" onclick="estimate()">Estimate my exposure →</button>
 </div>
-
 <div class="card" id="result" style="display:none">
 <h2 style="margin-top:0">Exposure report</h2>
 <table id="dep-table"><thead><tr><th>Model</th><th>Verdict</th><th>Vendor-recommended path</th></tr></thead><tbody></tbody></table>
@@ -147,49 +146,43 @@ a{color:#6ea8fe}
 <p id="cost-line" style="font-size:22px;font-weight:700"></p>
 <div class="honest" id="cost-math" style="font-size:13px"></div>
 <p class="small">Planning number only. Real migration cost depends on prompt re-tuning, eval replay, fine-tune retraining, and how much of your product the model touches.</p>
-<p style="margin-top:14px"><a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20used%20the%20Model%20Retirement%20Insurance%20Estimator%20and%20want%20early%20access%20to%20ModelMinder.">Never miss a retirement again &mdash; early access to ModelMinder &rarr;</a></p>
+<p style="margin-top:14px"><a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20used%20the%20Model%20Retirement%20Insurance%20Estimator%20and%20want%20early%20access%20to%20ModelMinder.">Never miss a retirement again — early access to ModelMinder →</a></p>
 </div>
-
 <h2>What should you do when an OpenAI model is retired?</h2>
 <p>First, inventory every place your code calls the retired model ID — backends, plugins, scripts, and low-code automations. Then map each ID to the vendor-recommended replacement and replay your own production samples before switching, since generations behave differently. Fine-tunes die with their base model and must be retrained. This page checks your stack against the schedule.</p>
-
 <h2>Key facts</h2>
 <ul style="font-size:14.5px;color:#9aa7b8;margin-left:18px">
-<li>On October 23, 2026, OpenAI shut down API access to gpt-4, gpt-4-turbo, gpt-4o-2024-05-13, gpt-3.5-turbo, gpt-4.1-nano, o1, o3-mini, o4-mini, gpt-image-1 and their fine-tunes (<a href="https://dev.to/leighefford/retiring-ai-models-a-pre-flight-checklist-first-openai-batch-goes-23-oct-5dc9" target="_blank" rel="noopener">retirement checklist</a>).</li>
-<li>The next wave lands January 14, 2027 for the gpt-4o, gpt-4o-mini and gpt-4.1 snapshots — and on the shutdown date, requests to those IDs fail, which can look like silence in queues and cron jobs (<a href="https://grn.dk/model-retirements-are-quietly-breaking-ai-integrations" target="_blank" rel="noopener">GrN.dk</a>).</li>
-<li>OpenAI separately scheduled three GPT-5 API models for shutdown on April 1, 2027 (<a href="https://superpowerdaily.com/posts/openai-schedules-three-gpt-5-api-models-for-shutdown-on-april-1-2027" target="_blank" rel="noopener">Superpower Daily</a>). Migration cost figures on this page are illustrative estimates, not quotes.</li>
+<li>On October 23, 2026, OpenAI shut down API access to gpt-4, gpt-4-turbo, gpt-4o-2024-05-13, gpt-3.5-turbo, gpt-4.1-nano, o1, o3-mini, o4-mini, gpt-image-1 and their fine-tunes (<a href="https://dev.to/leighefford/retiring-ai-models-a-pre-flight-checklist-first-openai-batch-goes-23-oct-5dc9" rel="noopener" target="_blank">retirement checklist</a>).</li>
+<li>The next wave lands January 14, 2027 for the gpt-4o, gpt-4o-mini and gpt-4.1 snapshots — and on the shutdown date, requests to those IDs fail, which can look like silence in queues and cron jobs (<a href="https://grn.dk/model-retirements-are-quietly-breaking-ai-integrations" rel="noopener" target="_blank">GrN.dk</a>).</li>
+<li>OpenAI separately scheduled three GPT-5 API models for shutdown on April 1, 2027 (<a href="https://superpowerdaily.com/posts/openai-schedules-three-gpt-5-api-models-for-shutdown-on-april-1-2027" rel="noopener" target="_blank">Superpower Daily</a>). Migration cost figures on this page are illustrative estimates, not quotes.</li>
 </ul>
-
 <h2>Where this data comes from</h2>
-<p>Retirement dates and recommended replacements are from <strong>OpenAI&rsquo;s deprecations page</strong>, the vendor&rsquo;s own published schedule: the April 22, 2026 announcement shut down API access to <span class="mono">gpt-3.5-turbo-0125</span>, <span class="mono">gpt-4-0613</span>, <span class="mono">gpt-4-turbo</span>, <span class="mono">gpt-4o-2024-05-13</span>, <span class="mono">gpt-4.1-nano</span>, <span class="mono">gpt-image-1</span>, <span class="mono">o1</span>, <span class="mono">o1-pro</span>, <span class="mono">o3-mini</span>, <span class="mono">o4-mini</span> and their fine-tunes on <strong>October 23, 2026</strong>. OpenAI&rsquo;s substitutes: <span class="mono">gpt-5.6-sol</span> for the gpt-4 family, o1, o1-pro, o3-mini and gpt-4o-2024-05-13; <span class="mono">gpt-5.6-terra</span> for o4-mini and gpt-3.5-turbo; <span class="mono">gpt-5.6-luna</span> for gpt-4.1-nano; <span class="mono">gpt-image-2.5-sunburst</span> or <span class="mono">gpt-image-2.5-flare</span> for gpt-image-1. The next known wave, <strong>January 14, 2027</strong>, covers the gpt-4o, gpt-4o-mini and gpt-4.1 snapshots, with <span class="mono">gpt-6-luna</span> as the vendor-recommended path. (Summarized from public reporting of the official page: <a href="https://madrobot.blog/2026/10/04/openai-api-model-deprecations-shutdown-dates-october-23/">MadRobot</a>, <a href="https://digitalmatters.me/artificial-intelligence-ai/openai-october-2026-model-shutoff/">Digital Matters</a>.)</p>
-<p>This is exactly the job <strong>ModelMinder</strong> does automatically: it watches vendor deprecation pages and pings you the moment a model you depend on gets a shutdown date &mdash; before it&rsquo;s a 3 a.m. incident.</p>
+<p>Retirement dates and recommended replacements are from <strong>OpenAI’s deprecations page</strong>, the vendor’s own published schedule: the April 22, 2026 announcement shut down API access to <span class="mono">gpt-3.5-turbo-0125</span>, <span class="mono">gpt-4-0613</span>, <span class="mono">gpt-4-turbo</span>, <span class="mono">gpt-4o-2024-05-13</span>, <span class="mono">gpt-4.1-nano</span>, <span class="mono">gpt-image-1</span>, <span class="mono">o1</span>, <span class="mono">o1-pro</span>, <span class="mono">o3-mini</span>, <span class="mono">o4-mini</span> and their fine-tunes on <strong>October 23, 2026</strong>. OpenAI’s substitutes: <span class="mono">gpt-5.6-sol</span> for the gpt-4 family, o1, o1-pro, o3-mini and gpt-4o-2024-05-13; <span class="mono">gpt-5.6-terra</span> for o4-mini and gpt-3.5-turbo; <span class="mono">gpt-5.6-luna</span> for gpt-4.1-nano; <span class="mono">gpt-image-2.5-sunburst</span> or <span class="mono">gpt-image-2.5-flare</span> for gpt-image-1. The next known wave, <strong>January 14, 2027</strong>, covers the gpt-4o, gpt-4o-mini and gpt-4.1 snapshots, with <span class="mono">gpt-6-luna</span> as the vendor-recommended path. (Summarized from public reporting of the official page: <a href="https://madrobot.blog/2026/10/04/openai-api-model-deprecations-shutdown-dates-october-23/">MadRobot</a>, <a href="https://digitalmatters.me/artificial-intelligence-ai/openai-october-2026-model-shutoff/">Digital Matters</a>.)</p>
+<p>This is exactly the job <strong>ModelMinder</strong> does automatically: it watches vendor deprecation pages and pings you the moment a model you depend on gets a shutdown date — before it’s a 3 a.m. incident.</p>
 <div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center">
 <div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div>
-<div style="font-size:16px;color:#e8edf3;margin-bottom:12px"><strong>ModelMinder</strong> &mdash; the model-deprecation radar. We watch the retirement schedules so your code never calls a dead model.</div>
-<a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder.">Get early access to ModelMinder &rarr;</a>
+<div style="font-size:16px;color:#e8edf3;margin-bottom:12px"><strong>ModelMinder</strong> — the model-deprecation radar. We watch the retirement schedules so your code never calls a dead model.</div>
+<a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder.">Get early access to ModelMinder →</a>
 </div>
-
 <div class="morelinks">
 <h2>More from Ingenious AI</h2>
 <ul>
-<li>&#128128; <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-autopsy.html">Model Autopsy</a> &mdash; forensic teardowns of dead and dying models</li>
-<li>&#128222; <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-eulogy-hotline.html">Model Eulogy Hotline</a> &mdash; leave a voicemail for your favorite retired model</li>
-<li>&#128269; <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/shadow-model-census.html">Shadow Model Census</a> &mdash; find the models running in your org that you don&rsquo;t know about</li>
-<li>&#128240; <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/newsjack-modelminder.html">ModelMinder Newsjack</a> &mdash; deprecation waves as they break</li>
-<li>&#9760;&#65039; <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-vendor-dead-pool.html">AI Vendor Dead Pool</a> &mdash; which vendors and products are circling the drain</li>
+<li>💀 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-autopsy.html">Model Autopsy</a> — forensic teardowns of dead and dying models</li>
+<li>📞 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-eulogy-hotline.html">Model Eulogy Hotline</a> — leave a voicemail for your favorite retired model</li>
+<li>🔍 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/shadow-model-census.html">Shadow Model Census</a> — find the models running in your org that you don’t know about</li>
+<li>📰 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/newsjack-modelminder.html">ModelMinder Newsjack</a> — deprecation waves as they break</li>
+<li>☠️ <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-vendor-dead-pool.html">AI Vendor Dead Pool</a> — which vendors and products are circling the drain</li>
 </ul>
-<div class="hub">&#128279; <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/all-links.html">Browse everything Ingenious AI has built</a> &nbsp;&middot;&nbsp; <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html">The security suite</a></div>
+<div class="hub">🔗 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/all-links.html">Browse everything Ingenious AI has built</a>  ·  <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html">The security suite</a></div>
 </div>
-
 <section class="kw-faq" style="max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
 <h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Which OpenAI models are being retired?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">On October 23, 2026, OpenAI shut down API access to gpt-4-0613, gpt-4-turbo, gpt-4o-2024-05-13, gpt-4.1-nano, gpt-3.5-turbo-0125, gpt-image-1, o1, o1-pro, o3-mini, o4-mini, and fine-tuned models built on those bases, per OpenAI&rsquo;s deprecations page. The next wave lands January 14, 2027 (gpt-4o, gpt-4o-mini, gpt-4.1 snapshots).</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What happens when a model you use is deprecated?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">On the shutdown date, API requests to that model ID start failing. In a queue or cron job that can look like silence until somebody notices the backlog. Fine-tunes die with their base model &mdash; they must be retrained on a supported base.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What replaces the retired OpenAI models?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">OpenAI&rsquo;s deprecations page recommends gpt-5.6-sol for the gpt-4 family, o1, o1-pro, o3-mini and gpt-4o-2024-05-13; gpt-5.6-terra for o4-mini and gpt-3.5-turbo; gpt-5.6-luna for gpt-4.1-nano; and gpt-image-2.5-sunburst or flare for gpt-image-1. Always replay your own production samples before switching.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Which OpenAI models are being retired?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">On October 23, 2026, OpenAI shut down API access to gpt-4-0613, gpt-4-turbo, gpt-4o-2024-05-13, gpt-4.1-nano, gpt-3.5-turbo-0125, gpt-image-1, o1, o1-pro, o3-mini, o4-mini, and fine-tuned models built on those bases, per OpenAI’s deprecations page. The next wave lands January 14, 2027 (gpt-4o, gpt-4o-mini, gpt-4.1 snapshots).</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What happens when a model you use is deprecated?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">On the shutdown date, API requests to that model ID start failing. In a queue or cron job that can look like silence until somebody notices the backlog. Fine-tunes die with their base model — they must be retrained on a supported base.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What replaces the retired OpenAI models?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">OpenAI’s deprecations page recommends gpt-5.6-sol for the gpt-4 family, o1, o1-pro, o3-mini and gpt-4o-2024-05-13; gpt-5.6-terra for o4-mini and gpt-3.5-turbo; gpt-5.6-luna for gpt-4.1-nano; and gpt-image-2.5-sunburst or flare for gpt-image-1. Always replay your own production samples before switching.</p></details>
 <details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How is the migration cost estimate calculated?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">It is a transparent, illustrative formula shown on the page: a base migration effort per retired model (12 engineering hours at an illustrative $75/hr) plus a per-million-token regression-testing factor, plus a planning allowance for at-risk models. It is a planning number, not a quote.</p></details>
 </section>
 </div>
-
 <script>
 var MODEL_DB=[
  {id:'gpt-4-0613',aliases:['gpt-4'],status:'retired',date:'Oct 23, 2026',sub:'gpt-5.6-sol (vendor guidance)'},
@@ -258,9 +251,8 @@ function estimate(){
 }
 if(typeof document!=='undefined'){document.addEventListener('DOMContentLoaded',function(){});}
 </script>
-
 <div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
 <script src="ecosystem.js"></script>
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- Cloudflare Web Analytics --><script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
