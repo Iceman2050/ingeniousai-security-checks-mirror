@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Candado Engañoso: ¿HTTPS significa que un sitio es seguro? | Ingenious AI</title>
+<meta name="description" content="El candado del navegador y el HTTPS solo significan que la conexión está cifrada — NO prueban que el sitio sea legítimo. Los sitios de phishing también usan HTTPS con certificados válidos. Aprende qué revisa en su lugar y haz el cuestionario de 5 preguntas. Gratis, sin registro.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/https-candado-enganoso-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="El Candado Engañoso: ¿HTTPS significa que un sitio es seguro? | Ingenious AI">
+<meta property="og:description" content="El candado del navegador y el HTTPS solo significan cifrado — NO prueban legitimidad. Los sitios de phishing también usan HTTPS. Qué revisar en su lugar + cuestionario de 5 preguntas. Gratis, sin registro.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/https-candado-enganoso-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="El Candado Engañoso: ¿HTTPS significa que un sitio es seguro? | Ingenious AI">
+<meta name="twitter:description" content="El candado del navegador solo promete cifrado, no legitimidad. Los sitios de phishing también tienen HTTPS. Cuestionario gratuito de 5 preguntas.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d2b16;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .green{color:#3fb950}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.vs .col{border-radius:10px;padding:16px;font-size:14px}
+.vs .yes{background:#0d1a0f;border:1px solid #3fb950}
+.vs .no{background:#1a0f0f;border:1px solid #f85149}
+.vs .col b{display:block;margin-bottom:6px;font-size:15px}
+.vs .yes b{color:#7ee787}
+.vs .no b{color:#ffa198}
+.q{display:flex;gap:12px;align-items:flex-start;margin:16px 0;padding:14px;border:1px solid #232b38;border-radius:10px;background:#0d1219}
+.q .qn{flex:0 0 28px;height:28px;border-radius:50%;background:#1c2b45;color:#9db8e8;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.q .qt{flex:1}
+.q .qt small{display:block;color:#9aa7b8;font-size:13px;margin-top:4px}
+.qbtns{flex:0 0 auto;display:flex;gap:8px}
+.qbtns button{border:1px solid #2a3342;background:#11161f;color:#e6edf3;font-weight:700;font-size:13px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.qbtns button.sel-y{background:#3fb950;border-color:#3fb950;color:#06240f}
+.qbtns button.sel-n{background:#f85149;border-color:#f85149;color:#fff}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+details{background:#0d1219;border:1px solid #2a3342;border-radius:10px;padding:14px 16px;margin:10px 0}
+details summary{cursor:pointer;font-weight:700;color:#fff;font-size:15px}
+details p{font-size:14px;color:#9aa7b8;margin-top:8px}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"es","mainEntity":[
+{"@type":"Question","name":"¿Qué significa el candado del navegador?","acceptedAnswer":{"@type":"Answer","text":"El candado indica que la conexión entre tu navegador y el sitio web usa HTTPS, es decir, que los datos viajan cifrados y nadie en el medio puede leerlos. No dice nada sobre quién opera el sitio."}},
+{"@type":"Question","name":"¿Un sitio con HTTPS es siempre legítimo?","acceptedAnswer":{"@type":"Answer","text":"No. Los sitios de phishing también usan HTTPS con certificados válidos. El cifrado protege los datos en tránsito, pero no prueba que el sitio sea legítimo, honesto o de quien dice ser."}},
+{"@type":"Question","name":"¿Cómo consiguen los sitios falsos un certificado HTTPS válido?","acceptedAnswer":{"@type":"Answer","text":"Existen autoridades de certificación gratuitas y automatizadas que emiten certificados a cualquiera que controle un dominio. Verifican el dominio, no la identidad ni la honestidad de quien lo opera."}},
+{"@type":"Question","name":"¿Qué debo revisar en lugar del candado?","acceptedAnswer":{"@type":"Answer","text":"El dominio completo, letra por letra, antes de iniciar sesión. Desconfía de los mensajes con urgencia que traen enlaces. Escribe tú mismo la dirección oficial en el navegador en vez de seguir enlaces de mensajes."}},
+{"@type":"Question","name":"¿Cómo sé si un dominio es una imitación?","acceptedAnswer":{"@type":"Answer","text":"Compara el dominio con el oficial carácter por carácter: letras cambiadas, guiones extra, terminaciones raras (.xyz en vez de .com) o caracteres de otros alfabetos que se ven idénticos. Nuestro verificador de dominios detecta suplantaciones automáticamente."}}]}
+</script>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; Volver a todas las verificaciones gratuitas</a>
+<div class="badge">SEGURIDAD WEB</div>
+<h1>El <span class="green">candado</span> no dice lo que crees que dice</h1>
+<p class="lead">"Veo el candado, entonces es seguro." Esa es una de las ideas más peligrosas de internet. El candado del navegador y las letras <strong>https://</strong> solo prometen una cosa: que tu conexión está <strong>cifrada</strong>. No prometen que el sitio sea legítimo, honesto, ni de quien dice ser. Y los ciberdelincuentes lo saben.</p>
+
+<div class="card">
+<h2>Lo que el candado SÍ promete</h2>
+<p>Cuando ves el candado, significa que la comunicación entre tu navegador y ese sitio viaja cifrada con HTTPS. En la práctica:</p>
+<ul>
+<li><strong>Nadie en el medio lee tus datos.</strong> Ni el Wi-Fi del café, ni tu proveedor de internet, ni un atacante en la misma red pueden espiar lo que envías.</li>
+<li><strong>Los datos no se modifican en el camino.</strong> El cifrado también detecta si alguien intentó alterar la información en tránsito.</li>
+</ul>
+<p class="note">Eso es todo. Es una promesa sobre el <strong>tubo</strong>, no sobre quién está al otro lado del tubo.</p>
+</div>
+
+<div class="card">
+<h2>Lo que el candado NO promete</h2>
+<div class="vs">
+<div class="col no"><b>✗ No garantiza</b><ul><li>Que el sitio sea legítimo</li><li>Que la empresa sea real</li><li>Que no te van a robar la contraseña</li><li>Que el contenido es confiable</li></ul></div>
+<div class="col yes"><b>✓ Solo garantiza</b><ul><li>Conexión cifrada</li><li>Datos protegidos en tránsito</li><li>Nadie espía en el medio</li></ul></div>
+</div>
+<p>Un sitio de phishing puede tener el candado, el <strong>https://</strong> y un certificado perfectamente válido. El candado te dice que tu contraseña viajará cifrada… <strong>directamente a los delincuentes</strong>.</p>
+</div>
+
+<div class="card">
+<h2>¿Cómo consiguen los sitios falsos un certificado válido?</h2>
+<p>Porque conseguir uno es gratis y automático. Existen autoridades de certificación gratuitas que emiten certificados a <strong>cualquiera que controle un dominio</strong>, en minutos y sin intervención humana.</p>
+<ul>
+<li><strong>Verifican el dominio, no la identidad.</strong> El certificado confirma que quien lo pidió controla ese dominio — no que sea Amazon, tu banco o una empresa honesta.</li>
+<li><strong>El phishing vive de esto.</strong> Un delincuente registra <code>banco-seguro-actualizacion.com</code>, obtiene su certificado gratis en minutos y ya tiene su candado verde.</li>
+<li><strong>El certificado no juzga intenciones.</strong> Es un trámite técnico, no un sello de confianza.</li>
+</ul>
+<p class="note">Por eso "tiene candado" nunca ha sido una prueba de legitimidad: es solo una prueba de cifrado.</p>
+</div>
+
+<div class="card">
+<h2>Qué revisar en lugar del candado</h2>
+<ul>
+<li><strong>El dominio completo, letra por letra.</strong> Antes de iniciar sesión, lee la barra de direcciones con calma: letras cambiadas (<code>arnazon</code> por <code>amazon</code>), guiones extra, terminaciones raras (<code>.xyz</code> en vez de <code>.com</code>) o caracteres de otros alfabetos que se ven idénticos.</li>
+<li><strong>Desconfía de la urgencia + el enlace.</strong> "Tu cuenta será bloqueada, verifica aquí" es la fórmula clásica. La urgencia es para que no mires el dominio.</li>
+<li><strong>Escribe tú la dirección oficial.</strong> En vez de seguir el enlace de un mensaje, abre el navegador y escribe la dirección del banco o la tienda tú mismo, o usa su app oficial.</li>
+<li><strong>Si algo huele mal, verifica el certificado.</strong> Haz clic en el candado y mira a nombre de qué dominio se emitió el certificado. Si no coincide con el sitio que crees visitar, sal de ahí.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Cuestionario: ¿sabes lo que el candado realmente promete?</h2>
+<p class="note">Responde con honestidad. Aquí "Sí" es la respuesta segura.</p>
+<div id="quiz"></div>
+<div id="qresult" style="margin-top:12px"><div class="verdict warn"><strong>Responde las 5 preguntas</strong> para conocer tu veredicto.</div></div>
+<script>
+var QS=[
+["¿Revisas el dominio completo, letra por letra, antes de iniciar sesión en un sitio?","El candado no te dice si el dominio es el real. Solo tus ojos comparando el dominio con el oficial pueden hacerlo."],
+["¿Sabes que el candado solo significa cifrado y NO prueba que un sitio sea legítimo?","Esta es la idea central: HTTPS protege los datos en tránsito, pero un sitio de phishing también puede tener HTTPS con un certificado válido."],
+["¿Desconfías de los mensajes con urgencia que traen enlaces para 'verificar tu cuenta'?","La urgencia es la herramienta del phishing: está diseñada para que hagas clic sin mirar el dominio."],
+["¿Escribes tú mismo la dirección oficial en el navegador en vez de seguir enlaces de mensajes?","Es la defensa más simple y efectiva: si tú escribes la dirección, ningún enlace falso puede llevarte a otro lado."],
+["¿Verificarías el certificado (clic en el candado) si algo te huele mal antes de dar tus datos?","El candado es clicable: muestra a nombre de qué dominio se emitió el certificado. Si no coincide, no confíes."]];
+var GOOD=[true,true,true,true,true];
+var ANS=[null,null,null,null,null];
+function scoreAnswers(a){
+  var s=0;
+  for(var i=0;i<a.length;i++){ if(a[i]===null) continue; if((a[i]===1)===GOOD[i]) s++; }
+  return s;
+}
+function renderQ(){
+  var h='';
+  for(var i=0;i<QS.length;i++){
+    h+='<div class="q"><div class="qn">'+(i+1)+'</div><div class="qt"><strong>'+QS[i][0]+'</strong><small>'+QS[i][1]+'</small></div><div class="qbtns"><button id="y'+i+'" onclick="ans('+i+',1)">Sí</button><button id="n'+i+'" onclick="ans('+i+',0)">No</button></div></div>';
+  }
+  document.getElementById('quiz').innerHTML=h;
+}
+function ans(i,v){
+  ANS[i]=v;
+  document.getElementById('y'+i).className=v===1?'sel-y':'';
+  document.getElementById('n'+i).className=v===0?'sel-n':'';
+  var out=document.getElementById('qresult');
+  if(ANS.indexOf(null)>=0){return;}
+  var s=scoreAnswers(ANS);
+  if(s===5){
+    out.innerHTML='<div class="verdict safe"><strong>OJO DE LINCE.</strong> Sabes exactamente lo que el candado promete y lo que no. Revisas dominios, desconfías de la urgencia y escribes las direcciones tú mismo. El phishing con HTTPS válido no tiene nada que hacer contigo.</div>';
+  }else if(s>=3){
+    out.innerHTML='<div class="verdict warn"><strong>'+(5-s)+' puntos ciegos.</strong> Vas por buen camino, pero recuerda la regla de oro: el candado promete cifrado, nunca legitimidad. Refuerza el hábito de leer el dominio completo antes de iniciar sesión.</div>';
+  }else{
+    out.innerHTML='<div class="verdict"><strong>'+(5-s)+' de 5 fallos — EN RIESGO.</strong> Estás confiando en el candado para algo que nunca prometió. Un sitio falso con HTTPS válido te parecería seguro. Empieza hoy: lee el dominio letra por letra y escribe tú las direcciones oficiales.</div>';
+  }
+}
+if (typeof window !== "undefined") { renderQ(); }
+if (typeof module !== "undefined") { module.exports = { scoreAnswers: scoreAnswers, GOOD: GOOD, QS: QS }; }
+</script>
+<p class="note">Autoevaluación informativa basada en el funcionamiento real de HTTPS y los certificados. No es asesoría legal ni técnica profesional.</p>
+</div>
+
+<div class="card">
+<h2>Preguntas frecuentes</h2>
+<details><summary>¿Qué significa el candado del navegador?</summary><p>El candado indica que la conexión entre tu navegador y el sitio web usa HTTPS, es decir, que los datos viajan cifrados y nadie en el medio puede leerlos. No dice nada sobre quién opera el sitio.</p></details>
+<details><summary>¿Un sitio con HTTPS es siempre legítimo?</summary><p>No. Los sitios de phishing también usan HTTPS con certificados válidos. El cifrado protege los datos en tránsito, pero no prueba que el sitio sea legítimo, honesto o de quien dice ser.</p></details>
+<details><summary>¿Cómo consiguen los sitios falsos un certificado HTTPS válido?</summary><p>Existen autoridades de certificación gratuitas y automatizadas que emiten certificados a cualquiera que controle un dominio. Verifican el dominio, no la identidad ni la honestidad de quien lo opera.</p></details>
+<details><summary>¿Qué debo revisar en lugar del candado?</summary><p>El dominio completo, letra por letra, antes de iniciar sesión. Desconfía de los mensajes con urgencia que traen enlaces. Escribe tú mismo la dirección oficial en el navegador en vez de seguir enlaces de mensajes.</p></details>
+<details><summary>¿Cómo sé si un dominio es una imitación?</summary><p>Compara el dominio con el oficial carácter por carácter: letras cambiadas, guiones extra, terminaciones raras (.xyz en vez de .com) o caracteres de otros alfabetos que se ven idénticos. Nuestro verificador de dominios detecta suplantaciones automáticamente.</p></details>
+<p class="src">Inspirado en la publicación educativa de Descargandolo (18 de octubre de 2026) sobre el significado real del candado del navegador.</p>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">DE INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Los dominios falsos con HTTPS válido son suplantación de dominio. <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard." style="color:#fff;text-decoration:underline">DomainGuard</a> detecta la suplantación de dominios antes de que te cueste dinero.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">Las 11 plataformas: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Nuestras plataformas están en actualización y regresan el 1 de noviembre — obtén acceso anticipado ahora:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20took%20the%20HTTPS%20padlock%20check." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Obtén acceso anticipado en WhatsApp &rarr;</a></div>
+
+</div>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
