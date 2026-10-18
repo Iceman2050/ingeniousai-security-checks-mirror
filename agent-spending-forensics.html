@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html data-primary-keyword="ai agents 2026" lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI API Cost Calculator — Agent Spending Forensics</title>
-<meta name="description" content="AI API cost calculator: split your AI agent's invoice into input vs output tokens, estimate cache-hit tokens, and flag the top three waste patterns. Free tool.">
-<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-spending-forensics.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="AI API Cost Calculator — Agent Spending Forensics">
-<meta property="og:description" content="AI API cost calculator: split your AI agent's invoice into input vs output tokens, estimate cache-hit tokens, and flag the top three waste patterns. Free tool.">
-<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-spending-forensics.html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AI API Cost Calculator — Agent Spending Forensics">
-<meta name="twitter:description" content="AI API cost calculator: split your AI agent's invoice into input vs output tokens, estimate cache-hit tokens, and flag the top three waste patterns. Free tool.">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agent Spending Forensics — AI Agents 2026</title>
+<meta content="AI agents 2026 run up API bills fast. Agent spending forensics: estimate your invoice, find the waste flags, and cap runaway agent costs." name="description"/>
+<link href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-spending-forensics.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Ingenious AI" property="og:site_name"/>
+<meta content="Agent Spending Forensics — AI Agents 2026" property="og:title"/>
+<meta content="AI agents 2026 run up API bills fast. Agent spending forensics: estimate your invoice, find the waste flags, and cap runaway agent costs." property="og:description"/>
+<meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-spending-forensics.html" property="og:url"/><meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Agent Spending Forensics — AI Agents 2026" name="twitter:title"/>
+<meta content="AI agents 2026 run up API bills fast. Agent spending forensics: estimate your invoice, find the waste flags, and cap runaway agent costs." name="twitter:description"/>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","name":"Agent Spending Forensics — Free AI Cost Breakdown","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-spending-forensics.html","description":"Free AI API spending forensics: enter your invoice numbers and see what burned the tokens — input vs output, cache estimate, top waste flags. Estimates only.","keywords":["AI API cost calculator","LLM API cost tracker","AI agent spending","agent API cost breakdown","prompt caching savings estimate"],"author":{"@type":"Organization","name":"Ingenious AI"},"isPartOf":{"@type":"WebSite","name":"Ingenious AI Security Checks Mirror","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}}
 </script>
@@ -57,30 +58,28 @@ a{color:#6ea8fe}
 .err{color:#ff7b72;font-size:13px;margin-top:8px}
 .hidden{display:none}
 </style>
-<link rel="stylesheet" href="ecosystem.css">
+<link href="ecosystem.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="wrap">
 <div class="badge">FREE COST TOOL</div>
-<h1>Agent Spending Forensics — AI API Cost Calculator</h1>
+<h1>Agent Spending Forensics — AI API Cost Calculator — AI Agents 2026</h1><p style="color:#8b95a5;font-size:13px;margin:6px 0 0"><time datetime="2026-10-18">Reviewed October 18, 2026</time></p><p class="kw-lead" style="font-size:17px;color:#c3ccd8">AI agents 2026 loop, retry, and explore dead ends — each step billed per token. This forensics page estimates your invoice from usage patterns, flags the waste, and shows where caps and budgets stop the bleed.</p><h2>Why do AI agents 2026 rack up surprise API bills?</h2><p>AI agents loop: they call models repeatedly, retry on failure, and explore dead ends — each step billed per token. A single runaway agent can burn through hundreds of dollars overnight while you sleep. Spending forensics estimates your invoice from usage patterns, flags the waste (runaway loops, oversized models, redundant calls), and shows where caps and budgets would have stopped the bleed.</p><h3>What is agent spending forensics?</h3><p>Agent spending forensics is the practice of reconstructing where an AI agent's API budget went — which calls, models, and loops consumed the spend — so you can cap costs before the next invoice.</p>
 <p class="lead">This free AI API cost calculator breaks down your AI API invoice into what actually burned the tokens — input vs output, your cache-hit estimate, and the top three waste flags. Paste the numbers from your invoice or usage summary.</p>
 <p class="small"><strong>Estimate:</strong> all results are derived from the numbers you type in — we never invent provider pricing. Your invoice figures are the only source of truth; this tool is a guidance aid, not an official billing audit.</p>
-
 <div class="card">
 <h2 style="margin-top:0">Your invoice numbers</h2>
 <div class="grid2">
-<div class="field"><label>Provider</label><input type="text" id="f-provider" placeholder="e.g. OpenAI, Anthropic, Google"></div>
-<div class="field"><label>Billing period</label><input type="text" id="f-period" placeholder="e.g. Oct 2026"></div>
-<div class="field"><label>Total input tokens</label><input type="number" id="f-tin" min="0" placeholder="e.g. 4500000"></div>
-<div class="field"><label>Total output tokens</label><input type="number" id="f-tout" min="0" placeholder="e.g. 9800000"></div>
-<div class="field"><label>Total cost (your currency)</label><input type="number" id="f-cost" min="0" step="0.01" placeholder="e.g. 87.50"></div>
-<div class="field"><label>Prompt-cache hit rate % (enter your own)</label><input type="number" id="f-cache" min="0" max="100" step="0.1" placeholder="e.g. 35 — leave 0 if unknown"></div>
+<div class="field"><label>Provider</label><input id="f-provider" placeholder="e.g. OpenAI, Anthropic, Google" type="text"/></div>
+<div class="field"><label>Billing period</label><input id="f-period" placeholder="e.g. Oct 2026" type="text"/></div>
+<div class="field"><label>Total input tokens</label><input id="f-tin" min="0" placeholder="e.g. 4500000" type="number"/></div>
+<div class="field"><label>Total output tokens</label><input id="f-tout" min="0" placeholder="e.g. 9800000" type="number"/></div>
+<div class="field"><label>Total cost (your currency)</label><input id="f-cost" min="0" placeholder="e.g. 87.50" step="0.01" type="number"/></div>
+<div class="field"><label>Prompt-cache hit rate % (enter your own)</label><input id="f-cache" max="100" min="0" placeholder="e.g. 35 — leave 0 if unknown" step="0.1" type="number"/></div>
 </div>
 <div class="field"><label>Free-text usage summary (optional — mentions of retries, batching, long contexts)</label><textarea id="f-notes" placeholder="Paste a usage summary or notes, e.g. 'agent retries failed calls, single-shot calls, system prompt resent every turn'"></textarea></div>
 <button class="btn" id="analyze-btn">Run forensics</button>
 <div class="err hidden" id="err-msg"></div>
 </div>
-
 <div class="card hidden" id="results-card">
 <h2 style="margin-top:0">Forensics report <span class="est-tag">ESTIMATES</span></h2>
 <p class="small" id="r-context"></p>
@@ -92,9 +91,8 @@ a{color:#6ea8fe}
 <div id="r-flags"></div>
 <p class="tiny" style="margin-top:12px">Every figure above is an estimate derived from the numbers you entered. No provider pricing is assumed or invented — your invoice figures are the only source of truth. This tool is a guidance aid, not an official billing audit.</p>
 </div>
-
 <div class="card">
-<h2 style="margin-top:0">AI API spending — quick answers</h2>
+<h2 style="margin-top:0">AI API spending — quick answers — FAQ</h2><details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is the biggest factor affecting LLM API costs?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Token count drives the bill — and output tokens are typically priced several times higher than input tokens by most providers. (Estimate.) An AI API cost calculator shows whether input or output dominates your spend; agents that "think out loud" usually show a heavy output skew, which is the first waste flag this tool checks.</p></details><details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How do I reduce my LLM API bill?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">The usual wins: enable prompt caching, use the cheapest model that passes your quality bar, trim oversized context windows, cap output length, add retry backoff so failures don't burn tokens twice, and batch calls instead of one-at-a-time requests. Fix the waste flags this tool reports first — they are the highest-leverage items.</p></details><details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is prompt caching and how much does it save?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Prompt caching lets providers reuse the processing of repeated prompt prefixes — like your system prompt — at a discounted input rate instead of charging full price every call. This tool estimates your cache-hit tokens from the cache percentage you enter; if that percentage is under 10%, the missing cache is flagged as your first cost fix. (Estimate.)</p></details><details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Should I use the batch API to cut AI API costs?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">If the workload isn't time-sensitive, yes. Providers' batch queues are typically advertised at roughly half the standard rate, with results delivered hours later instead of seconds — good for summarization, enrichment, and evaluation runs; bad for real-time chat. (Estimate — check your provider's current batch pricing.)</p></details><details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Is this an official audit of my provider invoice?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">No. Every number on this page is an estimate derived from the numbers you type in. We never invent provider pricing — your own invoice figures are the only source of truth, and this tool is a guidance aid, not an official billing audit.</p></details>
 <h3 style="font-size:16px;margin:16px 0 6px">How can I calculate my AI API costs?</h3>
 <p class="small">Start with your invoice or usage summary: total input tokens, total output tokens, total cost, and the billing period. An AI API cost calculator then splits spend into input vs output, estimates cache-hit tokens, and flags waste patterns like over-generation. Fix the flagged waste first — it is the highest-leverage saving.</p>
 <p style="margin:14px 0 4px"><strong>What is the biggest factor affecting LLM API costs?</strong></p>
@@ -108,7 +106,6 @@ a{color:#6ea8fe}
 <p style="margin:14px 0 4px"><strong>Is this an official audit of my provider invoice?</strong></p>
 <p class="small" style="margin-bottom:6px">No. Every number on this page is an estimate derived from the numbers you type in. We never invent provider pricing — your own invoice figures are the only source of truth, and this tool is a guidance aid, not an official billing audit.</p>
 </div>
-
 <div class="card">
 <h2 style="margin-top:0">More from Ingenious AI</h2>
 <div class="more-links">
@@ -121,9 +118,7 @@ a{color:#6ea8fe}
 <a href="security-suite.html">Security suite</a>
 </div>
 </div>
-
-<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20ran%20my%20agent%20spending%20forensics%20and%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#fff;text-decoration:underline">Agent Auth Gateway</a> stops runaway agent bills before they happen — per-agent budget caps, spend allowlists, and a kill switch for rogue spenders.</strong></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20ran%20my%20agent%20spending%20forensics%20and%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
-
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20ran%20my%20agent%20spending%20forensics%20and%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#fff;text-decoration:underline">Agent Auth Gateway</a> stops runaway agent bills before they happen — per-agent budget caps, spend allowlists, and a kill switch for rogue spenders.</strong></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20ran%20my%20agent%20spending%20forensics%20and%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp →</a></div>
 </div>
 <script>
 /* PURE-LOGIC-START */
@@ -237,6 +232,6 @@ function fmtInt(x){
 </script>
 <div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
 <script src="ecosystem.js"></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+<script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script>
 </body>
 </html>

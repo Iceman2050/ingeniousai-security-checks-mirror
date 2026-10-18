@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html data-primary-keyword="cybersecurity news" lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mark of the Web Bypass Check — Are Your Downloads Safe?</title>
-<meta name="description" content="CVE-2026-96951 (CVSS 8.8) strips Mark of the Web on unpatched PCs. Free self-test: check any file's MotW, learn what a missing tag means, get hardened.">
-<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mark-of-the-web-bypass-check.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="Mark of the Web Bypass Check — Are Your Downloads Safe?">
-<meta property="og:description" content="A zero-day (CVE-2026-96951) let crafted files dodge Mark of the Web — no SmartScreen, no Protected View. 6 questions: is your PC still exposed?">
-<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mark-of-the-web-bypass-check.html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mark of the Web Bypass Check — Are Your Downloads Safe?">
-<meta name="twitter:description" content="CVE-2026-96951 defeats Windows Mark of the Web. Free 6-question exposure check.">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mark of the Web Bypass — Cybersecurity News</title>
+<meta content="Cybersecurity news: attackers strip the Mark of the Web so malicious downloads run without warnings. Check your files in 60 seconds." name="description"/>
+<link href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mark-of-the-web-bypass-check.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Ingenious AI" property="og:site_name"/>
+<meta content="Mark of the Web Bypass — Cybersecurity News" property="og:title"/>
+<meta content="Cybersecurity news: attackers strip the Mark of the Web so malicious downloads run without warnings. Check your files in 60 seconds." property="og:description"/>
+<meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mark-of-the-web-bypass-check.html" property="og:url"/><meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Mark of the Web Bypass — Cybersecurity News" name="twitter:title"/>
+<meta content="Cybersecurity news: attackers strip the Mark of the Web so malicious downloads run without warnings. Check your files in 60 seconds." name="twitter:description"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Mark of the Web Bypass Check","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/mark-of-the-web-bypass-check.html","description":"Free consumer self-test: check a file's Mark of the Web, understand what a missing tag means after CVE-2026-96951, and apply the hardening checklist.","author":{"@type":"Organization","name":"Ingenious AI"},"keywords":"mark of the web, mark of the web bypass, what is mark of the web, Zone.Identifier, CVE-2026-96951, windows security check"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is Mark of the Web?", "acceptedAnswer": {"@type": "Answer", "text": "Mark of the Web (MotW) is a Zone.Identifier alternate data stream that Windows NTFS attaches to files downloaded from the internet or received from untrusted sources. When MotW is present, Windows applies extra caution: Microsoft Defender SmartScreen warnings, Office Protected View for documents, and Smart App Control blocks. Think of it as the 'from the internet' sticker every guard in the building checks."}}, {"@type": "Question", "name": "How do I check if a file has Mark of the Web?", "acceptedAnswer": {"@type": "Answer", "text": "Right-click the file, choose Properties, and look for a Security line reading 'This file came from another computer and might be blocked' with an Unblock checkbox — that means MotW is attached. Or in PowerShell run: Get-Item -Path 'C:\\path\\to\\file.exe' -Stream Zone.Identifier. Output containing ZoneId=3 (Internet) means the tag is present; no output means the file carries no MotW."}}, {"@type": "Question", "name": "What does it mean if a downloaded file has no Mark of the Web?", "acceptedAnswer": {"@type": "Answer", "text": "Three possibilities. Benign: some extraction tools and transfer methods strip the alternate data stream. Suspicious: someone deliberately removed it with Unblock-File. Dangerous: on an unpatched system, the CVE-2026-96951 bypass silently delivered the file with no tag. If a file you just downloaded from the internet shows no Zone.Identifier, treat it as hostile until verified — and make sure the October 2026 update is installed."}}, {"@type": "Question", "name": "How do I remove the Mark of the Web from a file?", "acceptedAnswer": {"@type": "Answer", "text": "Right-click the file, choose Properties, and tick the Unblock checkbox at the bottom — this permanently removes the Zone.Identifier tag. In PowerShell, run Unblock-File -Path 'C:\\path\\to\\file'. Only remove the tag from files you personally verified as safe: unblocking also removes SmartScreen and Protected View coverage for that file."}}, {"@type": "Question", "name": "Am I safe if I installed the October 2026 update?", "acceptedAnswer": {"@type": "Answer", "text": "The October 2026 cumulative update closes the bypass on your machine, so MotW enforcement works normally again. You still need the hygiene: SmartScreen on, Office Protected View on, and never Unblock a file you weren't expecting. The bypass needs a vulnerable Shell to fire, so a patched system is not affected by it."}}]}</script>
-<link rel="stylesheet" href="ecosystem.css">
+<link href="ecosystem.css" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
@@ -76,34 +77,30 @@ details.faq p{margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6}
 </head>
 <body>
 <div class="wrap">
-<a class="back" href="index.html">&larr; Back to all free security checks</a>
-<div class="badge">NEWSJACK &mdash; OCTOBER PATCH TUESDAY &middot; CVE-2026-96951</div>
-<h1>Are your downloads still carrying their <span class="red">Mark of the Web</span>?</h1>
+<a class="back" href="index.html">← Back to all free security checks</a>
+<div class="badge">NEWSJACK — OCTOBER PATCH TUESDAY · CVE-2026-96951</div>
+<h1>Are Your Downloads Still Carrying Their Mark of the Web? — Cybersecurity News</h1><p style="color:#8b95a5;font-size:13px;margin:6px 0 0"><time datetime="2026-10-18">Reviewed October 18, 2026</time></p><p class="kw-lead" style="font-size:17px;color:#c3ccd8">Cybersecurity news tracks attackers stripping the Mark of the Web so payloads run without SmartScreen warnings. This 60-second check shows whether your files still carry the mark — and what a missing tag means.</p><h2>Why is the Mark of the Web bypass in cybersecurity news?</h2><p>Windows tags downloaded files with the Mark of the Web, triggering SmartScreen warnings and blocking macros. Attackers bypass it with ISO, VHD, and archive tricks so payloads run silently. When the tag is stripped, your first line of download defense is gone — and most users never notice. This check shows whether your files still carry the mark and what a missing tag means.</p><h3>What is the Mark of the Web bypass?</h3><p>The Mark of the Web bypass is a technique that strips or avoids the security tag Windows applies to downloaded files, so malicious downloads open without SmartScreen warnings or macro blocks.</p>
 <p class="lead">A file you downloaded just opened <strong>with no warning at all</strong>. That silence is the warning. Microsoft's October 2026 Patch Tuesday fixed <strong>CVE-2026-96951</strong> (CVSS 8.8) — a Windows Shell flaw that strips the Mark of the Web, the tag that tells SmartScreen, Office Protected View, and Smart App Control to treat a file as untrusted. It was <strong>already being exploited in the wild</strong> when the patch landed. Six questions below tell you whether your PC is still exposed.</p>
-
 <p class="answer"><strong>Short answer:</strong> every file Windows downloads from the internet gets a hidden tag called <strong>Zone.Identifier</strong> — the Mark of the Web. CVE-2026-96951 delivers files with the tag silently missing, so they open like files you created yourself. If your machine has the October 2026 cumulative update, the bypass is closed. If it doesn't, every download is suspect.</p>
-
 <div class="card">
 <h2>What is the Mark of the Web bypass?</h2>
 <p>CVE-2026-96951 is a Windows Shell flaw (CVSS 8.8) that strips the Mark of the Web — the Zone.Identifier tag Windows attaches to internet downloads. Without the tag, files open like local files: no SmartScreen warning, no Office Protected View, no Smart App Control block. Microsoft patched it in the October 2026 update; unpatched PCs stay exposed.</p>
 </div>
-
 <div class="card">
 <h2>The 60-second MotW exposure check</h2>
 <p class="note">Answer for the Windows PC you use every day.</p>
 <div id="quiz"></div>
-<div id="verdict" role="status" aria-live="polite"></div>
+<div aria-live="polite" id="verdict" role="status"></div>
 <div class="sharebox" id="sharebox">
 <p>Share your result:</p>
-<textarea id="sharetext" readonly></textarea>
+<textarea id="sharetext" readonly=""></textarea>
 <button class="copybtn" id="copybtn">Copy result text</button>
 </div>
 </div>
-
 <div class="card">
 <h2>How to check a file's Mark of the Web</h2>
 <h3>Method 1 — right-click, 10 seconds</h3>
-<p>Right-click the file &rarr; <strong>Properties</strong>. If you see a <em>Security</em> line reading <em>"This file came from another computer and might be blocked to help protect this computer"</em> with an <strong>Unblock</strong> checkbox, the Mark of the Web is attached. No Security line at all? The file carries no tag.</p>
+<p>Right-click the file → <strong>Properties</strong>. If you see a <em>Security</em> line reading <em>"This file came from another computer and might be blocked to help protect this computer"</em> with an <strong>Unblock</strong> checkbox, the Mark of the Web is attached. No Security line at all? The file carries no tag.</p>
 <h3>Method 2 — PowerShell, the ground truth</h3>
 <p>Open PowerShell and run:</p>
 <pre>Get-Item -Path "C:\path\to\file.exe" -Stream Zone.Identifier</pre>
@@ -120,7 +117,6 @@ details.faq p{margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6}
 </table>
 <p class="note">Note: the tag lives in an NTFS alternate data stream, so it only survives on NTFS drives. Copying a file to a FAT32 USB stick, or extracting it with some third-party archivers, can strip it without any attacker involved — which is why a missing tag is a warning flag, not proof of attack.</p>
 </div>
-
 <div class="card">
 <h2>What it means if the tag is missing</h2>
 <ul>
@@ -130,17 +126,15 @@ details.faq p{margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6}
 </ul>
 <p class="note">Absence of MotW never proves a file is safe. Presence of MotW never proves a file is dangerous. It is one signal — and this CVE turned off the signal.</p>
 </div>
-
 <div class="card">
 <h2>Hardening checklist — do these now</h2>
-<div class="chk"><input type="checkbox" id="c1"><span><strong>Install the October 2026 cumulative update.</strong> Settings &rarr; Windows Update &rarr; Check for updates. This is the one that closes CVE-2026-96951. Verify in PowerShell: <code>Get-HotFix | Sort-Object InstalledOn -Descending | Select-Object -First 5</code></span></div>
-<div class="chk"><input type="checkbox" id="c2"><span><strong>Turn SmartScreen fully on.</strong> Settings &rarr; Privacy &amp; security &rarr; Windows Security &rarr; App &amp; browser control &rarr; Reputation-based protection — every toggle ON.</span></div>
-<div class="chk"><input type="checkbox" id="c3"><span><strong>Keep Office Protected View on for internet files.</strong> In any Office app: File &rarr; Options &rarr; Trust Center &rarr; Trust Center Settings &rarr; Protected View — all three boxes checked.</span></div>
-<div class="chk"><input type="checkbox" id="c4"><span><strong>Never Unblock blindly.</strong> The Unblock checkbox and <code>Unblock-File</code> remove the tag permanently. Only clear it after you personally verified who sent the file and why.</span></div>
-<div class="chk"><input type="checkbox" id="c5"><span><strong>Treat unexpected downloads as hostile.</strong> An attachment you didn't ask for is a suspect until proven otherwise — on a vulnerable system it needed no click-through warning to hurt you.</span></div>
+<div class="chk"><input id="c1" type="checkbox"/><span><strong>Install the October 2026 cumulative update.</strong> Settings → Windows Update → Check for updates. This is the one that closes CVE-2026-96951. Verify in PowerShell: <code>Get-HotFix | Sort-Object InstalledOn -Descending | Select-Object -First 5</code></span></div>
+<div class="chk"><input id="c2" type="checkbox"/><span><strong>Turn SmartScreen fully on.</strong> Settings → Privacy &amp; security → Windows Security → App &amp; browser control → Reputation-based protection — every toggle ON.</span></div>
+<div class="chk"><input id="c3" type="checkbox"/><span><strong>Keep Office Protected View on for internet files.</strong> In any Office app: File → Options → Trust Center → Trust Center Settings → Protected View — all three boxes checked.</span></div>
+<div class="chk"><input id="c4" type="checkbox"/><span><strong>Never Unblock blindly.</strong> The Unblock checkbox and <code>Unblock-File</code> remove the tag permanently. Only clear it after you personally verified who sent the file and why.</span></div>
+<div class="chk"><input id="c5" type="checkbox"/><span><strong>Treat unexpected downloads as hostile.</strong> An attachment you didn't ask for is a suspect until proven otherwise — on a vulnerable system it needed no click-through warning to hurt you.</span></div>
 <p class="note">Ticking the boxes is local to this page (nothing is uploaded anywhere). Missed one? Do it, then re-take the check above.</p>
 </div>
-
 <div class="card">
 <h2>Key facts: CVE-2026-96951 (Oct 2026)</h2>
 <table>
@@ -151,20 +145,17 @@ details.faq p{margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6}
 <tr><td>The patch</td><td>Microsoft's October 2026 Patch Tuesday (October 13) — a record ~1,413 CVEs fixed, per Microsoft's tally reported by SecurityWeek. (BleepingComputer counted 1,411; tallies differ slightly by what researchers include.)</td></tr>
 <tr><td>Discovery</td><td>Independently reported by researchers at Fujitsu, Anthropic (Benoit Sevens, assisted by Claude AI), an independent researcher, and Google's James Forshaw.</td></tr>
 </table>
-<p class="src">Sources: <a href="https://www.securityweek.com/microsoft-patches-record-1413-vulnerabilities-including-exploited-windows-zero-day/amp/" target="_blank" rel="noopener">SecurityWeek — "Microsoft Patches Record 1,413 Vulnerabilities, Including Exploited Windows Zero-Day"</a>; <a href="https://dev.to/iamfaizanakhtar/cve-2026-96951-microsoft-windows-shell-mark-of-the-web-bypass-vulnerability-analysis-mitigation-19jk" target="_blank" rel="noopener">independent technical analysis of CVE-2026-96951</a>. Patch-Tuesday context per Microsoft's October 2026 release, as reported by The Hacker News, SecurityWeek, and TechRepublic.</p>
+<p class="src">Sources: <a href="https://www.securityweek.com/microsoft-patches-record-1413-vulnerabilities-including-exploited-windows-zero-day/amp/" rel="noopener" target="_blank">SecurityWeek — "Microsoft Patches Record 1,413 Vulnerabilities, Including Exploited Windows Zero-Day"</a>; <a href="https://dev.to/iamfaizanakhtar/cve-2026-96951-microsoft-windows-shell-mark-of-the-web-bypass-vulnerability-analysis-mitigation-19jk" rel="noopener" target="_blank">independent technical analysis of CVE-2026-96951</a>. Patch-Tuesday context per Microsoft's October 2026 release, as reported by The Hacker News, SecurityWeek, and TechRepublic.</p>
 </div>
-
-<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#fff;text-decoration:underline">BreachHunter</a> finds the exposures attackers see first — patch the hole, then hunt for every other one.</strong></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20Mark%20of%20the%20Web%20bypass%20check%20and%20want%20early%20access%20to%20BreachHunter." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
-
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#fff;text-decoration:underline">BreachHunter</a> finds the exposures attackers see first — patch the hole, then hunt for every other one.</strong></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20Mark%20of%20the%20Web%20bypass%20check%20and%20want%20early%20access%20to%20BreachHunter." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp →</a></div>
 <div class="card">
-<h2>Frequently asked questions</h2>
+<h2>Frequently asked questions — FAQ</h2>
 <details class="faq"><summary>What is Mark of the Web?</summary><p>Mark of the Web (MotW) is a Zone.Identifier alternate data stream that Windows NTFS attaches to files downloaded from the internet or received from untrusted sources. When MotW is present, Windows applies extra caution: Microsoft Defender SmartScreen warnings, Office Protected View for documents, and Smart App Control blocks. Think of it as the 'from the internet' sticker every guard in the building checks.</p></details>
 <details class="faq"><summary>How do I check if a file has Mark of the Web?</summary><p>Right-click the file, choose Properties, and look for a Security line reading 'This file came from another computer and might be blocked' with an Unblock checkbox — that means MotW is attached. Or in PowerShell run: Get-Item -Path 'C:\path\to\file.exe' -Stream Zone.Identifier. Output containing ZoneId=3 (Internet) means the tag is present; no output means the file carries no MotW.</p></details>
 <details class="faq"><summary>What does it mean if a downloaded file has no Mark of the Web?</summary><p>Three possibilities. Benign: some extraction tools and transfer methods strip the alternate data stream. Suspicious: someone deliberately removed it with Unblock-File. Dangerous: on an unpatched system, the CVE-2026-96951 bypass silently delivered the file with no tag. If a file you just downloaded from the internet shows no Zone.Identifier, treat it as hostile until verified — and make sure the October 2026 update is installed.</p></details>
 <details class="faq"><summary>How do I remove the Mark of the Web from a file?</summary><p>Right-click the file, choose Properties, and tick the Unblock checkbox at the bottom — this permanently removes the Zone.Identifier tag. In PowerShell, run Unblock-File -Path 'C:\path\to\file'. Only remove the tag from files you personally verified as safe: unblocking also removes SmartScreen and Protected View coverage for that file.</p></details>
 <details class="faq"><summary>Am I safe if I installed the October 2026 update?</summary><p>The October 2026 cumulative update closes the bypass on your machine, so MotW enforcement works normally again. You still need the hygiene: SmartScreen on, Office Protected View on, and never Unblock a file you weren't expecting. The bypass needs a vulnerable Shell to fire, so a patched system is not affected by it.</p></details>
 </div>
-
 <div class="crosslinks">
 <h2>More from Ingenious AI</h2>
 <ul>
@@ -172,20 +163,16 @@ details.faq p{margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6}
 <li><a href="si-control-incident-readiness-check.html">SI Control Incident Readiness Check — the 10 practices from the new US guidance</a></li>
 <li><a href="breach-check.html">Breach Check — has your data already leaked?</a></li>
 <li><a href="disclosure-cop.html">Disclosure Cop — does that tool disclose its AI use?</a></li>
-<li><a href="security-suite.html">Ingenious AI Security Suite &mdash; all 11 platforms</a></li>
-<li><a href="all-links.html">All tools &amp; pages &mdash; the full index</a></li>
+<li><a href="security-suite.html">Ingenious AI Security Suite — all 11 platforms</a></li>
+<li><a href="all-links.html">All tools &amp; pages — the full index</a></li>
 </ul>
 </div>
-
 <div class="smallprint">
-Built by Ingenious AI — reporting on third-party research (Microsoft, CISA, SecurityWeek, TechRepublic). Facts summarized, not reproduced.<br>
+Built by Ingenious AI — reporting on third-party research (Microsoft, CISA, SecurityWeek, TechRepublic). Facts summarized, not reproduced.<br/>
 This page is general information, not legal or security advice for your specific system.
 </div>
 </div>
-
-<div class="share">Share this check: <a href="https://x.com/intent/post?text=A%20Windows%20zero-day%20%28CVE-2026-96951%29%20silently%20stripped%20Mark%20of%20the%20Web%20from%20downloads.%20Are%20your%20files%20still%20carrying%20theirs%3F%20Free%206-question%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mark-of-the-web-bypass-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mark-of-the-web-bypass-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mark-of-the-web-bypass-check.html&title=CVE-2026-96951%20defeats%20Mark%20of%20the%20Web%20%E2%80%94%206-question%20self-check%20%28how%20to%20verify%20Zone.Identifier%20%2B%20hardening%20checklist%29" target="_blank" rel="noopener">Reddit</a></div>
-
-
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=A%20Windows%20zero-day%20%28CVE-2026-96951%29%20silently%20stripped%20Mark%20of%20the%20Web%20from%20downloads.%20Are%20your%20files%20still%20carrying%20theirs%3F%20Free%206-question%20check&amp;url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mark-of-the-web-bypass-check.html" rel="noopener" target="_blank">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mark-of-the-web-bypass-check.html" rel="noopener" target="_blank">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mark-of-the-web-bypass-check.html&amp;title=CVE-2026-96951%20defeats%20Mark%20of%20the%20Web%20%E2%80%94%206-question%20self-check%20%28how%20to%20verify%20Zone.Identifier%20%2B%20hardening%20checklist%29" rel="noopener" target="_blank">Reddit</a></div>
 <script>
 (function(){
 "use strict";
@@ -258,6 +245,6 @@ document.querySelectorAll(".chk input").forEach(function(box){
 </script>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- Cloudflare Web Analytics --><script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
