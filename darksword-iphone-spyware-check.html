@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DarkSword P7 iPhone Spyware Check — Are You Exposed? — Ingenious AI</title>
+<meta name="description" content="DarkSword P7: iPhone spyware found in August 2026 that steals iCloud Keychain passwords and crypto wallets with no click needed. Who's at risk on iOS 18.4–18.7, why updating protects you, and a 5-question exposure check. Free, no signup.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is DarkSword P7 iPhone spyware?","acceptedAnswer":{"@type":"Answer","text":"DarkSword P7 is an iPhone spyware variant announced by iVerify's Threat Intelligence Team (reported October 8, 2026 via 9to5Mac). It was found in August 2026 while investigators examined the iPhone of a financial-institution employee. It processes stolen iCloud Keychain data directly on the device, targets crypto-wallet apps including imToken and 25+ other wallet apps, steals Notes and Photos, and takes orders from a remote server through 15+ commands with 15-second check-ins. The name comes from the p7_ variable prefix the threat actor used in its code."}},
+{"@type":"Question","name":"Do you have to click anything to get infected with DarkSword P7?","acceptedAnswer":{"@type":"Answer","text":"No. It is delivered through malicious ads in watering-hole attacks — compromised websites you simply visit. The exploit chain escapes the browser sandbox, gains kernel privileges, and injects into SpringBoard, the core iOS interface process. Victims were not necessarily targeted individually; drive-by exposure through compromised web content was enough."}},
+{"@type":"Question","name":"Am I at risk if my iPhone is on iOS 18.4 to 18.7?","acceptedAnswer":{"@type":"Answer","text":"Only if it is unpatched. DarkSword P7's exploit chain uses two vulnerabilities that Apple already fixed: CVE-2025-24201 (WebKit out-of-bounds write, CVSS 10.0, fixed in iOS 18.3.2) and CVE-2025-31200 (Core Audio memory corruption, CVSS 9.8, fixed in iOS 18.4.1). Apple also released iOS 18.7.7 in April 2026 to protect devices staying on the 18.x branch. Patched, up-to-date iPhones are protected — updating is the fix."}},
+{"@type":"Question","name":"What does DarkSword P7 steal from an iPhone?","acceptedAnswer":{"@type":"Answer","text":"Per iVerify's findings: iCloud Keychain data (processed on-device in JSON format to sort passwords at the scene), data from crypto-wallet apps (imToken plus 25+ others), Notes, and Photos. It maintains two-way communication with a command server using 15+ granular commands and heartbeats every 15 seconds. Researchers at Censys also found open directories on the attackers' servers containing 11 victims' seed phrases and 179 stolen-data directories."}},
+{"@type":"Question","name":"How do I check if my iPhone has DarkSword P7?","acceptedAnswer":{"@type":"Answer","text":"The best check is the simplest one: make sure your iPhone is fully updated — patched devices are not affected by this exploit chain. Restart your phone regularly (restarts clear in-memory implants), avoid sketchy streaming and download sites in your mobile browser, install crypto wallets only from the official App Store, and watch for unexplained battery drain or data usage. iVerify notes that previous DarkSword indicators of compromise are no longer valid, because P7 is stealthier."}}
+]}
+</script>
+<meta property="og:title" content="DarkSword P7 iPhone Spyware Check — Are You Exposed?">
+<meta property="og:description" content="DarkSword P7: iPhone spyware found in August 2026 that steals iCloud Keychain passwords and crypto wallets with no click needed. Who's at risk, why updating protects you, and a 5-question exposure check. Free, no signup.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/darksword-iphone-spyware-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/darksword-iphone-spyware-check.html">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{background:#0a0f16;color:#e8edf3;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;line-height:1.7}
+.wrap{max-width:760px;margin:0 auto;padding:24px 18px 60px}
+h1{font-size:30px;margin:18px 0 8px}
+h2{font-size:22px;margin:32px 0 10px;color:#fff}
+.badge{display:inline-block;background:#5c1a1a;color:#fff;font-size:12px;font-weight:bold;letter-spacing:1px;padding:5px 12px;border-radius:20px;margin-bottom:6px}
+.lede{font-size:17px;color:#b9c4d2}
+.card{background:#101823;border:1px solid #1e2a3a;border-radius:10px;padding:18px;margin:16px 0}
+.card h3{margin:0 0 8px;font-size:17px;color:#fff}
+.card.warn{border-color:#7a4d12;background:#171207}
+.card.good{border-color:#1c5e3a;background:#0d1a12}
+.card.bad{border-color:#7a1d1d;background:#190d0d}
+ul{padding-left:20px}li{margin:6px 0}
+ol.chain{padding-left:22px}ol.chain li{margin:12px 0}
+a{color:#6ea8fe}
+.small{font-size:13px;color:#8b98a9}
+.src{font-size:12px;color:#66727f}
+.q{margin:14px 0;padding:12px;border:1px solid #1e2a3a;border-radius:8px}
+.q p{margin:0 0 8px;font-weight:600}
+.q label{margin-right:18px;cursor:pointer}
+#result{font-size:18px;font-weight:bold;margin-top:14px}
+button{background:#1c6ef2;color:#fff;border:0;padding:12px 28px;border-radius:8px;font-size:15px;font-weight:bold;cursor:pointer;margin-top:10px}
+code{background:#1a2230;padding:2px 6px;border-radius:4px;font-size:14px}
+details{margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px}
+summary{font-weight:700;color:#fff;cursor:pointer}
+.tag{display:inline-block;background:#232b38;color:#e8edf3;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:10px;margin-right:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">SPYWARE</div>
+<h1>DarkSword P7 iPhone Spyware Check</h1>
+<p class="lede">Spyware that steals your iCloud Keychain passwords and crypto wallets — with no click needed, just from visiting a compromised website. Here's what DarkSword P7 does, who is at risk, and the one fix that protects you.</p>
+<p class="src">Triggered by a viral post by Andy Diaz (Oct 17, 2026). Findings below are from iVerify's Threat Intelligence Team, reported October 8, 2026 via 9to5Mac. Technical claims are attributed to the researchers.</p>
+
+<h2>What DarkSword P7 is</h2>
+<div class="card bad">
+<p><strong>DarkSword P7</strong> is a new variant of an iPhone compromise framework. iVerify's Threat Intelligence Team found it in <strong>August 2026</strong> while investigating an infection on the iPhone of a financial-institution employee. The name comes from the <code>p7_</code> variable prefix the threat actor used when modifying the original kit.</p>
+<p>The DarkSword family was first identified in <strong>March 2026</strong> by Google, Lookout, and iVerify as a framework chaining six iPhone vulnerabilities. Google said it was used by <strong>multiple commercial surveillance vendors and suspected state-sponsored actors</strong>, with campaigns observed in Saudi Arabia, Turkey, Malaysia, and Ukraine.</p>
+</div>
+
+<h2>How the attack works — step by step</h2>
+<ol class="chain">
+<li><strong>You visit a compromised website.</strong> DarkSword P7 is delivered through <strong>malicious ads in watering-hole attacks</strong>. Victims were not necessarily targeted individually — drive-by exposure through compromised web content was enough.</li>
+<li><strong>No click needed.</strong> The exploit chain escapes the <strong>browser sandbox</strong>, escalates to <strong>kernel privileges</strong>, and injects the implant into <strong>SpringBoard</strong> (the core iOS interface process that handles everything on screen).</li>
+<li><strong>The implant phones home every 15 seconds.</strong> SpringBoard handles the command-and-control traffic — heartbeats plus <strong>15+ granular commands</strong> for two-way control of the infected device.</li>
+<li><strong>It harvests your most sensitive data</strong> (see below) — and in P7's new twist, it processes your stolen iCloud Keychain data <strong>on your own device</strong> in JSON format, "sorting passwords at the scene" instead of exfiltrating the raw keychain database for later cracking.</li>
+</ol>
+
+<h2>What it steals</h2>
+<div class="card">
+<ul>
+<li><strong>iCloud Keychain</strong> — passwords, processed on-device to extract the usable ones fast.</li>
+<li><strong>Crypto wallets</strong> — imToken plus <strong>25+ other wallet apps</strong>.</li>
+<li><strong>Notes</strong> — exfiltrated in full.</li>
+<li><strong>Photos</strong> — exfiltrated in full.</li>
+<li><strong>Two-way control</strong> — 15+ commands from the operator, with 15-second check-ins.</li>
+</ul>
+<p class="small">Censys researchers also found open directories on the attackers' command servers: <strong>11 victims' seed phrases</strong>, <strong>179 stolen-data directories</strong>, and a Chinese-language "exploit-as-a-service" admin panel listing agents and resellers.</p>
+</div>
+
+<h2>Who is at risk — and the fix</h2>
+<div class="card warn">
+<p><strong>At risk:</strong> iPhones running <strong>iOS 18.4 through 18.7</strong> that are <strong>unpatched</strong>. P7 expanded coverage to iOS 18.7.</p>
+<p>The exploit chain uses two vulnerabilities that Apple has already fixed:</p>
+<ul>
+<li><strong>CVE-2025-24201</strong> — WebKit out-of-bounds write, CVSS 10.0, fixed in <strong>iOS 18.3.2</strong>.</li>
+<li><strong>CVE-2025-31200</strong> — Core Audio memory corruption, CVSS 9.8, fixed in <strong>iOS 18.4.1</strong>.</li>
+</ul>
+<p>Apple also released <strong>iOS 18.7.7 in April 2026</strong> to protect devices staying on the 18.x branch.</p>
+</div>
+<div class="card good">
+<h3>The key message</h3>
+<p><strong>Patched devices are protected. Updating your iPhone is the fix.</strong> If your iPhone is fully up to date, this exploit chain cannot touch it — the doors it walks through are already locked. This page's advice is simple and final: check for a software update right now.</p>
+</div>
+
+<h2>Warning signs</h2>
+<div class="card">
+<ul>
+<li>Unexplained <strong>battery drain</strong> or <strong>data usage</strong> (15-second check-ins have a cost).</li>
+<li>You visited sketchy streaming or download sites on your phone and things felt "off" afterward.</li>
+<li>You installed a crypto wallet from anywhere other than the official App Store.</li>
+</ul>
+<p class="small">Honest caveat from the researchers: iVerify notes that <strong>previous DarkSword indicators of compromise are no longer valid</strong> — P7 is stealthier. The absence of symptoms is not proof of safety; the presence of the latest iOS is the protection.</p>
+</div>
+
+<h2>Context: the bigger picture</h2>
+<div class="card">
+<ul>
+<li><strong>Not vibe-coded.</strong> iVerify told 9to5Mac that unlike earlier DarkSword variants that looked AI-generated, <strong>P7 appears hand-crafted</strong> — real human effort went into this one.</li>
+<li><strong>A business, not a hobby.</strong> The Chinese-language exploit-as-a-service admin panel with agents and resellers shows this is commercialized capability, sold down a supply chain.</li>
+<li><strong>High-end targeting roots.</strong> The original DarkSword was linked to commercial surveillance vendors and suspected state actors — this variant extends that tradecraft to broader watering-hole delivery.</li>
+</ul>
+</div>
+
+<h2>Quiz: is your iPhone exposed to DarkSword P7?</h2>
+<div class="card">
+<div class="q"><p>1. Has your iPhone been updated in the last 30 days?</p>
+<label><input type="radio" name="q0" value="yes"> Yes</label><label><input type="radio" name="q0" value="no"> No</label></div>
+<div class="q"><p>2. Do you restart your iPhone regularly (about once a week)?</p>
+<label><input type="radio" name="q1" value="yes"> Yes</label><label><input type="radio" name="q1" value="no"> No</label></div>
+<div class="q"><p>3. Do you avoid sketchy streaming or download sites in your phone's browser?</p>
+<label><input type="radio" name="q2" value="yes"> Yes</label><label><input type="radio" name="q2" value="no"> No</label></div>
+<div class="q"><p>4. Do you install crypto wallet apps only from the official App Store?</p>
+<label><input type="radio" name="q3" value="yes"> Yes</label><label><input type="radio" name="q3" value="no"> No</label></div>
+<div class="q"><p>5. If an ad on a streaming site promised you free crypto, would you tap it?</p>
+<label><input type="radio" name="q4" value="yes"> Yes</label><label><input type="radio" name="q4" value="no"> No</label></div>
+<button onclick="scoreQuiz()">Check my answers</button>
+<p id="result"></p>
+</div>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What is DarkSword P7 iPhone spyware?</summary>
+<p>DarkSword P7 is an iPhone spyware variant announced by iVerify's Threat Intelligence Team (reported October 8, 2026 via 9to5Mac). It was found in August 2026 while investigators examined the iPhone of a financial-institution employee. It processes stolen iCloud Keychain data directly on the device, targets crypto-wallet apps including imToken and 25+ other wallet apps, steals Notes and Photos, and takes orders from a remote server through 15+ commands with 15-second check-ins. The name comes from the p7_ variable prefix the threat actor used in its code.</p></details>
+<details><summary>Do you have to click anything to get infected with DarkSword P7?</summary>
+<p>No. It is delivered through malicious ads in watering-hole attacks — compromised websites you simply visit. The exploit chain escapes the browser sandbox, gains kernel privileges, and injects into SpringBoard, the core iOS interface process. Victims were not necessarily targeted individually; drive-by exposure through compromised web content was enough.</p></details>
+<details><summary>Am I at risk if my iPhone is on iOS 18.4 to 18.7?</summary>
+<p>Only if it is unpatched. DarkSword P7's exploit chain uses two vulnerabilities that Apple already fixed: CVE-2025-24201 (WebKit out-of-bounds write, CVSS 10.0, fixed in iOS 18.3.2) and CVE-2025-31200 (Core Audio memory corruption, CVSS 9.8, fixed in iOS 18.4.1). Apple also released iOS 18.7.7 in April 2026 to protect devices staying on the 18.x branch. Patched, up-to-date iPhones are protected — updating is the fix.</p></details>
+<details><summary>What does DarkSword P7 steal from an iPhone?</summary>
+<p>Per iVerify's findings: iCloud Keychain data (processed on-device in JSON format to sort passwords at the scene), data from crypto-wallet apps (imToken plus 25+ others), Notes, and Photos. It maintains two-way communication with a command server using 15+ granular commands and heartbeats every 15 seconds. Researchers at Censys also found open directories on the attackers' servers containing 11 victims' seed phrases and 179 stolen-data directories.</p></details>
+<details><summary>How do I check if my iPhone has DarkSword P7?</summary>
+<p>The best check is the simplest one: make sure your iPhone is fully updated — patched devices are not affected by this exploit chain. Restart your phone regularly (restarts clear in-memory implants), avoid sketchy streaming and download sites in your mobile browser, install crypto wallets only from the official App Store, and watch for unexplained battery drain or data usage. iVerify notes that previous DarkSword indicators of compromise are no longer valid, because P7 is stealthier.</p></details>
+
+<h2>What this page does NOT do</h2>
+<div class="card">
+<ul>
+<li>It cannot scan your iPhone for DarkSword P7 — no webpage can. iVerify notes previous IOCs are no longer valid against P7.</li>
+<li>It does not speculate about who operated this specific campaign — the original DarkSword was linked to commercial surveillance vendors and suspected state actors; attribution for P7's operators is the researchers' work.</li>
+<li>It cannot protect an already-unpatched iPhone retroactively — if the implant is in, only Apple tooling and a clean update path can remove it.</li>
+<li>It is not a substitute for keeping your device updated — that remains the single effective defense.</li>
+</ul>
+</div>
+
+<p><strong>FEATURED — BreachHunter:</strong> <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter.">BreachHunter hunts for signs of compromise on your devices — so threats like DarkSword get found, not felt.</a></p>
+
+<p><strong>FROM INGENIOUS AI — all 11 platforms:</strong>
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard.">DisclosureGuard</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder.">ModelMinder</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch.">TermsWatch</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit.">Vibe-Code Audit</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense.">Rogue-Agent Defense</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter.">BreachHunter</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker.">ChatBreaker</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder.">Agent Flight Recorder</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway.">Agent Auth Gateway</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard.">DomainGuard</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI.">ContentCraft AI</a>
+</p>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script>
+var GOOD_IS_YES=[true,true,true,true,false];
+function scoreAnswers(answers){
+  var score=0;
+  for(var i=0;i<GOOD_IS_YES.length;i++){
+    if(answers[i]===null||answers[i]===undefined)continue;
+    var yes=(answers[i]==='yes');
+    if((GOOD_IS_YES[i]&&yes)||(!GOOD_IS_YES[i]&&!yes))score++;
+  }
+  return score;
+}
+function scoreQuiz(){
+  var answers=[],answered=0;
+  for(var i=0;i<GOOD_IS_YES.length;i++){
+    var els=document.getElementsByName('q'+i),ans=null;
+    for(var j=0;j<els.length;j++){if(els[j].checked){ans=els[j].value;break;}}
+    if(ans!==null){answered++;answers[i]=ans;}
+  }
+  var r=document.getElementById('result');
+  if(answered<GOOD_IS_YES.length){r.textContent='Please answer all 5 questions first.';return;}
+  var score=scoreAnswers(answers);
+  var tier,msg;
+  if(score===5){tier='Locked down';msg='Your habits are the fix — updated phone, regular restarts, no sketchy sites, App Store only, and ads never get your tap.';}
+  else if(score>=3){tier='Mostly covered';msg='Good instincts — but shore up the misses. The one that matters most is question 1: update your iPhone now.';}
+  else{tier='Action needed';msg='Update your iPhone first (Settings, General, Software Update), then fix the missed answers. Patched devices are protected.';}
+  r.textContent=tier+': '+score+'/5 — '+msg;
+}
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
