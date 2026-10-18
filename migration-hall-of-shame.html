@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html data-primary-keyword="ai agents 2026" lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Model-Retirement Hall of Shame: Deprecation Disasters</title>
-<meta name="description" content="Real teams broke on AI model retirements: the Oct 23 wave, Anthropic's Workbench kill, a Groq swap. The 7-step checklist keeps you off the shame list.">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="Model-Retirement Hall of Shame: Deprecation Disasters">
-<meta property="og:description" content="Real teams broke on AI model retirements: the Oct 23 wave, Anthropic's Workbench kill, a Groq swap. The 7-step checklist keeps you off the shame list.">
-<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/migration-hall-of-shame.html">
-<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/migration-hall-of-shame.html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Model-Retirement Hall of Shame: Deprecation Disasters">
-<meta name="twitter:description" content="Real teams broke on AI model retirements: the Oct 23 wave, Anthropic's Workbench kill, a Groq swap. The 7-step checklist keeps you off the shame list.">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Model Retirement Disasters — AI Agents 2026</title>
+<meta content="Real teams broke on AI model retirements in 2026: the Oct 23 wave and more. This AI agents 2026 hall of shame documents deprecation disasters." name="description"/>
+<meta content="website" property="og:type"/>
+<meta content="Ingenious AI" property="og:site_name"/>
+<meta content="Model-Retirement Hall of Shame: Deprecation Disasters" property="og:title"/>
+<meta content="Real teams broke on AI model retirements: the Oct 23 wave, Anthropic's Workbench kill, a Groq swap. The 7-step checklist keeps you off the shame list." property="og:description"/>
+<meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/migration-hall-of-shame.html" property="og:url"/>
+<link href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/migration-hall-of-shame.html" rel="canonical"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="Model-Retirement Hall of Shame: Deprecation Disasters" name="twitter:title"/>
+<meta content="Real teams broke on AI model retirements: the Oct 23 wave, Anthropic's Workbench kill, a Groq swap. The 7-step checklist keeps you off the shame list." name="twitter:description"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
@@ -105,46 +106,39 @@ li{margin:8px 0}
     "url": "https://github.com/Iceman2050"
   }
 }</script>
-<link rel="stylesheet" href="ecosystem.css">
-</head>
+<link href="ecosystem.css" rel="stylesheet"/>
+<meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png" property="og:image"/></head>
 <body>
 <div class="wrap">
-<div class="badge">VERIFIED INCIDENTS &mdash; UPDATED OCT 2026</div>
-<h1>The Model-Retirement <span class="red">Hall of Shame</span>: <span class="amber">real teams, real retirements, real breakage.</span></h1>
+<div class="badge">VERIFIED INCIDENTS — UPDATED OCT 2026</div>
+<h1>Model-Retirement Hall of Shame — AI Agents 2026</h1><p><time datetime="2026-10-18">Reviewed October 18, 2026</time></p><p class="kw-lead">This AI agents 2026 hall of shame documents real deprecation disasters: teams broken by AI model retirements in 2026, from the October 23 wave to silent sunsets. Learn the migration lessons cheaply.</p><h2>What is the AI agents 2026 model-retirement hall of shame?</h2><p>Five documented cases: fine-print deprecations that broke production, widgets orphaned overnight, workbench amputations, voice agents that lost their voices, and sunsets that outlasted their own warnings. Each 2026 case includes what the vendor announced, what actually broke, and the migration lesson.</p>
 <p class="lead">AI vendors retire models the way phone companies retire networks: on a schedule they publish and a timeline you discover too late. Every entry below is a <strong>verified, sourced incident</strong> — no invented companies, no anonymous horror stories. Read them, then take the 7-step never-again checklist so your product is never the next entry.</p>
-
 <div class="honest"><strong>Honesty note:</strong> this page exists because our own <a href="model-obituaries/index.html">model obituaries</a> track retirements with verified migration paths. If we ever add an anecdote without a published source, it will be labeled <strong>ILLUSTRATIVE</strong> — that hasn't been necessary yet. Everything below names its source.</div>
-
 <div class="card">
 <h2>1. The fine-tune fine print <span class="pill">OCT 23, 2026</span></h2>
 <p>The October 23, 2026 wave is the largest OpenAI model shutdown of the year: <strong>seventeen model identifiers stop working</strong> in the API, announced April 22, 2026. The casualties include <code>gpt-4-0613</code>, <code>gpt-4-turbo</code>, <code>o1</code>, <code>o3-mini</code>, <code>o4-mini</code>, and <code>gpt-image-1</code>. But the trap is in the fine-tuned rows: <strong>six <code>ft-*</code> models carry the same 2026-10-23 shutdown date</strong> — while the same deprecations page contains a sentence saying fine-tuned models "are not affected." That sentence sits under <strong>2023 entries and governs nothing in 2026</strong>; the reliable signal is the table. And the door closes twice: the ability to create new fine-tuning jobs ends entirely on <strong>January 6, 2027</strong>, so teams on ft-* models have roughly ten weeks to retrain onto a supported base.</p>
 <p class="src">Sources: our <a href="model-obituaries/index.html">model obituaries</a> (core retirement list); Digital Matters, "OpenAI Model Deprecations: The October 23 List" — <a href="https://digitalmatters.me/artificial-intelligence-ai/openai-october-2026-model-shutoff/">digitalmatters.me/artificial-intelligence-ai/openai-october-2026-model-shutoff/</a> (the 17-identifier count, the ft-* rows, the contradictory 2023 sentence, the January 6, 2027 fine-tuning wind-down).</p>
 </div>
-
 <div class="card">
-<h2>2. The widget that forgot it could die <span class="pill">GROQ &bull; OCT 2026</span></h2>
+<h2>2. The widget that forgot it could die <span class="pill">GROQ • OCT 2026</span></h2>
 <p>A solo founder built an <strong>AI chat widget that qualifies leads on business websites</strong> on a stack of Cloudflare Pages, Netlify Functions, Supabase, and Groq — with <strong>Llama 3.3 70B</strong> as the LLM. Then Groq deprecated the model his whole product was built around. What actually broke: the model name was <strong>hardcoded in several places</strong>, the system prompts were <strong>unknowingly fitted to that model's quirks</strong> (instruction following, JSON formatting, long system prompts), and the qualification flow depended on clean structured output. Swapping in a "similar" model was not a one-line change. His fix is now the template: model list in an environment variable with a fallback, a small regression set of real conversations to judge swaps, and paid inference with fallback protection for anything customers depend on.</p>
 <p class="src">Source: Ansar Ali, "What I Learned When Groq Deprecated the Model My Product Depended On" (DEV Community, Oct 7, 2026) — <a href="https://dev.to/ansarali/what-i-learned-when-groq-deprecated-the-model-my-product-depended-on-9g4">dev.to/ansarali/what-i-learned-when-groq-deprecated-the-model-my-product-depended-on-9g4</a>. Product named in the article: Zappiq AI.</p>
 </div>
-
 <div class="card">
-<h2>3. The Workbench amputation <span class="pill">ANTHROPIC &bull; AUG 17, 2026</span></h2>
+<h2>3. The Workbench amputation <span class="pill">ANTHROPIC • AUG 17, 2026</span></h2>
 <p>On August 17, 2026, Anthropic <strong>retired the legacy Claude API Workbench</strong> — and with it, every saved prompt, named variable, and eval configuration stored there. The notice window was <strong>31 days</strong>, shorter than Anthropic's own documented 60-day minimum for model deprecations. Teams that didn't export before the cutoff have <strong>no documented recovery path</strong> — Anthropic states the data is simply no longer accessible. Three experimental API endpoints (<code>/v1/experimental/generate_prompt</code>, <code>/v1/experimental/improve_prompt</code>, <code>/v1/experimental/templatize_prompt</code>) now return errors, breaking any automation built on them. The replacement Playground is deliberately stateless: nothing is stored on Anthropic's servers.</p>
 <p class="src">Source: TechTimes, "Anthropic Kills Claude Workbench Today: Saved Prompts Gone, API Pipelines Broken" (Aug 17, 2026) — <a href="https://www.Techtimes.Com/articles/324669/20260817/anthropic-kills-claude-workbench-today-saved-prompts-gone-api-pipelines-broken.htm">TechTimes article</a>, citing Anthropic's July 17, 2026 release notes and the Claude Help Center.</p>
 </div>
-
 <div class="card">
-<h2>4. The voice agent that lost its voice <span class="pill">OPENAI &bull; JAN 20, 2027</span></h2>
+<h2>4. The voice agent that lost its voice <span class="pill">OPENAI • JAN 20, 2027</span></h2>
 <p>WebPlanning-AI, a B2B voice-driven planning SaaS, built its entire architecture around <strong><code>gpt-realtime</code></strong> (snapshot <code>gpt-realtime-2025-08-28</code>): a non-reasoning model with strict, structured tool-calling instructions and very low variance — <strong>98–100% success</strong> on their production test corpus. Then the model was flagged "Deprecated," with a shutdown date of <strong>January 20, 2027</strong>. The replacements aren't substitutes: <code>gpt-realtime-1.5</code> scores ~75%, and <code>gpt-realtime-2 / 2.1</code> drop to <strong>0–20% success</strong> with up to 14s response times, reasoning-driven parameter interpretation, and commentary leaking into user-facing audio. A second team migrating a structured outbound voice agent from <code>realtime-mini</code> hit the same wall. "Upgrading" changes the behavioral contract in a way that breaks production systems built on deterministic instruction following.</p>
 <p class="src">Source: reported by the teams themselves on the OpenAI Developer Community forum — <a href="https://community.openai.com/t/gpt-realtime-now-shows-deprecated-impact-on-deterministic-voice-agent-architectures-please-do-not-deprecate/1387746">community.openai.com thread</a> (July 2026). The January 20, 2027 date was confirmed in-thread by OpenAI staff citing the published deprecations page.</p>
 </div>
-
 <div class="card">
-<h2>5. The sunset that outlasted its own warning <span class="pill">OPENAI &bull; AUG 2026</span></h2>
+<h2>5. The sunset that outlasted its own warning <span class="pill">OPENAI • AUG 2026</span></h2>
 <p>Twelve months after the notice went out, the <strong>Assistants API shutdown</strong> took effect in August 2026 — and the twelve months of warning ran out on <strong>"thousands of production apps,"</strong> per Digital Matters' coverage of the deprecation wave. It's the clearest proof that a generous notice window doesn't save anyone: even a full year isn't enough when the migration competes with every other roadmap item. If your team filed the Assistants notice under "we'll deal with it later," August was later.</p>
 <p class="src">Source: Digital Matters, "OpenAI Model Deprecations: The October 23 List" — <a href="https://digitalmatters.me/artificial-intelligence-ai/openai-october-2026-model-shutoff/">digitalmatters.me/artificial-intelligence-ai/openai-october-2026-model-shutoff/</a>. The October wave article notes OpenAI has since published migration material for the Assistants API — for the October 23 model wave, there is no equivalent migration guide, script, or tool.</p>
 </div>
-
 <div class="checklist">
 <div><b>The 7-step "never get caught again" checklist</b></div>
 <div><b>1. Pin exact snapshots — in code AND config.</b> The retirement list is snapshot-pinned: <code>gpt-4o-2024-05-13</code> dies while bare <code>gpt-4o</code> survives. Grep for literal identifiers, not model names.</div>
@@ -156,10 +150,8 @@ li{margin:8px 0}
 <div><b>7. Don't trust the error code — alert on the outcome.</b> Community reports consistently show retired models returning 404 <code>model_not_found</code>, which is indistinguishable from "does not exist" or an entitlement problem. Alert on a drop in successful completions instead.</div>
 <p class="note" style="margin-top:14px">Checklist synthesized from the incidents above and the linked sources — defensive guidance, not vendor advice. Where a step rests on a specific source's claim, that source is cited in the entry above.</p>
 </div>
-
-<a class="cta" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20read%20your%20Model-Retirement%20Hall%20of%20Shame%20and%20want%20early%20access%20to%20ModelMinder.">Get ModelMinder early access on WhatsApp &rarr;</a>
-<a class="cta sec" href="model-obituaries/index.html">Read the model obituaries with verified migration paths &rarr;</a>
-
+<a class="cta" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20read%20your%20Model-Retirement%20Hall%20of%20Shame%20and%20want%20early%20access%20to%20ModelMinder.">Get ModelMinder early access on WhatsApp →</a>
+<a class="cta sec" href="model-obituaries/index.html">Read the model obituaries with verified migration paths →</a>
 <div class="morelinks">
 <h2>More from Ingenious AI</h2>
 <ul>
@@ -173,7 +165,6 @@ li{margin:8px 0}
 <li><a href="security-suite.html">The Ingenious AI Security Suite</a></li>
 </ul>
 </div>
-
 <section class="kw-faq" style="max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
 <h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
 <details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What happens when an AI model is deprecated?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">The vendor sets a shutdown date; after it, API calls to that model identifier stop working and must be moved to a replacement. Deprecations can also change behavior and pricing — price the migration before the deadline, don't scramble after it.</p></details>
@@ -182,9 +173,8 @@ li{margin:8px 0}
 <details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How much notice do AI vendors give before retiring models?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">It varies: OpenAI announced the Oct 23, 2026 wave about six months out; Anthropic gave 31 days for the Aug 2026 Workbench retirement; some teams got no usable warning at all. Never assume a comfortable window.</p></details>
 <details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How do I avoid being caught by the next AI model retirement?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Pin exact snapshots, keep model names in config with a fallback, maintain a regression set of real inputs, audit where model IDs hide (databases, CMS config, env dashboards), and run a deprecation radar like ModelMinder over your fleet.</p></details>
 </section>
-
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
-</body>
+<!-- Cloudflare Web Analytics --><script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script><!-- End Cloudflare Web Analytics -->
+</div></body>
 </html>
