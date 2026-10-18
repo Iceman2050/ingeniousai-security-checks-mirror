@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html data-primary-keyword="ai agents 2026" lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Agent Security Logs — Hash-Chain Demo | Ingenious AI</title>
-<meta name="description" content="AI agent security you can verify: an agent's actions sealed into a tamper-evident hash chain. Tamper with an entry, see verification catch it. Free demo.">
-<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/proof-of-innocence.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="AI Agent Security Logs — Hash-Chain Demo | Ingenious AI">
-<meta property="og:description" content="AI agent security you can verify: an agent's actions sealed into a tamper-evident hash chain. Tamper with an entry, see verification catch it. Free demo.">
-<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/proof-of-innocence.html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AI Agent Security Logs — Hash-Chain Demo | Ingenious AI">
-<meta name="twitter:description" content="AI agent security you can verify: an agent's actions sealed into a tamper-evident hash chain. Tamper with an entry, see verification catch it. Free demo.">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Agents 2026: Hash-Chain Security Logs Demo</title>
+<meta content="When AI agents act for you in 2026 — calling tools, moving money — hash-chained security logs prove what they did. Try the tamper-evident demo." name="description"/>
+<link href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/proof-of-innocence.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Ingenious AI" property="og:site_name"/>
+<meta content="AI Agent Security Logs — Hash-Chain Demo | Ingenious AI" property="og:title"/>
+<meta content="AI agent security you can verify: an agent's actions sealed into a tamper-evident hash chain. Tamper with an entry, see verification catch it. Free demo." property="og:description"/>
+<meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/proof-of-innocence.html" property="og:url"/><meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png" property="og:image"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="AI Agent Security Logs — Hash-Chain Demo | Ingenious AI" name="twitter:title"/>
+<meta content="AI agent security you can verify: an agent's actions sealed into a tamper-evident hash chain. Tamper with an entry, see verification catch it. Free demo." name="twitter:description"/>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "WebApplication",
@@ -107,14 +108,13 @@ code{background:#000;padding:2px 6px;border-radius:4px;font-size:13px}
 footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
 a{color:#6ea8fe}
 </style>
-<link rel="stylesheet" href="ecosystem.css">
+<link href="ecosystem.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="wrap">
 <div class="badge">FREE DEMO</div>
-<h1>Proof of Innocence</h1>
+<h1>Proof of Innocence: AI Agents 2026 Hash-Chain Logs</h1><p><time datetime="2026-10-18">Reviewed October 18, 2026</time></p><p class="kw-lead">Proof of innocence for AI agents in 2026 is a hash-chained security log: every action sealed so that changing one byte of history breaks the whole chain.</p><h2>What is proof of innocence for AI agents in 2026?</h2><p>It is the ability to prove what an AI agent did on your behalf — which tools it called, what money it moved, what messages it sent. A hash chain seals every action: each entry's fingerprint includes the fingerprint before it, so tampering with any single entry breaks every later link. Try the demo below: simulate actions, tamper with an entry, and watch verification catch the forgery.</p><h2>Why a hash chain proves it</h2>
 <p class="lead">When an AI agent acts on your behalf — calling tools, moving money, sending messages — how do you <em>prove</em> what it did? AI agent security logs are the answer: seal every action into a <strong>hash chain</strong>: each entry's fingerprint includes the fingerprint before it. Change one byte of history, and the whole chain breaks. Try it below.</p>
-
 <div class="card">
 <b>Try it yourself</b>
 <ol class="steps">
@@ -123,32 +123,26 @@ a{color:#6ea8fe}
 <li>Click <b>Verify chain</b> — every hash is recomputed. Watch it catch the forgery.</li>
 </ol>
 <button class="btn" id="btnSim" onclick="simulate()">Simulate agent actions</button>
-<button class="btn warn" id="btnTamper" onclick="tamper()" disabled>Tamper with entry #2</button>
-<button class="btn" id="btnVerify" onclick="verify()" disabled>Verify chain</button>
-<button class="btn" style="background:#0d1420;border:1px solid #232b38" onclick="resetLog()">Reset</button>
+<button class="btn warn" disabled="" id="btnTamper" onclick="tamper()">Tamper with entry #2</button>
+<button class="btn" disabled="" id="btnVerify" onclick="verify()">Verify chain</button>
+<button class="btn" onclick="resetLog()" style="background:#0d1420;border:1px solid #232b38">Reset</button>
 <div id="verdict"></div>
 <div id="log"></div>
 </div>
-
 <div class="card">
 <b>Why a hash chain works</b>
 <p class="small" style="margin-top:8px">Each entry stores <code>hash = SHA-256(prev_hash + timestamp + actor + action)</code>. The next entry embeds that hash as its <code>prev_hash</code>, so entries are cryptographically linked in order. To forge entry #2 without detection, an attacker would have to recompute <em>every later hash</em> — and in the real product, hashes are also anchored server-side, so even that wouldn't survive.</p>
 </div>
-
 <div class="card">
 <b>Put this proof on your own site</b>
 <p class="small">Copy-paste this snippet anywhere on your site. It embeds this demo and links back here — the backlink loop that lets your visitors verify what the badge means.</p>
-<textarea id="embed" readonly onclick="this.select()"></textarea>
-<p class="small" style="margin-top:8px"><button class="btn" style="padding:8px 18px;font-size:13px" onclick="copyEmbed()">Copy embed code</button></p>
+<textarea id="embed" onclick="this.select()" readonly=""></textarea>
+<p class="small" style="margin-top:8px"><button class="btn" onclick="copyEmbed()" style="padding:8px 18px;font-size:13px">Copy embed code</button></p>
 </div>
-
 <div class="honest">
 <b>Honest framing:</b> this demo runs <b>entirely in your browser</b> — the chain is real SHA-256 (via <code>crypto.subtle</code>), but there's no server anchoring it. The real Agent Flight Recorder is server-side: hashes are anchored to append-only storage the moment each action happens, so a compromised agent can't rewrite its own history. This page is illustrative, not a certification.
 </div>
-
-<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#fff;text-decoration:underline">Agent Flight Recorder</a> gives every AI agent action a tamper-evident, hash-chained audit trail &mdash; so you can prove what your agents did, and when.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20tried%20the%20Proof%20of%20Innocence%20demo%20and%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
-
-
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#fff;text-decoration:underline">Agent Flight Recorder</a> gives every AI agent action a tamper-evident, hash-chained audit trail — so you can prove what your agents did, and when.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20tried%20the%20Proof%20of%20Innocence%20demo%20and%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp →</a></div>
 </div>
 <script>
 /* ---------- Hash-chain core (pure; testable in node) ---------- */
@@ -292,9 +286,8 @@ render();
 <details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How do tamper-evident logs help AI agent security?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">When an agent acts on your behalf, tamper-evident logs prove what it did, when, and under whose authority — the evidence you need after an incident. This page is a live demo of the technique.</p></details>
 <details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How do you stop an AI agent from going rogue?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Use least-privilege permissions, require human approval for irreversible actions, enforce egress allowlists at the network layer rather than in the prompt, keep tamper-evident logs of every agent action, and maintain a working kill switch.</p></details>
 </section>
-
-<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<h2>Related checks</h2><ul><li><a href="ai-agent-security-mastery-roadmap.html">AI Agent Security Mastery Roadmap — 4 phases to the top 1%</a></li><li><a href="agent-incident-tracker.html">AI Agent Security Incident Tracker — documented incidents</a></li><li><a href="ai-stack-mapper.html">AI Stack Attack Surface Mapper</a></li></ul><div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
 <script src="ecosystem.js"></script>
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- Cloudflare Web Analytics --><script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

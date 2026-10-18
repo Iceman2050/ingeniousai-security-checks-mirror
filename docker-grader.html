@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html data-primary-keyword="cybersecurity news" lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Code Security Grader for Docker Compose | Ingenious AI</title>
-<meta name="description" content="AI code security grader for Docker Compose: paste your docker-compose.yml for an instant A–F grade — secrets, privileged containers, open ports. Free.">
-<link rel="canonical" href="https://ingeniousai-security-checks.netlify.app/docker-grader.html">
-<meta name="twitter:title" content="AI Code Security Grader for Docker Compose | Ingenious AI">
-<meta name="twitter:description" content="AI code security grader for Docker Compose: paste your docker-compose.yml for an instant A–F grade — secrets, privileged containers, open ports. Free.">
-<meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="AI Code Security Grader for Docker Compose | Ingenious AI">
-<meta property="og:description" content="AI code security grader for Docker Compose: paste your docker-compose.yml for an instant A–F grade — secrets, privileged containers, open ports. Free.">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Docker Compose Security Grader — Cybersecurity News</title>
+<meta content="Paste your docker-compose.yml for an instant A–F security grade. Cybersecurity news: 100% client-side, AI-written or hand-written, fix snippets included." name="description"/>
+<link href="https://ingeniousai-security-checks.netlify.app/docker-grader.html" rel="canonical"/>
+<meta content="AI Code Security Grader for Docker Compose | Ingenious AI" name="twitter:title"/>
+<meta content="AI code security grader for Docker Compose: paste your docker-compose.yml for an instant A–F grade — secrets, privileged containers, open ports. Free." name="twitter:description"/>
+<meta content="Ingenious AI" property="og:site_name"/>
+<meta content="AI Code Security Grader for Docker Compose | Ingenious AI" property="og:title"/>
+<meta content="AI code security grader for Docker Compose: paste your docker-compose.yml for an instant A–F grade — secrets, privileged containers, open ports. Free." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="summary" name="twitter:card"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Docker Compose Security Grader","applicationCategory":"SecurityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free client-side analyzer that grades a docker-compose.yml file A–F against real container security checks: privileged mode, exposed ports, hardcoded secrets, sensitive mounts, unpinned tags. Nothing is uploaded.","author":{"@type":"Organization","name":"Ingenious AI"},"about":{"@type":"Thing","name":"AI code security"},"keywords":"AI code security, AI code security scanner, docker compose security, container security, dockerfile security"}</script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -64,15 +65,14 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid #232b38;font-size:1
 .share a{color:#1c6ef2;margin:0 8px}
 @media(max-width:600px){.checks{grid-template-columns:1fr}}
 </style>
-<link rel="stylesheet" href="ecosystem.css">
+<link href="ecosystem.css" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I scan AI-generated code for vulnerabilities?","acceptedAnswer":{"@type":"Answer","text":"Run a static-analysis (SAST) scanner over the repo — open-source options include Semgrep and vibe-code-focused AI code security scanners — plus a secrets scan for hardcoded API keys, then a dynamic (DAST) scan against the running app. No scanner replaces a human review of authentication, data handling, and business logic."}},{"@type":"Question","name":"What is vibe coding security?","acceptedAnswer":{"@type":"Answer","text":"Vibe coding security is the practice of checking AI-generated code for the flaws models commonly introduce: hardcoded secrets, injection flaws, cross-site scripting, disabled TLS verification, and insecure defaults. Research (Veracode's 2025 GenAI Code Security Report) found 45% of AI-generated code shipped a real vulnerability."}}],"about":{"@type":"Thing","name":"AI code security"},"keywords":"AI code security, AI code security scanner, docker compose security, container security, dockerfile security"}</script>
-</head>
+<meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png" property="og:image"/><meta content="https://ingeniousai-security-checks.netlify.app/docker-grader.html" property="og:url"/></head>
 <body>
 <div class="wrap">
 <span class="badge-top">FREE · 100% CLIENT-SIDE</span>
-<h1>Docker Compose Security Grader</h1>
+<h1>Docker Compose Security Grader — Cybersecurity News</h1><p><time datetime="2026-10-18">Reviewed October 18, 2026</time></p><p class="kw-lead">This cybersecurity news tool is a Docker Compose security grader: paste your docker-compose.yml — AI-written or hand-written — for an instant A–F score with every issue explained and a fix snippet.</p><h2>What does the cybersecurity news Docker grader check?</h2><p>It checks your docker-compose.yml for the misconfigurations attackers actually exploit: privileged containers, exposed database ports, hardcoded secrets, docker.sock mounts, unpinned :latest tags and host networking. Every issue gets an explanation and a fix snippet, and the analysis runs 100% in your browser — your file never leaves the page.</p>
 <p class="lead">Paste your <strong>docker-compose.yml</strong> below — AI-written or hand-written. Get an instant <strong>A–F AI code security grade</strong> with every issue explained and a fix snippet. Your file never leaves this page — the analysis runs entirely in your browser.</p>
-
 <div class="card">
 <textarea id="composeInput" placeholder="Paste your docker-compose.yml here..." spellcheck="false"></textarea>
 <div class="btnrow">
@@ -81,9 +81,7 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid #232b38;font-size:1
 <button class="btn ghost" onclick="loadSample('good')">Load hardened example</button>
 </div>
 </div>
-
 <div class="result" id="result"></div>
-
 <h2>What it checks</h2>
 <div class="checks">
 <div><b>privileged: true</b> — container escapes its sandbox</div>
@@ -97,7 +95,6 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid #232b38;font-size:1
 <div><b>No restart policy</b> — stays down after a reboot</div>
 <div><b>Positive findings</b> — Docker secrets, read_only, pinned tags</div>
 </div>
-
 <h2>FAQ</h2>
 <div class="faq">
 <details><summary>Is my compose file uploaded anywhere?</summary><p>No. The YAML parser and all checks run in JavaScript in your browser. Nothing is sent to any server — you can verify in your browser's network tab, or disconnect from the internet and it still works.</p></details>
@@ -108,12 +105,10 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid #232b38;font-size:1
 <details><summary>How do I scan AI-generated code for vulnerabilities?</summary><p>Run a static-analysis (SAST) scanner over the repo — open-source options include Semgrep and vibe-code-focused AI code security scanners — plus a secrets scan for hardcoded API keys, then a dynamic (DAST) scan against the running app. No scanner replaces a human review of authentication, data handling, and business logic.</p></details>
 <details><summary>What is vibe coding security?</summary><p>Vibe coding security is the practice of checking AI-generated code for the flaws models commonly introduce: hardcoded secrets, injection flaws, cross-site scripting, disabled TLS verification, and insecure defaults. Research (Veracode's 2025 GenAI Code Security Report) found 45% of AI-generated code shipped a real vulnerability.</p></details>
 </div>
-
 <p class="note">Heuristic static analysis for education and hardening. It finds misconfigurations; it is not a penetration test and not a substitute for one.</p>
-<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Ingenious AI builds 11 AI security platforms &mdash; disclosure compliance, rogue-agent defense, breach hunting, agent oversight, and more.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
-
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Ingenious AI builds 11 AI security platforms — disclosure compliance, rogue-agent defense, breach hunting, agent oversight, and more.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp →</a></div>
 </div>
-<div class="share">Share: <a href="https://x.com/intent/post?text=Free%20Docker%20Compose%20security%20grader%20%E2%80%94%20paste%20your%20file%2C%20get%20an%20A-F%20grade%20with%20fixes&url=https%3A%2F%2Fingeniousai-security-checks.netlify.app%2Fdocker-grader.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fingeniousai-security-checks.netlify.app%2Fdocker-grader.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A%2F%2Fingeniousai-security-checks.netlify.app%2Fdocker-grader.html&title=Free%20Docker%20Compose%20security%20grader%20(client-side%2C%20nothing%20uploaded)" target="_blank" rel="noopener">Reddit</a></div>
+<div class="share">Share: <a href="https://x.com/intent/post?text=Free%20Docker%20Compose%20security%20grader%20%E2%80%94%20paste%20your%20file%2C%20get%20an%20A-F%20grade%20with%20fixes&amp;url=https%3A%2F%2Fingeniousai-security-checks.netlify.app%2Fdocker-grader.html" rel="noopener" target="_blank">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fingeniousai-security-checks.netlify.app%2Fdocker-grader.html" rel="noopener" target="_blank">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A%2F%2Fingeniousai-security-checks.netlify.app%2Fdocker-grader.html&amp;title=Free%20Docker%20Compose%20security%20grader%20(client-side%2C%20nothing%20uploaded)" rel="noopener" target="_blank">Reddit</a></div>
 <script>
 /* --- Minimal YAML-subset parser (maps, lists, scalars, quotes, comments) --- */
 function yScalar(v){
@@ -350,7 +345,7 @@ function loadSample(which){
   document.getElementById('composeInput').scrollIntoView({behavior:'smooth',block:'center'});
 }
 </script>
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+<script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 </body>

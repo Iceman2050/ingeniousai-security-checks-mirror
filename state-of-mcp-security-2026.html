@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html data-primary-keyword="ai agents 2026" lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MCP Security 2026: 27 Servers Probed | Ingenious AI</title>
-<meta name="description" content="MCP security research: we probed 27 public MCP endpoints on 2026-10-17. 20 hide behind OAuth; 2 of 7 observable servers silently downgrade the protocol.">
-<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/state-of-mcp-security-2026.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="MCP Security 2026: 27 Servers Probed | Ingenious AI">
-<meta property="og:description" content="MCP security research: we probed 27 public MCP endpoints on 2026-10-17. 20 hide behind OAuth; 2 of 7 observable servers silently downgrade the protocol.">
-<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/state-of-mcp-security-2026.html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MCP Security 2026: 27 Servers Probed | Ingenious AI">
-<meta name="twitter:description" content="MCP security research: we probed 27 public MCP endpoints on 2026-10-17. 20 hide behind OAuth; 2 of 7 observable servers silently downgrade the protocol.")>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MCP Security for AI Agents 2026: 27 Servers Probed</title>
+<meta content="We probed 27 public MCP servers used by AI agents in 2026 — Microsoft, AWS, GitHub, Stripe and more. 20 hid behind OAuth; 2 of 7 silently downgraded." name="description"/>
+<link href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/state-of-mcp-security-2026.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Ingenious AI" property="og:site_name"/>
+<meta content="MCP Security 2026: 27 Servers Probed | Ingenious AI" property="og:title"/>
+<meta content="MCP security research: we probed 27 public MCP endpoints on 2026-10-17. 20 hide behind OAuth; 2 of 7 observable servers silently downgrade the protocol." property="og:description"/>
+<meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/state-of-mcp-security-2026.html" property="og:url"/><meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png" property="og:image"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="MCP Security 2026: 27 Servers Probed | Ingenious AI" name="twitter:title"/>
+<meta )="" content="MCP security research: we probed 27 public MCP endpoints on 2026-10-17. 20 hide behind OAuth; 2 of 7 observable servers silently downgrade the protocol." name="twitter:description"/>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "WebApplication", "name": "MCP Security 2026: 27 Servers Probed | Ingenious AI", "applicationCategory": "SecurityApplication", "operatingSystem": "Any (web)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/state-of-mcp-security-2026.html", "description": "MCP security research: we probed 27 public MCP endpoints on 2026-10-17. 20 hide behind OAuth; 2 of 7 observable servers silently downgrade the protocol.", "author": {"@type": "Organization", "name": "Ingenious AI"}, "about": "MCP security", "keywords": "MCP security, MCP security risks, MCP security audit, MCP security checklist, MCP security best practices"}
 </script>
@@ -41,7 +42,7 @@ a{color:#6ea8fe}
 .bar{height:26px;border-radius:6px;margin:6px 0}
 .legend{font-size:13px;color:#9aa7b8;margin:4px 0}
 </style>
-<link rel="stylesheet" href="ecosystem.css">
+<link href="ecosystem.css" rel="stylesheet"/>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What are the security risks of MCP servers?", "acceptedAnswer": {"@type": "Answer", "text": "An MCP server can expose powerful tools — file access, code execution, credentials, network calls — to any AI agent connected to it. Key risks include over-permissioned tools, prompt injection through tool descriptions, silent protocol downgrades, and negotiation behavior hidden behind OAuth walls, as our 2026-10-17 probe documented."}}, {"@type": "Question", "name": "How do you audit an MCP server?", "acceptedAnswer": {"@type": "Answer", "text": "Probe its negotiation behavior to check for silent protocol downgrades, review every tool’s permissions and descriptions for injected instructions, verify authentication and scope design, and re-verify after vendor updates. Our open-source mcp-negotiation-prober on GitHub automates the handshake part of that audit."}}, {"@type": "Question", "name": "What is an MCP security checklist?", "acceptedAnswer": {"@type": "Answer", "text": "A minimum checklist: verify the negotiated protocol version per session — not just the requested one — review tool permissions and descriptions, demand version transparency from vendors, pin and log what each tool can touch, and re-run checks after every vendor update. The directory above grades 27 public servers on the first item."}}]}
 </script>
@@ -56,28 +57,23 @@ a{color:#6ea8fe}
 <body>
 <div class="wrap">
 <div class="badge">ORIGINAL RESEARCH · RUN 2026-10-17</div>
-<h1>State of MCP Security 2026: the negotiation layer nobody can see</h1>
+<h1>AI Agents 2026: State of MCP Security — the Negotiation Layer</h1><p class="kw-lead">This AI agents 2026 research report probes the Model Context Protocol negotiation layer: 27 public, hosted MCP endpoints tested against four real protocol eras and two fictional ones.</p><h2>What is MCP security for AI agents in 2026?</h2><p>MCP security in 2026 is the problem that the protocol negotiation layer between AI agents and tool servers is largely unobservable. Our probes found roughly 74 percent (20 of 27) of endpoints hide behind an OAuth wall, and 2 of the 7 observable ones silently downgraded the newest protocol era without declaring it — meaning AI agents in 2026 often cannot verify what version they actually get.</p>
 <p class="lead">We ran protocol-handshake probes against <strong>27 public, hosted MCP endpoints</strong> — Microsoft, AWS, GitHub, Stripe, Figma, Cloudflare, Linear, Notion, Slack and more — asking each one to negotiate four real protocol eras and two fictional ones. The results say less about any single vendor and more about the ecosystem: <strong>the negotiation layer is unobservable for most servers, and the ones we could see downgrade you quietly.</strong></p>
-
 <div class="stat"><div class="n">20 / 27</div><div class="d">endpoints answered every probe with HTTP 401 (OAuth wall) — their negotiation behavior is <strong>unobservable</strong> from outside. You cannot verify what protocol version you're actually getting.</div></div>
 <div class="stat"><div class="n">2 / 7</div><div class="d">of the observable endpoints <strong>silently downgraded</strong> the newest era (2026-07-28) to an older one without declaring it. Zero endpoints echoed fictional eras back (no parrots in this cohort).</div></div>
 <div class="stat"><div class="n">0 / 27</div><div class="d">endpoints honestly negotiated the newest 2026-07-28 era in our unauthenticated probes.</div></div>
-
 <h2>Endpoint count by worst verdict</h2>
-<div class="legend"><span class="v SILENT-DOWNGRADE">SILENT-DOWNGRADE</span> 2 endpoints &nbsp; <span class="v UNKNOWN">UNKNOWN / unobservable</span> 25 endpoints</div>
-<svg width="100%" height="70" viewBox="0 0 700 70" role="img" aria-label="2 silent-downgrade, 25 unknown">
-<rect x="0" y="10" width="52" height="26" rx="6" fill="#d29922"/><text x="8" y="28" font-size="13" fill="#0b0f17" font-weight="bold">2</text>
-<rect x="58" y="10" width="642" height="26" rx="6" fill="#232b38"/><text x="66" y="28" font-size="13" fill="#9aa7b8">25 unobservable</text>
-<text x="0" y="58" font-size="12" fill="#9aa7b8">27 endpoints probed · 6 handshake probes each · 162 total</text>
+<div class="legend"><span class="v SILENT-DOWNGRADE">SILENT-DOWNGRADE</span> 2 endpoints   <span class="v UNKNOWN">UNKNOWN / unobservable</span> 25 endpoints</div>
+<svg aria-label="2 silent-downgrade, 25 unknown" height="70" role="img" viewbox="0 0 700 70" width="100%">
+<rect fill="#d29922" height="26" rx="6" width="52" x="0" y="10"></rect><text fill="#0b0f17" font-size="13" font-weight="bold" x="8" y="28">2</text>
+<rect fill="#232b38" height="26" rx="6" width="642" x="58" y="10"></rect><text fill="#9aa7b8" font-size="13" x="66" y="28">25 unobservable</text>
+<text fill="#9aa7b8" font-size="12" x="0" y="58">27 endpoints probed · 6 handshake probes each · 162 total</text>
 </svg>
-
 <h2>What "silent downgrade" means here</h2>
 <p>We asked for the newest protocol era, <code>2026-07-28</code>. The server answered with <code>2025-06-18</code> — an older era — <strong>without declaring the downgrade</strong>. Your client thinks it's speaking the newest protocol; it isn't. A silent downgrade may be a compatibility choice, but it is one you should <em>see</em>, not discover in production when a new-era feature silently doesn't work.</p>
 <p>Both downgrading endpoints (Microsoft Learn, AWS) also answered <strong>fictional</strong> eras (<code>1999-01-01</code>, <code>2037-12-31</code>) with their default version instead of rejecting them — the version field is not validated.</p>
-
 <h2>Why most servers are unobservable</h2>
 <p>Twenty endpoints — GitHub, Stripe, Figma, Linear, Slack, Notion, Cloudflare, HubSpot, Atlassian, Supabase, Sentry, Neon, Vercel, Monday.com, Ahrefs, Perplexity, Semrush, Exa, X API, X Docs' authenticated paths — require OAuth before answering <em>any</em> handshake. That's reasonable access control, but it has a side effect the ecosystem hasn't reckoned with: <strong>independent researchers cannot verify negotiation behavior at all.</strong> The October 2026 public probe of 78 endpoints (85% silent downgrades) was <em>retracted</em> partly because the stateless 2026-07-28 spec removed the handshake — the instrument gap is real, and OAuth walls make it wider.</p>
-
 <h2>Per-endpoint results</h2>
 <table>
 <tr><th>Endpoint</th><th>Answered eras</th><th>Worst verdict</th></tr>
@@ -88,28 +84,22 @@ a{color:#6ea8fe}
 <tr><td>PMWallets (public)</td><td>3/6 honest</td><td><span class="v UNKNOWN">UNKNOWN</span></td></tr>
 <tr><td>LPSignal (public)</td><td>3/6 honest</td><td><span class="v UNKNOWN">UNKNOWN</span></td></tr>
 <tr><td>OutcomeTick (public)</td><td>2/6 honest</td><td><span class="v UNKNOWN">UNKNOWN</span></td></tr>
-<tr><td colspan="3" class="small">GitHub, Stripe, Figma, Linear, Slack, Notion, Cloudflare, HubSpot, Atlassian (v1+v2), Supabase, Sentry, Neon, Vercel, Monday.com, Ahrefs, Perplexity, Semrush, Exa, X API — all 6 probes returned 401: <span class="v UNKNOWN">UNKNOWN (OAuth-walled)</span></td></tr>
+<tr><td class="small" colspan="3">GitHub, Stripe, Figma, Linear, Slack, Notion, Cloudflare, HubSpot, Atlassian (v1+v2), Supabase, Sentry, Neon, Vercel, Monday.com, Ahrefs, Perplexity, Semrush, Exa, X API — all 6 probes returned 401: <span class="v UNKNOWN">UNKNOWN (OAuth-walled)</span></td></tr>
 </table>
-
 <h2>Methodology (so you can check our work)</h2>
 <p class="small">Run date: <strong>2026-10-17</strong>. Tool: <a href="https://github.com/Iceman2050/mcp-negotiation-prober">mcp-negotiation-prober</a> (open source, MIT) — sends an MCP <code>initialize</code> handshake with <code>protocolVersion</code> set to each of 6 eras (2024-11-05, 2025-03-26, 2025-06-18, 2026-07-28, plus fictional 1999-01-01 and 2037-12-31) and classifies the echoed version. No credentials were used and none were needed: every probe was an unauthenticated handshake. Endpoints were taken from vendors' own published docs (Microsoft Learn, Linear, Stripe, Figma docs; the Skyvia Oct 2026 roundup; vendor changelogs). An endpoint was included only if it responded to probes at all (HTTP response, including 401). Verdicts describe <strong>negotiation behavior only</strong> — a silent downgrade is not a vulnerability, and UNKNOWN is not a finding of wrongdoing. Results are reproducible: same tool + same endpoints = same verdicts.</p>
-
 <h2>What this means for you</h2>
 <p>If you run agents against hosted MCP servers: pin and log the <em>negotiated</em> protocol version per session, not the requested one; treat OAuth-walled servers as unobservable and demand version-transparency from vendors; re-run negotiation checks after vendor updates — the downgrade you don't see is the behavior change you can't explain.</p>
-
 <div class="faq">
 <h2>MCP security FAQ</h2>
 <details><summary>What are the security risks of MCP servers?</summary><p>An MCP server can expose powerful tools — file access, code execution, credentials, network calls — to any AI agent connected to it. Key risks include over-permissioned tools, prompt injection through tool descriptions, silent protocol downgrades, and negotiation behavior hidden behind OAuth walls, as our 2026-10-17 probe documented.</p></details>
 <details><summary>How do you audit an MCP server?</summary><p>Probe its negotiation behavior to check for silent protocol downgrades, review every tool’s permissions and descriptions for injected instructions, verify authentication and scope design, and re-verify after vendor updates. Our open-source mcp-negotiation-prober on GitHub automates the handshake part of that audit.</p></details>
 <details><summary>What is an MCP security checklist?</summary><p>A minimum checklist: verify the negotiated protocol version per session — not just the requested one — review tool permissions and descriptions, demand version transparency from vendors, pin and log what each tool can touch, and re-run checks after every vendor update. The directory above grades 27 public servers on the first item.</p></details>
 </div>
-
-<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#fff;text-decoration:underline">Rogue-Agent Defense</a> is the AI agent firewall &mdash; it watches what your agents actually negotiate, call, and touch, with approval queues and a kill switch when they go off-script.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20read%20the%20State%20of%20MCP%20Security%202026%20study%20and%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
-
-
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#fff;text-decoration:underline">Rogue-Agent Defense</a> is the AI agent firewall — it watches what your agents actually negotiate, call, and touch, with approval queues and a kill switch when they go off-script.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20read%20the%20State%20of%20MCP%20Security%202026%20study%20and%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp →</a></div>
 </div>
-<div id="ecosystem-footer"></div>
+<h2>Related checks</h2><ul><li><a href="ai-agent-security-mastery-roadmap.html">AI Agent Security Mastery Roadmap — 4 phases to the top 1%</a></li><li><a href="agent-incident-tracker.html">AI Agent Security Incident Tracker — documented incidents</a></li><li><a href="ai-stack-mapper.html">AI Stack Attack Surface Mapper</a></li></ul><div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- Cloudflare Web Analytics --><script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

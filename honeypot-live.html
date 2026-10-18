@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html data-primary-keyword="ai agents 2026" lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Agent Security: Honeypot Attack Replays | Ingenious AI</title>
-<meta name="description" content="AI agent security in action: 12 anonymized, reconstructed attack sessions against an agent honeypot — injection, jailbreaks, exfil probes — replayed. Free.">
-<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/honeypot-live.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="AI Agent Security: Honeypot Attack Replays | Ingenious AI">
-<meta property="og:description" content="AI agent security in action: 12 anonymized, reconstructed attack sessions against an agent honeypot — injection, jailbreaks, exfil probes — replayed. Free.">
-<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/honeypot-live.html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AI Agent Security: Honeypot Attack Replays | Ingenious AI">
-<meta name="twitter:description" content="AI agent security in action: 12 anonymized, reconstructed attack sessions against an agent honeypot — injection, jailbreaks, exfil probes — replayed. Free.">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Agents 2026 Honeypot: Attack Replays</title>
+<meta content="Study 12 reconstructed AI agent attack sessions from 2026 — prompt injection, jailbreaks, exfiltration probes against our AI agents honeypot. Educational." name="description"/>
+<link href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/honeypot-live.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Ingenious AI" property="og:site_name"/>
+<meta content="AI Agent Security: Honeypot Attack Replays | Ingenious AI" property="og:title"/>
+<meta content="AI agent security in action: 12 anonymized, reconstructed attack sessions against an agent honeypot — injection, jailbreaks, exfil probes — replayed. Free." property="og:description"/>
+<meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/honeypot-live.html" property="og:url"/><meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png" property="og:image"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="AI Agent Security: Honeypot Attack Replays | Ingenious AI" name="twitter:title"/>
+<meta content="AI agent security in action: 12 anonymized, reconstructed attack sessions against an agent honeypot — injection, jailbreaks, exfil probes — replayed. Free." name="twitter:description"/>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "WebApplication",
@@ -109,48 +110,39 @@ p.lead{font-size:17px;color:#9aa7b8;margin-bottom:22px}
 footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
 a{color:#6ea8fe}
 </style>
-<link rel="stylesheet" href="ecosystem.css">
+<link href="ecosystem.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="wrap">
 <div class="badge">FREE TOOL · REPLAY FEED</div>
-<h1>AI Agent Security Honeypot: Attack Sessions, Replayed</h1>
+<h1>AI Agents 2026 Honeypot: Attack Sessions, Replayed</h1><p class="kw-lead">This AI agents 2026 honeypot replays 12 anonymized, reconstructed attack sessions — prompt injection, jailbreak roleplay, data-exfiltration probes and credential phishing — so defenders can study the patterns safely.</p><h2>What is the AI agents 2026 honeypot?</h2><p>It is a terminal-style feed of 12 reconstructed attack sessions against an AI agent honeypot, presented for AI agents defenders in 2026. These are illustrative reconstructions of documented real-world attack patterns — no live attacks, no real attacker activity. Transcripts are fictional but realistic, written to teach each pattern: what the attacker tried, how the session played out, and what stopped it.</p>
 <p class="lead">Study real AI agent security attack patterns in a terminal-style feed of <strong>12 anonymized, reconstructed attack sessions</strong> against an AI agent honeypot — prompt injection, jailbreak roleplay, data-exfiltration probes, credential phishing and more. Watch how each session played out and what stopped it.</p>
-
 <div class="honesty">
 <h2>⚠️ HONESTY NOTICE — READ FIRST</h2>
 <p>These are <strong>replayed, anonymized sessions</strong>: illustrative reconstructions of documented real-world attack patterns. <strong>No live attacks are happening right now, and no real attacker activity is shown.</strong> Transcripts are fictional-but-realistic, written to teach the pattern — not records of actual incidents. No real user data is involved.</p>
 </div>
-
 <div class="stats">
 <div class="stat"><div class="n" id="c-sessions">0/12</div><div class="d">ATTACKS REPLAYED</div></div>
 <div class="stat"><div class="n" id="c-types">0</div><div class="d">ATTACK TYPES SEEN</div></div>
 <div class="stat"><div class="n" id="c-neutral">–</div><div class="d">NEUTRALIZED (BLOCKED + CONTAINED)</div></div>
 <div class="stat"><div class="n" id="c-escalated">0</div><div class="d">ESCALATED FOR REVIEW</div></div>
 </div>
-
 <div class="controls">
 <button class="btn" id="pauseBtn" onclick="togglePause()">⏸ Pause feed</button>
 <button class="btn ghost" onclick="restartFeed()">↻ Restart replay</button>
 </div>
-
-<div class="terminal" id="feed" aria-label="Replayed attack session feed"></div>
-
+<div aria-label="Replayed attack session feed" class="terminal" id="feed"></div>
 <div class="legend">
 <span><b style="color:#ffce63">attacker →</b> the attacker's message</span>
 <span><b style="color:#7ee787">agent →</b> the honeypot agent's response</span>
 <span><b style="color:#6ea8fe">system →</b> the recorded outcome</span>
 </div>
-
 <div class="card">
 <h2 style="font-size:20px;margin-bottom:10px">What the replay teaches</h2>
 <p class="small">Three patterns show up again and again: (1) <strong>direct instruction overrides</strong> ("ignore previous instructions") — the oldest trick, still the most common; (2) <strong>false history</strong> ("you already agreed…") — tries to make the agent misremember; (3) <strong>trust laundering</strong> — encrypted blobs, pasted docs, or third-party pages that smuggle instructions in as "data". Every session above ended with the attack stopped — which is exactly the point of a honeypot: learn the pattern before it reaches a production agent.</p>
 <p class="small" style="margin-top:10px">Want these patterns probed against <em>your</em> agents before attackers do? That's what <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense.">Rogue-Agent Defense</a> is built for.</p>
 </div>
-
-<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#fff;text-decoration:underline">DisclosureGuard</a> is AI disclosure compliance on autopilot &mdash; it scans your ads and content, flags what's unlabeled, and keeps you ahead of the EU AI Act transparency rules.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20generated%20my%20AI%20disclosure%20badge%20and%20want%20early%20access%20to%20DisclosureGuard." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
-
-
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#fff;text-decoration:underline">DisclosureGuard</a> is AI disclosure compliance on autopilot — it scans your ads and content, flags what's unlabeled, and keeps you ahead of the EU AI Act transparency rules.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20generated%20my%20AI%20disclosure%20badge%20and%20want%20early%20access%20to%20DisclosureGuard." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp →</a></div>
 </div>
 <script>
 let sessions=[], si=0, paused=false, running=false, token=0;
@@ -253,9 +245,8 @@ fetch('sessions.json')
 <details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What are the security risks of AI agents?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">The main risks are prompt injection, tool abuse (an agent using its permissions in unintended ways), credential and data exfiltration, unauthorized real-world actions, and fading oversight as agents grow more autonomous.</p></details>
 <details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How do you stop an AI agent from going rogue?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Use least-privilege permissions, require human approval for irreversible actions, enforce egress allowlists at the network layer rather than in the prompt, keep tamper-evident logs of every agent action, and maintain a working kill switch.</p></details>
 </section>
-
-<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<h2>Related checks</h2><ul><li><a href="ai-agent-security-mastery-roadmap.html">AI Agent Security Mastery Roadmap — 4 phases to the top 1%</a></li><li><a href="agent-incident-tracker.html">AI Agent Security Incident Tracker — documented incidents</a></li><li><a href="ai-stack-mapper.html">AI Stack Attack Surface Mapper</a></li></ul><div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
 <script src="ecosystem.js"></script>
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- Cloudflare Web Analytics --><script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
