@@ -76,6 +76,19 @@ details.faq p{margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6}
 <h1>Your CI might already be <span class="red">leaking secrets</span> — and the workflow looks <span class="red">helpful</span></h1>
 <p class="lead">In the <strong>GhostAction</strong> campaign, attackers compromised <strong>about 1,900 GitHub accounts</strong> and pushed malicious workflows into <strong>more than 30,000 repositories</strong> across 3,000 users and organizations — attempting to extract <strong>3,174 secrets</strong> from CI in a single October 8&ndash;9, 2026 surge (per GitGuardian's research, reported October 15, 2026). The weapon is a workflow file with a reassuring name — <strong>security-audit.yml</strong> or <strong>github_actions_security.yml</strong> — pushed in <em>your</em> identity, which quietly sends your CI secrets to an attacker server. The original wave, first documented in September 2025, already exfiltrated at least <strong>3,325 secrets</strong> from 817 repositories. This free interactive <strong>7-step CI self-audit</strong> walks you through checking your workflows, secret access and run history in minutes. It's a guided audit you perform yourself — it does not scan your repositories.</p>
 
+<div class="card">
+<h2>The October 2026 wave: how it escalated</h2>
+<p class="note">Per GitGuardian's research, reported by The Hacker News on October 15, 2026 (<a href="https://thehackernews.com/2026/10/ghostaction-compromises-about-1900.html" target="_blank" rel="noopener" style="color:#6ea8fe">thehackernews.com/2026/10/ghostaction-compromises-about-1900.html</a>).</p>
+<ul>
+<li><strong>~1,900 GitHub accounts compromised; 30,000+ repositories across 3,000 users/orgs targeted</strong> in the October 8&ndash;9, 2026 surge.</li>
+<li><strong>Payload evolution across three versions:</strong> v1 scanned git history for secrets (regexes for AWS keys, GitHub + GitLab tokens, AI secrets, cloud API keys); v2 added 2 lines of context around AWS key IDs; v3 added secret context retrieval.</li>
+<li><strong>GitHub began preventing the malicious workflow from running starting October 9, 2026</strong> — later waves extracted nothing.</li>
+<li><strong>Attackers banked on UNROTATED secrets:</strong> victims of the September 2025 and August 2026 waves who never rotated were re-compromised.</li>
+<li><strong>Follow-up waves were observed October 10 and October 12, 2026</strong> — no extraction, blocked.</li>
+</ul>
+<a class="cta" href="https://github.com/Iceman2050/secret-rotation-timer" target="_blank" rel="noopener" style="font-size:16px">Free: Secret Rotation Timer &rarr;<br><span style="font-size:13px;font-weight:400">A tool that nags you before unrotated secrets turn into GhostAction re-entry points</span></a>
+</div>
+
 <div class="howto">
 <div><b>How the attack works (per GitGuardian, The Hacker News, StepSecurity):</b></div>
 <div>&bull; Attacker steals a maintainer's credential — a <strong>leaked personal access token (PAT)</strong> from infostealer logs or credential dumps.</div>
