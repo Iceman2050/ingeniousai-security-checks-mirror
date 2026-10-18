@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-primary-keyword="cybersecurity news">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Code Security: Service Worker Lockdown Check</title>
-<meta name="description" content="AI code security for service workers: your SW intercepts every request your site makes. Six-question check on locking it down — caching, scope, updates. Free.">
+<title>Service Worker Security: Cybersecurity News Guide</title>
+<meta name="description" content="Your service worker sees every request your site makes. Cybersecurity news hardening checklist: 60-second check. Free.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="AI Code Security: Service Worker Lockdown Check">
-<meta property="og:description" content="AI code security for service workers: your SW intercepts every request your site makes. Six-question check on locking it down — caching, scope, updates. Free.">
+<meta property="og:title" content="Service Worker Security: Cybersecurity News Guide">
+<meta property="og:description" content="Your service worker sees every request your site makes. Cybersecurity news hardening checklist: 60-second check. Free.">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/service-worker-security-check.html">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/service-worker-security-check.html">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AI Code Security: Service Worker Lockdown Check">
-<meta name="twitter:description" content="AI code security for service workers: your SW intercepts every request your site makes. Six-question check on locking it down — caching, scope, updates. Free.">
+<meta name="twitter:title" content="Service Worker Security: Cybersecurity News Guide">
+<meta name="twitter:description" content="Your service worker sees every request your site makes. Cybersecurity news hardening checklist: 60-second check. Free.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
@@ -51,7 +52,13 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <body>
 <div class="wrap">
 <div class="badge">SERVICE WORKER SECURITY</div>
-<h1>Your service worker sees <span class="red">every request</span> your site makes. Is it <span class="green">locked down</span>?</h1>
+<h1>Your service worker sees <span class="red">every request</span> your site makes. Is it <span class="green">locked down</span>? — a cybersecurity news hardening guide</h1>
+<p class="lead">A service worker is a script your browser runs in the background for a website. This cybersecurity news guide gives your service worker a 60-second security check plus a hardening checklist.</p>
+<p class="note"><time datetime="2026-10-18">Reviewed October 18, 2026</time> — Ingenious AI security check.</p>
+<h2>Could your service worker become cybersecurity news?</h2>
+<p>Everything downstream breaks: a hijacked service worker sees and can rewrite every request your site makes — injecting skimmers, stealing sessions, serving malware. Veracode's 2025 GenAI Code Security Report found 45 percent of AI-generated code shipped a real vulnerability, and service workers are exactly the persistent, privileged code attackers love. The checklist below covers scoping, integrity checks, and safe update flows.</p>
+<h3>What is a service worker?</h3>
+<p>A script your browser runs in the background for a website, able to intercept every network request that site makes — powerful for offline apps, dangerous if hijacked.</p>
 <p class="lead">A service worker is a JavaScript file that runs in the background, separate from your page &mdash; intercepting network requests, managing caches, and powering offline apps, background sync, and push notifications. Here is the part every developer should sit with: <strong>it can intercept, read, and rewrite every request inside its scope</strong>. A compromised or careless service worker is a <strong>man-in-the-middle on your own site</strong> &mdash; rewriting responses, skimming data, or serving stale or poisoned content long after you fixed the server. This 60-second AI code security check tests whether yours is an asset or a liability. Free, no signup.</p>
 
 <div class="howto">
@@ -126,9 +133,36 @@ renderQ();
 
 <div class="kw-faq" style="margin:32px 0;padding:24px;background:#11161f;border:1px solid #232b38;border-radius:12px">
 <h2 style="font-size:20px;margin-bottom:12px;color:#fff">Frequently asked questions</h2>
+<h2>FAQ</h2>
 <details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">How do I scan AI-generated code for vulnerabilities?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Run a static-analysis (SAST) scanner over the repo — open-source options include Semgrep and vibe-code-focused AI code security scanners — plus a secrets scan for hardcoded API keys, then a dynamic (DAST) scan against the running app. No scanner replaces a human review of authentication, data handling, and business logic.</p></details>
-<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">What is vibe coding security?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Vibe coding security is the practice of checking AI-generated code for the flaws models commonly introduce: hardcoded secrets, injection flaws, cross-site scripting, disabled TLS verification, and insecure defaults. Research (Veracode's 2025 GenAI Code Security Report) found 45% of AI-generated code shipped a real vulnerability.</p></details>
+    <details>
+      <summary>What makes a service worker a security risk?</summary>
+      <p>A service worker can intercept, read, and modify every network request and response inside its scope — navigation, API calls, everything. That is exactly what makes it powerful for offline apps and caching, and exactly what makes a compromised or sloppy one a man-in-the-middle on your own site: it could rewrite responses, skim form data, or serve poisoned content indefinitely.</p>
+    </details>
+    <details>
+      <summary>Can an attacker install their own service worker on my site?</summary>
+      <p>Only through the same doors as any other compromise. A service worker script must be same-origin — a cross-origin script cannot be registered — so an attacker needs script execution on your origin (e.g. an XSS vulnerability) or a compromised server/CDN. That is why XSS defense, supply-chain hygiene, and keeping the service worker script minimal all matter.</p>
+    </details>
+    <details>
+      <summary>Why shouldn't I cache authenticated or sensitive responses?</summary>
+      <p>Cache Storage is readable by any JavaScript running on your origin. If your service worker caches responses containing tokens, personal data, or private content, a single XSS flaw turns into a data-exfiltration channel for everything you cached. Keep sensitive responses out of the cache, or fetch them network-only.</p>
+    </details>
+    <details>
+      <summary>How do I kill a misbehaving service worker?</summary>
+      <p>Ship a clean update whose script unregisters itself: navigator.serviceWorker.getRegistrations().then(r => r.forEach(reg => reg.unregister())). You can also inspect and remove workers per-site in browser DevTools (Application tab) or via chrome://serviceworker-internals. Have the kill path ready before you need it, not after.</p>
+    </details>
+<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">What is vibe coding security?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Vibe coding security is the practice of checking AI-generated code for the flaws models commonly introduce: hardcoded secrets, injection flaws, cross-site scripting, disabled TLS verification, and insecure defaults. Research (Veracode's 2025 GenAI Code Security Report) found 45% of AI-generated code shipped a real vulnerability.</p></det
+<div class="card">
+  <h2>Related checks</h2>
+  <ul>
+      <li><a href="chatgpt-github-connector-flaw.html">ChatGPT GitHub Connector Flaw</a></li>
+      <li><a href="domain-check.html">Domain Check</a></li>
+      <li><a href="ai-pentest-chrome-check.html">AI Pentest Chrome Check</a></li>
+  </ul>
 </div>
+ails>
+</div>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}</script>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
