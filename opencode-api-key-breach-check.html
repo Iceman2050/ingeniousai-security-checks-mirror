@@ -52,7 +52,6 @@ code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;
 .copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
 .share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
 .share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
-.warnbox{max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
 .live{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;font-size:14px;margin-bottom:24px}
 </style>
 <script type="application/ld+json">
@@ -95,10 +94,10 @@ code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;
 <li><strong>Oct 17, 2026:</strong> OpenCode discloses via its X account and individual emails — "unauthorized access to a legacy system" that was being decommissioned; "third party provider keys (eg OpenAI, Anthropic) saved in your workspace may have been exposed."</li>
 <li><strong>Scale:</strong> about 1.4% of OpenCode Console users — specifically those with external providers linked.</li>
 <li><strong>OpenCode's framing:</strong> a "large scale distillation attack" — stolen keys used to run repeated queries against high-end models.</li>
-<li><strong>Impact:</strong> victims' provider balances drained, some bills reaching into the hundreds of dollars.</li>
-<li><strong>Remediation:</strong> OpenCode says it is working with Anthropic, OpenAI, and Google; no further technical details, and the incident is described as ongoing.</li>
+<li><strong>Impact:</strong> victims' provider balances drained — reported accounts include ~$400 in unauthorized Anthropic charges, ~€200 in Google usage (one project suspended for abuse), and a $1,700 bill. These are user reports, not OpenCode figures.</li>
+<li><strong>Remediation:</strong> OpenCode says it is working with Anthropic, OpenAI, and Google. Anthropic has revoked affected Claude API keys. As of Oct 18, <strong>no provider has said it will refund fraudulent usage</strong> — the "who pays?" question remains unanswered.</li>
 <li><strong>Who was affected:</strong> per OpenCode, if you did NOT receive the email, you were not impacted.</li>
-<li><strong>Latest (Oct 17, community reaction):</strong> developers are treating this as a self-custody wake-up call — "not your keys, not your tokens": keys parked in a third-party console are only as safe as that console. Affected users are also asking <em>who pays</em> for the drained balances; as of this writing there is no official answer yet from OpenCode or the providers.</li>
+<li><strong>Latest (Oct 18):</strong> the "not your keys, not your tokens" self-custody lesson holds — OpenCode confirms keys added to the local CLI via <code>/connect</code> were never part of this incident; only keys synced to Console workspaces were exposed. Timeline: breach overnight into Oct 17, user emails that morning, public statement 17:56 UTC. Developers are treating this as the wake-up call: keep provider keys on your own machine, never parked in anyone's console.</li>
 </ul>
 <p class="src">Sources: OpenCode's X disclosure and user email notices, as reported by <a href="https://wpnews.pro" target="_blank" rel="noopener">wpnews.pro</a> and <a href="https://7minai.com" target="_blank" rel="noopener">7minai.com</a>. Claims attributed as stated by OpenCode; details are thin while the incident is ongoing.</p>
 </div>
@@ -132,8 +131,6 @@ This page is general information, not legal advice.
 </div>
 
 <div class="share">Share this check: <a href="https://x.com/intent/post?text=OpenCode%20disclosed%20a%20breach%3A%20a%20distillation%20attack%20exposed%20%7E1.4%25%20of%20users%27%20provider%20API%20keys.%20Were%20yours%20exposed%3F%20Free%205-question%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/opencode-api-key-breach-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/opencode-api-key-breach-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/opencode-api-key-breach-check.html&title=OpenCode%20breach%3A%20distillation%20attack%20exposed%20provider%20API%20keys%20%E2%80%94%20were%20yours%20exposed%3F" target="_blank" rel="noopener">Reddit</a></div>
-<div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
-
 <script>
 (function(){
 var QUESTIONS=[
