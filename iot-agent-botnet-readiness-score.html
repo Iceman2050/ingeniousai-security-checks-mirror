@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IoT Botnet Protection: Readiness Score for Device Fleets</title>
+<meta name="description" content="IoT botnet protection readiness score: 8 questions for device makers and fleet operators, built on Anthropic's October 2026 AI-worm warning. Get scored fixes.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="IoT Botnet Protection: Readiness Score for Device Fleets">
+<meta property="og:description" content="IoT botnet protection readiness score: an 8-question self-assessment for device makers and fleet operators, built on Anthropic's October 2026 warning about self-propagating AI worms.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/iot-agent-botnet-readiness-score.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/iot-agent-botnet-readiness-score.html">
+<link rel="stylesheet" href="ecosystem.css">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IoT Botnet Protection: Readiness Score for Device Fleets">
+<meta name="twitter:description" content="IoT botnet protection readiness score: an 8-question self-assessment for device makers and fleet operators, built on Anthropic's October 2026 AI-worm warning.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d2a1a;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .grn{color:#3fb950}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:20px 0 8px;color:#fff}
+.card p{font-size:15px;color:#c9d4e3;margin-bottom:10px}
+.card ul{margin:10px 0 10px 20px;font-size:14px;color:#c9d4e3}
+.card li{margin:8px 0}
+.card a{color:#6ea8fe}
+.note{font-size:14px;color:#9aa7b8}
+.q{border:1px solid #232b38;border-radius:10px;background:#0d1219;padding:18px;margin:16px 0}
+.q h3{font-size:16px;color:#fff;margin-bottom:4px}
+.q .cat{font-size:12px;color:#3fb950;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
+.opt{display:block;width:100%;text-align:left;background:#11161f;border:1px solid #2a3342;color:#e6edf3;font-size:14px;padding:10px 14px;border-radius:8px;margin:8px 0;cursor:pointer}
+.opt:hover{border-color:#3fb950}
+.opt.sel{border-color:#3fb950;background:#0d1a0f}
+.bigbtn{display:block;width:100%;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:16px;border-radius:10px;border:0;cursor:pointer;margin:20px 0}
+.bigbtn:hover{background:#2f7ef7}
+.bigbtn.grn{background:#238636}
+.bigbtn.grn:hover{background:#2ea043}
+#result{display:none}
+#result.show{display:block}
+.scorenum{font-size:64px;font-weight:800;color:#3fb950;line-height:1;margin:10px 0}
+.bandtag{display:inline-block;font-size:15px;font-weight:700;padding:6px 16px;border-radius:999px;margin-bottom:12px}
+.fix{border-left:4px solid #f85149;background:#1a0f0f;border-radius:0 8px 8px 0;padding:12px 16px;margin:12px 0}
+.fix.first{border-color:#f85149}
+.fix.high{border-color:#d29922;background:#1a1408}
+.fix.med{border-color:#6ea8fe;background:#0d1420}
+.fix strong{color:#fff;display:block;margin-bottom:4px;font-size:14px}
+.fix p{font-size:14px;color:#c9d4e3;margin:0}
+.prio{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-bottom:6px}
+.prio.first{background:#3b0d0d;color:#ffa198}
+.prio.high{background:#2b1d07;color:#e6c26a}
+.prio.med{background:#0d1a2e;color:#6ea8fe}
+.moreblock{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0}
+.moreblock h2{font-size:18px;margin-bottom:10px;color:#fff}
+.moreblock a{color:#6ea8fe;text-decoration:none}
+.moreblock ul{margin:10px 0 10px 20px}
+.moreblock li{font-size:14px;margin:8px 0}
+.share{text-align:center;font-size:14px;color:#9aa7b8;margin:28px 0}
+.share a{color:#1c6ef2;margin:0 8px}
+.warnbox{background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a;margin:20px 0}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "IoT Botnet Protection: Readiness Score for Device Fleets",
+  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/iot-agent-botnet-readiness-score.html",
+  "description": "IoT botnet protection readiness score: an 8-question self-assessment for device makers and fleet operators, built on Anthropic's October 2026 warning about self-propagating AI worms.",
+  "author": { "@type": "Organization", "name": "Ingenious AI" },
+  "datePublished": "2026-10-18"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is IoT botnet protection?",
+      "acceptedAnswer": { "@type": "Answer", "text": "IoT botnet protection is the set of defenses that stop internet-connected devices from being conscripted into botnets: unique device credentials, automatic security updates, network segmentation, anomaly monitoring, and remote quarantine." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why did Anthropic warn about AI worms in October 2026?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Anthropic's Frontier Red Team reported that small AI models may be months away from self-replicating across IoT devices as autonomous 'weight-based replicators'. Such an AI worm would carry its model weights as the malware payload and be challenging to shut down because there is no centralized point to switch off." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is an AI worm different from Mirai?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Mirai spread by trying default manufacturer credentials and installed fixed DDoS code. An AI worm would tailor exploits and payloads dynamically per target, learn from failed attempts, and run inference on the compromised hardware itself — adapting instead of repeating the same attack." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the single fastest thing a device maker can do?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Ship unique per-device credentials and disable default logins. Past IoT botnets like Mirai and Kimwolf spread largely through default credentials on cheap hardware, and Anthropic notes small replicators remain weakest at the exploitation step — credential hygiene directly raises that bar." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this readiness score a certification or audit?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. This is a self-assessment questionnaire, not an independent security audit or certification. It highlights your weakest controls so you know where to invest first; a formal audit still requires qualified assessors reviewing your actual systems." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">FREE SELF-ASSESSMENT &middot; 2 MINUTES</div>
+<h1>IoT Botnet Protection <span class="grn">Readiness Score</span></h1>
+<p class="lead">In October 2026, Anthropic warned that small AI models may soon self-replicate across IoT devices as autonomous worms with no central off-switch. Answer 8 questions about your device fleet and get a 0&ndash;100 IoT botnet protection score plus prioritized fixes.</p>
+
+<div class="direct-answer">
+<div class="card">
+<h2>What is IoT botnet protection?</h2>
+<p>IoT botnet protection is the set of defenses that stop internet-connected devices from being conscripted into botnets: unique device credentials, automatic security updates, network segmentation, anomaly monitoring, and remote quarantine. It matters more since October 2026, when Anthropic warned small AI models may soon self-replicate across IoT hardware as worms with no central off-switch.</p>
+</div>
+</div>
+
+<div class="key-facts">
+<div class="card">
+<h2>Key facts</h2>
+<ul>
+<li><strong>Anthropic's Frontier Red Team (Oct 13, 2026):</strong> small AI models may be months away from self-replicating across IoT devices as autonomous, self-propagating worm botnets that are "challenging to shut down" — there is "no centralized point to shut off." <a href="http://thehackernews.com/2026/10/anthropic-warns-small-ai-models-could.html" target="_blank" rel="noopener">The Hacker News</a></li>
+<li><strong>The experiment:</strong> a 26-billion-parameter model was split across 15 off-brand Android TV boxes; a 9-billion-parameter model got inference running on 8 of 9 hardware types; only GLM-5.2 completed the full replication cycle on 8 emulated Android devices. Models with 30B parameters or fewer may reach that level by end of 2026. <a href="https://cybernoz.com/small-ai-models-could-soon-self-replicate-on-iot-devices-anthropic-warns/" target="_blank" rel="noopener">SecurityWeek via Cybernoz</a></li>
+<li><strong>Why IoT:</strong> IoT devices are lucrative targets because of minimal security controls — and researchers base spread estimates on Kimwolf, a botnet that infected over two million devices, mostly off-brand Android TV boxes. <a href="https://www.malaymail.com/news/tech-gadgets/2026/10/14/ai-worm-fears-rise-as-anthropic-warns-smart-gadgets-could-host-rogue-models/239045" target="_blank" rel="noopener">Malay Mail / AFP</a></li>
+</ul>
+</div>
+</div>
+
+<div class="card">
+<h2>Your 8-question readiness check</h2>
+<p class="note">Pick the answer closest to reality for your fleet. Be honest — this only helps you.</p>
+<div id="quiz"></div>
+<button class="bigbtn grn" id="scoreBtn">Calculate my readiness score</button>
+<div id="result" class="card" style="margin:20px 0 0">
+<h2>Your IoT botnet protection score</h2>
+<div class="scorenum" id="scoreNum">0</div>
+<div><span class="bandtag" id="bandTag"></span></div>
+<p id="bandDesc" class="note"></p>
+<h3>Prioritized fixes — biggest gaps first</h3>
+<div id="fixes"></div>
+<button class="bigbtn" id="retakeBtn" style="font-size:15px;padding:12px">Retake the assessment</button>
+</div>
+</div>
+
+<p class="note"><strong>Honest scope:</strong> this is a self-assessment questionnaire, not an independent security audit or certification. It cannot see your actual devices — it scores what you report. Use it to prioritize investment, then validate with real testing.</p>
+<p class="note"><strong>What this page does NOT do:</strong> it does not scan your network, test your devices, or certify compliance with any standard.</p>
+
+<section style="margin:36px 0">
+<h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is IoT botnet protection?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">IoT botnet protection is the set of defenses that stop internet-connected devices from being conscripted into botnets: unique device credentials, automatic security updates, network segmentation, anomaly monitoring, and remote quarantine.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Why did Anthropic warn about AI worms in October 2026?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Anthropic's Frontier Red Team reported that small AI models may be months away from self-replicating across IoT devices as autonomous "weight-based replicators". Such an AI worm would carry its model weights as the malware payload and be challenging to shut down because there is no centralized point to switch off.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How is an AI worm different from Mirai?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Mirai spread by trying default manufacturer credentials and installed fixed DDoS code. An AI worm would tailor exploits and payloads dynamically per target, learn from failed attempts, and run inference on the compromised hardware itself — adapting instead of repeating the same attack.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is the single fastest thing a device maker can do?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Ship unique per-device credentials and disable default logins. Past IoT botnets like Mirai and Kimwolf spread largely through default credentials on cheap hardware, and Anthropic notes small replicators remain weakest at the exploitation step — credential hygiene directly raises that bar.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Is this readiness score a certification or audit?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">No. This is a self-assessment questionnaire, not an independent security audit or certification. It highlights your weakest controls so you know where to invest first; a formal audit still requires qualified assessors reviewing your actual systems.</p></details>
+</section>
+
+<div class="moreblock">
+<h2>More from Ingenious AI</h2>
+<ul>
+<li><a href="anthropic-ai-worm-iot-check.html">Anthropic AI Worm Check &mdash; the October 2026 warning, 60 seconds</a></li>
+<li><a href="france-supermarket-iot-hack-check.html">IoT Hack Case File &mdash; what a real device breach looks like</a></li>
+<li><a href="agent-kill-switch-registry.html">Agent Kill-Switch Registry &mdash; can you shut your fleet off?</a></li>
+<li><a href="si-incident-readiness-check.html">Incident Readiness Check &mdash; is your response plan real?</a></li>
+<li><a href="agent-insurance-quote.html">Agent Insurance Quote &mdash; price your autonomous-system risk</a></li>
+<li><a href="security-suite.html">Ingenious AI Security Suite &mdash; all 11 platforms</a></li>
+<li><a href="all-links.html">All free checks &mdash; the full directory</a></li>
+</ul>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Ingenious AI builds 11 AI security platforms &mdash; disclosure compliance, rogue-agent defense, breach hunting, agent oversight, and more.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<div class="share">Share this check:
+<a href="https://x.com/intent/post?text=IoT%20botnet%20protection%20readiness%20score%20%E2%80%94%208%20questions%2C%200%E2%80%93100%2C%20built%20on%20Anthropic%27s%20October%202026%20AI-worm%20warning&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/iot-agent-botnet-readiness-score.html" target="_blank" rel="noopener">X</a>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/iot-agent-botnet-readiness-score.html" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/iot-agent-botnet-readiness-score.html&title=IoT%20botnet%20protection%20readiness%20score%20%E2%80%94%20built%20on%20Anthropic%27s%20October%202026%20AI-worm%20warning" target="_blank" rel="noopener">Reddit</a>
+</div>
+<div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+</div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script>
+/* Pure logic first (node-testable), DOM wiring guarded at the bottom. */
+const QUESTIONS = [
+  { id:"seg", cat:"Network segmentation",
+    q:"Can your IoT devices talk freely to each other and the open internet?",
+    opts:["Isolated IoT VLANs, no device-to-device traffic allowed","Separate IoT network, but devices can reach each other","Same network as office IT","Flat network \u2014 devices reachable from the internet"],
+    fix:"Put IoT devices on isolated network segments and block device-to-device (east-west) traffic. An AI worm hops from gadget to gadget; segmentation turns one compromise into a dead end instead of a beachhead." },
+  { id:"ota", cat:"Update cadence",
+    q:"How fast can you push a security patch to your whole fleet?",
+    opts:["Signed OTA updates, fleet-wide within 72 hours","OTA exists but needs manual approval \u2014 takes weeks","Updates only via technician visit","No update mechanism at all"],
+    fix:"Build a signed over-the-air update pipeline. Anthropic's worm spreads slowly (days per hop) \u2014 a 72-hour patch window can outrun it, but only if updates are automatic and fleet-wide." },
+  { id:"models", cat:"On-device model governance",
+    q:"Do you control which AI models run on your devices?",
+    opts:["Signed model registry \u2014 only approved models, hashes verified at boot","We ship models but never verify signatures","Third-party models with no review","We don't know what models run on our devices"],
+    fix:"Create a signed registry of approved models and verify hashes at boot. The AI worm carries its model weights as the malware payload \u2014 unsigned on-device models are its fuel." },
+  { id:"monitor", cat:"Anomaly monitoring",
+    q:"Would you notice one device port-scanning your network at 3am?",
+    opts:["Yes \u2014 central telemetry with anomaly alerts on traffic patterns","Logs are collected, reviewed manually","Logs exist but nobody looks at them","No telemetry from devices at all"],
+    fix:"Centralize device telemetry and alert on worm-like behavior: port scans, new outbound connections, sudden traffic spikes. The replication cycle's first step is always finding targets \u2014 scans are the earliest signal." },
+  { id:"kill", cat:"Kill-switch / revocation",
+    q:"Can you remotely disable or quarantine a compromised device?",
+    opts:["Yes \u2014 one-click fleet-wide revoke and quarantine","Per-device disable via dashboard","Only via a firmware update","No remote control \u2014 physical recall only"],
+    fix:"Build a remote quarantine capability. Anthropic's core warning is that the worm has 'no centralized point to shut off' \u2014 your fleet must have its own off-switch before attackers prove the point." },
+  { id:"creds", cat:"Default credentials",
+    q:"What stops a Mirai-style default-password login on your devices?",
+    opts:["Unique per-device credentials, forced change on first setup","Strong shared default, changed at install","Default password, changed 'sometimes'","Still admin/admin \u2014 or telnet/SSH open by default"],
+    fix:"Ship unique per-device credentials and close default remote logins. Mirai and Kimwolf spread largely through default credentials on cheap hardware \u2014 the cheapest fix in IoT security." },
+  { id:"sbom", cat:"Vendor & SBOM process",
+    q:"Do you know every software component inside your firmware?",
+    opts:["SBOM for every release, scanned for known vulnerabilities","SBOM exists but is not maintained","A partial component list","No idea what's in the firmware"],
+    fix:"Generate a software bill of materials (SBOM) per release and scan it for known vulnerabilities. You cannot patch what you cannot inventory." },
+  { id:"ir", cat:"Incident response",
+    q:"If a worm hit your fleet tonight, what's the plan?",
+    opts:["Documented IoT incident response plan, tested this year","A plan exists but was never tested","We'd figure it out as we go","No plan"],
+    fix:"Write and tabletop-test an IoT worm playbook: who declares the incident, how devices get quarantined, who talks to customers, and when to involve law enforcement. Untested plans fail at 2am." }
+];
+const BANDS = [
+  { min:90, name:"Resilient", color:"#3fb950", desc:"Strong posture. Your fleet would be a hard target for a self-propagating worm. Keep testing your IR plan and watch model-governance as on-device AI spreads." },
+  { min:70, name:"Developing", color:"#d29922", desc:"Foundations exist but gaps remain. Work the prioritized fixes below \u2014 each one you close meaningfully raises the cost of compromising your fleet." },
+  { min:40, name:"Exposed", color:"#f0883e", desc:"A worm would find easy paths through your fleet. Treat the 'Fix first' items as this quarter's security roadmap, not next year's." },
+  { min:0,  name:"Critical", color:"#f85149", desc:"Your fleet is close to the cheap, poorly secured hardware Anthropic's researchers used in their tests. Start with unique credentials and network segmentation this week." }
+];
+function computeScore(answers){
+  let total = 0;
+  for (let i = 0; i < QUESTIONS.length; i++) total += (answers[i] || 0);
+  const pct = Math.round(total / (QUESTIONS.length * 3) * 100);
+  const band = BANDS.find(b => pct >= b.min);
+  return { total: total, max: QUESTIONS.length * 3, pct: pct, band: band.name, bandColor: band.color, bandDesc: band.desc };
+}
+function remediationList(answers){
+  return QUESTIONS.map(function(q, i){
+      const lost = 3 - (answers[i] || 0);
+      return { question: q.q, fix: q.fix, lost: lost,
+               priority: lost === 3 ? "Fix first" : (lost === 2 ? "High" : "Medium") };
+    })
+    .filter(function(x){ return x.lost > 0; })
+    .sort(function(a, b){ return b.lost - a.lost; });
+}
+/* DOM wiring (browser only) */
+if (typeof window !== "undefined" && typeof document !== "undefined" && document.getElementById) {
+  (function(){
+    const quiz = document.getElementById("quiz");
+    const state = new Array(QUESTIONS.length).fill(null);
+    QUESTIONS.forEach(function(q, qi){
+      const box = document.createElement("div");
+      box.className = "q";
+      let html = '<div class="cat">' + q.cat + '</div><h3>' + (qi+1) + '. ' + q.q + '</h3>';
+      q.opts.forEach(function(o, oi){
+        html += '<button class="opt" data-q="' + qi + '" data-o="' + (3-oi) + '">' + o + '</button>';
+      });
+      box.innerHTML = html;
+      quiz.appendChild(box);
+    });
+    quiz.addEventListener("click", function(e){
+      const b = e.target.closest(".opt");
+      if (!b) return;
+      const qi = +b.getAttribute("data-q");
+      state[qi] = +b.getAttribute("data-o");
+      b.parentElement.querySelectorAll(".opt").forEach(function(x){ x.classList.remove("sel"); });
+      b.classList.add("sel");
+    });
+    document.getElementById("scoreBtn").addEventListener("click", function(){
+      const answers = state.map(function(s){ return s === null ? 0 : s; });
+      const r = computeScore(answers);
+      document.getElementById("scoreNum").textContent = r.pct;
+      document.getElementById("scoreNum").style.color = r.bandColor;
+      const tag = document.getElementById("bandTag");
+      tag.textContent = r.band;
+      tag.style.background = r.bandColor + "22";
+      tag.style.color = r.bandColor;
+      tag.style.border = "1px solid " + r.bandColor;
+      document.getElementById("bandDesc").textContent = r.bandDesc;
+      const fixes = remediationList(answers);
+      const fx = document.getElementById("fixes");
+      if (fixes.length === 0) {
+        fx.innerHTML = '<p class="note">No gaps found \u2014 you answered best-practice on all 8 controls. Re-run this quarterly; threats move fast.</p>';
+      } else {
+        fx.innerHTML = fixes.map(function(f){
+          const cls = f.priority === "Fix first" ? "first" : (f.priority === "High" ? "high" : "med");
+          const pc = f.priority === "Fix first" ? "first" : (f.priority === "High" ? "high" : "med");
+          return '<div class="fix ' + cls + '"><span class="prio ' + pc + '">' + f.priority + '</span><strong>' + f.question + '</strong><p>' + f.fix + '</p></div>';
+        }).join("");
+      }
+      document.getElementById("result").classList.add("show");
+      document.getElementById("result").scrollIntoView({behavior:"smooth"});
+    });
+    document.getElementById("retakeBtn").addEventListener("click", function(){
+      document.querySelectorAll(".opt.sel").forEach(function(x){ x.classList.remove("sel"); });
+      state.fill(null);
+      document.getElementById("result").classList.remove("show");
+      window.scrollTo({top:0, behavior:"smooth"});
+    });
+  })();
+}
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
