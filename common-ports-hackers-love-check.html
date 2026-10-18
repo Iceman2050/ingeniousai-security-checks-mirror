@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-primary-keyword="cybersecurity" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>18 Common Ports Hackers Love — Interactive Reference &amp; Quiz | Ingenious AI</title>
-<meta name="description" content="Open ports are the map hackers read: each one tells them what you run, how old your system is, and how to break in. Searchable reference of the 18 most-targeted ports (FTP, SSH, Telnet, SMB, RDP, databases), what each exposes, risk ratings, what to do about them, how to check your own exposure, and a 5-question quiz. Free, no signup.">
+<title>18 Ports Hackers Love: Cybersecurity Reference</title>
+<meta name="description" content="Open ports are the map hackers read. A cybersecurity reference of the 18 most-targeted ports — what each exposes, risk ratings, and a 5-question quiz.">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/common-ports-hackers-love-check.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
@@ -74,14 +74,21 @@ details p{font-size:14px;color:#9aa7b8;margin-top:8px}
 .plat a{border:1px solid #2a3342;border-radius:8px;padding:8px 12px;font-size:13px;color:#9db8e8;text-decoration:none}
 .plat a:hover{border-color:#1c6ef2;color:#fff}
 </style>
+  <meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}</script>
 </head>
 <body>
 <div class="wrap">
 <a class="back" href="index.html">&larr; All security checks</a>
 <span class="badge">PORT CHECK</span>
-<h1>18 Common Ports Hackers Love — <span class="blue">Read the Map Like They Do</span></h1>
+<h1>18 Common Ports Hackers Love — <span class="blue">a Cybersecurity Reference</span></h1>
 <p class="lead">Want to hack a network, you first learn to read the map — and in the world of hacking, that map is made of ports. Every open port tells an attacker what you're running, how old your system is, and how they might break in. This page turns that map around: search the 18 most-targeted ports, see what each one exposes, and learn what to do about it.</p>
 <p class="src">Trigger: James Code Lab reel, "18 Common Ports That Hackers Love (And Why)," October 18, 2026. Risk ratings reflect long-established, well-documented attack patterns — not novel claims.</p>
+
+<div class="card">
+<h2>What is a network port?</h2>
+<p>A network port is a numbered doorway (0–65,535) that network services use to send and receive traffic. When a port is "open," a program is listening on it — which is useful for legitimate services but also gives attackers a place to knock. Closing ports you do not use shrinks what hackers can reach.</p>
+</div>
 
 <div class="card">
 <h2>🔍 The interactive port reference</h2>
@@ -130,14 +137,15 @@ details p{font-size:14px;color:#9aa7b8;margin-top:8px}
 </div>
 
 <div class="card">
-<h2>🧪 Do you know your ports? — 5-question check</h2>
+<h2>🧪 Do you know your ports?</h2>
+<p>If you cannot name which ports are open on your home router right now, you are in the majority — and that is exactly what attackers count on. This 5-question check takes about a minute and tells you whether your open ports are an invitation to hackers or a non-issue.</p>
 <div id="questions"></div>
 <button id="score-btn" class="cta" type="button">Check my score</button>
 <div id="result"></div>
 </div>
 
 <div class="card">
-<h2>❓ Frequently asked</h2>
+<h2>❓ Cybersecurity FAQ</h2>
 <details><summary>Is an open port dangerous by itself?</summary><p>No — a port is just a numbered door. The danger is what answers when someone knocks: an outdated service, a weak password, or a protocol that leaks credentials. A closed port tells an attacker nothing; an open one starts a conversation.</p></details>
 <details><summary>How do I check which ports are open on my network?</summary><p>Start inside: your router's admin page lists port-forwarding rules and connected devices. From outside, free port-scan services (the "shields up" style) probe your public IP and report what answers. Never scan networks you don't own or lack written permission to test.</p></details>
 <details><summary>Why is port 445 (SMB) so dangerous?</summary><p>SMB is Windows file sharing — and it was the attack surface behind the WannaCry and NotPetya-era worms, which spread machine-to-machine through SMB flaws. It belongs on trusted internal networks only, never on the public internet.</p></details>
@@ -271,6 +279,10 @@ if(typeof module!=="undefined"){module.exports={scoreAnswers:scoreAnswers,POLARI
 {"@type":"Question","name":"Are databases really attacked through their ports?","acceptedAnswer":{"@type":"Answer","text":"Routinely. Exposed database ports are scanned constantly; open MongoDB instances were mass-ransomed in 2017. Bind databases to localhost or a private network and require authentication."}}
 ]}
 </script>
+<nav class="related-checks" style="margin:32px 0;padding:20px 0;border-top:1px solid #2a2f3a">
+<p style="font-size:13px;letter-spacing:2px;color:#6ea8fe;margin-bottom:10px">RELATED SECURITY CHECKS</p>
+<p style="font-size:15px"><a href="siteguard-waf-cve-2026-106931-check.html">SiteGuard CVE-2026-106931 Check</a> · <a href="password-brute-force-survival-check.html">Strong Password Survival Check</a></p>
+</nav>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <script src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"376c9de98060423683cfe15cec38f36b"}'></script>
