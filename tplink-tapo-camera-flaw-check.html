@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TP-Link Tapo Camera Flaw Check — Is Your Camera Exposed?</title>
+<meta name="description" content="Six flaws fixed in TP-Link Tapo C200 V5 and C120 V1 cameras — including CVE-2026-102369 command injection that can hand attackers full control. Free 5-question check: is your camera exposed?">
+<meta property="og:title" content="TP-Link Tapo Camera Flaw Check — Is Your Camera Exposed?">
+<meta property="og:description" content="Six flaws in TP-Link Tapo C200 V5 and C120 V1 cameras, one rated severe. Free 5-question exposure check + what to do now.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/tplink-tapo-camera-flaw-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/tplink-tapo-camera-flaw-check.html">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{background:#0a0f16;color:#e8edf3;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;line-height:1.7}
+.wrap{max-width:760px;margin:0 auto;padding:24px 18px 60px}
+h1{font-size:30px;margin:18px 0 8px}
+h2{font-size:22px;margin:32px 0 10px;color:#fff}
+.badge{display:inline-block;background:#7a1f1f;color:#fff;font-size:12px;font-weight:bold;letter-spacing:1px;padding:5px 12px;border-radius:20px;margin-bottom:6px}
+.lede{font-size:17px;color:#b9c4d2}
+.card{background:#101823;border:1px solid #1e2a3a;border-radius:10px;padding:18px;margin:16px 0}
+.card h3{margin:0 0 8px;font-size:17px;color:#fff}
+.card.warn{border-color:#7a4d12;background:#171207}
+ul{padding-left:20px}li{margin:6px 0}
+a{color:#6ea8fe}
+.small{font-size:13px;color:#8b98a9}
+.src{font-size:12px;color:#66727f}
+.q{margin:14px 0;padding:12px;border:1px solid #1e2a3a;border-radius:8px}
+.q p{margin:0 0 8px;font-weight:600}
+.q label{margin-right:18px;cursor:pointer}
+#result{font-size:18px;font-weight:bold;margin-top:14px}
+button{background:#1c6ef2;color:#fff;border:0;padding:12px 28px;border-radius:8px;font-size:15px;font-weight:bold;cursor:pointer;margin-top:10px}
+code{background:#1a2230;padding:2px 6px;border-radius:4px;font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">SMART CAMERA SECURITY</div>
+<h1>TP-Link Tapo Camera Flaw Check</h1>
+<p class="lede">Six security flaws were fixed in two popular TP-Link Tapo cameras — and the worst one can hand an attacker full control of the device. Check whether yours is exposed.</p>
+
+<h2>What happened</h2>
+<div class="card">
+<p>Security researchers at <strong>OPSWAT</strong> (Khoi Tran and Thai Do, Unit 515) found <strong>six flaws</strong> in the <strong>TP-Link Tapo C200 V5</strong> and <strong>Tapo C120 V1</strong> security cameras. TP-Link has released firmware updates fixing all six. Four of the flaws were publicly identified (paraphrased from Cybernews' October 16, 2026 reporting):</p>
+<ul>
+<li><strong>CVE-2026-102369 (severe)</strong> — command injection in a diagnostic service used for camera maintenance and manufacturing. The service builds operating-system commands out of user input without adequate validation, so specially crafted file-transfer instructions get executed as OS commands on the camera.</li>
+<li><strong>CVE-2026-78578 (high)</strong> — a Wi-Fi configuration flaw that lets an attacker change the camera's Wi-Fi settings without logging in, knocking it off the network.</li>
+<li><strong>CVE-2026-78577</strong> — unauthenticated disclosure of nearby Wi-Fi network names, device identifiers, and security settings.</li>
+<li><strong>CVE-2026-9032 (high)</strong> — unauthenticated attackers can crash the camera's HTTPS service.</li>
+</ul>
+<p class="small">The remaining <strong>two of the six flaws</strong> were not publicly identified in the reporting — treat them as undisclosed, not as absent.</p>
+</div>
+
+<h2>How the attack works (in plain language)</h2>
+<div class="card">
+<p>The researchers demonstrated the full chain in a lab:</p>
+<ol>
+<li><strong>Same-network access first.</strong> The attacker must already be on your local network (your Wi-Fi) — this is not a remote attack from the internet.</li>
+<li><strong>Admin without the password.</strong> Using an earlier authentication-bypass flaw (disclosed in August, reported in September), the attacker gains administrator access without knowing your camera's password.</li>
+<li><strong>Wake the hidden tool.</strong> They enable the camera's hidden diagnostic service and restart the device.</li>
+<li><strong>Inject commands.</strong> Through the severe command-injection flaw, they run operating-system commands on the camera itself.</li>
+</ol>
+<p>At that point it's <strong>full takeover</strong>: run any OS command, install malware, keep persistent access — and use the camera as a foothold to scan and attack other devices on your network.</p>
+</div>
+
+<div class="card warn">
+<h3>Honest limits — read this part</h3>
+<ul>
+<li>The full attack chain was <strong>demonstrated in a lab</strong>, not observed in real attacks.</li>
+<li>There is <strong>no evidence of in-the-wild exploitation</strong>.</li>
+<li>The attacker must be <strong>on your local network</strong> — a stranger across the internet cannot do this directly.</li>
+<li><strong>Firmware fixes for all six flaws have been released</strong> — updating closes the door.</li>
+</ul>
+<p>This is a "patch promptly" situation, not a "throw the camera away" one.</p>
+</div>
+
+<h2>What to do NOW</h2>
+<div class="card">
+<ol>
+<li><strong>Update the firmware today.</strong> Open the Tapo app → select the camera → device settings → check for firmware updates. Install anything offered.</li>
+<li><strong>Change the camera's password</strong> from anything default or reused. Use the Tapo app's account/device password settings.</li>
+<li><strong>Isolate the camera.</strong> Put smart cameras on a guest or dedicated IoT network segment, separate from your computers and phones — so a compromised camera can't reach them.</li>
+<li><strong>Audit your network.</strong> Check your router's device list for anything you don't recognize. Unknown devices get removed.</li>
+<li><strong>Re-check after updating.</strong> Confirm the firmware version in the Tapo app matches the latest TP-Link release for your model.</li>
+</ol>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>One vulnerable gadget is all an attacker needs as a foothold. Our free checkers cover the rest of your digital life: scams, breaches, passwords, and AI risks.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20TP-Link%20Tapo%20camera%20flaw%20check." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<h2>The 5-question check: is your camera exposed?</h2>
+<p class="small">Answer honestly. This checks your exposure habits, not the camera's firmware directly.</p>
+<div id="quiz"></div>
+<button onclick="grade()">Check my answers</button>
+<div id="result"></div>
+
+<h2>Honest scope</h2>
+<div class="card">
+<ul>
+<li>This page summarizes reporting on the flaws; it is not a substitute for TP-Link's official security advisory.</li>
+<li>The attack chain was lab-demonstrated; no in-the-wild exploitation has been reported.</li>
+<li>Two of the six fixed flaws were not publicly identified — the page does not invent details for them.</li>
+<li>Updating firmware is the fix. Everything else here reduces blast radius, it does not replace the patch.</li>
+<li>Source: Ann-Marie Corvin, "TP-Link Tapo camera flaw lets hackers seize full control – update urged", Cybernews, Oct 16, 2026 (summarized, not quoted).</li>
+</ul>
+</div>
+
+</div>
+<script>
+var QUESTIONS=[
+{q:"Is your Tapo camera's firmware fully up to date (checked in the Tapo app recently)?",good:true},
+{q:"Is your Tapo camera still using the default password or one you reuse on other accounts?",good:false},
+{q:"Is the camera on a separate guest/IoT network, away from your computers and phones?",good:true},
+{q:"Have you checked your router's device list recently for devices you don't recognize?",good:true},
+{q:"Do you share your Wi-Fi password freely with guests, workers, or neighbors?",good:false}
+];
+function render(){
+var h="";
+for(var i=0;i<QUESTIONS.length;i++){
+h+='<div class="q"><p>'+(i+1)+'. '+QUESTIONS[i].q+'</p><label><input type="radio" name="q'+i+'" value="yes"> Yes</label><label><input type="radio" name="q'+i+'" value="no"> No</label></div>';
+}
+document.getElementById("quiz").innerHTML=h;
+}
+function grade(){
+var score=0,answered=0;
+for(var i=0;i<QUESTIONS.length;i++){
+var sel=document.querySelector('input[name="q'+i+'"]:checked');
+if(!sel)continue;
+answered++;
+var yes=(sel.value==="yes");
+if((yes&&QUESTIONS[i].good)||(!yes&&!QUESTIONS[i].good))score++;
+}
+var r=document.getElementById("result");
+if(answered<QUESTIONS.length){r.textContent="Answer all 5 questions first.";return;}
+var msg=score===5?"5/5 — Your camera setup is locked down. Keep the firmware updated.":score>=3?score+"/5 — Mostly covered. Fix the gaps above, starting with the firmware update.":score+"/5 — Your camera is exposed. Update the firmware today and move it to a guest network.";
+r.textContent=msg;
+}
+render();
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
