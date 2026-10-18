@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent Protocol Picker — MCP vs A2A vs AG-UI: Which Do You Need?</title>
+<meta name="description" content="MCP, A2A, and AG-UI do three different jobs: tools, agent-to-agent teamwork, and human-facing interfaces. Answer 6 questions to get your protocol recommendation + the security checklist for each. Free, no signup.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-protocol-picker.html">
+<meta property="og:title" content="Agent Protocol Picker — MCP vs A2A vs AG-UI: Which Do You Need?">
+<meta property="og:description" content="They're not competing — they're complementary. Answer 6 questions and get your protocol pick with a security checklist. Free, no signup.">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="ecosystem.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Do MCP and A2A compete with each other?","acceptedAnswer":{"@type":"Answer","text":"No — they are complementary. MCP connects an agent to tools and data (vertical), while A2A connects agents to other agents (horizontal). The common phrasing: MCP gives your agent hands, A2A gives your agents colleagues. Production systems use both."}},
+{"@type":"Question","name":"Which protocol should I learn first?","acceptedAnswer":{"@type":"Answer","text":"MCP, in most cases. Giving your agent access to your own tools and data is the step almost every project needs; agent-to-agent networking (A2A) only matters once you have multiple agents that must collaborate."}},
+{"@type":"Question","name":"What is AG-UI for, exactly?","acceptedAnswer":{"@type":"Answer","text":"AG-UI is an event-streaming protocol between agents and the user interfaces people see. It powers live feeds where humans watch the agent work and approve steps — the human-in-the-loop layer."}},
+{"@type":"Question","name":"What are the main security risks of MCP?","acceptedAnswer":{"@type":"Answer","text":"Malicious MCP servers can hide instructions in tool descriptions, so review servers like software dependencies, grant least-privilege tools only, never expose a generic pass-through tool, and pin spec versions."}},
+{"@type":"Question","name":"How should A2A be secured?","acceptedAnswer":{"@type":"Answer","text":"Agent Cards advertise capabilities publicly, so decide who may call what before production, require strong authentication for cross-organization calls, and log every delegation like a network call rather than a chat message."}}
+]}
+</script>
+<style>
+body{background:#0b0f14;color:#dbe2ec;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;padding:0 16px 40px;line-height:1.6}
+.wrap{max-width:860px;margin:0 auto}
+h1{font-size:30px;color:#fff;margin:28px 0 8px}
+h2{font-size:22px;color:#fff;margin:32px 0 10px}
+.lead{font-size:17px;color:#aeb9c8}
+.card{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:16px 18px;margin:12px 0}
+.warn{background:#1a1410;border:1px solid #6b4a1e;border-radius:10px;padding:16px 18px;margin:12px 0}
+.proto{border-left:4px solid #1c6ef2}
+.proto h3{margin:0 0 6px;color:#fff;font-size:18px}
+.tag{display:inline-block;font-size:11px;letter-spacing:1px;background:#1c6ef2;color:#fff;border-radius:4px;padding:2px 8px;margin-bottom:8px}
+details{margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px}
+summary{font-weight:700;color:#fff;cursor:pointer}
+.q{background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px;margin:10px 0}
+.q p{margin:0 0 8px;color:#fff;font-weight:600}
+.q label{margin-right:18px;color:#aeb9c8;cursor:pointer}
+button{background:#1c6ef2;color:#fff;border:0;border-radius:8px;padding:12px 28px;font-size:15px;font-weight:700;cursor:pointer;margin-top:10px}
+#result{margin-top:16px}
+.rec{background:#0e1a12;border:1px solid #1f6b3a;border-radius:10px;padding:16px 18px;margin:12px 0}
+.rec h3{color:#7ee2a8;margin:0 0 8px}
+.sec-list{margin:8px 0;padding-left:20px;color:#aeb9c8}
+.src{font-size:12px;color:#6b7686;margin-top:14px}
+.small{font-size:13px;color:#8b98a9}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Agent Protocol Picker — MCP vs A2A vs AG-UI</h1>
+<p class="lead">Three protocols, three different jobs. <strong>MCP</strong> plugs your agent into tools and data. <strong>A2A</strong> lets agents talk to other agents. <strong>AG-UI</strong> streams the agent's work to the humans watching it. The most common mistake is treating them as rivals — they're designed to layer. Answer 6 questions below and get your recommendation, with the security checklist for each protocol you pick.</p>
+
+<h2>The three protocols, in plain language</h2>
+
+<div class="card proto">
+<div class="tag">VERTICAL · AGENT ↔ TOOLS</div>
+<h3>MCP — Model Context Protocol</h3>
+<p><strong>Connects:</strong> your agent to tools and data — APIs, databases, files, services.<br>
+<strong>Think of it as:</strong> one universal port for every tool. The common analogy is "USB-C for agents."<br>
+<strong>Origin:</strong> Anthropic, November 2024; now governed by the Linux Foundation's Agentic AI Foundation (launched December 2025, co-founded by OpenAI, Anthropic, Google, Microsoft, AWS, and Block).<br>
+<strong>Scale (industry-reported):</strong> roughly 97 million monthly SDK downloads and 10,000+ production servers.<br>
+<strong>Use it when:</strong> your agent needs your CRM, your docs, or your code — anything it doesn't own.</p>
+</div>
+
+<div class="card proto">
+<div class="tag">HORIZONTAL · AGENT ↔ AGENT</div>
+<h3>A2A — Agent2Agent Protocol</h3>
+<p><strong>Connects:</strong> agents to other agents — delegation and coordination across teams, vendors, and organizations.<br>
+<strong>Think of it as:</strong> a shared language between agents. The common analogy is "colleagues for agents."<br>
+<strong>Origin:</strong> Google, April 2025; v1.0 released March 2026 with signed Agent Cards; joined the Agentic AI Foundation in August 2026. IBM's ACP merged into A2A in August 2025.<br>
+<strong>Scale (industry-reported):</strong> 150+ organizations behind it.<br>
+<strong>Use it when:</strong> your agent hands work to another company's agent, or a fleet of agents must coordinate.</p>
+</div>
+
+<div class="card proto">
+<div class="tag">INTERFACE · AGENT ↔ PEOPLE</div>
+<h3>AG-UI — Agent-User Interaction Protocol</h3>
+<p><strong>Connects:</strong> agents to the people using them, via event streaming.<br>
+<strong>Think of it as:</strong> a live feed between the agent and the app — people watch the agent work and approve steps as it goes.<br>
+<strong>Origin:</strong> CopilotKit and the open-source community.<br>
+<strong>Use it when:</strong> humans need to see what the agent is doing and sign off on steps — the human-in-the-loop layer.</p>
+</div>
+
+<h2>The key insight: they layer, they don't compete</h2>
+<div class="card">
+<p>A production agent system usually looks like this:</p>
+<p style="font-family:monospace;color:#7ee2a8">User —AG-UI→ Orchestrator —A2A→ Specialist agents —MCP→ Tools &amp; data</p>
+<p>The orchestrator delegates to specialists over A2A; each specialist calls tools over MCP; and everything streams to the human through AG-UI. As the saying goes: <strong>MCP gives your agent hands, A2A gives your agents colleagues</strong> — and AG-UI lets the humans supervise.</p>
+<p class="small"><strong>Honesty note:</strong> the comparison graphic that prompted this page claims MCP is near 500 million monthly SDK downloads; across industry sources the verifiable figure is roughly 97 million. This page uses the lower, verifiable number. All scale figures above are industry-reported, not independent findings.</p>
+</div>
+
+<h2>The 6-question picker</h2>
+<div id="quiz"></div>
+<button onclick="grade()">Get my recommendation</button>
+<div id="result"></div>
+
+<h2>Common mistakes</h2>
+<div class="card">
+<ul>
+<li><strong>Treating MCP vs A2A as either/or.</strong> They solve different axes — vertical (tools) vs horizontal (agents). Most real systems need both.</li>
+<li><strong>Adopting a network protocol too early.</strong> A2A earns its keep once you have multiple agents that must collaborate. One agent with tools just needs MCP.</li>
+<li><strong>Skipping auth design.</strong> Agent Cards advertise capabilities publicly — decide who may call what before anything reaches production.</li>
+<li><strong>Trusting third-party MCP servers blindly.</strong> Malicious servers can hide instructions in tool descriptions. Review them like dependencies.</li>
+<li><strong>Ignoring spec versions.</strong> These protocols are still evolving — pin the version you ship against and test upgrades in staging.</li>
+</ul>
+</div>
+
+<h2>Frequently asked questions</h2>
+<div class="card">
+<details><summary>Do MCP and A2A compete with each other?</summary><p>No — they're complementary. MCP connects an agent to tools and data (vertical); A2A connects agents to other agents (horizontal). Production systems use both: the orchestrator delegates over A2A, specialists call tools over MCP.</p></details>
+<details><summary>Which protocol should I learn first?</summary><p>MCP, in most cases. Connecting your agent to your own tools and data is the step nearly every project needs. A2A matters once you have multiple agents collaborating across teams or vendors.</p></details>
+<details><summary>What is AG-UI for, exactly?</summary><p>AG-UI is the event-streaming protocol between agents and the interfaces people see — the live feed where humans watch the agent work and approve steps. It's the human-in-the-loop layer, complementary to both MCP and A2A.</p></details>
+<details><summary>What are the main security risks of MCP?</summary><p>Malicious servers hiding instructions in tool descriptions. Defenses: review every MCP server like a software dependency, grant least-privilege tools only, never expose a generic pass-through tool, and pin spec versions. Our open-source <a href="https://github.com/Iceman2050/mcp-provenance-scanner" style="color:#6ea8fe">mcp-provenance-scanner</a> checks tool descriptions for hidden instructions.</p></details>
+<details><summary>How should A2A be secured?</summary><p>Agent Cards advertise capabilities publicly, so decide who may call what before production, require strong authentication for cross-organization calls, and log every delegation like a network call. Our open-source <a href="https://github.com/Iceman2050/a2a-security-scanner" style="color:#6ea8fe">a2a-security-scanner</a> audits Agent Card exposure.</p></details>
+</div>
+
+<h2>Honest scope</h2>
+<div class="card">
+<ul class="small">
+<li>This page summarizes publicly documented protocol specifications; it is not affiliated with Anthropic, Google, CopilotKit, or the Linux Foundation.</li>
+<li>Scale figures are industry-reported, not independently measured.</li>
+<li>Protocol specs evolve quickly — verify the current version before building.</li>
+<li>Triggered by a comparison graphic shared on social media; the graphic's MCP download figure was corrected here (see honesty note above).</li>
+</ul>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#fff;text-decoration:underline">Agent Auth Gateway</a> is the enforcement layer once you've picked your protocols:</strong> allowlists and denylists for what agents may touch, an approval queue for sensitive steps, budget caps, and a kill switch — so MCP tools and A2A delegations stay inside your rules.</div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20agent%20protocol%20picker%20and%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+</div>
+<script>
+var QUESTIONS=[
+{q:"Does your agent need to call APIs, databases, or read/write files?",mcp:true},
+{q:"Do agents from different teams, vendors, or companies need to collaborate or hand off work?",a2a:true},
+{q:"Do people need to watch the agent work in real time and approve steps?",agui:true},
+{q:"Will your system work with third-party or untrusted agents?",a2a:true},
+{q:"Is the main experience a chat-style interface where the agent streams its progress?",agui:true},
+{q:"Does the agent need to use tools or services it doesn't own or control?",mcp:true}
+];
+var SEC={
+mcp:["Review every MCP server like a software dependency — malicious servers can hide instructions in tool descriptions.","Grant least-privilege tools only; never expose a generic pass-through tool.","Pin spec versions; test upgrades in staging first."],
+a2a:["Decide who may call what before production — Agent Cards advertise capabilities publicly.","Cross-organization calls need strong authentication on both ends.","Log every delegation like a network call, not a chat message."],
+agui:["Human approval steps ARE the security feature — don't let them become click-through habits.","Treat the event stream as untrusted input; validate what the UI renders.","Approval UX must show exactly what will run, not a summary."]
+};
+function recommend(ans){
+var s={mcp:0,a2a:0,agui:0};
+for(var i=0;i<QUESTIONS.length;i++){if(ans[i]){if(QUESTIONS[i].mcp)s.mcp++;if(QUESTIONS[i].a2a)s.a2a++;if(QUESTIONS[i].agui)s.agui++;}}
+return s;
+}
+function describe(s){
+var names=[];if(s.mcp>0)names.push("MCP");if(s.a2a>0)names.push("A2A");if(s.agui>0)names.push("AG-UI");
+if(names.length===0)return{title:"Start with MCP",body:"None of your answers point to multi-agent networking or human-in-the-loop UI — which means your agent's first job is almost certainly reaching your own tools and data. Start with MCP: connect the APIs, databases, and files first. Revisit this picker when agents start collaborating or humans need to approve steps."};
+if(names.length===3)return{title:"All three — the full layered stack",body:"You need the complete picture: MCP for tools and data, A2A for agent-to-agent collaboration, and AG-UI for the human-facing layer. Architecture: humans watch via AG-UI, the orchestrator delegates via A2A, specialists call tools via MCP. Secure each layer with the checklists below."};
+return{title:names.join(" + "),body:"Your answers point to "+names.join(" and ")+". "+(names.length>1?"These are complementary, not competing — layer them: agent-to-agent work over A2A, tool access over MCP, human supervision over AG-UI.":"Start here, then re-run this picker when your architecture grows.")+" Security checklist"+(names.length>1?"s":"")+" for your pick"+(names.length>1?"s":"")+" below."};
+}
+function render(){
+var h="";
+for(var i=0;i<QUESTIONS.length;i++){
+h+='<div class="q"><p>'+(i+1)+'. '+QUESTIONS[i].q+'</p><label><input type="radio" name="q'+i+'" value="yes"> Yes</label><label><input type="radio" name="q'+i+'" value="no"> No</label></div>';
+}
+document.getElementById("quiz").innerHTML=h;
+}
+function grade(){
+var ans=[];
+for(var i=0;i<QUESTIONS.length;i++){
+var sel=document.querySelector('input[name="q'+i+'"]:checked');
+ans.push(sel&&sel.value==="yes");
+}
+var s=recommend(ans);
+var d=describe(s);
+var h='<div class="rec"><h3>Recommendation: '+d.title+'</h3><p>'+d.body+'</p>';
+["mcp","a2a","agui"].forEach(function(k){
+if(s[k]>0){
+var label=k==="mcp"?"MCP":(k==="a2a"?"A2A":"AG-UI");
+h+='<p style="color:#7ee2a8;font-weight:700;margin:12px 0 4px">Security checklist — '+label+':</p><ul class="sec-list">';
+SEC[k].forEach(function(item){h+='<li>'+item+'</li>';});
+h+='</ul>';
+}
+});
+h+='</div>';
+document.getElementById("result").innerHTML=h;
+}
+if (typeof window !== "undefined") render();
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
