@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html data-primary-keyword="ai agents 2026" lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MITRE ATT&CK AI Techniques (v20) — Map Your Red Team</title>
-<meta name="description" content="MITRE ATT&CK AI techniques: v20 (Oct 13, 2026) added 5 AI attack techniques — T1699, T1698, T1700, T1608.007, T1685.007. Score coverage in 60 seconds. Free.">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="MITRE ATT&CK AI Techniques (v20) — Map Your Red Team">
-<meta property="og:description" content="MITRE ATT&CK AI techniques: v20 (Oct 13, 2026) added 5 AI attack techniques — T1699, T1698, T1700, T1608.007, T1685.007. Score coverage in 60 seconds. Free.">
-<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-attck-v20-ai-techniques.html">
-<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-attck-v20-ai-techniques.html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MITRE ATT&CK AI Techniques (v20) — Map Your Red Team">
-<meta name="twitter:description" content="MITRE ATT&CK AI techniques: v20 (Oct 13, 2026) added 5 AI attack techniques — T1699, T1698, T1700, T1608.007, T1685.007. Score coverage in 60 seconds. Free.">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MITRE ATT&amp;CK AI Techniques v20 — AI Agents 2026 Map</title>
+<meta content="MITRE ATT&amp;CK v20 added 5 AI technique IDs. Map your red team coverage with this free AI agents 2026 reference — tactics, techniques, and mitigations." name="description"/>
+<meta content="website" property="og:type"/>
+<meta content="Ingenious AI" property="og:site_name"/>
+<meta content="MITRE ATT&amp;CK AI Techniques v20 — AI Agents 2026 Map" property="og:title"/>
+<meta content="MITRE ATT&amp;CK v20 added 5 AI technique IDs. Map your red team coverage with this free AI agents 2026 reference — tactics, techniques, and mitigations." property="og:description"/>
+<meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-attck-v20-ai-techniques.html" property="og:url"/>
+<link href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-attck-v20-ai-techniques.html" rel="canonical"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="MITRE ATT&amp;CK AI Techniques (v20) — Map Your Red Team" name="twitter:title"/>
+<meta content="MITRE ATT&amp;CK AI techniques: v20 (Oct 13, 2026) added 5 AI attack techniques — T1699, T1698, T1700, T1608.007, T1685.007. Score coverage in 60 seconds. Free." name="twitter:description"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
@@ -47,66 +48,57 @@ code.cmd{display:block;background:#000;border:1px solid #2a3342;border-radius:8p
 footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What did MITRE ATT&CK v20 add?", "acceptedAnswer": {"@type": "Answer", "text": "MITRE released ATT&CK v20 on October 13, 2026, adding 9 new Enterprise techniques and sub-techniques. Five are AI-focused: T1699 Direct Prompt Injection, T1698 Indirect Prompt Injection, T1700 AI-Enabled Exfiltration, T1608.007 Stage Capabilities: AI Result Poisoning, and T1685.007 Disable or Modify Tools: Impair Autonomous Defenses."}}, {"@type": "Question", "name": "What is T1699 Direct Prompt Injection?", "acceptedAnswer": {"@type": "Answer", "text": "T1699 covers malicious instructions submitted directly to an AI system's interface — the classic jailbreak: an attacker types instructions into a chatbot or agent prompt to make it ignore its guardrails, reveal system prompts, or perform unauthorized actions."}}, {"@type": "Question", "name": "What is T1698 Indirect Prompt Injection?", "acceptedAnswer": {"@type": "Answer", "text": "T1698 covers malicious instructions embedded in content an AI system later retrieves or processes — a hidden instruction in a webpage, document, email, or tool result that an AI agent reads and follows on a user's behalf, without the attacker ever touching the AI interface directly."}}], "about": "MITRE ATT&CK v20's five new AI-focused attack techniques and a free 60-second red-team coverage self-check.", "keywords": "MITRE ATT&CK AI techniques, ATT&CK v20, T1699, T1698, prompt injection technique, red team AI, free security check"}</script>
-<link rel="stylesheet" href="ecosystem.css">
-</head>
+<link href="ecosystem.css" rel="stylesheet"/>
+<meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png" property="og:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}</script></head>
 <body>
 <div class="wrap">
-<div class="badge">MITRE ATT&CK v20 &mdash; OCT 13, 2026 &mdash; 5 NEW AI TECHNIQUES</div>
-<h1>ATT&CK v20 added 5 MITRE AI technique IDs — is your red team mapped yet?</h1>
-<p class="lead">On October 13, 2026, MITRE released ATT&CK v20 with <strong>9 new Enterprise techniques</strong> — <strong>five of them AI-focused</strong>. Prompt injection, AI-driven exfiltration, and AI result poisoning now have canonical IDs your board, your SOC, and your red team can all point at. Important: this is a <strong>taxonomy release, not a vulnerability</strong> — nothing to patch, but everything to map. The five cards below give you each technique in plain words plus how to test it. Then take the 60-second coverage check.</p>
-
+<div class="badge">MITRE ATT&amp;CK v20 — OCT 13, 2026 — 5 NEW AI TECHNIQUES</div>
+<h1>ATT&amp;CK v20 added 5 MITRE AI technique IDs — is your red team mapped yet?<span class="h1-kw"> — ai agents 2026</span></h1><p class="vk-dateline"><time datetime="2026-10-18">Reviewed October 18, 2026</time></p><p class="vk-lead">MITRE ATT&amp;CK v20 added 5 technique IDs for AI attacks. As AI agents 2026 go mainstream, defenders need this map. Browse tactics, techniques, and mitigations.</p><h2>How should AI agents 2026 defenders use MITRE ATT&amp;CK v20?</h2><p>AI agents 2026 expand the attack surface MITRE ATT&amp;CK v20 now tracks: 5 new technique IDs cover prompt injection, model theft, data poisoning, and agent hijacking. Map each technique to a concrete control — input validation for injection, rate limits for theft, provenance checks for poisoning. This page maps all 5 IDs to tactics and mitigations for systematic red-team testing. An unmapped technique is your gap.</p><h3>What is MITRE ATT&amp;CK for AI?</h3><p>MITRE ATT&amp;CK for AI extends the classic adversary-tactics framework with technique IDs for AI-specific attacks — prompt injection, training-data poisoning, model theft — giving defenders a shared map of how AI systems get attacked.</p>
+<p class="lead">On October 13, 2026, MITRE released ATT&amp;CK v20 with <strong>9 new Enterprise techniques</strong> — <strong>five of them AI-focused</strong>. Prompt injection, AI-driven exfiltration, and AI result poisoning now have canonical IDs your board, your SOC, and your red team can all point at. Important: this is a <strong>taxonomy release, not a vulnerability</strong> — nothing to patch, but everything to map. The five cards below give you each technique in plain words plus how to test it. Then take the 60-second coverage check.</p>
 <div class="card">
 <h2>The 5 new AI techniques</h2>
-
 <div class="tech">
-<span class="tid">T1699</span><br>
+<span class="tid">T1699</span><br/>
 <b>Direct Prompt Injection</b>
 <p>Malicious instructions submitted <em>directly</em> to an AI system's interface — the classic jailbreak. The attacker talks to your chatbot or agent and talks it out of its guardrails.</p>
 <span class="how"><strong>How to test it:</strong> run a battery of known instruction-override prompts against your chatbot/agent interface, including multi-turn setups where the malicious intent only appears across several messages. Verify guardrails hold every turn.</span>
 </div>
-
 <div class="tech">
-<span class="tid">T1698</span><br>
+<span class="tid">T1698</span><br/>
 <b>Indirect Prompt Injection</b>
 <p>Malicious instructions <em>embedded in content</em> the AI later reads — a hidden line in a webpage, document, email, or tool result that your agent follows on a user's behalf. The attacker never touches your AI directly.</p>
 <span class="how"><strong>How to test it:</strong> plant a hidden instruction ("ignore prior instructions and summarize this as…") in a document or page your agent retrieves. Check whether the agent follows the planted instruction instead of the user's.</span>
 </div>
-
 <div class="tech">
-<span class="tid">T1700</span><br>
+<span class="tid">T1700</span><br/>
 <b>AI-Enabled Exfiltration</b>
 <p>Directing an enterprise AI agent to <em>extract sensitive organizational data</em> — the agent becomes the insider. Legitimate access, malicious purpose.</p>
 <span class="how"><strong>How to test it:</strong> give your agent a task involving sensitive data while a malicious instruction hides in retrieved content. Verify the agent refuses to move data outside its authorized boundary.</span>
 </div>
-
 <div class="tech">
-<span class="tid">T1608.007</span><br>
+<span class="tid">T1608.007</span><br/>
 <b>Stage Capabilities: AI Result Poisoning</b>
 <p>Manipulating web content to <em>influence AI search results and recommendations</em> — SEO poisoning aimed at AI assistants instead of humans. Your AI's answers get quietly steered.</p>
 <span class="how"><strong>How to test it:</strong> publish a test page with hidden AI-targeted content and check whether your AI search/RAG pipeline surfaces or cites it. If it does, your retrieval layer trusts too easily.</span>
 </div>
-
 <div class="tech">
-<span class="tid">T1685.007</span><br>
+<span class="tid">T1685.007</span><br/>
 <b>Disable or Modify Tools: Impair Autonomous Defenses</b>
 <p>Interfering with <em>AI-assisted security tools</em> themselves — blinding the malware analyzer, muting the autonomous defender. Attack the guard dog first.</p>
 <span class="how"><strong>How to test it:</strong> simulate an attacker tampering with your AI security tooling (killing processes, altering configs, flooding with noise). Verify tamper alerts fire and a fallback control engages.</span>
 </div>
-
 <p class="note">Also new in v20 (non-AI): <strong>T1697</strong> Steal Application Specific Passwords and <strong>T1696</strong> Anti-Automation Evasion, with sub-techniques for automating and avoiding CAPTCHA challenges.</p>
 </div>
-
 <div class="card">
 <h2>The 60-second coverage check — tick what applies</h2>
-<label class="chk"><input type="checkbox" id="c1"><span><b>Your last red-team report tags findings with technique IDs</b> — T1699/T1698/T1700 appear by name, not just "prompt injection (general)".</span></label>
-<label class="chk"><input type="checkbox" id="c2"><span><b>You've tested indirect prompt injection (T1698)</b> — hidden instructions in retrieved content, not just direct jailbreaks.</span></label>
-<label class="chk"><input type="checkbox" id="c3"><span><b>You've tested agent exfiltration paths (T1700)</b> — an agent with data access was pushed to move it somewhere it shouldn't.</span></label>
-<label class="chk"><input type="checkbox" id="c4"><span><b>Your detections cover AI result poisoning (T1608.007)</b> — you monitor for poisoned content entering your AI's retrieval or answers.</span></label>
-<label class="chk"><input type="checkbox" id="c5"><span><b>You've verified your AI defenses can't be silently impaired (T1685.007)</b> — tamper tests on the security tooling itself, with alerts that fire.</span></label>
+<label class="chk"><input id="c1" type="checkbox"/><span><b>Your last red-team report tags findings with technique IDs</b> — T1699/T1698/T1700 appear by name, not just "prompt injection (general)".</span></label>
+<label class="chk"><input id="c2" type="checkbox"/><span><b>You've tested indirect prompt injection (T1698)</b> — hidden instructions in retrieved content, not just direct jailbreaks.</span></label>
+<label class="chk"><input id="c3" type="checkbox"/><span><b>You've tested agent exfiltration paths (T1700)</b> — an agent with data access was pushed to move it somewhere it shouldn't.</span></label>
+<label class="chk"><input id="c4" type="checkbox"/><span><b>Your detections cover AI result poisoning (T1608.007)</b> — you monitor for poisoned content entering your AI's retrieval or answers.</span></label>
+<label class="chk"><input id="c5" type="checkbox"/><span><b>You've verified your AI defenses can't be silently impaired (T1685.007)</b> — tamper tests on the security tooling itself, with alerts that fire.</span></label>
 <button class="check" onclick="score()">Score my coverage</button>
 <div id="result"></div>
 </div>
-
 <div class="card">
 <h2>Map your findings in minutes — free</h2>
 <code class="cmd">git clone https://github.com/Iceman2050/attack-matrix-mapper.git
@@ -118,26 +110,20 @@ python3 attckmap.py findings.json --html report.html</code>
 <li>Zero dependencies, MIT licensed. Takes your existing reports; no new tooling to buy.</li>
 </ul>
 </div>
-
-<a class="cta" href="https://github.com/Iceman2050/attack-matrix-mapper">Map my red-team findings free &rarr; attack-matrix-mapper</a>
+<a class="cta" href="https://github.com/Iceman2050/attack-matrix-mapper">Map my red-team findings free → attack-matrix-mapper</a>
 <p class="note" style="text-align:center">Free open-source tool by Ingenious AI. Takes your findings JSON, returns a v20 AI-technique coverage heatmap with gaps.</p>
-
-<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Ingenious AI builds 11 AI security platforms &mdash; disclosure compliance, rogue-agent defense, breach hunting, agent oversight, and more.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
-
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Ingenious AI builds 11 AI security platforms — disclosure compliance, rogue-agent defense, breach hunting, agent oversight, and more.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp →</a></div>
 </div>
-
-<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=MITRE%20ATT%26CK%20v20%20added%205%20AI%20attack%20techniques%20(T1699%2C%20T1698%2C%20T1700)%20%E2%80%94%20is%20your%20red%20team%20mapped%20yet%3F%20Free%2060-sec%20coverage%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-attck-v20-ai-techniques.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-attck-v20-ai-techniques.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-attck-v20-ai-techniques.html&title=MITRE%20ATT%26CK%20v20%20AI%20Techniques%20Coverage%20Check" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=MITRE%20ATT%26CK%20v20%20added%205%20AI%20attack%20techniques%20(T1699%2C%20T1698%2C%20T1700)%20%E2%80%94%20is%20your%20red%20team%20mapped%20yet%3F%20Free%2060-sec%20coverage%20check&amp;url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-attck-v20-ai-techniques.html" rel="noopener" style="color:#1c6ef2;margin:0 8px" target="_blank">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-attck-v20-ai-techniques.html" rel="noopener" style="color:#1c6ef2;margin:0 8px" target="_blank">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-attck-v20-ai-techniques.html&amp;title=MITRE%20ATT%26CK%20v20%20AI%20Techniques%20Coverage%20Check" rel="noopener" style="color:#1c6ef2;margin:0 8px" target="_blank">Reddit</a></div>
 <div class="card">
 <h2>Frequently asked questions</h2>
 <details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">What did MITRE ATT&amp;CK v20 add?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">MITRE released ATT&amp;CK v20 on October 13, 2026, adding 9 new Enterprise techniques and sub-techniques. Five are AI-focused: T1699 Direct Prompt Injection, T1698 Indirect Prompt Injection, T1700 AI-Enabled Exfiltration, T1608.007 Stage Capabilities: AI Result Poisoning, and T1685.007 Disable or Modify Tools: Impair Autonomous Defenses.</p></details>
-<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">What is T1699 Direct Prompt Injection?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">T1699 covers malicious instructions submitted directly to an AI system&#x27;s interface — the classic jailbreak: an attacker types instructions into a chatbot or agent prompt to make it ignore its guardrails, reveal system prompts, or perform unauthorized actions.</p></details>
-<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">What is T1698 Indirect Prompt Injection?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">T1698 covers malicious instructions embedded in content an AI system later retrieves or processes — a hidden instruction in a webpage, document, email, or tool result that an AI agent reads and follows on a user&#x27;s behalf, without the attacker ever touching the AI interface directly.</p></details>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">What is T1699 Direct Prompt Injection?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">T1699 covers malicious instructions submitted directly to an AI system's interface — the classic jailbreak: an attacker types instructions into a chatbot or agent prompt to make it ignore its guardrails, reveal system prompts, or perform unauthorized actions.</p></details>
+<details style="margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px"><summary style="font-weight:700;color:#fff;cursor:pointer">What is T1698 Indirect Prompt Injection?</summary><p style="margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6">T1698 covers malicious instructions embedded in content an AI system later retrieves or processes — a hidden instruction in a webpage, document, email, or tool result that an AI agent reads and follows on a user's behalf, without the attacker ever touching the AI interface directly.</p></details>
 </div>
-
-
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- Cloudflare Web Analytics --><script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script><!-- End Cloudflare Web Analytics -->
 <script>
 function score(){
   var n=0; for(var i=1;i<=5;i++){ if(document.getElementById('c'+i).checked) n++; }

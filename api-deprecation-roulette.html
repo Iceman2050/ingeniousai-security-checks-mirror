@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html data-primary-keyword="cybersecurity news" lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>API Breaking Changes: Vendor Deprecation Roulette</title>
-<meta name="description" content="API breaking changes don't have to blindside you: spin through 8 real vendor deprecation horror stories, all cited, and learn the notice windows to watch.">
-<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/api-deprecation-roulette.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="API Breaking Changes: Vendor Deprecation Roulette">
-<meta property="og:description" content="API breaking changes don't have to blindside you: spin through 8 real vendor deprecation horror stories, all cited, and learn the notice windows to watch.">
-<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/api-deprecation-roulette.html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="API Breaking Changes — Ingenious AI">
-<meta name="twitter:description" content="API breaking changes don't have to blindside you: spin through 8 real vendor deprecation horror stories, all cited, and learn the notice windows to watch.">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>API Deprecation Roulette — Cybersecurity News | Ingenious AI</title>
+<meta content="Vendors deprecate the APIs you depend on with little warning. This cybersecurity news roulette wheel shows which API breakages hurt most — and how to prepare." name="description"/>
+<link href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/api-deprecation-roulette.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Ingenious AI" property="og:site_name"/>
+<meta content="API Deprecation Roulette — Cybersecurity News | Ingenious AI" property="og:title"/>
+<meta content="Vendors deprecate the APIs you depend on with little warning. This cybersecurity news roulette wheel shows which API breakages hurt most — and how to prepare." property="og:description"/>
+<meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/api-deprecation-roulette.html" property="og:url"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="API Breaking Changes — Ingenious AI" name="twitter:title"/>
+<meta content="API breaking changes don't have to blindside you: spin through 8 real vendor deprecation horror stories, all cited, and learn the notice windows to watch." name="twitter:description"/>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","name":"API Deprecation Roulette: Spin the Vendor Wheel | Ingenious AI","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/api-deprecation-roulette.html","description":"Spin the API Deprecation Roulette: 8 real vendor horror stories — OpenAI model shutdowns, X API pricing, Google Domains — each with cited sources.","keywords":["api deprecation","api deprecation policy","api deprecation notice","api deprecation meaning","api sunset","api sunset meaning","api deprecation strategy","model deprecation"],"author":{"@type":"Organization","name":"Ingenious AI"}}
 </script>
@@ -41,24 +42,22 @@ a{color:#6ea8fe}
 .story h3{font-size:20px;margin-bottom:10px;color:#ffc9c4}
 .src{font-size:13px;color:#6b7688;margin-top:10px}
 </style>
-<link rel="stylesheet" href="ecosystem.css">
+<link href="ecosystem.css" rel="stylesheet"/>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an API breaking change?","acceptedAnswer":{"@type":"Answer","text":"An API breaking change is any change that makes existing integrations fail or behave differently \u2014 a retired endpoint, a renamed field, a shut-down model, or a repriced plan. Deprecation is the warning; the breaking change is what lands at sunset. Every entry on this page's wheel is a real one, with its source linked."}},{"@type":"Question","name":"What is the difference between API deprecation and API sunset?","acceptedAnswer":{"@type":"Answer","text":"Deprecation is the warning: the vendor marks an endpoint, model, or API version as going away while it still works. Sunset is the final shutdown date \u2014 the endpoint or version stops being served. Twilio's Programmable Video end-of-life announcement and Amazon Pinpoint's October 30, 2026 end of support are both sunsets."}},{"@type":"Question","name":"How much notice do vendors give before API breaking changes?","acceptedAnswer":{"@type":"Answer","text":"It varies wildly: OpenAI's policy aims for at least six months on generally available models (but shipped a three-month notice in October 2026), Anthropic promises at least 60 days, Meta gave roughly 90 days for the Facebook Groups API, and X ended free API access with about a week's notice in February 2023. Never assume the default \u2014 read the actual policy."}},{"@type":"Question","name":"How do I protect my code from API deprecation?","acceptedAnswer":{"@type":"Answer","text":"Inventory every vendor dependency, pin exact versions and model IDs, subscribe to each vendor's changelog and deprecation page, run canary traffic against the replacement before the sunset, and watch replacements continuously. Tools like ModelMinder automate the watching."}}]}
 </script>
-</head>
+<meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png" property="og:image"/></head>
 <body>
 <div class="wrap">
 <div class="badge">VENDOR RISK GAME</div>
-<h1>API Deprecation Roulette — Survive API Breaking Changes</h1>
+<h1>API Deprecation Roulette — Survive API Breaking Changes<span class="h1-kw"> — cybersecurity news</span></h1><p class="vk-dateline"><time datetime="2026-10-18">Reviewed October 18, 2026</time></p><p class="vk-lead">API deprecation roulette is the risk that vendors sunset the APIs your product needs. Cybersecurity news increasingly covers vendor dependency as operational risk. Spin the wheel to see which breakages hurt most.</p><h2>Why does cybersecurity news treat API deprecation as a business risk?</h2><p>Cybersecurity news covers breaches, but the killer is vendor deprecation: the API your product depends on gets a sunset date and your roadmap collapses. Model vendors, cloud providers, and SaaS platforms all deprecate — sometimes with 90 days notice, sometimes less. The roulette metaphor fits: you cannot control the wheel, but you can hedge. Abstract vendor-specific calls behind your own interfaces, monitor changelogs automatically, and keep a migration runbook warm.</p><h3>What is API deprecation roulette?</h3><p>API deprecation roulette is the gamble every builder takes on third-party APIs: vendors can sunset, rate-limit, or break the endpoints you depend on — on their timeline, not yours. The 'roulette' is which dependency breaks next.</p>
 <p class="lead">Every API you build on is a promise a vendor can revise — and API breaking changes are how that promise gets rewritten under your code. Spin the wheel: land on one of eight real vendors and get the true, cited story of the time their deprecation notice broke someone's week — or their business. These are <strong>real reported events</strong>, not hypotheticals.</p>
 <div class="honest"><strong>Every story below is real and cited.</strong> Dates, dollars, and model IDs come from the linked reporting and official docs, checked on this page's build date. Vendors spin differently every time — just like real deprecations, the wheel owes you nothing.</div>
-
 <div class="wheel" id="wheel"></div>
 <div style="text-align:center;margin:10px 0 26px">
 <button class="btn big" id="spinbtn" onclick="spin()">SPIN THE WHEEL</button>
 <p class="small" id="spincount" style="margin-top:8px"></p>
 </div>
-
 <div class="card story" id="story">
 <h3 id="shead"></h3>
 <p id="sbody"></p>
@@ -66,14 +65,12 @@ a{color:#6ea8fe}
 <p class="src" id="ssrc"></p>
 <button class="btn" onclick="spin()">Spin again</button>
 </div>
-
 <div class="card">
 <h2 style="margin-top:0">The whole table, if you don't trust the wheel</h2>
 <div id="allstories"></div>
 </div>
-
 <div class="card">
-<h2>FAQ — API deprecation</h2>
+<h2>FAQ — API deprecation</h2><details><summary>What is an API breaking change?</summary><p>An API breaking change is any change that makes existing integrations fail or behave differently — a retired endpoint, a renamed field, a shut-down model, or a repriced plan. Deprecation is the warning; the breaking change is what lands at sunset. Every entry on this page's wheel is a real one, with its source linked.</p></details><details><summary>What is the difference between API deprecation and API sunset?</summary><p>Deprecation is the warning: the vendor marks an endpoint, model, or API version as going away while it still works. Sunset is the final shutdown date — the endpoint or version stops being served. Twilio's Programmable Video end-of-life announcement and Amazon Pinpoint's October 30, 2026 end of support are both sunsets.</p></details><details><summary>How much notice do vendors give before API breaking changes?</summary><p>It varies wildly: OpenAI's policy aims for at least six months on generally available models (but shipped a three-month notice in October 2026), Anthropic promises at least 60 days, Meta gave roughly 90 days for the Facebook Groups API, and X ended free API access with about a week's notice in February 2023. Never assume the default — read the actual policy.</p></details><details><summary>How do I protect my code from API deprecation?</summary><p>Inventory every vendor dependency, pin exact versions and model IDs, subscribe to each vendor's changelog and deprecation page, run canary traffic against the replacement before the sunset, and watch replacements continuously. Tools like ModelMinder automate the watching.</p></details>
 <p style="margin:14px 0 4px"><strong>What is an API breaking change?</strong></p>
 <p class="small" style="margin-bottom:6px">An API breaking change is any change that makes existing integrations fail or behave differently — a retired endpoint, a renamed field, a shut-down model, or a repriced plan. Deprecation is the warning; the breaking change is what lands at sunset. Every entry on this page's wheel is a real one, with its source linked.</p>
 <p style="margin:14px 0 4px"><strong>What is the difference between API deprecation and API sunset?</strong></p>
@@ -85,10 +82,9 @@ a{color:#6ea8fe}
 <h3 style="font-size:16px;margin:18px 0 6px">Can an API deprecation break my app overnight?</h3>
 <p class="small">Usually not overnight — but close. OpenAI promises at least six months' notice on generally available models, Anthropic promises at least 60 days, yet previews can be retired with two weeks' notice. (Sources: vendor policies cited below.) Pin exact versions, run canary traffic against replacements before the sunset, and never assume the default notice window.</p>
 <h3 style="font-size:16px;margin:18px 0 6px">Key facts — API deprecation notice windows</h3>
-<p class="small">OpenAI: at least 6 months for generally available models, 3 months for specialized variants, as little as 2 weeks for previews. Anthropic: at least 60 days. Meta Marketing API: the previous version stays up at least 90 days; LinkedIn: minimum one year. Google Ads API v19: sunset announced December 15, 2025, all v19 requests began failing February 11, 2026.<br>
-Sources: <a href="https://www.worldprogramming.org/posts/api-deprecation-for-ai-models-what-breaks-when-a-model-is-retired-n4ycmx" target="_blank" rel="noopener">WorldProgramming — AI model deprecation</a>; <a href="https://ppc.land/sunset-api/" target="_blank" rel="noopener">PPC Land — API sunset policies</a>.</p>
+<p class="small">OpenAI: at least 6 months for generally available models, 3 months for specialized variants, as little as 2 weeks for previews. Anthropic: at least 60 days. Meta Marketing API: the previous version stays up at least 90 days; LinkedIn: minimum one year. Google Ads API v19: sunset announced December 15, 2025, all v19 requests began failing February 11, 2026.<br/>
+Sources: <a href="https://www.worldprogramming.org/posts/api-deprecation-for-ai-models-what-breaks-when-a-model-is-retired-n4ycmx" rel="noopener" target="_blank">WorldProgramming — AI model deprecation</a>; <a href="https://ppc.land/sunset-api/" rel="noopener" target="_blank">PPC Land — API sunset policies</a>.</p>
 </div>
-
 <h2 class="sec">More from Ingenious AI</h2>
 <div class="more">
 <a href="ai-vendor-dead-pool.html"><b>AI Vendor Dead Pool</b><span>Which AI vendors are on life support</span></a>
@@ -99,13 +95,11 @@ Sources: <a href="https://www.worldprogramming.org/posts/api-deprecation-for-ai-
 <a href="all-links.html"><b>All Ingenious AI tools</b><span>The full index of free security checks</span></a>
 <a href="security-suite.html"><b>The Security Suite</b><span>Every platform, one page</span></a>
 </div>
-
-<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#fff;text-decoration:underline">ModelMinder</a> watches every model and API version you depend on — so you never meet the roulette.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20browsed%20api-deprecation-roulette.html%20and%20want%20early%20access%20to%20ModelMinder." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
-
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#fff;text-decoration:underline">ModelMinder</a> watches every model and API version you depend on — so you never meet the roulette.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20browsed%20api-deprecation-roulette.html%20and%20want%20early%20access%20to%20ModelMinder." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp →</a></div>
 </div>
 <div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
 <script src="ecosystem.js"></script>
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+<script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script>
 <script>
 var VENDORS=[
  {id:"openai",name:"OpenAI",head:"Oct 23, 2026: 12 legacy models shut down at once",
