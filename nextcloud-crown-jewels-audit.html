@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-primary-keyword="cybersecurity news">
 <head>
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-crown-jewels-audit.html">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-crown-jewels-audit.html">
-<meta name="twitter:title" content="Nextcloud CVE Crown-Jewels Audit — Post-Hack Self-Check">
-<meta name="twitter:description" content="Nextcloud CVE crown-jewels audit: the attackers went straight for KeePass databases and wallet.dat. Defensive self-audit — find what www-data can read first.">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta name="twitter:title" content="Nextcloud Crown-Jewels Audit: Cybersecurity News">
+<meta name="twitter:description" content="September's attackers went straight for KeePass databases and wallet.dat on exploited Nextcloud servers. Cybersecurity news self-audit: find yours first. Free.">
+<meta name="twitter:card" content="summary">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nextcloud CVE Crown-Jewels Audit — Post-Hack Self-Check</title>
-<meta name="description" content="Nextcloud CVE crown-jewels audit: the attackers went straight for KeePass databases and wallet.dat. Defensive self-audit — find what www-data can read first.">
-<meta property="og:title" content="Nextcloud CVE Crown-Jewels Audit — Post-Hack Self-Check">
-<meta property="og:description" content="Nextcloud CVE crown-jewels audit: the attackers went straight for KeePass databases and wallet.dat. Defensive self-audit — find what www-data can read first.">
+<title>Nextcloud Crown-Jewels Audit: Cybersecurity News</title>
+<meta name="description" content="September's attackers went straight for KeePass databases and wallet.dat on exploited Nextcloud servers. Cybersecurity news self-audit: find yours first. Free.">
+<meta property="og:title" content="Nextcloud Crown-Jewels Audit: Cybersecurity News">
+<meta property="og:description" content="September's attackers went straight for KeePass databases and wallet.dat on exploited Nextcloud servers. Cybersecurity news self-audit: find yours first. Free.">
 <meta property="og:type" content="article">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -55,7 +57,13 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <body>
 <div class="wrap">
 <div class="badge">CVE-2026-110447 &mdash; DEFENSIVE AUDIT</div>
-<h1>What the Nextcloud CVE attackers hunted: crown-jewels audit</h1>
+<h1>What the Nextcloud CVE attackers hunted: crown-jewels audit — a cybersecurity news self-audit</h1>
+<p class="lead">The crown-jewels audit is a defensive self-check built from what the September Nextcloud attackers actually hunted: KeePass databases, wallet.dat files, and password-manager artifacts. This cybersecurity news tool maps everything the web-server account can read — your blast radius — in 60 seconds.</p>
+<p class="note"><time datetime="2026-10-18">Reviewed October 18, 2026</time> — Ingenious AI security check.</p>
+<h2>What would attackers steal first in this cybersecurity news breach?</h2>
+<p>Whatever the web-server account can read. The September attackers skipped browsing and went straight for credential stores: KeePass databases, wallet.dat, password-manager artifacts in home directories, web roots, backup folders, and /tmp. Tick everything www-data can reach below — the meter counts your blast radius before an attacker does.</p>
+<h3>What are crown jewels in cybersecurity?</h3>
+<p>The files an attacker values most on a compromised server — password databases, crypto wallets, backups — the items worth stealing before anything else.</p>
 <p class="lead">The people who exploited Nextcloud servers in September didn't browse around &mdash; they went straight for the crown jewels: KeePass databases, <code>wallet.dat</code>, password-manager artifacts. This is a <strong>defensive</strong> Nextcloud CVE self-audit: find out what of yours lives anywhere the web-server user can read, <em>before</em> someone else inventories it for you. Nothing here attacks anything.</p>
 
 <div class="card">
@@ -137,6 +145,15 @@ find /var/www -name "*.sql" -o -name "*.dump" 2>/dev/null</code>
 <details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">Is Nextcloud safe?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Nextcloud itself remains safe to use when kept updated — the October 2026 incident was a critical flaw (CVE-2026-110447) in one optional app, the built-in Collabora CODE server, not in Nextcloud core. Stay on a supported release, apply maintenance updates promptly, and remove apps you do not use.</p></details>
 <details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">How do I check if my Nextcloud is vulnerable?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Check whether the ‘Collabora Online – Built-in CODE Server’ app (richdocumentscode) is installed and older than 26.4.303 — via Admin &gt; Apps or ‘occ app:list’. If the app was present at any point in September–October 2026, assume exposure and hunt for web shells even after patching.</p></details>
 <details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">What should I do if my Nextcloud was hacked?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Take the server offline, restore from a clean backup or rebuild it, and rotate every credential the server touched. Hunt for leftover PHP web shells — patching CVE-2026-110447 does not remove shells attackers already planted — then update the Collabora app to 26.4.303+ or remove it.</p></details>
+</div>
+
+<div class="card">
+  <h2>Related checks</h2>
+  <ul>
+      <li><a href="nextcloud-eol-trap-check.html">Nextcloud EOL Trap Check</a></li>
+      <li><a href="nextcloud-october-patch-planner.html">Nextcloud October Patch Planner</a></li>
+      <li><a href="breach-check.html">Breach Check</a></li>
+  </ul>
 </div>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>

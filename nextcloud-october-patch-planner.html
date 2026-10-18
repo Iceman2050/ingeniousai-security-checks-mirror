@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-primary-keyword="cybersecurity news">
 <head>
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-october-patch-planner.html">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-october-patch-planner.html">
-<meta name="twitter:title" content="Nextcloud CVE Patch Planner — October 2026 Update Guide">
-<meta name="twitter:description" content="Nextcloud CVE October patch planner: the critical Collabora CODE fix (CVE-2026-110447) plus three Hub 26 maintenance updates, in the right order. Checklist.">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta name="twitter:title" content="Nextcloud October Patch Planner: Cybersecurity News">
+<meta name="twitter:description" content="Nextcloud admins got two October 2026 jobs: the critical Collabora CODE fix (CVE-2026-110447) plus three Hub 26 updates. Cybersecurity news patch order. Free.">
+<meta name="twitter:card" content="summary">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nextcloud CVE Patch Planner — October 2026 Update Guide</title>
-<meta name="description" content="Nextcloud CVE October patch planner: the critical Collabora CODE fix (CVE-2026-110447) plus three Hub 26 maintenance updates, in the right order. Checklist.">
-<meta property="og:title" content="Nextcloud CVE Patch Planner — October 2026 Update Guide">
-<meta property="og:description" content="Nextcloud CVE October patch planner: the critical Collabora CODE fix (CVE-2026-110447) plus three Hub 26 maintenance updates, in the right order. Checklist.">
+<title>Nextcloud October Patch Planner: Cybersecurity News</title>
+<meta name="description" content="Nextcloud admins got two October 2026 jobs: the critical Collabora CODE fix (CVE-2026-110447) plus three Hub 26 updates. Cybersecurity news patch order. Free.">
+<meta property="og:title" content="Nextcloud October Patch Planner: Cybersecurity News">
+<meta property="og:description" content="Nextcloud admins got two October 2026 jobs: the critical Collabora CODE fix (CVE-2026-110447) plus three Hub 26 updates. Cybersecurity news patch order. Free.">
 <meta property="og:type" content="article">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -55,7 +57,13 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <body>
 <div class="wrap">
 <div class="badge">OCTOBER 2026 &mdash; PATCH SPRINT</div>
-<h1>Nextcloud CVE patch planner: October 2026 sprint</h1>
+<h1>Nextcloud CVE patch planner: October 2026 sprint — the cybersecurity news patch planner</h1>
+<p class="lead">The October 2026 Nextcloud patch sprint is the month admins had to ship the critical Collabora CODE fix for CVE-2026-110447 alongside three Hub 26 maintenance updates. This cybersecurity news planner puts them in the right order so one maintenance window covers both.</p>
+<p class="note"><time datetime="2026-10-18">Reviewed October 18, 2026</time> — Ingenious AI security check.</p>
+<h2>Which Nextcloud patch goes first in this cybersecurity news sprint?</h2>
+<p>The Collabora CODE fix goes first — CVE-2026-110447 was exploited in the wild, so it outranks routine maintenance. Patch Collabora, verify the fixed build, then roll the three Hub 26 updates in the same window. Doing them in the wrong order wastes the maintenance window and leaves the exploited flaw open longer.</p>
+<h3>What is a patch planner?</h3>
+<p>A sequenced checklist that puts security fixes in the right order — here, the exploited Collabora CODE flaw before routine Hub 26 maintenance — so one maintenance window covers everything.</p>
 <p class="lead">October handed Nextcloud admins two jobs at once: the critical Collabora CODE fix (CVE-2026-110447, exploited in the wild) <em>and</em> three Hub 26 maintenance updates. Do them in the wrong order and you waste a maintenance window &mdash; or worse, patch the Hub while the RCE is still open. One checklist, right order, progress tracked — your Nextcloud CVE patch plan.</p>
 
 <div class="card">
@@ -125,6 +133,15 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">Is Nextcloud safe?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Nextcloud itself remains safe to use when kept updated — the October 2026 incident was a critical flaw (CVE-2026-110447) in one optional app, the built-in Collabora CODE server, not in Nextcloud core. Stay on a supported release, apply maintenance updates promptly, and remove apps you do not use.</p></details>
 <details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">How do I check if my Nextcloud is vulnerable?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Check whether the ‘Collabora Online – Built-in CODE Server’ app (richdocumentscode) is installed and older than 26.4.303 — via Admin &gt; Apps or ‘occ app:list’. If the app was present at any point in September–October 2026, assume exposure and hunt for web shells even after patching.</p></details>
 <details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">What should I do if my Nextcloud was hacked?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Take the server offline, restore from a clean backup or rebuild it, and rotate every credential the server touched. Hunt for leftover PHP web shells — patching CVE-2026-110447 does not remove shells attackers already planted — then update the Collabora app to 26.4.303+ or remove it.</p></details>
+</div>
+
+<div class="card">
+  <h2>Related checks</h2>
+  <ul>
+      <li><a href="nextcloud-eol-trap-check.html">Nextcloud EOL Trap Check</a></li>
+      <li><a href="nextcloud-crown-jewels-audit.html">Nextcloud Crown-Jewels Audit</a></li>
+      <li><a href="connectwise-m365-tenant-compromise-check.html">ConnectWise M365 Tenant Check</a></li>
+  </ul>
 </div>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
