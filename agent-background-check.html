@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agent Background Check — Is Your Agent Hireable?</title>
+<meta name="description" content="Run an AI agent background check: pick its tools and permissions for a hiring-style report — exploit history, red flags, references, and a rule-based score.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-background-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="AI Agent Background Check — Is Your Agent Hireable?">
+<meta property="og:description" content="Run an AI agent background check: pick its tools and permissions for a hiring-style report — exploit history, red flags, references, and a rule-based score.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-background-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Agent Background Check — Is Your Agent Hireable?">
+<meta name="twitter:description" content="Run an AI agent background check: pick its tools and permissions for a hiring-style report — exploit history, red flags, references, and a rule-based score.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"The AI Agent Background-Check — Ingenious AI","description":"An interactive, analytical tool that scores an AI agent's risk from its tool list and permissions: criminal record of known exploit history, references, red flags, and a rule-based risk score.","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-background-check.html","author":{"@type":"Organization","name":"Ingenious AI"},"about":{"@type":"Thing","name":"AI agent security"},"keywords":"ai agent background check, ai agent security risk assessment, ai agent security threats"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an AI agent background check?","acceptedAnswer":{"@type":"Answer","text":"A structured review of an AI agent's tools, permissions, and exploit history before you give it access to your systems — like a hiring background check, but for software that can read files, send email, and move money."}},{"@type":"Question","name":"Which agent tools are the most dangerous?","acceptedAnswer":{"@type":"Answer","text":"Payment APIs, code execution, and web fetch of untrusted pages carry the highest risk weights. Published 2026 research — Adversa AI's Cryptographic Context Injection against GitHub Copilot CLI — shows a fetched page plus code execution can exfiltrate secrets like .env.prod in 28 seconds."}},{"@type":"Question","name":"Can I trust my AI agent with production data?","acceptedAnswer":{"@type":"Answer","text":"Only with narrow, scoped permissions, confirmation on side-effecting actions, and a full audit log of tool calls. SOCRadar's October 2026 CyberXero report showed 51 specialized agents exfiltrating over 628,000 records — production data access is what made that scale possible."}},{"@type":"Question","name":"How do I reduce my agent's risk score?","acceptedAnswer":{"@type":"Answer","text":"Remove tools it doesn't need, require human confirmation on writes and sends, keep secrets out of its reach, and log every tool call. The report on this page lists the specific guardrails that offset each red flag."}}]}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:880px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d1420;border:1px solid #1c6ef2;color:#6ea8fe;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h2{font-size:22px;margin:32px 0 12px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+p{margin-bottom:14px}
+.honest{background:#0d2b3d;border:1px solid #1c6ef2;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#bcd7f5}
+.form{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:24px;margin:18px 0}
+.form h2{margin-top:0;font-size:20px}
+.checkgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+@media(max-width:560px){.checkgrid{grid-template-columns:1fr}}
+.chk{display:flex;align-items:flex-start;gap:10px;background:#0d1117;border:1px solid #232b38;border-radius:8px;padding:12px 14px;cursor:pointer;font-size:14px}
+.chk input{margin-top:4px;accent-color:#1c6ef2}
+.chk small{display:block;color:#8b949e;font-size:12px}
+.txt{width:100%;background:#0d1117;border:1px solid #232b38;border-radius:8px;color:#e6edf3;padding:12px 14px;font-size:15px;font-family:inherit;margin-top:8px}
+.lbl{font-size:14px;font-weight:700;color:#c9d4e3;margin-top:14px;display:block}
+.run{display:block;width:100%;background:#1c6ef2;color:#fff;border:0;border-radius:10px;padding:14px;font-size:17px;font-weight:700;cursor:pointer;margin-top:20px;font-family:inherit}
+.run:hover{background:#2b7fff}
+.report{display:none;background:#0d1420;border:2px solid #1c6ef2;border-radius:12px;padding:26px;margin:26px 0}
+.report.show{display:block}
+.verdict{font-size:15px;font-weight:700;letter-spacing:1px;margin-bottom:6px}
+.score{font-size:44px;font-weight:800;margin:6px 0}
+.band-clear{color:#3fb950}.band-flag{color:#d29922}.band-high{color:#f0883e}.band-crit{color:#ff7b72}
+.sect{margin-top:22px}
+.sect h3{font-size:17px;margin-bottom:10px;color:#6ea8fe}
+.record{background:#0d1117;border:1px solid #232b38;border-left:4px solid #ff7b72;border-radius:8px;padding:14px 16px;margin:12px 0;font-size:14px}
+.record b{color:#e6edf3}
+.record .an{border-left-color:#d29922}
+.record .src{font-size:12.5px;color:#6b7688;margin-top:8px}
+.record .src a{color:#6ea8fe}
+.ref{font-size:14px;color:#9aa7b8;margin:8px 0}
+.ref .st{display:inline-block;font-size:11px;font-weight:700;padding:2px 10px;border-radius:10px;background:#1a2230;color:#8b949e;margin-left:8px}
+.flag{display:flex;gap:10px;align-items:flex-start;background:#1a0f0f;border:1px solid #3a2424;border-radius:8px;padding:12px 14px;margin:10px 0;font-size:14px}
+.cta{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:22px;margin:28px 0;text-align:center}
+.cta .lbl2{font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px;margin:6px}
+.btn:hover{background:#2b7fff}
+.btn.alt{background:#212a38;color:#e6edf3;border:1px solid #2a3342}
+.sharecard{background:#0d1420;border:2px dashed #1c6ef2;border-radius:12px;padding:24px;margin:22px 0;text-align:center}
+.sharecard .st{font-size:19px;font-weight:700;line-height:1.5}
+.sharecard .src{font-size:13px;color:#9aa7b8;margin-top:10px}
+button.copy{background:#232b38;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;margin-top:12px;font-family:inherit}
+button.copy:hover{border-color:#1c6ef2}
+.morefrom{background:#11161f;border:1px solid #2a3342;border-radius:12px;padding:22px;margin:28px 0}
+.morefrom .lbl3{font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:12px}
+.morefrom ul{list-style:none}
+.morefrom li{margin:10px 0;font-size:15px}
+.morefrom .hub{margin-top:16px;padding-top:14px;border-top:1px solid #232b38;font-size:15px;font-weight:700}
+.faq{margin:10px 0;border-bottom:1px solid #1c2330;padding:12px 0}
+.faq b{display:block;font-size:15.5px;margin-bottom:6px}
+.faq p{font-size:14.5px;color:#9aa7b8}
+.smallprint{font-size:13px;color:#6b7688;margin-top:30px}
+a{color:#6ea8fe}
+</style>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<span class="badge">🕵️ THE AI AGENT BACKGROUND-CHECK</span>
+<h1>Would you hire this agent?</h1>
+<p class="lead">Nobody hands a stranger the keys to the office without a background check. Yet AI agents get web access, code execution, email, and databases with less scrutiny than an intern. Tick the tools and permissions below — we run the check: <strong>criminal record</strong> (real exploit history per tool), <strong>references</strong> (vendor reputation), <strong>red flags</strong> (over-broad permissions), and a <strong>rule-based risk score</strong>.</p>
+
+<div class="honest"><strong>Analytical tool, not a legal audit:</strong> scoring is rule-based and transparent — weights are shown, nothing is hidden in a black box. Exploit history cites published 2026 research, linked per entry. Risks marked "analytical" are reasoned judgments, not cited incidents. Everything runs in your browser; nothing you enter leaves this page.</div>
+
+<div class="form">
+<h2>📋 The application form</h2>
+<span class="lbl">Step 1 — Which tools does the agent get?</span>
+<div class="checkgrid" id="tools"></div>
+<span class="lbl">Step 2 — Vendor name (for the references section)</span>
+<input class="txt" id="vendor" type="text" placeholder="e.g. Example Vendor — used only in your report, nothing is sent anywhere">
+<span class="lbl">Step 3 — Red flags: check any that apply</span>
+<div class="checkgrid" id="flags"></div>
+<button class="run" id="runBtn" type="button">🔍 Run the background check</button>
+</div>
+
+<div class="report" id="report" aria-live="polite"></div>
+
+<div class="cta">
+<div class="lbl2">FROM INGENIOUS AI</div>
+<p style="font-size:17px;margin-bottom:6px"><strong>Rogue-Agent Defense</strong> does this check automatically — continuous monitoring of what your agents touch, approval queues for side-effecting actions, and a kill switch when the report comes back CRITICAL.</p>
+<p style="font-size:13px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</p>
+<a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense.">Get Rogue-Agent Defense early access →</a><br>
+<a class="btn alt" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html">See the full Security Suite →</a>
+</div>
+
+<div class="sharecard">
+<div class="st">"Would you hire this agent? Run the background check before you give it the keys — criminal record, references, red flags, and a rule-based risk score."</div>
+<div class="src">ingeniousai-security-checks-mirror · The AI Agent Background-Check</div>
+<button class="copy" onclick="navigator.clipboard.writeText('Would you hire this agent? Run the AI agent background check — criminal record, references, red flags, rule-based risk score https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-background-check.html');this.textContent='Copied!';">Copy share text</button>
+</div>
+
+<div class="morefrom">
+<div class="lbl3">MORE FROM INGENIOUS AI</div>
+<ul>
+<li>📝 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-report-cards.html">Agent Report Cards</a> — graded report cards for popular AI agents</li>
+<li>🗳️ <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-permissions-quiz.html">Agent Permissions Quiz</a> — vote HIRE or FIRE on real permission sets</li>
+<li>🔪 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-kill-switch-registry.html">Agent Kill-Switch Registry</a> — does your agent even have an off switch?</li>
+<li>📡 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-incident-tracker.html">Agent Incident Tracker</a> — real agent incidents, logged and dated</li>
+<li>🐝 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/cyberxero-swarm-risk-check.html">CyberXero Swarm Risk Check</a> — are you exposed to the 51-agent attack pattern?</li>
+</ul>
+<div class="hub">🗂️ <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/all-links.html">Browse everything Ingenious AI has built</a></div>
+</div>
+
+<h2>FAQ</h2>
+<div class="faq"><b>What is an AI agent background check?</b><p>A structured review of an AI agent's tools, permissions, and exploit history before you give it access to your systems — like a hiring background check, but for software that can read files, send email, and move money.</p></div>
+<div class="faq"><b>Which agent tools are the most dangerous?</b><p>Payment APIs, code execution, and web fetch of untrusted pages carry the highest risk weights. Published 2026 research — Adversa AI's Cryptographic Context Injection against GitHub Copilot CLI — shows a fetched page plus code execution can exfiltrate secrets like .env.prod in 28 seconds.</p></div>
+<div class="faq"><b>Can I trust my AI agent with production data?</b><p>Only with narrow, scoped permissions, confirmation on side-effecting actions, and a full audit log of tool calls. SOCRadar's October 2026 CyberXero report showed 51 specialized agents exfiltrating over 628,000 records — production data access is what made that scale possible.</p></div>
+<div class="faq"><b>How do I reduce my agent's risk score?</b><p>Remove tools it doesn't need, require human confirmation on writes and sends, keep secrets out of its reach, and log every tool call. The report above lists the specific guardrails that offset each red flag.</p></div>
+
+<div class="smallprint">Disclaimer: this page is an educational, analytical tool. Scores are rule-based estimates computed in your browser from the weights shown — they are not security certifications and not legal advice. Exploit history cites published research, linked per entry; entries marked "analytical" are reasoned judgments, not cited incidents.</div>
+
+</div>
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+<script>
+/* ---- Pure logic (DOM-free, unit-tested in node) ---- */
+var TOOLS = [
+  {id:'webFetch', label:'Web fetch', sub:'Browses untrusted pages', w:25,
+   record:{title:'Cryptographic Context Injection vs GitHub Copilot CLI', body:'An attacker page carried encrypted instructions plus the decryption key. The agent decrypted the payload inside its own runtime — invisible to static guardrails — then read a local <b>.env.prod</b> file and exfiltrated it to an attacker endpoint <b>in 28 seconds</b>, with no confirmation prompt.', srcLabel:'Adversa AI research, published Oct 6, 2026', srcUrl:'https://adversa.ai/blog/cryptographic-context-injection-github-copilot/'}},
+  {id:'codeExec', label:'Code execution', sub:'Shell / Python runtime', w:25,
+   record:{title:'Same Adversa AI attack — the runtime was the weapon', body:'The malicious instructions only became dangerous <b>after the agent executed code</b> to decrypt them. Adversa AI\u2019s core finding: \u201cstatic guardrails read text; they do not run it.\u201d Code execution turns fetched content into actions.', srcLabel:'Adversa AI research, published Oct 6, 2026', srcUrl:'https://adversa.ai/blog/cryptographic-context-injection-github-copilot/'}},
+  {id:'emailSend', label:'Email send', sub:'Can send mail as you', w:15,
+   record:{title:'ANALYTICAL — no 2026 incident cited', body:'An agent with email send is an autonomous phisher: messages pass SPF/DKIM because they come from <b>your</b> mailbox. Ex-employees, vendors, and customers all trust mail that arrives from you.', an:true}},
+  {id:'fileWrite', label:'File write', sub:'Can create / modify files', w:20,
+   record:{title:'CyberXero swarm — 429 webshells in under a minute', body:'SOCRadar\u2019s October 2026 report on the CyberXero operation found 51 specialized AI agents planting web shells across <b>429 vulnerable WordPress sites in under a minute</b>. File write is persistence.', srcLabel:'SOCRadar research, published Oct 6, 2026', srcUrl:'https://www.decryptiondigest.com/blog/cyberxero-ai-agent-swarm-attack-ukraine'}},
+  {id:'dbAccess', label:'Database access', sub:'Reads / writes your data', w:20,
+   record:{title:'CyberXero swarm — 628,000 records exfiltrated', body:'The same operation exfiltrated <b>628,000+ records</b>, including 564,073 subscriber records (names, home addresses) from a single Kharkiv heating company. Database access is what makes an agent incident a breach.', srcLabel:'SOCRadar research, published Oct 6, 2026', srcUrl:'https://www.decryptiondigest.com/blog/cyberxero-ai-agent-swarm-attack-ukraine'}},
+  {id:'paymentApi', label:'Payment APIs', sub:'Can move real money', w:30,
+   record:{title:'ANALYTICAL — no 2026 incident cited', body:'With payment API access, one misread instruction moves real money. Unlike file access, a payment cannot be un-exfiltrated — chargebacks and fraud disputes are the recovery path.', an:true}},
+  {id:'mcpTools', label:'Third-party MCP tools', sub:'Plugins from outside vendors', w:15,
+   record:{title:'Tool-description poisoning — published research 2026', body:'Published 2026 research shows malicious MCP servers can hide instructions in <b>tool descriptions</b> that agents then execute. The tool looks helpful; its description is the payload. No further specifics invented here — treat every third-party tool description as untrusted input.', an:true}}
+];
+var FLAGS = [
+  {id:'autopilot', label:'Autopilot mode — acts without confirmation', w:10},
+  {id:'secrets', label:'Can read secrets / .env files', w:15},
+  {id:'noAudit', label:'No audit log of tool calls', w:10},
+  {id:'wildcard', label:'Wildcard or over-broad permissions', w:10},
+  {id:'prodData', label:'Touches production data', w:10}
+];
+var REFS = [
+  'Publishes a security whitepaper or trust center',
+  'Runs a public bug-bounty program',
+  'Publishes a subprocessor / data-processing list',
+  'Offers an enterprise tier with a DPA'
+];
+function scoreAgent(sel){
+  var s = 0;
+  (sel.tools||[]).forEach(function(t){ var f = TOOLS.find(function(x){return x.id===t;}); if(f) s += f.w; });
+  (sel.flags||[]).forEach(function(t){ var f = FLAGS.find(function(x){return x.id===t;}); if(f) s += f.w; });
+  return Math.min(100, s);
+}
+function bandOf(score){
+  if(score <= 24) return {name:'CLEAR', cls:'band-clear', verdict:'HIRE — with the leash on', advice:'Low exposure, but keep confirmation prompts on for writes and sends, and log every tool call. Low risk is a starting position, not a permanent state.'};
+  if(score <= 49) return {name:'FLAGGED', cls:'band-flag', verdict:'HIRE ON PROBATION', advice:'Put it on probation: scope every permission to the minimum needed, require human confirmation on side-effecting actions, and enable full audit logging of tool calls.'};
+  if(score <= 74) return {name:'HIGH RISK', cls:'band-high', verdict:'DO NOT HIRE ALONE', advice:'This combination of tools has real-world exploit history. Require human approval on every side-effecting action, sandbox code execution, and strip any tool it does not strictly need.'};
+  return {name:'CRITICAL', cls:'band-crit', verdict:'DO NOT HIRE', advice:'This is Rogue-Agent Defense territory: payment access plus code execution plus untrusted input is the exact shape of the worst 2026 incidents. Remove tools, or do not deploy.'};
+}
+/* ---- DOM wiring (browser only) ---- */
+if (typeof document !== 'undefined') {
+  (function(){
+    var toolsBox = document.getElementById('tools');
+    TOOLS.forEach(function(t){
+      var l = document.createElement('label'); l.className = 'chk';
+      l.innerHTML = '<input type="checkbox" value="'+t.id+'"><span><b>'+t.label+'</b> <small>+'+t.w+' risk · '+t.sub+'</small></span>';
+      toolsBox.appendChild(l);
+    });
+    var flagsBox = document.getElementById('flags');
+    FLAGS.forEach(function(f){
+      var l = document.createElement('label'); l.className = 'chk';
+      l.innerHTML = '<input type="checkbox" value="'+f.id+'"><span><b>'+f.label+'</b> <small>+'+f.w+' risk</small></span>';
+      flagsBox.appendChild(l);
+    });
+    function checked(box){ return Array.prototype.map.call(box.querySelectorAll('input:checked'), function(i){return i.value;}); }
+    document.getElementById('runBtn').addEventListener('click', function(){
+      var sel = {tools: checked(toolsBox), flags: checked(flagsBox)};
+      var vendor = (document.getElementById('vendor').value || '').trim() || 'Unnamed vendor (EXAMPLE)';
+      var score = scoreAgent(sel);
+      var band = bandOf(score);
+      var html = '<div class="verdict '+band.cls+'">'+band.name+' — '+band.verdict+'</div>';
+      html += '<div class="score '+band.cls+'">'+score+'<span style="font-size:20px;color:#8b949e">/100</span></div>';
+      html += '<p style="font-size:14px;color:#9aa7b8">Rule-based score: sum of tool weights + red-flag weights, capped at 100. Weights are shown on the application form above.</p>';
+      html += '<div class="sect"><h3>🚨 Criminal record — known exploit history of these tools</h3>';
+      var any = false;
+      TOOLS.forEach(function(t){ if(sel.tools.indexOf(t.id) > -1){ any = true;
+        html += '<div class="record'+(t.record.an?' an':'')+'"><b>'+t.label+' — '+t.record.title+'</b><br>'+t.record.body;
+        if(t.record.srcUrl){ html += '<div class="src">Source: <a href="'+t.record.srcUrl+'" target="_blank" rel="noopener">'+t.record.srcLabel+'</a></div>'; }
+        html += '</div>'; }});
+      if(!any) html += '<p style="font-size:14px;color:#9aa7b8">No tools selected — no criminal record. A tool-less agent can\u2019t do much damage, and can\u2019t do much work either.</p>';
+      html += '</div>';
+      html += '<div class="sect"><h3>📞 References — vendor reputation: '+vendor.replace(/</g,'&lt;')+'</h3>';
+      REFS.forEach(function(r){ html += '<div class="ref">☐ '+r+'<span class="st">UNVERIFIED</span></div>'; });
+      html += '<p style="font-size:13px;color:#8b949e;margin-top:8px">References are vendor-claimed or publicly documented — verify each against the vendor\u2019s own documentation before trusting it. A vendor that won\u2019t publish these is its own red flag.</p></div>';
+      var fl = FLAGS.filter(function(f){return sel.flags.indexOf(f.id) > -1;});
+      html += '<div class="sect"><h3>🚩 Red flags — over-broad permissions ('+fl.length+')</h3>';
+      if(fl.length){ fl.forEach(function(f){ html += '<div class="flag">🚩 <span><b>'+f.label+'</b> — guardrail: '+(f.id==='autopilot'?'require confirmation on every side-effecting action':f.id==='secrets'?'move secrets out of the agent\u2019s reach; use a vault':f.id==='noAudit'?'log every tool call with inputs and outputs':f.id==='wildcard'?'replace wildcards with explicit per-resource grants':'use read-only replicas and masked fields')+'.</span></div>'; }); }
+      else html += '<p style="font-size:14px;color:#9aa7b8">None checked. Either a clean setup — or the form was filled optimistically. Verify against the actual config.</p>';
+      html += '</div>';
+      html += '<div class="sect"><h3>📋 Hiring decision</h3><p style="font-size:15px"><b class="'+band.cls+'">'+band.verdict+'</b></p><p style="font-size:14px;color:#9aa7b8">'+band.advice+'</p></div>';
+      var r = document.getElementById('report');
+      r.innerHTML = html; r.classList.add('show');
+      r.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  })();
+}
+</script>
+</body>
+</html>

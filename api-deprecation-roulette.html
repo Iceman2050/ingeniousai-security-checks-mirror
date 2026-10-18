@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Deprecation Roulette: The Vendor Wheel | Ingenious AI</title>
+<meta name="description" content="Spin the API Deprecation Roulette: 8 real vendor horror stories — OpenAI shutdowns, X API pricing, Google Domains — each cited. Could your stack break next?">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/api-deprecation-roulette.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="API Deprecation Roulette: The Vendor Wheel | Ingenious AI">
+<meta property="og:description" content="Spin the API Deprecation Roulette: 8 real vendor horror stories — OpenAI shutdowns, X API pricing, Google Domains — each cited. Could your stack break next?">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/api-deprecation-roulette.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="API Deprecation Roulette — Ingenious AI">
+<meta name="twitter:description" content="Spin the API Deprecation Roulette: 8 real vendor horror stories — OpenAI shutdowns, X API pricing, Google Domains — each cited. Could your stack break next?">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"API Deprecation Roulette: Spin the Vendor Wheel | Ingenious AI","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/api-deprecation-roulette.html","description":"Spin the API Deprecation Roulette: 8 real vendor horror stories — OpenAI model shutdowns, X API pricing, Google Domains — each with cited sources.","keywords":["api deprecation","api deprecation policy","api deprecation notice","api deprecation meaning","api sunset","api sunset meaning","api deprecation strategy","model deprecation"],"author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:900px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a1f08;border:1px solid #d29922;color:#ffce63;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h2{font-size:22px;margin:30px 0 12px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+p{margin-bottom:14px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:22px;margin:14px 0}
+.small{font-size:13px;color:#6b7688}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;border:none;cursor:pointer;font-size:15px;margin:6px 8px 6px 0}
+.btn:hover{background:#2b7fff}
+.btn.big{font-size:20px;padding:16px 52px}
+.honest{background:#0d2b3d;border:1px solid #1c6ef2;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#bcd7f5}
+a{color:#6ea8fe}
+.wheel{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:22px 0}
+.vtile{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:16px 8px;text-align:center;font-weight:700;font-size:14px;transition:all .12s}
+.vtile.lit{background:#2a1f08;border-color:#d29922;color:#ffce63;transform:scale(1.06)}
+.vtile.landed{background:#12301a;border-color:#3fb950;color:#7ee787;transform:scale(1.1)}
+.story{display:none}
+.story.show{display:block;border-left:4px solid #f85149}
+.story h3{font-size:20px;margin-bottom:10px;color:#ffc9c4}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+</style>
+<link rel="stylesheet" href="ecosystem.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is API deprecation?","acceptedAnswer":{"@type":"Answer","text":"API deprecation is when a vendor marks an endpoint, model, or API version as going away. Code keeps working for a notice window, then requests start failing, defaulting to a newer version, or getting repriced — which is why every deprecation needs a migration plan, not just a calendar reminder."}},{"@type":"Question","name":"What is an API sunset?","acceptedAnswer":{"@type":"Answer","text":"An API sunset is the final shutdown date at the end of a deprecation: the endpoint or version stops being served. Twilio's Programmable Video end-of-life announcement, Amazon Pinpoint's October 30, 2026 end of support, and OpenAI's October 23, 2026 model shutdowns are all sunsets."}},{"@type":"Question","name":"How much notice do vendors give before API deprecation?","acceptedAnswer":{"@type":"Answer","text":"It varies wildly: OpenAI's policy aims for at least six months on generally available models (but shipped a three-month notice in October 2026), Anthropic promises at least 60 days, Meta gave roughly 90 days for the Facebook Groups API, and X ended free API access with about a week's notice in February 2023. Never assume the default — read the actual policy."}},{"@type":"Question","name":"How do I prepare for API deprecation?","acceptedAnswer":{"@type":"Answer","text":"Inventory every vendor dependency, pin exact versions and model IDs, subscribe to each vendor's changelog and deprecation page, run canary traffic against the replacement before the sunset, and watch replacements continuously — the point of the roulette above. Tools like ModelMinder automate the watching."}}]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">VENDOR RISK GAME</div>
+<h1>API Deprecation Roulette</h1>
+<p class="lead">Every API you build on is a promise a vendor can revise. Spin the wheel: land on one of eight real vendors and get the true, cited story of the time their deprecation notice broke someone's week — or their business. These are <strong>real reported events</strong>, not hypotheticals.</p>
+<div class="honest"><strong>Every story below is real and cited.</strong> Dates, dollars, and model IDs come from the linked reporting and official docs, checked on this page's build date. Vendors spin differently every time — just like real deprecations, the wheel owes you nothing.</div>
+
+<div class="wheel" id="wheel"></div>
+<div style="text-align:center;margin:10px 0 26px">
+<button class="btn big" id="spinbtn" onclick="spin()">SPIN THE WHEEL</button>
+<p class="small" id="spincount" style="margin-top:8px"></p>
+</div>
+
+<div class="card story" id="story">
+<h3 id="shead"></h3>
+<p id="sbody"></p>
+<p><strong>The cost:</strong> <span id="scost"></span></p>
+<p class="src" id="ssrc"></p>
+<button class="btn" onclick="spin()">Spin again</button>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">The whole table, if you don't trust the wheel</h2>
+<div id="allstories"></div>
+</div>
+
+<div class="card">
+<h2>FAQ — API deprecation</h2>
+<p style="margin:14px 0 4px"><strong>What is API deprecation?</strong></p>
+<p class="small" style="margin-bottom:6px">API deprecation is when a vendor marks an endpoint, model, or API version as going away. Code keeps working for a notice window, then requests start failing, defaulting to a newer version, or getting repriced — which is why every deprecation needs a migration plan, not just a calendar reminder.</p>
+<p style="margin:14px 0 4px"><strong>What is an API sunset?</strong></p>
+<p class="small" style="margin-bottom:6px">An API sunset is the final shutdown date at the end of a deprecation: the endpoint or version stops being served. Twilio's Programmable Video end-of-life announcement, Amazon Pinpoint's October 30, 2026 end of support, and OpenAI's October 23, 2026 model shutdowns are all sunsets.</p>
+<p style="margin:14px 0 4px"><strong>How much notice do vendors give before API deprecation?</strong></p>
+<p class="small" style="margin-bottom:6px">It varies wildly: OpenAI's policy aims for at least six months on generally available models (but shipped a three-month notice in October 2026), Anthropic promises at least 60 days, Meta gave roughly 90 days for the Facebook Groups API, and X ended free API access with about a week's notice in February 2023. Never assume the default — read the actual policy.</p>
+<p style="margin:14px 0 4px"><strong>How do I prepare for API deprecation?</strong></p>
+<p class="small" style="margin-bottom:6px">Inventory every vendor dependency, pin exact versions and model IDs, subscribe to each vendor's changelog and deprecation page, run canary traffic against the replacement before the sunset, and watch replacements continuously. Tools like ModelMinder automate the watching.</p>
+</div>
+
+<h2 class="sec">More from Ingenious AI</h2>
+<div class="more">
+<a href="ai-vendor-dead-pool.html"><b>AI Vendor Dead Pool</b><span>Which AI vendors are on life support</span></a>
+<a href="newsjack-modelminder.html"><b>ModelMinder</b><span>Model deprecation radar — the watching tool</span></a>
+<a href="ai-vendor-tos-diffs.html"><b>AI Vendor ToS Diffs</b><span>The terms changes vendors quietly ship</span></a>
+<a href="vendor-lockin-calculator.html"><b>Vendor Lock-in Calculator</b><span>Price your exit before you sign in</span></a>
+<a href="vendor-report-card.html"><b>Vendor Report Card</b><span>Grade the vendors you depend on</span></a>
+<a href="all-links.html"><b>All Ingenious AI tools</b><span>The full index of free security checks</span></a>
+<a href="security-suite.html"><b>The Security Suite</b><span>Every platform, one page</span></a>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#fff;text-decoration:underline">ModelMinder</a> watches every model and API version you depend on — so you never meet the roulette.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20browsed%20api-deprecation-roulette.html%20and%20want%20early%20access%20to%20ModelMinder." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+</div>
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+<script>
+var VENDORS=[
+ {id:"openai",name:"OpenAI",head:"Oct 23, 2026: 12 legacy models shut down at once",
+  body:"OpenAI shut down a batch of legacy API snapshots on October 23, 2026 — gpt-4-0613, gpt-4-turbo, gpt-3.5-turbo-0125, the first gpt-4o snapshot, o1, o3-mini, o4-mini and gpt-image-1 among them — and announced the GPT-4o / 4o-mini / 4.1 family goes on January 14, 2027. Anything in your codebase that still names a retired model ID stops working the morning after. OpenAI's policy aims for six months' notice on generally available models; the October 2026 notice ran about three.",
+  cost:"Every hardcoded model ID in your repo is a ticking deadline; fine-tunes on retired bases must be retrained on new ones.",
+  src:"AICoder, Oct 2026 — aicoder.com/news/news-20261011-openai-api-oct23-legacy-shutdown-o4-mini-gpt-4o-gpt-image-1 ; MadRobot, Oct 2026 — madrobot.blog/2026/10/04/openai-api-model-deprecations-shutdown-dates-october-23/",
+  srcUrl:"https://aicoder.com/news/news-20261011-openai-api-oct23-legacy-shutdown-o4-mini-gpt-4o-gpt-image-1"},
+ {id:"anthropic",name:"Anthropic",head:"Claude 2.0 and 2.1 retired — requests now fail",
+  body:"On January 21, 2025 Anthropic notified developers that Claude 2.0, 2.1 and Claude 3 Sonnet would retire; they went fully retired on July 21, 2025. Retired means requests fail on Anthropic-operated platforms — no graceful fallback, just errors. Anthropic's documented policy promises at least 60 days' notice before retiring a publicly released model, and it publishes a standing deprecation table so teams can see what is next.",
+  cost:"Nine Claude models retired in twelve months of 2025–26. Any integration that pins a snapshot without a migration drill eventually gets a 404.",
+  src:"Anthropic, official Model Deprecations docs — platform.claude.com/docs/en/about-claude/model-deprecations",
+  srcUrl:"https://platform.claude.com/docs/en/about-claude/model-deprecations"},
+ {id:"google",name:"Google",head:"Google Domains sold to Squarespace — 10M domains moved",
+  body:"On June 15, 2023 Google announced the sale of Google Domains to Squarespace for about $180 million, covering roughly 10 million domains; new registrations stopped the same day. The technical migration finished July 10, 2024. The registrar itself survived — but the Dynamic DNS API, programmatic certificate validation, and the CLI/REST APIs did not, breaking automation for anyone who scripted against them.",
+  cost:"Even when 'your data is safe,' the APIs you built on can vanish in the handover. DDNS integrations broke silently.",
+  src:"How-To Geek, Jun 2023 — howtogeek.com/898688/google-domains-is-shutting-down-migrating-domains-elsewhere/",
+  srcUrl:"https://www.howtogeek.com/898688/google-domains-is-shutting-down-migrating-domains-elsewhere/"},
+ {id:"meta",name:"Meta",head:"Facebook Groups API killed in 90 days — schedulers scrambled",
+  body:"With the Graph API v19.0 release on January 23, 2024, Meta announced it would deprecate the Facebook Groups API within 90 days — the API scheduling tools used to post to Groups. Developers told TechCrunch the shutdown threw their businesses into disarray; the CEO of VipeCloud said about 8% of total revenue was on the chopping block. Small, non-venture-backed tools serving thousands of small businesses had one quarter to rebuild.",
+  cost:"A single API removal can erase a revenue line. Ninety days is one product sprint — there is no time to pivot.",
+  src:"TechCrunch via Slashdot, Feb 2024 — tech.slashdot.org/story/24/02/05/223216/meta-cuts-off-third-party-access-to-facebook-groups",
+  srcUrl:"https://tech.slashdot.org/story/24/02/05/223216/meta-cuts-off-third-party-access-to-facebook-groups?sdsrc=next"},
+ {id:"x",name:"X / Twitter",head:"Free API eliminated — from $0 to $42,000/month in a month",
+  body:"In February 2023 Twitter announced the end of free API access with about a week's notice, killing the Essential, Elevated and Academic Research tiers. March 2023 brought the paid structure: Basic $100/month, Pro $5,000/month, Enterprise from a reported $42,000/month. Third-party clients died overnight; researchers lost years of tooling. By February 2026 the free tier was gone entirely and pay-per-use became the default.",
+  cost:"A platform dependency is also a pricing dependency. Teams that budgeted $0 for reads found themselves repriced 100x in weeks.",
+  src:"Elfsight, 2026 — elfsight.com/blog/how-to-get-x-twitter-api-key-in-2026/ ; Sorsa pricing timeline — api.sorsa.io/blog/twitter-api-pricing-2026",
+  srcUrl:"https://elfsight.com/blog/how-to-get-x-twitter-api-key-in-2026/"},
+ {id:"stripe",name:"Stripe",head:"Twice-yearly major releases — every one can break your code",
+  body:"Stripe's versioning docs are admirably clear: since 2024-09-30.acacia, new monthly releases carry no breaking changes, but twice a year a major release ships that can require changes to your integration — and every API version older than acacia has breaking changes baked in. Pin an old version to avoid one migration and you accumulate two: when you finally upgrade, you swallow years of breaking changes at once.",
+  cost:"Version pinning feels safe until the day it isn't. The migration debt compounds quietly in your webhook handlers.",
+  src:"Stripe API Reference, Versioning — docs.stripe.com/api/versioning",
+  srcUrl:"https://docs.stripe.com/api/versioning"},
+ {id:"twilio",name:"Twilio",head:"The deprecation that un-deprecated — after everyone migrated",
+  body:"In December 2023 Twilio announced the end-of-life of Programmable Video, later extending the date to December 5, 2026. Then, on October 21, 2024, Twilio reversed the decision entirely and kept Video as a standalone product. By then many customers had already assessed, chosen replacements, and started or finished migrating. The announcement itself — not the shutdown — did the damage.",
+  cost:"A deprecation announcement is a forcing function whether or not the shutdown happens. Panic migrations are never free.",
+  src:"WebRTC Ventures, Oct 2026 — webrtc.ventures/2026/10/azure-communication-services-migration/",
+  srcUrl:"https://webrtc.ventures/2026/10/azure-communication-services-migration/"},
+ {id:"aws",name:"AWS",head:"Amazon Pinpoint end of support — Oct 30, 2026",
+  body:"AWS announced that Amazon Pinpoint reaches end of support on October 30, 2026; new customers were blocked as of May 20, 2025. Campaigns, journeys, segments and templates go away — transactional SMS and push continue under AWS End User Messaging, while campaigns move to Amazon Connect. Teams that adopted Pinpoint years ago and never touched it since have to audit first and migrate second, on AWS's clock.",
+  cost:"Forgotten services are the worst to migrate: nobody remembers what the journeys do, but production still depends on them.",
+  src:"CloudQuery, Oct 2026 — cloudquery.io/blog/aws-pinpoint-deprecation-assessment",
+  srcUrl:"https://www.cloudquery.io/blog/aws-pinpoint-deprecation-assessment"}
+];
+function pickIndex(i){ return VENDORS[((i%VENDORS.length)+VENDORS.length)%VENDORS.length]; }
+function vendorCount(){ return VENDORS.length; }
+var spins=0, spinning=false;
+function buildWheel(){
+  var w=document.getElementById("wheel");
+  var html="";
+  for(var i=0;i<VENDORS.length;i++){ html+='<div class="vtile" id="vt'+i+'">'+VENDORS[i].name+'</div>'; }
+  w.innerHTML=html;
+  var all="";
+  for(var j=0;j<VENDORS.length;j++){ all+='<p style="margin:12px 0"><strong>'+VENDORS[j].name+':</strong> '+VENDORS[j].head+' <a href="'+VENDORS[j].srcUrl+'">Source</a></p>'; }
+  document.getElementById("allstories").innerHTML=all;
+}
+function showStory(i){
+  var v=pickIndex(i);
+  document.getElementById("shead").textContent=v.name+": "+v.head;
+  document.getElementById("sbody").textContent=v.body;
+  document.getElementById("scost").textContent=v.cost;
+  document.getElementById("ssrc").innerHTML="Source: <a href=\""+v.srcUrl+"\">"+v.src+"</a>";
+  document.getElementById("story").className="card story show";
+  document.getElementById("story").scrollIntoView({behavior:"smooth"});
+}
+function spin(){
+  if(spinning) return;
+  spinning=true;
+  document.getElementById("spinbtn").disabled=true;
+  var steps=18+Math.floor(Math.random()*10);
+  var pos=Math.floor(Math.random()*VENDORS.length);
+  var t=0;
+  for(var i=0;i<VENDORS.length;i++){ document.getElementById("vt"+i).className="vtile"; }
+  (function tick(n){
+    for(var i=0;i<VENDORS.length;i++){ document.getElementById("vt"+i).className="vtile"; }
+    document.getElementById("vt"+(pos%VENDORS.length)).className="vtile lit";
+    pos++;
+    if(n<steps){ t+=40; setTimeout(function(){tick(n+1);},t); }
+    else{
+      var landed=(pos-1)%VENDORS.length;
+      document.getElementById("vt"+landed).className="vtile landed";
+      spins++;
+      document.getElementById("spincount").textContent="Spins: "+spins;
+      spinning=false;
+      document.getElementById("spinbtn").disabled=false;
+      setTimeout(function(){showStory(landed);},350);
+    }
+  })(0);
+}
+buildWheel();
+</script>
+</body>
+</html>

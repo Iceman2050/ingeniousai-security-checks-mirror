@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service Changes: AI Vendor Timeline Tracker</title>
+<meta name="description" content="ToS Time Machine: every significant AI vendor terms change — OpenAI, Anthropic, Meta, Google, X, LinkedIn — dated and sourced, with what each one took from you.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/tos-time-machine.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Terms of Service Changes: AI Vendor Timeline Tracker">
+<meta property="og:description" content="ToS Time Machine: every significant AI vendor terms change — OpenAI, Anthropic, Meta, Google, X, LinkedIn — dated and sourced, with what each one took from you.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/tos-time-machine.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Terms of Service Changes: AI Vendor Timeline Tracker">
+<meta name="twitter:description" content="ToS Time Machine: every significant AI vendor terms change — OpenAI, Anthropic, Meta, Google, X, LinkedIn — dated and sourced, with what each one took from you.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"The Terms-of-Service Time Machine — Ingenious AI","description":"An interactive timeline of significant, sourced AI vendor terms-of-service changes — OpenAI, Anthropic, Meta, Google, X, LinkedIn — with what each change took from users.","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/tos-time-machine.html","author":{"@type":"Organization","name":"Ingenious AI"},"about":{"@type":"Thing","name":"terms of service changes"},"keywords":"terms of service changes, terms of service change tracker, AI vendor terms of service, what changed in terms of service"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which AI vendors changed their terms recently?","acceptedAnswer":{"@type":"Answer","text":"In the check run of October 17, 2026: Anthropic announced a usage-policy overhaul (effective November 12, 2026) and Meta removed the AI-\"train\" sentence from its commercial terms. OpenAI, Google, and xAI had no verifiable change that week."}},{"@type":"Question","name":"Does ChatGPT train on my data?","acceptedAnswer":{"@type":"Answer","text":"It depends on your plan's settings — and terms change, which is why the timeline exists. In the October 17, 2026 check, OpenAI had no verifiable change: its usage-policy changelog tops out at October 29, 2025. Always verify against the current policy."}},{"@type":"Question","name":"What did Meta's terms take from businesses?","acceptedAnswer":{"@type":"Answer","text":"The original commercial-terms clause took business-linked site content to \"train\" AI products with no opt-out. After October 17, 2026, the word \"train\" is gone — but broad crawling for ads and business products remains, and Meta says its crawlers operate as before."}},{"@type":"Question","name":"How do I get notified when vendor terms change?","acceptedAnswer":{"@type":"Answer","text":"TermsWatch diffs vendor terms and privacy policies so deletions and quiet weakenings surface the day they land. Get early access via the WhatsApp link on this page."}}]}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:880px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d1420;border:1px solid #1c6ef2;color:#6ea8fe;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h2{font-size:22px;margin:32px 0 12px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+p{margin-bottom:14px}
+.honest{background:#0d2b3d;border:1px solid #1c6ef2;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#bcd7f5}
+.picker{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}
+.vbtn{background:#11161f;border:1px solid #232b38;color:#e6edf3;border-radius:999px;padding:10px 20px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit}
+.vbtn:hover{border-color:#1c6ef2}
+.vbtn.active{background:#1c6ef2;border-color:#1c6ef2;color:#fff}
+.tl{position:relative;margin:26px 0 26px 8px;padding-left:26px;border-left:2px solid #232b38}
+.event{position:relative;margin:0 0 26px}
+.event:before{content:"";position:absolute;left:-35px;top:4px;width:14px;height:14px;border-radius:50%;background:#1c6ef2;border:3px solid #0b0f17;box-shadow:0 0 0 2px #1c6ef2}
+.event.quiet:before{background:#232b38;box-shadow:0 0 0 2px #3a4456}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:20px 22px}
+.card h3{font-size:18px;margin-bottom:6px}
+.date{font-size:12.5px;color:#6b7688;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.card p{font-size:14.5px;color:#c9d4e3}
+.took{background:#2e230b;border:1px solid #d29922;border-radius:8px;padding:12px 14px;margin:12px 0;font-size:14px;color:#ffce63}
+.took b{display:block;font-size:12px;letter-spacing:1px;margin-bottom:4px}
+.src{font-size:12.5px;color:#6b7688;margin-top:10px}
+.src a{color:#6ea8fe}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:3px 12px;border-radius:12px;vertical-align:middle;margin-left:8px}
+.tag.changed{background:#0d3a1a;color:#3fb950}
+.tag.quiet{background:#1a2230;color:#8b949e}
+.tag.died{background:#3a1a1a;color:#ff7b72}
+.cta{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:22px;margin:28px 0;text-align:center}
+.cta .lbl2{font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px;margin:6px}
+.btn:hover{background:#2b7fff}
+.btn.alt{background:#212a38;color:#e6edf3;border:1px solid #2a3342}
+.sharecard{background:#0d1420;border:2px dashed #1c6ef2;border-radius:12px;padding:24px;margin:22px 0;text-align:center}
+.sharecard .st{font-size:19px;font-weight:700;line-height:1.5}
+.sharecard .src{font-size:13px;color:#9aa7b8;margin-top:10px}
+button.copy{background:#232b38;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;margin-top:12px;font-family:inherit}
+button.copy:hover{border-color:#1c6ef2}
+.morefrom{background:#11161f;border:1px solid #2a3342;border-radius:12px;padding:22px;margin:28px 0}
+.morefrom .lbl3{font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:12px}
+.morefrom ul{list-style:none}
+.morefrom li{margin:10px 0;font-size:15px}
+.morefrom .hub{margin-top:16px;padding-top:14px;border-top:1px solid #232b38;font-size:15px;font-weight:700}
+.faq{margin:10px 0;border-bottom:1px solid #1c2330;padding:12px 0}
+.faq b{display:block;font-size:15.5px;margin-bottom:6px}
+.faq p{font-size:14.5px;color:#9aa7b8}
+.smallprint{font-size:13px;color:#6b7688;margin-top:30px}
+a{color:#6ea8fe}
+@media(max-width:560px){h1{font-size:27px}}
+</style>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<span class="badge">⏳ THE TERMS-OF-SERVICE TIME MACHINE</span>
+<h1>What did they take from you?</h1>
+<p class="lead">Pick an AI vendor. Scroll its timeline. Every entry is a real, dated, sourced change to its terms of service or privacy policy — and for each one, we say <strong>what they took from you</strong>. Where we can't verify a change, we say that too: an honest gap beats an invented entry.</p>
+
+<div class="honest"><strong>How this timeline is built:</strong> the corpus is our own verified reporting — the <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/terms-graveyard.html">Terms Graveyard</a> (7 sourced deletions) and <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/terms-diff-weekly.html">Terms Diff Weekly</a> (Week 1 check run, October 17, 2026). Every entry links its source. Nothing is invented to fill space.</div>
+
+<div class="picker" id="picker" role="tablist" aria-label="Choose a vendor"></div>
+<div class="tl" id="timeline"></div>
+
+<div class="cta">
+<div class="lbl2">FROM INGENIOUS AI</div>
+<p style="font-size:17px;margin-bottom:6px"><strong>TermsWatch</strong> monitors vendor terms and privacy policies so you catch the next change the day it lands — not the day after your data is gone. And the <strong>Security Suite</strong> bundles every Ingenious AI platform in one early-access package.</p>
+<p style="font-size:13px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</p>
+<a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch.">Get TermsWatch early access →</a><br>
+<a class="btn alt" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html">See the full Security Suite →</a>
+</div>
+
+<div class="sharecard">
+<div class="st">"What did they take from you?" — a sourced timeline of AI vendor ToS changes: OpenAI, Anthropic, Meta, Google, X, LinkedIn. Every entry dated, every entry cited.</div>
+<div class="src">ingeniousai-security-checks-mirror · The Terms-of-Service Time Machine</div>
+<button class="copy" onclick="navigator.clipboard.writeText('What did they take from you? A sourced timeline of AI vendor ToS changes — OpenAI, Anthropic, Meta, Google, X, LinkedIn https://iceman2050.github.io/ingeniousai-security-checks-mirror/tos-time-machine.html');this.textContent='Copied!';">Copy share text</button>
+</div>
+
+<div class="morefrom">
+<div class="lbl3">MORE FROM INGENIOUS AI</div>
+<ul>
+<li>🪦 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/terms-graveyard.html">Terms Graveyard</a> — the deleted privacy clauses, with tombstones</li>
+<li>📜 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/terms-diff-weekly.html">Terms Diff Weekly</a> — the weekly verified diff of vendor terms</li>
+<li>📝 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-vendor-tos-diffs.html">AI Vendor ToS Diffs</a> — what changed in AI companies' terms</li>
+<li>🦁 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/dark-pattern-safari.html">Dark Pattern Safari</a> — manipulative UI in the wild</li>
+<li>🔍 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/transparent-ai-index.html">Transparent AI Index</a> — which AI companies disclose what they do with your data</li>
+</ul>
+<div class="hub">🗂️ <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/all-links.html">Browse everything Ingenious AI has built</a></div>
+</div>
+
+<h2>FAQ</h2>
+<div class="faq"><b>Which AI vendors changed their terms recently?</b><p>In the check run of October 17, 2026: Anthropic announced a usage-policy overhaul (effective November 12, 2026) and Meta removed the AI-"train" sentence from its commercial terms. OpenAI, Google, and xAI had no verifiable change that week.</p></div>
+<div class="faq"><b>Does ChatGPT train on my data?</b><p>It depends on your plan's settings — and terms change, which is why the timeline exists. In the October 17, 2026 check, OpenAI had no verifiable change: its usage-policy changelog tops out at October 29, 2025. Always verify against the current policy.</p></div>
+<div class="faq"><b>What did Meta's terms take from businesses?</b><p>The original commercial-terms clause took business-linked site content to "train" AI products with no opt-out. After October 17, 2026, the word "train" is gone — but broad crawling for ads and business products remains, and Meta says its crawlers operate as before.</p></div>
+<div class="faq"><b>How do I get notified when vendor terms change?</b><p>TermsWatch diffs vendor terms and privacy policies so deletions and quiet weakenings surface the day they land. Get early access via the WhatsApp link above.</p></div>
+
+<div class="smallprint">Disclaimer: this page is an educational timeline of publicly reported changes to technology companies' terms and privacy policies, with sources linked per entry. It is not legal advice. Dates and characterizations follow the cited reporting.</div>
+
+</div>
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+<script>
+/* ---- Pure data + logic (DOM-free, unit-tested in node) ---- */
+var VENDORS = [
+  {id:'anthropic', name:'Anthropic', entries:[
+    {date:'Announced October 8, 2026 · effective November 12, 2026', title:'Usage policy overhaul', tag:'changed',
+     body:'New rules on model abuse, deception, weapons, and surveillance. The headline addition: a ban on "sustained and needless abusive or cruel behavior toward our models" — verified live on Anthropic\u2019s policy page. Weapons restrictions now explicitly cover weaponizing drones and autonomous vehicles; consequential recommendations in legal, medical, and finance require a human in the loop plus AI-use labeling.',
+     took:'More of your obligations. This update adds conduct rules for YOU — new things you can be penalized for — without adding new user rights. The ToS got stricter on the user side.',
+     srcLabel:'TechCrunch, Oct 8, 2026 · anthropic.com/legal/aup (fetched Oct 17, 2026)', srcUrl:'https://techcrunch.com/2026/10/08/anthropic-changes-usage-policy-to-ban-model-abuse-and-election-interference/'}
+  ]},
+  {id:'meta', name:'Meta', entries:[
+    {date:'October 17, 2026 · revised terms effective October 30, 2026', title:'The AI-"train" sentence is removed', tag:'died',
+     body:'Meta cut the sentence that had allowed it to use content from business-linked domains to "provide, develop, improve, research, train, and maintain" its products — after publishers and legal scholars warned it read as a blank check to scrape news sites for AI training, possibly overriding robots.txt. The Verge reported the removal the same day. The replacement language narrows crawling to advertising and business products; Meta says the word "train" is gone but its crawlers operate as before.',
+     took:'First the clause took your business site\u2019s content for AI training with no opt-out. After backlash, only the word "train" was given back — the crawling continues for ads and business products.',
+     srcLabel:'RR Tech Pulse, Oct 17, 2026 (citing The Verge)', srcUrl:'https://rrtechpulse.com/stories/meta-commercial-terms-crawl-business-websites-ai-training/'}
+  ]},
+  {id:'google', name:'Google', entries:[
+    {date:'Checked October 17, 2026', title:'Gemini Apps Privacy Notice re-dated — no verifiable change', tag:'quiet',
+     body:'The Gemini Apps Privacy Notice is dated October 13, 2026 — inside the check window — but Google publishes no changelog for the page, so we cannot verify what, if anything, changed between revisions. A new date without a documented diff is not a verified change.',
+     took:'Unknown — and that is the takeaway. Without a changelog, a re-dated policy is a black box; you cannot tell what moved.',
+     srcLabel:'Google Gemini Apps Privacy Hub (fetched Oct 17, 2026)', srcUrl:'https://support.google.com/gemini/answer/13594961'},
+    {date:'~May 2026', title:'Chrome\u2019s on-device AI assurance quietly removed', tag:'died',
+     body:'The on-device AI toggle in Chrome\u2019s Settings UI used to carry the sentence "Without sending your data to Google servers." In the redesigned Settings the assurance is gone and the toggle was moved out of the System block into its own section. No announcement — just a quieter UI.',
+     took:'The sentence promising your data stays local. Same toggle, same default — minus the promise.',
+     srcLabel:'That Privacy Guy', srcUrl:'https://www.thatprivacyguy.com/blog/google-quietly-removes-on-device-ai-privacy-claim'}
+  ]},
+  {id:'x', name:'X', entries:[
+    {date:'October 18, 2024 · effective November 15, 2024', title:'Third-party AI training clause added; retention cap killed', tag:'changed',
+     body:'A new "Third-party collaborators" paragraph: recipients of your information may use it "for their own independent purposes... including, for example, to train their artificial intelligence models, whether generative or otherwise." The old 18-month data retention cap was replaced with indefinite retention: "We keep your profile information and content for the duration of your account." The same update added a $15,000 "liquidated damages" clause for viewing more than a million posts a day. At the time, X had not specified where users could even toggle the opt-out.',
+     took:'Your posts as third-party AI training fodder — forever. The opt-out wasn\u2019t even specified when the clause landed.',
+     srcLabel:'TechCrunch, Oct 17, 2024', srcUrl:'https://techcrunch.com/2024/10/17/elon-musks-x-is-changing-its-privacy-policy-to-allow-third-parties-to-train-ai-on-your-posts/?mc_cid=1c5116e61f&mc_eid=c12078d536'}
+  ]},
+  {id:'linkedin', name:'LinkedIn', entries:[
+    {date:'September 2024', title:'Default-on AI training', tag:'changed',
+     body:'LinkedIn updated its privacy policy to use member data — posts, comments, articles, profile information, work history — to train generative AI models, flipping a new "Data for Generative AI Improvement" toggle ON by default for all eligible members. Users found the opt-out buried in Settings \u2192 Data Privacy, sparking backlash.',
+     took:'Your work history into the training set by default. The opt-out is explicitly NOT retroactive — anything collected before you found the toggle stays in the model.',
+     srcLabel:'Canopy Press (summarizing 404 Media / The Verge)', srcUrl:'https://canopy.press/stop-ai-tools-training-on-your-data-7-opt-outs/'}
+  ]},
+  {id:'openai', name:'OpenAI', entries:[
+    {date:'Checked October 17, 2026', title:'No verifiable change this week', tag:'quiet',
+     body:'The usage-policies page\u2019s own changelog shows its latest entry as October 29, 2025 (the universal-policies consolidation), and the ad-policies changelog tops out at v1.6, dated September 2026 — before this check window. Nothing new to report.',
+     took:'Nothing this week — and that is a verifiable claim here, not an assumption. A quiet vendor is only honest when you actually checked.',
+     srcLabel:'openai.com/policies/ad-policies (checked Oct 17, 2026)', srcUrl:'https://openai.com/policies/ad-policies/'}
+  ]}
+];
+function getVendors(){ return VENDORS.map(function(v){ return {id:v.id, name:v.name}; }); }
+function getTimeline(vendorId){
+  var v = VENDORS.find(function(x){ return x.id === vendorId; });
+  return v ? v.entries : [];
+}
+function timelineHTML(vendorId){
+  var v = VENDORS.find(function(x){ return x.id === vendorId; });
+  if(!v) return '';
+  var html = '';
+  v.entries.forEach(function(e){
+    var tagTxt = e.tag === 'changed' ? 'VERIFIED CHANGE' : (e.tag === 'died' ? 'REMOVED' : 'NO VERIFIABLE CHANGE');
+    html += '<div class="event '+(e.tag==='quiet'?'quiet':'')+'"><div class="card">';
+    html += '<div class="date">'+v.name+' · '+e.date+'</div>';
+    html += '<h3>'+e.title+' <span class="tag '+e.tag+'">'+tagTxt+'</span></h3>';
+    html += '<p>'+e.body+'</p>';
+    html += '<div class="took"><b>WHAT THEY TOOK FROM YOU</b>'+e.took+'</div>';
+    html += '<div class="src">Source: <a href="'+e.srcUrl+'" target="_blank" rel="noopener">'+e.srcLabel+'</a></div>';
+    html += '</div></div>';
+  });
+  return html;
+}
+/* ---- DOM wiring (browser only) ---- */
+if (typeof document !== 'undefined') {
+  (function(){
+    var picker = document.getElementById('picker');
+    var tl = document.getElementById('timeline');
+    function render(id){
+      Array.prototype.forEach.call(picker.children, function(b){ b.classList.toggle('active', b.dataset.v === id); });
+      if(id === 'all'){
+        var all = '';
+        ['linkedin','x','google','anthropic','meta','openai'].forEach(function(vid){ all += timelineHTML(vid); });
+        tl.innerHTML = all;
+      } else { tl.innerHTML = timelineHTML(id); }
+      tl.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+    var allB = document.createElement('button'); allB.className = 'vbtn'; allB.dataset.v = 'all'; allB.textContent = 'All vendors'; allB.setAttribute('role','tab');
+    allB.addEventListener('click', function(){ render('all'); }); picker.appendChild(allB);
+    VENDORS.forEach(function(v){
+      var b = document.createElement('button'); b.className = 'vbtn'; b.dataset.v = v.id; b.textContent = v.name; b.setAttribute('role','tab');
+      b.addEventListener('click', function(){ render(v.id); }); picker.appendChild(b);
+    });
+    render('all');
+  })();
+}
+</script>
+</body>
+</html>

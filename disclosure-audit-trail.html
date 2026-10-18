@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Disclosure Audit Trail — Free Checklist | Ingenious AI</title>
+<meta name="description" content="Free AI disclosure checklist + dated evidence log: audit every AI label on your site and download a timestamped trail — for the EU AI Act Art. 50 deadline.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/disclosure-audit-trail.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="AI Disclosure Audit Trail — Free Checklist | Ingenious AI">
+<meta property="og:description" content="Free AI disclosure checklist + dated evidence log: audit every AI label on your site and download a timestamped trail — for the EU AI Act Art. 50 deadline.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/disclosure-audit-trail.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Disclosure Audit Trail — Free Checklist | Ingenious AI">
+<meta name="twitter:description" content="Free AI disclosure checklist + dated evidence log: audit every AI label on your site and download a timestamped trail — for the EU AI Act Art. 50 deadline.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"AI Disclosure Audit Trail — Free Checklist | Ingenious AI","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/disclosure-audit-trail.html","description":"Free AI disclosure checklist + dated evidence log: audit every AI label on your site and download a timestamped trail — for the EU AI Act Art. 50 deadline.","keywords":["AI disclosure checklist","AI disclosure audit","EU AI Act transparency requirements","AI Act Article 50","AI content disclosure"],"author":{"@type":"Organization","name":"Ingenious AI"},"isPartOf":{"@type":"WebSite","name":"Ingenious AI Security Checks Mirror","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does AI-generated content have to be labelled under the EU AI Act?","acceptedAnswer":{"@type":"Answer","text":"In most cases, yes. Deployers of AI-generated image, audio or video must disclose it as AI-generated — the Article 50(4) deployer disclosure duty has applied since 2 August 2026 — and providers must ensure AI outputs are marked so they are machine-readable and detectable."}},{"@type":"Question","name":"What is the December 2, 2026 EU AI Act deadline?","acceptedAnswer":{"@type":"Answer","text":"From 2 December 2026, the AI Act's transparency and marking duties phase in for AI systems already on the market: providers must have AI-generated content marked so it is machine-readable and detectable. This is the date your disclosure evidence should already be in order."}},{"@type":"Question","name":"What counts as AI-generated content under Article 50?","acceptedAnswer":{"@type":"Answer","text":"Article 50 covers AI systems that generate or manipulate image, audio or video content — including deepfakes — plus AI text published to inform the public on matters of public interest, and AI systems interacting directly with people (chatbots). Each category carries its own disclosure duty."}},{"@type":"Question","name":"Do I need machine-readable marking, not just a visible label?","acceptedAnswer":{"@type":"Answer","text":"Yes, in addition to a clear visible notice at first exposure. Providers must mark AI outputs so they are machine-readable and detectable — for example watermarks, metadata, or C2PA Content Credentials. A caption alone does not cover the machine-readability duty."}},{"@type":"Question","name":"Is an audit-trail log legal proof of compliance?","acceptedAnswer":{"@type":"Answer","text":"No. A dated evidence log shows diligence and helps you prepare for review, but it is not legal proof on its own. This page is a guidance tool — consult qualified counsel for the 2 December 2026 deadline and your specific obligations."}}]}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d3a2a;border:1px solid #2ea043;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:32px;line-height:1.25;margin-bottom:14px}
+h2{font-size:22px;margin:30px 0 12px}
+p.lead{font-size:17px;color:#9aa7b8;margin-bottom:22px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:26px;margin:18px 0}
+.small{font-size:13px;color:#9aa7b8}
+.tiny{font-size:12px;color:#6b7688}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:14px;border:none;cursor:pointer;margin:8px 8px 0 0}
+.btn.ghost{background:#161d28;border:1px solid #2a3342}
+a{color:#6ea8fe}
+.checkitem{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid #1a2230}
+.checkitem:last-child{border-bottom:none}
+.checkitem input[type=checkbox]{width:22px;height:22px;margin-top:4px;flex-shrink:0;accent-color:#2ea043;cursor:pointer}
+.checkitem.done .label{color:#7ee787}
+.checkitem .label{font-weight:600;font-size:15px}
+.checkitem .desc{font-size:13px;color:#9aa7b8;margin-top:2px}
+.notebox{width:100%;background:#0a0e15;border:1px solid #232b38;border-radius:8px;color:#e6edf3;padding:10px 12px;font-size:13px;margin-top:8px;font-family:inherit}
+.notebox::placeholder{color:#55606e}
+.progressbar{height:10px;background:#1a2230;border-radius:999px;overflow:hidden;margin:12px 0}
+.progressbar>div{height:100%;background:linear-gradient(90deg,#1c6ef2,#2ea043);width:0;transition:width .3s}
+#loglist{width:100%;border-collapse:collapse;font-size:13px;margin-top:12px}
+#loglist th,#loglist td{text-align:left;padding:8px 10px;border-bottom:1px solid #1a2230;vertical-align:top}
+#loglist th{color:#6b7688;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+pre.logpreview{background:#000;border:1px solid #2a3342;border-radius:8px;padding:14px;font-size:12px;color:#7ee787;overflow-x:auto;white-space:pre-wrap;max-height:320px;overflow-y:auto;margin-top:12px}
+.more-links a{display:inline-block;background:#161d28;border:1px solid #2a3342;border-radius:8px;padding:8px 14px;margin:4px 6px 4px 0;font-size:13px;text-decoration:none}
+.disclaimer{border:1px solid #d29922;background:#2a1f08;border-radius:10px;padding:16px 20px;margin:24px 0;font-size:13px;color:#ffce63}
+</style>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<div class="badge">FREE COMPLIANCE TOOL</div>
+<h1>The AI Disclosure Audit Trail</h1>
+<p class="lead">Check every AI disclosure on your site against the EU AI Act Article 50 duties, add dated notes as you go, and download a timestamped evidence log. Everything stays in your browser — nothing is uploaded.</p>
+
+<div class="card">
+<h2 style="margin-top:0">Your disclosure checklist</h2>
+<p class="small">Tick each item you can show evidence for. Add a note (e.g. "screenshot saved", "page URL") — it becomes part of your audit trail.</p>
+<div id="score-line" class="small" style="margin-top:10px"><strong style="color:#e6edf3" id="score-num">0 of 8</strong> evidence items recorded</div>
+<div class="progressbar"><div id="score-bar"></div></div>
+<div id="checklist"></div>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">Your evidence log</h2>
+<p class="small">Entries are timestamped the moment you tick an item and saved in this browser (localStorage). Download as Markdown whenever you need a dated record.</p>
+<table id="loglist"><thead><tr><th>Date</th><th>Evidence item</th><th>Note</th></tr></thead><tbody id="logbody"><tr><td colspan="3" class="tiny">No entries yet — tick a checklist item above to start your trail.</td></tr></tbody></table>
+<div>
+<button class="btn" id="dl-btn">Download log as .md</button>
+<button class="btn ghost" id="clear-btn">Clear log</button>
+</div>
+<pre class="logpreview" id="logpreview">Your markdown preview will appear here…</pre>
+</div>
+
+<div class="disclaimer"><strong>Guidance tool, not legal proof</strong> — consult counsel for the Dec 2 2026 EU AI Act Art. 50 deadline. This page helps you organise disclosure evidence; it does not certify compliance and does not replace legal advice.</div>
+
+<div class="card">
+<h2 style="margin-top:0">AI disclosure — quick answers</h2>
+<p style="margin:14px 0 4px"><strong>Does AI-generated content have to be labelled under the EU AI Act?</strong></p>
+<p class="small" style="margin-bottom:6px">In most cases, yes. Deployers of AI-generated image, audio or video must disclose it as AI-generated — the Article 50(4) deployer disclosure duty has applied since 2 August 2026 — and providers must ensure AI outputs are marked so they are machine-readable and detectable.</p>
+<p style="margin:14px 0 4px"><strong>What is the December 2, 2026 EU AI Act deadline?</strong></p>
+<p class="small" style="margin-bottom:6px">From 2 December 2026, the AI Act's transparency and marking duties phase in for AI systems already on the market: providers must have AI-generated content marked so it is machine-readable and detectable. This is the date your disclosure evidence should already be in order.</p>
+<p style="margin:14px 0 4px"><strong>What counts as AI-generated content under Article 50?</strong></p>
+<p class="small" style="margin-bottom:6px">Article 50 covers AI systems that generate or manipulate image, audio or video content — including deepfakes — plus AI text published to inform the public on matters of public interest, and AI systems interacting directly with people (chatbots). Each category carries its own disclosure duty.</p>
+<p style="margin:14px 0 4px"><strong>Do I need machine-readable marking, not just a visible label?</strong></p>
+<p class="small" style="margin-bottom:6px">Yes, in addition to a clear visible notice at first exposure. Providers must mark AI outputs so they are machine-readable and detectable — for example watermarks, metadata, or C2PA Content Credentials. A caption alone does not cover the machine-readability duty.</p>
+<p style="margin:14px 0 4px"><strong>Is an audit-trail log legal proof of compliance?</strong></p>
+<p class="small" style="margin-bottom:6px">No. A dated evidence log shows diligence and helps you prepare for review, but it is not legal proof on its own. This page is a guidance tool — consult qualified counsel for the 2 December 2026 deadline and your specific obligations.</p>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">More from Ingenious AI</h2>
+<div class="more-links">
+<a href="disclosure-cop.html">AI Disclosure Cop</a>
+<a href="disclosure-badge.html">AI Disclosure Badge</a>
+<a href="disclosure-registry.html">Disclosure Registry</a>
+<a href="disclosure-lie-detector.html">Disclosure Lie Detector</a>
+<a href="ai-act-countdown.html">EU AI Act Countdown</a>
+<a href="state-of-ai-ad-disclosure-2026.html">State of AI Ad Disclosure 2026</a>
+<a href="all-links.html">All tools &amp; pages</a>
+<a href="security-suite.html">Security suite</a>
+</div>
+</div>
+
+<div style="background:#0d1420;border:1px solid #2ea043;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#7ee787;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20built%20my%20AI%20disclosure%20audit%20trail%20and%20want%20early%20access%20to%20DisclosureGuard." style="color:#fff;text-decoration:underline">DisclosureGuard</a> automates AI disclosure compliance — it scans your ads and content, flags what's unlabeled, and keeps your evidence trail ready for the EU AI Act transparency rules.</strong></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20built%20my%20AI%20disclosure%20audit%20trail%20and%20want%20early%20access%20to%20DisclosureGuard." style="display:inline-block;background:#2ea043;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+</div>
+<script>
+/* PURE-LOGIC-START */
+var CHECKLIST_ITEMS = [
+ {id:"labeled-content", label:"AI-generated content is visibly labeled", desc:"Every AI-generated image, video, or audio on your site carries a clear 'AI-generated' notice at first exposure — not buried in a caption."},
+ {id:"chatbot-disclosed", label:"Chatbots and AI assistants are disclosed", desc:"Visitors are told they are interacting with AI before or at the start of the interaction."},
+ {id:"deepfake-policy", label:"Deepfake / synthetic-persona policy exists", desc:"You have a written policy covering synthetic people, realistic impersonation, and when it is never used."},
+ {id:"training-data", label:"Training-data / provenance statement published", desc:"Your site states how model training or provenance data is sourced — or links to your provider's published statement."},
+ {id:"machine-readable", label:"Machine-readable marking in place", desc:"AI outputs carry machine-detectable marking where your tools support it: watermark, metadata, or C2PA Content Credentials."},
+ {id:"vendor-disclosure", label:"Vendors and freelancers must disclose AI use", desc:"Contracts require vendors, agencies, and freelancers to disclose AI use in anything they deliver to you."},
+ {id:"ad-disclosure", label:"AI-generated ads are disclosed", desc:"AI-generated ad creatives are labeled per ad-platform rules and EU disclosure duties."},
+ {id:"dated-evidence", label:"Dated evidence is kept", desc:"You keep dated evidence of every disclosure — screenshots, changelogs, label placements. This tool builds that log."}
+];
+function scoreChecklist(state){
+  // state: array of {checked:boolean}
+  var n = 0, i;
+  for(i=0;i<state.length;i++){ if(state[i] && state[i].checked){ n++; } }
+  return n;
+}
+function addEvidenceEntry(log, itemId, itemLabel, note, ts){
+  // returns the new entry; ts is ISO string supplied by caller
+  var entry = { ts: ts, itemId: itemId, item: itemLabel, note: (note || "").trim() };
+  log.push(entry);
+  return entry;
+}
+function buildAuditMarkdown(entries, checkedCount, totalCount){
+  var lines = [];
+  lines.push("# AI Disclosure Audit Trail");
+  lines.push("");
+  lines.push("Generated: " + new Date().toISOString());
+  lines.push("Checked items: " + checkedCount + " of " + totalCount);
+  lines.push("");
+  lines.push("Guidance tool, not legal proof — consult counsel for the Dec 2 2026 EU AI Act Art. 50 deadline.");
+  lines.push("");
+  var i, e;
+  for(i=0;i<entries.length;i++){
+    e = entries[i];
+    lines.push("## " + e.ts + " — " + e.item);
+    if(e.note){ lines.push(e.note); } else { lines.push("(no note)"); }
+    lines.push("");
+  }
+  return lines.join("\n");
+}
+/* PURE-LOGIC-END */
+</script>
+<script>
+(function(){
+  var STORAGE_KEY = "disclosure-audit-trail-v1";
+  var list = document.getElementById("checklist");
+  var logbody = document.getElementById("logbody");
+  var preview = document.getElementById("logpreview");
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); } catch(e){ saved = {}; }
+  var entries = (saved.entries && saved.entries.length) ? saved.entries : [];
+  var checked = saved.checked || {};
+  function persist(){
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify({entries: entries, checked: checked})); } catch(e){}
+  }
+  function nowISO(){ return new Date().toISOString(); }
+  function renderChecklist(){
+    list.innerHTML = "";
+    CHECKLIST_ITEMS.forEach(function(item, idx){
+      var div = document.createElement("div");
+      div.className = "checkitem" + (checked[item.id] ? " done" : "");
+      var cb = document.createElement("input");
+      cb.type = "checkbox"; cb.checked = !!checked[item.id];
+      var body = document.createElement("div");
+      var lab = document.createElement("div"); lab.className = "label"; lab.textContent = item.label;
+      var desc = document.createElement("div"); desc.className = "desc"; desc.textContent = item.desc;
+      var note = document.createElement("textarea");
+      note.className = "notebox"; note.rows = 2;
+      note.placeholder = "Evidence note, e.g. screenshot saved 2026-10-17, /labels page updated";
+      note.value = (checked[item.id] && checked[item.id].note) ? checked[item.id].note : "";
+      note.addEventListener("change", function(){
+        if(checked[item.id]){ checked[item.id] = { note: note.value }; persist(); }
+      });
+      cb.addEventListener("change", function(){
+        if(cb.checked){
+          checked[item.id] = { note: note.value };
+          addEvidenceEntry(entries, item.id, item.label, note.value, nowISO());
+        } else {
+          delete checked[item.id];
+        }
+        persist(); renderAll();
+      });
+      body.appendChild(lab); body.appendChild(desc); body.appendChild(note);
+      div.appendChild(cb); div.appendChild(body);
+      list.appendChild(div);
+    });
+  }
+  function renderLog(){
+    logbody.innerHTML = "";
+    if(!entries.length){
+      var tr = document.createElement("tr");
+      var td = document.createElement("td"); td.colSpan = 3; td.className = "tiny";
+      td.textContent = "No entries yet — tick a checklist item above to start your trail.";
+      tr.appendChild(td); logbody.appendChild(tr);
+    } else {
+      entries.forEach(function(e){
+        var tr = document.createElement("tr");
+        var d1 = document.createElement("td"); d1.className = "tiny"; d1.textContent = e.ts.slice(0,19).replace("T"," ");
+        var d2 = document.createElement("td"); d2.textContent = e.item;
+        var d3 = document.createElement("td"); d3.className = "small"; d3.textContent = e.note || "(no note)";
+        tr.appendChild(d1); tr.appendChild(d2); tr.appendChild(d3); logbody.appendChild(tr);
+      });
+    }
+    var state = CHECKLIST_ITEMS.map(function(item){ return {checked: !!checked[item.id]}; });
+    preview.textContent = buildAuditMarkdown(entries, scoreChecklist(state), CHECKLIST_ITEMS.length);
+  }
+  function renderScore(){
+    var n = scoreChecklist(CHECKLIST_ITEMS.map(function(item){ return {checked: !!checked[item.id]}; }));
+    document.getElementById("score-num").textContent = n + " of " + CHECKLIST_ITEMS.length;
+    document.getElementById("score-bar").style.width = Math.round(100*n/CHECKLIST_ITEMS.length) + "%";
+  }
+  function renderAll(){ renderChecklist(); renderLog(); renderScore(); }
+  document.getElementById("dl-btn").addEventListener("click", function(){
+    var state = CHECKLIST_ITEMS.map(function(item){ return {checked: !!checked[item.id]}; });
+    var md = buildAuditMarkdown(entries, scoreChecklist(state), CHECKLIST_ITEMS.length);
+    var blob = new Blob([md], {type: "text/markdown"});
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "ai-disclosure-audit-trail.md";
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 500);
+  });
+  document.getElementById("clear-btn").addEventListener("click", function(){
+    if(confirm("Clear your audit trail log and checklist?")){
+      entries = []; checked = {}; persist(); renderAll();
+    }
+  });
+  renderAll();
+})();
+</script>
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>

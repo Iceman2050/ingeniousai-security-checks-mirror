@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EU AI Act Compliance Burden Calculator | Ingenious AI</title>
+<meta name="description" content="Estimate your EU AI Act compliance burden in hours and cost by size, sector and AI usage, plus the real fine-exposure bands for Article 50 breaches. Free tool.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/compliance-burden-calculator.html">
+<meta property="og:title" content="EU AI Act Compliance Burden Calculator | Ingenious AI">
+<meta property="og:description" content="Estimate your EU AI Act compliance burden in hours and cost by size, sector and AI usage, plus the real fine-exposure bands for Article 50 breaches. Free tool.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/compliance-burden-calculator.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="EU AI Act Compliance Burden Calculator | Ingenious AI">
+<meta name="twitter:description" content="Estimate your EU AI Act compliance burden in hours and cost by size, sector and AI usage, plus the real fine-exposure bands for Article 50 breaches. Free tool.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"The Compliance Burden Calculator","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/compliance-burden-calculator.html","description":"ESTIMATE calculator for EU AI Act compliance hours and cost per obligation, by company size, sector and AI usage, with real fine-exposure bands.","about":{"@type":"Thing","name":"EU AI Act"},"keywords":["eu ai act compliance cost","eu ai act fines and penalties","eu ai act penalties for non compliance","eu ai act article 50 fines","ai act transparency obligations cost"],"provider":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How much does EU AI Act compliance cost?","acceptedAnswer":{"@type":"Answer","text":"It depends on company size, sector and AI footprint. This page's calculator gives an ESTIMATE — hours and cost per obligation (transparency marking, risk assessment, documentation, human oversight). The biggest cost driver is usually AI agents and biometrics, which multiply oversight and documentation work."}},
+{"@type":"Question","name":"What are the fines for EU AI Act non-compliance?","acceptedAnswer":{"@type":"Answer","text":"Breaches of the Article 50 transparency obligations fall under the middle fine band: up to €15 million or 3% of worldwide annual turnover, whichever is higher. Violations of the prohibited practices in Article 5 reach up to €35 million or 7%. Small and medium enterprises benefit from a lower-of rule on these ceilings."}},
+{"@type":"Question","name":"Which EU AI Act obligations apply to chatbots?","acceptedAnswer":{"@type":"Answer","text":"Chatbots trigger Article 50: users must be told they are interacting with AI at first interaction, unless it is obvious from context. If the chatbot generates synthetic content, that content must also be marked as AI-generated."}},
+{"@type":"Question","name":"Does the EU AI Act apply to small companies?","acceptedAnswer":{"@type":"Answer","text":"Yes — the Act applies regardless of company size when AI systems are placed on the EU market. SMEs get some relief, including a lower-of rule on fine ceilings and simplified measures under the Digital Omnibus, but the transparency obligations still apply."}},
+{"@type":"Question","name":"When did the EU AI Act transparency rules become enforceable?","acceptedAnswer":{"@type":"Answer","text":"The Article 50 transparency obligations became applicable on 2 August 2026, and national authorities can enforce them now. Machine-readable marking requirements for already-deployed systems have a transition period running to 2 December 2026."}}
+]}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:820px;margin:0 auto;padding:48px 20px}
+.badge-top{display:inline-block;background:#1c6ef2;color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:14px;letter-spacing:1px}
+.legal-banner{background:#2a1503;border:1px solid #b3540c;color:#f0b27a;border-radius:10px;padding:14px 18px;margin:20px 0;font-size:14px}
+.legal-banner b{color:#ffd9a8}
+h1{font-size:30px;margin-bottom:12px}
+p.lead{color:#9aa7b8;font-size:17px;margin-bottom:24px}
+h2{font-size:21px;margin:32px 0 12px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:18px 20px;margin:12px 0}
+label.f-label{display:block;font-size:13px;font-weight:700;color:#9aa7b8;margin:14px 0 6px;letter-spacing:.5px}
+select,input[type=text]{width:100%;background:#0b0f17;border:1px solid #232b38;color:#e6edf3;border-radius:8px;padding:11px 12px;font-size:15px}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+.check{display:flex;gap:10px;align-items:flex-start;background:#0b0f17;border:1px solid #232b38;border-radius:8px;padding:11px 12px;cursor:pointer;font-size:14.5px}
+.check input{margin-top:4px}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;font-weight:700;padding:12px 26px;border-radius:10px;text-decoration:none;margin:18px 8px 0 0;border:0;cursor:pointer;font-size:16px}
+.est-tag{display:inline-block;background:#173b1c;color:#7ee2a0;font-size:11px;font-weight:700;padding:2px 9px;border-radius:12px;letter-spacing:1px;margin-left:8px;vertical-align:middle}
+table.res{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px}
+table.res th,table.res td{text-align:left;padding:10px 12px;border-bottom:1px solid #232b38}
+table.res th{color:#9aa7b8;font-size:12.5px;letter-spacing:1px}
+table.res td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+table.res tr.total td{font-weight:700;border-bottom:0;color:#fff;font-size:16px}
+.finebox{background:#170d12;border:1px solid #7a2438;border-radius:12px;padding:18px 20px;margin:12px 0}
+.finebox b.fine{font-size:22px;color:#ff8fa3}
+.faq details{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0}
+.faq summary{font-weight:700;cursor:pointer}
+.faq p{color:#9aa7b8;font-size:14px;margin-top:8px}
+.note{font-size:13px;color:#6b7688;margin-top:18px}
+.sources{font-size:13px;color:#6b7688;margin-top:24px}
+.sources a{color:#6ea8fe;text-decoration:none}
+.more{background:#0d1420;border:1px solid #232b38;border-radius:12px;padding:18px 20px;margin:32px 0}
+.more h3{font-size:15px;margin-bottom:10px;letter-spacing:1px;color:#9aa7b8}
+.more a{color:#6ea8fe;text-decoration:none;display:inline-block;margin:4px 12px 4px 0;font-size:14.5px}
+.cta{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center}
+@media(max-width:600px){.checks{grid-template-columns:1fr}}
+</style>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<span class="badge-top">FREE ESTIMATE TOOL</span>
+<h1>The Compliance Burden Calculator</h1>
+<p class="lead">Pick your company size, sector and AI footprint. Get an <strong>ESTIMATE</strong> of EU AI Act compliance hours and cost per obligation — plus the real fine exposure of doing nothing.</p>
+
+<div class="legal-banner"><b>NOT LEGAL ADVICE.</b> Every figure on this page is an <b>ESTIMATE</b> for planning purposes only, built on illustrative assumptions. Obligations and fines depend on your exact systems, roles (provider vs deployer) and jurisdiction. Consult a qualified lawyer before acting.</div>
+
+<div class="card">
+<label class="f-label" for="cb-size">COMPANY SIZE</label>
+<select id="cb-size">
+<option value="s1">1–10 employees</option>
+<option value="s2" selected>11–50 employees</option>
+<option value="s3">51–250 employees</option>
+<option value="s4">250+ employees</option>
+</select>
+
+<label class="f-label" for="cb-sector">SECTOR</label>
+<select id="cb-sector">
+<option value="saas" selected>SaaS</option>
+<option value="ecommerce">E-commerce</option>
+<option value="finance">Finance</option>
+<option value="health">Health</option>
+<option value="other">Other</option>
+</select>
+
+<label class="f-label">AI USAGE (SELECT ALL THAT APPLY)</label>
+<div class="checks">
+<label class="check"><input type="checkbox" id="cb-chatbot" checked><span><b>Chatbots / support agents</b><br><span style="color:#6b7688;font-size:13px">Art. 50(1): disclose AI interaction</span></span></label>
+<label class="check"><input type="checkbox" id="cb-content"><span><b>AI content generation</b><br><span style="color:#6b7688;font-size:13px">Art. 50(2): mark synthetic content</span></span></label>
+<label class="check"><input type="checkbox" id="cb-agents"><span><b>Autonomous agents</b><br><span style="color:#6b7688;font-size:13px">Oversight + action audit trails</span></span></label>
+<label class="check"><input type="checkbox" id="cb-biometrics"><span><b>Biometrics / emotion recognition</b><br><span style="color:#6b7688;font-size:13px">Art. 50(3) notices; Art. 5 prohibitions may apply</span></span></label>
+</div>
+
+<button class="btn" id="cb-run">Calculate my ESTIMATE →</button>
+</div>
+
+<div id="cb-out" style="display:none">
+<h2>Your compliance ESTIMATE<span class="est-tag">ESTIMATE</span></h2>
+<div class="card">
+<table class="res" id="cb-table">
+<thead><tr><th>OBLIGATION</th><th style="text-align:right">HOURS</th><th style="text-align:right">COST (€)</th></tr></thead>
+<tbody></tbody>
+</table>
+<p class="note">Hours are one-off setup ESTIMATES (internal + external effort). Cost uses an illustrative blended rate of €120/hr — your rate will differ. Recurring monitoring is not included. Not legal advice.</p>
+</div>
+
+<h2>The cost of doing nothing<span class="est-tag">ESTIMATE</span></h2>
+<div class="finebox">
+<p style="font-size:14px;color:#9aa7b8">Article 50 transparency breaches — the fine band is <b>up to €15,000,000 or 3% of worldwide annual turnover, whichever is higher</b> (Art. 99(4)). For your profile the illustrative ceiling is:</p>
+<p style="margin:10px 0"><b class="fine" id="cb-fine50"></b></p>
+<p class="note" id="cb-sme-note"></p>
+</div>
+<div class="finebox" id="cb-art5" style="display:none">
+<p style="font-size:14px;color:#9aa7b8">You selected biometrics/emotion recognition. Note: <b>certain biometric practices are Article 5 prohibited practices</b> (e.g. workplace/education emotion inference, sensitive-attribute categorisation). Those carry the top band — <b>up to €35,000,000 or 7% of worldwide turnover</b> (Art. 99(3)). Illustrative ceiling for your profile:</p>
+<p style="margin:10px 0"><b class="fine" id="cb-fine5"></b></p>
+<p class="note">This is not a legal determination of whether your use case is prohibited. Get counsel — the Art. 5 line is where fines get existential.</p>
+</div>
+</div>
+
+<div class="cta">
+<div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div>
+<div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>DisclosureGuard</strong> — we continuously monitor your AI disclosures and alert you before you drift out of compliance with Article 50.</div>
+<div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">Our platforms return November 1 — get early access now:</div>
+<a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard.">Get DisclosureGuard early access →</a>
+</div>
+
+<h2>FAQ</h2>
+<div class="faq">
+<details><summary>How much does EU AI Act compliance cost?</summary><p>It depends on company size, sector and AI footprint. The calculator above gives an ESTIMATE — hours and cost per obligation (transparency marking, risk assessment, documentation, human oversight). The biggest cost drivers are usually AI agents and biometrics, which multiply oversight and documentation work. These are planning estimates, not legal advice.</p></details>
+<details><summary>What are the fines for EU AI Act non-compliance?</summary><p>Breaches of the Article 50 transparency obligations fall under the middle fine band: up to €15 million or 3% of worldwide annual turnover, whichever is higher. Violations of the prohibited practices in Article 5 reach up to €35 million or 7%. Small and medium enterprises benefit from a lower-of rule on these ceilings.</p></details>
+<details><summary>Which EU AI Act obligations apply to chatbots?</summary><p>Chatbots trigger Article 50: users must be told they are interacting with AI at first interaction, unless it is obvious from context. If the chatbot generates synthetic content, that content must also be marked as AI-generated.</p></details>
+<details><summary>Does the EU AI Act apply to small companies?</summary><p>Yes — the Act applies regardless of company size when AI systems are placed on the EU market. SMEs get some relief, including a lower-of rule on fine ceilings and simplified measures under the Digital Omnibus, but the transparency obligations still apply.</p></details>
+<details><summary>When did the EU AI Act transparency rules become enforceable?</summary><p>The Article 50 transparency obligations became applicable on 2 August 2026, and national authorities can enforce them now. Machine-readable marking requirements for already-deployed systems have a transition period running to 2 December 2026.</p></details>
+</div>
+
+<div class="sources"><b>Sources for the fine bands cited above:</b><br>
+<a href="https://www.mondaq.com/uk/new-technology/1838856/the-eu-ai-acts-transparency-rules-are-now-live-what-organisations-need-to-do" target="_blank" rel="noopener">Mondaq — EU AI Act transparency rules, fines up to €15M or 3%</a><br>
+<a href="https://www.goodwinlaw.com/en/insights/publications/2026/08/alerts-technology-dpc-eu-ai-act-transparency-obligations-now-in-force" target="_blank" rel="noopener">Goodwin — transparency obligations now in force (Art. 99(4))</a><br>
+<a href="https://theinnovationattorney.com/eu-ai-digital-omnibus-and-article-50-duties/" target="_blank" rel="noopener">The Innovation Attorney — Digital Omnibus, SME lower-of rule, Art. 5 €35M/7%</a><br>
+<a href="https://www.brownejacobson.com/insights/new-transparency-obligations-under-the-eu-act" target="_blank" rel="noopener">Browne Jacobson — transparency obligations and enforcement</a>
+</div>
+
+<div class="more">
+<h3>MORE FROM INGENIOUS AI</h3>
+<a href="article-50-ready.html">Article 50 Ready badge</a>
+<a href="ai-act-countdown.html">AI Act countdown</a>
+<a href="compliance-deadline-ticker.html">Compliance deadline ticker</a>
+<a href="disclosure-cop.html">Disclosure Cop</a>
+<a href="ai-regulatory-heat-map.html">AI regulatory heat map</a>
+<a href="all-links.html">All tools &amp; pages</a>
+<a href="security-suite.html">Security suite</a>
+</div>
+
+</div>
+<script id="cb-logic">
+"use strict";
+/* PURE LOGIC — no DOM. Extracted and unit-tested in node. ESTIMATES only. */
+const CB_SIZE = {
+  "s1": { label: "1–10 employees", mult: 0.6, turnover: 1000000, sme: true },
+  "s2": { label: "11–50 employees", mult: 1.0, turnover: 8000000, sme: true },
+  "s3": { label: "51–250 employees", mult: 1.6, turnover: 50000000, sme: true },
+  "s4": { label: "250+ employees", mult: 2.4, turnover: 250000000, sme: false }
+};
+const CB_SECTOR = {
+  "saas": { label: "SaaS", mult: 1.0 },
+  "ecommerce": { label: "E-commerce", mult: 1.1 },
+  "finance": { label: "Finance", mult: 1.4 },
+  "health": { label: "Health", mult: 1.5 },
+  "other": { label: "Other", mult: 1.0 }
+};
+const CB_OBLIGATIONS = [
+  { key: "marking", name: "Art. 50 transparency marking", base: 16, adds: { chatbot: 12, content: 16, agents: 8, biometrics: 28 }, what: "Chatbot disclosures, AI-content labels, machine-readable marks, biometric notices." },
+  { key: "risk", name: "Risk assessment", base: 24, adds: { chatbot: 4, content: 6, agents: 16, biometrics: 10 }, what: "Gap analysis across deployments, misuse review, incident readiness." },
+  { key: "docs", name: "Documentation & records", base: 32, adds: { chatbot: 6, content: 10, agents: 20, biometrics: 12 }, what: "Technical documentation, disclosure registers, logs, DPIA alignment." },
+  { key: "oversight", name: "Human oversight", base: 20, adds: { chatbot: 4, content: 4, agents: 24, biometrics: 8 }, what: "Escalation paths, kill switches, staffing, approval queues." }
+];
+const CB_RATE_EUR = 120; /* EXAMPLE blended external rate — illustrative only */
+function cbCalc(sizeKey, sectorKey, usageKeys) {
+  const size = CB_SIZE[sizeKey], sector = CB_SECTOR[sectorKey];
+  const used = {};
+  (usageKeys || []).forEach(function(k){ used[k] = true; });
+  const rows = CB_OBLIGATIONS.map(function(o){
+    let add = 0;
+    Object.keys(o.adds).forEach(function(k){ if (used[k]) add += o.adds[k]; });
+    const hours = Math.round((o.base + add) * size.mult * sector.mult);
+    return { key: o.key, name: o.name, what: o.what, hours: hours, cost: hours * CB_RATE_EUR };
+  });
+  let totalHours = 0;
+  rows.forEach(function(r){ totalHours += r.hours; });
+  const art50 = size.sme ? Math.min(15000000, 0.03 * size.turnover) : Math.max(15000000, 0.03 * size.turnover);
+  const art5  = size.sme ? Math.min(35000000, 0.07 * size.turnover) : Math.max(35000000, 0.07 * size.turnover);
+  return {
+    rows: rows, totalHours: totalHours, totalCost: totalHours * CB_RATE_EUR,
+    art50: Math.round(art50), art5: Math.round(art5),
+    biometrics: !!used.biometrics, sme: size.sme, sizeLabel: size.label
+  };
+}
+</script>
+<script>
+(function(){
+  function eur(n){ return "€" + n.toLocaleString("en-IE"); }
+  document.getElementById("cb-run").addEventListener("click", function(){
+    var size = document.getElementById("cb-size").value;
+    var sector = document.getElementById("cb-sector").value;
+    var usage = [];
+    [["cb-chatbot","chatbot"],["cb-content","content"],["cb-agents","agents"],["cb-biometrics","biometrics"]].forEach(function(p){
+      if (document.getElementById(p[0]).checked) usage.push(p[1]);
+    });
+    var r = cbCalc(size, sector, usage);
+    var tb = document.querySelector("#cb-table tbody");
+    tb.innerHTML = "";
+    r.rows.forEach(function(row){
+      var tr = document.createElement("tr");
+      tr.innerHTML = "<td><b>" + row.name + "</b><br><span style='color:#6b7688;font-size:13px'>" + row.what + "</span> <span class='est-tag'>EST</span></td><td class='num'>" + row.hours + "</td><td class='num'>" + eur(row.cost) + "</td>";
+      tb.appendChild(tr);
+    });
+    var tr2 = document.createElement("tr");
+    tr2.className = "total";
+    tr2.innerHTML = "<td>TOTAL ESTIMATE <span class='est-tag'>ESTIMATE</span></td><td class='num'>" + r.totalHours + " hrs</td><td class='num'>" + eur(r.totalCost) + "</td>";
+    tb.appendChild(tr2);
+    document.getElementById("cb-fine50").textContent = eur(r.art50);
+    document.getElementById("cb-sme-note").textContent = r.sme
+      ? "As an SME, the lower-of rule applies: your ceiling is the lower of €15M and 3% of turnover. This is an illustrative figure from an EXAMPLE turnover for your size band — not legal advice."
+      : "Above the SME threshold: the ceiling is the higher of €15M and 3% of worldwide turnover. Illustrative figure from an EXAMPLE turnover for your size band — not legal advice.";
+    var a5 = document.getElementById("cb-art5");
+    if (r.biometrics) { a5.style.display = "block"; document.getElementById("cb-fine5").textContent = eur(r.art5); }
+    else { a5.style.display = "none"; }
+    document.getElementById("cb-out").style.display = "block";
+    document.getElementById("cb-out").scrollIntoView({behavior:"smooth"});
+  });
+})();
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+</body>
+</html>

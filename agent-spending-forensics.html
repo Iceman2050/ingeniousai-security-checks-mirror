@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Spending Forensics — Free AI Cost Breakdown</title>
+<meta name="description" content="Free AI API spending forensics: enter your invoice numbers and see what burned the tokens — input vs output, cache estimate, top waste flags. Estimates only.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-spending-forensics.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Agent Spending Forensics — Free AI Cost Breakdown">
+<meta property="og:description" content="Free AI API spending forensics: enter your invoice numbers and see what burned the tokens — input vs output, cache estimate, top waste flags. Estimates only.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-spending-forensics.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Agent Spending Forensics — Free AI Cost Breakdown">
+<meta name="twitter:description" content="Free AI API spending forensics: enter your invoice numbers and see what burned the tokens — input vs output, cache estimate, top waste flags. Estimates only.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Agent Spending Forensics — Free AI Cost Breakdown","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-spending-forensics.html","description":"Free AI API spending forensics: enter your invoice numbers and see what burned the tokens — input vs output, cache estimate, top waste flags. Estimates only.","keywords":["AI API cost calculator","LLM API cost tracker","AI agent spending","agent API cost breakdown","prompt caching savings estimate"],"author":{"@type":"Organization","name":"Ingenious AI"},"isPartOf":{"@type":"WebSite","name":"Ingenious AI Security Checks Mirror","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I find out what's burning my AI API budget?","acceptedAnswer":{"@type":"Answer","text":"Start with your invoice or usage summary: total input tokens, total output tokens, total cost, and the billing period. This tool splits your spend into input vs output, estimates cache-hit tokens from the cache percentage you enter, and flags the top three likely waste patterns — all from your own numbers."}},{"@type":"Question","name":"Why is my LLM output bill higher than my input bill?","acceptedAnswer":{"@type":"Answer","text":"Output tokens are typically priced higher than input tokens by most providers, and agents that 'think out loud' or re-emit long contexts generate far more of them. An output-to-input ratio above roughly 2:1 is a common sign your agent is over-generating — that is the first flag this tool checks."}},{"@type":"Question","name":"What is prompt caching and how much does it save?","acceptedAnswer":{"@type":"Answer","text":"Prompt caching lets providers reuse the processing of repeated prompt prefixes — like your system prompt — instead of charging you the full input price every call. This tool estimates your cache-hit tokens from the cache percentage you enter; if that percentage is under 10%, the lack of caching is flagged as your first cost fix."}},{"@type":"Question","name":"How can I cut my AI agent's API costs?","acceptedAnswer":{"@type":"Answer","text":"The usual wins are: enable prompt caching, trim oversized context windows, batch calls instead of one-at-a-time requests, add retry backoff so failures don't burn tokens twice, and cap output length. Fix the waste flags this tool reports first — they are the highest-leverage items."}},{"@type":"Question","name":"Is this an official audit of my provider invoice?","acceptedAnswer":{"@type":"Answer","text":"No. Every number on this page is an estimate derived from the numbers you type in. We never invent provider pricing — your own invoice figures are the only source of truth, and this tool is a guidance aid, not an official billing audit."}}]}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1c2333;border:1px solid #1c6ef2;color:#6ea8fe;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:32px;line-height:1.25;margin-bottom:14px}
+h2{font-size:22px;margin:30px 0 12px}
+p.lead{font-size:17px;color:#9aa7b8;margin-bottom:22px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:26px;margin:18px 0}
+.small{font-size:13px;color:#9aa7b8}
+.tiny{font-size:12px;color:#6b7688}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:14px;border:none;cursor:pointer;margin:8px 8px 0 0}
+a{color:#6ea8fe}
+.field{margin:14px 0}
+.field label{display:block;font-size:13px;font-weight:600;color:#c9d4e3;margin-bottom:6px}
+.field input[type=text],.field input[type=number],.field textarea{width:100%;background:#0a0e15;border:1px solid #2a3342;border-radius:8px;color:#e6edf3;padding:10px 12px;font-size:14px;font-family:inherit}
+.field textarea{min-height:84px}
+.field input::placeholder,.field textarea::placeholder{color:#55606e}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+@media(max-width:560px){.grid2{grid-template-columns:1fr}}
+.bar{height:22px;background:#1a2230;border-radius:6px;overflow:hidden;margin:6px 0 14px}
+.bar>div{height:100%}
+.bar .in{background:#1c6ef2}
+.bar .out{background:#d29922}
+.bar .cache{background:#2ea043}
+.stat{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #1a2230;font-size:14px}
+.stat b{color:#e6edf3}
+.flag{background:#2a1f08;border:1px solid #d29922;border-radius:10px;padding:14px 16px;margin:12px 0}
+.flag.green{background:#0d3a2a;border-color:#2ea043}
+.flag .ft{font-weight:700;font-size:14px;color:#ffce63;margin-bottom:4px}
+.flag.green .ft{color:#7ee787}
+.flag p{font-size:13px;color:#c9d4e3}
+.est-tag{display:inline-block;font-size:10px;font-weight:800;letter-spacing:1px;background:#1c6ef222;color:#6ea8fe;border:1px solid #1c6ef2;border-radius:999px;padding:2px 10px;margin-left:8px;vertical-align:middle}
+.more-links a{display:inline-block;background:#161d28;border:1px solid #2a3342;border-radius:8px;padding:8px 14px;margin:4px 6px 4px 0;font-size:13px;text-decoration:none}
+.err{color:#ff7b72;font-size:13px;margin-top:8px}
+.hidden{display:none}
+</style>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<div class="badge">FREE COST TOOL</div>
+<h1>Agent Spending Forensics</h1>
+<p class="lead">Paste the numbers from your AI API invoice or usage summary. We break down what burned the tokens — input vs output, your cache-hit estimate, and the top three waste flags. <strong>All results are ESTIMATES from your inputs; we never invent provider pricing.</strong></p>
+
+<div class="card">
+<h2 style="margin-top:0">Your invoice numbers</h2>
+<div class="grid2">
+<div class="field"><label>Provider</label><input type="text" id="f-provider" placeholder="e.g. OpenAI, Anthropic, Google"></div>
+<div class="field"><label>Billing period</label><input type="text" id="f-period" placeholder="e.g. Oct 2026"></div>
+<div class="field"><label>Total input tokens</label><input type="number" id="f-tin" min="0" placeholder="e.g. 4500000"></div>
+<div class="field"><label>Total output tokens</label><input type="number" id="f-tout" min="0" placeholder="e.g. 9800000"></div>
+<div class="field"><label>Total cost (your currency)</label><input type="number" id="f-cost" min="0" step="0.01" placeholder="e.g. 87.50"></div>
+<div class="field"><label>Prompt-cache hit rate % (enter your own)</label><input type="number" id="f-cache" min="0" max="100" step="0.1" placeholder="e.g. 35 — leave 0 if unknown"></div>
+</div>
+<div class="field"><label>Free-text usage summary (optional — mentions of retries, batching, long contexts)</label><textarea id="f-notes" placeholder="Paste a usage summary or notes, e.g. 'agent retries failed calls, single-shot calls, system prompt resent every turn'"></textarea></div>
+<button class="btn" id="analyze-btn">Run forensics</button>
+<div class="err hidden" id="err-msg"></div>
+</div>
+
+<div class="card hidden" id="results-card">
+<h2 style="margin-top:0">Forensics report <span class="est-tag">ESTIMATES</span></h2>
+<p class="small" id="r-context"></p>
+<div class="bar"><div class="in" id="bar-in" style="width:0"></div></div>
+<div class="bar"><div class="out" id="bar-out" style="width:0"></div></div>
+<div class="bar"><div class="cache" id="bar-cache" style="width:0"></div></div>
+<div id="r-stats"></div>
+<h2 style="margin-top:24px">Top waste flags <span class="est-tag">ESTIMATES</span></h2>
+<div id="r-flags"></div>
+<p class="tiny" style="margin-top:12px">Every figure above is an estimate derived from the numbers you entered. No provider pricing is assumed or invented — your invoice figures are the only source of truth. This tool is a guidance aid, not an official billing audit.</p>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">AI API spending — quick answers</h2>
+<p style="margin:14px 0 4px"><strong>How do I find out what's burning my AI API budget?</strong></p>
+<p class="small" style="margin-bottom:6px">Start with your invoice or usage summary: total input tokens, total output tokens, total cost, and the billing period. This tool splits your spend into input vs output, estimates cache-hit tokens from the cache percentage you enter, and flags the top three likely waste patterns — all from your own numbers.</p>
+<p style="margin:14px 0 4px"><strong>Why is my LLM output bill higher than my input bill?</strong></p>
+<p class="small" style="margin-bottom:6px">Output tokens are typically priced higher than input tokens by most providers, and agents that 'think out loud' or re-emit long contexts generate far more of them. An output-to-input ratio above roughly 2:1 is a common sign your agent is over-generating — that is the first flag this tool checks.</p>
+<p style="margin:14px 0 4px"><strong>What is prompt caching and how much does it save?</strong></p>
+<p class="small" style="margin-bottom:6px">Prompt caching lets providers reuse the processing of repeated prompt prefixes — like your system prompt — instead of charging you the full input price every call. This tool estimates your cache-hit tokens from the cache percentage you enter; if that percentage is under 10%, the lack of caching is flagged as your first cost fix.</p>
+<p style="margin:14px 0 4px"><strong>How can I cut my AI agent's API costs?</strong></p>
+<p class="small" style="margin-bottom:6px">The usual wins are: enable prompt caching, trim oversized context windows, batch calls instead of one-at-a-time requests, add retry backoff so failures don't burn tokens twice, and cap output length. Fix the waste flags this tool reports first — they are the highest-leverage items.</p>
+<p style="margin:14px 0 4px"><strong>Is this an official audit of my provider invoice?</strong></p>
+<p class="small" style="margin-bottom:6px">No. Every number on this page is an estimate derived from the numbers you type in. We never invent provider pricing — your own invoice figures are the only source of truth, and this tool is a guidance aid, not an official billing audit.</p>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">More from Ingenious AI</h2>
+<div class="more-links">
+<a href="agent-insurance-quote.html">Agent Insurance Quote</a>
+<a href="agent-autopsy-report.html">Agent Autopsy Report</a>
+<a href="agent-report-cards.html">Agent Report Cards</a>
+<a href="agent-prenup.html">Agent Prenup</a>
+<a href="ai-vendor-tos-diffs.html">AI Vendor ToS Diffs</a>
+<a href="all-links.html">All tools &amp; pages</a>
+<a href="security-suite.html">Security suite</a>
+</div>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20ran%20my%20agent%20spending%20forensics%20and%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#fff;text-decoration:underline">Agent Auth Gateway</a> stops runaway agent bills before they happen — per-agent budget caps, spend allowlists, and a kill switch for rogue spenders.</strong></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20ran%20my%20agent%20spending%20forensics%20and%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+</div>
+<script>
+/* PURE-LOGIC-START */
+function clampNum(v, lo, hi, fallback){
+  var n = Number(v);
+  if(!isFinite(n)){ return fallback; }
+  if(n < lo){ n = lo; }
+  if(n > hi){ n = hi; }
+  return n;
+}
+function analyzeSpend(d){
+  // d: {tin, tout, cost, cachePct} — all numbers, validated by caller
+  var tin = d.tin, tout = d.tout, cost = d.cost, cachePct = d.cachePct;
+  var total = tin + tout;
+  var outShare = total > 0 ? tout / total : 0;
+  var inShare = total > 0 ? tin / total : 0;
+  var outInRatio = tin > 0 ? tout / tin : (tout > 0 ? Infinity : 0);
+  var cacheTokens = tin * (cachePct / 100);       // ESTIMATE from user's own cache %
+  var impliedPerMillion = (total > 0 && cost > 0) ? cost / (total / 1e6) : null; // user's own blended rate
+  return {
+    total: total, outShare: outShare, inShare: inShare,
+    outInRatio: outInRatio, cacheTokens: cacheTokens,
+    impliedPerMillion: impliedPerMillion
+  };
+}
+function detectWaste(d, notes){
+  // rule-based; returns up to 3 flags
+  var flags = [];
+  if(d.tout > 2 * d.tin && d.tin > 0){
+    flags.push({id:"output-heavy", title:"Output-heavy burn",
+      text:"Your agent generates " + round1(d.tout / d.tin) + " output tokens for every input token. Outputs are typically priced higher — cap output length and stop the agent from re-emitting whole contexts."});
+  }
+  if(d.cachePct < 10){
+    flags.push({id:"weak-cache", title:"No or weak prompt caching",
+      text:"You report a " + d.cachePct + "% cache-hit rate. System prompts and repeated prefixes sent at full price every call are a classic silent burn — enable prompt caching first."});
+  }
+  if(d.tin >= 10e6){
+    flags.push({id:"oversized-context", title:"Very large input volume",
+      text:"" + fmtInt(d.tin) + " input tokens in one period is a lot of context. Trim retrieved documents to top-k passages, summarize tool outputs, and drop stale history."});
+  }
+  if(/retr(y|ies)/i.test(notes || "")){
+    flags.push({id:"retries", title:"Retries mentioned in your notes",
+      text:"Your notes mention retries. Retries without exponential backoff burn the same tokens twice — add backoff, idempotency keys, or a retry budget per task."});
+  }
+  if(/batch/i.test(notes || "") === false && flags.length < 3){
+    flags.push({id:"unbatched", title:"Check batching",
+      text:"No batching mentioned in your notes. One-at-a-time calls multiply per-request overhead — batch independent calls where your provider allows it."});
+  }
+  return flags.slice(0, 3);
+}
+function round1(x){ return Math.round(x * 10) / 10; }
+function fmtInt(x){
+  if(x >= 1e9){ return round1(x/1e9) + "B"; }
+  if(x >= 1e6){ return round1(x/1e6) + "M"; }
+  if(x >= 1e3){ return round1(x/1e3) + "K"; }
+  return String(Math.round(x));
+}
+/* PURE-LOGIC-END */
+</script>
+<script>
+(function(){
+  function $(id){ return document.getElementById(id); }
+  function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  function pct(x){ return Math.round(x * 1000) / 10; }
+  $("analyze-btn").addEventListener("click", function(){
+    var err = $("err-msg"); err.classList.add("hidden"); err.textContent = "";
+    var tin = clampNum($("f-tin").value, 0, 1e15, NaN);
+    var tout = clampNum($("f-tout").value, 0, 1e15, NaN);
+    var cost = clampNum($("f-cost").value, 0, 1e15, NaN);
+    var cachePct = clampNum($("f-cache").value, 0, 100, 0);
+    if(!isFinite(tin) || !isFinite(tout)){
+      err.textContent = "Enter your total input and output tokens (numbers only).";
+      err.classList.remove("hidden"); return;
+    }
+    if(!isFinite(cost)){ cost = 0; }
+    var notes = $("f-notes").value;
+    var provider = $("f-provider").value.trim() || "your provider";
+    var period = $("f-period").value.trim() || "this period";
+    var r = analyzeSpend({tin: tin, tout: tout, cost: cost, cachePct: cachePct});
+    var flags = detectWaste({tin: tin, tout: tout, cost: cost, cachePct: cachePct}, notes);
+    $("r-context").textContent = "ESTIMATE for " + provider + " · " + period + " — " + fmtInt(r.total) + " total tokens.";
+    $("bar-in").style.width = pct(r.inShare) + "%";
+    $("bar-in").title = "Input: " + pct(r.inShare) + "%";
+    $("bar-out").style.width = pct(r.outShare) + "%";
+    $("bar-out").title = "Output: " + pct(r.outShare) + "%";
+    var cacheShare = r.total > 0 ? r.cacheTokens / r.total : 0;
+    $("bar-cache").style.width = pct(cacheShare) + "%";
+    $("bar-cache").title = "Cache-hit estimate: " + pct(cacheShare) + "%";
+    var html = "";
+    html += '<div class="stat"><span>Input tokens <span class="tiny">(ESTIMATE)</span></span><b>' + esc(fmtInt(tin)) + " (" + pct(r.inShare) + "%)</b></div>";
+    html += '<div class="stat"><span>Output tokens <span class="tiny">(ESTIMATE)</span></span><b>' + esc(fmtInt(tout)) + " (" + pct(r.outShare) + "%)</b></div>";
+    html += '<div class="stat"><span>Output : input ratio <span class="tiny">(ESTIMATE)</span></span><b>' + (isFinite(r.outInRatio) ? round1(r.outInRatio) + " : 1" : "n/a") + "</b></div>";
+    html += '<div class="stat"><span>Cache-hit tokens <span class="tiny">(ESTIMATE from your ' + esc(String(cachePct)) + '%)</span></span><b>' + esc(fmtInt(Math.round(r.cacheTokens))) + "</b></div>";
+    if(r.impliedPerMillion != null){
+      html += '<div class="stat"><span>Your blended rate <span class="tiny">(ESTIMATE from your cost)</span></span><b>$' + esc(r.impliedPerMillion.toFixed(2)) + " / 1M tokens</b></div>";
+    }
+    $("r-stats").innerHTML = html;
+    var fh = "";
+    if(!flags.length){
+      fh = '<div class="flag green"><div class="ft">No waste flags</div><p>Nothing in your numbers trips the forensics rules. Keep caching on and watch the output:input ratio as you scale.</p></div>';
+    } else {
+      flags.forEach(function(f, i){
+        fh += '<div class="flag"><div class="ft">#' + (i+1) + " — " + esc(f.title) + ' <span class="est-tag">ESTIMATE</span></div><p>' + esc(f.text) + "</p></div>";
+      });
+    }
+    $("r-flags").innerHTML = fh;
+    $("results-card").classList.remove("hidden");
+    $("results-card").scrollIntoView({behavior: "smooth"});
+  });
+})();
+</script>
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
