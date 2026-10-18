@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Email Bombing Attack Check — Is That Flood of Spam Hiding Bank Fraud?</title>
+<meta name="description" content="Email bombing (subscription bombing) floods your inbox with hundreds of spam emails to bury your bank's real fraud alerts. Learn the warning signs, what to do immediately, and take the 5-question smokescreen check. Free, no signup.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is email bombing (subscription bombing)?","acceptedAnswer":{"@type":"Answer","text":"Email bombing is an attack where criminals use automated scripts to sign a victim's email address up for hundreds of newsletters and online forms at once. The inbox is flooded with welcome and confirmation emails — a smokescreen designed to bury real alerts like bank fraud notifications or password resets."}},
+{"@type":"Question","name":"Why would attackers flood my inbox with spam?","acceptedAnswer":{"@type":"Answer","text":"To hide something. The attacker typically already has partial access to an account and floods the inbox so the victim misses the one email that matters: a bank fraud alert, a password-reset notice, or an order confirmation. Security researchers call it a low-effort, high-noise smokescreen."}},
+{"@type":"Question","name":"What should I do if my inbox is suddenly flooded with hundreds of emails?","acceptedAnswer":{"@type":"Answer","text":"Do not just delete them. First search your inbox for your bank's name plus words like alert, transaction, verification, or password. Then check your bank account directly through the official app — never through email links. Call your bank's fraud line if anything looks wrong, and check for new payees, filters, or forwarding rules you did not add."}},
+{"@type":"Question","name":"How do I protect myself from email bombing in advance?","acceptedAnswer":{"@type":"Answer","text":"Use a separate email address for banking and financial accounts, get transaction alerts by SMS or push notification rather than email alone, use unique passwords with a password manager, and enable two-factor authentication on email and banking."}},
+{"@type":"Question","name":"Can spam filters stop email bombing?","acceptedAnswer":{"@type":"Answer","text":"Not reliably. Most flood emails come from real organizations — newsletters, charities, small businesses — whose signup forms were abused, so the messages pass SPF, DKIM, and DMARC checks and land in the main inbox instead of spam."}}
+]}
+</script>
+<meta property="og:title" content="Email Bombing Attack Check — Is That Flood of Spam Hiding Bank Fraud?">
+<meta property="og:description" content="Hundreds of emails at once may be a smokescreen for bank fraud. Warning signs, what to do immediately, and a 5-question smokescreen check. Free, no signup.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/email-bombing-attack-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/email-bombing-attack-check.html">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{background:#0a0f16;color:#e8edf3;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;line-height:1.7}
+.wrap{max-width:760px;margin:0 auto;padding:24px 18px 60px}
+h1{font-size:30px;margin:18px 0 8px}
+h2{font-size:22px;margin:32px 0 10px;color:#fff}
+.badge{display:inline-block;background:#7a1f1f;color:#fff;font-size:12px;font-weight:bold;letter-spacing:1px;padding:5px 12px;border-radius:20px;margin-bottom:6px}
+.lede{font-size:17px;color:#b9c4d2}
+.card{background:#101823;border:1px solid #1e2a3a;border-radius:10px;padding:18px;margin:16px 0}
+.card h3{margin:0 0 8px;font-size:17px;color:#fff}
+.card.warn{border-color:#7a4d12;background:#171207}
+ul{padding-left:20px}li{margin:6px 0}
+a{color:#6ea8fe}
+.small{font-size:13px;color:#8b98a9}
+.src{font-size:12px;color:#66727f}
+.q{margin:14px 0;padding:12px;border:1px solid #1e2a3a;border-radius:8px}
+.q p{margin:0 0 8px;font-weight:600}
+.q label{margin-right:18px;cursor:pointer}
+#result{font-size:18px;font-weight:bold;margin-top:14px}
+button{background:#1c6ef2;color:#fff;border:0;padding:12px 28px;border-radius:8px;font-size:15px;font-weight:bold;cursor:pointer;margin-top:10px}
+code{background:#1a2230;padding:2px 6px;border-radius:4px;font-size:14px}
+details{margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px}
+summary{font-weight:700;color:#fff;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">EMAIL SECURITY</div>
+<h1>Email Bombing Attack Check</h1>
+<p class="lede">Hundreds of spam emails hitting your inbox at once might not be junk — it might be a <strong>smokescreen</strong> hiding a real attack on your bank account. Here's how the trick works, the warning signs, and what to do the moment it happens.</p>
+
+<h2>The case that made the news</h2>
+<div class="card">
+<p><strong>Reported by Jeff Rossen (Oct 16, 2026):</strong> a South Florida man woke up to find his inbox flooded with hundreds of spam emails — and while he was busy dealing with them, attackers used his bank's bill-pay to send <strong>$27,000 to an unknown American Express card</strong>. His bank denied his fraud claim <strong>twice</strong>, telling him the transaction came from a "known device."</p>
+<p class="small">This case is Rossen's reporting — it has not been independently verified by us. But the <strong>technique</strong> behind it is real and well documented by security researchers (see below).</p>
+</div>
+
+<h2>How the attack works (in plain language)</h2>
+<div class="card">
+<ol>
+<li><strong>The attacker already has a foothold.</strong> Stolen card details, a reused password, or partial account access — bought from a data breach or phished earlier.</li>
+<li><strong>They flood your inbox.</strong> Automated scripts submit your email address to <strong>hundreds of newsletter signup forms and website registrations</strong> in minutes. Each site sends back a welcome or confirmation email.</li>
+<li><strong>The real alert gets buried.</strong> Somewhere in that mountain of noise sits the one email that matters: your bank's fraud alert, a password-reset notice, or an order confirmation for a purchase you never made.</li>
+<li><strong>You miss it.</strong> You're deleting spam, maybe marking things as junk — and the bank's legitimate alert gets ignored, deleted, or swept into the spam folder with everything else.</li>
+<li><strong>The money moves.</strong> While you're distracted, the attacker completes the unauthorized transaction, changes account details, or moves into another compromised account.</li>
+</ol>
+<p>This is called <strong>email bombing</strong> — also known as <strong>subscription bombing</strong> or <strong>list bombing</strong>.</p>
+</div>
+
+<h2>Why it works so well</h2>
+<div class="card">
+<ul>
+<li><strong>The flood looks legitimate.</strong> The emails come from <strong>real organizations</strong> — newsletters, charities, small businesses — whose signup forms were abused. They pass SPF, DKIM, and DMARC checks and land in your <strong>main inbox</strong>, not spam.</li>
+<li><strong>The volume is staggering.</strong> Security firm <strong>Proofpoint</strong> reports subscription-bombing attacks can deliver <strong>over 1,500 emails per hour</strong> — enough to overwhelm any inbox in minutes.</li>
+<li><strong>Alert fatigue does the rest.</strong> Faced with 600+ emails, most people bulk-delete. The bank's alert dies with the noise. In a case reported in September 2026, a victim received <strong>600+ emails in 24 hours</strong> — and the bank's alert about a fraudulent $1,200 transaction was buried inside.</li>
+<li><strong>There's often a second scam.</strong> Once the inbox is in chaos, a fraudster may call <strong>pretending to be tech support</strong>, offering to "clean up" the spam — for remote access to your computer or a fee.</li>
+</ul>
+<div class="src">Corroborating sources (paraphrased): ACM-published research on subscription bombing; fraud-defense firm BlackCloak on attackers hiding purchase receipts; Proofpoint on attack volume; journalist Brian Krebs on harassment uses; reporting via dnyuz.com and moneywise.com, September 2026.</div>
+</div>
+
+<h2>Warning signs — it's happening to you</h2>
+<div class="card warn">
+<ul>
+<li><strong>Hundreds of welcome/confirmation emails arrive at once</strong>, especially at odd hours, from organizations you've never heard of.</li>
+<li>You did <strong>not</strong> sign up for any of them.</li>
+<li>They keep coming — dozens more over the next hours.</li>
+</ul>
+<p><strong>Treat a sudden flood as a possible alarm, not just an annoyance.</strong> Security researchers advise treating it as targeted until careful checks show otherwise.</p>
+</div>
+
+<h2>What to do IMMEDIATELY</h2>
+<div class="card">
+<ol>
+<li><strong>Don't just delete — search first.</strong> Search your inbox for your bank's name plus <code>alert</code>, <code>transaction</code>, <code>verification</code>, <code>password</code>, and <code>sign-in</code>. Read anything from your bank before touching the spam.</li>
+<li><strong>Check your accounts directly.</strong> Open your bank's <strong>official app</strong> (not a link in any email) and review recent transactions, new payees, and scheduled payments.</li>
+<li><strong>Call the bank's fraud line.</strong> Use the number on the back of your card or the bank's official site — never a number from a suspicious email or an incoming "support" call.</li>
+<li><strong>Look for attacker-added controls.</strong> Check your email for new <strong>filters, rules, or forwarding addresses</strong> you didn't create — attackers add these to keep hiding future alerts.</li>
+<li><strong>Lock things down.</strong> Change your email and banking passwords (unique ones, via a password manager), sign out all sessions, and enable <strong>two-factor authentication</strong> everywhere it's offered.</li>
+<li><strong>Hang up on "helpers."</strong> If anyone calls offering to stop the spam for a fee or remote access, it's a second scam. Hang up.</li>
+</ol>
+</div>
+
+<h2>Protect yourself in advance</h2>
+<div class="card">
+<ul>
+<li><strong>Separate email for banking.</strong> Use one address for financial accounts and a different one for shopping, newsletters, and signups. Attackers can't bomb an address they don't have.</li>
+<li><strong>Alerts by SMS or push, not email alone.</strong> Transaction alerts that arrive as text or app push notifications can't be buried by an inbox flood.</li>
+<li><strong>Unique passwords + 2FA.</strong> A password manager plus two-factor authentication on email and banking turns a partial foothold into a dead end.</li>
+<li><strong>Know your bank's fraud number now</strong> — before you need it in a panic.</li>
+</ul>
+</div>
+
+<h2>The 5-question check: would you spot the smokescreen?</h2>
+<div class="card">
+<div id="quiz"></div>
+<button onclick="grade()">Check my score</button>
+<div id="result"></div>
+</div>
+
+<h2>Frequently asked questions</h2>
+<div class="card">
+<details><summary>What is email bombing (subscription bombing)?</summary><p>An attack where criminals use automated scripts to sign a victim's email address up for hundreds of newsletters and online forms at once. The inbox floods with welcome and confirmation emails — a smokescreen designed to bury real alerts like bank fraud notifications or password resets.</p></details>
+<details><summary>Why would attackers flood my inbox with spam?</summary><p>To hide something. The attacker typically already has partial access to an account and floods the inbox so the victim misses the one email that matters: a bank fraud alert, a password-reset notice, or an order confirmation. Researchers describe it as a low-effort, high-noise smokescreen.</p></details>
+<details><summary>What should I do if my inbox is suddenly flooded?</summary><p>Don't just delete. First search your inbox for your bank's name plus "alert", "transaction", "verification", or "password". Then check your bank account directly through the official app — never through email links. Call the bank's fraud line if anything looks wrong, and check for new payees, filters, or forwarding rules you didn't add.</p></details>
+<details><summary>How do I protect myself in advance?</summary><p>Use a separate email address for banking, get transaction alerts by SMS or push notification rather than email alone, use unique passwords with a password manager, and enable two-factor authentication on email and banking.</p></details>
+<details><summary>Can spam filters stop email bombing?</summary><p>Not reliably. Most flood emails come from real organizations whose signup forms were abused, so they pass authentication checks and land in the main inbox instead of spam.</p></details>
+</div>
+
+<h2>Honest scope</h2>
+<div class="card">
+<ul>
+<li>The $27,000 victim case is <strong>Jeff Rossen's reporting</strong> (Oct 16, 2026) — we have not independently verified the victim's story or the bank's response.</li>
+<li>The <strong>technique itself</strong> is documented by security researchers (ACM, BlackCloak, Proofpoint) and multiple 2026 news reports — that part is solid.</li>
+<li>Not every email flood is an attack — some are harassment or pranks. But the safe move is to <strong>treat it as an alarm first</strong> and check your accounts.</li>
+<li>This page is general information, not financial or legal advice.</li>
+</ul>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>A flooded inbox is a distraction — the real attack happens quietly. Our free checkers help you see through the noise: scams, breaches, passwords, and AI risks.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20email%20bombing%20attack%20check." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+</div>
+<script>
+var QUESTIONS=[
+{q:"If your inbox suddenly filled with hundreds of subscription emails you never signed up for, would your FIRST move be to search for your bank's name rather than deleting them all?",good:true},
+{q:"Do you check your bank account through the official app (never through email links) at least weekly?",good:true},
+{q:"If a flood of spam arrived tonight, would you just assume it's annoying spam and ignore it?",good:false},
+{q:"Do you receive your bank's transaction alerts by SMS or push notification, not by email alone?",good:true},
+{q:"Do you use one single email address for everything — banking, shopping, newsletters, and signups?",good:false}
+];
+function render(){
+var h="";
+for(var i=0;i<QUESTIONS.length;i++){
+h+='<div class="q"><p>'+(i+1)+'. '+QUESTIONS[i].q+'</p><label><input type="radio" name="q'+i+'" value="yes"> Yes</label><label><input type="radio" name="q'+i+'" value="no"> No</label></div>';
+}
+document.getElementById("quiz").innerHTML=h;
+}
+function grade(){
+var score=0,answered=0;
+for(var i=0;i<QUESTIONS.length;i++){
+var sel=document.querySelector('input[name="q'+i+'"]:checked');
+if(!sel)continue;
+answered++;
+var yes=(sel.value==="yes");
+if((yes&&QUESTIONS[i].good)||(!yes&&!QUESTIONS[i].good))score++;
+}
+var r=document.getElementById("result");
+if(answered<QUESTIONS.length){r.textContent="Answer all 5 questions first.";return;}
+var msg=score===5?"5/5 — You'd spot the smokescreen. Stay sharp.":score>=3?score+"/5 — Mostly covered. Fix the gaps above, starting with SMS/push alerts.":score+"/5 — You'd likely miss it. Set up a separate banking email and push alerts today.";
+r.textContent=msg;
+}
+render();
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
