@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-primary-keyword="data breach" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ConnectWise Breach: Check Your M365 Tenant (Free)</title>
+<title>ConnectWise Data Breach: M365 Tenant Check</title>
 <meta name="description" content="The ConnectWise breach hit 173 Microsoft 365 tenants via a stolen backup-app credential — MFA never applied. Free: the 7 app IDs, log checks, verdicts.">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/connectwise-m365-tenant-compromise-check.html">
 <meta property="og:type" content="website">
@@ -111,13 +111,20 @@ table.appids td{padding:8px;border-bottom:1px solid #1c2330;color:#e6edf3;vertic
   ]
 }
 </script>
+  <meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
 </head>
 <body>
 <div class="wrap">
 <a class="back" href="all-links.html">&larr; All Ingenious AI security checks</a>
 <div class="badge">ACTIVE INCIDENT &mdash; OCTOBER 2026</div>
-<h1>ConnectWise <span class="red">Breach</span>: Is Your M365 Tenant Exposed?</h1>
+<h1>ConnectWise <span class="red">Data Breach</span>: Is Your M365 Tenant Exposed?</h1>
 <p class="lead">On Oct 15, 2026, an attacker used a stolen ConnectWise Cloud Backup application credential to obtain Microsoft Graph tokens inside customer Microsoft 365 tenants &mdash; 173 tenants confirmed. MFA never fired, because this was an application sign-in, not a user sign-in. Work through the checks below: the 7 app IDs, the sign-in log hunt, and the persistence traps.</p>
+
+<div class="answer" style="border-left:4px solid #f59e0b">
+<h3 style="font-size:16px;color:#fff;margin-bottom:8px">Update &mdash; Oct 17, 2026: ConnectWise suspends Cloud Backup</h3>
+<p style="font-size:15px;color:#9aa7b8">On Oct 17 at 07:00 UTC, ConnectWise <strong>disabled all 7 application identities</strong> (listed below) and <strong>suspended the Cloud Backup service</strong> by revoking certificates &mdash; scheduled backups are not running and backup archives/restoration are unavailable (ConnectWise says archives remain encrypted, isolated, preserved, with no evidence of breach). <strong>Previously issued access tokens may still be valid</strong> until they expire. SaaS Security and Cloud Management were also taken offline pending review.</p>
+<p style="font-size:15px;color:#9aa7b8">Huntress reports a <strong>second, targeted wave on Oct 15</strong> from <code>144.172.64[.]128</code> against 16 tenants in policy, national security, trade, and critical-mineral sectors (unsuccessful), plus <strong>confirmed abuse of the Teams app in one tenant</strong> &mdash; and notes the Cloud Management apps "do not appear to have been disabled." In all, ~1,000 Entra tenants showed sign-in activity from the attack IP, 300 succeeded. <span class="src">Source: <a href="https://thehackernews.com/2026/10/connectwise-suspends-cloud-backup-after.html" rel="noopener">The Hacker News, Oct 18 2026</a></span></p>
+</div>
 
 <div class="answer">
 <h3 style="font-size:16px;color:#fff;margin-bottom:8px">Was my Microsoft 365 tenant hit by the ConnectWise breach?</h3>
@@ -151,7 +158,8 @@ table.appids td{padding:8px;border-bottom:1px solid #1c2330;color:#e6edf3;vertic
 </div>
 
 <div class="card">
-<h2>Is your M365 tenant exposed? &mdash; the checker</h2>
+<h2>Is your M365 tenant exposed?</h2>
+<p>If your organization uses ConnectWise Cloud Backup, the honest answer starts with "maybe." An attacker used a stolen ConnectWise credential to mint Microsoft Graph tokens inside customer tenants. Run the checker below — it takes a minute and tells you whether your tenant shows the exposure pattern.</p>
 <p class="note">Answer honestly. <strong>YES</strong> means the risk is present (heavier questions count more). Every step below is something you can verify in Entra admin center yourself.</p>
 <div id="quiz"></div>
 <div id="verdict" role="status"></div>
@@ -180,11 +188,12 @@ table.appids td{padding:8px;border-bottom:1px solid #1c2330;color:#e6edf3;vertic
 <li>Assume tokens issued in the attack window were valid for up to 90 minutes after the app was disabled &mdash; force re-authentication and watch that window in sign-in logs.</li>
 <li>Ask your MSP in writing: which ConnectWise/SkyKick tools touch your tenant, and what they found in their own investigation.</li>
 <li>Preserve sign-in and audit logs for the Oct 13&ndash;18 window before retention policies age them out.</li>
+<li><strong>Oct 17 update:</strong> keep the 7 ConnectWise app identities disabled until ConnectWise clears them; hunt sign-ins from <code>144.172.64[.]128</code> across Oct 13&ndash;now (the second wave hit Oct 15, 09:25&ndash;14:20 UTC); review Teams/SharePoint/Exchange Online apps specifically &mdash; Huntress confirmed Teams-app abuse and says the Cloud Management apps were not disabled.</li>
 </ul>
 </div>
 
 <div class="card">
-<h2>Frequently asked questions</h2>
+<h2>Data Breach FAQ</h2>
 <details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">Does MFA protect my tenant from the ConnectWise breach?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">No. The attacker signed in as an application, not a user, so no MFA prompt ever appeared. Only conditional access policies that block or restrict service-principal sign-ins, and removing the compromised app's consent, can stop application-credential abuse.</p></details>
 <details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">What are the 7 ConnectWise application IDs to look for?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">ConnectWise Cloud Backup 506e08f9-6e9a-4da4-942b-a099a03644ae; ConnectWise Cloud Management 2399d300-6fca-4e6a-a686-399fefe75b83; Cloud Management &ndash; MS Teams 24205314-2b89-4e07-a2a4-579e898a5640; Cloud Management &ndash; Exchange Online b78f6a77-d4e5-46fb-87e5-d1648bd02519; Cloud Management &ndash; MS Graph 0de14c77-b9b0-4137-9360-34878a929827; Cloud Management &ndash; Partner Center 412dcf96-176d-4b3a-a1b0-4981ad66971e; Cloud Management &ndash; SharePoint Online b2b55f5b-7758-4719-8d8f-88ae172e6bdb.</p></details>
 <details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">I found the ConnectWise Cloud Backup app in my tenant &mdash; am I compromised?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Presence alone does not mean compromise &mdash; many MSPs use it legitimately. Compromise is confirmed by evidence: successful service-principal sign-ins from 144.172.64[.]128 on Oct 15, 2026 (06:13&ndash;08:34 UTC), unexpected credential additions, or a self-granted Global Administrator role.</p></details>
