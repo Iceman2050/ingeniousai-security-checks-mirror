@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCP as Command-and-Control Check: Could Your MCP Fleet Be Abused Like the Gentlemen Files Case? | Ingenious AI</title>
+<meta name="description" content="CloudSEK's Gentlemen Files investigation documents a ransomware affiliate using MCP tools as a command-and-control channel. Take the 8-question check: could your MCP fleet be abused as C2? Free, no signup.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="MCP as Command-and-Control Check: Could Your MCP Fleet Be Abused Like the Gentlemen Files Case?">
+<meta property="og:description" content="CloudSEK caught a ransomware affiliate running MCP tooling as a live C2 channel — exec_in_session against a local MCP server, plus internet-wide scanning for exposed MCP ports. Could yours be next?">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-as-c2-gentlemen-files-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-as-c2-gentlemen-files-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MCP as Command-and-Control: The Gentlemen Files Check">
+<meta name="twitter:description" content="A ransomware affiliate used MCP exec_in_session as a live C2 channel. 8 questions: could your MCP fleet be abused the same way?">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the CloudSEK Gentlemen Files?","acceptedAnswer":{"@type":"Answer","text":"'Caught in 4K: The Gentlemen Files' is a CloudSEK investigation published October 6, 2026. It documents Azazel, a Russian-speaking affiliate of the Gentlemen ransomware group, who compromised more than two dozen organizations and exfiltrated roughly 6TB of data. The investigation is notable for documenting the first confirmed operational use of MCP tooling as a command-and-control channel in a live criminal campaign."}},{"@type":"Question","name":"How did the attacker use MCP as command-and-control?","acceptedAnswer":{"@type":"Answer","text":"Per CloudSEK: the operator's va.py script — a ransom-note verification script — called a locally-bound MCP server at 127.0.0.1:35367 with a fixed bearer token to loop SSH verification checks across six internal hosts. Companion scripts (mcp_test.py, recon_mcp.py) showed this was developed, iterated tooling, not a one-off. The beacon log also showed internet-wide scanning under the fingerprint 'internet-census-mcp-scanner,' hunting exposed MCP server ports as an initial-access vector."}},{"@type":"Question","name":"Is this the first time MCP has been used as C2?","acceptedAnswer":{"@type":"Answer","text":"According to CloudSEK, the security research community had documented MCP attack risks since 2025 — tool poisoning, prompt injection, supply-chain abuse — but CloudSEK 'has not identified prior public reporting of a threat actor operationally using MCP exec_in_session as a C2 channel in a live criminal campaign.' This investigation documents one confirmed instance."}},{"@type":"Question","name":"How do I stop my MCP fleet from being abused as C2?","acceptedAnswer":{"@type":"Answer","text":"Bind MCP server ports to localhost only and never expose them to the network. Add egress controls on tool servers. Log every tool call centrally with timestamps, arguments, and sessions. Run anomaly detection on tool-call patterns. Rotate bearer tokens, gate shell-execution tooling behind approval, and scan your own estate for exposed MCP ports — the thing the Gentlemen affiliate was scanning for. The 8-question checker on this page grades your posture."}},{"@type":"Question","name":"What is the 'internet-census-mcp-scanner' fingerprint?","acceptedAnswer":{"@type":"Answer","text":"Per CloudSEK, it is the beacon fingerprint from the Gentlemen affiliate's tooling that scanned the internet at global scale hunting exposed MCP server ports — treating them as a general-purpose initial-access vector. If your threat-intel feeds or scan logs show that fingerprint, someone is probing for exactly the MCP servers this page helps you lock down."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to check whether your MCP fleet could be abused as command-and-control","description":"An 8-question self-audit of MCP fleet hardening against C2-style abuse, modeled on the CloudSEK Gentlemen Files case.","totalTime":"PT15M","step":[{"@type":"HowToStep","name":"Answer the 8 C2-abuse questions","text":"Each 'Yes' means the control is in place; each 'No' is an opening for C2-style abuse of your MCP fleet."},{"@type":"HowToStep","name":"Read your verdict","text":"0–3 controls: EXPOSED. 4–5: AT-RISK. 6–8: COVERED."},{"@type":"HowToStep","name":"Lock down MCP ports","text":"Bind to localhost only; add egress controls; scan your estate for exposed ports."},{"@type":"HowToStep","name":"Log and detect","text":"Centralize tool-call logs and run anomaly detection on call patterns."},{"@type":"HowToStep","name":"Gate execution tooling","text":"Put exec_in_session and shell tools behind approval and rotate their tokens."}]}</script>
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a0f12;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:32px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+h1 .green{color:#3fb950}
+p.lead{font-size:17px;color:#c9d4e3;margin-bottom:24px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:26px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.note{font-size:13px;color:#9aa7b8}
+.small{font-size:13px;color:#9aa7b8}
+button.go{background:#1c6ef2;color:#fff;font-weight:700;font-size:16px;padding:12px 24px;border:none;border-radius:8px;cursor:pointer}
+button.go:hover{background:#2f7ef7}
+.verdict{border-left:4px solid #f85149;padding:14px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:14px 0;font-size:15px}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.directanswer{border:1px solid #3fb950;border-radius:10px;padding:18px;background:#0d1a0f;margin:20px 0}
+.directanswer b{color:#7ee787}
+.facts{background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:18px;margin:20px 0;font-size:14px}
+.facts div{margin:7px 0}
+.facts .flabel{color:#7ee787;font-weight:700;min-width:64px;display:inline-block}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.morelinks{background:#0d1420;border:1px solid #232b38;border-radius:10px;padding:20px;margin:26px 0}
+.morelinks h3{font-size:17px;color:#fff;margin-bottom:10px}
+.morelinks a{color:#6ea8fe;text-decoration:none;display:block;margin:7px 0;font-size:14px}
+.morelinks a:hover{text-decoration:underline}
+.kw-faq details{background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
+.kw-faq summary{font-weight:600;cursor:pointer;color:#fff;font-size:15px}
+.kw-faq p{margin-top:10px;font-size:14px;color:#9aa7b8}
+.quiz .q{background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
+.quiz .q p{font-size:14px;color:#e6edf3;margin-bottom:10px}
+.quiz .q label{display:inline-block;margin-right:18px;font-size:14px;color:#c9d4e3;cursor:pointer}
+.quiz .q input{margin-right:6px}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px}
+code{background:#0d1219;border:1px solid #232b38;border-radius:4px;padding:1px 6px;font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">CLOUDSEK &ldquo;GENTLEMEN FILES&rdquo; &mdash; MCP AS C2 &mdash; CONFIRMED LIVE CRIMINAL USE &mdash; OCT 2026</div>
+<h1>A ransomware affiliate ran <span class="red">MCP tools as command-and-control</span>. Could yours be next?</h1>
+<p class="lead">CloudSEK&rsquo;s <strong>&ldquo;Caught in 4K: The Gentlemen Files&rdquo;</strong> investigation (published October 6, 2026) documents a first: a Russian-speaking affiliate of the Gentlemen ransomware group, <strong>Azazel</strong>, used MCP tooling as a <strong>command-and-control channel in a live criminal campaign</strong> &mdash; calling <code>exec_in_session</code> against a locally-bound MCP server to run attack operations, while internet-wide scanning hunted exposed MCP ports. More than <strong>two dozen organizations</strong>, roughly <strong>6TB of data</strong>. Your MCP fleet has the same primitives. Eight questions will tell you whether it could be abused the same way. Free, no signup.</p>
+
+<div class="directanswer">
+<b>The short answer:</b> The Gentlemen affiliate used a locally-bound MCP server&rsquo;s <code>exec_in_session</code> tool as a <strong>live C2 channel</strong> &mdash; a script looping SSH checks across six internal hosts through <code>127.0.0.1:35367</code> with a fixed bearer token &mdash; plus <strong>internet-wide scanning for exposed MCP ports</strong> under the fingerprint <code>internet-census-mcp-scanner</code>. Stop the same abuse of your fleet: bind MCP ports to <strong>localhost only</strong>, add <strong>egress controls</strong>, <strong>log every tool call</strong>, run <strong>anomaly detection</strong> on call patterns, and scan your own estate for exposed MCP ports.
+</div>
+
+<div class="facts">
+<div><span class="flabel">What:</span> first confirmed operational use of MCP <code>exec_in_session</code> as a <strong>C2 channel in a live criminal campaign</strong>, per CloudSEK.</div>
+<div><span class="flabel">Who:</span> <strong>Azazel</strong>, a Russian-speaking affiliate of the <strong>Gentlemen ransomware group</strong> (also ran his own leak site, LEAKNED). 2+ dozen organizations across six countries; ~6TB of stolen data; 50TB+ of physical storage.</div>
+<div><span class="flabel">How:</span> <code>va.py</code> (a ransom-note verification script) called <code>127.0.0.1:35367</code> with a fixed bearer token, looping SSH verification checks across six internal hosts. Companion scripts <code>mcp_test.py</code> and <code>recon_mcp.py</code> show developed, iterated tooling &mdash; not a one-off. The beacon log showed internet-wide scanning under the fingerprint <code>internet-census-mcp-scanner</code>, treating exposed MCP ports as a general-purpose initial-access vector.</div>
+<div><span class="flabel">Why it matters:</span> CloudSEK states it &ldquo;has not identified prior public reporting of a threat actor operationally using MCP exec_in_session as a C2 channel in a live criminal campaign&rdquo; &mdash; this investigation documents one confirmed instance. MCP abuse crossed from theory to operations.</div>
+<div><span class="flabel">Source:</span> CloudSEK, &ldquo;Caught in 4K: The Gentlemen Files&rdquo;, published 2026-10-06, https://www.cloudsek.com/blog/caught-in-4k-the-gentlemen-files.</div>
+</div>
+
+<div class="card">
+<h2>The 8-question MCP-as-C2 exposure check</h2>
+<p class="note" style="margin-bottom:14px">A &ldquo;Yes&rdquo; means the control is in place; a &ldquo;No&rdquo; is an opening for C2-style abuse.</p>
+<div class="quiz" id="quiz4">
+<div class="q"><p><b>1.</b> Are your MCP server ports <strong>bound to localhost only</strong>, never exposed to the network?</p><label><input type="radio" name="q1" value="yes"> Yes</label><label><input type="radio" name="q1" value="no"> No</label></div>
+<div class="q"><p><b>2.</b> Do you have <strong>egress controls</strong> (firewall / proxy) restricting what your MCP tool servers can reach?</p><label><input type="radio" name="q2" value="yes"> Yes</label><label><input type="radio" name="q2" value="no"> No</label></div>
+<div class="q"><p><b>3.</b> Is <strong>every tool call logged centrally</strong> with timestamps, arguments, and the calling session?</p><label><input type="radio" name="q3" value="yes"> Yes</label><label><input type="radio" name="q3" value="no"> No</label></div>
+<div class="q"><p><b>4.</b> Do you run <strong>anomaly detection (or at least periodic review)</strong> on tool-call patterns &mdash; odd hours, new destinations, repeated exec loops?</p><label><input type="radio" name="q4" value="yes"> Yes</label><label><input type="radio" name="q4" value="no"> No</label></div>
+<div class="q"><p><b>5.</b> Are bearer tokens / auth secrets for local MCP services <strong>rotated and scoped</strong>, not hardcoded in scripts?</p><label><input type="radio" name="q5" value="yes"> Yes</label><label><input type="radio" name="q5" value="no"> No</label></div>
+<div class="q"><p><b>6.</b> Is <code>exec_in_session</code> / shell-execution tooling <strong>disabled or gated behind approval</strong> on production agents?</p><label><input type="radio" name="q6" value="yes"> Yes</label><label><input type="radio" name="q6" value="no"> No</label></div>
+<div class="q"><p><b>7.</b> Do you <strong>scan your own estate for internet-exposed MCP ports</strong> &mdash; the very thing the Gentlemen affiliate was scanning for?</p><label><input type="radio" name="q7" value="yes"> Yes</label><label><input type="radio" name="q7" value="no"> No</label></div>
+<div class="q"><p><b>8.</b> Would your monitoring <strong>distinguish a criminal&rsquo;s <code>exec_in_session</code> loop from normal agent traffic</strong>?</p><label><input type="radio" name="q8" value="yes"> Yes</label><label><input type="radio" name="q8" value="no"> No</label></div>
+</div>
+<div style="margin-top:14px"><button class="go" onclick="runQuiz()">Get my verdict</button></div>
+<div id="qresult" style="margin-top:12px"><div class="verdict warn"><strong>Answer all 8 questions</strong>, then press the button for your verdict.</div></div>
+<script>
+var QUIZ_TOTAL = 8;
+function scoreQuiz(a){
+  var good = 0;
+  for (var i = 0; i < a.length; i++){ if (a[i] === 'yes') good++; }
+  var verdict = good <= 3 ? 'EXPOSED' : (good <= 5 ? 'AT-RISK' : 'COVERED');
+  return {score: good, total: QUIZ_TOTAL, verdict: verdict};
+}
+function readAnswers(){
+  var a = [];
+  for (var i = 1; i <= QUIZ_TOTAL; i++){
+    var els = document.getElementsByName('q' + i), v = null;
+    for (var j = 0; j < els.length; j++){ if (els[j].checked) v = els[j].value; }
+    a.push(v);
+  }
+  return a;
+}
+function runQuiz(){
+  var a = readAnswers(), out = document.getElementById('qresult');
+  for (var i = 0; i < a.length; i++){
+    if (a[i] === null){
+      out.innerHTML = '<div class="verdict warn"><strong>Answer all 8 questions</strong> &mdash; the verdict needs the full picture.</div>';
+      return;
+    }
+  }
+  var r = scoreQuiz(a);
+  var cls = r.verdict === 'COVERED' ? 'safe' : (r.verdict === 'AT-RISK' ? 'warn' : '');
+  var advice = r.verdict === 'COVERED'
+    ? 'Your MCP fleet is hardened against C2-style abuse: localhost-only bindings, egress controls, logged and monitored tool calls. Keep scanning your estate for exposed MCP ports &mdash; attackers are scanning the whole internet for them.'
+    : (r.verdict === 'AT-RISK'
+      ? 'You have partial C2-abuse defenses, but gaps remain where a locally-bound MCP server could be reached and driven like Azazel&rsquo;s. Highest-leverage fixes: bind MCP ports to localhost only, add egress controls, and make sure every exec_in_session is logged.'
+      : 'Your MCP fleet is exposed to C2-style abuse in the Gentlemen Files pattern: unlogged execution tooling an attacker could drive. Start today &mdash; bind every MCP port to localhost, log all tool calls centrally, and scan your estate for exposed MCP ports before someone else&rsquo;s scanner finds them first.');
+  out.innerHTML = '<div class="verdict ' + cls + '"><strong>' + r.score + '/' + r.total + ' &mdash; ' + r.verdict + '.</strong> ' + advice + '</div>';
+}
+</script>
+<p class="note">This checker is a guided self-assessment of your fleet controls. It cannot scan your network or detect active abuse.</p>
+</div>
+
+<div class="card">
+<h2>Why MCP makes such a good C2 channel</h2>
+<ul>
+<li><strong>Execution is the product.</strong> MCP servers exist to run tools on command &mdash; <code>exec_in_session</code> is a feature. An attacker who reaches one doesn&rsquo;t need to smuggle in malware; the execution primitive is already there.</li>
+<li><strong>It looks like AI traffic.</strong> Tool calls blend into the rising tide of legitimate agent activity. A script looping SSH checks through an MCP server looks like an agent doing its job &mdash; unless you specifically monitor for it.</li>
+<li><strong>Locally-bound is not safe-by-default.</strong> Azazel&rsquo;s C2 ran against <code>127.0.0.1</code> &mdash; inside the victim environment. Perimeter firewalls never see it; only internal segmentation and egress controls do.</li>
+<li><strong>Exposed ports are a buffet.</strong> The <code>internet-census-mcp-scanner</code> fingerprint shows attackers scanning the whole internet for MCP ports as a general-purpose initial-access vector. Every exposed MCP server is a standing invitation.</li>
+<li><strong>It crossed from theory to operations.</strong> Tool poisoning and prompt injection were researcher demos; this was a ransomware affiliate running attack operations through MCP in a confirmed live campaign.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>What this checker does NOT do</h2>
+<ul>
+<li>It does not scan your network or detect active C2 abuse &mdash; that needs traffic analysis and forensics.</li>
+<li>It cannot tell you whether your fleet is already compromised.</li>
+<li>It is informational, not a security audit. If you find an internet-exposed MCP port you don&rsquo;t own, treat it as an incident.</li>
+</ul>
+</div>
+
+<div class="morelinks">
+<h3>More from Ingenious AI</h3>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-safety-directory.html">&rarr; MCP safety directory — grade your MCP server setup</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/state-of-mcp-security-2026.html">&rarr; State of MCP security 2026</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-rug-pull-agent-card-poisoning-check.html">&rarr; MCP rug pull &amp; Agent Card poisoning check</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-injection-rce-design-flaw-check.html">&rarr; MCP prompt-injection-to-RCE check</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-sandbox-policy-gap-checker.html">&rarr; Agent sandbox policy gap checker</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/all-links.html">&rarr; All Ingenious AI checks (the hub)</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html">&rarr; Security suite overview</a>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#fff;text-decoration:underline">BreachHunter</a> finds exposed services &mdash; including internet-facing MCP ports &mdash; before a scanner like <code>internet-census-mcp-scanner</code> does.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20MCP-as-C2%20Gentlemen%20Files%20check%20and%20want%20early%20access%20to%20BreachHunter." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=CloudSEK%20caught%20a%20ransomware%20affiliate%20running%20MCP%20tools%20as%20a%20live%20C2%20channel.%20Could%20your%20MCP%20fleet%20be%20abused%20the%20same%20way%3F&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-as-c2-gentlemen-files-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-as-c2-gentlemen-files-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-as-c2-gentlemen-files-check.html&title=CloudSEK%20Gentlemen%20Files%3A%20MCP%20used%20as%20C2%20in%20a%20live%20ransomware%20campaign%20%E2%80%94%20could%20your%20MCP%20fleet%20be%20abused%3F" target="_blank" rel="noopener">Reddit</a></div>
+
+<section class="kw-faq" style="max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
+<h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
+<details><summary>What are the CloudSEK Gentlemen Files?</summary><p>&ldquo;Caught in 4K: The Gentlemen Files&rdquo; is a CloudSEK investigation published October 6, 2026. It documents Azazel, a Russian-speaking affiliate of the Gentlemen ransomware group, who compromised more than two dozen organizations and exfiltrated roughly 6TB of data. The investigation is notable for documenting the first confirmed operational use of MCP tooling as a command-and-control channel in a live criminal campaign.</p></details>
+<details><summary>How did the attacker use MCP as command-and-control?</summary><p>Per CloudSEK: the operator&rsquo;s va.py script &mdash; a ransom-note verification script &mdash; called a locally-bound MCP server at 127.0.0.1:35367 with a fixed bearer token to loop SSH verification checks across six internal hosts. Companion scripts (mcp_test.py, recon_mcp.py) showed this was developed, iterated tooling, not a one-off. The beacon log also showed internet-wide scanning under the fingerprint &ldquo;internet-census-mcp-scanner,&rdquo; hunting exposed MCP server ports as an initial-access vector.</p></details>
+<details><summary>Is this the first time MCP has been used as C2?</summary><p>According to CloudSEK, the security research community had documented MCP attack risks since 2025 &mdash; tool poisoning, prompt injection, supply-chain abuse &mdash; but CloudSEK &ldquo;has not identified prior public reporting of a threat actor operationally using MCP exec_in_session as a C2 channel in a live criminal campaign.&rdquo; This investigation documents one confirmed instance.</p></details>
+<details><summary>How do I stop my MCP fleet from being abused as C2?</summary><p>Bind MCP server ports to localhost only and never expose them to the network. Add egress controls on tool servers. Log every tool call centrally with timestamps, arguments, and sessions. Run anomaly detection on tool-call patterns. Rotate bearer tokens, gate shell-execution tooling behind approval, and scan your own estate for exposed MCP ports &mdash; the thing the Gentlemen affiliate was scanning for. The 8-question checker on this page grades your posture.</p></details>
+<details><summary>What is the &ldquo;internet-census-mcp-scanner&rdquo; fingerprint?</summary><p>Per CloudSEK, it is the beacon fingerprint from the Gentlemen affiliate&rsquo;s tooling that scanned the internet at global scale hunting exposed MCP server ports &mdash; treating them as a general-purpose initial-access vector. If your threat-intel feeds or scan logs show that fingerprint, someone is probing for exactly the MCP servers this page helps you lock down.</p></details>
+</section>
+<p class="note" style="text-align:center;max-width:760px;margin:0 auto 24px">Informational only: this page reflects the CloudSEK &ldquo;Gentlemen Files&rdquo; investigation (published 2026-10-06). Not a security audit.</p>
+</div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

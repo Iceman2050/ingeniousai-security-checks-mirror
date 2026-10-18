@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHAWSHANK Environmental Jailbreak Check: Is Your Vision AI Agent Exposed? | Ingenious AI</title>
+<meta name="description" content="SHAWSHANK is an environmental jailbreak that hides instructions inside the scene a vision AI agent perceives — no direct prompt needed. Take the 8-question check to see if your VLM or embodied agent treats seen text as instructions. Free, no signup.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="SHAWSHANK Environmental Jailbreak Check: Is Your Vision AI Agent Exposed? | Ingenious AI">
+<meta property="og:description" content="SHAWSHANK hides jailbreak instructions inside the scene a vision AI agent perceives — a sticky note on a wall, not a prompt. Take the free 8-question check.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/shawshank-environmental-jailbreak-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/shawshank-environmental-jailbreak-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SHAWSHANK Environmental Jailbreak Check: Is Your Vision AI Agent Exposed?">
+<meta name="twitter:description" content="Could instructions written on a wall hijack your vision AI agent? The SHAWSHANK environmental jailbreak says yes. Check your exposure in 60 seconds.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the SHAWSHANK environmental jailbreak?","acceptedAnswer":{"@type":"Answer","text":"SHAWSHANK is an indirect environmental jailbreak (IEJ) technique described in the paper 'The Shawshank Redemption of Embodied AI' (arXiv 2511.16347). Instead of jailbreaking an embodied AI agent through a direct prompt, the attacker plants malicious instructions inside the environment the agent perceives — for example, instructions written on a wall. The agent's vision-language model reads them as part of the scene and obeys them."}},{"@type":"Question","name":"How is an environmental jailbreak different from prompt injection?","acceptedAnswer":{"@type":"Answer","text":"Classic prompt injection hides instructions in data the agent reads (web pages, documents, emails). An environmental jailbreak hides instructions in the physical or visual scene the agent perceives through its camera or screenshots — a sign, a sticky note, text on a screen. The attack crosses modalities: the instruction arrives through vision, not through the chat or tool input."}},{"@type":"Question","name":"Which agents are at risk from environmental jailbreaks?","acceptedAnswer":{"@type":"Answer","text":"Any agent that acts on what it sees without separating perception from instruction authority: embodied robots, vision-enabled assistants, computer-use agents that read screenshots, and AI agents that process photos or camera feeds. If your agent can act on text visible in a camera feed or screenshot, it is in the risk class the SHAWSHANK paper studies."}},{"@type":"Question","name":"How do I protect my AI agent from environmental jailbreaks?","acceptedAnswer":{"@type":"Answer","text":"Treat all scene-perceived text as untrusted data, never as instructions. Define an explicit policy boundary: only the task owner can issue instructions, and nothing seen in the environment counts. Sandbox the action loop so a hijacked instruction cannot trigger real-world actions, log what the agent perceived when it acted, and red-team with scene-embedded instructions before deployment. The 8-question checker on this page grades your setup."}},{"@type":"Question","name":"Is the SHAWSHANK attack real or theoretical?","acceptedAnswer":{"@type":"Answer","text":"The SHAWSHANK paper (arXiv 2511.16347, November 2025) presents an automatic attack-generation framework, a benchmark-generation framework, and a benchmark for indirect environmental jailbreaks. The ExploitLabs red-team briefing of October 18, 2026 reports that the SHAWSHANK framework beat 11 existing methods across 3,957 task-scene combinations against six unnamed vision-language models — but also notes no real-world physical demonstration has been shown, rating it intel/theory level for now."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to check your AI agent for SHAWSHANK-style environmental jailbreak exposure","description":"An 8-question self-audit to determine whether your vision-language or embodied agent treats scene-perceived text as instructions.","totalTime":"PT10M","step":[{"@type":"HowToStep","name":"Answer the 8-question exposure check","text":"Work through the checklist on this page. Each 'Yes' means a protection is in place; each 'No' is a gap an environmental-injection attacker could use."},{"@type":"HowToStep","name":"Read your verdict","text":"0–3 protections: EXPOSED. 4–5: AT-RISK. 6–8: COVERED. The verdict is a self-assessment, not a security audit."},{"@type":"HowToStep","name":"Close the perception-instruction gap","text":"For every 'No', apply the fix in the results panel: scene text is data, never instructions; sandbox real-world actions; log perception at action time."},{"@type":"HowToStep","name":"Red-team with embedded instructions","text":"Before your next deployment, plant test instructions in scenes (signs, sticky notes, screen text) and verify your agent ignores them."},{"@type":"HowToStep","name":"Monitor for anomalies","text":"Keep the perception log and review tool-call patterns for actions that followed scene text rather than task instructions."}]}</script>
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a0f12;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:32px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+h1 .green{color:#3fb950}
+p.lead{font-size:17px;color:#c9d4e3;margin-bottom:24px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:26px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.note{font-size:13px;color:#9aa7b8}
+.small{font-size:13px;color:#9aa7b8}
+button.go{background:#1c6ef2;color:#fff;font-weight:700;font-size:16px;padding:12px 24px;border:none;border-radius:8px;cursor:pointer}
+button.go:hover{background:#2f7ef7}
+.verdict{border-left:4px solid #f85149;padding:14px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:14px 0;font-size:15px}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.directanswer{border:1px solid #3fb950;border-radius:10px;padding:18px;background:#0d1a0f;margin:20px 0}
+.directanswer b{color:#7ee787}
+.facts{background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:18px;margin:20px 0;font-size:14px}
+.facts div{margin:7px 0}
+.facts .flabel{color:#7ee787;font-weight:700;min-width:64px;display:inline-block}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.morelinks{background:#0d1420;border:1px solid #232b38;border-radius:10px;padding:20px;margin:26px 0}
+.morelinks h3{font-size:17px;color:#fff;margin-bottom:10px}
+.morelinks a{color:#6ea8fe;text-decoration:none;display:block;margin:7px 0;font-size:14px}
+.morelinks a:hover{text-decoration:underline}
+.kw-faq details{background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
+.kw-faq summary{font-weight:600;cursor:pointer;color:#fff;font-size:15px}
+.kw-faq p{margin-top:10px;font-size:14px;color:#9aa7b8}
+.quiz .q{background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
+.quiz .q p{font-size:14px;color:#e6edf3;margin-bottom:10px}
+.quiz .q label{display:inline-block;margin-right:18px;font-size:14px;color:#c9d4e3;cursor:pointer}
+.quiz .q input{margin-right:6px}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px}
+code{background:#0d1219;border:1px solid #232b38;border-radius:4px;padding:1px 6px;font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">SHAWSHANK &mdash; ENVIRONMENTAL JAILBREAK &mdash; arXiv 2511.16347 &mdash; BRIEFED 2026-10-18</div>
+<h1>Could a sticky note on a wall <span class="red">hijack your AI agent?</span></h1>
+<p class="lead">Most jailbreaks attack the <strong>prompt</strong>. The <strong>SHAWSHANK</strong> environmental jailbreak attacks the <strong>scene</strong>: attackers hide malicious instructions inside the environment your vision AI agent perceives &mdash; instructions written on a wall, a sign, a sticky note &mdash; and the agent reads them and <strong>obeys</strong>. No direct prompt, no chat message, no tool output involved. The technique comes from the paper <em>The Shawshank Redemption of Embodied AI: Understanding and Benchmarking Indirect Environmental Jailbreaks</em> (arXiv 2511.16347), which an ExploitLabs red-team briefing surfaced on October 18, 2026. If your agent acts on what it sees, this page is your 60-second exposure check. Free, no signup.</p>
+
+<div class="directanswer">
+<b>The short answer:</b> A <strong>SHAWSHANK environmental jailbreak</strong> plants instructions in the <strong>scene</strong> a vision-language or embodied agent perceives &mdash; not in its prompt. The agent treats seen text as instructions and acts on it. The paper's key finding: embodied AI <strong>does not &ldquo;think twice&rdquo; about the instructions provided by the environment</strong> &mdash; a blind trust attackers exploit. Protect yourself by treating all scene-perceived text as <strong>untrusted data, never instructions</strong>, and sandboxing real-world actions.
+</div>
+
+<div class="facts">
+<div><span class="flabel">What:</span> Indirect environmental jailbreak (IEJ) &mdash; jailbreaking an embodied AI agent through prompts injected into the <strong>environment</strong>, e.g. malicious instructions written on a wall, instead of direct prompts.</div>
+<div><span class="flabel">Paper:</span> <em>The Shawshank Redemption of Embodied AI: Understanding and Benchmarking Indirect Environmental Jailbreaks</em> &mdash; arXiv 2511.16347, published 20 Nov 2025. Authors: Chunyang Li, Zifeng Kang, Junwei Zhang, Zhuo Ma, Anda Cheng, Xinghua Li, Jianfeng Ma (Xidian University; Beijing University of Posts and Telecommunications; Ant Group).</div>
+<div><span class="flabel">Scope:</span> the paper introduces SHAWSHANK (automatic attack-generation framework for IEJ), SHAWSHANK-FORGE (automatic benchmark-generation framework), and SHAWSHANK-BENCH (the first IEJ benchmark).</div>
+<div><span class="flabel">News:</span> ExploitLabs&rsquo; Embodied &amp; Unmanned Red-Team Briefing (2026-10-18, issue #083) reports the SHAWSHANK framework beat <strong>11 existing methods across 3,957 task-scene combinations</strong> against six unnamed vision-language models &mdash; but also notes <strong>no real-world physical demonstration</strong> has been shown, rating it intel/theory level for now.</div>
+<div><span class="flabel">Who:</span> vision-language-model and embodied agents that act on text visible in camera feeds, screenshots, or images &mdash; robots, computer-use agents, vision-enabled assistants.</div>
+<div><span class="flabel">Sources:</span> arXiv abstract for 2511.16347; ExploitLabs red-team briefing (2026-10-18, issue #083). Effectiveness figures above are as reported in the briefing; we did not independently reproduce the paper&rsquo;s experiments.</div>
+</div>
+
+<div class="card">
+<h2>The 8-question environmental-jailbreak exposure check</h2>
+<p class="note" style="margin-bottom:14px">Answer honestly for the agent you deploy. A &ldquo;Yes&rdquo; means the protection is in place; a &ldquo;No&rdquo; is a gap.</p>
+<div class="quiz" id="quiz1">
+<div class="q"><p><b>1.</b> Is text or instructions visible in your agent&rsquo;s camera feeds or screenshots treated as <strong>untrusted data</strong> &mdash; never as instructions to follow?</p><label><input type="radio" name="q1" value="yes"> Yes</label><label><input type="radio" name="q1" value="no"> No</label></div>
+<div class="q"><p><b>2.</b> Does your agent have an explicit boundary between <strong>environment perception</strong> (what it sees) and <strong>instruction authority</strong> (who may command it)?</p><label><input type="radio" name="q2" value="yes"> Yes</label><label><input type="radio" name="q2" value="no"> No</label></div>
+<div class="q"><p><b>3.</b> Is your vision agent tested against scene-embedded instructions &mdash; signs, sticky notes, screen text, QR codes &mdash; <strong>before</strong> deployment?</p><label><input type="radio" name="q3" value="yes"> Yes</label><label><input type="radio" name="q3" value="no"> No</label></div>
+<div class="q"><p><b>4.</b> Are third-party scenes, images, or documents your agent perceives scanned for embedded instructions before it acts on them?</p><label><input type="radio" name="q4" value="yes"> Yes</label><label><input type="radio" name="q4" value="no"> No</label></div>
+<div class="q"><p><b>5.</b> Does your agent refuse or escalate when it detects an instruction in the environment that conflicts with its assigned task?</p><label><input type="radio" name="q5" value="yes"> Yes</label><label><input type="radio" name="q5" value="no"> No</label></div>
+<div class="q"><p><b>6.</b> Is your agent&rsquo;s action loop sandboxed so a hijacked instruction cannot trigger real-world actions (drives, purchases, messages, file deletion)?</p><label><input type="radio" name="q6" value="yes"> Yes</label><label><input type="radio" name="q6" value="no"> No</label></div>
+<div class="q"><p><b>7.</b> Do you log what the agent perceived at the moment it acted, so a scene-based hijack can be forensically reconstructed?</p><label><input type="radio" name="q7" value="yes"> Yes</label><label><input type="radio" name="q7" value="no"> No</label></div>
+<div class="q"><p><b>8.</b> Has your red team run environmental-injection cases (SHAWSHANK-style scene-embedded instructions) against your deployed agent?</p><label><input type="radio" name="q8" value="yes"> Yes</label><label><input type="radio" name="q8" value="no"> No</label></div>
+</div>
+<div style="margin-top:14px"><button class="go" onclick="runQuiz()">Get my verdict</button></div>
+<div id="qresult" style="margin-top:12px"><div class="verdict warn"><strong>Answer all 8 questions</strong>, then press the button for your verdict.</div></div>
+<script>
+var QUIZ_TOTAL = 8;
+function scoreQuiz(a){
+  var good = 0;
+  for (var i = 0; i < a.length; i++){ if (a[i] === 'yes') good++; }
+  var verdict = good <= 3 ? 'EXPOSED' : (good <= 5 ? 'AT-RISK' : 'COVERED');
+  return {score: good, total: QUIZ_TOTAL, verdict: verdict};
+}
+function readAnswers(){
+  var a = [];
+  for (var i = 1; i <= QUIZ_TOTAL; i++){
+    var els = document.getElementsByName('q' + i), v = null;
+    for (var j = 0; j < els.length; j++){ if (els[j].checked) v = els[j].value; }
+    a.push(v);
+  }
+  return a;
+}
+function runQuiz(){
+  var a = readAnswers(), out = document.getElementById('qresult');
+  for (var i = 0; i < a.length; i++){
+    if (a[i] === null){
+      out.innerHTML = '<div class="verdict warn"><strong>Answer all 8 questions</strong> &mdash; the verdict needs the full picture.</div>';
+      return;
+    }
+  }
+  var r = scoreQuiz(a);
+  var cls = r.verdict === 'COVERED' ? 'safe' : (r.verdict === 'AT-RISK' ? 'warn' : '');
+  var advice = r.verdict === 'COVERED'
+    ? 'Your agent has the core defenses against environmental jailbreaks: scene text is data, instruction authority is bounded, actions are sandboxed. Keep red-teaming with embedded-instruction cases on every release.'
+    : (r.verdict === 'AT-RISK'
+      ? 'You have partial defenses, but gaps remain where a wall note, a sign, or screen text could become a command. Close the perception-instruction gap: make scene text data-only, sandbox real-world actions, and log what the agent saw when it acted.'
+      : 'Your agent is exposed to SHAWSHANK-style attacks: anything it sees can become an instruction. Start with the highest-leverage fix &mdash; treat all scene-perceived text as untrusted data and require explicit instruction authority &mdash; then sandbox the action loop.');
+  out.innerHTML = '<div class="verdict ' + cls + '"><strong>' + r.score + '/' + r.total + ' &mdash; ' + r.verdict + '.</strong> ' + advice + '</div>';
+}
+</script>
+<p class="note">This checker is a guided self-assessment: it scores the defenses you report. It cannot probe your agent, inspect its model, or guarantee safety.</p>
+</div>
+
+<div class="card">
+<h2>Why environmental jailbreaks are different</h2>
+<ul>
+<li><strong>The instruction never touches your prompt pipeline.</strong> Your input filters, system prompt, and guardrails all watch the conversation &mdash; the attack arrives through the camera.</li>
+<li><strong>The paper&rsquo;s core insight:</strong> &ldquo;embodied AI does not &lsquo;think twice&rsquo; about the instructions provided by the environment&rdquo; &mdash; a blind trust attackers exploit to jailbreak the agent.</li>
+<li><strong>Anyone can place the payload.</strong> A sticky note, a printed sign, a screen in the background of a video call. No access to your agent&rsquo;s code, API, or chat is required.</li>
+<li><strong>Computer-use agents are in scope too.</strong> Any agent that reads screenshots and acts on them can be steered by text an attacker draws on screen &mdash; the same perception-instruction confusion, without a robot.</li>
+<li><strong>Intel-level today, operational tomorrow.</strong> Per the ExploitLabs briefing: no real-world physical demonstration yet. Defenses built now are cheap; retrofitted after an incident, they are not.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>What this checker does NOT do</h2>
+<ul>
+<li>It does not test your agent &mdash; it scores the 8 defenses you self-report.</li>
+<li>It cannot see your scenes, cameras, or model behavior.</li>
+<li>It is informational, not a security audit. For deployed embodied systems, assume exposure until a red team proves otherwise.</li>
+<li>It covers environmental/in-scene instruction injection only &mdash; not classic prompt injection, tool poisoning, or model-level jailbreaks.</li>
+</ul>
+</div>
+
+<div class="morelinks">
+<h3>More from Ingenious AI</h3>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-sandbox-policy-gap-checker.html">&rarr; Agent sandbox policy gap checker — does your sandbox actually contain your agent?</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-background-check.html">&rarr; AI agent background check — a hiring-style report on your agent's trustworthiness</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-safety-directory.html">&rarr; MCP safety directory — grade your MCP server setup</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/state-of-mcp-security-2026.html">&rarr; State of MCP security 2026</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-agent-security-mastery-roadmap.html">&rarr; AI agent security mastery roadmap</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/all-links.html">&rarr; All Ingenious AI checks (the hub)</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html">&rarr; Security suite overview</a>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#fff;text-decoration:underline">ChatBreaker</a> red-teams your AI agents against jailbreaks — including environmental ones like SHAWSHANK — before attackers do.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20SHAWSHANK%20environmental%20jailbreak%20check%20and%20want%20early%20access%20to%20ChatBreaker." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=SHAWSHANK%3A%20an%20environmental%20jailbreak%20that%20hides%20instructions%20in%20the%20scene%20your%20vision%20AI%20agent%20perceives%20%E2%80%94%20no%20prompt%20needed.%20Check%20your%20exposure%20in%2060s&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/shawshank-environmental-jailbreak-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/shawshank-environmental-jailbreak-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/shawshank-environmental-jailbreak-check.html&title=SHAWSHANK%20environmental%20jailbreak%3A%20is%20your%20vision%20AI%20agent%20treating%20seen%20text%20as%20instructions%3F" target="_blank" rel="noopener">Reddit</a></div>
+
+<section class="kw-faq" style="max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
+<h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
+<details><summary>What is the SHAWSHANK environmental jailbreak?</summary><p>SHAWSHANK is an indirect environmental jailbreak (IEJ) technique described in the paper &ldquo;The Shawshank Redemption of Embodied AI&rdquo; (arXiv 2511.16347). Instead of jailbreaking an embodied AI agent through a direct prompt, the attacker plants malicious instructions inside the environment the agent perceives &mdash; for example, instructions written on a wall. The agent&rsquo;s vision-language model reads them as part of the scene and obeys them.</p></details>
+<details><summary>How is an environmental jailbreak different from prompt injection?</summary><p>Classic prompt injection hides instructions in data the agent reads (web pages, documents, emails). An environmental jailbreak hides instructions in the physical or visual scene the agent perceives through its camera or screenshots &mdash; a sign, a sticky note, text on a screen. The attack crosses modalities: the instruction arrives through vision, not through the chat or tool input.</p></details>
+<details><summary>Which agents are at risk from environmental jailbreaks?</summary><p>Any agent that acts on what it sees without separating perception from instruction authority: embodied robots, vision-enabled assistants, computer-use agents that read screenshots, and AI agents that process photos or camera feeds. If your agent can act on text visible in a camera feed or screenshot, it is in the risk class the SHAWSHANK paper studies.</p></details>
+<details><summary>How do I protect my AI agent from environmental jailbreaks?</summary><p>Treat all scene-perceived text as untrusted data, never as instructions. Define an explicit policy boundary: only the task owner can issue instructions, and nothing seen in the environment counts. Sandbox the action loop so a hijacked instruction cannot trigger real-world actions, log what the agent perceived when it acted, and red-team with scene-embedded instructions before deployment. The 8-question checker on this page grades your setup.</p></details>
+<details><summary>Is the SHAWSHANK attack real or theoretical?</summary><p>The SHAWSHANK paper (arXiv 2511.16347, November 2025) presents an automatic attack-generation framework, a benchmark-generation framework, and a benchmark for indirect environmental jailbreaks. The ExploitLabs red-team briefing of October 18, 2026 reports that the SHAWSHANK framework beat 11 existing methods across 3,957 task-scene combinations against six unnamed vision-language models &mdash; but also notes no real-world physical demonstration has been shown, rating it intel/theory level for now.</p></details>
+</section>
+<p class="note" style="text-align:center;max-width:760px;margin:0 auto 24px">Informational only: this page reflects the published arXiv 2511.16347 record and the ExploitLabs red-team briefing of 2026-10-18. Effectiveness figures are as reported in the briefing; we did not independently reproduce the paper&rsquo;s experiments. Not a security audit.</p>
+</div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

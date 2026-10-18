@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCP Rug Pull &amp; Agent Card Poisoning Check: Is Your Agent Supply Chain Exposed? | Ingenious AI</title>
+<meta name="description" content="MCP rug pulls mutate tool metadata after your approval; Agent Card poisoning tampers unsigned agent.json files. Take the 8-question supply-chain check to see if your agent fleet is exposed. Free, no signup.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="MCP Rug Pull &amp; Agent Card Poisoning Check: Is Your Agent Supply Chain Exposed?">
+<meta property="og:description" content="MCP servers can rewrite their own tool instructions after you approve them. Unsigned agent.json files can be tampered with after approval. Check your agent supply chain in 60 seconds.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-rug-pull-agent-card-poisoning-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-rug-pull-agent-card-poisoning-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MCP Rug Pull &amp; Agent Card Poisoning Check">
+<meta name="twitter:description" content="You approved the tool on day 1. On day 30 it changed its own instructions. Check your MCP/agent supply-chain exposure.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an MCP rug pull?","acceptedAnswer":{"@type":"Answer","text":"An MCP rug pull is a supply-chain exploit where an external MCP tool server (or peer agent) mutates its metadata schemas — tool descriptions, input schemas — after you approved it, injecting hidden instructions the agent will follow. Day 1 the tools look safe; day 30 an update rewrites a tool description to exfiltrate credentials. MCP has no built-in mechanism to detect that a tool's definition changed after you consented to it, so the malicious version inherits the trust you granted the original."}},{"@type":"Question","name":"What is Agent Card poisoning?","acceptedAnswer":{"@type":"Answer","text":"Agent Card poisoning targets Agent-to-Agent (A2A) protocols: autonomous agents discover and delegate to peer agents by ingesting their Agent Cards — agent.json manifests. When those manifests are unsigned, an attacker can tamper with them after approval, redirecting delegation or injecting instructions. The result can be remote code execution and silent credential exfiltration across the agent swarm."}},{"@type":"Question","name":"Has an MCP rug pull happened in the real world?","acceptedAnswer":{"@type":"Answer","text":"Yes. In August 2026, Pillar Security researchers identified 'Deadbugz,' an active campaign distributing a malicious MCP server via public GitHub pull requests disguised as a benign text-formatting tool. The server withheld its payload until the connected agent had made three ordinary tool calls, then silently rewrote its own tool metadata to hunt SSH keys, AWS credentials, shell history, and Kubernetes configs — the runtime-gated rug-pull lifecycle. It pushed 23 pull requests to unrelated repositories within a 74-minute window on August 10, 2026."}},{"@type":"Question","name":"How do I protect against MCP rug pulls?","acceptedAnswer":{"@type":"Answer","text":"Pin a cryptographic hash of each server's full tool record — description, inputSchema including nested property descriptions, and annotations — plus the launch command and args, at approval time. Re-approve (or block) on any change. Diff approved tool snapshots in CI against live server metadata. Pin exact server versions (no unpinned npx/uvx). Put mcp.json under file-integrity monitoring. The 8-question checker on this page grades your setup."}},{"@type":"Question","name":"How do I protect against Agent Card poisoning?","acceptedAnswer":{"@type":"Answer","text":"Reject or quarantine unsigned agent.json manifests before any agent acts on them. Verify signatures on Agent Cards and re-verify on every re-fetch, not just at first connect — a card approved clean can be tampered with later. Restrict agent-to-agent delegation to a vetted allowlist of peer agents so a poisoned card cannot redirect work to an attacker's agent."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to check your agent fleet for MCP rug-pull and Agent Card poisoning exposure","description":"An 8-question supply-chain self-audit for MCP servers and A2A agent cards.","totalTime":"PT15M","step":[{"@type":"HowToStep","name":"Answer the 8-question supply-chain check","text":"Each 'Yes' means the defense is in place; each 'No' is a supply-chain gap."},{"@type":"HowToStep","name":"Read your verdict","text":"0–3 defenses: EXPOSED. 4–5: AT-RISK. 6–8: COVERED."},{"@type":"HowToStep","name":"Pin and hash tool records","text":"Hash the canonical whole tool record at approval time and re-approve on any change."},{"@type":"HowToStep","name":"Lock agent cards","text":"Require signed agent.json manifests; re-verify signatures on every re-fetch."},{"@type":"HowToStep","name":"Monitor drift continuously","text":"Diff approved snapshots against live metadata in CI; treat config-file changes as high-risk."}]}</script>
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a0f12;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:32px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+h1 .green{color:#3fb950}
+p.lead{font-size:17px;color:#c9d4e3;margin-bottom:24px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:26px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.note{font-size:13px;color:#9aa7b8}
+.small{font-size:13px;color:#9aa7b8}
+button.go{background:#1c6ef2;color:#fff;font-weight:700;font-size:16px;padding:12px 24px;border:none;border-radius:8px;cursor:pointer}
+button.go:hover{background:#2f7ef7}
+.verdict{border-left:4px solid #f85149;padding:14px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:14px 0;font-size:15px}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.directanswer{border:1px solid #3fb950;border-radius:10px;padding:18px;background:#0d1a0f;margin:20px 0}
+.directanswer b{color:#7ee787}
+.facts{background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:18px;margin:20px 0;font-size:14px}
+.facts div{margin:7px 0}
+.facts .flabel{color:#7ee787;font-weight:700;min-width:64px;display:inline-block}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.morelinks{background:#0d1420;border:1px solid #232b38;border-radius:10px;padding:20px;margin:26px 0}
+.morelinks h3{font-size:17px;color:#fff;margin-bottom:10px}
+.morelinks a{color:#6ea8fe;text-decoration:none;display:block;margin:7px 0;font-size:14px}
+.morelinks a:hover{text-decoration:underline}
+.kw-faq details{background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
+.kw-faq summary{font-weight:600;cursor:pointer;color:#fff;font-size:15px}
+.kw-faq p{margin-top:10px;font-size:14px;color:#9aa7b8}
+.quiz .q{background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
+.quiz .q p{font-size:14px;color:#e6edf3;margin-bottom:10px}
+.quiz .q label{display:inline-block;margin-right:18px;font-size:14px;color:#c9d4e3;cursor:pointer}
+.quiz .q input{margin-right:6px}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px}
+code{background:#0d1219;border:1px solid #232b38;border-radius:4px;padding:1px 6px;font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">MCP RUG PULLS &amp; AGENT CARD POISONING &mdash; SUPPLY-CHAIN EXPLOIT &mdash; OCT 2026</div>
+<h1>You approved the tool on day 1. <span class="red">On day 30 it rewrote its own instructions.</span></h1>
+<p class="lead">An <strong>MCP rug pull</strong> is a supply-chain exploit where an external tool server or peer agent <strong>mutates its metadata schemas after your initial approval</strong> to inject hidden instructions &mdash; and MCP has no built-in mechanism to detect the change. Pair it with <strong>Agent Card poisoning</strong> &mdash; unsigned Agent-to-Agent <code>agent.json</code> manifests tampered with after approval &mdash; and attackers get <strong>remote code execution and silent credential exfiltration</strong> across your agent fleet. This is not theoretical: the <strong>Deadbugz</strong> campaign (August 2026) weaponized exactly this lifecycle. Eight questions, sixty seconds: is your agent supply chain exposed? Free, no signup.</p>
+
+<div class="directanswer">
+<b>The short answer:</b> An <strong>MCP rug pull</strong> shows you clean tools, earns your approval, then changes the tool definitions afterward &mdash; no re-approval, no notification. <strong>Agent Card poisoning</strong> does the same to unsigned <code>agent.json</code> manifests your agents ingest to discover peers. Defend with <strong>cryptographic pinning</strong>: hash each server&rsquo;s full tool record at approval, re-approve on any change, require signed agent cards, and diff approved snapshots against live metadata in CI.
+</div>
+
+<div class="facts">
+<div><span class="flabel">What:</span> MCP rug pulls = post-approval metadata mutation by external tool servers or peer agents; Agent Card poisoning = tampered unsigned A2A <code>agent.json</code> manifests. Combined impact: RCE + silent credential exfiltration.</div>
+<div><span class="flabel">CVEs:</span> CVE-2025-6514 (<code>mcp-remote</code> STDIO command injection) and CVE-2025-6515 (session ID hijacking) showed trusting dynamic protocol metadata is not safe.</div>
+<div><span class="flabel">Real case:</span> <strong>Deadbugz</strong> (Pillar Security / CSA, Aug 2026) &mdash; a malicious MCP server distributed via public GitHub PRs disguised as a benign text-formatting tool. It withheld its payload until the agent made three ordinary tool calls, then silently rewrote its own tool metadata to hunt SSH keys, AWS credentials, shell history, and Kubernetes configs. 23 PRs pushed in a 74-minute window on Aug 10, 2026.</div>
+<div><span class="flabel">Fixes:</span> hash the canonical whole tool record (top-level description, full inputSchema including nested property descriptions, annotations) plus launch command and args; re-approve on any change; file-integrity monitoring on <code>mcp.json</code>; pin exact versions (no unpinned <code>npx</code>/<code>uvx</code>).</div>
+<div><span class="flabel">Sources:</span> &ldquo;MCP Rug Pulls &amp; Agent Card Poisoning: The Exploit Breaking A2A Protocols&rdquo; (Asif Muhammad Iqbal, Logic42, Oct 2026); CSA research note on Deadbugz (Aug 2026); MCP security testing guidance (dev.to, Oct 2026).</div>
+</div>
+
+<div class="card">
+<h2>The 8-question agent-supply-chain check</h2>
+<p class="note" style="margin-bottom:14px">A &ldquo;Yes&rdquo; means the defense is in place; a &ldquo;No&rdquo; is a supply-chain gap.</p>
+<div class="quiz" id="quiz3">
+<div class="q"><p><b>1.</b> Do you pin a <strong>hash of each MCP server&rsquo;s full tool record</strong> (description, full inputSchema including nested property descriptions, annotations) at approval time?</p><label><input type="radio" name="q1" value="yes"> Yes</label><label><input type="radio" name="q1" value="no"> No</label></div>
+<div class="q"><p><b>2.</b> Does your client <strong>re-prompt for approval or block</strong> when a connected server&rsquo;s tool metadata changes?</p><label><input type="radio" name="q2" value="yes"> Yes</label><label><input type="radio" name="q2" value="no"> No</label></div>
+<div class="q"><p><b>3.</b> Are <strong>unsigned <code>agent.json</code> manifests rejected or quarantined</strong> before any agent acts on them?</p><label><input type="radio" name="q3" value="yes"> Yes</label><label><input type="radio" name="q3" value="no"> No</label></div>
+<div class="q"><p><b>4.</b> Do you <strong>verify signatures on Agent Cards and re-verify on every re-fetch</strong>, not just at first connect?</p><label><input type="radio" name="q4" value="yes"> Yes</label><label><input type="radio" name="q4" value="no"> No</label></div>
+<div class="q"><p><b>5.</b> Is <code>mcp.json</code> and other MCP server-config files under <strong>file-integrity monitoring or version-control review</strong>?</p><label><input type="radio" name="q5" value="yes"> Yes</label><label><input type="radio" name="q5" value="no"> No</label></div>
+<div class="q"><p><b>6.</b> Are MCP server versions <strong>pinned to exact versions</strong> (no unpinned <code>npx</code>/<code>uvx</code> latest)?</p><label><input type="radio" name="q6" value="yes"> Yes</label><label><input type="radio" name="q6" value="no"> No</label></div>
+<div class="q"><p><b>7.</b> Do you <strong>diff approved tool snapshots against live server metadata in CI</strong>?</p><label><input type="radio" name="q7" value="yes"> Yes</label><label><input type="radio" name="q7" value="no"> No</label></div>
+<div class="q"><p><b>8.</b> Are agent-to-agent delegation paths restricted to a <strong>vetted allowlist of peer agents</strong>?</p><label><input type="radio" name="q8" value="yes"> Yes</label><label><input type="radio" name="q8" value="no"> No</label></div>
+</div>
+<div style="margin-top:14px"><button class="go" onclick="runQuiz()">Get my verdict</button></div>
+<div id="qresult" style="margin-top:12px"><div class="verdict warn"><strong>Answer all 8 questions</strong>, then press the button for your verdict.</div></div>
+<script>
+var QUIZ_TOTAL = 8;
+function scoreQuiz(a){
+  var good = 0;
+  for (var i = 0; i < a.length; i++){ if (a[i] === 'yes') good++; }
+  var verdict = good <= 3 ? 'EXPOSED' : (good <= 5 ? 'AT-RISK' : 'COVERED');
+  return {score: good, total: QUIZ_TOTAL, verdict: verdict};
+}
+function readAnswers(){
+  var a = [];
+  for (var i = 1; i <= QUIZ_TOTAL; i++){
+    var els = document.getElementsByName('q' + i), v = null;
+    for (var j = 0; j < els.length; j++){ if (els[j].checked) v = els[j].value; }
+    a.push(v);
+  }
+  return a;
+}
+function runQuiz(){
+  var a = readAnswers(), out = document.getElementById('qresult');
+  for (var i = 0; i < a.length; i++){
+    if (a[i] === null){
+      out.innerHTML = '<div class="verdict warn"><strong>Answer all 8 questions</strong> &mdash; the verdict needs the full picture.</div>';
+      return;
+    }
+  }
+  var r = scoreQuiz(a);
+  var cls = r.verdict === 'COVERED' ? 'safe' : (r.verdict === 'AT-RISK' ? 'warn' : '');
+  var advice = r.verdict === 'COVERED'
+    ? 'Your agent supply chain is pinned and verified: hashed tool records, re-approval on change, signed agent cards. Keep diffing approved snapshots against live metadata &mdash; trust is re-earned on every fetch.'
+    : (r.verdict === 'AT-RISK'
+      ? 'You have partial supply-chain defenses, but a server that mutates after approval &mdash; or an unsigned agent card &mdash; could still slip through. Close the highest-leverage gap first: hash full tool records at approval and re-approve on any change.'
+      : 'Your agent supply chain is exposed: servers can rewrite their own instructions after approval and unsigned agent cards are trusted on sight. Start with pinning &mdash; hash each server&rsquo;s full tool record at approval time and require signed agent.json manifests &mdash; then add CI drift detection.');
+  out.innerHTML = '<div class="verdict ' + cls + '"><strong>' + r.score + '/' + r.total + ' &mdash; ' + r.verdict + '.</strong> ' + advice + '</div>';
+}
+</script>
+<p class="note">This checker is a guided self-assessment of your supply-chain controls. It cannot inspect your servers, configs, or agent cards.</p>
+</div>
+
+<div class="card">
+<h2>Why the rug pull beats install-time security</h2>
+<ul>
+<li><strong>Approval is a snapshot; the server is a live feed.</strong> Your client shows you the tools once and re-reads them on every reconnect &mdash; without re-prompting. The trust you granted day 1 silently transfers to day 30&rsquo;s mutated tools.</li>
+<li><strong>Runtime-gating defeats static review.</strong> Deadbugz behaved benignly through its first three tool calls and only then weaponized &mdash; install-time and static review see nothing.</li>
+<li><strong>Descriptions are payloads.</strong> The model reads the full tool description and input schema; your UI shows a tidy label. The gap between what the model reads and what you see is the vulnerability.</li>
+<li><strong>Unsigned agent cards are unsigned trust.</strong> In A2A swarms, agents ingest <code>agent.json</code> manifests to discover peers. Unsigned means anyone in the path can rewrite who your agent delegates to.</li>
+<li><strong>Never calling a poisoned tool does not save you.</strong> Most hosts load connected servers&rsquo; tool descriptions into the model&rsquo;s context on connect &mdash; connecting is the trust decision.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>What this checker does NOT do</h2>
+<ul>
+<li>It does not scan your MCP servers, configs, or agent cards for tampering.</li>
+<li>It cannot detect whether a rug pull or card poisoning has already happened &mdash; that needs metadata drift forensics.</li>
+<li>It is informational, not a security audit. Treat any unpinned, unhashed server as potentially mutated until verified.</li>
+</ul>
+</div>
+
+<div class="morelinks">
+<h3>More from Ingenious AI</h3>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-safety-directory.html">&rarr; MCP safety directory — grade your MCP server setup</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/state-of-mcp-security-2026.html">&rarr; State of MCP security 2026</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-injection-rce-design-flaw-check.html">&rarr; MCP prompt-injection-to-RCE check — is your deployment shaped like the vulnerable pattern?</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-sandbox-policy-gap-checker.html">&rarr; Agent sandbox policy gap checker</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-background-check.html">&rarr; AI agent background check</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/all-links.html">&rarr; All Ingenious AI checks (the hub)</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html">&rarr; Security suite overview</a>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#fff;text-decoration:underline">Rogue-Agent Defense</a> locks down your agent supply chain: tool-metadata pinning, signature verification on agent cards, and drift detection that catches rug pulls the moment they mutate.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20MCP%20rug-pull%20check%20and%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=You%20approved%20the%20MCP%20tool%20on%20day%201.%20On%20day%2030%20it%20rewrote%20its%20own%20instructions.%20MCP%20rug%20pull%20%2B%20Agent%20Card%20poisoning%20check&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-rug-pull-agent-card-poisoning-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-rug-pull-agent-card-poisoning-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-rug-pull-agent-card-poisoning-check.html&title=MCP%20rug%20pull%20%2B%20Agent%20Card%20poisoning%3A%20is%20your%20agent%20supply%20chain%20exposed%3F" target="_blank" rel="noopener">Reddit</a></div>
+
+<section class="kw-faq" style="max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
+<h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
+<details><summary>What is an MCP rug pull?</summary><p>An MCP rug pull is a supply-chain exploit where an external MCP tool server (or peer agent) mutates its metadata schemas &mdash; tool descriptions, input schemas &mdash; after you approved it, injecting hidden instructions the agent will follow. Day 1 the tools look safe; day 30 an update rewrites a tool description to exfiltrate credentials. MCP has no built-in mechanism to detect that a tool&rsquo;s definition changed after you consented to it, so the malicious version inherits the trust you granted the original.</p></details>
+<details><summary>What is Agent Card poisoning?</summary><p>Agent Card poisoning targets Agent-to-Agent (A2A) protocols: autonomous agents discover and delegate to peer agents by ingesting their Agent Cards &mdash; agent.json manifests. When those manifests are unsigned, an attacker can tamper with them after approval, redirecting delegation or injecting instructions. The result can be remote code execution and silent credential exfiltration across the agent swarm.</p></details>
+<details><summary>Has an MCP rug pull happened in the real world?</summary><p>Yes. In August 2026, Pillar Security researchers identified &ldquo;Deadbugz,&rdquo; an active campaign distributing a malicious MCP server via public GitHub pull requests disguised as a benign text-formatting tool. The server withheld its payload until the connected agent had made three ordinary tool calls, then silently rewrote its own tool metadata to hunt SSH keys, AWS credentials, shell history, and Kubernetes configs &mdash; the runtime-gated rug-pull lifecycle. It pushed 23 pull requests to unrelated repositories within a 74-minute window on August 10, 2026.</p></details>
+<details><summary>How do I protect against MCP rug pulls?</summary><p>Pin a cryptographic hash of each server&rsquo;s full tool record &mdash; description, inputSchema including nested property descriptions, and annotations &mdash; plus the launch command and args, at approval time. Re-approve (or block) on any change. Diff approved tool snapshots in CI against live server metadata. Pin exact server versions (no unpinned npx/uvx). Put mcp.json under file-integrity monitoring. The 8-question checker on this page grades your setup.</p></details>
+<details><summary>How do I protect against Agent Card poisoning?</summary><p>Reject or quarantine unsigned agent.json manifests before any agent acts on them. Verify signatures on Agent Cards and re-verify on every re-fetch, not just at first connect &mdash; a card approved clean can be tampered with later. Restrict agent-to-agent delegation to a vetted allowlist of peer agents so a poisoned card cannot redirect work to an attacker&rsquo;s agent.</p></details>
+</section>
+<p class="note" style="text-align:center;max-width:760px;margin:0 auto 24px">Informational only: this page reflects the cited October 2026 MCP rug-pull analysis and the CSA Deadbugz research note (Aug 2026). Not a security audit.</p>
+</div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCP Prompt Injection to RCE Check: Is Your MCP Deployment Shaped Like the "WTF Is MCP?" Flaw? | Ingenious AI</title>
+<meta name="description" content=""WTF is MCP?" (published 2026-10-18) describes a critical prompt-injection-to-RCE design flaw in MCP agent architecture. Take the 5-question check: is your MCP deployment shaped like the vulnerable pattern? Free, no signup.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="MCP Prompt Injection to RCE Check: Is Your MCP Deployment Shaped Like the "WTF Is MCP?" Flaw?">
+<meta property="og:description" content=""WTF is MCP?" describes a critical prompt-injection-to-remote-code-execution design flaw in MCP agent architecture. Check whether your MCP deployment matches the vulnerable pattern.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-injection-rce-design-flaw-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-injection-rce-design-flaw-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Is Your MCP Deployment Shaped Like the "WTF Is MCP?" RCE Flaw?">
+<meta name="twitter:description" content="A 2026-10-18 disclosure shows how untrusted web content can cross into command execution in MCP agent architecture. 5 questions, 60 seconds.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the \"WTF is MCP?\" disclosure?","acceptedAnswer":{"@type":"Answer","text":"\"WTF is MCP?\" is a security disclosure published October 18, 2026, describing a critical prompt-injection-to-remote-code-execution design flaw in an MCP-based AI agent architecture. The core problem is a missing trust boundary: untrusted web content is analyzed by one tool and then fed to a privileged command-execution tool, letting attacker-controlled text cross into code execution with the agent's full environment and credentials."}},{"@type":"Question","name":"How does the prompt-injection-to-RCE chain work?","acceptedAnswer":{"@type":"Answer","text":"Per the disclosure: a web-analyzer tool (analyze_web_bundle) dumps injected text from an attacker-controlled web bundle, GitHub issue, blog post, PDF, or comment into the agent's context, and a privileged tool (capture_process_scenario) then executes commands. Because the agent inherits the user's full environment, that means AWS keys, GitHub tokens, and SSH identities — plus persistence via SSH authorized_keys, cloud IAM keys, cron jobs, and shell profiles."}},{"@type":"Question","name":"What does \"destructiveHint is not a security control\" mean?","acceptedAnswer":{"@type":"Answer","text":"In the disclosed architecture, warnings about destructive commands existed only as a client-side destructiveHint — a suggestion to the model, not an enforced control. The disclosure's point: a hint that the model may or may not honor is not a security boundary. Real protection needs server-side enforcement — sandboxing, capability isolation, and explicit approval — not text asking the model to be careful."}},{"@type":"Question","name":"Is this a prompt-engineering bug or an architecture problem?","acceptedAnswer":{"@type":"Answer","text":"The disclosure argues it is an architecture problem, not a prompt-engineering bug: a capability-isolation failure. The architecture lets untrusted web text cross into command execution, inherits the user's full environment, and relies on a client-side warning as its only guardrail. Any deployment with the same shape has the same flaw, regardless of the model's system prompt."}},{"@type":"Question","name":"How do I fix an MCP deployment shaped like this flaw?","acceptedAnswer":{"@type":"Answer","text":"Mark all tool output from untrusted sources as untrusted and never let it flow into command execution. Run command-execution tools with minimal environments and no inherited secrets. Enforce destructive-action approval server-side, not via client-side hints. Isolate web-analysis tools from privileged executor tools, sandbox the agent, and log every tool call so an injection chain is visible. The 5-question checker on this page tells you where your deployment stands."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to check whether your MCP deployment matches the \"WTF is MCP?\" vulnerable pattern","description":"A 5-question self-audit comparing your MCP agent architecture against the disclosed prompt-injection-to-RCE design flaw.","totalTime":"PT10M","step":[{"@type":"HowToStep","name":"Answer the 5 pattern-matching questions","text":"Each 'Yes' means your deployment shares a trait with the disclosed vulnerable architecture. Each 'No' means that trait is absent."},{"@type":"HowToStep","name":"Read your verdict","text":"0 matches: NOT THE VULNERABLE PATTERN. 1–2: PARTIALLY MATCHES. 3–5: SHAPED LIKE THE VULNERABLE PATTERN."},{"@type":"HowToStep","name":"Break the chain","text":"For every 'Yes', apply the fix: untrusted tool output can never drive command execution; strip inherited secrets; enforce approval server-side."},{"@type":"HowToStep","name":"Isolate capabilities","text":"Separate web-content analysis from privileged execution into different trust domains with explicit, enforced boundaries."},{"@type":"HowToStep","name":"Verify with logging","text":"Ensure every tool call is logged so an injection-to-execution chain would be visible, not silent."}]}</script>
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a0f12;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:32px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+h1 .green{color:#3fb950}
+p.lead{font-size:17px;color:#c9d4e3;margin-bottom:24px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:26px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.note{font-size:13px;color:#9aa7b8}
+.small{font-size:13px;color:#9aa7b8}
+button.go{background:#1c6ef2;color:#fff;font-weight:700;font-size:16px;padding:12px 24px;border:none;border-radius:8px;cursor:pointer}
+button.go:hover{background:#2f7ef7}
+.verdict{border-left:4px solid #f85149;padding:14px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:14px 0;font-size:15px}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.directanswer{border:1px solid #3fb950;border-radius:10px;padding:18px;background:#0d1a0f;margin:20px 0}
+.directanswer b{color:#7ee787}
+.facts{background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:18px;margin:20px 0;font-size:14px}
+.facts div{margin:7px 0}
+.facts .flabel{color:#7ee787;font-weight:700;min-width:64px;display:inline-block}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.morelinks{background:#0d1420;border:1px solid #232b38;border-radius:10px;padding:20px;margin:26px 0}
+.morelinks h3{font-size:17px;color:#fff;margin-bottom:10px}
+.morelinks a{color:#6ea8fe;text-decoration:none;display:block;margin:7px 0;font-size:14px}
+.morelinks a:hover{text-decoration:underline}
+.kw-faq details{background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
+.kw-faq summary{font-weight:600;cursor:pointer;color:#fff;font-size:15px}
+.kw-faq p{margin-top:10px;font-size:14px;color:#9aa7b8}
+.quiz .q{background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
+.quiz .q p{font-size:14px;color:#e6edf3;margin-bottom:10px}
+.quiz .q label{display:inline-block;margin-right:18px;font-size:14px;color:#c9d4e3;cursor:pointer}
+.quiz .q input{margin-right:6px}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px}
+code{background:#0d1219;border:1px solid #232b38;border-radius:4px;padding:1px 6px;font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">&ldquo;WTF IS MCP?&rdquo; DISCLOSURE &mdash; PUBLISHED 2026-10-18 &mdash; PROMPT INJECTION TO RCE</div>
+<h1>Is your MCP deployment <span class="red">shaped like the vulnerable pattern?</span></h1>
+<p class="lead">A disclosure published October 18, 2026, titled <strong>&ldquo;WTF is MCP?&rdquo;</strong>, describes a <strong>critical prompt-injection-to-remote-code-execution design flaw</strong> in an MCP-based AI agent architecture. The shape of it: a web-analysis tool dumps attacker-controlled text into the agent&rsquo;s context, a privileged tool executes commands, and the whole thing runs with your full environment &mdash; <strong>AWS keys, GitHub tokens, SSH identities</strong>. The author&rsquo;s verdict: this is not a prompt-engineering bug, it is a <strong>capability-isolation failure</strong>. Five questions will tell you whether your MCP deployment shares the same shape. Free, no signup.</p>
+
+<div class="directanswer">
+<b>The short answer:</b> The &ldquo;WTF is MCP?&rdquo; disclosure (2026-10-18) shows how <strong>untrusted web content crosses a missing trust boundary into command execution</strong> in MCP agent architecture: one tool ingests attacker text, another tool runs commands with your full credentials. The client-side <code>destructiveHint</code> is &ldquo;not a security control. It is a suggestion.&rdquo; If your deployment lets tool output drive command execution, inherits full environments, and guards destructive actions with hints instead of enforcement, it is shaped like the vulnerable pattern &mdash; take the check below.
+</div>
+
+<div class="facts">
+<div><span class="flabel">What:</span> a critical <strong>prompt-injection-to-RCE design flaw</strong> in an MCP-based AI agent architecture &mdash; &ldquo;the core problem is a missing trust boundary&rdquo; between untrusted web content and command execution.</div>
+<div><span class="flabel">Chain:</span> <code>analyze_web_bundle</code> dumps injected text into context &rarr; <code>capture_process_scenario</code> runs the command. Initial access: a malicious web bundle, GitHub issue, blog post, PDF, or comment the agent is asked to analyze.</div>
+<div><span class="flabel">Blast radius:</span> full environment inheritance &mdash; AWS keys, GitHub tokens, SSH identities. Persistence via <code>~/.ssh/authorized_keys</code>, cloud IAM keys, cron jobs, shell profiles. Lateral movement into CI/CD, source repos, cloud APIs, internal networks. Defense evasion: no malware &mdash; logs look like normal agent tool calls.</div>
+<div><span class="flabel">Key line:</span> &ldquo;The client-side <code>destructiveHint</code> is not a security control. It is a suggestion.&rdquo; And: &ldquo;This is not a prompt-engineering bug. It is a capability-isolation failure.&rdquo;</div>
+<div><span class="flabel">Source:</span> &ldquo;WTF is MCP?&rdquo;, published 2026-10-18 (updated same day), https://medium.com/@zellkernel/wtf-is-mcp-57536249d6d8. The disclosure analyzes one demonstrated architecture; the checker below tests whether <em>your</em> deployment shares its shape.</div>
+</div>
+
+<div class="card">
+<h2>The 5-question vulnerable-pattern check</h2>
+<p class="note" style="margin-bottom:14px">Here a &ldquo;Yes&rdquo; is <strong>bad</strong>: it means your deployment shares a trait with the disclosed vulnerable architecture.</p>
+<div class="quiz" id="quiz2">
+<div class="q"><p><b>1.</b> Can tool output from a web search/fetch/analyze tool flow into your agent&rsquo;s context <strong>without being marked untrusted</strong>?</p><label><input type="radio" name="q1" value="yes"> Yes</label><label><input type="radio" name="q1" value="no"> No</label></div>
+<div class="q"><p><b>2.</b> Does your agent have a shell/command-execution tool that runs with the <strong>user&rsquo;s full environment</strong> inherited (env vars, SSH keys, cloud credentials)?</p><label><input type="radio" name="q2" value="yes"> Yes</label><label><input type="radio" name="q2" value="no"> No</label></div>
+<div class="q"><p><b>3.</b> Can a tool result trigger a follow-up tool call that executes commands <strong>without a fresh, enforced approval</strong> at the boundary?</p><label><input type="radio" name="q3" value="yes"> Yes</label><label><input type="radio" name="q3" value="no"> No</label></div>
+<div class="q"><p><b>4.</b> Are destructive-command warnings only <strong>client-side hints</strong> (suggestions to the model) rather than server-side enforced controls?</p><label><input type="radio" name="q4" value="yes"> Yes</label><label><input type="radio" name="q4" value="no"> No</label></div>
+<div class="q"><p><b>5.</b> Do you connect your agent to web bundles, GitHub issues, blog posts, PDFs, or comments it is asked to <strong>&ldquo;analyze&rdquo;</strong> while a privileged executor is in its tool list?</p><label><input type="radio" name="q5" value="yes"> Yes</label><label><input type="radio" name="q5" value="no"> No</label></div>
+</div>
+<div style="margin-top:14px"><button class="go" onclick="runQuiz()">Get my verdict</button></div>
+<div id="qresult" style="margin-top:12px"><div class="verdict warn"><strong>Answer all 5 questions</strong>, then press the button for your verdict.</div></div>
+<script>
+var QUIZ_TOTAL = 5;
+function scoreQuiz(a){
+  var bad = 0;
+  for (var i = 0; i < a.length; i++){ if (a[i] === 'yes') bad++; }
+  var verdict = bad === 0 ? 'NOT THE VULNERABLE PATTERN' : (bad <= 2 ? 'PARTIALLY MATCHES' : 'SHAPED LIKE THE VULNERABLE PATTERN');
+  return {score: bad, total: QUIZ_TOTAL, verdict: verdict};
+}
+function readAnswers(){
+  var a = [];
+  for (var i = 1; i <= QUIZ_TOTAL; i++){
+    var els = document.getElementsByName('q' + i), v = null;
+    for (var j = 0; j < els.length; j++){ if (els[j].checked) v = els[j].value; }
+    a.push(v);
+  }
+  return a;
+}
+function runQuiz(){
+  var a = readAnswers(), out = document.getElementById('qresult');
+  for (var i = 0; i < a.length; i++){
+    if (a[i] === null){
+      out.innerHTML = '<div class="verdict warn"><strong>Answer all 5 questions</strong> &mdash; the verdict needs the full picture.</div>';
+      return;
+    }
+  }
+  var r = scoreQuiz(a);
+  var cls = r.verdict === 'NOT THE VULNERABLE PATTERN' ? 'safe' : (r.verdict === 'PARTIALLY MATCHES' ? 'warn' : '');
+  var advice = r.verdict === 'NOT THE VULNERABLE PATTERN'
+    ? 'Your deployment does not share the disclosed flaw&rsquo;s shape: untrusted tool output is bounded, environments are stripped, and destructive actions are enforced, not hinted. Keep it that way &mdash; re-run this check on every architecture change.'
+    : (r.verdict === 'PARTIALLY MATCHES'
+      ? 'Parts of your deployment match the vulnerable pattern. The chain needs untrusted input <em>and</em> privileged execution to complete &mdash; remove either link. Start by stripping inherited secrets from the executor and marking web-tool output untrusted.'
+      : 'Your deployment is shaped like the vulnerable pattern in the &ldquo;WTF is MCP?&rdquo; disclosure: untrusted web text can reach command execution with your credentials. Highest-leverage fix first &mdash; cut the link between untrusted tool output and the command executor, then enforce destructive approvals server-side. Until then, do not point this agent at untrusted web content.');
+  out.innerHTML = '<div class="verdict ' + cls + '"><strong>' + r.score + '/' + r.total + ' matches &mdash; ' + r.verdict + '.</strong> ' + advice + '</div>';
+}
+</script>
+<p class="note">This checker compares your self-reported architecture against the disclosed pattern. It cannot inspect your MCP servers or prove an exploit path.</p>
+</div>
+
+<div class="card">
+<h2>Why this disclosure matters beyond one setup</h2>
+<ul>
+<li><strong>The flaw is architectural, not a typo.</strong> Any MCP deployment where untrusted tool output can reach a privileged executor shares the shape &mdash; the model&rsquo;s system prompt cannot fix it.</li>
+<li><strong>Hints are not controls.</strong> A client-side <code>destructiveHint</code> is a suggestion the model may honor or ignore. Attackers count on the &ldquo;ignore&rdquo; branch.</li>
+<li><strong>Agent tool calls are camouflage.</strong> The disclosure notes there is no malware to detect &mdash; logs look like normal agent tool calls, so the intrusion hides in legitimate-looking activity.</li>
+<li><strong>Credentials ride along by default.</strong> Full environment inheritance means the attacker doesn&rsquo;t exfiltrate one key &mdash; they inherit your AWS keys, GitHub tokens, and SSH identities in one move.</li>
+<li><strong>Persistence is built in.</strong> <code>~/.ssh/authorized_keys</code>, cloud IAM keys, cron jobs, shell profiles: a successful injection doesn&rsquo;t just run once, it stays.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>What this checker does NOT do</h2>
+<ul>
+<li>It does not scan your MCP servers or reproduce the disclosed exploit chain.</li>
+<li>It cannot confirm whether your deployment is exploitable &mdash; only whether it shares the disclosed architecture&rsquo;s risky traits.</li>
+<li>It is informational, not a security audit. A matching pattern is a reason to harden, not a proof of compromise.</li>
+</ul>
+</div>
+
+<div class="morelinks">
+<h3>More from Ingenious AI</h3>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-safety-directory.html">&rarr; MCP safety directory — grade your MCP server setup</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/state-of-mcp-security-2026.html">&rarr; State of MCP security 2026</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-rug-pull-agent-card-poisoning-check.html">&rarr; MCP rug pull &amp; Agent Card poisoning check — is your agent supply chain exposed?</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-sandbox-policy-gap-checker.html">&rarr; Agent sandbox policy gap checker</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-background-check.html">&rarr; AI agent background check</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/all-links.html">&rarr; All Ingenious AI checks (the hub)</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html">&rarr; Security suite overview</a>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#fff;text-decoration:underline">Rogue-Agent Defense</a> is the AI agent firewall: it enforces trust boundaries between untrusted tool output and privileged execution, so prompt injection never becomes RCE.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20MCP%20prompt-injection-to-RCE%20check%20and%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=%22WTF%20is%20MCP%3F%22%20%E2%80%94%20a%20prompt-injection-to-RCE%20design%20flaw%20in%20MCP%20agent%20architecture.%20Is%20your%20deployment%20shaped%20like%20the%20vulnerable%20pattern%3F&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-injection-rce-design-flaw-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-injection-rce-design-flaw-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-injection-rce-design-flaw-check.html&title=%22WTF%20is%20MCP%3F%22%20disclosure%3A%20is%20your%20MCP%20deployment%20shaped%20like%20the%20prompt-injection-to-RCE%20pattern%3F" target="_blank" rel="noopener">Reddit</a></div>
+
+<section class="kw-faq" style="max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
+<h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
+<details><summary>What is the &ldquo;WTF is MCP?&rdquo; disclosure?</summary><p>&ldquo;WTF is MCP?&rdquo; is a security disclosure published October 18, 2026, describing a critical prompt-injection-to-remote-code-execution design flaw in an MCP-based AI agent architecture. The core problem is a missing trust boundary: untrusted web content is analyzed by one tool and then fed to a privileged command-execution tool, letting attacker-controlled text cross into code execution with the agent&rsquo;s full environment and credentials.</p></details>
+<details><summary>How does the prompt-injection-to-RCE chain work?</summary><p>Per the disclosure: a web-analyzer tool dumps injected text from an attacker-controlled web bundle, GitHub issue, blog post, PDF, or comment into the agent&rsquo;s context, and a privileged tool then executes commands. Because the agent inherits the user&rsquo;s full environment, that means AWS keys, GitHub tokens, and SSH identities &mdash; plus persistence via SSH authorized_keys, cloud IAM keys, cron jobs, and shell profiles.</p></details>
+<details><summary>What does &ldquo;destructiveHint is not a security control&rdquo; mean?</summary><p>In the disclosed architecture, warnings about destructive commands existed only as a client-side destructiveHint &mdash; a suggestion to the model, not an enforced control. The disclosure&rsquo;s point: a hint that the model may or may not honor is not a security boundary. Real protection needs server-side enforcement &mdash; sandboxing, capability isolation, and explicit approval &mdash; not text asking the model to be careful.</p></details>
+<details><summary>Is this a prompt-engineering bug or an architecture problem?</summary><p>The disclosure argues it is an architecture problem, not a prompt-engineering bug: a capability-isolation failure. The architecture lets untrusted web text cross into command execution, inherits the user&rsquo;s full environment, and relies on a client-side warning as its only guardrail. Any deployment with the same shape has the same flaw, regardless of the model&rsquo;s system prompt.</p></details>
+<details><summary>How do I fix an MCP deployment shaped like this flaw?</summary><p>Mark all tool output from untrusted sources as untrusted and never let it flow into command execution. Run command-execution tools with minimal environments and no inherited secrets. Enforce destructive-action approval server-side, not via client-side hints. Isolate web-analysis tools from privileged executor tools, sandbox the agent, and log every tool call so an injection chain is visible. The 5-question checker on this page tells you where your deployment stands.</p></details>
+</section>
+<p class="note" style="text-align:center;max-width:760px;margin:0 auto 24px">Informational only: this page reflects the &ldquo;WTF is MCP?&rdquo; disclosure published 2026-10-18. It analyzes one demonstrated architecture and tests whether yours shares its shape. Not a security audit.</p>
+</div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
