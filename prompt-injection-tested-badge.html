@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompt Injection Test: Is Your Chatbot Resistant? (+ Badge)</title>
+<meta name="description" content="Prompt injection test: 10 questions assess your chatbot defenses. Score 80%+ to earn an embeddable Prompt-Injection Tested badge. Self-assessed, not certified.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Prompt Injection Test: Is Your Chatbot Resistant? (+ Badge)">
+<meta property="og:description" content="A 10-question prompt injection self-assessment for your chatbot. Score 80%+ and embed a Prompt-Injection Tested badge. Self-assessed — not an independent certification.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/prompt-injection-tested-badge.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/prompt-injection-tested-badge.html">
+<link rel="stylesheet" href="ecosystem.css">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Prompt Injection Test: Is Your Chatbot Resistant? (+ Badge)">
+<meta name="twitter:description" content="10-question prompt injection self-assessment. Score 80%+ and embed a Prompt-Injection Tested badge. Self-assessed, not a certification.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d2a1a;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .grn{color:#3fb950}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:20px 0 8px;color:#fff}
+.card p{font-size:15px;color:#c9d4e3;margin-bottom:10px}
+.card ul{margin:10px 0 10px 20px;font-size:14px;color:#c9d4e3}
+.card li{margin:8px 0}
+.card a{color:#6ea8fe}
+.note{font-size:14px;color:#9aa7b8}
+.q{border:1px solid #232b38;border-radius:10px;background:#0d1219;padding:18px;margin:16px 0}
+.q h3{font-size:15px;color:#fff;margin-bottom:10px}
+.trio{display:flex;gap:8px}
+.trio button{flex:1;background:#11161f;border:1px solid #2a3342;color:#e6edf3;font-size:13px;font-weight:600;padding:10px 6px;border-radius:8px;cursor:pointer}
+.trio button:hover{border-color:#3fb950}
+.trio button.sel{border-color:#3fb950;background:#0d1a0f}
+.bigbtn{display:block;width:100%;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:16px;border-radius:10px;border:0;cursor:pointer;margin:20px 0}
+.bigbtn:hover{background:#2f7ef7}
+.bigbtn.grn{background:#238636}
+.bigbtn.grn:hover{background:#2ea043}
+#result{display:none}
+#result.show{display:block}
+.scorenum{font-size:64px;font-weight:800;line-height:1;margin:10px 0}
+#badgeBox{display:none;border:1px solid #3fb950;border-radius:10px;padding:22px;margin:20px 0;background:#0d1a0f}
+#badgeBox.show{display:block}
+#badgeBox h3{color:#fff;font-size:18px;margin-bottom:10px}
+textarea.embed{width:100%;background:#080b10;border:1px solid #2a3342;color:#9aa7b8;font-size:12px;font-family:ui-monospace,Menlo,monospace;padding:12px;border-radius:8px;min-height:110px}
+.copybtn{background:#1c2430;border:1px solid #2a3342;color:#e6edf3;font-size:13px;font-weight:600;padding:8px 16px;border-radius:8px;cursor:pointer;margin-top:10px}
+.copybtn:hover{border-color:#3fb950}
+.fix{border-left:4px solid #d29922;background:#1a1408;border-radius:0 8px 8px 0;padding:12px 16px;margin:12px 0}
+.fix strong{color:#fff;display:block;margin-bottom:4px;font-size:14px}
+.fix p{font-size:14px;color:#c9d4e3;margin:0}
+.honest{background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a;margin:20px 0}
+.moreblock{background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0}
+.moreblock h2{font-size:18px;margin-bottom:10px;color:#fff}
+.moreblock a{color:#6ea8fe;text-decoration:none}
+.moreblock ul{margin:10px 0 10px 20px}
+.moreblock li{font-size:14px;margin:8px 0}
+.share{text-align:center;font-size:14px;color:#9aa7b8;margin:28px 0}
+.share a{color:#1c6ef2;margin:0 8px}
+.warnbox{background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a;margin:20px 0}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Prompt Injection Test: Is Your Chatbot Resistant? (+ Badge)",
+  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/prompt-injection-tested-badge.html",
+  "description": "A 10-question prompt injection self-assessment for your chatbot. Score 80%+ and embed a Prompt-Injection Tested badge. Self-assessed — not an independent certification.",
+  "author": { "@type": "Organization", "name": "Ingenious AI" },
+  "datePublished": "2026-10-18"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can you test a chatbot for prompt injection yourself?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. A structured self-assessment of your chatbot's defenses — input validation, system-prompt hardening, indirect-injection handling, output filtering, least-privilege tools, human approval, monitoring, red-teaming, and incident response — gives a meaningful readiness signal, though it is not a substitute for adversarial testing by specialists." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the Prompt-Injection Tested badge a security certification?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. The badge reflects a self-assessment you complete on this page. It is not an independent security certification, audit, or guarantee — nobody verified your answers. Treat it as a public commitment to prompt-injection hygiene, not proof of invulnerability." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is indirect prompt injection?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Indirect prompt injection hides malicious instructions in content the model reads — a webpage, document, email, or tool output — rather than in the user's own message. It accounts for over 55% of observed prompt-injection attacks in 2026 and succeeds more often because the instructions arrive via trusted sources." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the most effective defense against prompt injection?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Deterministic controls, not filters: least-privilege tool permissions, human approval for irreversible actions, strict output handling, and isolation of untrusted content. Filters are probabilistic and attackers routinely bypass them — containment limits what a hijacked model can actually do." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">FREE SELF-ASSESSMENT &middot; EARN AN EMBEDDABLE BADGE</div>
+<h1>Prompt Injection <span class="grn">Test</span>: Is Your Chatbot Resistant?</h1>
+<p class="lead">Answer 10 questions about your chatbot's defenses. Score 80% or higher and you'll unlock an embeddable "Prompt-Injection Tested" badge for your site — with a backlink to this test, so every badge spreads the word.</p>
+
+<div class="direct-answer">
+<div class="card">
+<h2>Can you test a chatbot for prompt injection yourself?</h2>
+<p>Yes. A structured self-assessment of your chatbot's defenses — input validation, system-prompt hardening, indirect-injection handling, output filtering, least-privilege tools, human approval for irreversible actions, monitoring, red-teaming, and incident response — gives a meaningful readiness signal. This page scores ten such controls; pass 80% and you can embed a Prompt-Injection Tested badge. It is self-assessed, not an independent certification.</p>
+</div>
+</div>
+
+<div class="key-facts">
+<div class="card">
+<h2>Key facts</h2>
+<ul>
+<li><strong>Still #1:</strong> prompt injection remains the top-ranked risk in the OWASP Top 10 for LLM Applications, holding the LLM01 slot — and a May 2026 industry survey found it present in 73% of production AI deployments. <a href="https://tech-insider.org/how-to-prevent-prompt-injection-attacks-2026/" target="_blank" rel="noopener">Tech Insider</a></li>
+<li><strong>Real-world share:</strong> about 35% of real-world AI security incidents are caused by simple prompts — prompt injection. <a href="https://prefactor.tech/learn/ai-security-risk-statistics" target="_blank" rel="noopener">Prefactor / IBM &amp; Gartner data</a></li>
+<li><strong>The indirect wave:</strong> indirect prompt injection — instructions hidden in webpages, docs, or tool outputs — accounts for over 55% of observed attacks in 2026, with 20–30% higher success rates than direct attacks. <a href="https://techrt.com/prompt-injection-vulnerability-statistics/" target="_blank" rel="noopener">TechRT</a></li>
+<li><strong>What actually works:</strong> only deterministic controls contain the damage — least-privilege tooling, human approval for irreversible actions, strict output handling, continuous adversarial testing. <a href="http://kodekloud.com/blog/prompt-injection-attacks-for-devops-engineers-threats-and-defenses/" target="_blank" rel="noopener">KodeKloud</a></li>
+</ul>
+</div>
+</div>
+
+<div class="card">
+<h2>The 10-control self-assessment</h2>
+<p class="note">For each control: <strong>Yes</strong> = fully implemented (2 pts), <strong>Partial</strong> = started or inconsistent (1 pt), <strong>No</strong> = not in place (0 pts). Be honest — the badge is only as credible as your answers.</p>
+<div id="quiz"></div>
+<button class="bigbtn grn" id="scoreBtn">Score my defenses</button>
+<div id="result" class="card" style="margin:20px 0 0">
+<h2>Your prompt-injection readiness</h2>
+<div class="scorenum" id="scoreNum">0%</div>
+<p id="verdict" class="note"></p>
+<div id="badgeBox">
+<h3>🎖 You earned the badge — embed it on your site</h3>
+<div id="badgePreview" style="margin:12px 0"></div>
+<p class="note">Copy this snippet into your site's HTML. It links back to this test so visitors can verify what the badge means.</p>
+<textarea class="embed" id="embedCode" readonly></textarea>
+<button class="copybtn" id="copyEmbed">Copy embed code</button>
+<div class="honest" style="margin-top:16px"><strong>Honest scope:</strong> this badge reflects a <strong>self-assessment</strong> — your own answers, scored on this page. It is <strong>not an independent certification</strong>, audit, or guarantee of security. Displaying it is a public commitment to prompt-injection hygiene, not proof of invulnerability.</div>
+</div>
+<h3 id="fixHead" style="display:none">Controls to strengthen — weakest first</h3>
+<div id="fixes"></div>
+<button class="bigbtn" id="retakeBtn" style="font-size:15px;padding:12px">Retake the assessment</button>
+</div>
+</div>
+
+<p class="note"><strong>Honest scope:</strong> this is a self-assessment questionnaire, not a penetration test or certification. Passing 80% means your declared controls are strong — it does not mean attackers can't find a way in. Pair it with real adversarial red-teaming.</p>
+<p class="note"><strong>What this page does NOT do:</strong> it does not attack your chatbot, inspect your code, or verify any of your answers.</p>
+
+<section style="margin:36px 0">
+<h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Can you test a chatbot for prompt injection yourself?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Yes. A structured self-assessment of your chatbot's defenses — input validation, system-prompt hardening, indirect-injection handling, output filtering, least-privilege tools, human approval, monitoring, red-teaming, and incident response — gives a meaningful readiness signal, though it is not a substitute for adversarial testing by specialists.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Is the Prompt-Injection Tested badge a security certification?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">No. The badge reflects a self-assessment you complete on this page. It is not an independent security certification, audit, or guarantee — nobody verified your answers. Treat it as a public commitment to prompt-injection hygiene, not proof of invulnerability.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is indirect prompt injection?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Indirect prompt injection hides malicious instructions in content the model reads — a webpage, document, email, or tool output — rather than in the user's own message. It accounts for over 55% of observed prompt-injection attacks in 2026 and succeeds more often because the instructions arrive via trusted sources.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is the most effective defense against prompt injection?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Deterministic controls, not filters: least-privilege tool permissions, human approval for irreversible actions, strict output handling, and isolation of untrusted content. Filters are probabilistic and attackers routinely bypass them — containment limits what a hijacked model can actually do.</p></details>
+</section>
+
+<div class="moreblock">
+<h2>More from Ingenious AI</h2>
+<ul>
+<li><a href="prompt-heist.html">Prompt Heist &mdash; can you steal the system prompt?</a></li>
+<li><a href="injection-bounty-board.html">Injection Bounty Board &mdash; live injection challenges</a></li>
+<li><a href="prompt-injection-vaccine.html">Prompt Injection Vaccine &mdash; harden your system prompt</a></li>
+<li><a href="gitlab-duo-prompt-injection.html">Case File &mdash; the GitLab Duo prompt injection</a></li>
+<li><a href="wild-prompt-injections.html">Wild Prompt Injections &mdash; real attacks in the wild</a></li>
+<li><a href="security-suite.html">Ingenious AI Security Suite &mdash; all 11 platforms</a></li>
+<li><a href="all-links.html">All free checks &mdash; the full directory</a></li>
+</ul>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Ingenious AI builds 11 AI security platforms &mdash; disclosure compliance, rogue-agent defense, breach hunting, agent oversight, and more.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<div class="share">Share this test:
+<a href="https://x.com/intent/post?text=Prompt%20injection%20test%20%E2%80%94%2010%20questions%2C%20score%2080%25%2B%20and%20embed%20a%20Prompt-Injection%20Tested%20badge&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/prompt-injection-tested-badge.html" target="_blank" rel="noopener">X</a>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/prompt-injection-tested-badge.html" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/prompt-injection-tested-badge.html&title=Prompt%20injection%20self-test%20%E2%80%94%2010%20questions%2C%20earn%20an%20embeddable%20badge" target="_blank" rel="noopener">Reddit</a>
+</div>
+<div class="warnbox"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+</div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script>
+/* Pure logic first (node-testable), DOM wiring guarded at the bottom. */
+var TEST_URL = "https://iceman2050.github.io/ingeniousai-security-checks-mirror/prompt-injection-tested-badge.html";
+var BADGE_IMG = "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22260%22%20height%3D%2284%22%20viewBox%3D%220%200%20260%2084%22%3E%3Crect%20x%3D%221%22%20y%3D%221%22%20width%3D%22258%22%20height%3D%2282%22%20rx%3D%2212%22%20fill%3D%22%230d1420%22%20stroke%3D%22%233fb950%22%20stroke-width%3D%222%22%2F%3E%3Ccircle%20cx%3D%2234%22%20cy%3D%2242%22%20r%3D%2217%22%20fill%3D%22%230d2a1a%22%20stroke%3D%22%233fb950%22%20stroke-width%3D%222%22%2F%3E%3Cpath%20d%3D%22M26%2042%20l6%206%20l12%20-13%22%20fill%3D%22none%22%20stroke%3D%22%233fb950%22%20stroke-width%3D%223.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3Ctext%20x%3D%2258%22%20y%3D%2238%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%20fill%3D%22%23ffffff%22%3EPROMPT-INJECTION%3C%2Ftext%3E%3Ctext%20x%3D%2258%22%20y%3D%2258%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%20fill%3D%22%237ee787%22%3ETESTED%20%E2%9C%93%3C%2Ftext%3E%3Ctext%20x%3D%2258%22%20y%3D%2272%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%229%22%20fill%3D%22%239aa7b8%22%3ESELF-ASSESSED%20%C2%B7%20INGENIOUS%20AI%3C%2Ftext%3E%3C%2Fsvg%3E";
+var CONTROLS = [
+  { q: "Do you validate and sanitize user input before it reaches the model?",
+    fix: "Add input validation: length limits, character allow-lists where possible, and detection of known jailbreak prefixes (e.g. 'ignore previous instructions'). Validation won't stop everything, but it raises the cost of casual attacks." },
+  { q: "Is your system prompt separated from user input with clear delimiters, and hardened against extraction?",
+    fix: "Use strict role separation (system vs user), delimit user content clearly, and train refusal responses for extraction attempts like 'reveal your instructions'. Never rely on 'please don't tell anyone' alone." },
+  { q: "Do you defend against INDIRECT injection \u2014 malicious instructions hidden in webpages, documents, or tool outputs your chatbot reads?",
+    fix: "Treat everything the model reads as untrusted data, never as instructions. Tag tool/web content with its source, strip imperative language where feasible, and sandbox browsing agents. Indirect attacks are now the majority \u2014 this is the control most teams miss." },
+  { q: "Do you filter or review model outputs before they trigger actions or reach users?",
+    fix: "Add an output layer: blocklist/allowlist checks on tool-call arguments, PII redaction, and policy review before any outbound message or action executes." },
+  { q: "Do the tools and APIs your chatbot can call run with least-privilege permissions?",
+    fix: "Scope every tool to the minimum it needs: read-only where possible, narrow allowlists, no admin tokens in the agent's reach. A hijacked model can only do what its tools permit." },
+  { q: "Do irreversible actions (payments, deletions, outbound emails) require human approval?",
+    fix: "Gate every irreversible action behind explicit human approval with the full action details shown. This single control converts most successful injections from breaches into near-misses." },
+  { q: "Do you log and monitor for injection attempts?",
+    fix: "Log prompts and tool calls; alert on injection signatures ('ignore previous instructions', role-play overrides, base64 blobs in user input). Review attempts weekly \u2014 attackers probe before they strike." },
+  { q: "Have you red-teamed your chatbot with adversarial prompts in the last 6 months?",
+    fix: "Run structured adversarial testing: direct jailbreaks, indirect payloads in documents the bot reads, and multi-turn manipulation. Re-test after every major prompt or model change." },
+  { q: "Is untrusted content isolated from privileged context?",
+    fix: "Never paste tool output or retrieved documents into system-level context. Keep a hard boundary: privileged instructions in one channel, untrusted content clearly labeled in another." },
+  { q: "Do you have an incident response playbook for a successful injection?",
+    fix: "Write the playbook before you need it: who can kill-switch the bot, how to revoke tool credentials, how to notify affected users, and when to disclose. Test it with a tabletop exercise." }
+];
+var PASS_PCT = 80;
+function runAssessment(answers){
+  var total = 0;
+  for (var i = 0; i < CONTROLS.length; i++) total += (answers[i] || 0);
+  var pct = Math.round(total / (CONTROLS.length * 2) * 100);
+  var pass = pct >= PASS_PCT;
+  var weak = [];
+  for (var j = 0; j < CONTROLS.length; j++) {
+    if ((answers[j] || 0) < 2) weak.push({ question: CONTROLS[j].q, fix: CONTROLS[j].fix, score: (answers[j] || 0) });
+  }
+  weak.sort(function(a, b){ return a.score - b.score; });
+  return { total: total, max: CONTROLS.length * 2, pct: pct, pass: pass, weak: weak };
+}
+function badgeSnippet(){
+  return '<a href="' + TEST_URL + '" title="Our chatbot passed a prompt-injection self-assessment \u2014 see the test (self-assessed, not an independent certification)">' +
+    '<img src="' + BADGE_IMG + '" alt="Prompt-Injection Tested \u2014 self-assessed by Ingenious AI" style="border:0;max-width:260px"></a>';
+}
+function badgePreviewHtml(){
+  return '<a href="' + TEST_URL + '"><img src="' + BADGE_IMG + '" alt="Prompt-Injection Tested \u2014 self-assessed by Ingenious AI" style="border:0;max-width:260px"></a>';
+}
+/* DOM wiring (browser only) */
+if (typeof window !== "undefined" && typeof document !== "undefined" && document.getElementById) {
+  (function(){
+    var quiz = document.getElementById("quiz");
+    var state = new Array(CONTROLS.length).fill(null);
+    var labels = [["Yes", 2], ["Partial", 1], ["No", 0]];
+    CONTROLS.forEach(function(c, ci){
+      var box = document.createElement("div");
+      box.className = "q";
+      var html = "<h3>" + (ci + 1) + ". " + c.q + "</h3>" + '<div class="trio">';
+      labels.forEach(function(l){
+        html += '<button data-q="' + ci + '" data-v="' + l[1] + '">' + l[0] + "</button>";
+      });
+      box.innerHTML = html + "</div>";
+      quiz.appendChild(box);
+    });
+    quiz.addEventListener("click", function(e){
+      var b = e.target.closest("button");
+      if (!b || !b.hasAttribute("data-q")) return;
+      var qi = +b.getAttribute("data-q");
+      state[qi] = +b.getAttribute("data-v");
+      var btns = b.parentElement.querySelectorAll("button");
+      for (var i = 0; i < btns.length; i++) btns[i].classList.remove("sel");
+      b.classList.add("sel");
+    });
+    document.getElementById("scoreBtn").addEventListener("click", function(){
+      var answers = state.map(function(s){ return s === null ? 0 : s; });
+      var r = runAssessment(answers);
+      var num = document.getElementById("scoreNum");
+      num.textContent = r.pct + "%";
+      num.style.color = r.pass ? "#3fb950" : (r.pct >= 50 ? "#d29922" : "#f85149");
+      document.getElementById("verdict").textContent = r.pass
+        ? "Strong declared defenses \u2014 you've earned the badge below. Keep it honest: it's a self-assessment, and real red-teaming is the next level."
+        : "Not yet badge-ready. Work through the prioritized fixes below \u2014 each control you close is a real reduction in injection risk.";
+      var bb = document.getElementById("badgeBox");
+      if (r.pass) {
+        document.getElementById("badgePreview").innerHTML = badgePreviewHtml();
+        document.getElementById("embedCode").value = badgeSnippet();
+        bb.classList.add("show");
+      } else { bb.classList.remove("show"); }
+      var fx = document.getElementById("fixes");
+      document.getElementById("fixHead").style.display = r.weak.length ? "block" : "none";
+      fx.innerHTML = r.weak.map(function(w){
+        return '<div class="fix"><strong>' + w.question + '</strong><p>' + w.fix + "</p></div>";
+      }).join("");
+      document.getElementById("result").classList.add("show");
+      document.getElementById("result").scrollIntoView({ behavior: "smooth" });
+    });
+    document.getElementById("copyEmbed").addEventListener("click", function(){
+      var ta = document.getElementById("embedCode");
+      ta.select();
+      function done(btn){ btn.textContent = "Copied!"; setTimeout(function(){ btn.textContent = "Copy embed code"; }, 1500); }
+      var btn = this;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(ta.value).then(function(){ done(btn); }, function(){ document.execCommand("copy"); done(btn); });
+      } else { document.execCommand("copy"); done(btn); }
+    });
+    document.getElementById("retakeBtn").addEventListener("click", function(){
+      quiz.querySelectorAll("button.sel").forEach(function(x){ x.classList.remove("sel"); });
+      state.fill(null);
+      document.getElementById("result").classList.remove("show");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  })();
+}
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
