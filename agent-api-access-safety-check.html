@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Agent Safe API Access Check — Is Your Agent's API Access Safe?</title>
+<meta name="description" content="Giving an AI agent direct access to your internal API breaks security and auditability. The three rules for safe agent API access — gateway, named principal, server-side validation — plus a free 5-question safety check.">
+<meta property="og:title" content="AI Agent Safe API Access Check — Is Your Agent's API Access Safe?">
+<meta property="og:description" content="Three rules keep AI agents from becoming an un-auditable hole in your internal API. Free 5-question safety check, no signup.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_card">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-api-access-safety-check.html">
+<link rel="stylesheet" href="ecosystem.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Why is giving an AI agent direct API access dangerous?","acceptedAnswer":{"@type":"Answer","text":"Because a shared bot token destroys auditability — logs say 'the bot' did it, not which person asked. The model may send raw queries, results can carry secrets into the next prompt, and there is no record of which tool ran for whom."}},
+{"@type":"Question","name":"What is a principal in agent API access?","acceptedAnswer":{"@type":"Answer","text":"A principal is the identity the API records and authorizes — a person who asked, or a service account for a scheduled job. 'The bot' is not a principal: it cannot be granted, revoked, or explained in an audit."}},
+{"@type":"Question","name":"What are the three rules for safe agent API access?","acceptedAnswer":{"@type":"Answer","text":"(1) The assistant calls a gateway, not the MCP server directly — one front door for login, limits, and logs. (2) Every call runs as a named principal, never one shared token. (3) Your code validates input on the server — the model sends what it wants, but allowlists and caps decide what runs."}},
+{"@type":"Question","name":"Why must you never expose a generic HTTP proxy tool to an AI agent?","acceptedAnswer":{"@type":"Answer","text":"A pass-through tool (method + path + body) hands the model the whole API. Publish a short list of named functions instead, each validated server-side."}},
+{"@type":"Question","name":"Is a demo gateway enough for production?","acceptedAnswer":{"@type":"Answer","text":"No. A tutorial gateway does not check everything — real deployments need identity providers and full audit trails."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap" style="max-width:760px;margin:0 auto;padding:24px 18px;font-family:system-ui,-apple-system,sans-serif;color:#e8edf3;background:#0a0e14">
+<p class="kicker" style="color:#6ea8fe;font-size:13px;letter-spacing:2px">INGENIOUS AI — SECURITY CHECK</p>
+<h1 style="color:#fff;font-size:30px;line-height:1.25">AI Agent Safe API Access Check — Is Your Agent's API Access Safe?</h1>
+<p class="lead" style="color:#9aa7b8;font-size:17px;line-height:1.7">It is Friday afternoon and someone wires the team's AI assistant straight into the internal API. One shared token on every laptop. The model writes its own database queries. The logs just say <strong>"the bot"</strong> did it. On Monday, nobody can explain who pulled the customer list — or why. This free 60-second check tells you whether your agent's API access would survive an audit. No signup, nothing installed.</p>
+
+<h2 style="color:#fff;font-size:22px;margin-top:32px">The failure story: why direct API access breaks</h2>
+<div class="card" style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:18px 20px;margin:12px 0">
+<ul style="color:#9aa7b8;font-size:15px;line-height:1.8;margin:0;padding-left:20px">
+<li><strong style="color:#e8edf3">Shared tokens kill accountability.</strong> One long-lived token across every laptop means the audit log says "the bot" — never which person asked, and never an answer you can defend.</li>
+<li><strong style="color:#e8edf3">The model can send raw queries.</strong> Left unsupervised, an agent can fire arbitrary queries or call generic <code>http_request</code> proxy tools that give it the whole API surface.</li>
+<li><strong style="color:#e8edf3">URLs may not require login.</strong> If the API is reachable on URLs with no authentication, the agent is the least of your problems — but it will find them.</li>
+<li><strong style="color:#e8edf3">Tool results can smuggle secrets.</strong> What an API returns can carry secrets straight into the next prompt the model sees.</li>
+<li><strong style="color:#e8edf3">No record of which tool ran for whom.</strong> Without per-call attribution, you cannot reconstruct what happened after an incident.</li>
+</ul>
+</div>
+
+<h2 style="color:#fff;font-size:22px;margin-top:32px">"The bot" is not a principal</h2>
+<div class="card" style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:18px 20px;margin:12px 0">
+<p style="color:#9aa7b8;font-size:15px;line-height:1.7;margin:0 0 10px">A <strong style="color:#e8edf3">principal</strong> is the identity your API records and authorizes: a person who asked, or a service account for an overnight job. It can be granted, revoked, and explained in an audit. "The bot" can do none of those things. And chat-window OAuth proves who opened the chat — <strong style="color:#e8edf3">not</strong> which account each API call belongs to.</p>
+</div>
+
+<h2 style="color:#fff;font-size:22px;margin-top:32px">The three rules, in plain language</h2>
+<div class="card" style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:18px 20px;margin:12px 0">
+<ol style="color:#9aa7b8;font-size:15px;line-height:1.9;margin:0;padding-left:20px">
+<li><strong style="color:#e8edf3">The assistant calls a gateway — never the MCP server directly.</strong> The server sits on a URL only the gateway uses. Login, rate limits, and logs get one front door, and the model never touches the raw server.</li>
+<li><strong style="color:#e8edf3">Every call runs as a named principal.</strong> No shared token passed around the team. Each request is attributable to a person or a service account, every time.</li>
+<li><strong style="color:#e8edf3">The model sends what it wants — your code builds the search.</strong> Server-side validation (keyword allowlists, owner allowlists, result caps) decides what actually runs. "Be careful" in a prompt is just text; the server is the thing that must refuse.</li>
+</ol>
+</div>
+
+<h3 style="color:#ffb454;font-size:17px;margin-top:24px">Never expose a generic pass-through tool</h3>
+<div class="card" style="background:#1a1409;border:1px solid #4d3a14;border-radius:10px;padding:18px 20px;margin:12px 0">
+<p style="color:#d9c9a3;font-size:15px;line-height:1.7;margin:0">A tool that takes <code>method + path + body</code> and forwards it to the API hands the model the entire API. Publish a short list of <strong>named functions</strong> instead — each one doing exactly one job, each one validated server-side.</p>
+</div>
+
+<h3 style="color:#fff;font-size:17px;margin-top:24px">Honest limits — read this part</h3>
+<div class="card" style="background:#141a24;border:1px solid #232b38;border-radius:10px;padding:18px 20px;margin:12px 0">
+<ul style="color:#9aa7b8;font-size:15px;line-height:1.8;margin:0;padding-left:20px">
+<li>A tutorial demo gateway does <strong style="color:#e8edf3">not</strong> check everything. Real deployments need identity providers and full audit trails.</li>
+<li>Prompt instructions are guidance, not security boundaries. Enforcement lives in code.</li>
+<li>This page summarizes the tutorial's architecture; it is not legal or compliance advice for your specific deployment.</li>
+<li>Source: Harish, "How to Give an AI Agent Safe Access to an Internal API with MCP", freeCodeCamp, 2026 (summarized, not quoted).</li>
+</ul>
+</div>
+
+<h2 style="color:#fff;font-size:22px;margin-top:32px">Frequently asked questions</h2>
+<div class="card" style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:18px 20px;margin:12px 0">
+<details style="margin:8px 0"><summary style="font-weight:700;color:#fff;cursor:pointer">Why is giving an AI agent direct API access dangerous?</summary><p style="color:#9aa7b8;font-size:15px;line-height:1.6">A shared bot token destroys auditability — logs say "the bot" did it, not which person asked. The model may send raw queries, results can carry secrets into the next prompt, and there is no record of which tool ran for whom.</p></details>
+<details style="margin:8px 0"><summary style="font-weight:700;color:#fff;cursor:pointer">What is a principal?</summary><p style="color:#9aa7b8;font-size:15px;line-height:1.6">The identity the API records and authorizes — a person who asked, or a service account for a scheduled job. "The bot" is not a principal: it cannot be granted, revoked, or explained in an audit.</p></details>
+<details style="margin:8px 0"><summary style="font-weight:700;color:#fff;cursor:pointer">What are the three rules for safe agent API access?</summary><p style="color:#9aa7b8;font-size:15px;line-height:1.6">Call a gateway, not the MCP server directly; run every call as a named principal; validate input on the server — the model proposes, your code disposes.</p></details>
+<details style="margin:8px 0"><summary style="font-weight:700;color:#fff;cursor:pointer">Why not expose a generic HTTP proxy tool?</summary><p style="color:#9aa7b8;font-size:15px;line-height:1.6">A pass-through tool (method + path + body) hands the model the whole API. Publish a short list of named functions instead, each validated server-side.</p></details>
+<details style="margin:8px 0"><summary style="font-weight:700;color:#fff;cursor:pointer">Is a demo gateway enough for production?</summary><p style="color:#9aa7b8;font-size:15px;line-height:1.6">No. A tutorial gateway does not check everything — real deployments need identity providers and full audit trails.</p></details>
+</div>
+
+<h2 style="color:#fff;font-size:22px;margin-top:32px">The 5-question check: is your agent's API access safe?</h2>
+<div id="quiz"></div>
+<button onclick="grade()" style="background:#1c6ef2;color:#fff;border:none;padding:12px 28px;border-radius:8px;font-weight:bold;font-size:15px;cursor:pointer;margin-top:8px">Check my setup</button>
+<div id="result" style="margin-top:14px;font-weight:700;color:#fff;font-size:16px"></div>
+
+<h2 style="color:#fff;font-size:22px;margin-top:32px">Honest scope</h2>
+<div class="card" style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:18px 20px;margin:12px 0">
+<ul style="color:#9aa7b8;font-size:14px;line-height:1.8;margin:0;padding-left:20px">
+<li>This page summarizes Harish's freeCodeCamp tutorial architecture; it is not legal or compliance advice.</li>
+<li>The demo gateway in the tutorial does not check everything — production needs identity providers and audit trails.</li>
+<li>The quiz is a self-assessment, not a penetration test. It checks your design against the three rules.</li>
+</ul>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#fff;text-decoration:underline">Agent Auth Gateway</a> is built for exactly this: named principals, allowlists and denylists, an approval queue, budget caps, and a kill switch — the gateway your agents should call instead of your API directly.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20AI%20agent%20safe%20API%20access%20check%20and%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+</div>
+<script>
+var QUESTIONS=[
+{q:"Do your agents call a gateway or broker instead of hitting the MCP server directly?",good:true},
+{q:"Does every API call run as a named principal (a person or service account), not a shared bot token?",good:true},
+{q:"Is user input validated on the server (allowlists, caps, regexes) — not just 'be careful' in the prompt?",good:true},
+{q:"Is there a generic pass-through tool (method + path + body) exposed to the model?",good:false},
+{q:"Does your tool-call audit log record which tool ran, for whom, and when?",good:true}
+];
+function render(){
+var h="";
+for(var i=0;i<QUESTIONS.length;i++){
+h+='<div class="q" style="margin:14px 0"><p style="color:#e8edf3;font-size:15px">'+(i+1)+'. '+QUESTIONS[i].q+'</p><label style="color:#9aa7b8;margin-right:18px"><input type="radio" name="q'+i+'" value="yes"> Yes</label><label style="color:#9aa7b8"><input type="radio" name="q'+i+'" value="no"> No</label></div>';
+}
+document.getElementById("quiz").innerHTML=h;
+}
+function grade(){
+var score=0,answered=0;
+for(var i=0;i<QUESTIONS.length;i++){
+var sel=document.querySelector('input[name="q'+i+'"]:checked');
+if(!sel)continue;
+answered++;
+var yes=(sel.value==="yes");
+if((yes&&QUESTIONS[i].good)||(!yes&&!QUESTIONS[i].good))score++;
+}
+var r=document.getElementById("result");
+if(answered<QUESTIONS.length){r.textContent="Answer all 5 questions first.";return;}
+var msg=score===5?"5/5 — Your agent's API access follows the three rules. Keep the audit trail warm.":score>=3?score+"/5 — Mostly covered. Close the gaps above, starting with the named principal.":score+"/5 — Your agent's API access would not survive an audit. Start with the gateway.";
+r.textContent=msg;
+}
+render();
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
