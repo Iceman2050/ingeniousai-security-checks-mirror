@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html data-primary-keyword="ai reasoning" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Reasoning Test: Can You Beat the Pattern-Matching LLM?</title>
+<meta name="description" content="Take the AI reasoning test: a twisted surgeon riddle that LLMs fail by pattern-matching to memorized answers. Try it yourself, then test any AI model.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/llm-pattern-matching-riddle-test.html">
+<meta property="og:title" content="AI Reasoning Test: Can You Beat the Pattern-Matching LLM?">
+<meta property="og:description" content="A twisted surgeon riddle that AI models answer wrong — even when the answer is stated in the question. Try it before you scroll.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/llm-pattern-matching-riddle-test.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Reasoning Test: Can You Beat the Pattern-Matching LLM?">
+<meta name="twitter:description" content="A twisted surgeon riddle that AI models answer wrong — even when the answer is stated in the question.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:820px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}
+a{color:#7cc4ff}.riddle-box{background:#1a1e27;border:2px solid #ffd166;border-radius:10px;padding:1.4rem;margin:1.5rem 0}
+.riddle-box p{font-size:1.05rem}.opt{display:block;background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.7rem 1rem;margin:.5rem 0;cursor:pointer;width:100%;text-align:left;color:#e8e8e8;font-size:1rem}
+.opt:hover{border-color:#ffd166}.opt.picked{border-color:#7cc4ff;background:#24304a}
+.opt.correct{border-color:#4ade80;background:#14301f}.opt.wrong{border-color:#f87171;background:#3a1a1a}
+#reveal{display:none;background:#141a26;border-left:4px solid #4ade80;padding:1rem 1.2rem;margin-top:1rem;border-radius:0 8px 8px 0}
+.btn{background:#ffd166;color:#111;border:none;border-radius:8px;padding:.7rem 1.4rem;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.6rem}
+.promptbox{background:#101319;border:1px dashed #7cc4ff;border-radius:8px;padding:1rem;white-space:pre-wrap;font-family:ui-monospace,monospace;font-size:.92rem;margin:1rem 0}
+.quiz-q{background:#1a1e27;border-radius:8px;padding:1rem;margin:1rem 0}
+.quiz-q .opt{font-size:.95rem}#quiz-result{font-weight:700;margin-top:1rem;font-size:1.1rem}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}.warnbox{background:#2a1f14;border:1px solid #b97c2e;border-radius:8px;padding:.8rem 1rem;margin:1.2rem 0;font-size:.95rem}
+.meta{color:#9aa3b2;font-size:.85rem}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"AI Reasoning Test: Can You Beat the Pattern-Matching LLM?","author":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-18","description":"An interactive AI reasoning test: a twisted surgeon riddle that LLMs fail by pattern-matching to memorized answers."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is pattern matching in AI?","acceptedAnswer":{"@type":"Answer","text":"Pattern matching in AI is when a language model completes a prompt by reaching for the most frequent similar pattern in its training data instead of working through the logic step by step. Because LLMs predict the next token based on learned statistics, a familiar phrasing can pull the response toward the common version even when the details in front of it say something different."}},
+{"@type":"Question","name":"Why did the AI say \u201cthe mother\u201d when the story said \u201cfather\u201d?","acceptedAnswer":{"@type":"Answer","text":"The classic surgeon riddle — where the surgeon is the mother — appears millions of times in training data. When the model sees the riddle's familiar shape, the high-frequency memorized completion ('the surgeon is the mother') can overpower the actual words in the prompt. Frequency beat reasoning in that moment."}},
+{"@type":"Question","name":"Does this prove AI cannot reason?","acceptedAnswer":{"@type":"Answer","text":"No. This is a demonstration of a known evaluation phenomenon — training-data contamination and memorization competing with reasoning — not a benchmark score. Models and versions differ, phrasing matters, and a single riddle shows pattern influence, not an inability to reason."}},
+{"@type":"Question","name":"How can I test my own AI model with this riddle?","acceptedAnswer":{"@type":"Answer","text":"Copy the prompt from the 'test any LLM yourself' section on this page and paste it into any AI chatbot. Ask it to answer in one sentence, then try small variations — change the wording, reorder the facts — and watch whether the answer tracks your words or snaps back to the famous version."}},
+{"@type":"Question","name":"What should I do differently when using AI for important decisions?","acceptedAnswer":{"@type":"Answer","text":"Treat fluent AI answers as drafts, not verdicts: verify high-stakes outputs against independent sources, rephrase critical questions to break familiar patterns, and ask the model to show its working so you can check the logic instead of trusting the confident tone."}}
+]}
+</script>
+</head>
+<body>
+<p class="meta"><time datetime="2026-10-18">October 18, 2026</time> · Interactive test · Ingenious AI</p>
+<h1>AI Reasoning Test: Can You Beat the Pattern-Matching LLM?</h1>
+<p><strong>Stop. Try the riddle before you scroll.</strong> Below is a real AI reasoning test demonstrated by physicist Adam Brown (Perimeter Institute): a twisted version of the famous surgeon riddle, fed to large language models. The models got it wrong — <em>even though the answer was stated in the question.</em> Read carefully, pick your answer, and see whether you can out-reason the pattern-matching machine.</p>
+
+<div class="riddle-box" id="riddle">
+<h2 style="margin-top:0">The riddle</h2>
+<p>A mother and her young son are in a serious car crash. The mother dies at the scene. The boy is rushed to the hospital and prepped for emergency surgery. The surgeon walks into the operating room — <strong>the surgeon is the boy's father</strong> — looks at the child on the table and says: <em>"I cannot operate on this boy. He is my son."</em></p>
+<p><strong>Who is the surgeon?</strong></p>
+<button class="opt" data-v="mother">A) The boy's mother</button>
+<button class="opt" data-v="father">B) The boy's father</button>
+<button class="opt" data-v="paradox">C) Nobody — it's a paradox, it's impossible</button>
+<button class="btn" id="check-answer">Reveal the answer</button>
+<div id="reveal">
+<p><strong>The surgeon is the boy's father.</strong> The story says so, plainly, in the question itself. There is no paradox.</p>
+<p>If you answered "the mother," you did exactly what the AI did: you pattern-matched. The <em>classic</em> version of this riddle — father dies, surgeon says "he's my son," answer: the mother — is one of the most repeated texts on the internet. Its shape is so familiar that both humans and language models snap to it, overriding the words actually in front of them.</p>
+<p>Here is the striking part of Brown's demonstration: the models were given the twisted version with the father <strong>explicitly identified</strong>, and still answered "the mother." The high-frequency memorized completion beat the explicit facts. That is pattern matching defeating reasoning, live.</p>
+</div>
+</div>
+<script>
+(function(){
+var picked=null,answered=false;
+var opts=document.querySelectorAll('#riddle .opt[data-v]');
+opts.forEach(function(b){b.addEventListener('click',function(){
+if(answered)return;opts.forEach(function(x){x.classList.remove('picked')});b.classList.add('picked');picked=b.getAttribute('data-v');});});
+document.getElementById('check-answer').addEventListener('click',function(){
+if(answered)return;answered=true;
+opts.forEach(function(x){var v=x.getAttribute('data-v');
+if(v==='father')x.classList.add('correct');else if(v===picked)x.classList.add('wrong');});
+document.getElementById('reveal').style.display='block';
+document.getElementById('reveal').scrollIntoView({behavior:'smooth',block:'nearest'});});
+})();
+</script>
+<h2>Why it happens: frequency vs reasoning</h2>
+<p>Large language models generate text by predicting the most likely next token given everything before it. "Most likely" is learned from training data — and the classic surgeon riddle is everywhere: textbooks, puzzle sites, diversity-training slides, social media. When the model encounters the riddle's familiar shape, the statistical pull of the memorized completion is enormous. The explicit detail ("the surgeon is the boy's father") is one sentence; the memorized pattern is millions of examples. Frequency wins.</p>
+<p>Researchers call the broader phenomenon <strong>training-data contamination</strong>: when an evaluation looks like something the model has seen, you may be measuring memorization, not reasoning. Change one key detail — as Brown did — and the mask slips. This is why serious AI evaluations now use novel, held-out problems: familiar phrasing is a cheat code.</p>
+
+<h2>What is pattern matching in AI?</h2>
+<p><strong>What is pattern matching in AI?</strong> Pattern matching in AI is when a language model completes a prompt by reaching for the most frequent similar pattern in its training data instead of working through the logic step by step. Because LLMs predict the next token from learned statistics, a familiar phrasing can drag the answer toward the common version even when the words on the page say something different. It is not lying and it is not stupidity — it is the mechanism working exactly as trained, on an input designed to expose it.</p>
+<div class="warnbox"><strong>Honest scope:</strong> this page demonstrates a well-known evaluation phenomenon, not a benchmark score. Models and versions differ, phrasing matters, and a single riddle shows pattern influence — it does not prove any model "can't reason." Brown himself frames it as a signature of training, not an insuperable weakness.</div>
+
+<h2>Test any LLM yourself</h2>
+<p>Copy the prompt below, paste it into any AI chatbot, and ask for a one-sentence answer. Then try variations: reword it, reorder the facts, change "surgeon" to "pilot." Watch whether the answer tracks <em>your</em> words or snaps back to the famous version.</p>
+<div class="promptbox">Here's a riddle. Read it carefully and answer in one sentence:
+
+A mother and her young son are in a serious car crash. The mother dies at the scene. The boy is rushed to the hospital. The surgeon — the boy's father — walks in, looks at the child, and says: "I cannot operate on this boy. He is my son."
+
+Who is the surgeon?</div>
+<button class="btn" id="copy-prompt">Copy prompt</button>
+<script>
+document.getElementById('copy-prompt').addEventListener('click',function(){
+var t=document.querySelector('.promptbox').innerText;
+if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){alert('Prompt copied — paste it into any AI chatbot.');});}
+else{alert('Copy the text from the box above.');}});
+</script>
+
+<h2>What this AI reasoning demo means for trusting AI answers</h2>
+<p>The riddle is a toy, but the mechanism is not. The same frequency-over-reasoning pull operates whenever you ask an AI about anything with a famous, oft-repeated answer shape: common misconceptions, widely copied explanations, viral "facts." The model's confidence tells you about <em>fluency</em>, not accuracy. Three habits blunt the effect:</p>
+<ul>
+<li><strong>Rephrase critical questions</strong> in novel, specific wording to break familiar patterns.</li>
+<li><strong>Ask for the working</strong> — "show each step" — so you can audit the logic instead of trusting the tone.</li>
+<li><strong>Verify high-stakes outputs</strong> against independent sources. A fluent answer is a draft, not a verdict.</li>
+</ul>
+
+<h2>Quiz: can you spot pattern-matching failures?</h2>
+<div id="quiz">
+<div class="quiz-q" data-a="1"><p><strong>1.</strong> An AI confidently describes details of a 2026 event that never happened. Most likely cause?</p>
+<button class="opt" data-v="0">It is deliberately lying to you</button>
+<button class="opt" data-v="1">Pattern completion: it generated the most statistically likely continuation</button>
+<button class="opt" data-v="0">Its knowledge cutoff is too old</button></div>
+<div class="quiz-q" data-a="1"><p><strong>2.</strong> You rephrase a math word problem with new names and numbers, and the model returns the <em>old</em> problem's answer. What happened?</p>
+<button class="opt" data-v="0">The model cannot do math at all</button>
+<button class="opt" data-v="1">It pattern-matched to the frequent original version</button>
+<button class="opt" data-v="0">You typed the question wrong</button></div>
+<div class="quiz-q" data-a="2"><p><strong>3.</strong> Which prompt is <em>least</em> likely to trigger a memorized answer?</p>
+<button class="opt" data-v="0">A famous riddle quoted word-for-word</button>
+<button class="opt" data-v="0">A question phrased exactly like a viral post</button>
+<button class="opt" data-v="1">A question with novel, specific, unusual details</button></div>
+<div class="quiz-q" data-a="0"><p><strong>4.</strong> A model nails a famous riddle but fails when one key detail changes. What does this demonstrate?</p>
+<button class="opt" data-v="1">Memorization of the frequent form, not understanding of the logic</button>
+<button class="opt" data-v="0">The model is broken and useless</button>
+<button class="opt" data-v="0">The changed version was unfairly hard</button></div>
+<div class="quiz-q" data-a="2"><p><strong>5.</strong> Best defense when using AI for a high-stakes decision?</p>
+<button class="opt" data-v="0">Ask the same question three times and take the majority answer</button>
+<button class="opt" data-v="0">Use the biggest model available</button>
+<button class="opt" data-v="1">Verify against independent sources; never trust fluency as accuracy</button></div>
+<button class="btn" id="quiz-go">Check my score</button>
+<div id="quiz-result"></div>
+</div>
+<script>
+(function(){
+var answered=false;
+document.querySelectorAll('#quiz .quiz-q .opt').forEach(function(b){
+b.addEventListener('click',function(){if(answered)return;
+var q=b.closest('.quiz-q');q.querySelectorAll('.opt').forEach(function(x){x.classList.remove('picked')});b.classList.add('picked');});});
+document.getElementById('quiz-go').addEventListener('click',function(){
+if(answered)return;answered=true;var score=0,total=0;
+document.querySelectorAll('#quiz .quiz-q').forEach(function(q){total++;
+var correct=parseInt(q.getAttribute('data-a'),10),got=-1;
+q.querySelectorAll('.opt').forEach(function(x,i){if(x.classList.contains('picked'))got=i;});
+if(got===correct){score++;q.querySelectorAll('.opt')[got].classList.add('correct');}
+else{if(got>=0)q.querySelectorAll('.opt')[got].classList.add('wrong');q.querySelectorAll('.opt')[correct].classList.add('correct');}});
+var tier=score===5?'Pattern-breaker: you see through memorized answers.':(score>=3?'Sharp reader: solid instincts — keep rephrasing.':'The pattern got you — scroll back up and try the riddle again.');
+document.getElementById('quiz-result').textContent='You scored '+score+'/'+total+'. '+tier;});
+})();
+</script>
+<noscript><p><em>Enable JavaScript for the interactive riddle and quiz.</em></p></noscript>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What is pattern matching in AI?</summary><p>Pattern matching in AI is when a language model completes a prompt by reaching for the most frequent similar pattern in its training data instead of working through the logic step by step. Because LLMs predict the next token based on learned statistics, a familiar phrasing can pull the response toward the common version even when the details in front of it say something different.</p></details>
+<details><summary>Why did the AI say "the mother" when the story said "father"?</summary><p>The classic surgeon riddle — where the surgeon is the mother — appears millions of times in training data. When the model sees the riddle's familiar shape, the high-frequency memorized completion ("the surgeon is the mother") can overpower the actual words in the prompt. Frequency beat reasoning in that moment.</p></details>
+<details><summary>Does this prove AI cannot reason?</summary><p>No. This is a demonstration of a known evaluation phenomenon — training-data contamination and memorization competing with reasoning — not a benchmark score. Models and versions differ, phrasing matters, and a single riddle shows pattern influence, not an inability to reason.</p></details>
+<details><summary>How can I test my own AI model with this riddle?</summary><p>Copy the prompt from the "test any LLM yourself" section on this page and paste it into any AI chatbot. Ask it to answer in one sentence, then try small variations — change the wording, reorder the facts — and watch whether the answer tracks your words or snaps back to the famous version.</p></details>
+<details><summary>What should I do differently when using AI for important decisions?</summary><p>Treat fluent AI answers as drafts, not verdicts: verify high-stakes outputs against independent sources, rephrase critical questions to break familiar patterns, and ask the model to show its working so you can check the logic instead of trusting the confident tone.</p></details>
+
+<div class="xlinks"><strong>Related checks</strong><ul>
+<li><a href="ai-critical-thinking-check.html">AI Critical Thinking Check</a> — can you think more clearly than the machine?</li>
+<li><a href="ai-self-audit-fallacy-check.html">AI Self-Audit Fallacy Check</a> — why asking AI to check itself fails</li>
+<li><a href="llm-inference-engine-picker.html">LLM Inference Engine Picker</a> — choose the right model for the job</li>
+</ul></div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
