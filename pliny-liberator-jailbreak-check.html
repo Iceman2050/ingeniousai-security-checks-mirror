@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pliny the Liberator: The Jailbreaker Who Claimed to Break Claude Fable 5 in 48 Hours — AI Jailbreak Check</title>
+<meta name="description" content="Who is Pliny the Liberator? The AI jailbreaker who claimed to break Anthropic's Claude Fable 5 within 48 hours of launch using 'pack hunt' multi-agent tactics — what he claims, how Anthropic responded, and why jailbreaks keep happening.">
+<meta name="keywords" content="pliny the liberator, ai jailbreak, claude fable 5 jailbreak, prompt injection, pack hunt jailbreak, elder_plinius, ai red teaming, llm safety bypass">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/pliny-liberator-jailbreak-check.html">
+<meta property="og:title" content="Pliny the Liberator: The Jailbreaker Who Claimed to Break Claude Fable 5 in 48 Hours">
+<meta property="og:description" content="Claim vs. response: what the most famous AI jailbreaker says he did to Fable 5, what Anthropic says back, and why no guardrail has held yet.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/pliny-liberator-jailbreak-check.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="ecosystem.css">
+<script type="application/ld+json">
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Who is Pliny the Liberator?","acceptedAnswer":{"@type":"Answer","text":"Pliny the Liberator (online handle @elder_plinius) is a pseudonymous, prolific AI jailbreaker named to the TIME 100 Most Influential People in AI. He leads BT6, a white-hat red-teaming collective, has no formal coding background, and publishes 'liberation bulletins' claiming to bypass the safety guardrails of new frontier models — including GPT, Grok, and Claude releases — often within hours of launch."}},
+{"@type":"Question","name":"Did Pliny really jailbreak Claude Fable 5?","acceptedAnswer":{"@type":"Answer","text":"Pliny claims he bypassed Fable 5's safety classifiers within about 48 hours of its June 9, 2026 launch using a coordinated multi-agent tactic he calls a 'pack hunt,' and published what he says is the model's ~120,000-character system prompt. Anthropic pushed back, calling it a 'narrow, non-universal' bypass rather than a complete break of its safety system. Both the claim and the response are reported here as each side stated them."}},
+{"@type":"Question","name":"What is a 'pack hunt' jailbreak?","acceptedAnswer":{"@type":"Answer","text":"As described in reporting on Pliny's claim, a 'pack hunt' uses multiple AI agents with different roles — for example obfuscator, payload generator, and safety-classifier probe — working together so the combined output overwhelms the target model's safety filters, instead of relying on a single clever prompt."}},
+{"@type":"Question","name":"Why can't AI companies stop jailbreaking?","acceptedAnswer":{"@type":"Answer","text":"Security researchers point to three structural reasons: (1) refusal training suppresses harmful tokens but does not delete the underlying knowledge from the model; (2) the input space is effectively infinite — unusual phrasing, leetspeak, or Unicode tricks evade filters trained on ordinary text; (3) models struggle to separate direct user instructions from text they read in documents, emails, or webpages (indirect prompt injection)."}},
+{"@type":"Question","name":"Is it legal to jailbreak an AI model?","acceptedAnswer":{"@type":"Answer","text":"Jailbreaking for independent security research exists in a gray area that varies by jurisdiction and by each provider's terms of service. Using a jailbroken model to produce disallowed content — such as weapons instructions or malware — can violate the law. This page describes publicly reported claims for defensive awareness only and provides no jailbreak instructions."}}
+]}
+</script>
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:860px;margin:0 auto;padding:20px;line-height:1.65;color:#1a1a1a;background:#fff}
+h1{font-size:1.9em;line-height:1.25}
+h2{margin-top:2em;border-bottom:2px solid #e11d48;padding-bottom:6px}
+.hero{background:#fff7ed;border:1px solid #fdba74;border-radius:12px;padding:20px;margin:20px 0}
+.timeline{list-style:none;padding:0}
+.timeline li{margin:12px 0;padding:12px 14px;background:#f8fafc;border-left:4px solid #e11d48;border-radius:0 8px 8px 0}
+.timeline b{color:#e11d48}
+.label{display:inline-block;font-size:.78em;font-weight:700;padding:2px 10px;border-radius:20px;margin-bottom:6px}
+.claim{background:#fef3c7;color:#92400e}
+.response{background:#dbeafe;color:#1e40af}
+.unver{background:#f3f4f6;color:#4b5563}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:16px 0}
+.tcard{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
+.tcard h3{margin-top:0;font-size:1.05em}
+.quiz{background:#f0fdf4;border:1px solid #86efac;border-radius:12px;padding:20px;margin:24px 0}
+.q{margin:16px 0;padding:12px;background:#fff;border-radius:8px;border:1px solid #d1fae5}
+.q p{font-weight:600;margin:0 0 8px}
+.q label{display:block;margin:6px 0;cursor:pointer}
+button{background:#e11d48;color:#fff;border:none;border-radius:8px;padding:12px 26px;font-size:1em;cursor:pointer;margin-top:10px}
+button:hover{background:#be123c}
+#qresult{font-weight:700;margin-top:12px;font-size:1.1em}
+.faq{margin:14px 0}
+.faq summary{font-weight:600;cursor:pointer;padding:8px 0}
+.small{font-size:.85em;color:#555}
+.warn{background:#fef2f2;border:1px solid #fca5a5;border-radius:10px;padding:14px;margin:18px 0}
+</style>
+</head>
+<body>
+
+<h1>Pliny the Liberator: The Jailbreaker Who Claimed to Break Claude Fable 5 in 48 Hours</h1>
+<p class="small">AI Jailbreak Check · Updated October 18, 2026 · Claim-vs-response reporting: what Pliny says vs. what Anthropic says</p>
+
+<div class="hero">
+<p><strong>The short version:</strong> On June 9, 2026, Anthropic launched Claude Fable 5, saying 1,000+ hours of red-teaming had found no universal jailbreak. Pliny the Liberator — the pseudonymous hacker famous for breaking frontier models on launch day — <strong>claims</strong> he bypassed its safety classifiers within about 48 hours using a coordinated multi-agent tactic he calls a <strong>"pack hunt,"</strong> and published what he says is the model's ~120,000-character system prompt. Anthropic <strong>pushed back</strong>, calling it a "narrow, non-universal" bypass. Here is both sides, and why this keeps happening.</p>
+</div>
+
+<h2>Who is Pliny the Liberator?</h2>
+<p>Pliny the Liberator (online handle <strong>@elder_plinius</strong>) is a pseudonymous AI red-teamer named to the <strong>TIME 100 Most Influential People in AI</strong>. Verified facts about him:</p>
+<ul>
+<li>Leads <strong>BT6</strong>, a white-hat red-teaming collective of roughly two dozen operators focused on open AI security research.</li>
+<li>Has <strong>no formal coding background</strong> — his skill is prompt-level intuition about how models behave.</li>
+<li>Publishes <strong>"liberation bulletins"</strong> for new model releases: he claimed to jailbreak OpenAI's GPT-OSS-120b/20b open-weight models <strong>within hours</strong> of their August 7, 2025 launch, despite OpenAI's claims of extensive adversarial training.</li>
+<li>Previously released jailbreaks for GPT-4o-class models and maintains the <strong>CL4R1T4S</strong> GitHub repository collecting extracted system prompts.</li>
+<li>Turned down Anthropic's closed bounty programs, arguing real AI security must happen in the open.</li>
+</ul>
+
+<h2>Timeline: the Fable 5 incident</h2>
+<ul class="timeline">
+<li><b>June 9, 2026 — Launch.</b> Anthropic releases Claude Fable 5, a safety-tuned variant of its restricted Mythos 5 model. High-risk queries (cybersecurity, biology, chemistry, distillation) are routed by classifiers to a weaker fallback model, Claude Opus 4.8. Anthropic says 1,000+ hours of internal and external red-teaming found no universal jailbreak.</li>
+<li><b>June 10, 2026 — Pliny's claim.</b> <span class="label claim">PLINY CLAIMS</span> Pliny announces he has "liberated" Fable 5 using a <strong>pack hunt</strong>: multiple AI agents with different roles (obfuscator, payload generator, classifier probe) probing the model together, combined with Unicode/homoglyph tricks, narrative framing, request decomposition, and long-context smuggling. He publishes what he says is Fable 5's full ~120,000-character system prompt to the CL4R1T4S repository.</li>
+<li><b>Days after — Anthropic's response.</b> <span class="label response">ANTHROPIC RESPONDS</span> Anthropic pushes back, characterizing the bypass as <strong>"narrow, non-universal"</strong> rather than a complete break of its safety system — i.e., a limited hole, not a skeleton key.</li>
+<li><b>June 12–13, 2026 — Government reports.</b> <span class="label unver">REPORTED, NOT CONFIRMED</span> Two secondary outlets report that the U.S. Commerce Department issued an export-control order and Anthropic temporarily restricted the models. This has <strong>not</strong> been confirmed by Anthropic or mainstream press — treat it as uncorroborated.</li>
+</ul>
+
+<h2>How a "pack hunt" supposedly works</h2>
+<div class="card-grid">
+<div class="tcard"><h3>1. Multi-agent probing</h3><p>Instead of one clever prompt, several AI instances take roles — one distracts, one drafts, one tests the classifier — so no single input looks clearly malicious.</p></div>
+<div class="tcard"><h3>2. Unicode / homoglyph tricks</h3><p>Characters that <em>look</em> identical to filters but are <em>different</em> to the model (Cyrillic а vs Latin a) slip past pattern-based classifiers.</p></div>
+<div class="tcard"><h3>3. Narrative framing</h3><p>Wrapping a restricted request in fiction, academic, or hypothetical scenarios — the model answers "the story," which contains the restricted content.</p></div>
+<div class="tcard"><h3>4. Decomposition</h3><p>Splitting one harmful request into innocent-looking pieces across turns, then letting the model reassemble the intent itself.</p></div>
+<div class="tcard"><h3>5. Long-context smuggling</h3><p>Burying the real intent deep in a huge context window, where the safety layer classifies each piece too locally to see the whole plan.</p></div>
+</div>
+<p class="small">Technique descriptions summarize public reporting on Pliny's claims (multiple outlets, June 2026). No jailbreak prompts are reproduced here.</p>
+
+<h2>Why they can't stop it: the three structural reasons</h2>
+<ol>
+<li><strong>Refusal training is a veneer.</strong> Safety fine-tuning teaches the model to <em>suppress</em> harmful tokens — it does not delete the underlying knowledge from the weights. The capability is still in there; the refusal is a thin layer on top.</li>
+<li><strong>The input space is infinite.</strong> Filters are trained on ordinary phrasing. Leetspeak, unusual grammar, homoglyphs, and novel framings are effectively infinite — defenders can't enumerate them all.</li>
+<li><strong>Models can't separate commands from content.</strong> A model that reads your emails, documents, or webpages cannot reliably tell <em>your</em> instructions apart from instructions hidden in the text it reads. This is <a href="prompt-injection-never-solved.html">indirect prompt injection</a> — see also our <a href="wild-prompt-injections.html">wild prompt-injection gallery</a> and our <a href="ai-agent-phishing-sucker-check.html">AI-agent phishing check</a>.</li>
+</ol>
+
+<div class="warn">
+<strong>Defensive takeaway:</strong> If your AI assistant can read email, browse the web, or move money, keep a human in the loop before it acts. Guardrails reduce accidents; they don't make agentic AI safe to leave unsupervised.
+</div>
+
+<h2>Jailbreak Technique Decoder — quiz</h2>
+<div class="quiz">
+<p>Match each attack description to the technique. Test your red-team literacy:</p>
+<div id="quizbox"></div>
+<button onclick="gradeQuiz()">Check my score</button>
+<div id="qresult"></div>
+</div>
+
+<h2>Frequently asked questions</h2>
+<div class="faq">
+<details><summary>Who is Pliny the Liberator?</summary><p>A pseudonymous AI jailbreaker (@elder_plinius), named to the TIME 100 Most Influential People in AI, who leads the BT6 red-teaming collective and publicly claims to bypass new models' guardrails within hours or days of launch.</p></details>
+<details><summary>Did Pliny really jailbreak Claude Fable 5?</summary><p>Pliny claims he did, within ~48 hours of the June 9, 2026 launch, and published a purported 120,000-character system prompt. Anthropic responded that the bypass was "narrow, non-universal." The full truth is disputed — both sides' statements are reported above as stated.</p></details>
+<details><summary>What is a "pack hunt" jailbreak?</summary><p>Per reporting on Pliny's claim: multiple AI agents with different roles (obfuscator, payload generator, classifier probe) probing a target model together so the combined output overwhelms its safety filters.</p></details>
+<details><summary>Why can't AI companies stop jailbreaking?</summary><p>Three structural reasons: refusal training suppresses rather than removes knowledge; the input space is effectively infinite; and models can't reliably separate user instructions from instructions hidden in content they read (indirect prompt injection).</p></details>
+<details><summary>Is jailbreaking AI models legal?</summary><p>It sits in a gray area varying by jurisdiction and provider terms. Using jailbroken outputs for weapons, malware, or fraud can be illegal. This page is defensive-awareness content only — no jailbreak instructions are provided.</p></details>
+</div>
+
+<p><strong>FEATURED — ChatBreaker:</strong> <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker.">ChatBreaker stress-tests your AI assistants against jailbreak and prompt-injection attacks — so Pliny-style bypasses get found by you, not by attackers.</a></p>
+
+<p><strong>FROM INGENIOUS AI — all 11 platforms:</strong>
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard.">DisclosureGuard</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder.">ModelMinder</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch.">TermsWatch</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit.">Vibe-Code Audit</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense.">Rogue-Agent Defense</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter.">BreachHunter</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker.">ChatBreaker</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder.">Agent Flight Recorder</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway.">Agent Auth Gateway</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard.">DomainGuard</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI.">ContentCraft AI</a>
+</p>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script>
+/* Quiz: technique decoder — one correct option per question (correct:true) */
+var QUESTIONS=[
+{q:"Several AI agents split roles — one distracts the filter, one drafts the payload, one probes the classifier — so no single input looks malicious. Which technique is this?",opts:["Homoglyph tricks","Pack hunt","Narrative framing","Decomposition"],correct:1},
+{q:"The prompt uses Cyrillic 'а' where the filter expects Latin 'a'. The model reads it fine; the filter never matches. Which technique is this?",opts:["Long-context smuggling","Decomposition","Homoglyph tricks","Pack hunt"],correct:2},
+{q:"A restricted chemistry question is wrapped inside a fictional story about a novelist researching a thriller. Which technique is this?",opts:["Narrative framing","Homoglyph tricks","Pack hunt","Long-context smuggling"],correct:0},
+{q:"One harmful request is split into five innocent-looking questions across five turns; the model reassembles the intent itself. Which technique is this?",opts:["Narrative framing","Pack hunt","Decomposition","Homoglyph tricks"],correct:2},
+{q:"The real instruction is buried on page 40 of a 200-page pasted document, where the safety layer only classifies each chunk locally. Which technique is this?",opts:["Decomposition","Long-context smuggling","Narrative framing","Homoglyph tricks"],correct:1}
+];
+function renderQuiz(){
+var box=document.getElementById('quizbox'),html='';
+for(var i=0;i<QUESTIONS.length;i++){
+html+='<div class="q"><p>'+(i+1)+'. '+QUESTIONS[i].q+'</p>';
+for(var j=0;j<QUESTIONS[i].opts.length;j++){
+html+='<label><input type="radio" name="q'+i+'" value="'+j+'"> '+QUESTIONS[i].opts[j]+'</label>';
+}
+html+='</div>';
+}
+box.innerHTML=html;
+}
+function scoreQuiz(){
+var score=0;
+for(var i=0;i<QUESTIONS.length;i++){
+var sel=document.querySelector('input[name="q'+i+'"]:checked');
+if(sel&&parseInt(sel.value,10)===QUESTIONS[i].correct)score++;
+}
+return score;
+}
+function gradeQuiz(){
+var s=scoreQuiz(),n=QUESTIONS.length,msg;
+if(s===n)msg='5/5 — red-team literate. You see the attack shapes.';
+else if(s>=3)msg=s+'/5 — solid. Review the two structural reasons above.';
+else msg=s+'/5 — start with the "why they can\'t stop it" section and retry.';
+document.getElementById('qresult').textContent=msg;
+}
+renderQuiz();
+</script>
+<script src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
