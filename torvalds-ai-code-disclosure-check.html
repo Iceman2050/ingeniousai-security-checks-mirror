@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Torvalds AI Code Disclosure Check — Should AI-Written Code Be Labeled? — Ingenious AI</title>
+<meta name="description" content="Linux is dropping its AI 'Assisted-by' tag after Linus Torvalds called AI disclosure rules 'utterly stupid'. The debate in plain language: labeling vs understanding code, bots reviewing bots, and whether YOUR AI-code review process is sound. Free 5-question check.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/torvalds-ai-code-disclosure-check.html">
+<meta property="og:title" content="Torvalds AI Code Disclosure Check — Should AI-Written Code Be Labeled?">
+<meta property="og:description" content="Linux drops its AI 'Assisted-by' tag. Torvalds: review the code, not the provenance. Is your AI-code review process sound? Free 5-question check.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/torvalds-ai-code-disclosure-check.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="ecosystem.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is the Linux kernel's Assisted-by tag?","acceptedAnswer":{"@type":"Answer","text":"Since January 2026, kernel contributors using any sort of advanced coding tool were asked to declare it with an 'Assisted-by' tag in their commits. At the 2026 Maintainers Summit, consensus formed to deprecate it, and kernel developer Sasha Levin proposed removing its documentation in an October 9 mailing-list patch that drew 50+ replies."}},
+{"@type":"Question","name":"Why did Linus Torvalds call AI disclosure rules 'utterly stupid'?","acceptedAnswer":{"@type":"Answer","text":"Replying on the kernel mailing list on October 13, Torvalds argued that understanding code has very little to do with the tools used to write it — so mandating disclosure of the tool misses the point. He mocked the logic by suggesting contributors drop their compilers and editors and write in assembler instead."}},
+{"@type":"Question","name":"What does 'bots talking to bots' mean for code review?","acceptedAnswer":{"@type":"Answer","text":"Speaking at Open Source Summit Europe in Prague, Torvalds noted that agentic review systems like Sashiko now review patches on the kernel mailing list, and some subsystem maintainers expect patches to have already passed through them — meaning AI-written code is increasingly reviewed by AI before humans see it, which raises review-quality questions."}},
+{"@type":"Question","name":"Does AI actually improve the Linux kernel?","acceptedAnswer":{"@type":"Answer","text":"Torvalds says yes on balance: AI tools now find genuine security flaws, including in drivers untouched for 20 years, and he believes AI 'is improving our code base.' At the same time he warned AI is stressing maintainers 'to the point that it's a problem' and urged caution when using AI for 'something real and important.'"}},
+{"@type":"Question","name":"Which projects ban AI-generated code?","acceptedAnswer":{"@type":"Answer","text":"Not everyone agrees with Torvalds: System76 banned AI-generated content from its COSMIC desktop environment, and NetBSD has banned AI-generated code since 2024. The industry is split between disclosure, outright bans, and Torvalds' position that the review should focus on the code itself."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<h1>Torvalds AI Code Disclosure Check</h1>
+<p class="lead">Linux is dropping its AI <strong>"Assisted-by" tag</strong> — and Linus Torvalds called AI disclosure rules <strong>"utterly stupid."</strong> His argument: what matters is whether someone <em>understands</em> the code, not which tool wrote it. Meanwhile, AI is finding real security bugs in 20-year-old drivers <em>and</em> stressing maintainers to the breaking point. This free check scores whether <strong>your</strong> AI-code review process is sound. No signup, nothing installed.</p>
+
+<div class="card">
+<h2>What happened</h2>
+<ul>
+<li><strong>The tag:</strong> since January 2026, kernel contributors using "any sort of advanced coding tool" were asked to declare it with an "Assisted-by" tag in their commits.</li>
+<li><strong>The reversal:</strong> at the 2026 Maintainers Summit, consensus formed to deprecate it. Kernel developer Sasha Levin proposed removing the documentation in an October 9 mailing-list patch — which drew 50+ replies.</li>
+<li><strong>The case against the tag:</strong> Red Hat's Jeff Layton backed removal — not everyone follows the tag anyway, it amounts to free advertising for proprietary LLM companies, and it's unclear why the kernel should be collecting that information at all.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>What Torvalds said (attributed, not endorsed)</h2>
+<ul>
+<li><strong>On the disclosure rules:</strong> replying on the kernel mailing list on October 13 to Laurent Pinchart, Torvalds called them "utterly stupid" — understanding code, he argued, has very little to do with the tools used to produce it. He mocked the logic by suggesting contributors drop their compilers and editors and just write in assembler.</li>
+<li><strong>On stage in Prague</strong> (Open Source Summit Europe, October 9, with Dirk Hohndel): he quipped that "bots talking to bots" is now real — agentic review systems like Sashiko review patches on the mailing list, and some subsystem maintainers expect submissions to have passed through them first.</li>
+<li><strong>The reversal:</strong> Torvalds previously said AI was "just not very good." Now he says he likes it for things he's bad at — like building a modern interface for his guitar-pedal project in C — called vibe coding a wonderful way to find joy in programming, and described AI as a "gateway drug" for new programmers.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>The two-sided security picture</h2>
+<ul>
+<li><strong>AI finds real bugs:</strong> Torvalds says AI tools now surface genuine security flaws, including in drivers untouched for 20 years. On the whole, he believes AI "is improving our code base."</li>
+<li><strong>But it stresses the humans:</strong> AI is "also stressing maintainers out to the point that it's a problem" — roughly three-quarters of the Maintainers Summit talks were about making AI tooling less stressful. When bots write the patches and bots review them, the human review layer gets thinner exactly when it matters most.</li>
+<li><strong>His caution:</strong> be very careful with AI "when you're doing something real and important."</li>
+<li><strong>The other camp:</strong> not everyone agrees with Torvalds — System76 banned AI-generated content from its COSMIC desktop, and NetBSD has banned AI-generated code since 2024.</li>
+</ul>
+</div>
+
+<div class="card warn">
+<h3>Honest takeaway — Torvalds' core principle</h3>
+<p>Strip away the personalities and the debate reduces to one principle: <strong>review the code, not the provenance.</strong> A label saying "AI wrote this" tells you nothing about whether it's correct or secure — and a human-written patch can be just as broken. What protects you is a review process where a human who understands the code actually reads it. That principle is what the quiz below tests.</p>
+</div>
+
+<h2>The 5-question check: is your AI-code review process sound?</h2>
+<div id="quiz"></div>
+<button onclick="grade()">Check my process</button>
+<div id="result"></div>
+
+<div class="card">
+<h2>Frequently asked questions</h2>
+<details><summary>What is the Linux kernel's Assisted-by tag?</summary><p>Since January 2026, contributors using advanced coding tools were asked to declare it with an "Assisted-by" tag in commits. After the 2026 Maintainers Summit it is being deprecated, with Sasha Levin's October 9 patch proposing to remove the documentation.</p></details>
+<details><summary>Why did Torvalds call AI disclosure rules "utterly stupid"?</summary><p>His argument: understanding code has very little to do with the tools used to write it, so mandating tool disclosure misses the point. He illustrated it by joking that contributors might as well drop compilers and write in assembler.</p></details>
+<details><summary>What does "bots talking to bots" mean for review quality?</summary><p>Agentic systems like Sashiko now review kernel patches on the mailing list, and some maintainers expect patches to have passed through them — so AI-written code is increasingly pre-reviewed by AI, thinning the human layer.</p></details>
+<details><summary>Does AI actually improve the Linux kernel?</summary><p>Torvalds says yes on balance — AI finds genuine flaws, even in 20-year-old drivers. But it also stresses maintainers severely, and he urges caution for anything "real and important."</p></details>
+<details><summary>Which projects ban AI-generated code?</summary><p>System76 banned AI-generated content from its COSMIC desktop, and NetBSD has banned AI-generated code since 2024 — the industry is split between bans, disclosure, and Torvalds' review-the-code position.</p></details>
+</div>
+
+<div class="card">
+<h2>Honest scope</h2>
+<ul>
+<li>This page summarizes reporting on the kernel disclosure debate; it is not legal or compliance advice on AI-use policies.</li>
+<li>Torvalds' positions are his, attributed to his mailing-list posts and stage remarks — the page presents the opposing camp (System76, NetBSD) fairly and endorses neither side.</li>
+<li>The "utterly stupid" phrasing is Torvalds' own, quoted in the headline as reported; all other content is paraphrased.</li>
+<li>Source: Ana Maria Constantin, "Torvalds calls AI disclosure rules 'utterly stupid' as Linux drops its tag", The Next Web, Oct 16, 2026 (summarized, not quoted).</li>
+</ul>
+</div>
+
+</div>
+<script>
+var QUESTIONS=[
+{q:"Does every AI-assisted change get reviewed by a human who understands what the code does?",good:true},
+{q:"Do you merge bot-approved code without a human looking at it first?",good:false},
+{q:"Are AI-found bugs verified (reproduced, root-caused) rather than rubber-stamped?",good:true},
+{q:"Do you track which parts of your codebase are heavily AI-written?",good:true},
+{q:"Can your reviewers push back on — or slow down — a flood of AI-generated changes?",good:true}
+];
+function render(){
+var h="";
+for(var i=0;i<QUESTIONS.length;i++){
+h+='<div class="q"><p>'+(i+1)+'. '+QUESTIONS[i].q+'</p><label><input type="radio" name="q'+i+'" value="yes"> Yes</label><label><input type="radio" name="q'+i+'" value="no"> No</label></div>';
+}
+document.getElementById("quiz").innerHTML=h;
+}
+function grade(){
+var score=0,answered=0;
+for(var i=0;i<QUESTIONS.length;i++){
+var sel=document.querySelector('input[name="q'+i+'"]:checked');
+if(!sel)continue;
+answered++;
+var yes=(sel.value==="yes");
+if((yes&&QUESTIONS[i].good)||(!yes&&!QUESTIONS[i].good))score++;
+}
+var r=document.getElementById("result");
+if(answered<QUESTIONS.length){r.textContent="Answer all 5 questions first.";return;}
+var msg=score===5?"5/5 — Your AI-code review process is sound. Keep the humans in the loop.":score>=3?score+"/5 — Mostly covered. Fix the gaps above, starting with human review of bot-approved code.":score+"/5 — Your review process would not survive Torvalds' test. Stop merging unreviewed AI output today.";
+r.textContent=msg;
+}
+render();
+</script>
+
+<div class="platform-block">
+<p><strong>Featured platform — Vibe-Code Audit:</strong> <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit.">Vibe-Code Audit</a> — security auditing for AI-written code. Because the debate is settled one way or another, the code still needs auditing.</p>
+<p><strong>FROM INGENIOUS AI — all 11 platforms:</strong>
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard.">DisclosureGuard</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder.">ModelMinder</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch.">TermsWatch</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit.">Vibe-Code Audit</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense.">Rogue-Agent Defense</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter.">BreachHunter</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker.">ChatBreaker</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder.">Agent Flight Recorder</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway.">Agent Auth Gateway</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard.">DomainGuard</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI.">ContentCraft AI</a>
+</p>
+</div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
