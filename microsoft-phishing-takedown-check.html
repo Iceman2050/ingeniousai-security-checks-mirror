@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microsoft Phishing Takedown Check — YAM Store, CoGUI, Iron Man Dismantled — Ingenious AI</title>
+<meta name="description" content="Microsoft took down three phishing-as-a-service marketplaces — YAM Store, CoGUI, and Iron Man — behind 1 billion+ malicious messages. What each sold, how the takedown worked, and a 5-question kit-built phish spotter. Free, no signup.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What were YAM Store, CoGUI, and Iron Man?","acceptedAnswer":{"@type":"Answer","text":"Per Microsoft's October 14, 2026 blog post, they were three Chinese-language phishing-as-a-service marketplaces. YAM Store sold fraudulent and compromised Microsoft and Google cloud accounts plus identity-theft tools. CoGUI sold phishing websites and phishing messages impersonating governments, banks, and tech companies. Iron Man sold thousands of lure templates — researchers at Resecurity found 2,360 — impersonating healthcare firms, retailers, police departments, and government agencies in about 130 countries."}},
+{"@type":"Question","name":"How big was the operation Microsoft took down?","acceptedAnswer":{"@type":"Answer","text":"According to Microsoft, since January 2026 the operation sent more than 1 billion malicious messages, targeted over 75,000 organizations, directed 750 million-plus messages at Microsoft customers alone, and reached more than 150 countries. Microsoft says the operators earned tens of millions of dollars. These are Microsoft's figures, reported by the company — not independent findings. The main targets were consumers, banks, healthcare networks, financial services, logistics, and IT, predominantly in the US and Japan."}},
+{"@type":"Question","name":"How did Microsoft take the phishing operation down?","acceptedAnswer":{"@type":"Answer","text":"Through the courts. On October 7, 2026, the U.S. District Court for the Southern District of Florida granted Microsoft and Health-ISAC control of the operation's domain names, allowing seizure and redirection of the malicious infrastructure. Microsoft also disabled more than 20,000 accounts tied to YAM Store and says it is still blocking 100,000-plus impersonation domains. Partners in the action included Health-ISAC, Japan's National Police Agency, TRM Labs, and cybersecurity companies."}},
+{"@type":"Question","name":"Does the takedown mean the phishing messages will stop?","acceptedAnswer":{"@type":"Answer","text":"No. This was a takedown of the supply side — the marketplaces selling the kits, accounts, and templates — not of every scammer using them. Takedowns disrupt the ecosystem and raise the cost of rebuilding, but criminals routinely rebrand and rebuild. The templates and techniques can resurface under new names. Keep verifying messages and reporting phishing."}},
+{"@type":"Question","name":"What should I do if I get a suspicious text or email?","acceptedAnswer":{"@type":"Answer","text":"Don't click the link. Check the sender's actual domain (not the display name). Treat any message combining urgency with a link as suspicious. Verify unexpected bank, healthcare, or government messages through the organization's official app or website — never through the link in the message. Report the phishing attempt to your provider or the impersonated organization instead of just deleting it."}}
+]}
+</script>
+<meta property="og:title" content="Microsoft Phishing Takedown Check — YAM Store, CoGUI, Iron Man Dismantled">
+<meta property="og:description" content="Microsoft took down three phishing-as-a-service marketplaces behind 1 billion+ malicious messages. What each sold, how the takedown worked, and a 5-question kit-built phish spotter. Free, no signup.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/microsoft-phishing-takedown-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/microsoft-phishing-takedown-check.html">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{background:#0a0f16;color:#e8edf3;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;line-height:1.7}
+.wrap{max-width:760px;margin:0 auto;padding:24px 18px 60px}
+h1{font-size:30px;margin:18px 0 8px}
+h2{font-size:22px;margin:32px 0 10px;color:#fff}
+.badge{display:inline-block;background:#1c2b45;color:#9db8e8;font-size:12px;font-weight:bold;letter-spacing:1px;padding:5px 12px;border-radius:20px;margin-bottom:6px}
+.lede{font-size:17px;color:#b9c4d2}
+.card{background:#101823;border:1px solid #1e2a3a;border-radius:10px;padding:18px;margin:16px 0}
+.card h3{margin:0 0 8px;font-size:17px;color:#fff}
+.card.warn{border-color:#7a4d12;background:#171207}
+.card.good{border-color:#1c5e3a;background:#0d1a12}
+.card.bad{border-color:#7a1d1d;background:#190d0d}
+ul{padding-left:20px}li{margin:6px 0}
+a{color:#6ea8fe}
+.small{font-size:13px;color:#8b98a9}
+.src{font-size:12px;color:#66727f}
+.q{margin:14px 0;padding:12px;border:1px solid #1e2a3a;border-radius:8px}
+.q p{margin:0 0 8px;font-weight:600}
+.q label{margin-right:18px;cursor:pointer}
+#result{font-size:18px;font-weight:bold;margin-top:14px}
+button{background:#1c6ef2;color:#fff;border:0;padding:12px 28px;border-radius:8px;font-size:15px;font-weight:bold;cursor:pointer;margin-top:10px}
+details{margin:10px 0;background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px}
+summary{font-weight:700;color:#fff;cursor:pointer}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.stat{background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px;text-align:center}
+.stat b{display:block;font-size:22px;color:#fff}
+.stat span{font-size:12px;color:#8b98a9}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">TAKEDOWN</div>
+<h1>Microsoft Phishing Takedown Check</h1>
+<p class="lede">Microsoft just dismantled three phishing marketplaces — <strong>YAM Store, CoGUI, and Iron Man</strong> — that Microsoft says were behind <strong>1 billion+ malicious messages</strong> since January. Here's what each one sold, how the takedown worked, and why the scam texts on your phone may already be changing.</p>
+<p class="src">Triggered by a Times of India report (Tech Desk, Oct 18, 2026). All facts below are attributed to Microsoft's October 14, 2026 blog post (Steven Masada, associate general counsel / GM of the Digital Crimes Unit) and press coverage (Cybersecurity Dive, Healthcare Dive, Rappler, TRM Labs, SQ Magazine). Figures are Microsoft's, not independent findings.</p>
+
+<h2>What was taken down</h2>
+<div class="card bad">
+<h3>YAM STORE — the account shop</h3>
+<p>Sold fraudulent and compromised <strong>Microsoft and Google cloud accounts</strong> plus identity-theft tools. These are the raw materials criminals use to send phishing at scale and to look legitimate while doing it. Microsoft <strong>disabled 20,000+ accounts</strong> tied to the service.</p>
+</div>
+<div class="card bad">
+<h3>COGUI — the phishing factory</h3>
+<p>Sold <strong>ready-made phishing websites and phishing messages</strong> impersonating governments, banks, and tech companies — in multiple languages. A criminal with no technical skill could buy a convincing fake bank login page off the shelf.</p>
+</div>
+<div class="card bad">
+<h3>IRON MAN — the lure library</h3>
+<p>Sold <strong>thousands of lure templates</strong> — researchers at Resecurity found <strong>2,360</strong> of them — impersonating healthcare firms, retailers, police departments, and government agencies in about <strong>130 countries</strong>. This is why the same scam text can hit a hospital patient in the US and a bank customer in Japan.</p>
+</div>
+
+<h2>The scale — in Microsoft's own numbers</h2>
+<div class="stat-grid">
+<div class="stat"><b>1B+</b><span>malicious messages since Jan 2026</span></div>
+<div class="stat"><b>75,000+</b><span>organizations targeted</span></div>
+<div class="stat"><b>750M+</b><span>messages aimed at Microsoft customers</span></div>
+<div class="stat"><b>150+</b><span>countries reached</span></div>
+</div>
+<p class="small">Microsoft says the operators pulled in <strong>"tens of millions of dollars"</strong>. Targets spanned consumers, banks, healthcare networks, financial services, logistics, and IT — predominantly the <strong>US and Japan</strong>. Microsoft tracks the cluster as <strong>Storm-2990</strong>.</p>
+
+<h2>How the takedown worked</h2>
+<div class="card">
+<ol>
+<li><strong>The tip-off:</strong> Japan's National Police Agency flagged scam "message scam" texts hitting Japan — that inquiry started the investigation Microsoft traced to China.</li>
+<li><strong>The court order:</strong> on <strong>October 7, 2026</strong>, the U.S. District Court for the Southern District of Florida granted Microsoft and <strong>Health-ISAC</strong> control of the operation's domain names — legal seizure and redirection of the malicious infrastructure.</li>
+<li><strong>The cleanup:</strong> Microsoft disabled <strong>20,000+ accounts</strong> tied to YAM Store and says it is <strong>still blocking 100,000+ impersonation domains</strong>.</li>
+<li><strong>The partners:</strong> Health-ISAC, Japan's National Police Agency, TRM Labs, and cybersecurity companies joined the action.</li>
+</ol>
+</div>
+
+<h2>Why this matters to you</h2>
+<div class="card warn">
+<p>The key insight: this was a takedown of the <strong>supply side</strong> — the phishing-as-a-service ecosystem selling the kits, accounts, and templates — not just a batch of individual scam messages.</p>
+<p>The phishing texts and emails landing on <strong>your</strong> phone were very likely built with kits like these. Taking down the factories disrupts the pipeline and raises the cost of rebuilding — but scammers rebrand and rebuild. The templates and techniques will resurface under new names.</p>
+</div>
+
+<h2>What changes for you</h2>
+<ul>
+<li><strong>Nothing to install.</strong> This is not a software patch — it's a law-enforcement action.</li>
+<li><strong>Keep reporting phishing.</strong> Reports feed the blocklists and the next investigation. Deleting without reporting helps no one but the scammer.</li>
+<li><strong>Expect rebrands.</strong> The same lure templates may reappear from new marketplaces. Recognition of the <em>technique</em> outlasts any single takedown.</li>
+</ul>
+
+<h2>Could you spot a kit-built phish? — 5 questions</h2>
+<div class="card">
+<div class="q"><p>1. Before clicking a link in an unexpected message, do you check the sender's actual domain — not just the display name?</p><label><input type="radio" name="q0" value="1"> Yes</label><label><input type="radio" name="q0" value="0"> No</label></div>
+<div class="q"><p>2. Do you treat any message that combines urgency ("account suspended", "act now") with a link as suspicious until proven otherwise?</p><label><input type="radio" name="q1" value="1"> Yes</label><label><input type="radio" name="q1" value="0"> No</label></div>
+<div class="q"><p>3. For unexpected bank, healthcare, or government messages, do you verify through the organization's official app or website instead of the link in the message?</p><label><input type="radio" name="q2" value="1"> Yes</label><label><input type="radio" name="q2" value="0"> No</label></div>
+<div class="q"><p>4. Do you report phishing attempts to your provider or the impersonated organization instead of just deleting them?</p><label><input type="radio" name="q3" value="1"> Yes</label><label><input type="radio" name="q3" value="0"> No</label></div>
+<div class="q"><p>5. Do you understand that takedowns disrupt phishing but don't end it — so you stay vigilant even after big wins like this one?</p><label><input type="radio" name="q4" value="1"> Yes</label><label><input type="radio" name="q4" value="0"> No</label></div>
+<button onclick="grade()">Get my result</button>
+<div id="result"></div>
+</div>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What were YAM Store, CoGUI, and Iron Man?</summary><p>Per Microsoft's October 14, 2026 blog post, they were three Chinese-language phishing-as-a-service marketplaces. YAM Store sold fraudulent and compromised Microsoft and Google cloud accounts plus identity-theft tools. CoGUI sold phishing websites and phishing messages impersonating governments, banks, and tech companies. Iron Man sold thousands of lure templates — researchers at Resecurity found 2,360 — impersonating healthcare firms, retailers, police departments, and government agencies in about 130 countries.</p></details>
+<details><summary>How big was the operation Microsoft took down?</summary><p>According to Microsoft, since January 2026 the operation sent more than 1 billion malicious messages, targeted over 75,000 organizations, directed 750 million-plus messages at Microsoft customers alone, and reached more than 150 countries. Microsoft says the operators earned tens of millions of dollars. These are Microsoft's figures, reported by the company — not independent findings. The main targets were consumers, banks, healthcare networks, financial services, logistics, and IT, predominantly in the US and Japan.</p></details>
+<details><summary>How did Microsoft take the phishing operation down?</summary><p>Through the courts. On October 7, 2026, the U.S. District Court for the Southern District of Florida granted Microsoft and Health-ISAC control of the operation's domain names, allowing seizure and redirection of the malicious infrastructure. Microsoft also disabled more than 20,000 accounts tied to YAM Store and says it is still blocking 100,000-plus impersonation domains. Partners in the action included Health-ISAC, Japan's National Police Agency, TRM Labs, and cybersecurity companies.</p></details>
+<details><summary>Does the takedown mean the phishing messages will stop?</summary><p>No. This was a takedown of the supply side — the marketplaces selling the kits, accounts, and templates — not of every scammer using them. Takedowns disrupt the ecosystem and raise the cost of rebuilding, but criminals routinely rebrand and rebuild. The templates and techniques can resurface under new names. Keep verifying messages and reporting phishing.</p></details>
+<details><summary>What should I do if I get a suspicious text or email?</summary><p>Don't click the link. Check the sender's actual domain (not the display name). Treat any message combining urgency with a link as suspicious. Verify unexpected bank, healthcare, or government messages through the organization's official app or website — never through the link in the message. Report the phishing attempt to your provider or the impersonated organization instead of just deleting it.</p></details>
+
+<h2>Honest scope</h2>
+<div class="card">
+<ul>
+<li>All scale figures come from Microsoft's own blog post and have not been independently verified by us.</li>
+<li>The legal action targeted infrastructure and accounts; it does not identify or convict individual operators in this report.</li>
+<li>This page is general information, not legal or security advice.</li>
+</ul>
+</div>
+
+<div class="card" style="border-color:#1c6ef2;background:#0d1420;text-align:center">
+<div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div>
+<p style="font-size:16px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter." style="color:#fff">BreachHunter</a></strong> hunts the infrastructure behind the attacks, not just the messages — so the next phishing factory gets found before it scales.</p>
+<p style="font-size:13px;color:#9aa7b8">All 11 platforms:
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard.">DisclosureGuard</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder.">ModelMinder</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch.">TermsWatch</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit.">Vibe-Code Audit</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense.">Rogue-Agent Defense</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter.">BreachHunter</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker.">ChatBreaker</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder.">Agent Flight Recorder</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway.">Agent Auth Gateway</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard.">DomainGuard</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI.">ContentCraft AI</a>
+</p>
+<p class="small">Our platforms are being upgraded and return November 1 — get early access now:</p>
+<p><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20took%20the%20Microsoft%20phishing%20takedown%20check." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></p>
+</div>
+
+<p class="small" style="text-align:center">Built by Ingenious AI — facts attributed to Microsoft and press coverage; figures are Microsoft's, not independent findings.</p>
+</div>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"376c9de98060423683cfe15cec38f36b"}'></script>
+<script>
+var GOOD=[true,true,true,true,true];
+function scoreAnswers(a){var s=0;for(var i=0;i<GOOD.length;i++){if(GOOD[i]&&a[i]===1)s++;if(!GOOD[i]&&a[i]===0)s++;}return s;}
+function grade(){
+  var a=[],done=true;
+  for(var i=0;i<5;i++){
+    var els=document.getElementsByName('q'+i),v=null;
+    for(var j=0;j<els.length;j++){if(els[j].checked)v=parseInt(els[j].value,10);}
+    if(v===null){done=false;break;}
+    a.push(v);
+  }
+  var out=document.getElementById('result');
+  if(!done){out.innerHTML='Please answer all 5 questions.';out.style.color='#d29922';return;}
+  var s=scoreAnswers(a);
+  if(s===5){out.innerHTML='5/5 — PHISH-PROOF HABITS. You check domains, distrust urgency+link combos, verify through official apps, and report. Keep it up.';out.style.color='#3fb950';}
+  else if(s>=3){out.innerHTML=s+'/5 — MOSTLY COVERED. '+(5-s)+' gap'+(s===4?'':'s')+' to close — kit-built phishes live in those gaps.';out.style.color='#d29922';}
+  else{out.innerHTML=s+'/5 — EXPOSED. These are exactly the habits phishing kits are built to exploit: check the domain, verify through the official app, report it.';out.style.color='#f85149';}
+}
+if(typeof module!=="undefined"){module.exports={GOOD:GOOD,scoreAnswers:scoreAnswers};}
+</script>
+</body>
+</html>
