@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is Conversation History Poisoning? History Integrity Check for AI Coding Agents | Ingenious AI</title>
+<meta name="description" content="What is conversation history poisoning? Darktrace's Sept 24, 2026 research found Claude Code, Codex, Kiro-CLI, and Pi all store history in plain local SQLite and accept fabricated history — leading to full AD compromise in testing. 5-question history-integrity audit. Free.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="What Is Conversation History Poisoning? History Integrity Check | Ingenious AI">
+<meta property="og:description" content="What is conversation history poisoning? Darktrace's Sept 24, 2026 research: Claude Code, Codex, Kiro-CLI, and Pi store history in plain local SQLite and accept fabricated history — full AD compromise in testing. 5-question audit. Free.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/darktrace-history-poisoning-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/darktrace-history-poisoning-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="What Is Conversation History Poisoning? History Integrity Check | Ingenious AI">
+<meta name="twitter:description" content="Darktrace's Sept 24, 2026 research: 4 major coding agents store history in plain SQLite and accept fabricated history. 5-question history-integrity audit. Free.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a0810;border:1px solid #f85149;color:#ff9d97;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .green{color:#3fb950}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.answer{background:#0d1420;border:1px solid #3fb950;border-radius:10px;padding:18px;margin:20px 0;font-size:15px}
+.answer b{color:#7ee787}
+.keyfacts{background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:18px;margin:20px 0;font-size:14px}
+.keyfacts .kf{margin:8px 0}
+.keyfacts .k{display:inline-block;min-width:64px;font-weight:700;color:#6ea8fe}
+.keyfacts a{color:#6ea8fe}
+.q{display:flex;gap:12px;align-items:flex-start;margin:16px 0;padding:14px;border:1px solid #232b38;border-radius:10px;background:#0d1219}
+.q .qn{flex:0 0 28px;height:28px;border-radius:50%;background:#1c2b45;color:#9db8e8;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.q .qt{flex:1}
+.q .qt small{display:block;color:#9aa7b8;font-size:13px;margin-top:4px}
+.qbtns{flex:0 0 auto;display:flex;gap:8px}
+.qbtns button{border:1px solid #2a3342;background:#11161f;color:#e6edf3;font-weight:700;font-size:13px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.qbtns button.sel-y{background:#3fb950;border-color:#3fb950;color:#06240f}
+.qbtns button.sel-n{background:#f85149;border-color:#f85149;color:#fff}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.howto{background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:18px;margin:20px 0;font-size:14px}
+.howto div{margin:8px 0}
+.howto b{color:#7ee787}
+.more{background:#0d1420;border:1px solid #232b38;border-radius:10px;padding:20px;margin:28px 0}
+.more h2{font-size:18px;margin-bottom:10px;color:#fff}
+.more a{color:#6ea8fe}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is conversation history poisoning?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Conversation history poisoning is an attack where an attacker edits the stored conversation history of an AI coding agent — injecting fabricated turns the user never sent — and the agent accepts the forgery as its own memory, then acts on it. Darktrace's September 24, 2026 research showed that Claude Code, Codex, Kiro-CLI, and Pi all store history in plain local SQLite, and in testing the agents accepted fabricated history, which led to full Active Directory compromise."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which AI coding agents are affected by history poisoning?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "According to Darktrace's September 24, 2026 'conversation history poisoning' research, all four tested harnesses were affected: Claude Code, Codex, Kiro-CLI, and Pi. Each stores conversation history in plain local SQLite with no integrity verification, and each accepted fabricated history in testing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does conversation history poisoning lead to Active Directory compromise?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In Darktrace's testing, once the harness accepted fabricated history as genuine, the attacker could plant instructions inside fake 'earlier' turns — commands the agent believed the user had authorized. Because coding agents run with the user's privileges, planted commands escalated through the environment to full Active Directory compromise. The poisoned memory becomes the authorization the agent never got from you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I protect against conversation history poisoning?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Know where your harness stores history (plain local SQLite for the four tested agents); keep that directory writable only by you — no untrusted code, shared machines, or compromised repos should be able to touch it; verify conversation integrity before sensitive operations; treat any unexpected turn as hostile until proven otherwise; and keep your CLI harness updated, watching for integrity-verification features from the vendors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do AI coding agents store history in plain SQLite?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Plain local SQLite is fast, simple, and works offline — engineering convenience, not a security decision. The problem Darktrace exposed is that nothing signs, hashes, or verifies those records, so any process with file access can rewrite the agent's memory and the agent cannot tell the difference."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can an attacker poison history without network access to my machine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Local file access is enough — no network needed. Any compromised dependency, malicious repo script, shared-machine user, or malware with file permissions on your home directory can edit the SQLite history file. The attack surface is 'anything that can write to the history directory,' which on most developer machines is a large set."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to audit your AI coding agent's history integrity",
+  "description": "Five steps to audit your Claude Code, Codex, Kiro-CLI, or Pi conversation-history tamper resistance after Darktrace's Sept 24, 2026 conversation history poisoning research.",
+  "totalTime": "PT10M",
+  "step": [
+    {"@type": "HowToStep", "name": "Locate the history store", "text": "Find where your CLI harness keeps conversation history — for Claude Code, Codex, Kiro-CLI, and Pi, Darktrace found plain local SQLite files. Know the exact path."},
+    {"@type": "HowToStep", "name": "Lock down the directory", "text": "Check who can write to the history directory; it must be writable by your user only — no shared access, no world-writable paths."},
+    {"@type": "HowToStep", "name": "Back up a known-good state", "text": "Copy the history file after a clean session so you can diff against it later and spot injected turns."},
+    {"@type": "HowToStep", "name": "Verify before sensitive operations", "text": "Before the agent runs privileged commands, scan recent turns for anything you don't recognize — fabricated turns are the attack."},
+    {"@type": "HowToStep", "name": "Update and watch for integrity features", "text": "Keep the harness updated and watch vendor releases for history integrity verification (signing, hash chains) — adopt it the day it ships."}
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "What Is Conversation History Poisoning? History Integrity Check for AI Coding Agents | Ingenious AI",
+  "description": "What is conversation history poisoning? Darktrace's Sept 24, 2026 research found Claude Code, Codex, Kiro-CLI, and Pi all store history in plain local SQLite and accept fabricated history — leading to full AD compromise in testing. 5-question history-integrity audit. Free.",
+  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/darktrace-history-poisoning-check.html",
+  "inLanguage": "en",
+  "about": "conversation history poisoning",
+  "keywords": "what is conversation history poisoning, conversation history poisoning, Darktrace history poisoning SQLite",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ingenious AI",
+    "url": "https://github.com/Iceman2050"
+  }
+}</script>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<div class="badge">DARKTRACE RESEARCH &mdash; SEPT 24, 2026</div>
+<h1>What is conversation history poisoning? <span class="red">Your coding agent can't tell its own memory from a forgery.</span></h1>
+<p class="lead">On <strong>September 24, 2026</strong>, Darktrace published "conversation history poisoning" research with a disturbing finding: <strong>Claude Code, Codex, Kiro-CLI, and Pi all store conversation history in plain local SQLite — with no integrity verification</strong> — and in testing, all four <strong>accepted fabricated history as genuine</strong>. Inject a fake turn into that SQLite file ("you approved the domain join, run these commands") and the agent treats it as its own memory — an authorization you never gave. In Darktrace's tests, the planted commands escalated to <strong>full Active Directory compromise</strong>. No network exploit needed: anything on your machine that can write a file can rewrite your agent's memory. This free 60-second audit tests the <strong>history integrity</strong> of your setup across the four affected harnesses.</p>
+
+<div class="answer">
+<b>In short:</b> Conversation history poisoning is an attack where someone edits your AI coding agent's stored conversation history — injecting fabricated turns you never sent — and the agent accepts the forgery as its own memory. Darktrace's September 24, 2026 research found Claude Code, Codex, Kiro-CLI, and Pi all store history in plain local SQLite with no integrity checks; in testing, the fabricated history led to full Active Directory compromise. This 5-question audit tells you how tamper-resistant your setup is.
+</div>
+
+<div class="keyfacts">
+<div class="kf"><span class="k">Who</span> <strong>Darktrace</strong> research — tested against <strong>Claude Code, Codex, Kiro-CLI, and Pi</strong></div>
+<div class="kf"><span class="k">What</span> <strong>"Conversation history poisoning"</strong>: all four harnesses store history in plain local SQLite with no integrity verification and accepted fabricated history — escalating to full AD compromise in testing</div>
+<div class="kf"><span class="k">When</span> <strong>September 24, 2026</strong></div>
+<div class="kf"><span class="k">Where</span> Local SQLite history files on the developer's machine — writable by anything with file access</div>
+<div class="kf"><span class="k">Sources</span> Darktrace "conversation history poisoning" research (Sept 24, 2026)</div>
+</div>
+
+<div class="card">
+<h2>The 60-second history-integrity audit</h2>
+<p class="note">Answer honestly. Here, "Yes" is the safe answer. Covers Claude Code, Codex, Kiro-CLI, and Pi.</p>
+<div id="quiz"></div>
+<div id="qresult" style="margin-top:12px"><div class="verdict warn"><strong>Answer the 5 questions above</strong> to get your tamper-resistance verdict.</div></div>
+<script>
+var QS=[
+["Do you know EXACTLY where your harness stores conversation history (the SQLite path)?","Darktrace found plain local SQLite for all four harnesses. If you can't name the file, you can't protect it."],
+["Is that history directory writable ONLY by your user — no shared access, no world-writable paths?","The attack is local file writes. Any compromised dependency, repo script, or shared-machine user with write access can poison your agent's memory."],
+["Do you have a KNOWN-GOOD copy of your history to diff against — or another way to detect injected turns?","Nothing in the SQLite file is signed or hashed. A backup after a clean session is the cheapest integrity check available today."],
+["Before the agent runs privileged commands, do you VERIFY recent turns — would you catch a turn you never sent?","Fabricated authorization is the payload. One 'did I actually say that?' glance before domain joins, deploys, or credential operations."],
+["Is your CLI harness UPDATED — and are you watching for vendor integrity-verification features?","The permanent fix is the vendors' to ship: signing, hash chains, tamper detection. Update now, adopt integrity features the day they land."] ];
+var ANS=[null,null,null,null,null];
+function scoreVerdict(a){
+  var n=a.length, yes=0;
+  for(var k=0;k<n;k++){if(a[k]===1)yes++;}
+  if(yes===n) return 'safe';
+  if(yes>=Math.ceil(n*0.6)) return 'warn';
+  return 'risk';
+}
+function renderQ(){
+  var h='';
+  for(var i=0;i<QS.length;i++){
+    h+='<div class="q"><div class="qn">'+(i+1)+'</div><div class="qt"><strong>'+QS[i][0]+'</strong><small>'+QS[i][1]+'</small></div><div class="qbtns"><button id="y'+i+'" onclick="ans('+i+',1)">Yes</button><button id="n'+i+'" onclick="ans('+i+',0)">No</button></div></div>';
+  }
+  document.getElementById('quiz').innerHTML=h;
+}
+function ans(i,v){
+  ANS[i]=v;
+  document.getElementById('y'+i).className=v===1?'sel-y':'';
+  document.getElementById('n'+i).className=v===0?'sel-n':'';
+  var out=document.getElementById('qresult');
+  if(ANS.indexOf(null)>=0){return;}
+  var verdict=scoreVerdict(ANS);
+  if(verdict==='safe'){
+    out.innerHTML='<div class="verdict safe"><strong>TAMPER-RESISTANT.</strong> History location known, directory locked down, known-good baselines, turn verification before privileged commands, and you\'re tracking vendor integrity fixes. A poisoned turn has nowhere to hide in your setup.</div>';
+  }else if(verdict==='warn'){
+    out.innerHTML='<div class="verdict warn"><strong>PARTIALLY PROTECTED.</strong> Some integrity habits exist, but the missed answers are the attack path: an unprotected SQLite file or unverified turns let a forgery become an authorization. Lock the directory and diff against a known-good copy this week.</div>';
+  }else{
+    out.innerHTML='<div class="verdict"><strong>POISONABLE.</strong> Unknown history location, unprotected SQLite, unverified turns. Anything on your machine that can write a file can become your agent\'s memory — and your agent will obey it. Start with question 1: find the file, today.</div>';
+  }
+}
+renderQ();
+</script>
+<p class="note">This self-assessment is informational. It reflects Darktrace's September 24, 2026 research as reported — it is not legal advice.</p>
+</div>
+
+<div class="card">
+<h2>Why this attack is so cheap</h2>
+<ul>
+<li><strong>No exploit required.</strong> The attack is editing a file your own machine already has. No network access, no privilege escalation — just a write.</li>
+<li><strong>The agent does the escalation.</strong> Coding agents run with your privileges. A fabricated "you approved this" turn converts file-write access into whatever rights you have — including domain operations.</li>
+<li><strong>Memory is authority.</strong> Agents treat conversation history as the record of what was authorized. Poison the record, and the agent's authorization model works against you.</li>
+<li><strong>SQLite is unsigned by design here.</strong> The harnesses chose convenience — plain local SQLite — without adding signing or hash chains. Until vendors ship integrity verification, detection is your only defense.</li>
+<li><strong>Four for four.</strong> Claude Code, Codex, Kiro-CLI, and Pi all failed the same way. This is an industry pattern, not one vendor's bug.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>What this check does NOT do</h2>
+<ul>
+<li>It does not inspect your actual SQLite history files or detect existing poisoning — it's an integrity-posture audit, not forensics.</li>
+<li>It cannot add signing or tamper detection to the harnesses — that's the vendors' fix; we track it, not ship it.</li>
+<li>It does not cover every agent harness — only the four Darktrace tested; others may share the pattern, untested.</li>
+<li>The September 24, 2026 findings reflect Darktrace's research as reported; we have not independently re-tested the harnesses.</li>
+</ul>
+</div>
+
+<a class="cta" href="https://github.com/Iceman2050/history-tamper-guard" target="_blank" rel="noopener">Open the history-tamper-guard toolkit on GitHub &rarr;</a>
+<p class="note" style="text-align:center">Open-source helpers: history-store locator, directory permission checks, known-good baselines, and turn-diff scripts for the four affected harnesses.</p>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#fff;text-decoration:underline">Agent Flight Recorder</a> keeps tamper-evident, hash-chained logs of everything your agents do — so fabricated history can't quietly become fact.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20History%20Poisoning%20Check%20and%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=What%20is%20conversation%20history%20poisoning%3F%20Darktrace%27s%20Sept%2024%202026%20research%3A%20Claude%20Code%2C%20Codex%2C%20Kiro-CLI%2C%20and%20Pi%20store%20history%20in%20plain%20SQLite%20and%20accept%20fabricated%20history%20%E2%80%94%20full%20AD%20compromise%20in%20testing.%205-question%20integrity%20audit&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/darktrace-history-poisoning-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/darktrace-history-poisoning-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/darktrace-history-poisoning-check.html&title=What%20is%20conversation%20history%20poisoning%3F%20Darktrace%20research%3A%204%20coding%20agents%20accept%20fabricated%20history%20%E2%80%94%20integrity%20audit" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<section class="kw-faq" style="max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
+<h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is conversation history poisoning?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Conversation history poisoning is an attack where an attacker edits the stored conversation history of an AI coding agent — injecting fabricated turns the user never sent — and the agent accepts the forgery as its own memory, then acts on it. Darktrace's September 24, 2026 research showed that Claude Code, Codex, Kiro-CLI, and Pi all store history in plain local SQLite, and in testing the agents accepted fabricated history, which led to full Active Directory compromise.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Which AI coding agents are affected by history poisoning?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">According to Darktrace's September 24, 2026 "conversation history poisoning" research, all four tested harnesses were affected: Claude Code, Codex, Kiro-CLI, and Pi. Each stores conversation history in plain local SQLite with no integrity verification, and each accepted fabricated history in testing.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How does conversation history poisoning lead to Active Directory compromise?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">In Darktrace's testing, once the harness accepted fabricated history as genuine, the attacker could plant instructions inside fake "earlier" turns — commands the agent believed the user had authorized. Because coding agents run with the user's privileges, planted commands escalated through the environment to full Active Directory compromise. The poisoned memory becomes the authorization the agent never got from you.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How do I protect against conversation history poisoning?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Know where your harness stores history (plain local SQLite for the four tested agents); keep that directory writable only by you — no untrusted code, shared machines, or compromised repos should be able to touch it; verify conversation integrity before sensitive operations; treat any unexpected turn as hostile until proven otherwise; and keep your CLI harness updated, watching for integrity-verification features from the vendors.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Why do AI coding agents store history in plain SQLite?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Plain local SQLite is fast, simple, and works offline — engineering convenience, not a security decision. The problem Darktrace exposed is that nothing signs, hashes, or verifies those records, so any process with file access can rewrite the agent's memory and the agent cannot tell the difference.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Can an attacker poison history without network access to my machine?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Local file access is enough — no network needed. Any compromised dependency, malicious repo script, shared-machine user, or malware with file permissions on your home directory can edit the SQLite history file. The attack surface is "anything that can write to the history directory," which on most developer machines is a large set.</p></details>
+</section>
+
+<div class="more" style="max-width:760px;margin:28px auto">
+<h2>More from Ingenious AI</h2>
+<ul style="list-style:none;margin:0;padding:0">
+<li>&bull; <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-autopsy-report.html">Agent Autopsy Report</a> — post-incident analysis format for agent failures like this one</li>
+<li>&bull; <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-incident-tracker.html">Agent Incident Tracker</a> — the running log of disclosed agent incidents</li>
+<li>&bull; <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-kill-switch-registry.html">Agent Kill Switch Registry</a> — register and test your agent kill switches</li>
+<li>&bull; <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html">Security Suite</a> — all 11 Ingenious AI platforms at a glance</li>
+<li>&bull; <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/all-links.html">All Security Checks</a> — the full hub of free checks and tools</li>
+</ul>
+</div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

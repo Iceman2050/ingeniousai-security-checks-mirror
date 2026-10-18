@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UNC7017 AOMEI Backdoor: Do You Poll Inside a Tamper Window? Risk Check | Ingenious AI</title>
+<meta name="description" content="What is the UNC7017 attack? Attackers tampered AOMEI Backupper's update servers in 5–10 minute windows. This check grades your update-polling cadence against the tamper-window risk. What to do.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="UNC7017 AOMEI Backdoor: Do You Poll Inside a Tamper Window? Risk Check | Ingenious AI">
+<meta property="og:description" content="What is the UNC7017 attack? Attackers tampered AOMEI Backupper's update servers in 5–10 minute windows. This check grades your update-polling cadence against the tamper-window risk. What to do.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/unc7017-aomei-tamper-window-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/unc7017-aomei-tamper-window-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UNC7017 AOMEI Backdoor: Do You Poll Inside a Tamper Window? Risk Check | Ingenious AI">
+<meta name="twitter:description" content="What is the UNC7017 attack? Attackers tampered AOMEI Backupper's update servers in 5–10 minute windows. Check your tamper-window risk.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the UNC7017 attack?","acceptedAnswer":{"@type":"Answer","text":"UNC7017 is the threat-actor designation for a campaign disclosed October 16, 2026 by Google Threat Intelligence Group and Mandiant. From May to July 2026, the attackers briefly tampered with AOMEI Backupper's own update servers in 5–10-minute windows; users whose clients checked for updates inside a window downloaded a backdoored updater instead of the legitimate one."}},{"@type":"Question","name":"Was AOMEI hacked?","acceptedAnswer":{"@type":"Answer","text":"AOMEI's own update servers were tampered with during the UNC7017 campaign — but only in brief 5–10-minute windows between May and July 2026, according to Google Threat Intelligence Group and Mandiant (disclosed Oct 16, 2026). Clients polling for updates inside a window received a backdoored updater. AOMEI itself, and clients that updated outside the windows, were not affected."}},{"@type":"Question","name":"What is a tamper window attack?","acceptedAnswer":{"@type":"Answer","text":"A tamper window attack is a supply-chain technique where attackers compromise a legitimate vendor's update or distribution infrastructure for a very short time — here 5–10 minutes — then remove the malicious content before anyone notices. Anyone who checks for updates inside that window receives malware from a server they trust; everyone else sees nothing wrong. It defeats reputation-based trust because the malicious file comes from the real, signed update channel."}},{"@type":"Question","name":"How do I know if I downloaded the UNC7017 backdoor?","acceptedAnswer":{"@type":"Answer","text":"The campaign ran May–July 2026, so the key question is whether your AOMEI Backupper checked for updates or downloaded one in that period. Look for update activity in those months, verify the digital signature of installed components against AOMEI's published certificates, and run a current antivirus/EDR scan. If in doubt, reinstall from a fresh download obtained directly from the vendor and verify the signature."}},{"@type":"Question","name":"Can I still trust automatic software updates?","acceptedAnswer":{"@type":"Answer","text":"Yes — disabling auto-updates leaves you exposed to the far larger set of known, unpatched vulnerabilities. The UNC7017 lesson is to harden the update channel instead: verify code signatures, stage updates on a pilot group first, monitor update traffic for anomalies, and keep backups offline. This page's checker grades your current update hygiene against the tamper-window threat."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to check your tamper-window risk and harden your update process","description":"Assess whether your update cadence would land inside a tamper window, and harden the update channel against brief compromise of vendor infrastructure.","totalTime":"PT20M","step":[{"@type":"HowToStep","name":"Inventory your update-check cadence","text":"List every tool that auto-updates on your systems — AOMEI Backupper and anything else — and note how often each polls: at boot, hourly, daily, weekly, or only when you open it."},{"@type":"HowToStep","name":"Grade the cadence against a 5–10-minute tamper window","text":"The UNC7017 windows were 5–10 minutes long. Frequent automated polling (hourly or at every boot across a fleet) dramatically increases the chance a client lands inside a window. Use the checker on this page to get your verdict."},{"@type":"HowToStep","name":"Enable signature verification on updates","text":"Require that every update binary carries a valid vendor code signature and that the updater refuses unsigned or re-signed content. Verify AOMEI components against the vendor's published certificate."},{"@type":"HowToStep","name":"Stage updates on a pilot group first","text":"Roll updates to a small pilot group, monitor for anomalies for 24–48 hours, then roll out fleet-wide. A tampered update hits the pilot, not the whole company."},{"@type":"HowToStep","name":"Keep backups offline and offline-tested","text":"UNC7017 targeted a backup product — the very tool you rely on to recover. Keep immutable or air-gapped backups and test restores, so a backdoored updater cannot destroy your recovery path."},{"@type":"HowToStep","name":"Monitor update traffic for anomalies","text":"Log update-server connections and flag unexpected payload sizes, certificate changes, or downloads outside the vendor's normal release schedule."}]}</script>
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#2a0f12;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:32px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:17px;color:#c9d4e3;margin-bottom:24px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:26px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.note{font-size:13px;color:#9aa7b8}
+.directanswer{border:1px solid #3fb950;border-radius:10px;padding:18px;background:#0d1a0f;margin:20px 0}
+.directanswer b{color:#7ee787}
+.facts{background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:18px;margin:20px 0;font-size:14px}
+.facts div{margin:7px 0}
+.facts .flabel{color:#7ee787;font-weight:700;min-width:64px;display:inline-block}
+.q{margin:14px 0;padding:14px;border:1px solid #232b38;border-radius:10px;background:#0d1219}
+.q .qt{font-weight:600;margin-bottom:10px;font-size:15px}
+.q .qt small{display:block;color:#9aa7b8;font-weight:400;font-size:13px;margin-top:4px}
+.qbtns{display:flex;gap:8px;flex-wrap:wrap}
+.qbtns button{border:1px solid #2a3342;background:#11161f;color:#e6edf3;font-weight:700;font-size:13px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.qbtns button.sel{background:#1c6ef2;border-color:#1c6ef2;color:#fff}
+.verdict{border-left:4px solid #f85149;padding:14px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:14px 0;font-size:15px}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.timeline{margin:16px 0}
+.tl{position:relative;padding:8px 0 8px 24px;border-left:2px solid #2a3342;margin-left:8px}
+.tl .dot{position:absolute;left:-7px;top:14px;width:12px;height:12px;border-radius:50%;background:#f85149}
+.tl .dot.clean{background:#3fb950}
+.tl b{color:#fff}
+.tl .win{color:#ffa198;font-weight:700}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.morelinks{background:#0d1420;border:1px solid #232b38;border-radius:10px;padding:20px;margin:26px 0}
+.morelinks h3{font-size:17px;color:#fff;margin-bottom:10px}
+.morelinks a{color:#6ea8fe;text-decoration:none;display:block;margin:7px 0;font-size:14px}
+.morelinks a:hover{text-decoration:underline}
+.kw-faq details{background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
+.kw-faq summary{font-weight:600;cursor:pointer;color:#fff;font-size:15px}
+.kw-faq p{margin-top:10px;font-size:14px;color:#9aa7b8}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="badge">DISCLOSED OCT 16, 2026 &mdash; GOOGLE THREAT INTEL GROUP + MANDIANT</div>
+<h1>The attack lasted <span class="red">10 minutes</span>. Did your updater call home inside them?</h1>
+<p class="lead">On <strong>October 16, 2026</strong>, <strong>Google Threat Intelligence Group and Mandiant</strong> disclosed the <strong>UNC7017</strong> campaign: attackers briefly tampered with <strong>AOMEI Backupper's own update servers</strong> &mdash; in <strong>5–10-minute windows</strong>, between <strong>May and July 2026</strong> &mdash; and anyone whose client checked for updates inside a window downloaded a <strong>backdoored updater</strong>. Everyone else saw nothing. No phishing email, no fake site, no shady download: the malware came from the real vendor, through the real update channel, during a window so short it was gone before anyone looked. This is the <strong>tamper-window attack</strong> &mdash; and it works against every product that phones home for updates. This check grades your polling cadence against it: <strong>do you poll inside a tamper window?</strong> Free, no signup.</p>
+
+<div class="directanswer">
+<b>The short answer:</b> UNC7017 tampered AOMEI Backupper's update servers in 5–10-minute windows (May–July 2026); clients that polled for updates inside a window downloaded a backdoor. Frequent automatic polling (hourly, or every boot across a fleet) makes you far more likely to land inside such a window. Harden the channel instead of disabling updates: verify code signatures, stage updates on a pilot group first, and keep backups offline and restore-tested.
+</div>
+
+<div class="facts">
+<div><span class="flabel">What:</span> UNC7017 &mdash; attackers briefly compromised a vendor's own update servers, serving backdoored updates in 5–10-minute windows.</div>
+<div><span class="flabel">When:</span> tampering windows occurred May–July 2026; disclosed <strong>October 16, 2026</strong>.</div>
+<div><span class="flabel">Who:</span> disclosed by <strong>Google Threat Intelligence Group + Mandiant</strong>; affected clients of <strong>AOMEI Backupper</strong> whose update checks fell inside a window.</div>
+<div><span class="flabel">Where:</span> AOMEI Backupper's update infrastructure; technique applies to any auto-updating software.</div>
+<div><span class="flabel">Sources:</span> Google Threat Intelligence Group / Mandiant disclosure (Oct 16, 2026) as reported by security press. Confirm details against the published reports before acting.</div>
+</div>
+
+<div class="card">
+<h2>How the tamper window worked</h2>
+<div class="timeline">
+<div class="tl"><span class="dot clean"></span><b>Normal operation</b> &mdash; AOMEI Backupper clients poll the update server. Server responds with the legitimate updater. Everything signed, everything trusted.</div>
+<div class="tl"><span class="dot"></span><b>The window opens</b> <span class="win">&mdash; 5 to 10 minutes</span> &mdash; attackers swap in a backdoored updater on the vendor's own server. The channel is legitimate. The signature may even still look right.</div>
+<div class="tl"><span class="dot"></span><b>Anyone polling inside the window</b> <span class="win">&mdash; downloads the backdoor</span> &mdash; from a server they trust, through a process their firewall allows, with no phishing involved.</div>
+<div class="tl"><span class="dot clean"></span><b>The window closes</b> &mdash; the legitimate updater is restored. Forensic traces on the server are minimal. Clients that polled five minutes later saw nothing wrong.</div>
+</div>
+<p class="note">The scary arithmetic: if your fleet of 500 machines all polls at boot every morning, the chance that <em>someone</em> lands inside a 10-minute window is effectively 100%.</p>
+</div>
+
+<div class="card">
+<h2>The tamper-window polling risk check</h2>
+<p class="note" style="margin-bottom:6px">Answer for the software that auto-updates on your machines. "Yes" is the risky answer.</p>
+<div id="quiz"></div>
+<div id="qresult" style="margin-top:12px"><div class="verdict warn"><strong>Answer the 5 questions above</strong> to get your polling-cadence verdict.</div></div>
+<script>
+var QS=[
+["Does any auto-updater on your systems poll the vendor hourly (or more often)?","A 10-minute tamper window plus hourly polling is a bullseye. The more frequent the polls, the more lottery tickets the attacker gets."],
+["Do many machines poll at the same time — e.g. all checking at boot or on the same schedule?","Fleet-wide synchronized polling means one window can catch dozens of machines at once. Staggered polling limits the blast radius."],
+["Do your update clients accept downloads without verifying a valid vendor code signature?","If nothing checks the signature, the attacker doesn't even need to work hard. Signature verification is the one control that travels with the file."],
+["Do updates roll out to your whole fleet immediately, with no pilot group?","A tampered update deployed to everyone at once is a company-wide backdoor. A pilot group of 5% catches the anomaly before it scales."],
+["Do your backups live on the same systems that auto-update — with no offline, restore-tested copy?","UNC7017 targeted a backup product. If the backdoor can reach your backups, your recovery path is gone with the fleet."]
+];
+var ANS=[null,null,null,null,null];
+function renderQ(){
+  var h='';
+  for(var i=0;i<QS.length;i++){
+    h+='<div class="q"><div class="qt">'+(i+1)+'. '+QS[i][0]+'<small>'+QS[i][1]+'</small></div><div class="qbtns"><button id="y'+i+'" onclick="ans('+i+',1)">Yes</button><button id="n'+i+'" onclick="ans('+i+',0)">No</button></div></div>';
+  }
+  document.getElementById('quiz').innerHTML=h;
+}
+function ans(i,v){
+  ANS[i]=v;
+  document.getElementById('y'+i).className=v===1?'sel':'';
+  document.getElementById('n'+i).className=v===0?'sel':'';
+  if(ANS.indexOf(null)>=0){return;}
+  var risk=0, out=document.getElementById('qresult');
+  for(var k=0;k<ANS.length;k++){if(ANS[k]===1)risk++;}
+  if(risk===0){
+    out.innerHTML='<div class="verdict safe"><strong>TAMPER-RESILIENT.</strong> Staggered polling, signature verification, pilot-group rollout, and offline backups. A 10-minute window would find very little to catch in your fleet. Keep the pilot window and the restore tests.</div>';
+  }else if(risk<=2){
+    out.innerHTML='<div class="verdict warn"><strong>'+risk+' risk factors — WINDOW-EXPOSED.</strong> Your polling cadence gives a tamper-window attacker real odds of landing inside a window. Fix, in order: stagger the poll times, require signature verification, add a pilot group before fleet-wide rollout.</div>';
+  }else{
+    out.innerHTML='<div class="verdict"><strong>'+risk+' of 5 — WINDOW MAGNET.</strong> Frequent synchronized polling, no signature checks, no pilot group: this is exactly the fleet profile UNC7017 was built for. One 10-minute compromise of any vendor you use could own your backups and your endpoints in a single morning. Stagger polls and enforce signature verification this week.</div>';
+  }
+}
+renderQ();
+</script>
+<p class="note">This self-assessment is informational. It reflects the October 16, 2026 UNC7017 disclosure and standard update-channel hygiene — it is not a security audit.</p>
+</div>
+
+<div class="card">
+<h2>Why this is different from a normal supply-chain attack</h2>
+<ul>
+<li><strong>Duration, not depth.</strong> Classic supply-chain attacks (like the SolarWinds-style compromise) live in the build pipeline for months. UNC7017 lived on the distribution server for <em>minutes</em> &mdash; long enough to poison whoever asked, gone before any audit.</li>
+<li><strong>Reputation checks fail.</strong> The server was real, the domain was real, the update process was real. Blocklists and domain reputation see nothing.</li>
+<li><strong>Your updater is the attack vector.</strong> The process your firewall trusts most &mdash; the software updater &mdash; is the delivery vehicle.</li>
+<li><strong>Different angle than our other AOMEI page.</strong> This page is about the <strong>tamper window</strong> technique (timing your polls against a briefly-compromised server). Our <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/aomei-backupper-supply-chain-check.html" style="color:#6ea8fe">AOMEI Backupper supply-chain check</a> covers the broader supply-chain risk picture. Take both.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>What this checker does NOT do</h2>
+<ul>
+<li>It does not tell you whether your specific AOMEI install was compromised in May–July 2026 &mdash; that needs signature verification and log review.</li>
+<li>It does not scan your network for the UNC7017 backdoor.</li>
+<li>It does not advise disabling automatic updates &mdash; that would leave you exposed to the far larger set of known unpatched flaws. Harden the channel; keep the updates.</li>
+<li>It is informational, not a forensic investigation. Suspect indicators should go to your security team or an incident-response professional.</li>
+</ul>
+</div>
+
+<div class="morelinks">
+<h3>More from Ingenious AI</h3>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/aomei-backupper-supply-chain-check.html">&rarr; AOMEI Backupper supply-chain check (different angle — supply chain vs tamper window)</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/cyberxero-swarm-risk-check.html">&rarr; CyberXero swarm risk check — coordinated agent-attack risk</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/candiru-adfection-spyware-check.html">&rarr; Candiru Adfection spyware check — malicious-ad delivery</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-sandbox-policy-gap-checker.html">&rarr; Agent sandbox policy gap checker</a>
+<a href="https://github.com/Iceman2050/update-tamper-watch" target="_blank" rel="noopener">&rarr; update-tamper-watch — free tool to monitor update channels for tampering</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/all-links.html">&rarr; All Ingenious AI checks (the hub)</a>
+<a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html">&rarr; Security suite overview</a>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#fff;text-decoration:underline">BreachHunter</a> watches for compromised vendor infrastructure before your updater phones home to it.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20UNC7017%20tamper%20window%20check%20and%20want%20early%20access%20to%20BreachHunter." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=UNC7017%3A%20attackers%20tampered%20AOMEI%27s%20update%20servers%20in%205%E2%80%9310%20minute%20windows.%20Does%20your%20polling%20cadence%20land%20inside%20a%20tamper%20window%3F&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/unc7017-aomei-tamper-window-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/unc7017-aomei-tamper-window-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/unc7017-aomei-tamper-window-check.html&title=UNC7017%3A%20attackers%20tampered%20AOMEI%20Backupper%27s%20update%20servers%20in%205-10%20minute%20windows%20%E2%80%94%20polling%20cadence%20risk%20check" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+
+<section class="kw-faq" style="max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
+<h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
+<details><summary>What is the UNC7017 attack?</summary><p>UNC7017 is the threat-actor designation for a campaign disclosed October 16, 2026 by Google Threat Intelligence Group and Mandiant. From May to July 2026, the attackers briefly tampered with AOMEI Backupper's own update servers in 5–10-minute windows; users whose clients checked for updates inside a window downloaded a backdoored updater instead of the legitimate one.</p></details>
+<details><summary>Was AOMEI hacked?</summary><p>AOMEI's own update servers were tampered with during the UNC7017 campaign — but only in brief 5–10-minute windows between May and July 2026, according to Google Threat Intelligence Group and Mandiant (disclosed Oct 16, 2026). Clients polling for updates inside a window received a backdoored updater. AOMEI itself, and clients that updated outside the windows, were not affected.</p></details>
+<details><summary>What is a tamper window attack?</summary><p>A tamper window attack is a supply-chain technique where attackers compromise a legitimate vendor's update or distribution infrastructure for a very short time — here 5–10 minutes — then remove the malicious content before anyone notices. Anyone who checks for updates inside that window receives malware from a server they trust; everyone else sees nothing wrong. It defeats reputation-based trust because the malicious file comes from the real, signed update channel.</p></details>
+<details><summary>How do I know if I downloaded the UNC7017 backdoor?</summary><p>The campaign ran May–July 2026, so the key question is whether your AOMEI Backupper checked for updates or downloaded one in that period. Look for update activity in those months, verify the digital signature of installed components against AOMEI's published certificates, and run a current antivirus/EDR scan. If in doubt, reinstall from a fresh download obtained directly from the vendor and verify the signature.</p></details>
+<details><summary>Can I still trust automatic software updates?</summary><p>Yes — disabling auto-updates leaves you exposed to the far larger set of known, unpatched vulnerabilities. The UNC7017 lesson is to harden the update channel instead: verify code signatures, stage updates on a pilot group first, monitor update traffic for anomalies, and keep backups offline. This page's checker grades your current update hygiene against the tamper-window threat.</p></details>
+</section>
+<p class="note" style="text-align:center;max-width:760px;margin:0 auto 24px">Informational only: this page reflects the published October 16, 2026 UNC7017 disclosure by Google Threat Intelligence Group and Mandiant. It is not a forensic investigation or legal advice. Confirm details against the published reports before acting.</p>
+</div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

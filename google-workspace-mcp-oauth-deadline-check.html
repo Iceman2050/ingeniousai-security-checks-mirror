@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Workspace MCP OAuth Deadline — Nov 11, 2026 Agentic Readiness Check | Ingenious AI</title>
+<meta name="description" content="Starting Nov 11, 2026, Google Workspace MCP servers reject OAuth clients not marked as agentic. Free interactive readiness check: are you affected, the exact fix in Google Cloud console, and the Nov 12 lock-in trap. No signup.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/google-workspace-mcp-oauth-deadline-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Google Workspace MCP OAuth Deadline — Nov 11, 2026 Agentic Readiness Check | Ingenious AI">
+<meta property="og:description" content="Starting Nov 11, 2026, Google Workspace MCP servers reject OAuth clients not marked as agentic. Free interactive readiness check: are you affected, the exact fix, and the Nov 12 lock-in trap. No signup.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/google-workspace-mcp-oauth-deadline-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google Workspace MCP OAuth Deadline — Nov 11, 2026 Agentic Readiness Check">
+<meta name="twitter:description" content="Nov 11, 2026: Workspace MCP servers start rejecting non-agentic OAuth clients. Free check: are you affected?">
+<script type="application/ld+json">
+{"@context":"https://schema.org","about":{"@type":"Thing","name":"Google Workspace MCP agentic OAuth requirement"},"keywords":["Google Workspace MCP","agentic OAuth","OAuth client agentic","November 11 2026","MCP server OAuth","Use this client for an AI-powered agent"],"@type":"WebApplication","name":"Google Workspace MCP OAuth Deadline — Nov 11, 2026 Agentic Readiness Check | Ingenious AI","applicationCategory":"DeveloperApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/google-workspace-mcp-oauth-deadline-check.html","description":"Free interactive readiness check for the Nov 11, 2026 Google Workspace MCP agentic-OAuth deadline: live countdown, affected-or-not quiz, the exact console fix, and the Nov 12 lock-in trap.","author":{"@type":"Organization","name":"Ingenious AI"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What happens on November 11, 2026 to Google Workspace MCP?","acceptedAnswer":{"@type":"Answer","text":"Starting November 11, 2026, Google Workspace MCP servers (Gmail, Drive, Docs, Sheets, Slides, Calendar, Chat, People) reject requests from any OAuth client that is not marked as agentic. The toggle is Google Cloud console → Google Auth Platform → Clients → 'Use this client for an AI-powered agent'."}},
+{"@type":"Question","name":"What happens if I miss the November 11 deadline?","acceptedAnswer":{"@type":"Answer","text":"On November 12, 2026 the agentic setting becomes permanent on existing OAuth clients. If yours is not marked agentic by then, you cannot flip it later — you must create a brand-new OAuth Client ID, mark it agentic, and update every config that references the old client."}},
+{"@type":"Question","name":"Are non-agent apps affected by the agentic OAuth requirement?","acceptedAnswer":{"@type":"Answer","text":"No. Apps and integrations that only call Google Workspace REST APIs — not the MCP servers — are not affected. The requirement applies only to OAuth clients calling the Workspace MCP servers."}},
+{"@type":"Question","name":"Can one OAuth client serve both human users and an AI agent?","acceptedAnswer":{"@type":"Answer","text":"Google's guidance says no: maintain separate OAuth 2.0 Client IDs for human-interactive traffic (standard REST APIs) and AI agent workflows (MCP). Mark only the agent's client as agentic. Tagging a client as agentic does not grant extra scopes or bypass user consent."}},
+{"@type":"Question","name":"Where is the agentic toggle in Google Cloud console?","acceptedAnswer":{"@type":"Answer","text":"Google Cloud console → Google Auth Platform → Clients → select your OAuth client → check 'Use this client for an AI-powered agent'. The setting has been editable since October 12, 2026."}}
+]}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#3a0d0d;border:1px solid #e5484d;color:#ff9a9e;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:32px;line-height:1.25;margin-bottom:14px}
+h2{font-size:22px;margin:30px 0 12px}
+h3{font-size:16px;margin-bottom:6px}
+p.lead{font-size:17px;color:#9aa7b8;margin-bottom:22px}
+.answer{font-size:16px;color:#d7dee8;background:#10151d;border-left:3px solid #e5484d;padding:16px 18px;border-radius:0 8px 8px 0;margin:20px 0}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:26px;margin:18px 0}
+.small{font-size:13px;color:#9aa7b8}
+.tiny{font-size:12px;color:#6b7688}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:14px;border:none;cursor:pointer;margin-top:8px}
+.btn.ghost{background:#1a2230;color:#e6edf3;border:1px solid #2a3342}
+.count{display:flex;gap:10px;justify-content:center;margin:16px 0 6px;flex-wrap:wrap}
+.count .cell{background:#0a0e14;border:1px solid #2a3342;border-radius:10px;padding:12px 16px;min-width:86px;text-align:center}
+.count .num{font-size:30px;font-weight:800;color:#ff9a9e}
+.count .lab{font-size:11px;color:#6b7688;letter-spacing:1px;text-transform:uppercase}
+.quiz-q{margin:16px 0}
+.quiz-q p{font-weight:700;margin-bottom:8px}
+.quiz-q label{display:block;background:#0a0e14;border:1px solid #2a3342;border-radius:8px;padding:10px 14px;margin:6px 0;cursor:pointer;font-size:14px}
+.quiz-q label:hover{border-color:#1c6ef2}
+.quiz-q input{margin-right:10px}
+#verdict{display:none;border-radius:10px;padding:18px;margin-top:16px;font-size:15px}
+#verdict.ok{background:#0d1f14;border:1px solid #2ea043;color:#b7f0c5}
+#verdict.warn{background:#2a1f08;border:1px solid #d29922;color:#ffce63}
+#verdict.info{background:#0d1b2e;border:1px solid #1c6ef2;color:#a9ccff}
+.steps{list-style:none;counter-reset:step}
+.steps li{counter-increment:step;position:relative;padding:10px 0 10px 46px;font-size:14px;color:#c4ccd8}
+.steps li::before{content:counter(step);position:absolute;left:0;top:8px;width:30px;height:30px;border-radius:50%;background:#1c6ef2;color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+code{background:#000;border:1px solid #2a3342;border-radius:6px;padding:2px 8px;font-size:13px;color:#7ee787}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:12px 0}
+th,td{border:1px solid #2a3342;padding:10px 12px;text-align:left}
+th{background:#0a0e14;color:#9aa7b8;font-size:12px;text-transform:uppercase;letter-spacing:1px}
+a{color:#6ea8fe}
+.src{font-size:12px;color:#6b7688;margin-top:8px}
+</style>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<div class="badge">DEADLINE: NOV 11, 2026</div>
+<h1>Google Workspace MCP OAuth Deadline — Agentic Readiness Check</h1>
+<p class="lead">Google is flipping a hard switch: starting <strong>November 11, 2026</strong>, Workspace MCP servers reject any OAuth client not flagged as agentic. Run the free check below — 3 questions tell you if you're affected, and the fix takes two minutes in the Cloud console.</p>
+
+<div class="answer"><strong>Direct answer:</strong> Starting November 11, 2026, Google Workspace MCP servers (Gmail, Drive, Docs, Sheets, Slides, Calendar, Chat, People) reject requests from any OAuth client not marked as agentic. In Google Cloud console go to <strong>Google Auth Platform → Clients</strong> and tick <strong>"Use this client for an AI-powered agent"</strong> before the deadline. On November 12 the setting locks permanently — miss it and you must create a brand-new OAuth Client ID.</div>
+
+<div class="card" style="border-color:#e5484d">
+<h2 style="margin-top:0">Countdown to enforcement</h2>
+<div class="count" id="countdown">
+<div class="cell"><div class="num" id="cd-d">–</div><div class="lab">days</div></div>
+<div class="cell"><div class="num" id="cd-h">–</div><div class="lab">hours</div></div>
+<div class="cell"><div class="num" id="cd-m">–</div><div class="lab">minutes</div></div>
+<div class="cell"><div class="num" id="cd-s">–</div><div class="lab">seconds</div></div>
+</div>
+<p class="small" id="cd-note" style="text-align:center">Until Nov 11, 2026 00:00 UTC — when non-agentic clients start getting rejected.</p>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">Am I affected? — 3-question check</h2>
+<div class="quiz-q" id="q1">
+<p>1. Does an AI agent (yours, or one you operate) call Google Workspace — Gmail, Drive, Docs, Sheets, Slides, Calendar, Chat or People — through MCP?</p>
+<label><input type="radio" name="q1" value="yes"> Yes, an agent talks to Workspace via MCP</label>
+<label><input type="radio" name="q1" value="no"> No — we only use the REST APIs, or no agent at all</label>
+</div>
+<div class="quiz-q" id="q2">
+<p>2. Does the <em>same</em> OAuth client serve both human users (REST APIs) and agent workflows (MCP)?</p>
+<label><input type="radio" name="q2" value="yes"> Yes, one client does both</label>
+<label><input type="radio" name="q2" value="no"> No — separate clients, or not sure</label>
+</div>
+<div class="quiz-q" id="q3">
+<p>3. Have you already ticked "Use this client for an AI-powered agent" on the agent's OAuth client?</p>
+<label><input type="radio" name="q3" value="yes"> Yes, it's marked agentic</label>
+<label><input type="radio" name="q3" value="no"> No / not sure</label>
+</div>
+<button class="btn" onclick="verdict()">Check my readiness</button>
+<button class="btn ghost" onclick="resetQuiz()">Reset</button>
+<div id="verdict"></div>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">The 3-step fix (about 2 minutes)</h2>
+<ol class="steps">
+<li>Open the <strong>Google Cloud console</strong> → <strong>Google Auth Platform</strong> → <strong>Clients</strong>. If one OAuth client serves both humans and your agent, <strong>create a separate OAuth client</strong> for the agent first — Google requires separate Client IDs for human vs. agent traffic.</li>
+<li>Select the agent's OAuth client and tick <strong>"Use this client for an AI-powered agent"</strong>. Marking a client as agentic does <em>not</em> grant extra scopes or bypass user consent — it only lets Workspace MCP servers accept the traffic and lets admins apply agent-specific controls.</li>
+<li>Save, then verify: point a test MCP call (e.g. <code>gmailmcp.googleapis.com</code>) at the flagged client and confirm it connects. Do this <strong>before Nov 11</strong> — on Nov 12 the flag locks permanently on existing clients.</li>
+</ol>
+</div>
+
+<div class="card" style="border-color:#d29922">
+<h2 style="margin-top:0">The Nov 12 lock-in trap</h2>
+<p class="small">This is the part most teams will miss. The toggle has been editable since <strong>October 12, 2026</strong>. Enforcement starts <strong>November 11</strong>. But on <strong>November 12</strong>, the agentic setting becomes <strong>permanent</strong> on existing clients — you can no longer flip it. An unflagged client is stuck non-agentic forever: to use Workspace MCP after that date you must mint a <strong>brand-new OAuth Client ID</strong>, mark <em>it</em> agentic, and update every config that referenced the old one (think <code>mcp_config.json</code> files scattered across machines). The cheap fix is ticking the box now; the expensive fix is a client-ID migration under pressure.</p>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">Who is NOT affected</h2>
+<p class="small">Apps and integrations that only call Google Workspace <strong>REST APIs</strong> — classic Gmail/Drive/Calendar API integrations with no agent and no MCP — are untouched by this change. The requirement applies only to OAuth clients calling the Workspace <strong>MCP servers</strong> (Gmail, Drive, Docs, Sheets, Slides, Calendar, Chat, People MCP endpoints).</p>
+</div>
+
+<div class="card" style="border-color:#d29922">
+<p class="small"><strong style="color:#ffce63">Honest scope:</strong> an informational aid, not official Google guidance and not legal advice. Dates and mechanics follow Google's Workspace developer release notes (Oct 2026); Google can change them. Verify in your own Cloud console before the deadline.</p>
+<p class="src">Sources: Google Workspace developer release notes (Oct 2026) — "OAuth 2.0 clients calling the Google Docs/Drive MCP server are required to have 'Use this client for an AI-powered agent' selected"; AppsScriptPulse coverage of the Nov 11 / Nov 12 enforcement and lock-in dates.</p>
+</div>
+
+<div class="card">
+<h2>Agentic OAuth — quick answers</h2>
+<p style="margin:14px 0 4px"><strong>What happens on November 11, 2026 to Google Workspace MCP?</strong></p>
+<p class="small" style="margin-bottom:6px">Google Workspace MCP servers (Gmail, Drive, Docs, Sheets, Slides, Calendar, Chat, People) start rejecting requests from any OAuth client not marked as agentic. The toggle lives in Google Cloud console → Google Auth Platform → Clients → "Use this client for an AI-powered agent".</p>
+<p style="margin:14px 0 4px"><strong>What happens if I miss the November 11 deadline?</strong></p>
+<p class="small" style="margin-bottom:6px">On November 12, 2026 the agentic setting locks permanently on existing OAuth clients. If yours isn't flagged, you can't flip it later — you must create a brand-new OAuth Client ID, mark it agentic, and update every config referencing the old client.</p>
+<p style="margin:14px 0 4px"><strong>Are non-agent apps affected?</strong></p>
+<p class="small" style="margin-bottom:6px">No. Apps that only call Google Workspace REST APIs are not affected — the requirement applies only to OAuth clients calling the Workspace MCP servers.</p>
+<p style="margin:14px 0 4px"><strong>Can one OAuth client serve both humans and an AI agent?</strong></p>
+<p class="small" style="margin-bottom:6px">Google says to keep them separate: one Client ID for human-interactive traffic (REST APIs), another for agent workflows (MCP). Mark only the agent's client as agentic. The flag grants no extra scopes and doesn't bypass user consent.</p>
+<p style="margin:14px 0 4px"><strong>Where is the agentic toggle?</strong></p>
+<p class="small" style="margin-bottom:6px">Google Cloud console → Google Auth Platform → Clients → select your OAuth client → check "Use this client for an AI-powered agent". Editable since October 12, 2026.</p>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#fff;text-decoration:underline">Agent Auth Gateway</a> gets its Agentic OAuth Readiness Gate on Nov 1</strong> — a customer-declared registry of your OAuth clients, a live countdown to the deadline, and gateway policy enforcement that blocks non-agentic calls before Google does.</div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20checked%20my%20MCP%20OAuth%20readiness%20and%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+</div>
+<script>
+var DEADLINE = new Date('2026-11-11T00:00:00Z').getTime();
+function tick(){
+  var now = Date.now(), diff = DEADLINE - now;
+  if(diff <= 0){
+    document.getElementById('cd-note').textContent = 'Enforcement is live — Workspace MCP servers are now rejecting non-agentic OAuth clients.';
+    ['cd-d','cd-h','cd-m','cd-s'].forEach(function(id){document.getElementById(id).textContent='0';});
+    return;
+  }
+  var d = Math.floor(diff/86400000), h = Math.floor(diff%86400000/3600000),
+      m = Math.floor(diff%3600000/60000), s = Math.floor(diff%60000/1000);
+  document.getElementById('cd-d').textContent = d;
+  document.getElementById('cd-h').textContent = h;
+  document.getElementById('cd-m').textContent = m;
+  document.getElementById('cd-s').textContent = s;
+}
+tick(); setInterval(tick, 1000);
+function pick(name){
+  var els = document.getElementsByName(name);
+  for(var i=0;i<els.length;i++){ if(els[i].checked) return els[i].value; }
+  return null;
+}
+function verdict(){
+  var a = pick('q1'), b = pick('q2'), c = pick('q3'), v = document.getElementById('verdict');
+  if(!a || !b || !c){ v.style.display='block'; v.className=''; v.id='verdict'; v.style.background='#2a1f08'; v.style.border='1px solid #d29922'; v.style.color='#ffce63'; v.textContent='Answer all 3 questions to get your verdict.'; return; }
+  v.style.display='block';
+  if(a==='no'){
+    v.style.background='#0d1b2e'; v.style.border='1px solid #1c6ef2'; v.style.color='#a9ccff';
+    v.innerHTML='<strong>Not affected.</strong> This deadline only hits AI agents calling Workspace <em>MCP</em> servers. Pure REST API integrations are untouched — nothing to do.';
+  } else if(c==='yes'){
+    v.style.background='#0d1f14'; v.style.border='1px solid #2ea043'; v.style.color='#b7f0c5';
+    v.innerHTML='<strong>Ready — with one check.</strong> Your client is flagged agentic. Just confirm the flag is on the <em>right</em> Client ID' + (b==='yes' ? ' — and since one client serves both humans and your agent, split it: Google requires a separate agentic client for agent traffic.' : ', especially if you run separate human and agent clients.') + ' Re-verify before Nov 11.';
+  } else if(b==='yes'){
+    v.style.background='#2a1f08'; v.style.border='1px solid #d29922'; v.style.color='#ffce63';
+    v.innerHTML='<strong>Action needed — two steps before Nov 11.</strong> 1) Create a <em>separate</em> OAuth client for the agent (Google requires separate Client IDs for human vs. agent traffic). 2) Tick "Use this client for an AI-powered agent" on it. Miss Nov 12 and the flag locks — then it is a full client-ID migration.';
+  } else {
+    v.style.background='#2a1f08'; v.style.border='1px solid #d29922'; v.style.color='#ffce63';
+    v.innerHTML='<strong>Action needed before Nov 11.</strong> Tick "Use this client for an AI-powered agent" on the agent\u2019s OAuth client (Cloud console → Google Auth Platform → Clients). Takes two minutes now; becomes a client-ID migration after Nov 12.';
+  }
+}
+function resetQuiz(){
+  ['q1','q2','q3'].forEach(function(n){ var els=document.getElementsByName(n); for(var i=0;i<els.length;i++) els[i].checked=false; });
+  var v=document.getElementById('verdict'); v.style.display='none'; v.textContent='';
+}
+</script>
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

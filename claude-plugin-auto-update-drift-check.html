@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Are Claude Code Plugins Safe? Plugin Auto-Update Drift Check | Ingenious AI</title>
+<meta name="description" content="Are Claude Code plugins safe? Anthropic opened the plugin portal on Sept 25, 2026 with auto-update defaults ON — silently changing the code inside your agent's toolbox. 6-question plugin provenance quiz: official vs sideloaded, auto-update posture, bundled MCP servers. Free.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Are Claude Code Plugins Safe? Plugin Auto-Update Drift Check | Ingenious AI">
+<meta property="og:description" content="Are Claude Code plugins safe? Anthropic opened the plugin portal Sept 25, 2026 with auto-update defaults ON — silently changing your agent's toolbox. 6-question plugin provenance quiz. Free.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/claude-plugin-auto-update-drift-check.html">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/claude-plugin-auto-update-drift-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Are Claude Code Plugins Safe? Auto-Update Drift Check | Ingenious AI">
+<meta name="twitter:description" content="Claude Code's plugin portal opened Sept 25, 2026 with auto-update ON by default. 6-question plugin provenance quiz: what code your agent is actually running. Free.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1a0f0f;border:1px solid #f85149;color:#ff9d97;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .green{color:#3fb950}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.answer{background:#0d1420;border:1px solid #3fb950;border-radius:10px;padding:18px;margin:20px 0;font-size:15px}
+.answer b{color:#7ee787}
+.keyfacts{background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:18px;margin:20px 0;font-size:14px}
+.keyfacts .kf{margin:8px 0}
+.keyfacts .k{display:inline-block;min-width:64px;font-weight:700;color:#6ea8fe}
+.keyfacts a{color:#6ea8fe}
+.q{display:flex;gap:12px;align-items:flex-start;margin:16px 0;padding:14px;border:1px solid #232b38;border-radius:10px;background:#0d1219}
+.q .qn{flex:0 0 28px;height:28px;border-radius:50%;background:#1c2b45;color:#9db8e8;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.q .qt{flex:1}
+.q .qt small{display:block;color:#9aa7b8;font-size:13px;margin-top:4px}
+.qbtns{flex:0 0 auto;display:flex;gap:8px}
+.qbtns button{border:1px solid #2a3342;background:#11161f;color:#e6edf3;font-weight:700;font-size:13px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.qbtns button.sel-y{background:#3fb950;border-color:#3fb950;color:#06240f}
+.qbtns button.sel-n{background:#f85149;border-color:#f85149;color:#fff}
+.verdict{border-left:4px solid #f85149;padding:12px 16px;background:#1a0f0f;border-radius:0 8px 8px 0;margin:12px 0}
+.verdict.warn{border-color:#d29922;background:#1a1408}
+.verdict.safe{border-color:#3fb950;background:#0d1a0f}
+.note{font-size:14px;color:#9aa7b8}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:18px;padding:18px;border-radius:10px;text-decoration:none;margin:28px 0}
+.cta:hover{background:#2f7ef7}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+.howto{background:#0d1219;border:1px solid #232b38;border-radius:10px;padding:18px;margin:20px 0;font-size:14px}
+.howto div{margin:8px 0}
+.howto b{color:#7ee787}
+.more{background:#0d1420;border:1px solid #232b38;border-radius:10px;padding:20px;margin:28px 0}
+.more h2{font-size:18px;margin-bottom:10px;color:#fff}
+.more a{color:#6ea8fe}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are Claude Code plugins safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mostly — but 'plugin' is not a single trust level. Official plugins from Anthropic's portal get more review than sideloaded ones, and since September 25, 2026 the plugin portal has shipped with auto-update defaults ON, meaning plugin code can change under you without a prompt. Safety depends on provenance (official vs sideloaded), whether updates are pinned or reviewed, what bundled MCP servers a plugin includes, and what permissions the plugin's tools hold."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Claude Code plugin portal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The plugin portal is Anthropic's distribution channel for Claude Code plugins, opened on September 25, 2026. It lets developers publish and users install plugins — bundles of commands, skills, and MCP servers that extend Claude Code. Plugins can be installed from the official portal or sideloaded from other sources, and auto-updates default to ON."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Claude Code plugins auto-update?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Since the plugin portal opened on September 25, 2026, auto-update has been the default — plugin code, commands, and bundled MCP servers can be replaced with newer versions without asking you first. That is convenient, and it is also a supply-chain attack surface: whoever controls the update controls the code your agent runs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I audit Claude Code plugins?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "List every installed plugin and its source (official portal vs sideloaded); check whether auto-update is on or pinned; inspect each plugin's declared tools and permissions; enumerate any MCP servers bundled inside plugins; and review update history — would you notice if a plugin's code changed last night? Re-audit whenever a plugin updates or you install a new one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is plugin drift risk?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Plugin drift is the gap between the plugin you installed and the plugin running today. With auto-updates on, code, prompts, and bundled MCP servers can change between sessions — including changes pushed after the maintainer's account was compromised. Drift risk is highest for sideloaded plugins with auto-update enabled and no integrity verification."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Claude Code plugins include MCP servers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They can. Plugins are bundles that may include MCP (Model Context Protocol) servers giving the agent tools over your files, network, and apps. A plugin's trustworthiness is therefore the combined trust of its own code plus every bundled server — each server is an independent attack surface with its own permissions."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to audit your Claude Code plugins for drift risk",
+  "description": "Six steps to audit Claude Code plugin provenance: official vs sideloaded sources, auto-update posture, bundled MCP servers, permissions, and change detection.",
+  "totalTime": "PT10M",
+  "step": [
+    {"@type": "HowToStep", "name": "List every plugin and its source", "text": "Inventory all installed Claude Code plugins and record whether each came from Anthropic's official portal or was sideloaded from elsewhere."},
+    {"@type": "HowToStep", "name": "Check the auto-update posture", "text": "Find which plugins update automatically (the default since Sept 25, 2026) and pin or review updates for anything touching sensitive tools."},
+    {"@type": "HowToStep", "name": "Enumerate bundled MCP servers", "text": "Open each plugin's contents and list every MCP server it bundles — each server is an independent tool surface with its own permissions."},
+    {"@type": "HowToStep", "name": "Review plugin permissions", "text": "Check what file, network, and command permissions each plugin's tools hold; remove anything that exceeds what the plugin actually needs."},
+    {"@type": "HowToStep", "name": "Verify you can detect changes", "text": "Confirm you would notice within a day if a plugin's code changed — check update history and consider hashing plugin directories."},
+    {"@type": "HowToStep", "name": "Prune and re-audit", "text": "Remove plugins you don't use and re-run this audit whenever you install a new plugin or one auto-updates."}
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Are Claude Code Plugins Safe? Plugin Auto-Update Drift Check | Ingenious AI",
+  "description": "Are Claude Code plugins safe? Anthropic opened the plugin portal on Sept 25, 2026 with auto-update defaults ON — silently changing the code inside your agent's toolbox. 6-question plugin provenance quiz: official vs sideloaded, auto-update posture, bundled MCP servers. Free.",
+  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/claude-plugin-auto-update-drift-check.html",
+  "inLanguage": "en",
+  "about": "Claude Code plugin safety",
+  "keywords": "are Claude Code plugins safe, Claude Code plugins safe, Claude Code plugin portal auto-update",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ingenious AI",
+    "url": "https://github.com/Iceman2050"
+  }
+}</script>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<div class="badge">ANTHROPIC PLUGIN PORTAL &mdash; OPENED SEPT 25, 2026</div>
+<h1>Are Claude Code plugins safe? <span class="red">The portal opened with auto-update ON by default.</span></h1>
+<p class="lead">On <strong>September 25, 2026</strong>, Anthropic opened the <strong>Claude Code plugin portal</strong> — the official channel for plugins that extend your coding agent with commands, skills, and bundled <strong>MCP servers</strong>. One default matters more than everything else: <strong>auto-update is ON</strong>, meaning the code inside your agent's toolbox can change overnight without asking you. Official plugins get more review than sideloaded ones, but every plugin is a supply-chain surface — whoever controls the update controls the code your agent runs, with your file and network access. This free 60-second quiz audits your <strong>plugin provenance</strong>: official vs sideloaded sources, auto-update posture, and the bundled MCP servers most people never check.</p>
+
+<div class="answer">
+<b>In short:</b> Claude Code plugins range from well-reviewed official ones to unreviewed sideloads, and since the plugin portal opened on September 25, 2026, auto-update has defaulted to ON — so plugin code can change under you silently. Plugins are only as safe as their provenance, their update posture, and every MCP server they bundle. This 6-question quiz tells you whether you know what's actually inside your agent's toolbox.
+</div>
+
+<div class="keyfacts">
+<div class="kf"><span class="k">Who</span> <strong>Anthropic</strong> — plugin authors and anyone running Claude Code with third-party plugins</div>
+<div class="kf"><span class="k">What</span> The official <strong>Claude Code plugin portal</strong> launched with <strong>auto-update defaults ON</strong> — plugins (commands, skills, bundled MCP servers) can change without prompting</div>
+<div class="kf"><span class="k">When</span> <strong>September 25, 2026</strong></div>
+<div class="kf"><span class="k">Where</span> Claude Code's plugin portal; plugins install from the portal or sideloaded from other sources</div>
+<div class="kf"><span class="k">Sources</span> Anthropic's plugin portal launch (Sept 25, 2026); portal defaults and plugin architecture as documented</div>
+</div>
+
+<div class="card">
+<h2>The 60-second plugin provenance quiz</h2>
+<p class="note">Answer honestly. Here, "Yes" is the safe answer.</p>
+<div id="quiz"></div>
+<div id="qresult" style="margin-top:12px"><div class="verdict warn"><strong>Answer the 6 questions above</strong> to get your drift-risk verdict.</div></div>
+<script>
+var QS=[
+["Are ALL your Claude Code plugins installed from Anthropic's OFFICIAL plugin portal — zero sideloaded plugins?","Sideloaded plugins skip whatever review the portal applies. If you can't name the source of every plugin, you don't know your supply chain."],
+["Are auto-updates REVIEWED or PINNED — not blindly applied on default?","Auto-update ON by default means code changes without your prompt. Pinning versions or reviewing changelogs turns silent drift into a decision."],
+["Can you NAME every MCP server bundled inside your installed plugins?","Plugins bundle MCP servers — each one is an independent tool surface over your files and network. Unknown bundled servers are unknown agents."],
+["Have you audited each plugin's PERMISSIONS (file, network, command access) in the last 30 days?","A plugin with broad permissions and narrow review is where compromise scales. Least privilege is the baseline."],
+["Do you know the UPDATE HISTORY of your plugins — would you notice code that changed last night?","Drift is invisible by design. If you couldn't detect a change, a compromised maintainer's account could ship it unnoticed."],
+["Are your plugins running in a least-privilege setup — no credentials or secrets in the agent's working scope beyond what's needed?","Plugins inherit the agent's context. The less sensitive material in reach, the less a drifted plugin can exfiltrate."] ];
+var ANS=[null,null,null,null,null,null];
+function scoreVerdict(a){
+  var n=a.length, yes=0;
+  for(var k=0;k<n;k++){if(a[k]===1)yes++;}
+  if(yes===n) return 'safe';
+  if(yes>=Math.ceil(n*0.6)) return 'warn';
+  return 'risk';
+}
+function renderQ(){
+  var h='';
+  for(var i=0;i<QS.length;i++){
+    h+='<div class="q"><div class="qn">'+(i+1)+'</div><div class="qt"><strong>'+QS[i][0]+'</strong><small>'+QS[i][1]+'</small></div><div class="qbtns"><button id="y'+i+'" onclick="ans('+i+',1)">Yes</button><button id="n'+i+'" onclick="ans('+i+',0)">No</button></div></div>';
+  }
+  document.getElementById('quiz').innerHTML=h;
+}
+function ans(i,v){
+  ANS[i]=v;
+  document.getElementById('y'+i).className=v===1?'sel-y':'';
+  document.getElementById('n'+i).className=v===0?'sel-n':'';
+  var out=document.getElementById('qresult');
+  if(ANS.indexOf(null)>=0){return;}
+  var verdict=scoreVerdict(ANS);
+  if(verdict==='safe'){
+    out.innerHTML='<div class="verdict safe"><strong>PROVENANCE CLEAN.</strong> Official sources only, reviewed updates, every bundled MCP server known, permissions audited, changes detectable. Your agent\'s toolbox is inventory you can defend. Keep the audit on a schedule.</div>';
+  }else if(verdict==='warn'){
+    out.innerHTML='<div class="verdict warn"><strong>DRIFT RISK.</strong> Some provenance is known, but auto-updates are silently rewriting code you reviewed, or bundled MCP servers are unknown. The missed answers are where a supply-chain compromise hides. Pin the updates and enumerate the bundles this week.</div>';
+  }else{
+    out.innerHTML='<div class="verdict"><strong>UNKNOWN TOOLBOX — HIGH DRIFT RISK.</strong> Sideloaded plugins, blind auto-updates, bundled MCP servers you can\'t name. You are running code you can\'t identify with your agent\'s permissions. Start with question 1: list every plugin and its source, today.</div>';
+  }
+}
+renderQ();
+</script>
+<p class="note">This self-assessment is informational. It reflects the plugin portal's documented launch and defaults plus standard supply-chain practice — it is not legal advice.</p>
+</div>
+
+<div class="card">
+<h2>Why auto-update defaults change the threat model</h2>
+<ul>
+<li><strong>Review is a snapshot; updates are a stream.</strong> Even if the portal reviewed version 1.0, version 1.3 arrives under the same trust you granted 1.0. Auto-update makes trust perpetual by default.</li>
+<li><strong>Plugins are bundles, not files.</strong> A plugin ships commands, skills, prompts, and MCP servers. One "plugin" is several attack surfaces wearing one name.</li>
+<li><strong>Maintainer accounts get compromised.</strong> The classic supply-chain attack isn't writing malware from scratch — it's pushing it through a trusted maintainer's account. Auto-update delivers it to you overnight.</li>
+<li><strong>Permissions compound.</strong> Your agent's file and network access flows into every plugin and bundled server. One drifted plugin inherits your most trusted context.</li>
+<li><strong>Detection beats prevention here.</strong> You won't review every update — but you can hash plugin directories, watch changelogs, and pin versions for anything with sensitive permissions.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>What this check does NOT do</h2>
+<ul>
+<li>It does not scan your plugin directories or verify any plugin's code — it's a provenance self-audit; the inspection is on you.</li>
+<li>It does not certify any plugin as safe — even official plugins can have bugs or be compromised later.</li>
+<li>It is not a substitute for sandboxing Claude Code or restricting the agent's own permissions.</li>
+<li>Portal launch date and defaults reflect Anthropic's September 25, 2026 launch; check current portal behavior yourself, since defaults can change.</li>
+</ul>
+</div>
+
+<a class="cta" href="https://github.com/Iceman2050/plugin-provenance-verifier" target="_blank" rel="noopener">Open the plugin-provenance-verifier on GitHub &rarr;</a>
+<p class="note" style="text-align:center">Open-source tooling: plugin inventory, source verification, auto-update pinning helpers, and bundled MCP server enumeration for Claude Code.</p>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#fff;text-decoration:underline">Rogue-Agent Defense</a> watches what your agents and their plugins actually do — permissions, tool calls, and anomalies — in real time.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20Claude%20Plugin%20Drift%20Check%20and%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+
+</div>
+
+<div class="share" style="text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8">Share this check: <a href="https://x.com/intent/post?text=Are%20Claude%20Code%20plugins%20safe%3F%20The%20plugin%20portal%20opened%20Sept%2025%202026%20with%20auto-update%20ON%20by%20default.%206-question%20plugin%20provenance%20quiz&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/claude-plugin-auto-update-drift-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/claude-plugin-auto-update-drift-check.html" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/claude-plugin-auto-update-drift-check.html&title=Are%20Claude%20Code%20plugins%20safe%3F%20Plugin%20portal%20opened%20Sept%2025%20with%20auto-update%20ON%20by%20default%20%E2%80%94%20provenance%20quiz" target="_blank" rel="noopener" style="color:#1c6ef2;margin:0 8px">Reddit</a></div>
+<div class="warnbox" style="max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a"><strong>Reddit pre-flight required:</strong> before tapping the Reddit button, read that community's rules <em>today</em> &mdash; check AI-use disclosure requirements, title formatting, and your account standing. Never auto-post, and never repost a link that was already flagged.</div>
+<section class="kw-faq" style="max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
+<h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Are Claude Code plugins safe?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Mostly — but "plugin" is not a single trust level. Official plugins from Anthropic's portal get more review than sideloaded ones, and since September 25, 2026 the plugin portal has shipped with auto-update defaults ON, meaning plugin code can change under you without a prompt. Safety depends on provenance (official vs sideloaded), whether updates are pinned or reviewed, what bundled MCP servers a plugin includes, and what permissions the plugin's tools hold.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is the Claude Code plugin portal?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">The plugin portal is Anthropic's distribution channel for Claude Code plugins, opened on September 25, 2026. It lets developers publish and users install plugins — bundles of commands, skills, and MCP servers that extend Claude Code. Plugins can be installed from the official portal or sideloaded from other sources, and auto-updates default to ON.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Can Claude Code plugins auto-update?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Yes. Since the plugin portal opened on September 25, 2026, auto-update has been the default — plugin code, commands, and bundled MCP servers can be replaced with newer versions without asking you first. That is convenient, and it is also a supply-chain attack surface: whoever controls the update controls the code your agent runs.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How do I audit Claude Code plugins?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">List every installed plugin and its source (official portal vs sideloaded); check whether auto-update is on or pinned; inspect each plugin's declared tools and permissions; enumerate any MCP servers bundled inside plugins; and review update history — would you notice if a plugin's code changed last night? Re-audit whenever a plugin updates or you install a new one.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is plugin drift risk?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Plugin drift is the gap between the plugin you installed and the plugin running today. With auto-updates on, code, prompts, and bundled MCP servers can change between sessions — including changes pushed after the maintainer's account was compromised. Drift risk is highest for sideloaded plugins with auto-update enabled and no integrity verification.</p></details>
+<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Do Claude Code plugins include MCP servers?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">They can. Plugins are bundles that may include MCP (Model Context Protocol) servers giving the agent tools over your files, network, and apps. A plugin's trustworthiness is therefore the combined trust of its own code plus every bundled server — each server is an independent attack surface with its own permissions.</p></details>
+</section>
+
+<div class="more" style="max-width:760px;margin:28px auto">
+<h2>More from Ingenious AI</h2>
+<ul style="list-style:none;margin:0;padding:0">
+<li>&bull; <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/state-of-mcp-security-2026.html">State of MCP Security 2026</a> — the model-context-protocol threat landscape these plugins plug into</li>
+<li>&bull; <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-safety-directory.html">MCP Safety Directory</a> — safety notes across the MCP ecosystem</li>
+<li>&bull; <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-exploit-provenance-checker.html">AI Exploit Provenance Checker</a> — verify where security tools and exploits actually come from</li>
+<li>&bull; <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html">Security Suite</a> — all 11 Ingenious AI platforms at a glance</li>
+<li>&bull; <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/all-links.html">All Security Checks</a> — the full hub of free checks and tools</li>
+</ul>
+</div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
