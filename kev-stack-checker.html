@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-primary-keyword="cybersecurity news">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CVE Checker — CISA KEV Exploited Vulnerabilities Tool</title>
-<meta name="description" content="CVE checker for CISA&#x27;s Known Exploited Vulnerabilities catalog: paste your software list, see what&#x27;s actively exploited. KEV data current, in-browser.">
+<title>CISA KEV Checker — Cybersecurity News Tool</title>
+<meta name="description" content="Cybersecurity news tool: check your software stack against CISA's Known Exploited Vulnerabilities catalog. Free, no signup.">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/kev-stack-checker.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="CVE Checker — CISA KEV Exploited Vulnerabilities Tool">
-<meta property="og:description" content="CVE checker against CISA&#x27;s Known Exploited Vulnerabilities catalog: paste your software list, see what&#x27;s actively exploited. KEV data current, in-browser.">
+<meta property="og:title" content="CISA KEV Checker — Cybersecurity News Tool">
+<meta property="og:description" content="Cybersecurity news tool: check your software stack against CISA's Known Exploited Vulnerabilities catalog. Free, no signup.">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/kev-stack-checker.html">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CVE Checker — CISA KEV Exploited Vulnerabilities Tool">
-<meta name="twitter:description" content="CVE checker against CISA&#x27;s Known Exploited Vulnerabilities catalog: paste your software list, see what&#x27;s actively exploited. KEV data current, in-browser.">
+<meta name="twitter:title" content="CISA KEV Checker — Cybersecurity News Tool">
+<meta name="twitter:description" content="Cybersecurity news tool: check your software stack against CISA's Known Exploited Vulnerabilities catalog. Free, no signup.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
@@ -64,7 +65,8 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <body>
 <div class="wrap">
 <span class="badge">INGENIOUS AI &mdash; FREE SECURITY TOOL</span>
-<h1>CVE checker: check your software against CISA's exploited-vulnerabilities catalog</h1>
+<h1>CISA KEV checker — cybersecurity news: is your stack exploited?</h1>
+<p class="dateline"><time datetime="2026-10-18">October 18, 2026</time> — Ingenious AI</p>
 <p class="lead">Paste your software list below. This free CVE checker checks each product against CISA's Known Exploited Vulnerabilities (KEV) catalog &mdash; the official list of flaws attackers are actively exploiting right now. KEV data as of <strong>2026-10-16</strong>.</p>
 
 <div class="answer">
@@ -72,7 +74,8 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 </div>
 
 <div class="card">
-<h2>Your software stack</h2>
+<h2>Is your software stack in this cybersecurity news alert?</h2>
+<p>This cybersecurity news tool checks your stack against CISA's Known Exploited Vulnerabilities catalog — the list of flaws attackers are actively exploiting right now. If any of your software appears in the KEV catalog, treat it as an emergency: these vulnerabilities have confirmed in-the-wild exploitation and should be patched first.</p>
 <p>One product per line: name and version, e.g. <code>Nextcloud 29.0.4</code>. Version is used for display; matching is by product name, then you confirm your exact version against the advisory.</p>
 <textarea id="stack" placeholder="Nextcloud 29.0.4&#10;GitLab 17.5.1&#10;Docker 27.1.1&#10;Windows 11"></textarea>
 <button class="check" onclick="checkStack()">Check my stack</button>
@@ -190,6 +193,15 @@ function copyShare(){
   else{prompt('Copy this:',t);}
 }
 </script>
+
+<div class="card">
+<h2>Related cybersecurity news checks</h2>
+<ul>
+<li><a href="nextjs-rce-oct2026-check.html">Next.js RCE Patches — Cybersecurity News & Checker</a></li>
+<li><a href="ivanti-connect-secure-cve-2026-104935-checker.html">Ivanti CVE-2026-104935 — Cybersecurity News</a></li>
+<li><a href="gitlab-cve-2026-97229-checker.html">GitLab CVE-2026-97229 — Cybersecurity News</a></li>
+</ul>
+</div>
 <h2 style="font-size:21px;margin:30px 0 12px;color:#fff">FAQ</h2>
 <div>
 <details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">What is CISA&#x27;s KEV catalog?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">The Known Exploited Vulnerabilities catalog is maintained by the U.S. Cybersecurity and Infrastructure Security Agency. It lists only vulnerabilities that CISA has confirmed are actively exploited in the wild, with required-action deadlines for U.S. federal agencies. A match here means the flaw is not theoretical — attackers are using it.</p></details>

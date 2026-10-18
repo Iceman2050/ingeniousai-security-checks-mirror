@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-primary-keyword="cybersecurity news">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CVE Checker — Paste Your Version, Get a Verdict</title>
-<meta name="description" content="Free CVE checker: paste any version for Nextcloud, Langflow, GitLab, Cisco SEG or Ivanti and get an instant patched/vulnerable verdict. 100% client-side.">
+<title>CVE Version Checker — Cybersecurity News Tool</title>
+<meta name="description" content="Free cybersecurity news tool: paste any software version to check it against known CVEs. Instant verdict, no signup required.">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/paste-version-checker.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="CVE Checker — Paste Your Version, Get a Verdict">
-<meta property="og:description" content="Free CVE checker: paste any version for Nextcloud, Langflow, GitLab, Cisco SEG or Ivanti and get an instant patched/vulnerable verdict. 100% client-side.">
+<meta property="og:title" content="CVE Version Checker — Cybersecurity News Tool">
+<meta property="og:description" content="Free cybersecurity news tool: paste any software version to check it against known CVEs. Instant verdict, no signup required.">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/paste-version-checker.html">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CVE Checker — Paste Your Version, Get a Verdict">
-<meta name="twitter:description" content="Free CVE checker: paste any version for Nextcloud, Langflow, GitLab, Cisco SEG or Ivanti and get an instant patched/vulnerable verdict. 100% client-side.">
+<meta name="twitter:title" content="CVE Version Checker — Cybersecurity News Tool">
+<meta name="twitter:description" content="Free cybersecurity news tool: paste any software version to check it against known CVEs. Instant verdict, no signup required.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
@@ -59,7 +60,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <body>
 <div class="wrap">
 <div class="badge">FREE TOOL &middot; 100% CLIENT-SIDE &middot; NO SIGNUP</div>
-<h1>CVE checker: paste your version, get a verdict.</h1>
+<h1>CVE version checker — a cybersecurity news tool: paste, get a verdict</h1>
 <p class="lead">Five of October 2026's worst CVEs. One input box. Pick your product, type or paste your version string, and get an instant <strong>patched / vulnerable / unknown</strong> verdict from this free CVE checker — against the real published advisories, with every version table sourced below.</p>
 
 <div class="answer"><strong>The short version:</strong> This page checks your software version against October 2026's critical CVEs — Nextcloud (built-in Collabora CODE app CVE-2026-110447), Langflow (MCP RCE CVE-2026-105740), GitLab (CI/CD RCE CVE-2026-97229), Cisco Secure Email Gateway (CVE-2026-76519), and Docker Hub GhostPat (CVE-2026-105445) — entirely in your browser. Your version is compared numerically against the vendors' fixed versions; nothing you type is sent anywhere, because there is no server behind this page.</div>
@@ -74,7 +75,8 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 
 <div class="panel active" id="panel-nextcloud">
 <div class="card">
-<h2>Nextcloud — CVE-2026-110447 (Collabora CODE app RCE)</h2>
+<h2>Which cybersecurity news CVEs can this checker test?</h2>
+<p>This cybersecurity news checker covers the flaws dominating October 2026 headlines: Nextcloud CVE-2026-110447, Langflow CVE-2026-105740, GitLab CVE-2026-97229, Cisco SEG CVE-2026-76519, and Docker Hub GhostPat. Paste your version under each heading for an instant, free verdict — no signup required.</p>
 <p>Check the version of the <strong>"Collabora Online &ndash; Built-in CODE Server"</strong> app (<code>richdocumentscode</code>), not Nextcloud core. Admin &gt; Apps, or run <code>occ app:list | grep richdocumentscode</code>.</p>
 <input type="text" id="v-nextcloud" placeholder="e.g. 26.4.303">
 <button class="check" onclick="checkNC()">Check my version</button>

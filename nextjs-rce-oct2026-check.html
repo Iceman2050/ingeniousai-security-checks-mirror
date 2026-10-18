@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-primary-keyword="cybersecurity news">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Next.js RCE CVE Checker — Are You on a Vulnerable Version?</title>
-<meta name="description" content="CVE checker for the October 2026 Next.js RCEs: two unauthenticated remote-code-execution flaws (CVSS 9.5 each). Paste your Next.js version — free, no signup.">
+<title>Next.js RCE Patches — Cybersecurity News & Checker</title>
+<meta name="description" content="Cybersecurity news, October 2026: two unauthenticated Next.js RCE flaws (CVSS 9.5 each). Paste your version into the free checker — no signup.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="Next.js RCE CVE Checker — Are You on a Vulnerable Version?">
-<meta property="og:description" content="CVE checker for the October 2026 Next.js RCEs: two unauthenticated remote-code-execution flaws (CVSS 9.5 each). Paste your Next.js version — free, no signup.">
+<meta property="og:title" content="Next.js RCE Patches — Cybersecurity News & Checker">
+<meta property="og:description" content="Cybersecurity news, October 2026: two unauthenticated Next.js RCE flaws (CVSS 9.5 each). Paste your version into the free checker — no signup.">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextjs-rce-oct2026-check.html">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextjs-rce-oct2026-check.html">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Next.js RCE CVE Checker — Are You on a Vulnerable Version?">
-<meta name="twitter:description" content="CVE checker for the October 2026 Next.js RCEs: two unauthenticated remote-code-execution flaws (CVSS 9.5 each). Paste your Next.js version — free, no signup.">
+<meta name="twitter:title" content="Next.js RCE Patches — Cybersecurity News & Checker">
+<meta name="twitter:description" content="Cybersecurity news, October 2026: two unauthenticated Next.js RCE flaws (CVSS 9.5 each). Paste your version into the free checker — no signup.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
@@ -51,22 +52,12 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <body>
 <div class="wrap">
 <div class="badge">NEXT.JS OUT-OF-BAND &mdash; OCT 14, 2026 &mdash; 2&times; RCE CVSS 9.5</div>
-<h1>Next.js CVE checker: two unauthenticated RCEs — are you patched?</h1>
+<h1>Next.js RCEs — October 2026 cybersecurity news: are you patched?</h1>
 <p class="lead">Next.js just shipped an <strong>out-of-band</strong> security update for <strong>two critical unauthenticated remote-code-execution flaws (CVSS 9.5 each)</strong> plus a high-severity denial-of-service bug. One RCE hides in React Server Components' <code>use cache</code>; the other in SVG image processing via <code>sharp</code>/librsvg on glibc Linux. No login needed for either. Paste your Next.js version into this free CVE checker for an instant verdict. No signup.</p>
 
 <div class="card">
-<h2>The 30-second check</h2>
-<p><strong>Find your version</strong>:</p>
-<code class="cmd">npm ls next
-# or: grep '"next"' package.json</code>
-<p style="margin-top:10px"><strong>Paste it</strong> (e.g. <code>15.5.27</code>, <code>16.4.0</code>, <code>14.2.5</code>):</p>
-<input class="ver" id="ver" placeholder="e.g. 15.5.27" autocomplete="off" spellcheck="false">
-<button class="check" onclick="checkVer()">Check my version</button>
-<div id="result"></div>
-</div>
-
-<div class="card">
-<h2>The three flaws at a glance</h2>
+<h2>What does this cybersecurity news mean for Next.js users?</h2>
+<p>This cybersecurity news covers two unauthenticated remote-code-execution flaws in Next.js, both scoring CVSS 9.5. Attackers can run code on unpatched servers without logging in. If your Next.js version is below the patched release, upgrade immediately — public exploits typically appear within days of disclosure.</p>
 <table>
 <tr><th>Flaw</th><th>Affected</th><th>Fixed in</th><th>Who's exposed</th></tr>
 <tr><td><strong>RCE</strong> via <code>use cache</code><br>GHSA-673q-mjm6-r5xr<br>CVSS 9.5</td><td>16.0.0 – 16.4.0</td><td><strong>16.4.1</strong></td><td>App Router + Cache Components where a <code>use cache</code> fn returns multiple typed arrays. Root cause in React (react-server-dom-* 19.0.0–19.3.0). <strong>No workaround</strong> — upgrade even if you think you're unaffected.</td></tr>

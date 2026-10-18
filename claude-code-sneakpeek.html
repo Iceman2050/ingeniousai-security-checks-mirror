@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-primary-keyword="ai agents 2026">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Claude Code SneakPeek CVE Checker — Is Your Build Safe?</title>
-<meta name="description" content="CVE checker for SneakPeek: Claude Code&#x27;s preview pane silently read SSH keys and cloud tokens — no click needed. Fixed Aug 17. Free 30-second self-test.">
+<title>Claude Code SneakPeek — AI Agents 2026 Check</title>
+<meta name="description" content="AI agents 2026: is your Claude Code build patched against the SneakPeek CVE? Free version checker. No signup.">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/claude-code-sneakpeek.html">
-<meta property="og:title" content="Claude Code SneakPeek CVE Checker — Is Your Build Safe?">
-<meta property="og:description" content="CVE checker for SneakPeek: Claude Code&#x27;s preview pane silently read SSH keys and cloud tokens — no click needed. Fixed Aug 17. Free 30-second self-test.">
+<meta property="og:title" content="Claude Code SneakPeek — AI Agents 2026 Check">
+<meta property="og:description" content="AI agents 2026: is your Claude Code build patched against the SneakPeek CVE? Free version checker. No signup.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/claude-code-sneakpeek.html">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Claude Code SneakPeek CVE Checker — Is Your Build Safe?">
-<meta name="twitter:description" content="CVE checker for SneakPeek: Claude Code&#x27;s preview pane silently read SSH keys and cloud tokens — no click needed. Fixed Aug 17. Free 30-second self-test.">
+<meta name="twitter:title" content="Claude Code SneakPeek — AI Agents 2026 Check">
+<meta name="twitter:description" content="AI agents 2026: is your Claude Code build patched against the SneakPeek CVE? Free version checker. No signup.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
@@ -44,37 +46,12 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <body>
 <div class="wrap">
 <div class="badge">SNEAKPEEK &mdash; CVSS 8.7 &mdash; PATCHED AUG 17</div>
-<h1>SneakPeek CVE checker: is your Claude Code build patched?</h1>
+<h1>Is your Claude Code build patched? — AI agents 2026 checker</h1>
 <p class="lead">Security researchers found that Claude Code Desktop's preview pane could be tricked into <strong>silently reading your SSH keys, AWS credentials, GitHub tokens and Kubernetes configs</strong> — no click required. Just clone a repo, ask Claude to review an HTML file, and the preview does the rest. The full fix shipped August 17 in build <strong>1.30096.1</strong>. This free CVE check tool tells you where you stand. No signup, nothing installed.</p>
 
 <div class="card">
-<h2>The 30-second check</h2>
-<div class="step"><div class="stepnum">1</div><div>
-<p><strong>Check your Claude Desktop build number</strong> &mdash; open the app and look under Settings / About (auto-update usually handles this):</p>
-<div class="verdict"><strong>Older than 1.30096.1 &rarr; you are EXPOSED.</strong> The SneakPeek preview-pane flaw is unpatched on your build. Update immediately — do not open HTML files from untrusted repos until you do.</div>
-<div class="verdict safe"><strong>1.30096.1 or newer &rarr; patched.</strong> You're safe from SneakPeek. Keep auto-update on.</div>
-</div></div>
-<div class="step"><div class="stepnum">2</div><div>
-<p><strong>Check your past exposure window</strong> &mdash; the flaw was live from July 4 to August 17, 2026. Ask yourself:</p>
-<ul>
-<li>Did I review HTML files (test coverage reports, generated docs, exported pages) from <strong>cloned repositories</strong> on an unpatched build in that window?</li>
-<li>Did I clone any repo I didn't fully trust during that period?</li>
-</ul>
-<div class="verdict warn"><strong>Yes to either &rarr; treat it as possible exposure.</strong> No confirmed in-the-wild exploitation has been reported, but the exfiltration was silent by design. Rotate the secrets that lived on that machine: SSH keys, AWS credentials, GitHub/npm tokens, Kubernetes configs, OAuth session tokens.</div>
-<div class="note">No to both? Nothing more to do — but read step 3 anyway.</div>
-</div></div>
-<div class="step"><div class="stepnum">3</div><div>
-<p><strong>Close the pattern, not just this bug</strong> &mdash; SneakPeek's root cause was a <strong>size-based security boundary</strong>: files under 256KB got a strict CSP, files over it got written to disk and rendered as file:// URLs with local filesystem access. That pattern — two code paths, one guarded, one not — shows up everywhere:</p>
-<ul>
-<li>Never let an AI tool auto-preview HTML from a repo you cloned before you trust it.</li>
-<li>Keep auto-update ON for every AI coding tool you use — this is the second disclosure where the initial patch was bypassed (a Web Worker dodge) before the real fix landed.</li>
-<li>Audit what your AI tools can read: if a preview pane can reach <code>~/.ssh</code>, so can a poisoned file.</li>
-</ul>
-</div></div>
-</div>
-
-<div class="card">
-<h2>If you were exposed, do this now</h2>
+<h2>Why is SneakPeek AI agents 2026 news?</h2>
+<p>The SneakPeek CVE is AI agents 2026 news because it hit Claude Code — the assistant AI agents 2026 developers rely on daily to write software. A flaw in the coding assistant puts both the code it writes and the machine it runs on at risk. Check your build version with the tool above and update to the patched release.</p>
 <ul>
 <li><strong>Update</strong> Claude Desktop to <strong>1.30096.1 or newer</strong> — auto-update is the fastest path.</li>
 <li><strong>Rotate everything the preview renderer could have reached</strong> &mdash; SSH private keys, AWS access keys, GitHub/npm tokens, Kubernetes kubeconfigs, OAuth session tokens. Exfiltration via the flaw was silent; patching doesn't un-read secrets.</li>
@@ -88,6 +65,15 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 
 <div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#fff;text-decoration:underline">Vibe-Code Audit</a> sweeps AI-generated code for vulnerabilities, secrets, and insecure patterns.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20vibe-code%20security%20check%20and%20want%20early%20access%20to%20Vibe-Code%20Audit." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
 
+
+<div class="card">
+<h2>Related AI agents 2026 checks</h2>
+<ul>
+<li><a href="linux-ai-code-disclosure-check.html">Linux AI-Code Disclosure — Cybersecurity News</a></li>
+<li><a href="ai-vulnerability-patch-check.html">AI Vulnerability Patch Check — Cybersecurity News</a></li>
+<li><a href="openai-math-proofs-verification-check.html">OpenAI Math Proofs — Cybersecurity News Check</a></li>
+</ul>
+</div>
 <h2 style="font-size:21px;margin:30px 0 12px;color:#fff">FAQ</h2>
 <div>
 <details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">How do I check if my Claude Code Desktop is patched against SneakPeek?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Open Claude Desktop and check the build number (Settings / About). Build 1.30096.1 or newer, released August 17, 2026, contains the full fix. Anything older is vulnerable to the SneakPeek preview-pane flaw — update through the app&#x27;s auto-update immediately.</p></details>

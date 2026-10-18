@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-primary-keyword="cybersecurity news">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AhsayCBS CVE Checker — Is Your Backup Server Mining?</title>
-<meta name="description" content="CVE checker for AhsayCBS CVE-2026-105133/105134: unauthenticated RCE chain dropping miners; CISA KEV deadline Oct 17. Free self-test for backup servers.">
+<title>AhsayCBS XMRig Check — Cybersecurity News</title>
+<meta name="description" content="Cybersecurity news: attackers mine crypto on vulnerable AhsayCBS backup servers. Free checker — is yours mining for them?">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="AhsayCBS CVE Checker — Is Your Backup Server Mining?">
-<meta property="og:description" content="CVE checker for AhsayCBS CVE-2026-105133/105134: unauthenticated RCE chain dropping miners; CISA KEV deadline Oct 17. Free self-test for backup servers.">
+<meta property="og:title" content="AhsayCBS XMRig Check — Cybersecurity News">
+<meta property="og:description" content="Cybersecurity news: attackers mine crypto on vulnerable AhsayCBS backup servers. Free checker — is yours mining for them?">
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ahsaycbs-xmrig-check.html">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ahsaycbs-xmrig-check.html">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AhsayCBS CVE Checker — Is Your Backup Server Mining?">
-<meta name="twitter:description" content="CVE checker for AhsayCBS CVE-2026-105133/105134: unauthenticated RCE chain dropping miners; CISA KEV deadline Oct 17. Free self-test for backup servers.">
+<meta name="twitter:title" content="AhsayCBS XMRig Check — Cybersecurity News">
+<meta name="twitter:description" content="Cybersecurity news: attackers mine crypto on vulnerable AhsayCBS backup servers. Free checker — is yours mining for them?">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;padding:0}
@@ -49,55 +50,12 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <body>
 <div class="wrap">
 <div class="badge">AHSAYCBS RCE + XMRIG MINER &mdash; CISA KEV-LISTED &mdash; PATCH DEADLINE OCT 17, 2026</div>
-<h1>AhsayCBS CVE checker: is your backup server mining crypto for attackers?</h1>
+<h1>Is your AhsayCBS server mining crypto for attackers? — cybersecurity news</h1>
 <p class="lead">Attackers are chaining two AhsayCBS flaws &mdash; <strong>CVE-2026-105133</strong> (authentication bypass) and <strong>CVE-2026-105134</strong> (OS command injection) &mdash; to get unauthenticated remote code execution with <strong>NT AUTHORITY\SYSTEM</strong> privileges. Huntress saw at least <strong>five organizations targeted</strong> from October 7, 2026. After breaking in, they drop <strong>JSP web shells</strong> and <strong>XMRig miners disguised as <code>edge.exe</code></strong>, plus an AI-written PowerShell script that kills Windows Task Manager to hide the mining. The scary part: the August 2026 patches <strong>did not fully work</strong> &mdash; Huntress confirmed even version <strong>10.3.4 is still vulnerable</strong>. New hotfixes are out: <strong>v10.3.4.45</strong> and <strong>v9.15.2.70</strong>, reboot required. CISA added both flaws to its KEV catalog with a patch deadline of <strong>October 17, 2026</strong> &mdash; tomorrow. This free CVE check tool tells you whether your build is vulnerable and what to hunt for. Free, no signup.</p>
 
 <div class="card">
-<h2>Step 1 &mdash; Check your AhsayCBS version</h2>
-<p>Type the full build number from the AhsayCBS web console (<strong>System Settings &rarr; License &rarr; Update License</strong>). You need all four numbers, e.g. <code>10.3.4.45</code> &mdash; "10.3.4" alone is not enough.</p>
-<input class="ver" id="ver" type="text" inputmode="decimal" autocapitalize="off" spellcheck="false" placeholder="e.g. 10.3.4.0">
-<button class="checkbtn" onclick="checkVer()">Check my version</button>
-<div id="vresult" style="margin-top:12px"></div>
-<script>
-function cmp(a,b){for(var i=0;i<4;i++){var x=a[i]||0,y=b[i]||0;if(x!==y)return x-y;}return 0;}
-function checkVer(){
-  var raw=document.getElementById('ver').value.trim();
-  var out=document.getElementById('vresult');
-  var m=raw.match(/(\d+)\.(\d+)\.(\d+)(?:\.(\d+))?/);
-  if(!m){out.innerHTML='<div class="verdict warn"><strong>Could not parse that version.</strong> Enter the full build like <code>10.3.4.45</code> from System Settings &rarr; License &rarr; Update License.</div>';return;}
-  var v=[+m[1],+m[2],+m[3],+(m[4]||0)];
-  var major=v[0], vuln=true, fix='';
-  if(major===10){fix='10.3.4.45';vuln=cmp(v,[10,3,4,45])<0;}
-  else if(major===9||major===8||major===7){fix='9.15.2.70';vuln=cmp(v,[9,15,2,70])<0;}
-  else{fix='contact your Ahsay partner for the supported hotfix path';}
-  if(vuln){
-    out.innerHTML='<div class="verdict"><strong>VULNERABLE.</strong> Build <code>'+raw+'</code> is below the fixed build <code>'+fix+'</code>. The August 2026 patches were incomplete &mdash; assume this server is exploitable <em>right now</em>. Patch to the hotfix, reboot, then do Step 2 before trusting anything on this box.</div>';
-  }else{
-    out.innerHTML='<div class="verdict safe"><strong>PATCHED (initial entry point).</strong> Build <code>'+raw+'</code> is at or above <code>'+fix+'</code>, which Huntress independently verified mitigates the attack chain&apos;s entry point. Still do Step 2: if the box was exposed <em>before</em> patching, backdoors planted earlier survive the patch.</div>';
-  }
-}
-</script>
-<p class="note">This check runs entirely in your browser &mdash; your version never leaves this page.</p>
-</div>
-
-<div class="card">
-<h2>Step 2 &mdash; Hunt for compromise signs</h2>
-<p>Patching closes the door; it does <strong>not</strong> remove intruders already inside. If the server was internet-exposed before the hotfix, check for these attacker artifacts (Huntress + Bitdefender MDR observations):</p>
-<ul>
-<li><strong><code>edge.exe</code> or <code>msedge.exe</code> in temp directories</strong> &mdash; XMRig miners impersonating Microsoft Edge. Real Edge does not live in temp folders.</li>
-<li><strong>A service named <code>MicrosoftEdgeUpdateSvc</code></strong> &mdash; fake Edge updater service used for miner persistence.</li>
-<li><strong>JSP web shells</strong> in the AhsayCBS web application directories &mdash; small scripts turning web requests into a command shell.</li>
-<li><strong>Files staged in <code>C:\Users\Public</code></strong> &mdash; writable by every local user; attackers drop tooling here via <code>curl</code>/<code>certutil</code>.</li>
-<li><strong><code>Taskgmr.ps1</code></strong> &mdash; AI-assisted PowerShell that kills Windows Task Manager when opened (anti-analysis). Task Manager dying at night is a symptom, not a glitch.</li>
-<li><strong>Unexpected OpenSSH installation</strong> &mdash; backdoor that survives patching because it doesn't depend on the vulnerable web service.</li>
-<li><strong>Suspicious processes spawned by <code>cbssvcX64.exe</code></strong> &mdash; the AhsayCBS service process should not be launching miners or shells.</li>
-<li><strong>New services, scheduled tasks, or elevated accounts</strong> you didn't create.</li>
-</ul>
-<div class="verdict warn"><strong>Found any of these?</strong> Treat the box as fully compromised: isolate it, preserve forensic images, rotate every credential the server touches, and assume backup data was reachable. Then rebuild from known-good media &mdash; don't just patch over an intrusion.</div>
-</div>
-
-<div class="card">
-<h2>Why this is worse than it looks</h2>
+<h2>Why is the AhsayCBS flaw cybersecurity news?</h2>
+<p>The AhsayCBS flaw is cybersecurity news because attackers are actively installing XMRig crypto miners on vulnerable backup servers — and a compromised backup server means your last line of defense is in enemy hands. Miners also signal deeper access: if attackers can mine cryptocurrency on your box, they can also steal or encrypt your backups.</p>
 <ul>
 <li><strong>The "patched" versions weren't.</strong> Versions 9.15.2.59 and 10.3.4.0 (August 2026) were assumed fixed; Ahsay later confirmed the patches were incomplete and Huntress showed even 10.3.4 was still exploitable &mdash; effectively a zero-day window that lasted two months.</li>
 <li><strong>Patching does not evict attackers.</strong> OpenSSH backdoors, services, and scheduled tasks persist after the hotfix. "Patched and rebooted" without an IOC hunt is a false sense of safety.</li>
