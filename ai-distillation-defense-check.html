@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Model Distillation Attack: Is Someone Stealing Your AI?</title>
+<meta name="description" content="The model distillation attack OpenAI disrupted — attributed to Moonshot AI associates — began in July 2026. Free detector: extraction signals, weighted verdict.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-distillation-defense-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Model Distillation Attack: Is Someone Stealing Your AI?">
+<meta property="og:description" content="The model distillation attack OpenAI disrupted — attributed to Moonshot AI associates — began in July 2026. Free detector: extraction signals, weighted verdict.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-distillation-defense-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Model Distillation Attack: Is Someone Stealing Your AI?">
+<meta name="twitter:description" content="The model distillation attack OpenAI disrupted — attributed to Moonshot AI associates — began in July 2026. Free detector: extraction signals, weighted verdict.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#3b0d0d;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.q p{font-size:16px;margin-bottom:12px;color:#fff}
+.q .opts{display:flex;gap:10px;flex-wrap:wrap}
+.q button{flex:1;min-width:120px;background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px;font-size:15px;font-weight:600;cursor:pointer}
+.q button:hover{border-color:#1c6ef2}
+.q button.sel-yes{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.q button.sel-no{background:#2b1215;border-color:#f85149;color:#ffa198}
+.q button:disabled{cursor:default;opacity:.85}
+#verdict{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+#verdict.good{border-color:#3fb950;background:#0d1a0f}
+#verdict.bad{border-color:#f85149;background:#1a0f0f}
+#verdict b.verd{font-size:19px;letter-spacing:.5px}
+.sharebox{margin-top:16px;display:none;background:#0b0f17;border:1px dashed #2a3342;border-radius:8px;padding:14px 16px}
+.sharebox p{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+#sharetext{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical;min-height:64px}
+.copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+.warnbox{max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+.morebox{background:#0d1626;border:1px solid #1c2330;border-radius:12px;padding:22px 24px;margin:28px 0}
+.morebox h2{font-size:19px;color:#fff;margin-bottom:10px}
+.morebox ul{margin-left:20px}
+.morebox a{color:#1c6ef2;text-decoration:none}
+.morebox a:hover{text-decoration:underline}
+.smallprint{font-size:12.5px;color:#6b7688;margin-top:28px}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "Model Distillation Attack: Is Someone Stealing Your AI?",
+      "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-distillation-defense-check.html",
+      "description": "The model distillation attack OpenAI disrupted — attributed to Moonshot AI associates — began in July 2026. Free detector: extraction signals, weighted verdict.",
+      "publisher": { "@type": "Organization", "name": "Ingenious AI" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What was the model distillation attack OpenAI disrupted?",
+          "acceptedAnswer": { "@type": "Answer", "text": "OpenAI disrupted a coordinated distillation campaign designed to extract protected reasoning from its AI models. The core cluster of activity was attributed to individuals associated with Moonshot AI, and the campaign originated in early July 2026." }
+        },
+        {
+          "@type": "Question",
+          "name": "What does a model distillation attack look like in API logs?",
+          "acceptedAnswer": { "@type": "Answer", "text": "High-volume, highly correlated queries from a small set of API keys; systematic edge-case and reasoning-heavy prompts; bursts of new accounts with scraping-style usage; and paraphrase chains that map a model's behavior. Each is a signal, not proof." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a single anomaly mean I'm being distilled?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Individual signals have benign explanations — a power user, a benchmark, a load test. Distillation is a pattern: multiple signals together, from the same keys or accounts, sustained over time." }
+        },
+        {
+          "@type": "Question",
+          "name": "What should I do if I suspect distillation?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Preserve query logs first, then rate-limit and quota-cap the suspicious keys by behavior, require justification for bulk access, strip or watermark chain-of-thought outputs, and escalate to your abuse and legal teams with the log evidence." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="all-links.html">&larr; All Ingenious AI security checks</a>
+<div class="badge">THREAT INTEL &mdash; OCTOBER 2026</div>
+<h1>Model <span class="red">Distillation</span> Attack: Is Someone Stealing Your AI?</h1>
+<p class="lead">OpenAI disrupted a <strong>coordinated distillation campaign</strong> designed to extract protected reasoning from its AI models &mdash; the core cluster attributed to individuals associated with Moonshot AI, running since <strong>early July 2026</strong>. If you serve a model via API, this checker scores the six detection signals that matter.</p>
+
+<div class="answer">
+<h3 style="font-size:16px;color:#fff;margin-bottom:8px">How do I know if someone is distilling my AI model?</h3>
+<p style="font-size:15px;color:#9aa7b8">Look for the pattern OpenAI disrupted: high-volume, highly-correlated queries from few API keys, systematic reasoning-heavy prompts and paraphrase chains, bursts of new scraping-style accounts &mdash; sustained over time. One anomaly is noise; several together are a campaign. Preserve your query logs, rate-limit the suspicious keys, strip chain-of-thought from outputs, and escalate with evidence.</p>
+</div>
+
+<div class="card">
+<h2>Key facts &mdash; disrupted distillation campaign</h2>
+<ul>
+<li><strong>What:</strong> OpenAI disrupted a coordinated distillation campaign designed to extract protected reasoning from its AI models.</li>
+<li><strong>Attribution:</strong> the core cluster of activity was attributed to individuals associated with <strong>Moonshot AI</strong>.</li>
+<li><strong>Timeline:</strong> the campaign originated in <strong>early July 2026</strong> &mdash; months of extraction before disruption. <span class="src">Sources: <a href="https://openai.com/" rel="noopener">OpenAI</a>, <a href="https://www.moonshot.ai/" rel="noopener">Moonshot AI</a> (publisher pages; attribution as reported, October 2026)</span></li>
+<li><strong>Why it matters to you:</strong> the same technique works against any API-served model &mdash; the attacker rents your intelligence one query at a time.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Distillation signal detector</h2>
+<p class="note">Answer honestly. <strong>YES</strong> means the signal is present. Every question is a <em>signal, not proof</em> &mdash; one anomaly is noise; several together are a campaign.</p>
+<div id="quiz"></div>
+<div id="verdict" role="status"></div>
+<div class="sharebox" id="sharebox">
+<p>Share your result:</p>
+<textarea id="sharetext" rows="3" readonly></textarea>
+<button class="copybtn" id="copybtn" type="button">Copy result</button>
+</div>
+</div>
+
+<div class="card">
+<h2>What this detector does NOT do</h2>
+<ul>
+<li>It does not analyze your API logs &mdash; it scores your answers about patterns you have observed.</li>
+<li>Every signal here has benign explanations (power users, benchmarks, load tests). This page flags patterns for investigation; it does not prove an attack, and it never names any individual or company as your attacker.</li>
+<li>The Moonshot AI attribution above describes OpenAI's disrupted campaign only &mdash; it says nothing about who, if anyone, is targeting you.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Response steps if signals are strong</h2>
+<ul>
+<li><strong>Preserve logs first.</strong> Export query logs for the suspicious keys and time window before retention ages them out.</li>
+<li><strong>Rate-limit and quota-cap by behavior</strong>, not just by key &mdash; distillation moves when you ban a key.</li>
+<li><strong>Strip chain-of-thought reasoning</strong> from API outputs; serve final answers only.</li>
+<li><strong>Require justification</strong> for bulk or burst access; gate high-rate tiers behind review.</li>
+<li><strong>Escalate</strong> to your abuse and legal teams with the log evidence &mdash; and consider watermarking outputs to trace leaks.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Frequently asked questions</h2>
+<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">What was the model distillation attack OpenAI disrupted?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">OpenAI disrupted a coordinated distillation campaign designed to extract protected reasoning from its AI models. The core cluster of activity was attributed to individuals associated with Moonshot AI, and the campaign originated in early July 2026.</p></details>
+<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">What does a model distillation attack look like in API logs?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">High-volume, highly correlated queries from a small set of API keys; systematic edge-case and reasoning-heavy prompts; bursts of new accounts with scraping-style usage; and paraphrase chains that map a model's behavior. Each is a signal, not proof.</p></details>
+<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">Does a single anomaly mean I'm being distilled?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">No. Individual signals have benign explanations &mdash; a power user, a benchmark, a load test. Distillation is a pattern: multiple signals together, from the same keys or accounts, sustained over time.</p></details>
+<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">What should I do if I suspect distillation?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Preserve query logs first, then rate-limit and quota-cap the suspicious keys by behavior, require justification for bulk access, strip or watermark chain-of-thought outputs, and escalate to your abuse and legal teams with the log evidence.</p></details>
+</div>
+
+<div class="morebox">
+<h2>More from Ingenious AI</h2>
+<ul>
+<li><a href="ai-model-distillation-check.html">AI model distillation defense &mdash; related coverage</a></li>
+<li><a href="ai-spyware-signature-theft-check.html">AI spyware signature-theft check</a></li>
+<li><a href="ai-lab-espionage-honeypot-check.html">AI lab espionage honeypot check</a></li>
+<li><a href="agent-api-access-safety-check.html">Agent API access safety check</a></li>
+<li><a href="agent-permissions-quiz.html">Agent permissions quiz</a></li>
+<li><a href="all-links.html">All Ingenious AI security checks</a></li>
+<li><a href="security-suite.html">Ingenious AI security suite</a></li>
+</ul>
+</div>
+
+<p class="smallprint">Built by Ingenious AI. Educational self-assessment based on publicly reported threat details &mdash; signals, not proof, of an attack. Attribution claims describe reported campaigns, not your traffic.</p>
+</div>
+<script>
+/* LOGIC-START */
+var QUIZ=[
+{q:"Spikes in high-volume, highly correlated API traffic from a small set of keys [SIGNAL]",w:20,note:"Signal: sustained burst patterns, not one busy day."},
+{q:"Queries that look like systematic extraction \u2014 edge cases, reasoning-heavy prompts, paraphrase chains [SIGNAL]",w:20,note:"Signal: prompts designed to map behavior, not to use the product."},
+{q:"Bursts of new accounts or keys with scraping-style usage [SIGNAL]",w:15,note:"Signal: fresh accounts burning through quotas in hours."},
+{q:"Your model's output appearing verbatim in a competitor's product [SIGNAL]",w:20,note:"Signal: strongest single indicator \u2014 extraction succeeded."},
+{q:"You have NOT rate-limited or quota-capped keys by behavior [SIGNAL]",w:15,note:"Signal: no behavioral guardrails means extraction is frictionless."},
+{q:"You have NO query logging or audit trail that could confirm a campaign [SIGNAL]",w:10,note:"Signal: without logs you cannot investigate at all."}
+];
+function scoreAnswers(a){
+  var total=0,earned=0,i;
+  for(i=0;i<QUIZ.length;i++){total+=QUIZ[i].w;if(a[i]){earned+=QUIZ[i].w;}}
+  return Math.round(earned/total*100);
+}
+function verdictOf(pct){
+  var cls,label,advice;
+  if(pct>=60){cls="bad";label="CAMPAIGN LIKELY";
+    advice="Multiple extraction signals are present \u2014 investigate like the July 2026 campaign is your template: (1) preserve query logs for the suspicious keys now; (2) rate-limit and quota-cap by behavior; (3) strip chain-of-thought from outputs; (4) require justification for bulk access; (5) escalate to abuse/legal with evidence. Remember: signals, not proof \u2014 let the logs decide.";}
+  else if(pct>=25){cls="";label="AT-RISK";
+    advice="Weak but real signals. Harden before a campaign finds you: (1) turn on full query logging with per-key behavioral baselines; (2) set rate limits and quotas that trigger on anomalies, not just totals; (3) stop serving chain-of-thought in API responses; (4) re-check these signals monthly.";}
+  else{cls="good";label="DEFENDED POSTURE";
+    advice="Logging, rate limits, and output hygiene in place \u2014 this is how you make extraction unprofitable. Keep it: review per-key baselines monthly and keep bulk-access justification gates enforced.";}
+  return {label:label,cls:cls,advice:advice};
+}
+/* LOGIC-END */
+(function(){
+var wrap=document.getElementById("quiz"),answers=new Array(QUIZ.length),answered=0;
+var PAGE="https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-distillation-defense-check.html";
+function render(){
+  wrap.innerHTML="";
+  for(var i=0;i<QUIZ.length;i++){
+    (function(idx){
+      var d=document.createElement("div");d.className="q";
+      d.innerHTML="<p><strong>"+(idx+1)+".</strong> "+QUIZ[idx].q+"</p><p class='note'>"+QUIZ[idx].note+" <em>(weight "+QUIZ[idx].w+")</em></p><div class='opts'></div>";
+      var opts=d.querySelector(".opts");
+      [["Yes",true],["No",false]].forEach(function(pair){
+        var b=document.createElement("button");b.type="button";b.textContent=pair[0];
+        if(answers[idx]===pair[1]){b.className=pair[1]?"sel-yes":"sel-no";b.disabled=true;}
+        b.onclick=function(){if(answers[idx]!==undefined)return;answers[idx]=pair[1];answered++;render();if(answered===QUIZ.length)showVerdict();};
+        opts.appendChild(b);
+      });
+      wrap.appendChild(d);
+    })(i);
+  }
+}
+function showVerdict(){
+  var pct=scoreAnswers(answers),r=verdictOf(pct),v=document.getElementById("verdict");
+  v.className=r.cls;v.style.display="block";
+  v.innerHTML="<b class='verd'>"+pct+"% \u2014 "+r.label+"</b><br><br>"+r.advice;
+  document.getElementById("sharetext").value="Model distillation check: "+pct+"% \u2014 "+r.label+". OpenAI disrupted a Moonshot AI-linked extraction campaign. Check your signals free: "+PAGE;
+  document.getElementById("sharebox").style.display="block";
+  v.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("copybtn").onclick=function(){
+  var t=document.getElementById("sharetext"),btn=this;
+  function done(){var o=btn.textContent;btn.textContent="Copied!";setTimeout(function(){btn.textContent=o;},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();try{document.execCommand("copy");done();}catch(e){}});}
+  else{t.select();try{document.execCommand("copy");done();}catch(e){}}
+};
+render();
+})();
+</script>
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

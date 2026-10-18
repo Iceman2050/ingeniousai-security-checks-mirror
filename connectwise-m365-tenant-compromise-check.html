@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ConnectWise Breach: Check Your M365 Tenant (Free)</title>
+<meta name="description" content="The ConnectWise breach hit 173 Microsoft 365 tenants via a stolen backup-app credential — MFA never applied. Free: the 7 app IDs, log checks, verdicts.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/connectwise-m365-tenant-compromise-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="ConnectWise Breach: Check Your M365 Tenant (Free)">
+<meta property="og:description" content="The ConnectWise breach hit 173 Microsoft 365 tenants via a stolen backup-app credential — MFA never applied. Free: the 7 app IDs, log checks, verdicts.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/connectwise-m365-tenant-compromise-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ConnectWise Breach: Check Your M365 Tenant (Free)">
+<meta name="twitter:description" content="The ConnectWise breach hit 173 Microsoft 365 tenants via a stolen backup-app credential — MFA never applied. Free: the 7 app IDs, log checks, verdicts.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#3b0d0d;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.q p{font-size:16px;margin-bottom:12px;color:#fff}
+.q .opts{display:flex;gap:10px;flex-wrap:wrap}
+.q button{flex:1;min-width:120px;background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px;font-size:15px;font-weight:600;cursor:pointer}
+.q button:hover{border-color:#1c6ef2}
+.q button.sel-yes{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.q button.sel-no{background:#2b1215;border-color:#f85149;color:#ffa198}
+.q button:disabled{cursor:default;opacity:.85}
+#verdict{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+#verdict.good{border-color:#3fb950;background:#0d1a0f}
+#verdict.bad{border-color:#f85149;background:#1a0f0f}
+#verdict b.verd{font-size:19px;letter-spacing:.5px}
+.sharebox{margin-top:16px;display:none;background:#0b0f17;border:1px dashed #2a3342;border-radius:8px;padding:14px 16px}
+.sharebox p{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+#sharetext{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical;min-height:64px}
+.copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+.warnbox{max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+.timeline{margin:14px 0 6px 4px}
+.timeline div{margin:10px 0;padding-left:14px;border-left:2px solid #2a3342}
+.timeline b{color:#fff}
+table.appids{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px}
+table.appids th{text-align:left;color:#9aa7b8;font-weight:700;padding:8px;border-bottom:1px solid #2a3342}
+table.appids td{padding:8px;border-bottom:1px solid #1c2330;color:#e6edf3;vertical-align:top}
+.morebox{background:#0d1626;border:1px solid #1c2330;border-radius:12px;padding:22px 24px;margin:28px 0}
+.morebox h2{font-size:19px;color:#fff;margin-bottom:10px}
+.morebox ul{margin-left:20px}
+.morebox a{color:#1c6ef2;text-decoration:none}
+.morebox a:hover{text-decoration:underline}
+.smallprint{font-size:12.5px;color:#6b7688;margin-top:28px}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "ConnectWise Breach: Check Your M365 Tenant (Free)",
+      "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/connectwise-m365-tenant-compromise-check.html",
+      "description": "The ConnectWise breach hit 173 Microsoft 365 tenants via a stolen backup-app credential — MFA never applied. Free: the 7 app IDs, log checks, verdicts.",
+      "publisher": { "@type": "Organization", "name": "Ingenious AI" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does MFA protect my tenant from the ConnectWise breach?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. The attacker signed in as an application, not a user, so no MFA prompt ever appeared. Only conditional access policies that block or restrict service-principal sign-ins, and removing the compromised app's consent, can stop application-credential abuse." }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the 7 ConnectWise application IDs to look for?",
+          "acceptedAnswer": { "@type": "Answer", "text": "ConnectWise Cloud Backup 506e08f9-6e9a-4da4-942b-a099a03644ae; ConnectWise Cloud Management 2399d300-6fca-4e6a-a686-399fefe75b83; Cloud Management – MS Teams 24205314-2b89-4e07-a2a4-579e898a5640; Cloud Management – Exchange Online b78f6a77-d4e5-46fb-87e5-d1648bd02519; Cloud Management – MS Graph 0de14c77-b9b0-4137-9360-34878a929827; Cloud Management – Partner Center 412dcf96-176d-4b3a-a1b0-4981ad66971e; Cloud Management – SharePoint Online b2b55f5b-7758-4719-8d8f-88ae172e6bdb." }
+        },
+        {
+          "@type": "Question",
+          "name": "I found the ConnectWise Cloud Backup app in my tenant — am I compromised?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Presence alone does not mean compromise — many MSPs use it legitimately. Compromise is confirmed by evidence: successful service-principal sign-ins from 144.172.64.128 on Oct 15, 2026 (06:13–08:34 UTC), unexpected credential additions, or a self-granted Global Administrator role." }
+        },
+        {
+          "@type": "Question",
+          "name": "How long do attacker tokens stay valid after the app was disabled?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Tokens already issued can remain valid for up to 90 minutes after an application is disabled. Check sign-in logs for activity in that window and force re-authentication where possible." }
+        },
+        {
+          "@type": "Question",
+          "name": "Where exactly do I check for the attacker's sign-ins?",
+          "acceptedAnswer": { "@type": "Answer", "text": "In Microsoft Entra admin center: Monitoring & health > Sign-in logs, filter by service-principal sign-ins, then filter on the 7 ConnectWise application IDs, the IP 144.172.64.128, and the window Oct 15, 2026 06:13–08:34 UTC. Also audit Enterprise apps for credentials added since Oct 13 and check Privileged Identity Management for new Global Administrator grants." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="all-links.html">&larr; All Ingenious AI security checks</a>
+<div class="badge">ACTIVE INCIDENT &mdash; OCTOBER 2026</div>
+<h1>ConnectWise <span class="red">Breach</span>: Is Your M365 Tenant Exposed?</h1>
+<p class="lead">On Oct 15, 2026, an attacker used a stolen ConnectWise Cloud Backup application credential to obtain Microsoft Graph tokens inside customer Microsoft 365 tenants &mdash; 173 tenants confirmed. MFA never fired, because this was an application sign-in, not a user sign-in. Work through the checks below: the 7 app IDs, the sign-in log hunt, and the persistence traps.</p>
+
+<div class="answer">
+<h3 style="font-size:16px;color:#fff;margin-bottom:8px">Was my Microsoft 365 tenant hit by the ConnectWise breach?</h3>
+<p style="font-size:15px;color:#9aa7b8">On Oct 15, 2026, an attacker used a stolen ConnectWise Cloud Backup application credential to obtain Microsoft Graph tokens in M365 tenants &mdash; 173 confirmed. As an application sign-in, MFA never triggered. If your MSP uses ConnectWise and the Cloud Backup app holds consent in your tenant, search your sign-in logs for Oct 15, 06:13&ndash;08:34 UTC, from 144.172.64[.]128.</p>
+</div>
+
+<div class="card">
+<h2>Key facts &mdash; ConnectWise breach, M365 tenants</h2>
+<ul>
+<li><strong>Attack window:</strong> Oct 15, 2026, 06:13&ndash;08:34 UTC. The attacker used the ConnectWise Cloud Backup application's credential; the app signed in from <code>144.172.64[.]128</code>, a hosting-provider address. <span class="src">Source: <a href="https://specterops.io/blog/2026/10/17/connectwise-skykick-breach-microsoft-365/" rel="noopener">SpecterOps, Oct 17 2026</a></span></li>
+<li><strong>Scale:</strong> Huntress confirmed unauthorized sign-ins (162 at SpecterOps's Oct 17 publish; later reporting put it at 173 tenants). The attacker moved through tenants a few seconds apart &mdash; scripted, working from a target list.</li>
+<li><strong>MFA does not apply:</strong> application sign-ins trigger no user or device prompt. Conditional Access alone won't catch this.</li>
+<li><strong>Persistence found:</strong> in one tenant a second ConnectWise application granted itself Global Administrator and added new client secrets to two other trusted applications. <span class="src">Source: <a href="https://specterops.io/blog/2026/10/17/connectwise-skykick-breach-microsoft-365/" rel="noopener">SpecterOps, Oct 17 2026</a></span></li>
+<li><strong>Containment:</strong> ConnectWise shut off Cloud Backup application access and says there is no evidence partner backup data was compromised. How the credential was obtained remains undisclosed.</li>
+<li><strong>Token lifetime:</strong> tokens already issued can stay valid up to 90 minutes after an app is disabled.</li>
+<li>Further reporting: <a href="https://thehackernews.com/" rel="noopener">The Hacker News (Oct 17, 2026)</a>, <a href="https://www.bleepingcomputer.com/" rel="noopener">BleepingComputer</a>, <a href="https://www.huntress.com/" rel="noopener">Huntress</a>.</li>
+</ul>
+
+<h3>The 7 known ConnectWise application IDs (per SpecterOps)</h3>
+<p class="note">Check your Entra Enterprise applications list for each of these:</p>
+<table class="appids">
+<tr><th>Application name</th><th>Application ID</th></tr>
+<tr><td>ConnectWise Cloud Backup</td><td><code>506e08f9-6e9a-4da4-942b-a099a03644ae</code></td></tr>
+<tr><td>ConnectWise Cloud Management</td><td><code>2399d300-6fca-4e6a-a686-399fefe75b83</code></td></tr>
+<tr><td>Cloud Management &ndash; MS Teams</td><td><code>24205314-2b89-4e07-a2a4-579e898a5640</code></td></tr>
+<tr><td>Cloud Management &ndash; Exchange Online</td><td><code>b78f6a77-d4e5-46fb-87e5-d1648bd02519</code></td></tr>
+<tr><td>Cloud Management &ndash; MS Graph</td><td><code>0de14c77-b9b0-4137-9360-34878a929827</code></td></tr>
+<tr><td>Cloud Management &ndash; Partner Center</td><td><code>412dcf96-176d-4b3a-a1b0-4981ad66971e</code></td></tr>
+<tr><td>Cloud Management &ndash; SharePoint Online</td><td><code>b2b55f5b-7758-4719-8d8f-88ae172e6bdb</code></td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>Is your M365 tenant exposed? &mdash; the checker</h2>
+<p class="note">Answer honestly. <strong>YES</strong> means the risk is present (heavier questions count more). Every step below is something you can verify in Entra admin center yourself.</p>
+<div id="quiz"></div>
+<div id="verdict" role="status"></div>
+<div class="sharebox" id="sharebox">
+<p>Share your result (screenshots beat summaries when you escalate to your MSP):</p>
+<textarea id="sharetext" rows="3" readonly></textarea>
+<button class="copybtn" id="copybtn" type="button">Copy result</button>
+</div>
+</div>
+
+<div class="card">
+<h2>What this checker does NOT do</h2>
+<ul>
+<li>It cannot see inside your tenant. It scores your answers about evidence &mdash; it is not a live forensic scan of Entra logs.</li>
+<li>Absence of the 7 app IDs does not guarantee you were never touched: rotate and audit anyway if your MSP uses ConnectWise tooling under other app registrations.</li>
+<li>It does not replace an incident-response investigation. If you find evidence of compromise, escalate to your MSP and a DFIR team.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Remediation if you are exposed</h2>
+<ul>
+<li>Disable or remove consent for the compromised ConnectWise app IDs in Entra &rarr; Enterprise applications, and review <em>every</em> service principal that holds admin consent.</li>
+<li>Audit <strong>all</strong> credentials added to enterprise applications since Oct 13, 2026 &mdash; delete any you cannot explain.</li>
+<li>Check Global Administrator and other privileged role assignments in Privileged Identity Management for grants made on or after Oct 15.</li>
+<li>Assume tokens issued in the attack window were valid for up to 90 minutes after the app was disabled &mdash; force re-authentication and watch that window in sign-in logs.</li>
+<li>Ask your MSP in writing: which ConnectWise/SkyKick tools touch your tenant, and what they found in their own investigation.</li>
+<li>Preserve sign-in and audit logs for the Oct 13&ndash;18 window before retention policies age them out.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Frequently asked questions</h2>
+<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">Does MFA protect my tenant from the ConnectWise breach?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">No. The attacker signed in as an application, not a user, so no MFA prompt ever appeared. Only conditional access policies that block or restrict service-principal sign-ins, and removing the compromised app's consent, can stop application-credential abuse.</p></details>
+<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">What are the 7 ConnectWise application IDs to look for?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">ConnectWise Cloud Backup 506e08f9-6e9a-4da4-942b-a099a03644ae; ConnectWise Cloud Management 2399d300-6fca-4e6a-a686-399fefe75b83; Cloud Management &ndash; MS Teams 24205314-2b89-4e07-a2a4-579e898a5640; Cloud Management &ndash; Exchange Online b78f6a77-d4e5-46fb-87e5-d1648bd02519; Cloud Management &ndash; MS Graph 0de14c77-b9b0-4137-9360-34878a929827; Cloud Management &ndash; Partner Center 412dcf96-176d-4b3a-a1b0-4981ad66971e; Cloud Management &ndash; SharePoint Online b2b55f5b-7758-4719-8d8f-88ae172e6bdb.</p></details>
+<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">I found the ConnectWise Cloud Backup app in my tenant &mdash; am I compromised?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Presence alone does not mean compromise &mdash; many MSPs use it legitimately. Compromise is confirmed by evidence: successful service-principal sign-ins from 144.172.64[.]128 on Oct 15, 2026 (06:13&ndash;08:34 UTC), unexpected credential additions, or a self-granted Global Administrator role.</p></details>
+<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">How long do attacker tokens stay valid after the app was disabled?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Tokens already issued can remain valid for up to 90 minutes after an application is disabled. Check sign-in logs for activity in that window and force re-authentication where possible.</p></details>
+<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">Where exactly do I check for the attacker's sign-ins?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">In Microsoft Entra admin center: Monitoring &amp; health &gt; Sign-in logs, filter by service-principal sign-ins, then filter on the 7 ConnectWise application IDs, the IP 144.172.64[.]128, and the window Oct 15, 2026 06:13&ndash;08:34 UTC. Also audit Enterprise apps for credentials added since Oct 13 and check Privileged Identity Management for new Global Administrator grants.</p></details>
+</div>
+
+<div class="morebox">
+<h2>More from Ingenious AI</h2>
+<ul>
+<li><a href="connectwise-cloud-backup-breach-check.html">Data Breach Check: Was Your M365 Tenant Exposed? &mdash; earlier ConnectWise coverage</a></li>
+<li><a href="beyondtrust-zero-day-exposure-check.html">BeyondTrust zero-day exposure check</a></li>
+<li><a href="si-incident-readiness-check.html">Security-incident readiness check</a></li>
+<li><a href="patch-tuesday-triage-calculator.html">Patch Tuesday triage calculator</a></li>
+<li><a href="ghostaction-ci-audit.html">GhostAction CI workflow audit</a></li>
+<li><a href="mark-of-the-web-bypass-check.html">Mark-of-the-Web bypass check</a></li>
+<li><a href="all-links.html">All Ingenious AI security checks</a></li>
+<li><a href="security-suite.html">Ingenious AI security suite</a></li>
+</ul>
+</div>
+
+<p class="smallprint">Built by Ingenious AI. This is an educational self-assessment based on publicly reported incident details (SpecterOps, Huntress, The Hacker News, BleepingComputer) &mdash; it is not a live scan of your tenant and not legal or incident-response advice.</p>
+</div>
+<script>
+/* LOGIC-START */
+var QUIZ=[
+{q:"Does any of the 7 ConnectWise application IDs above appear in your tenant's Enterprise applications list?",w:25,note:"App present = attack surface. Cross-check the ID table."},
+{q:"Do service-principal sign-in logs show successful Microsoft Graph sign-ins from 144.172.64.128 on Oct 15, 2026?",w:20,note:"This IP + successful application sign-ins is the core evidence."},
+{q:"Were new client secrets or credentials added to any enterprise application since Oct 13, 2026?",w:15,note:"Persistence trap seen in at least one tenant."},
+{q:"Is there a Global Administrator (or other privileged) grant you cannot explain, made on or after Oct 15?",w:15,note:"A second ConnectWise app granted itself Global Admin in one tenant."},
+{q:"You have NOT yet reviewed Azure sign-in logs for application sign-ins in the Oct 15 06:13\u201308:34 UTC window",w:15,note:"Unreviewed logs mean you cannot rule it out."},
+{q:"You have NOT yet disabled/revoked consent for ConnectWise app IDs you don't actively use",w:10,note:"Unused consent is free attack surface."}
+];
+function scoreAnswers(a){
+  var total=0,earned=0,i;
+  for(i=0;i<QUIZ.length;i++){total+=QUIZ[i].w;if(a[i]){earned+=QUIZ[i].w;}}
+  return Math.round(earned/total*100);
+}
+function verdictOf(pct){
+  var cls,label,advice;
+  if(pct>=60){cls="bad";label="EXPOSED";
+    advice="Your answers match the known ConnectWise breach pattern. Contain now: (1) disable/remove consent for the ConnectWise app IDs you don't actively use; (2) delete every unexplained client secret added since Oct 13; (3) review Global Administrator grants made on or after Oct 15; (4) force re-authentication \u2014 tokens may stay valid up to 90 minutes after the app is disabled; (5) preserve Oct 13\u201318 logs; (6) get your MSP's written findings and engage IR if sign-ins from 144.172.64.128 are confirmed.";}
+  else if(pct>=25){cls="";label="AT-RISK";
+    advice="You have partial exposure to the ConnectWise breach. Finish the work this week: (1) review service-principal sign-in logs for Oct 15 06:13\u201308:34 UTC from 144.172.64.128; (2) audit credentials added to enterprise apps since Oct 13; (3) remove consent for ConnectWise app IDs you don't use; (4) verify no surprise Global Administrator grants; (5) ask your MSP which ConnectWise/SkyKick tools touch your tenant.";}
+  else{cls="good";label="COVERED";
+    advice="Logs reviewed, consent pruned, secrets audited \u2014 this is what the incident demands. Stay sharp: Microsoft still tracks the campaign as active, and stolen vendor credentials can resurface through other apps' consent chains. Recheck Enterprise applications for new consents monthly.";}
+  return {label:label,cls:cls,advice:advice};
+}
+/* LOGIC-END */
+(function(){
+var wrap=document.getElementById("quiz"),answers=new Array(QUIZ.length),answered=0;
+var PAGE="https://iceman2050.github.io/ingeniousai-security-checks-mirror/connectwise-m365-tenant-compromise-check.html";
+function render(){
+  wrap.innerHTML="";
+  for(var i=0;i<QUIZ.length;i++){
+    (function(idx){
+      var d=document.createElement("div");d.className="q";
+      d.innerHTML="<p><strong>"+(idx+1)+".</strong> "+QUIZ[idx].q+"</p><p class='note'>"+QUIZ[idx].note+" <em>(weight "+QUIZ[idx].w+")</em></p><div class='opts'></div>";
+      var opts=d.querySelector(".opts");
+      [["Yes",true],["No",false]].forEach(function(pair){
+        var b=document.createElement("button");b.type="button";b.textContent=pair[0];
+        if(answers[idx]===pair[1]){b.className=pair[1]?"sel-yes":"sel-no";b.disabled=true;}
+        b.onclick=function(){if(answers[idx]!==undefined)return;answers[idx]=pair[1];answered++;render();if(answered===QUIZ.length)showVerdict();};
+        opts.appendChild(b);
+      });
+      wrap.appendChild(d);
+    })(i);
+  }
+}
+function showVerdict(){
+  var pct=scoreAnswers(answers),r=verdictOf(pct),v=document.getElementById("verdict");
+  v.className=r.cls;v.style.display="block";
+  v.innerHTML="<b class='verd'>"+pct+"% \u2014 "+r.label+"</b><br><br>"+r.advice;
+  document.getElementById("sharetext").value="ConnectWise breach tenant check: "+pct+"% \u2014 "+r.label+". A stolen backup-app credential signed in to 173 M365 tenants with no MFA. Check yours free: "+PAGE;
+  document.getElementById("sharebox").style.display="block";
+  v.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("copybtn").onclick=function(){
+  var t=document.getElementById("sharetext"),btn=this;
+  function done(){var o=btn.textContent;btn.textContent="Copied!";setTimeout(function(){btn.textContent=o;},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();try{document.execCommand("copy");done();}catch(e){}});}
+  else{t.select();try{document.execCommand("copy");done();}catch(e){}}
+};
+render();
+})();
+</script>
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

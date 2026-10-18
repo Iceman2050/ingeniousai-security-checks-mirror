@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drupal Vulnerability: Patch Your Site Before RCE Hits</title>
+<meta name="description" content="The Drupal vulnerability patch of Oct 17, 2026 fixed critical RCE flaws — exploits may emerge soon. Free triage: version check, patch status, exposure score.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/drupal-rce-exposure-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Drupal Vulnerability: Patch Your Site Before RCE Hits">
+<meta property="og:description" content="The Drupal vulnerability patch of Oct 17, 2026 fixed critical RCE flaws — exploits may emerge soon. Free triage: version check, patch status, exposure score.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/drupal-rce-exposure-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Drupal Vulnerability: Patch Your Site Before RCE Hits">
+<meta name="twitter:description" content="The Drupal vulnerability patch of Oct 17, 2026 fixed critical RCE flaws — exploits may emerge soon. Free triage: version check, patch status, exposure score.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#3b0d0d;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.q p{font-size:16px;margin-bottom:12px;color:#fff}
+.q .opts{display:flex;gap:10px;flex-wrap:wrap}
+.q button{flex:1;min-width:120px;background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px;font-size:15px;font-weight:600;cursor:pointer}
+.q button:hover{border-color:#1c6ef2}
+.q button.sel-yes{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.q button.sel-no{background:#2b1215;border-color:#f85149;color:#ffa198}
+.q button:disabled{cursor:default;opacity:.85}
+#verdict{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+#verdict.good{border-color:#3fb950;background:#0d1a0f}
+#verdict.bad{border-color:#f85149;background:#1a0f0f}
+#verdict b.verd{font-size:19px;letter-spacing:.5px}
+.sharebox{margin-top:16px;display:none;background:#0b0f17;border:1px dashed #2a3342;border-radius:8px;padding:14px 16px}
+.sharebox p{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+#sharetext{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical;min-height:64px}
+.copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+.warnbox{max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+.morebox{background:#0d1626;border:1px solid #1c2330;border-radius:12px;padding:22px 24px;margin:28px 0}
+.morebox h2{font-size:19px;color:#fff;margin-bottom:10px}
+.morebox ul{margin-left:20px}
+.morebox a{color:#1c6ef2;text-decoration:none}
+.morebox a:hover{text-decoration:underline}
+.smallprint{font-size:12.5px;color:#6b7688;margin-top:28px}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "Drupal Vulnerability: Patch Your Site Before RCE Hits",
+      "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/drupal-rce-exposure-check.html",
+      "description": "The Drupal vulnerability patch of Oct 17, 2026 fixed critical RCE flaws — exploits may emerge soon. Free triage: version check, patch status, exposure score.",
+      "publisher": { "@type": "Organization", "name": "Ingenious AI" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What did Drupal patch on October 17, 2026?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Drupal released security updates fixing critical remote code execution flaws on Oct 17, 2026. BleepingComputer warns exploits may emerge soon, so sites should update now rather than waiting for exploit reports." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I check whether my Drupal site is patched?",
+          "acceptedAnswer": { "@type": "Answer", "text": "In your Drupal admin, go to Reports > Status report and compare your core and module versions against the Oct 17, 2026 security advisory. If anything is below the security release, you are unpatched." }
+        },
+        {
+          "@type": "Question",
+          "name": "Am I safe if my site is behind a firewall or is not public?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Safer, but not safe. RCE flaws can be reached through any exposed web path, and internal attackers or pivots from other hosts still count. Patch regardless of exposure level." }
+        },
+        {
+          "@type": "Question",
+          "name": "What should I do if I can't patch immediately?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Put a web application firewall in front of the site, disable update.php and unused modules, take a tested backup, monitor logs for suspicious POST requests and unexpected file uploads, and patch at the next maintenance window — same day if possible." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="all-links.html">&larr; All Ingenious AI security checks</a>
+<div class="badge">PATCH NOW &mdash; OCT 17, 2026</div>
+<h1>Drupal <span class="red">Vulnerability</span>: Patch Before RCE Hits</h1>
+<p class="lead">Drupal released security updates fixing <strong>critical remote code execution flaws</strong> on Oct 17, 2026 &mdash; and BleepingComputer warns exploits may emerge soon. Remote code execution means an unauthenticated visitor can run code on your server. This triage scores your patch status and exposure so you patch in the right order.</p>
+
+<div class="answer">
+<h3 style="font-size:16px;color:#fff;margin-bottom:8px">Is my site affected by the October 2026 Drupal vulnerability?</h3>
+<p style="font-size:15px;color:#9aa7b8">Drupal patched critical RCE flaws on Oct 17, 2026, and BleepingComputer warns exploits may emerge soon. If your site runs Drupal core below the Oct 17 security release, it is affected &mdash; check Reports &gt; Status report in your admin, or compare against the advisory. Patch the same day; until then, use a WAF, disable update.php, and back up.</p>
+</div>
+
+<div class="card">
+<h2>Key facts &mdash; Oct 17, 2026 Drupal RCE patch</h2>
+<ul>
+<li><strong>What happened:</strong> Drupal released security updates fixing critical remote code execution (RCE) flaws on <strong>Oct 17, 2026</strong>.</li>
+<li><strong>Exploit risk:</strong> BleepingComputer warns exploits may emerge soon &mdash; RCE patches are routinely reverse-engineered into attacks within days. <span class="src">Source: <a href="https://www.bleepingcomputer.com/" rel="noopener">BleepingComputer coverage, Oct 17, 2026</a></span></li>
+<li><strong>Scope honesty:</strong> no CVE IDs are stated in the verified reporting available to us, so this page does not invent them. Refer to the official Drupal security advisory and BleepingComputer coverage for identifiers.</li>
+<li><strong>Impact class:</strong> RCE is the highest-severity web flaw class &mdash; code execution on the server, unauthenticated in many cases.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Exposure triage &mdash; the checker</h2>
+<p class="note">Answer honestly. <strong>YES</strong> means the risk is present (heavier questions count more).</p>
+<div id="quiz"></div>
+<div id="verdict" role="status"></div>
+<div class="sharebox" id="sharebox">
+<p>Share your result (hand it to your dev or host):</p>
+<textarea id="sharetext" rows="3" readonly></textarea>
+<button class="copybtn" id="copybtn" type="button">Copy result</button>
+</div>
+</div>
+
+<div class="card">
+<h2>What this triage does NOT do</h2>
+<ul>
+<li>It does not scan your site. It scores your answers about version, patch status, and exposure &mdash; it cannot tell you which exact release you run.</li>
+<li>It does not list CVE IDs: none were in the verified facts, and inventing them would be misinformation.</li>
+<li>A "PATCHED" verdict is only as honest as your answers &mdash; verify your version in Reports &gt; Status report.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Remediation &mdash; patch order</h2>
+<ul>
+<li><strong>Today:</strong> update Drupal core to the Oct 17, 2026 security release; update contributed modules and themes.</li>
+<li><strong>Before patching:</strong> take a tested backup you can restore from (files + database).</li>
+<li><strong>If you cannot patch today:</strong> WAF in front of the site, disable <code>update.php</code>, disable unused modules, block unknown IPs from admin paths.</li>
+<li><strong>After patching:</strong> check logs for suspicious POST requests, unexpected file uploads, and new admin accounts created since Oct 17.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Frequently asked questions</h2>
+<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">What did Drupal patch on October 17, 2026?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Drupal released security updates fixing critical remote code execution flaws on Oct 17, 2026. BleepingComputer warns exploits may emerge soon, so sites should update now rather than waiting for exploit reports.</p></details>
+<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">How do I check whether my Drupal site is patched?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">In your Drupal admin, go to Reports &gt; Status report and compare your core and module versions against the Oct 17, 2026 security advisory. If anything is below the security release, you are unpatched.</p></details>
+<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">Am I safe if my site is behind a firewall or is not public?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Safer, but not safe. RCE flaws can be reached through any exposed web path, and internal attackers or pivots from other hosts still count. Patch regardless of exposure level.</p></details>
+<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">What should I do if I can't patch immediately?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Put a web application firewall in front of the site, disable update.php and unused modules, take a tested backup, monitor logs for suspicious POST requests and unexpected file uploads, and patch at the next maintenance window &mdash; same day if possible.</p></details>
+</div>
+
+<div class="morebox">
+<h2>More from Ingenious AI</h2>
+<ul>
+<li><a href="patch-tuesday-triage-calculator.html">Patch Tuesday triage calculator</a></li>
+<li><a href="beyondtrust-zero-day-exposure-check.html">BeyondTrust zero-day exposure check</a></li>
+<li><a href="cisco-seg-cve-2026-76519.html">Cisco SEG CVE-2026-76519 check</a></li>
+<li><a href="cve-patch-comparison-oct2026.html">CVE patch comparison, October 2026</a></li>
+<li><a href="nextcloud-webshell-leftovers-check.html">Nextcloud webshell-leftovers check</a></li>
+<li><a href="si-incident-readiness-check.html">Security-incident readiness check</a></li>
+<li><a href="all-links.html">All Ingenious AI security checks</a></li>
+<li><a href="security-suite.html">Ingenious AI security suite</a></li>
+</ul>
+</div>
+
+<p class="smallprint">Built by Ingenious AI. Educational self-assessment based on publicly reported patch details &mdash; not a live scan of your site. Always back up before patching.</p>
+</div>
+<script>
+/* LOGIC-START */
+var QUIZ=[
+{q:"Your site runs Drupal and is NOT on the Oct 17, 2026 security release",w:25,note:"Unpatched core against a critical RCE advisory = the #1 risk."},
+{q:"You have NOT checked core and module versions against the Oct 17 security advisory",w:15,note:"You cannot be sure you are patched without checking."},
+{q:"The site is internet-facing with admin or update.php reachable from outside",w:15,note:"Reachability turns a flaw into an exploit path."},
+{q:"You have NOT put the site behind a WAF or rate-limiting",w:10,note:"A WAF buys time but never replaces the patch."},
+{q:"You have NOT checked logs for suspicious POST requests or unexpected uploads since Oct 17",w:10,note:"Patch first, then look for evidence you were already hit."},
+{q:"You do NOT have a tested backup from before Oct 17",w:10,note:"A backup you can't restore is no backup."}
+];
+function scoreAnswers(a){
+  var total=0,earned=0,i;
+  for(i=0;i<QUIZ.length;i++){total+=QUIZ[i].w;if(a[i]){earned+=QUIZ[i].w;}}
+  return Math.round(earned/total*100);
+}
+function verdictOf(pct){
+  var cls,label,advice;
+  if(pct>=60){cls="bad";label="EXPOSED";
+    advice="Patch now, not next week: (1) back up files + database and confirm you can restore; (2) update Drupal core to the Oct 17, 2026 security release plus contributed modules/themes; (3) disable update.php and restrict admin paths; (4) add a WAF if you don't have one; (5) audit logs for suspicious POSTs, unexpected uploads, and new admin accounts since Oct 17. BleepingComputer warns exploits may emerge soon \u2014 unpatched RCE is a countdown, not a risk.";}
+  else if(pct>=25){cls="";label="AT-RISK";
+    advice="Close the gaps today: (1) verify core and every module against the Oct 17 advisory in Reports > Status report; (2) restrict update.php and admin paths from the open internet; (3) confirm a tested backup exists; (4) scan logs for suspicious activity since Oct 17 before you declare yourself patched.";}
+  else{cls="good";label="PATCHED POSTURE";
+    advice="Patched, backed up, and monitored \u2014 exactly where you want to be with critical RCE flaws circulating. Keep the habit: check Drupal security advisories the day they drop, and keep automated update checks enabled.";}
+  return {label:label,cls:cls,advice:advice};
+}
+/* LOGIC-END */
+(function(){
+var wrap=document.getElementById("quiz"),answers=new Array(QUIZ.length),answered=0;
+var PAGE="https://iceman2050.github.io/ingeniousai-security-checks-mirror/drupal-rce-exposure-check.html";
+function render(){
+  wrap.innerHTML="";
+  for(var i=0;i<QUIZ.length;i++){
+    (function(idx){
+      var d=document.createElement("div");d.className="q";
+      d.innerHTML="<p><strong>"+(idx+1)+".</strong> "+QUIZ[idx].q+"</p><p class='note'>"+QUIZ[idx].note+" <em>(weight "+QUIZ[idx].w+")</em></p><div class='opts'></div>";
+      var opts=d.querySelector(".opts");
+      [["Yes",true],["No",false]].forEach(function(pair){
+        var b=document.createElement("button");b.type="button";b.textContent=pair[0];
+        if(answers[idx]===pair[1]){b.className=pair[1]?"sel-yes":"sel-no";b.disabled=true;}
+        b.onclick=function(){if(answers[idx]!==undefined)return;answers[idx]=pair[1];answered++;render();if(answered===QUIZ.length)showVerdict();};
+        opts.appendChild(b);
+      });
+      wrap.appendChild(d);
+    })(i);
+  }
+}
+function showVerdict(){
+  var pct=scoreAnswers(answers),r=verdictOf(pct),v=document.getElementById("verdict");
+  v.className=r.cls;v.style.display="block";
+  v.innerHTML="<b class='verd'>"+pct+"% \u2014 "+r.label+"</b><br><br>"+r.advice;
+  document.getElementById("sharetext").value="Drupal RCE exposure: I scored "+pct+"% \u2014 "+r.label+". Critical RCE patched Oct 17, 2026; exploits may emerge soon. Triage your site free: "+PAGE;
+  document.getElementById("sharebox").style.display="block";
+  v.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("copybtn").onclick=function(){
+  var t=document.getElementById("sharetext"),btn=this;
+  function done(){var o=btn.textContent;btn.textContent="Copied!";setTimeout(function(){btn.textContent=o;},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();try{document.execCommand("copy");done();}catch(e){}});}
+  else{t.select();try{document.execCommand("copy");done();}catch(e){}}
+};
+render();
+})();
+</script>
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

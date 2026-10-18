@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Botnet Warning: Is Your IoT Fleet a Future Bot?</title>
+<meta name="description" content="Anthropic's AI botnet warning: small AI models could soon form self-propagating IoT botnets. Free checklist — harden your fleet before the warning becomes news.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/iot-botnet-agent-warning-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="AI Botnet Warning: Is Your IoT Fleet a Future Bot?">
+<meta property="og:description" content="Anthropic's AI botnet warning: small AI models could soon form self-propagating IoT botnets. Free checklist — harden your fleet before the warning becomes news.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/iot-botnet-agent-warning-check.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Botnet Warning: Is Your IoT Fleet a Future Bot?">
+<meta name="twitter:description" content="Anthropic's AI botnet warning: small AI models could soon form self-propagating IoT botnets. Free checklist — harden your fleet before the warning becomes news.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#3b0d0d;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.q p{font-size:16px;margin-bottom:12px;color:#fff}
+.q .opts{display:flex;gap:10px;flex-wrap:wrap}
+.q button{flex:1;min-width:120px;background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px;font-size:15px;font-weight:600;cursor:pointer}
+.q button:hover{border-color:#1c6ef2}
+.q button.sel-yes{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.q button.sel-no{background:#2b1215;border-color:#f85149;color:#ffa198}
+.q button:disabled{cursor:default;opacity:.85}
+#verdict{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+#verdict.good{border-color:#3fb950;background:#0d1a0f}
+#verdict.bad{border-color:#f85149;background:#1a0f0f}
+#verdict b.verd{font-size:19px;letter-spacing:.5px}
+.sharebox{margin-top:16px;display:none;background:#0b0f17;border:1px dashed #2a3342;border-radius:8px;padding:14px 16px}
+.sharebox p{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+#sharetext{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical;min-height:64px}
+.copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+.warnbox{max-width:760px;margin:0 auto 8px;background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a}
+.morebox{background:#0d1626;border:1px solid #1c2330;border-radius:12px;padding:22px 24px;margin:28px 0}
+.morebox h2{font-size:19px;color:#fff;margin-bottom:10px}
+.morebox ul{margin-left:20px}
+.morebox a{color:#1c6ef2;text-decoration:none}
+.morebox a:hover{text-decoration:underline}
+.smallprint{font-size:12.5px;color:#6b7688;margin-top:28px}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "AI Botnet Warning: Is Your IoT Fleet a Future Bot?",
+      "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/iot-botnet-agent-warning-check.html",
+      "description": "Anthropic's AI botnet warning: small AI models could soon form self-propagating IoT botnets. Free checklist — harden your fleet before the warning becomes news.",
+      "publisher": { "@type": "Organization", "name": "Ingenious AI" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Has a self-propagating AI-model botnet actually been seen in the wild?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. This is a warning and prediction from Anthropic (October 2026): small AI models could soon form self-propagating IoT botnets. No confirmed self-propagating AI-model botnet in the wild has been reported." }
+        },
+        {
+          "@type": "Question",
+          "name": "What did Anthropic warn about AI models and IoT botnets?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Anthropic warned that small AI models could soon form self-propagating IoT botnets — models replicating across weakly secured connected devices without a central operator. The warning is forward-looking: the threat it describes has not been observed in the wild." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which IoT devices are most at risk of becoming bots?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Devices with default credentials, open management ports (ADB, SSH, Telnet), no automatic firmware updates, and flat network access to the rest of the infrastructure. Those are the exact conditions botnets — AI-driven or not — need to spread." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the fastest way to reduce IoT botnet exposure?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Change every default credential, close unused management ports, enable automatic firmware updates, segment IoT devices onto their own network, and monitor outbound traffic for anomalies. These five steps close most botnet spread paths." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="all-links.html">&larr; All Ingenious AI security checks</a>
+<div class="badge">PREDICTION WATCH &mdash; OCTOBER 2026</div>
+<h1>AI <span class="red">Botnet</span> Warning: Is Your IoT Fleet a Future Bot?</h1>
+<p class="lead">Anthropic warned in October 2026 that <strong>small AI models could soon form self-propagating IoT botnets</strong>. Read that carefully: this is a <strong>warning, not an observed attack</strong> &mdash; no confirmed self-propagating AI-model botnet in the wild exists today. But the readiness work is identical to the botnet defense you should already be doing. Score your fleet.</p>
+
+<div class="answer">
+<h3 style="font-size:16px;color:#fff;margin-bottom:8px">Are AI-powered IoT botnets attacking right now?</h3>
+<p style="font-size:15px;color:#9aa7b8">No confirmed self-propagating AI-model botnet has been observed in the wild &mdash; Anthropic's October 2026 statement is a warning that small AI models could soon form them. The smart move is treating the warning as a deadline: close default credentials, shut open management ports, segment your IoT network, and monitor outbound traffic now, before the prediction arrives.</p>
+</div>
+
+<div class="card">
+<h2>Key facts &mdash; Anthropic's AI botnet warning</h2>
+<ul>
+<li><strong>The warning:</strong> Anthropic warned (October 2026) that small AI models could soon form <strong>self-propagating IoT botnets</strong> &mdash; models replicating across weakly secured connected devices without a central operator.</li>
+<li><strong>The honest scope:</strong> this is a <strong>warning/prediction</strong>. No confirmed self-propagating AI-model botnet in the wild has been reported. Any page describing observed AI-botnet attacks is misreporting.</li>
+<li><strong>Why prepare now:</strong> every condition a self-propagating botnet needs &mdash; default credentials, open management ports, flat networks, unpatched firmware &mdash; is already exploitable by today's conventional botnets.</li>
+<li><strong>Also relevant:</strong> Anthropic's AI worm IoT research on models self-replicating across devices via open ADB. <span class="src">Source: <a href="https://www.anthropic.com/" rel="noopener">Anthropic</a> (publisher page; warning as reported, October 2026)</span></li>
+</ul>
+</div>
+
+<div class="card">
+<h2>IoT fleet readiness &mdash; the checker</h2>
+<p class="note">Answer honestly. <strong>YES</strong> means the risk is present (heavier questions count more).</p>
+<div id="quiz"></div>
+<div id="verdict" role="status"></div>
+<div class="sharebox" id="sharebox">
+<p>Share your result (send it to your ops team):</p>
+<textarea id="sharetext" rows="3" readonly></textarea>
+<button class="copybtn" id="copybtn" type="button">Copy result</button>
+</div>
+</div>
+
+<div class="card">
+<h2>What this readiness check does NOT do</h2>
+<ul>
+<li>It does not scan your devices or network. It scores your answers about fleet hygiene.</li>
+<li>It does not detect AI activity: there is no confirmed AI-model botnet in the wild to detect. This is readiness against the <em>predicted</em> threat &mdash; and the conventional botnets already spreading.</li>
+<li>It is not an IoT penetration test &mdash; treat it as the triage you do before one.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Readiness steps</h2>
+<ul>
+<li><strong>Credentials:</strong> change every default password and SSH key on the fleet; unique credentials per device.</li>
+<li><strong>Ports:</strong> close ADB, SSH, Telnet, and other management ports wherever they aren't needed; never expose them to the internet.</li>
+<li><strong>Updates:</strong> enable automatic firmware/patch updates; plan replacement for devices that can't be updated.</li>
+<li><strong>Segmentation:</strong> put IoT on its own VLAN with no flat-network path to workstations and servers.</li>
+<li><strong>Monitoring:</strong> baseline outbound traffic and alert on anomalies &mdash; a bot phones home.</li>
+<li><strong>Plan:</strong> write the mass-device-compromise playbook now: quarantine procedure, re-imaging process, and who decides.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Frequently asked questions</h2>
+<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">Has a self-propagating AI-model botnet actually been seen in the wild?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">No. This is a warning and prediction from Anthropic (October 2026): small AI models could soon form self-propagating IoT botnets. No confirmed self-propagating AI-model botnet in the wild has been reported.</p></details>
+<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">What did Anthropic warn about AI models and IoT botnets?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Anthropic warned that small AI models could soon form self-propagating IoT botnets &mdash; models replicating across weakly secured connected devices without a central operator. The warning is forward-looking: the threat it describes has not been observed in the wild.</p></details>
+<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">Which IoT devices are most at risk of becoming bots?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Devices with default credentials, open management ports (ADB, SSH, Telnet), no automatic firmware updates, and flat network access to the rest of the infrastructure. Those are the exact conditions botnets &mdash; AI-driven or not &mdash; need to spread.</p></details>
+<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">What is the fastest way to reduce IoT botnet exposure?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Change every default credential, close unused management ports, enable automatic firmware updates, segment IoT devices onto their own network, and monitor outbound traffic for anomalies. These five steps close most botnet spread paths.</p></details>
+</div>
+
+<div class="morebox">
+<h2>More from Ingenious AI</h2>
+<ul>
+<li><a href="anthropic-ai-worm-iot-check.html">AI worm IoT check &mdash; related Anthropic research</a></li>
+<li><a href="france-supermarket-iot-hack-check.html">France supermarket IoT hack check</a></li>
+<li><a href="alexa-always-listening-privacy-check.html">Alexa always-listening privacy check</a></li>
+<li><a href="agent-paranoid-mode-check.html">Agent paranoid-mode check</a></li>
+<li><a href="all-links.html">All Ingenious AI security checks</a></li>
+<li><a href="security-suite.html">Ingenious AI security suite</a></li>
+</ul>
+</div>
+
+<p class="smallprint">Built by Ingenious AI. Educational readiness self-assessment &mdash; the AI-botnet threat described here is a published warning, not observed attacks. Nothing on this page detects AI activity.</p>
+</div>
+<script>
+/* LOGIC-START */
+var QUIZ=[
+{q:"Your fleet has IoT devices with default credentials or open management ports (ADB/SSH/Telnet) reachable from the network",w:25,note:"The exact spread conditions any self-propagating botnet needs."},
+{q:"Devices lack automatic firmware or patch updates",w:15,note:"Unpatchable devices are permanent footholds."},
+{q:"No network segmentation \u2014 IoT shares a flat network with workstations and servers",w:15,note:"A flat network turns one infected camera into lateral movement."},
+{q:"You do NOT monitor outbound traffic for anomalies",w:15,note:"A bot phones home \u2014 unmonitored, it does it forever."},
+{q:"You run small AI models on edge devices (or plan to soon)",w:15,note:"The subject of Anthropic's warning: on-device models are the future bot."},
+{q:"You have no incident plan for mass-device compromise",w:15,note:"Botnets move in hours \u2014 playbooks written mid-incident lose."}
+];
+function scoreAnswers(a){
+  var total=0,earned=0,i;
+  for(i=0;i<QUIZ.length;i++){total+=QUIZ[i].w;if(a[i]){earned+=QUIZ[i].w;}}
+  return Math.round(earned/total*100);
+}
+function verdictOf(pct){
+  var cls,label,advice;
+  if(pct>=60){cls="bad";label="NOT READY";
+    advice="Your fleet is bot-ready today, for conventional botnets and the AI ones Anthropic warns about: (1) change every default credential now; (2) close ADB/SSH/Telnet and unused management ports, none of them internet-facing; (3) enable automatic firmware updates; (4) segment IoT onto its own VLAN; (5) baseline and monitor outbound traffic; (6) write the mass-compromise playbook \u2014 quarantine, re-imaging, who decides. Anthropic's warning is a deadline: prepare before it becomes news.";}
+  else if(pct>=25){cls="";label="PARTIALLY READY";
+    advice="Basics exist but gaps remain: (1) finish credential rotation to unique per-device secrets; (2) audit open management ports fleet-wide; (3) segment IoT from production networks; (4) confirm update coverage \u2014 plan replacement for devices that can't update; (5) draft the mass-compromise playbook.";}
+  else{cls="good";label="READY";
+    advice="Unique credentials, closed ports, segmented networks, monitored egress, and a playbook \u2014 this is botnet-proof posture against today's botnets and the AI-driven ones Anthropic predicts. Keep it: audit the fleet quarterly and re-run this check whenever you add devices.";}
+  return {label:label,cls:cls,advice:advice};
+}
+/* LOGIC-END */
+(function(){
+var wrap=document.getElementById("quiz"),answers=new Array(QUIZ.length),answered=0;
+var PAGE="https://iceman2050.github.io/ingeniousai-security-checks-mirror/iot-botnet-agent-warning-check.html";
+function render(){
+  wrap.innerHTML="";
+  for(var i=0;i<QUIZ.length;i++){
+    (function(idx){
+      var d=document.createElement("div");d.className="q";
+      d.innerHTML="<p><strong>"+(idx+1)+".</strong> "+QUIZ[idx].q+"</p><p class='note'>"+QUIZ[idx].note+" <em>(weight "+QUIZ[idx].w+")</em></p><div class='opts'></div>";
+      var opts=d.querySelector(".opts");
+      [["Yes",true],["No",false]].forEach(function(pair){
+        var b=document.createElement("button");b.type="button";b.textContent=pair[0];
+        if(answers[idx]===pair[1]){b.className=pair[1]?"sel-yes":"sel-no";b.disabled=true;}
+        b.onclick=function(){if(answers[idx]!==undefined)return;answers[idx]=pair[1];answered++;render();if(answered===QUIZ.length)showVerdict();};
+        opts.appendChild(b);
+      });
+      wrap.appendChild(d);
+    })(i);
+  }
+}
+function showVerdict(){
+  var pct=scoreAnswers(answers),r=verdictOf(pct),v=document.getElementById("verdict");
+  v.className=r.cls;v.style.display="block";
+  v.innerHTML="<b class='verd'>"+pct+"% \u2014 "+r.label+"</b><br><br>"+r.advice;
+  document.getElementById("sharetext").value="AI botnet warning readiness: "+pct+"% \u2014 "+r.label+". Anthropic warns small AI models could soon form self-propagating IoT botnets. Check your fleet free: "+PAGE;
+  document.getElementById("sharebox").style.display="block";
+  v.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("copybtn").onclick=function(){
+  var t=document.getElementById("sharetext"),btn=this;
+  function done(){var o=btn.textContent;btn.textContent="Copied!";setTimeout(function(){btn.textContent=o;},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();try{document.execCommand("copy");done();}catch(e){}});}
+  else{t.select();try{document.execCommand("copy");done();}catch(e){}}
+};
+render();
+})();
+</script>
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
