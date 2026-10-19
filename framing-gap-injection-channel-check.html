@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, app_creation, public_page_preflight -->
+<html data-primary-keyword="cybersecurity news" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity News: The Prompt Injection Framing Gap</title>
+<meta name="description" content="Cybersecurity news: TRACER (MBZUAI, Oct 2026) — the same prompt injection succeeds at different rates per channel. Take the 5-question framing-gap self-test.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/framing-gap-injection-channel-check.html">
+<meta property="og:title" content="Cybersecurity News: The Prompt Injection Framing Gap">
+<meta property="og:description" content="Your agent passed the injection test — until the attack changed channels. The TRACER paper's framing gap, explained, plus a 5-question self-test.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/framing-gap-injection-channel-check.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cybersecurity News: The Prompt Injection Framing Gap">
+<meta name="twitter:description" content="Same injection, different channel, different result. The framing gap from the TRACER paper — plus a 5-question self-test.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:820px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}
+a{color:#7cc4ff}
+.quiz-q{background:#1a1e27;border-radius:8px;padding:1rem;margin:1rem 0}
+.opt{display:block;background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.7rem 1rem;margin:.5rem 0;cursor:pointer;width:100%;text-align:left;color:#e8e8e8;font-size:1rem}
+.opt:hover{border-color:#ffd166}.opt.picked{border-color:#7cc4ff;background:#24304a}.opt.correct{border-color:#4ade80;background:#14301f}.opt.wrong{border-color:#f87171;background:#3a1a1a}
+#quiz-result{font-weight:700;margin-top:1rem;font-size:1.1rem}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}
+.meta{color:#9aa3b2;font-size:.85rem}
+.src{font-size:.85rem;color:#9aa3b2}
+.warnbox{background:#2a1f10;border:1px solid #8a6d1f;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin:1.2rem 0}
+.stat{background:#1a1e27;border-radius:8px;padding:.9rem;text-align:center}
+.stat b{display:block;font-size:1.5rem;color:#ffd166}
+.stat span{font-size:.85rem;color:#9aa3b2}
+table.chan{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.95rem}
+table.chan th,table.chan td{border:1px solid #3a4356;padding:.6rem .8rem;text-align:left;vertical-align:top}
+table.chan th{background:#1a1e27;color:#ffd166}
+.platline{background:#141a26;border-radius:8px;padding:1rem;margin:1.5rem 0;font-size:.95rem}
+.platline ul{margin:.4rem 0;padding-left:1.2rem;columns:2}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Cybersecurity News: The Prompt Injection Framing Gap","author":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-19","description":"Cybersecurity news: the TRACER paper (MBZUAI, published October 18, 2026) shows the same indirect prompt injection succeeds at dramatically different rates depending on the presentation channel — the framing gap. Explainer plus a 5-question channel self-test."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://github.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is prompt injection?","acceptedAnswer":{"@type":"Answer","text":"Prompt injection is an attack where instructions planted in data an AI system processes — rather than typed by the user — get treated as commands. Direct injection comes from the user typing a malicious prompt; indirect injection hides in third-party content such as emails, web pages, documents, tool outputs, or calendar invites, which the agent reads as context and then follows."}},
+{"@type":"Question","name":"What is the framing gap?","acceptedAnswer":{"@type":"Answer","text":"The framing gap is the finding that the same indirect prompt injection succeeds at dramatically different rates depending on the presentation channel it arrives in. Defenses tuned on one channel — say, follow-up messages — do not automatically transfer to others like RAG documents or tool outputs, so testing in a single channel measures only that channel."}},
+{"@type":"Question","name":"Which presentation channels did the TRACER paper test?","acceptedAnswer":{"@type":"Answer","text":"The TRACER authors systematically tested indirect prompt injection across follow-up messages, RAG documents, and tool outputs. Attacks re-wrapped in different channels succeeded at higher rates, which is what revealed the framing gap and motivated channel-conditioned training."}},
+{"@type":"Question","name":"How much did TRACER training reduce attack success?","acceptedAnswer":{"@type":"Answer","text":"According to the paper coverage, TRACER's channel-conditioned training reduced attack success from 65.5% to 6.1% on RAG-framed attacks while preserving 78 to 82 percent clean accuracy. The paper is by Kshitij Mishra, Salem Lahlou, and Nils Lukas of MBZUAI, published October 18, 2026."}},
+{"@type":"Question","name":"Does passing an injection test in one channel mean my agent is safe?","acceptedAnswer":{"@type":"Answer","text":"No. That is exactly the trap the framing gap describes: a defense that blocks an injection delivered as a follow-up message may still fall for the same injection delivered as a retrieved document or a tool result. LLM defenses are channel-conditioned, so they need deployment-aware testing across every channel your agent actually reads."}},
+{"@type":"Question","name":"How can I measure my own framing gap?","acceptedAnswer":{"@type":"Answer","text":"Re-wrap your own injection test cases across every channel your agent consumes — email, RAG documents, tool output, calendar invites, HTTP headers — and score each channel separately. Ingenious AI's open-source channel-framing-prober does exactly this with abstract fixtures: per-channel success rates plus the gap delta, so the weakest channel is visible and gets hardened first."}}
+]}
+</script>
+</head>
+<body>
+<p class="meta"><time datetime="2026-10-19">October 19, 2026</time> · Cybersecurity news</p>
+<h1>Cybersecurity News: What Is Prompt Injection's Framing Gap?</h1>
+<p>What is prompt injection? It is what happens when hidden instructions in content your agent reads — an email, a retrieved document, a tool result — steer the agent somewhere you never authorized. And here is the part most defenses miss: <strong>TRACER is a research paper</strong> from the Mohamed bin Zayed University of Artificial Intelligence, published October 18, 2026, showing that the same indirect prompt injection succeeds at dramatically different rates depending on the presentation channel. The authors call it the <strong>framing gap</strong> — and it means your agent may have passed the injection test only because the attack arrived through the channel you tested.</p>
+
+<h2>What is prompt injection, really?</h2>
+<p>Prompt injection is an attack where instructions planted in data an AI system processes — rather than typed by the user — get treated as commands. <em>Direct</em> injection comes from the user typing a malicious prompt. <em>Indirect</em> injection, the kind TRACER studied, hides in third-party content: emails, web pages, documents, tool outputs, calendar invites. The agent reads them as context and follows the planted instructions.</p>
+<p>It is not a theoretical risk. Indirect prompt-injection payloads rose roughly fivefold to about 1% of all prompts by May 2026, according to Check Point research reported in July 2026, and Google recorded a 32% jump in malicious attempts between November 2025 and February 2026. OWASP lists it as LLM01 — the top risk for LLM applications.</p>
+
+<h2>Cybersecurity news: the framing gap — same attack, different channel, different result</h2>
+<p>TRACER's authors — Kshitij Mishra, Salem Lahlou, and Nils Lukas — systematically tested indirect prompt injection across presentation channels: follow-up messages, RAG documents, and tool outputs. The same injection re-wrapped in a different channel succeeded at higher rates. Their conclusion: LLM defenses are channel-conditioned and require deployment-aware training. Channel-conditioned training then cut attack success from 65.5% to 6.1% on RAG-framed attacks while preserving 78–82% clean accuracy.</p>
+<div class="statgrid">
+<div class="stat"><b>65.5% → 6.1%</b><span>attack success on RAG-framed attacks after TRACER training</span></div>
+<div class="stat"><b>78–82%</b><span>clean accuracy preserved</span></div>
+<div class="stat"><b>3</b><span>channels tested: follow-up, RAG, tool output</span></div>
+<div class="stat"><b>Oct 18, 2026</b><span>TRACER paper publication date</span></div>
+</div>
+<p class="src">Source: zot.news research digest of the TRACER paper, October 19, 2026 — paper coverage, not independently verified.</p>
+<div class="warnbox"><strong>Honest scope:</strong> everything above about TRACER rests on a research digest of the paper, not an independent replication. The direction — defenses behave differently per channel — matches the wider 2026 evidence (Check Point, Google, OWASP LLM01), but treat the exact percentages as the paper's reported figures, not as universal constants for your agent.</div>
+
+<h2>The five channels your injection tests probably ignore</h2>
+<p>Most teams test one channel — usually direct chat prompts — and declare victory. The framing gap says: test every channel your agent actually consumes. Our open-source <strong>channel-framing-prober</strong> re-wraps abstract test cases across these five:</p>
+<table class="chan">
+<tr><th>Channel</th><th>What the framing adds</th></tr>
+<tr><td>Email follow-up</td><td>From/Subject framing plus a known-sender trust marker — the channel that looks most legitimate</td></tr>
+<tr><td>RAG document</td><td>Retrieved-chunk framing with a source citation — authority borrowed from your own knowledge base</td></tr>
+<tr><td>Tool output</td><td>JSON tool-result envelope — structured data agents tend to trust implicitly</td></tr>
+<tr><td>Calendar invite</td><td>Organizer authority framing — an invite feels like it came from inside the organization</td></tr>
+<tr><td>HTTP header</td><td>Header-style key/value encoding, truncated at 120 characters — the channel that degrades the payload</td></tr>
+</table>
+<p>The prober scores each re-wrapped test against your own channel-susceptibility profile and reports per-channel success rates plus the <strong>gap delta</strong> (best channel rate minus worst). A large delta means the same abstract tests score very differently by channel — harden the weakest channel first. It is labeled everywhere as test-harness measurement on abstract fixtures, not proof of exploitability.</p>
+
+<h2>Try it: the channel self-test</h2>
+<p>Five questions. They test whether you think in channels or only in prompts — the exact habit the framing gap punishes.</p>
+<div id="quiz-check">
+<div class="quiz-q" data-a="2"><p><strong>1.</strong> TRACER training cut attack success on RAG-framed attacks from 65.5% to…?</p>
+<button class="opt" data-v="0">41.2%</button>
+<button class="opt" data-v="1">22.8%</button>
+<button class="opt" data-v="2">6.1%</button></div>
+<div class="quiz-q" data-a="1"><p><strong>2.</strong> Which presentation channels did the TRACER authors test?</p>
+<button class="opt" data-v="0">Email, SMS, and voice calls</button>
+<button class="opt" data-v="1">Follow-up messages, RAG documents, and tool outputs</button>
+<button class="opt" data-v="2">Social media posts only</button></div>
+<div class="quiz-q" data-a="0"><p><strong>3.</strong> In the channel-framing-prober, which channel adds a known-sender trust marker?</p>
+<button class="opt" data-v="0">Email follow-up</button>
+<button class="opt" data-v="1">Tool output</button>
+<button class="opt" data-v="2">HTTP header</button></div>
+<div class="quiz-q" data-a="2"><p><strong>4.</strong> Which channel truncates the test payload at 120 characters?</p>
+<button class="opt" data-v="0">Calendar invite</button>
+<button class="opt" data-v="1">RAG document</button>
+<button class="opt" data-v="2">HTTP header</button></div>
+<div class="quiz-q" data-a="1"><p><strong>5.</strong> What does a large gap delta mean?</p>
+<button class="opt" data-v="0">All channels are equally safe</button>
+<button class="opt" data-v="1">The same tests score very differently by channel — harden the weakest first</button>
+<button class="opt" data-v="2">The test corpus is broken</button></div>
+</div>
+<div id="quiz-result" role="status"></div>
+<script>
+function gradeChannelQuiz(answers){
+  var key = [2, 1, 0, 2, 1];
+  var total = key.length, correct = 0, done = 0, i;
+  for (i = 0; i < total; i++){
+    if (answers[i] !== undefined && answers[i] !== null){
+      done++;
+      if (answers[i] === key[i]) correct++;
+    }
+  }
+  var verdict;
+  if (done < total){
+    verdict = 'Answered ' + done + ' of ' + total + '.';
+  } else if (correct === total){
+    verdict = '5/5 — you see channels, not just prompts. Harden the weakest one first.';
+  } else if (correct >= 3){
+    verdict = correct + '/5 — solid. Re-read the framing-gap section above.';
+  } else {
+    verdict = correct + '/5 — your agent\u2019s attackers are counting on exactly this. Start at the top.';
+  }
+  return {score: correct, total: total, done: done, verdict: verdict};
+}
+if (typeof document !== 'undefined'){
+  (function(){
+    var box = document.getElementById('quiz-check');
+    var answered = {};
+    function render(){
+      var ans = [];
+      var qs = box.querySelectorAll('.quiz-q');
+      for (var i = 0; i < qs.length; i++){ ans.push(answered[i]); }
+      var r = gradeChannelQuiz(ans);
+      var el = document.getElementById('quiz-result');
+      el.textContent = (r.done === r.total ? 'Score: ' : '') + r.verdict;
+    }
+    box.querySelectorAll('.quiz-q').forEach(function(q, qi){
+      q.querySelectorAll('.opt').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          var key = q.getAttribute('data-a');
+          q.querySelectorAll('.opt').forEach(function(o){ o.classList.remove('picked','correct','wrong'); });
+          btn.classList.add('picked');
+          answered[qi] = parseInt(btn.getAttribute('data-v'), 10);
+          if (btn.getAttribute('data-v') === key){ btn.classList.add('correct'); }
+          else {
+            btn.classList.add('wrong');
+            q.querySelector('.opt[data-v="' + key + '"]').classList.add('correct');
+          }
+          render();
+        });
+      });
+    });
+    render();
+  })();
+}
+</script>
+
+<p><strong>Rogue-Agent Defense</strong> — Ingenious AI's autonomous-agent monitoring platform — watches for exactly this class of attack: injections arriving through channels your tests never covered, plus exfiltration detection when one lands. <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense">Get early access on WhatsApp</a>.</p>
+
+<h2>All 11 Ingenious AI platforms — get early access</h2>
+<div class="platline">
+<p>Every platform is in early access. Tap any link to request access on WhatsApp:</p>
+<ul>
+<li><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard">DisclosureGuard</a> — AI disclosure compliance</li>
+<li><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder">ModelMinder</a> — AI model deprecation radar</li>
+<li><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch">TermsWatch</a> — AI vendor terms watcher</li>
+<li><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit">Vibe-Code Audit</a> — AI code audit</li>
+<li><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense">Rogue-Agent Defense</a> — rogue AI agent defense</li>
+<li><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter">BreachHunter</a> — breach intelligence</li>
+<li><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker">ChatBreaker</a> — conversational AI testing</li>
+<li><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder">Agent Flight Recorder</a> — tamper-evident agent logging</li>
+<li><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway">Agent Auth Gateway</a> — agent budget caps &amp; kill switch</li>
+<li><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard">DomainGuard</a> — domain-impersonation defense</li>
+<li><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI">ContentCraft AI</a> — AI content studio</li>
+</ul>
+<p><strong>Bundle deal:</strong> <a href="security-suite.html">all 11 Ingenious AI platforms, one price</a>.</p>
+</div>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What is prompt injection?</summary>
+<p>Prompt injection is an attack where instructions planted in data an AI system processes — rather than typed by the user — get treated as commands. Direct injection comes from the user typing a malicious prompt; indirect injection hides in third-party content such as emails, web pages, documents, tool outputs, or calendar invites, which the agent reads as context and then follows.</p></details>
+<details><summary>What is the framing gap?</summary>
+<p>The framing gap is the finding that the same indirect prompt injection succeeds at dramatically different rates depending on the presentation channel it arrives in. Defenses tuned on one channel — say, follow-up messages — do not automatically transfer to others like RAG documents or tool outputs, so testing in a single channel measures only that channel.</p></details>
+<details><summary>Which presentation channels did the TRACER paper test?</summary>
+<p>The TRACER authors systematically tested indirect prompt injection across follow-up messages, RAG documents, and tool outputs. Attacks re-wrapped in different channels succeeded at higher rates, which is what revealed the framing gap and motivated channel-conditioned training.</p></details>
+<details><summary>How much did TRACER training reduce attack success?</summary>
+<p>According to the paper coverage, TRACER's channel-conditioned training reduced attack success from 65.5% to 6.1% on RAG-framed attacks while preserving 78 to 82 percent clean accuracy. The paper is by Kshitij Mishra, Salem Lahlou, and Nils Lukas of MBZUAI, published October 18, 2026.</p></details>
+<details><summary>Does passing an injection test in one channel mean my agent is safe?</summary>
+<p>No. That is exactly the trap the framing gap describes: a defense that blocks an injection delivered as a follow-up message may still fall for the same injection delivered as a retrieved document or a tool result. LLM defenses are channel-conditioned, so they need deployment-aware testing across every channel your agent actually reads.</p></details>
+<details><summary>How can I measure my own framing gap?</summary>
+<p>Re-wrap your own injection test cases across every channel your agent consumes — email, RAG documents, tool output, calendar invites, HTTP headers — and score each channel separately. Ingenious AI's open-source channel-framing-prober does exactly this with abstract fixtures: per-channel success rates plus the gap delta, so the weakest channel is visible and gets hardened first.</p></details>
+
+<div class="xlinks">
+<p><strong>Related checks:</strong></p>
+<ul>
+<li><a href="prompt-injection-never-solved.html">Prompt injection: never solved — the permanent attack surface</a></li>
+<li><a href="prompt-injection-vaccine.html">The Prompt Injection Vaccine — 5-round interactive training</a></li>
+<li><a href="leaked-prompt-hall.html">Leaked Prompt Hall — extracted system prompts, analyzed</a></li>
+<li><a href="agent-paranoid-mode-check.html">Agent Paranoid Mode — least-privilege self-check</a></li>
+<li><a href="ai-agent-phishing-sucker-check.html">AI Agent Phishing Sucker — would your agent take the bait?</a></li>
+<li><a href="disclosure-lie-detector.html">Disclosure Lie Detector — AI-content disclosure check</a></li>
+<li><a href="all-links.html">All links — every Ingenious AI check and tool</a></li>
+<li><a href="security-suite.html">Security Suite — all 11 platforms, one price (bundle deal)</a></li>
+</ul>
+</div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' src="https://static.cloudflareinsights.com/beacon.min.js"></script>
+</body>
+</html>
