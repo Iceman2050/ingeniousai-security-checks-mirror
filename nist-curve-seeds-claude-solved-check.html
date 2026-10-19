@@ -18,6 +18,21 @@
 {"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://github.com/Iceman2050"}
 </script>
 <link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:820px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}
+a{color:#7cc4ff}
+#quiz .q{background:#1a1e27;border-radius:8px;padding:1rem;margin:1rem 0}
+#quiz .q label{display:block;background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.7rem 1rem;margin:.5rem 0;cursor:pointer}
+#quiz .q label:hover{border-color:#ffd166}
+#quiz-check{background:#ffd166;color:#0f1115;border:none;border-radius:8px;padding:.7rem 1.4rem;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.5rem}
+#quiz-result{font-weight:700;margin-top:1rem;font-size:1.1rem}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+code{background:#1a1e27;padding:.15rem .45rem;border-radius:4px;font-size:.92em}
+.meta{color:#9aa3b2;font-size:.85rem}
+.platform-line{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -107,6 +122,8 @@ document.getElementById('quiz-check').addEventListener('click', function() {
 <p>Claude spotted a statistical fingerprint: four of the ten seeds had all-zero top bits in each 32-bit word, odds of roughly 1 in 5,810 for true randomness. That pointed to lrand48. It then recovered the generator's internal state with the LLL lattice-reduction algorithm for truncated outputs and brute force for binary-curve seeds, and rewound to matching 1997-1998 clock values.</p></details>
 <details><summary>Is everything about the NIST seeds now explained?</summary>
 <p>No. The B-163 binary-curve seed and the base points of P-224, P-256, P-384, and P-521 remain unexplained, and Anthropic published those leftovers honestly alongside its reproducible code.</p></details>
+
+<p class="platform-line"><strong>Vibe-Code Audit</strong> — Ingenious AI's AI code-audit platform — is built on the same idea this story demonstrates: AI systems that dig into code and standards and report what they find, honestly, with reproducible evidence. <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20early%20access%20to%20Vibe-Code%20Audit">Get early access on WhatsApp</a>.</p>
 
 <p><em>Related checks: <a href="self-healing-backdoor-detector.html">Backdoor Detector</a> · <a href="ai-agent-crypto-wallet-check.html">AI Agent Crypto Wallet Check</a> · <a href="microsoft-x-clippy-crypto-hijack-check.html">Microsoft X Clippy Crypto Hijack</a></em></p>
 </main>
