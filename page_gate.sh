@@ -60,10 +60,44 @@ for F in "$@"; do
   if grep -q 'quiz-check' "$F"; then
     gate "quiz-js-present" bash -c "grep -q 'getElementById(.quiz-check.)' '$F'"
   fi
+  # CODE VERIFICATION (Aldo's order 2026-10-18 — the Loop Engineering code-verify
+  # technique on ALL gates, no exceptions): every inline <script> block must
+  # pass node syntax check; every JSON-LD block must parse; no eval() in page JS.
+  if grep -q '<script' "$F"; then
+    gate "js-syntax" bash -c "python3 -c \"
+import re, subprocess, sys, tempfile, os
+html = open('$F').read()
+# inline scripts only: no src=, and not JSON-LD blocks
+blocks = re.findall(r'<script(?![^>]*src=)(?![^>]*ld\+json)[^>]*>(.*?)</script>', html, re.S | re.I)
+for i, js in enumerate(blocks):
+    js = js.strip()
+    if not js:
+        continue
+    with tempfile.NamedTemporaryFile('w', suffix='.js', delete=False) as tf:
+        tf.write(js); p = tf.name
+    r = subprocess.run(['node', '--check', p], capture_output=True, text=True)
+    os.unlink(p)
+    if r.returncode != 0:
+        print(f'block {i}: ' + r.stderr[:300]); sys.exit(1)
+\""
+    gate "js-no-eval" bash -c "! python3 -c \"
+import re
+html = open('$F').read()
+blocks = re.findall(r'<script(?![^>]*src=)(?![^>]*ld\+json)[^>]*>(.*?)</script>', html, re.S | re.I)
+print(any('eval(' in b for b in blocks))
+\" | grep -q True"
+    gate "jsonld-valid" bash -c "python3 - '$F' << 'PYEOF'
+import re, json, sys
+html = open(sys.argv[1]).read()
+blocks = re.findall(r'<script[^>]*ld\+json[^>]*>(.*?)</script>', html, re.S | re.I)
+[json.loads(b) for b in blocks]
+PYEOF"
+  fi
   # SEO / AEO / GEO visibility verifier (28 checks: 18 SEO, 5 AEO, 5 GEO).
-  # Tolerated exception: seo.keyword_volume FAILs flagged "unresearched"
-  # (NEEDS-RESEARCH keywords — a research gap, never a page defect; volume is
-  # never invented). Any OTHER verifier failure blocks the push.
+  # NO TOLERANCE (Aldo's order 2026-10-18 — "at all times use high volume
+  # keywords"): seo.keyword_volume is a HARD gate. The primary keyword must be
+  # in keywords.json with a real researched volume ≥1000/mo. Any verifier
+  # failure blocks the push.
   VV_BIN="/home/hatch/workspace/visibility-loop/.venv/bin/python"
   VV_SCRIPT="/home/hatch/workspace/visibility-loop/visibility_verifier.py"
   if [ -x "$VV_BIN" ] && [ -f "$VV_SCRIPT" ]; then
@@ -73,15 +107,9 @@ for F in "$@"; do
     if [ -z "$VV_FAILS" ]; then
       echo "  PASS visibility-verifier ($VV_SCORE)"
     else
-      # every FAIL line must be a keyword_volume "unresearched" research gap
-      NONTOLERATED="$(echo "$VV_FAILS" | grep -v 'keyword_volume.*unresearched' || true)"
-      if [ -z "$NONTOLERATED" ]; then
-        echo "  PASS visibility-verifier ($VV_SCORE, tolerated research-gap only)"
-      else
-        echo "  FAIL visibility-verifier ($VV_SCORE):"
-        echo "$NONTOLERATED" | sed 's/^/    /'
-        fail=1
-      fi
+      echo "  FAIL visibility-verifier ($VV_SCORE):"
+      echo "$VV_FAILS" | sed 's/^/    /'
+      fail=1
     fi
   else
     echo "  FAIL visibility-verifier (verifier not found — refusing to pass blind)"; fail=1
@@ -100,6 +128,15 @@ for F in "$@"; do
   gate "skills-declared" bash -c "grep -q '<!-- skills-used:' '$F'"
 done
 echo "---"
+# EXPERIMENT LOG (Loop Engineering method — log every verification run).
+GATE_LOG="/home/hatch/workspace/security-checks-mirror/page-gate-log.md"
+if [ ! -f "$GATE_LOG" ]; then
+  printf '# Page gate log\n\nAppend-only. Every page_gate.sh run records: date, page, verifier score, verdict.\n\n| Date (UTC) | Page | Score | Verdict |\n|---|---|---|---|\n' > "$GATE_LOG"
+fi
+for F in "$@"; do
+  case "$F" in --*) continue;; esac
+  echo "| $(date -u +%Y-%m-%dT%H:%MZ) | $(basename "$F") | ${VV_SCORE:-n/a} | $([ "$fail" -eq 0 ] && echo PASS || echo FAIL) |" >> "$GATE_LOG"
+done
 if [ "$fail" -eq 0 ]; then
   echo "GATE RESULT: PASS ($checked page(s))"
 else
