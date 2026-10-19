@@ -72,7 +72,8 @@
     var gh = el("a", { href: "https://github.com/Iceman2050" }, "GitHub: 73 open-source security tools");
     var home = el("a", { href: MIRROR }, "All free checkers");
     var nl = el("a", { href: MIRROR + "newsletter.html" }, "Email list: weekly agent-security briefing");
-    links.appendChild(gh); links.appendChild(home); links.appendChild(nl);
+    var bundle = el("a", { href: MIRROR + "security-suite.html", "class": "eco-bundle" }, "Bundle deal: all 11 platforms, one price");
+    links.appendChild(gh); links.appendChild(home); links.appendChild(nl); links.appendChild(bundle);
     wrap.appendChild(links);
 
     // --- email capture (honest local queue until the rail is live) ---

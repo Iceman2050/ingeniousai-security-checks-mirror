@@ -126,6 +126,13 @@ PYEOF"
   # which skills were searched/used for the build. Format in the page head:
   #   <!-- skills-used: unlazy-gates, documents -->
   gate "skills-declared" bash -c "grep -q '<!-- skills-used:' '$F'"
+  # BUNDLE DEAL (Aldo's order 2026-10-18, no exceptions): every page must carry
+  # the all-bundle suite deal page link (security-suite.html — all 11 platforms,
+  # one price). The link lives in the shared ecosystem.js footer, so this gate
+  # verifies the mechanism: the page loads ecosystem.js (footer trio gate above)
+  # AND ecosystem.js contains the bundle link. A page with its own direct link
+  # also passes.
+  gate "bundle-deal-link" bash -c "grep -q 'security-suite.html' '$F' || (grep -q 'ecosystem.js' '$F' && grep -q 'security-suite.html' /home/hatch/workspace/security-checks-mirror/ecosystem.js)"
 done
 echo "---"
 # EXPERIMENT LOG (Loop Engineering method — log every verification run).

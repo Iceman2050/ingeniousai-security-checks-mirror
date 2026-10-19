@@ -34,3 +34,4 @@
   padding: 2px 10px; border-radius: 6px; border: 1px solid #2a3a55;
   font-family: ui-monospace, monospace; user-select: all;
 }
+.eco-bundle { font-weight: bold; color: #ffd166 !important; }
