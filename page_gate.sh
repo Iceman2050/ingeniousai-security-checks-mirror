@@ -6,6 +6,25 @@
 # Exits 0 only if EVERY gate passes for EVERY page. Exits 1 with the failing gates listed.
 set -u
 BEACON_TOKEN="376c9de98060423683cfe15cec38f36b"
+RDIR="/home/hatch/workspace/security-checks-mirror"
+# ---- post-commit modes (run before the file loop) ----
+# --registry <slug>.html: verify all-links.html + index.html + sitemap.xml persisted
+#   (2026-10-18 lesson: never trust script prints — grep the committed files).
+if [ "${1:-}" = "--registry" ] && [ -n "${2:-}" ]; then
+  SLUG="$2"; RF=0
+  rcheck() { local n="$1"; shift; if "$@" >/dev/null 2>&1; then echo "  PASS registry-$n"; else echo "  FAIL registry-$n"; RF=1; fi }
+  rcheck "all-links" bash -c "grep -q 'data-url=\"$SLUG\"' '$RDIR/all-links.html'"
+  rcheck "index" bash -c "grep -q 'href=\"$SLUG\"' '$RDIR/index.html'"
+  rcheck "sitemap" bash -c "grep -q '$SLUG' '$RDIR/sitemap.xml'"
+  if [ "$RF" -eq 0 ]; then echo "REGISTRY: PASS"; exit 0; else echo "REGISTRY: FAIL"; exit 1; fi
+fi
+# --live <slug>.html: verify the page returns HTTP 200 on the mirror.
+if [ "${1:-}" = "--live" ] && [ -n "${2:-}" ]; then
+  URL="https://iceman2050.github.io/ingeniousai-security-checks-mirror/$2"
+  CODE="$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 "$URL")"
+  if [ "$CODE" = "200" ]; then echo "LIVE: PASS ($URL -> 200)"; exit 0
+  else echo "LIVE: FAIL ($URL -> $CODE)"; exit 1; fi
+fi
 fail=0
 checked=0
 for F in "$@"; do
@@ -41,6 +60,44 @@ for F in "$@"; do
   if grep -q 'quiz-check' "$F"; then
     gate "quiz-js-present" bash -c "grep -q 'getElementById(.quiz-check.)' '$F'"
   fi
+  # SEO / AEO / GEO visibility verifier (28 checks: 18 SEO, 5 AEO, 5 GEO).
+  # Tolerated exception: seo.keyword_volume FAILs flagged "unresearched"
+  # (NEEDS-RESEARCH keywords — a research gap, never a page defect; volume is
+  # never invented). Any OTHER verifier failure blocks the push.
+  VV_BIN="/home/hatch/workspace/visibility-loop/.venv/bin/python"
+  VV_SCRIPT="/home/hatch/workspace/visibility-loop/visibility_verifier.py"
+  if [ -x "$VV_BIN" ] && [ -f "$VV_SCRIPT" ]; then
+    VV_OUT="$("$VV_BIN" "$VV_SCRIPT" "$F" 2>&1)"
+    VV_SCORE="$(echo "$VV_OUT" | grep -oE 'SCORE: [0-9]+/[0-9]+' | tail -1)"
+    VV_FAILS="$(echo "$VV_OUT" | grep -E '^CHECK .* FAIL' || true)"
+    if [ -z "$VV_FAILS" ]; then
+      echo "  PASS visibility-verifier ($VV_SCORE)"
+    else
+      # every FAIL line must be a keyword_volume "unresearched" research gap
+      NONTOLERATED="$(echo "$VV_FAILS" | grep -v 'keyword_volume.*unresearched' || true)"
+      if [ -z "$NONTOLERATED" ]; then
+        echo "  PASS visibility-verifier ($VV_SCORE, tolerated research-gap only)"
+      else
+        echo "  FAIL visibility-verifier ($VV_SCORE):"
+        echo "$NONTOLERATED" | sed 's/^/    /'
+        fail=1
+      fi
+    fi
+  else
+    echo "  FAIL visibility-verifier (verifier not found — refusing to pass blind)"; fail=1
+  fi
+  # BRAND RULE (Aldo's order — public brand is "Ingenious AI" only): the user's
+  # personal name must never appear on a public page.
+  gate "brand-no-personal-name" bash -c "! grep -qi 'Aldo Guerra' '$F'"
+  # WARNBOX LEAK (2026-10-18 sweep): leaked internal "Reddit pre-flight"
+  # warnboxes must never ship on a page.
+  gate "no-warnbox-leak" bash -c "! grep -qi 'reddit pre-flight' '$F'"
+  # INTAKE-LOG: every shipped page must be logged (Aldo's standing workflow).
+  gate "intake-logged" bash -c "grep -q \"\$(basename '$F' .html)\" /home/hatch/workspace/incoming-docs/INTAKE-LOG.md"
+  # SKILLS RULE (Aldo's hard permanent lock 2026-10-11): the maker must declare
+  # which skills were searched/used for the build. Format in the page head:
+  #   <!-- skills-used: unlazy-gates, documents -->
+  gate "skills-declared" bash -c "grep -q '<!-- skills-used:' '$F'"
 done
 echo "---"
 if [ "$fail" -eq 0 ]; then
