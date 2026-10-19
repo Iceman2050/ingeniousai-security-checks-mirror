@@ -30,15 +30,21 @@ This mirror keeps new security newsjack pages shipping daily at zero cost:
    FAQ schema, share row per the house template).
 2. Add an entry to `sitemap.xml` using the **mirror** URL.
 3. Add a card link in `index.html` (relative link — it resolves to the mirror).
-4. Commit and push to `main`:
+4. **RUN THE HARD GATE** — `./page_gate.sh <page>.html` must exit 0. It checks:
+   style block, footer trio, exactly-one-footer, Cloudflare beacon, wa.me
+   platform link, cross-links, primary keyword, canonical, OG tags,
+   FAQ-schema==visible, quiz JS. A FAIL blocks the push — fix and re-run.
+   (Added 2026-10-18 after an unstyled page shipped; the gate is the loop's teeth.)
+5. Commit and push to `main`:
 
    ```sh
-   git add <page>.html sitemap.xml index.html
+   ./page_gate.sh <page>.html && git add <page>.html sitemap.xml index.html all-links.html page_gate.sh
    git commit -m "newsjack: <story slug>"
    git push origin main
    ```
 
-5. GitHub Pages rebuilds automatically (usually < 60s). Verify:
+   The `&&` means the commit only happens if the gate passes.
+6. GitHub Pages rebuilds automatically (usually < 60s). Verify:
    `curl -s -o /dev/null -w "%{http_code}" https://iceman2050.github.io/ingeniousai-security-checks-mirror/<page>.html`
    must return `200`.
 
