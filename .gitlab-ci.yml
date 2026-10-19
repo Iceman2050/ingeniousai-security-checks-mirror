@@ -1,0 +1,13 @@
+# GitLab Pages fallback mirror for the Ingenious AI security-checks site.
+# Fallback host while the GitHub account (Iceman2050) is suspended.
+# Minimal job: free tier has 400 CI minutes/month.
+pages:
+  image: busybox:latest
+  script:
+    - mkdir -p public
+    - find . -mindepth 1 -maxdepth 1 ! -name .git ! -name public -exec cp -r {} public/ \;
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
