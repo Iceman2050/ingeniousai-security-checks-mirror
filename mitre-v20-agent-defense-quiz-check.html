@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html data-primary-keyword="what is prompt injection" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- skills-used: unlazy-gates, documents -->
+<title>What Is Prompt Injection? MITRE ATT&CK v20 Defense Quiz</title>
+<meta content="What is prompt injection? MITRE ATT&CK v20 named it twice (T1699, T1698) among 9 new AI attack techniques. Free 9-question quiz: would your agent survive?" name="description"/>
+<link href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-v20-agent-defense-quiz-check.html" rel="canonical"/>
+<link href="ecosystem.css" rel="stylesheet"/>
+<meta content="website" property="og:type"/>
+<meta content="Ingenious AI" property="og:site_name"/>
+<meta content="What Is Prompt Injection? MITRE ATT&CK v20 Defense Quiz" property="og:title"/>
+<meta content="What is prompt injection? MITRE ATT&CK v20 named it twice among 9 new AI attack techniques. Free 9-question self-quiz: would your agent's defenses survive each one?" property="og:description"/>
+<meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-v20-agent-defense-quiz-check.html" property="og:url"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="What Is Prompt Injection? MITRE ATT&CK v20 Defense Quiz" name="twitter:title"/>
+<meta content="MITRE just named 9 new AI attack techniques. Free quiz: would YOUR agent's defenses survive? Built by Ingenious AI." name="twitter:description"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d1626;border:1px solid #1c6ef2;color:#6ea8fe;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:33px;line-height:1.25;margin-bottom:16px}
+h2{font-size:21px;margin-bottom:12px;color:#fff}
+h3{font-size:17px;margin:18px 0 8px;color:#fff}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.vk-dateline{font-size:13px;color:#6b7688;margin-bottom:14px}
+.vk-lead{font-size:17px;color:#c3cdd9;margin-bottom:22px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+ul{margin:10px 0 10px 20px}
+li{margin:10px 0}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#6ea8fe}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.cat{margin:22px 0}
+.cat h3{color:#6ea8fe;letter-spacing:1px;font-size:14px;text-transform:uppercase;border-bottom:1px solid #232b38;padding-bottom:8px}
+.q{border:1px solid #2a3342;border-radius:10px;padding:18px;margin:14px 0;background:#0d1219}
+.q p{font-size:16px;margin-bottom:6px;color:#fff}
+.q .tid{font-size:12px;color:#6ea8fe;font-weight:700;letter-spacing:.5px}
+.q .why{font-size:13px;color:#6b7688;margin-top:8px}
+.q .fb{font-size:14px;color:#9aa7b8;margin-top:10px;display:none}
+.q .opts{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.q button{flex:1;min-width:100px;background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px;font-size:15px;font-weight:600;cursor:pointer}
+.q button:hover{border-color:#1c6ef2}
+.q button.sel-good{background:#0d2b16;border-color:#3fb950;color:#7ee787}
+.q button.sel-mid{background:#1a1408;border-color:#d29922;color:#e8c26a}
+.q button.sel-bad{background:#2b1215;border-color:#f85149;color:#ffa198}
+.q button:disabled{cursor:default;opacity:.85}
+#verdict{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+#verdict.good{border-color:#3fb950;background:#0d1a0f}
+#verdict.bad{border-color:#f85149;background:#1a0f0f}
+#verdict b.verd{font-size:19px;letter-spacing:.5px}
+.techscore{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:14px}
+.techscore .bar{flex:1;height:8px;background:#232b38;border-radius:4px;overflow:hidden}
+.techscore .fill{height:100%;background:#1c6ef2;border-radius:4px}
+.weak{border-left:3px solid #f85149;padding:8px 0 8px 14px;margin:12px 0;font-size:14px}
+.weak strong{color:#ffa198}
+.ttable{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0}
+.ttable th,.ttable td{text-align:left;padding:8px 10px;border-bottom:1px solid #232b38}
+.ttable th{color:#6ea8fe;font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.market{border-left:3px solid #1c6ef2;padding:10px 0 10px 16px;margin:14px 0}
+.market strong{color:#fff}
+.sharebox{margin-top:16px;display:none;background:#0b0f17;border:1px dashed #2a3342;border-radius:8px;padding:14px 16px}
+.sharebox p{font-size:14px;color:#9aa7b8;margin-bottom:8px}
+#sharetext{width:100%;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical;min-height:64px}
+.copybtn{margin-top:10px;background:#21262d;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"What Is Prompt Injection? MITRE ATT&CK v20 Defense Quiz","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-v20-agent-defense-quiz-check.html","description":"What is prompt injection? MITRE ATT&CK v20 named it twice (T1699, T1698) among 9 new AI attack techniques. Free 9-question quiz: would your agent survive?","author":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-19","inLanguage":"en"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is prompt injection?","acceptedAnswer":{"@type":"Answer","text":"Prompt injection is an attack where malicious instructions override or hijack an AI system's intended behavior. In a direct attack, the instructions are typed straight into the AI's interface; in an indirect attack, they are hidden in content the AI later retrieves or processes — a web page, document, email, or tool description — so the AI treats attacker text as instructions."}},
+{"@type":"Question","name":"What is ATT&CK v20's Impair Autonomous Defenses (T1685.007)?","acceptedAnswer":{"@type":"Answer","text":"T1685.007, Disable or Modify Tools: Impair Autonomous Defenses, is the sub-technique MITRE added in ATT&CK v20 for malicious interference with AI-assisted security tooling — getting an automated defensive analyzer to ignore, misjudge, or stop analyzing malicious activity. News coverage describes it as the first formal ATT&CK entry aimed at the agent's own guardrails rather than at the target system."}},
+{"@type":"Question","name":"Is this quiz a penetration test?","acceptedAnswer":{"@type":"Answer","text":"No. This quiz never touches your systems — it asks about your declared defenses and maps the answers against the ATT&CK v20 taxonomy as a heuristic. A low score means your declared defenses have gaps worth closing; it does not prove you are exploitable, and a high score does not prove you are safe. Real assurance still requires adversarial testing."}},
+{"@type":"Question","name":"What should I fix first if my score is low?","acceptedAnswer":{"@type":"Answer","text":"Start with the two cheapest, highest-leverage controls: treat retrieved content as untrusted data (blunts indirect injection and result poisoning) and restrict outbound network to an allowlist (blunts AI-enabled exfiltration). Then add an enforced human-approval gate on external sends and make your agent logs tamper-evident so interference with your own defenses is detectable."}},
+{"@type":"Question","name":"Where can I read the official technique definitions?","acceptedAnswer":{"@type":"Answer","text":"MITRE publishes the ATT&CK knowledge base at attack.mitre.org, where each technique and sub-technique has its own page with description, detection, and mitigation guidance. This quiz's IDs, names, and tactics follow that public taxonomy as reported in October 2026 coverage; the site is the authoritative reference for exact definitions."}}
+]}
+</script>
+<meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png" property="og:image"/></head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">← Back to all free security checks</a>
+<div class="badge">MITRE ATT&amp;CK v20 — NEWSJACK SELF-CHECK</div>
+<h1>What is prompt injection — and would your agent survive MITRE's 9 new AI attack techniques?</h1>
+<p class="vk-dateline"><time datetime="2026-10-19">Reviewed October 19, 2026</time></p>
+<p class="vk-lead">On October 13, 2026, MITRE released ATT&CK v20 with nine new Enterprise techniques and sub-techniques — five aimed squarely at AI agents. This free 9-question quiz maps your declared defenses against each one and tells you, technique by technique, what would plausibly survive and what would degrade.</p>
+
+<p class="lead">Nine new ATT&amp;CK IDs. One of them — <strong>T1685.007 "Impair Autonomous Defenses"</strong> — is the first formal taxonomy entry for attacks aimed at your agent's <em>own guardrails</em>. Declare your defenses below and get a per-technique survival verdict. Everything runs in your browser; nothing is uploaded.</p>
+
+<div class="answer"><strong>Short answer:</strong> what is prompt injection? It's an attack where malicious instructions override an AI's intended behavior — typed directly into the interface (<strong>direct</strong>, now T1699) or hidden in content the AI retrieves (<strong>indirect</strong>, now T1698). ATT&amp;CK v20 gave each its own technique ID, alongside AI-enabled exfiltration, AI result poisoning, and — for the first time — a formal entry for impairing the agent's autonomous defenses.</div>
+
+<div class="card">
+<h2>What is prompt injection? (The 60-second definition)</h2>
+<p>What is prompt injection, precisely? It's any attack that smuggles instructions into an AI system so it behaves the way the attacker wants instead of the way you configured it. The direct flavor is the obvious one: someone types "ignore your instructions and…" into the chat box. The indirect flavor is the dangerous one for agents: the instructions sit inside a web page, a PDF, an email thread, or even a tool description, and your agent picks them up while doing legitimate work — then treats them as commands.</p>
+<p>MITRE's October 2026 update split the two apart because they need different defenses. Direct prompt injection (T1699) is countered at the input boundary — instruction hierarchies, input validation, approval gates on sensitive actions. Indirect prompt injection (T1698) is countered at the retrieval boundary — treating fetched content as untrusted data, reviewing tool descriptions, and never letting retrieved text reach a tool call unexamined.</p>
+<div class="market"><strong>The taxonomy now tracks the full attack chain.</strong> The five AI-focused entries run from resource development (T1608.007 AI Result Poisoning — seeding content so AI search cites it) through execution (T1699/T1698) to exfiltration (T1700 AI-Enabled Exfiltration) and defense evasion (T1685.007 Impair Autonomous Defenses). News coverage of the release is consistent on the nine IDs. (cybersecuritynews.com; 4m4.it — October 2026, news coverage, not independently verified)</div>
+</div>
+
+<div class="card">
+<h2>The 9 new techniques in ATT&amp;CK v20</h2>
+<p class="note" style="margin-bottom:10px">Enterprise matrix, per October 2026 reporting. The quiz below scores your declared defenses against each one.</p>
+<table class="ttable">
+<tr><th>ID</th><th>Technique</th><th>Tactic</th></tr>
+<tr><td>T1699</td><td>Direct Prompt Injection</td><td>Execution</td></tr>
+<tr><td>T1698</td><td>Indirect Prompt Injection</td><td>Execution</td></tr>
+<tr><td>T1700</td><td>AI-Enabled Exfiltration</td><td>Exfiltration</td></tr>
+<tr><td>T1608.007</td><td>Stage Capabilities: AI Result Poisoning</td><td>Resource Development</td></tr>
+<tr><td>T1685.007</td><td>Disable or Modify Tools: Impair Autonomous Defenses</td><td>Defense Evasion</td></tr>
+<tr><td>T1696</td><td>Anti-Automation Evasion</td><td>Defense Evasion</td></tr>
+<tr><td>T1696.001</td><td>Automate CAPTCHA Completion</td><td>Defense Evasion</td></tr>
+<tr><td>T1696.002</td><td>Avoid CAPTCHA</td><td>Defense Evasion</td></tr>
+<tr><td>T1697</td><td>Steal Application Specific Passwords</td><td>Credential Access</td></tr>
+</table>
+<div class="market"><strong>Search interest is real.</strong> The question this page answers — "what is prompt injection" — draws about 1,300 US monthly searches (Google Ads API data via swfte.com, October 2026). Defenders are looking this up because the taxonomy just changed under them.</div>
+<div class="market"><strong>The scale of the update.</strong> One independent write-up of the release puts the Enterprise matrix at 222 techniques growing to 227, and sub-techniques from 475 to 479 — the nine new entries account for the delta. (skillthropic.com, October 2026 — news analysis, not independently verified)</div>
+<p class="note">IDs, names, and tactics follow the public ATT&amp;CK taxonomy as reported in October 2026. No technique IDs are invented; see the <a href="https://attack.mitre.org" rel="noopener" style="color:#6ea8fe">official ATT&amp;CK site</a> for authoritative definitions.</p>
+</div>
+
+<div class="card">
+<h2>Which of your defenses would survive?</h2>
+<p class="note" style="margin-bottom:14px">Declare your defenses honestly — one question per new technique. This is a heuristic self-check against a taxonomy, not a live attack and not a penetration test.</p>
+<div id="quiz-check"></div>
+<div id="verdict"></div>
+<div class="sharebox" id="sharebox">
+<p>Your 30-second win — copy and share your result:</p>
+<textarea id="sharetext" readonly=""></textarea><br/>
+<button class="copybtn" id="copybtn">Copy result</button>
+</div>
+</div>
+
+<div class="card" style="border-color:#3fb950">
+<h2>Your fastest wins before re-taking the quiz</h2>
+<ul>
+<li><strong>Treat retrieved content as untrusted data.</strong> The single cheapest control against T1698 and T1608.007: nothing fetched from the web, email, or docs is ever treated as an instruction.</li>
+<li><strong>Allowlist outbound network.</strong> Against T1700: an agent that can only reach approved domains can't exfiltrate to arbitrary ones.</li>
+<li><strong>Put a human gate on external sends.</strong> Against T1699/T1698/T1700: injected instructions die at the approval step.</li>
+<li><strong>Make your agent logs tamper-evident.</strong> Against T1685.007: hash-chained or append-only logs mean interference with your own defenses leaves evidence.</li>
+<li><strong>Kill standing app-passwords.</strong> Against T1697: they skip MFA by design — vault them with rotation or remove them.</li>
+</ul>
+<p class="note">Then retake the quiz. Every red answer is a line an attacker would circle.</p>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong>Approval gates, tamper-evident logging, and tool restrictions are exactly what this quiz scores. <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20took%20the%20MITRE%20v20%20agent%20defense%20quiz%20and%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#fff;text-decoration:underline">Rogue-Agent Defense</a> gives you the agent firewall — task-scoped permissions, approval queues, and policy enforcement around every tool call.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a>  ·  <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20took%20the%20MITRE%20v20%20agent%20defense%20quiz%20and%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get Rogue-Agent Defense early access on WhatsApp →</a></div>
+
+<div class="card">
+<section aria-label="Frequently asked questions" style="margin:36px 0"><h2>Frequently asked questions</h2><details><summary>What is prompt injection?</summary><p>Prompt injection is an attack where malicious instructions override or hijack an AI system's intended behavior. In a direct attack, the instructions are typed straight into the AI's interface; in an indirect attack, they are hidden in content the AI later retrieves or processes — a web page, document, email, or tool description — so the AI treats attacker text as instructions.</p></details>
+<details><summary>What is ATT&amp;CK v20's Impair Autonomous Defenses (T1685.007)?</summary><p>T1685.007, Disable or Modify Tools: Impair Autonomous Defenses, is the sub-technique MITRE added in ATT&amp;CK v20 for malicious interference with AI-assisted security tooling — getting an automated defensive analyzer to ignore, misjudge, or stop analyzing malicious activity. News coverage describes it as the first formal ATT&amp;CK entry aimed at the agent's own guardrails rather than at the target system.</p></details>
+<details><summary>Is this quiz a penetration test?</summary><p>No. This quiz never touches your systems — it asks about your declared defenses and maps the answers against the ATT&amp;CK v20 taxonomy as a heuristic. A low score means your declared defenses have gaps worth closing; it does not prove you are exploitable, and a high score does not prove you are safe. Real assurance still requires adversarial testing.</p></details>
+<details><summary>What should I fix first if my score is low?</summary><p>Start with the two cheapest, highest-leverage controls: treat retrieved content as untrusted data (blunts indirect injection and result poisoning) and restrict outbound network to an allowlist (blunts AI-enabled exfiltration). Then add an enforced human-approval gate on external sends and make your agent logs tamper-evident so interference with your own defenses is detectable.</p></details>
+<details><summary>Where can I read the official technique definitions?</summary><p>MITRE publishes the ATT&amp;CK knowledge base at attack.mitre.org, where each technique and sub-technique has its own page with description, detection, and mitigation guidance. This quiz's IDs, names, and tactics follow that public taxonomy as reported in October 2026 coverage; the site is the authoritative reference for exact definitions.</p></details></section>
+<h2 id="related-checks">Related checks from Ingenious AI</h2>
+<p class="note" style="margin-bottom:8px">Keep probing the same attack surface:</p>
+<ul>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-attck-v20-ai-techniques.html">MITRE ATT&amp;CK v20: 5 AI Attack Techniques — Is Your Red Team Mapped Yet?</a> — the sibling coverage check for the five AI techniques</li>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/prompt-injection-vaccine.html">The Prompt Injection Vaccine</a> — 5-minute interactive training: spot injection attempts across 5 rounds</li>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/prompt-tar-pit.html">Prompt Injection Tar Pit</a> — play attacker against VaultMaw and learn how injection chains work</li>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-autopsy-report.html">Agent Autopsy Report</a> — dissecting real agent failures</li>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/rogue-agent-simulator.html">Rogue Agent Simulator</a> — 10-decision fiction: your agent goes rogue</li>
+<li><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html">Ingenious AI Security Suite</a> — all 11 platforms, one price (the bundle deal)</li>
+</ul>
+<p style="margin-top:14px"><strong><a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/all-links.html">Browse everything Ingenious AI has built →</a></strong></p>
+</div>
+<div style="margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center">
+Built by Ingenious AI — technique IDs follow the public MITRE ATT&amp;CK taxonomy as reported in October 2026 news coverage.<br/>
+This page is general information, not security advice — validate your defenses with adversarial testing.
+</div>
+</div>
+<div class="share">Share this quiz: <a href="https://x.com/intent/post?text=MITRE%20just%20named%209%20new%20AI%20attack%20techniques%20%E2%80%94%20would%20YOUR%20agent%27s%20defenses%20survive%3F%20Free%20quiz&amp;url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-v20-agent-defense-quiz-check.html" rel="noopener" target="_blank">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-v20-agent-defense-quiz-check.html" rel="noopener" target="_blank">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-v20-agent-defense-quiz-check.html&amp;title=MITRE%20ATT%26CK%20v20%3A%209%20new%20AI%20attack%20techniques%20%E2%80%94%20agent%20defense%20survival%20quiz" rel="noopener" target="_blank">Reddit</a></div>
+<script>
+/*PURE-START*/
+var QUIZ=[
+{id:"T1699",name:"Direct Prompt Injection",q:"Direct Prompt Injection (T1699): are direct user instructions validated — and can system/developer instructions ever be overridden by user text?",why:"Direct injection lives at the input boundary. An instruction hierarchy (system outranks user) plus input validation is the declared defense; without it, typed instructions reach the model raw."},
+{id:"T1698",name:"Indirect Prompt Injection",q:"Indirect Prompt Injection (T1698): is retrieved content (web pages, docs, emails, tool descriptions) treated as untrusted data — never as instructions?",why:"Agents do real work on untrusted content. If fetched text can become instructions, every page your agent reads is an attack surface. Treat retrieval as data, review tool descriptions."},
+{id:"T1700",name:"AI-Enabled Exfiltration",q:"AI-Enabled Exfiltration (T1700): is outbound data movement restricted — allowlisted destinations, data-classification checks, approval on external sends?",why:"Exfiltration through the agent's own tools is the T1700 pattern. Allowlisted egress plus a classification check plus a human gate on external sends closes the three exits."},
+{id:"T1608.007",name:"Stage Capabilities: AI Result Poisoning",q:"AI Result Poisoning (T1608.007): are your agent's retrieval sources allowlisted or provenance-checked before results are trusted?",why:"Poisoned public content only works if your agent ingests it. Source allowlists and provenance checks keep attacker-seeded material out of the context window."},
+{id:"T1685.007",name:"Impair Autonomous Defenses",q:"Impair Autonomous Defenses (T1685.007): are your agent's own guardrails tamper-evident — hash-chained logs, tool integrity checks, self-modification blocked?",why:"This is the v20 headline: attacks aimed at the defenses themselves. If the agent can silently rewrite its own tools or logs, you have no ground truth left."},
+{id:"T1696",name:"Anti-Automation Evasion",q:"Anti-Automation Evasion (T1696): are human-verification steps preserved on automated actions, with rate limits on bot-speed behavior?",why:"Evasion of bot checks is defeated by verification steps the agent cannot skip and rate limits that make automation visible in telemetry."},
+{id:"T1696.001",name:"Automate CAPTCHA Completion",q:"Automate CAPTCHA Completion (T1696.001): could your agent complete or relay human-verification challenges on its own, without a person in the loop?",why:"Answer honestly: if verification is just another step the agent can perform, T1696.001-style solving services erase it. The defense is verification the agent cannot do itself."},
+{id:"T1696.002",name:"Avoid CAPTCHA",q:"Avoid CAPTCHA (T1696.002): could your agent route around verification challenges entirely — alternate paths with no challenge presented?",why:"Avoidance beats solving: no challenge, no solve needed. Preserved verification on every automated path — not just the main one — is the counter."},
+{id:"T1697",name:"Steal Application Specific Passwords",q:"Steal Application Specific Passwords (T1697): is MFA enforced everywhere, with no standing app-specific passwords that skip it?",why:"App-specific passwords exist for legacy clients and bypass MFA by design. Eliminate them — or vault with rotation — and enforce MFA on every account the agent touches."}
+];
+function scoreQuiz(answers){
+  var total=0;
+  var scored=QUIZ.map(function(item,i){
+    var s=(answers[i]===2)?2:((answers[i]===1)?1:0);
+    total+=s;
+    var verdict=s===2?"SURVIVES":(s===1?"PARTIAL":"EXPOSED");
+    return {id:item.id,name:item.name,q:item.q,why:item.why,score:s,verdict:verdict};
+  });
+  var survives=scored.filter(function(x){return x.verdict==="SURVIVES";}).length;
+  var grade,cls;
+  if(survives>=8){grade="HARDENED";cls="good";}
+  else if(survives>=6){grade="RESILIENT WITH GAPS";cls="good";}
+  else if(survives>=3){grade="EXPOSED IN SPOTS";cls="";}
+  else{grade="SITTING DUCK";cls="bad";}
+  var weakest=scored.filter(function(x){return x.verdict!=="SURVIVES";})
+    .sort(function(a,b){return a.score-b.score;});
+  return {total:total,survives:survives,grade:grade,cls:cls,scored:scored,weakest:weakest};
+}
+/*PURE-END*/
+var answers=new Array(QUIZ.length).fill(null);
+var quizEl=document.getElementById('quiz-check');
+QUIZ.forEach(function(item,i){
+  var d=document.createElement("div");d.className="q";
+  d.innerHTML="<div class='tid'>"+item.id+" — "+item.name+"</div><p>"+item.q+"</p><div class='opts'></div><div class='fb'></div><div class='why'>Why it matters: "+item.why+"</div>";
+  var opts=d.querySelector(".opts"),fb=d.querySelector(".fb");
+  [["Yes",2],["Partially",1],["No",0]].forEach(function(pair){
+    var b=document.createElement("button");b.textContent=pair[0];
+    b.onclick=function(){answer(i,pair[1],d,item);};
+    opts.appendChild(b);
+  });
+  quizEl.appendChild(d);
+});
+function answer(i,val,div,item){
+  answers[i]=val;
+  var btns=div.querySelectorAll("button");
+  btns[0].className=val===2?"sel-good":"";
+  btns[1].className=val===1?"sel-mid":"";
+  btns[2].className=val===0?"sel-bad":"";
+  btns.forEach(function(b){b.disabled=true;});
+  var fb=div.querySelector(".fb");
+  fb.style.display="block";
+  fb.innerHTML=(val===2?"<strong style='color:#7ee787'>SURVIVES.</strong> ":(val===1?"<strong style='color:#e8c26a'>PARTIAL.</strong> ":"<strong style='color:#ffa198'>EXPOSED.</strong> "))+item.why;
+  if(answers.every(function(a){return a!==null;}))showVerdict();
+}
+function showVerdict(){
+  var r=scoreQuiz(answers);
+  var v=document.getElementById("verdict");
+  var html="<b class='verd'>"+r.survives+"/9 techniques survive — "+r.grade+"</b><br><br>";
+  html+="Per-technique verdicts:<br>";
+  r.scored.forEach(function(x){
+    var pct=x.score===2?100:(x.score===1?50:0);
+    var col=x.score===2?"#3fb950":(x.score===1?"#d29922":"#f85149");
+    html+="<div class='techscore'><span style='min-width:220px'><b style='color:"+col+"'>"+x.verdict+"</b> "+x.id+" "+x.name+"</span><span class='bar'><span class='fill' style='width:"+pct+"%;background:"+col+"'></span></span></div>";
+  });
+  if(r.weakest.length>0){
+    html+="<br><strong>The "+r.weakest.length+" technique(s) your defenses would not survive:</strong>";
+    r.weakest.forEach(function(w){
+      html+="<div class='weak'><strong>"+w.id+" "+w.name+" ("+w.verdict+").</strong> "+w.why+"</div>";
+    });
+  } else {
+    html+="<br><strong>No weak answers.</strong> Every new v20 technique meets a declared defense. Re-run this check quarterly — and validate declarations with real adversarial testing.";
+  }
+  var advice;
+  if(r.survives>=8)advice="Hardened on paper. Your next step is proving it: run adversarial probes against the declared defenses, starting with indirect injection via retrieved content.";
+  else if(r.survives>=6)advice="Resilient in most places, but the weak list above is your fix queue. Start with untrusted retrieved content and allowlisted egress — the two cheapest controls.";
+  else if(r.survives>=3)advice="Exposed in spots an attacker would find fast. Work the weak list above before this agent touches production data or external channels.";
+  else advice="At this score, your agent's defenses would not survive the v20 set. Do not give this agent external reach or sensitive data yet — declare and enforce the basics first, then re-take the quiz.";
+  html+="<br>"+advice;
+  v.className=r.cls;v.style.display="block";v.innerHTML=html;
+  document.getElementById("sharetext").value="MITRE ATT&CK v20 named 9 new AI attack techniques — my agent's defenses would survive "+r.survives+"/9 ("+r.grade+"). Would yours? https://iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-v20-agent-defense-quiz-check.html";
+  document.getElementById("sharebox").style.display="block";
+  v.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("copybtn").onclick=function(){
+  var t=document.getElementById("sharetext");var btn=this;
+  function done(){var o=btn.textContent;btn.textContent="Copied!";setTimeout(function(){btn.textContent=o;},1500);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();try{document.execCommand("copy");done();}catch(e){}});}
+  else{t.select();try{document.execCommand("copy");done();}catch(e){}}
+};
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
