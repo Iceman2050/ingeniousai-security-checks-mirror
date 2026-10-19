@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates -->
+<html data-primary-keyword="cybersecurity news" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity News: Anthropic's Free AI OSS Scanner</title>
+<meta name="description" content="Cybersecurity news: Anthropic's free OSS Scanner finds real vulns in open-source code. 88% of findings validated — but no human reviews them first.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/anthropic-oss-scanner-check.html">
+<meta property="og:title" content="Cybersecurity News: Anthropic's Free AI OSS Scanner">
+<meta property="og:description" content="Anthropic's OSS Scanner finds real vulnerabilities in open-source code — 85 of 97 critical findings validated, 5 CVEs at wolfSSL. But every report is raw AI output. No human review.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/anthropic-oss-scanner-check.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cybersecurity News: Anthropic's Free AI OSS Scanner">
+<meta name="twitter:description" content="Would AI find the vulnerability in YOUR open-source project? 88% validated accuracy — but zero human review before reports land. Take the quiz.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:820px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}
+a{color:#7cc4ff}
+.quiz-q{background:#1a1e27;border-radius:8px;padding:1rem;margin:1rem 0}
+.opt{display:block;background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.7rem 1rem;margin:.5rem 0;cursor:pointer;width:100%;text-align:left;color:#e8e8e8;font-size:1rem}
+.opt:hover{border-color:#ffd166}.opt.picked{border-color:#7cc4ff;background:#24304a}.opt.correct{border-color:#4ade80;background:#14301f}.opt.wrong{border-color:#f87171;background:#3a1a1a}
+#quiz-result{font-weight:700;margin-top:1rem;font-size:1.1rem}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+.warnbox{background:#2b1d08;border:1px solid #d29922;border-radius:8px;padding:1rem;margin:1.2rem 0}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.8rem;margin:1.2rem 0}
+.stat{background:#1a1e27;border-radius:8px;padding:.9rem;text-align:center}
+.stat b{display:block;font-size:1.5rem;color:#ffd166}
+.xlinks{background:#141821;border:1px solid #2a3342;border-radius:8px;padding:1rem 1.2rem;margin:2rem 0}
+.xlinks h3{margin-top:0}
+.cta{display:block;text-align:center;background:#1c6ef2;color:#fff;font-weight:700;font-size:1.05rem;padding:1rem;border-radius:10px;text-decoration:none;margin:1.8rem 0}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is Anthropic's OSS Scanner?","acceptedAnswer":{"@type":"Answer","text":"OSS Scanner, launched October 8, 2026, is a free, opt-in vulnerability scanner for open-source projects, powered by Anthropic's strongest models including Claude Mythos. Enrolled projects receive periodic, model-generated security reports at no cost."}},
+{"@type":"Question","name":"Are OSS Scanner reports reviewed by humans?","acceptedAnswer":{"@type":"Answer","text":"No. Reports are fully model-generated with no human review or triage before reaching maintainers. Anthropic's own caveat: this allows faster, more frequent scanning, but some findings may be incorrect or invalid — maintainers must validate every report."}},
+{"@type":"Question","name":"How accurate are the OSS Scanner's findings?","acceptedAnswer":{"@type":"Answer","text":"In validation, Anthropic's penetration testers reviewed 97 critical and high-severity findings across 48 projects: 85 (88%) met the coordinated-disclosure bar, 11 were real but duplicates, and 1 was a false positive. wolfSSL received 74 reports, 72 valid, 5 became CVEs."}},
+{"@type":"Question","name":"How does an open-source project enroll?","acceptedAnswer":{"@type":"Answer","text":"Core maintainers submit a pull request to Anthropic's oss-scanner GitHub repository containing a YAML configuration (repo link, primary contact email) and a Dockerfile that builds the project offline. 116 projects applied in launch week."}},
+{"@type":"Question","name":"Is every open-source project eligible?","acceptedAnswer":{"@type":"Answer","text":"No. Eligibility mirrors Google's OSS-Fuzz criteria: projects must have critical impact on infrastructure or user security. Anthropic notes the process is decided case by case and may evolve over time."}}
+]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Cybersecurity News: Anthropic's Free AI OSS Scanner","author":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-19"}
+</script>
+</head>
+<body>
+<p><small>Cybersecurity news — October 2026</small></p>
+<h1>Cybersecurity News: Anthropic's Free AI Scanner Hunts Bugs in Open Source</h1>
+<p>On October 8, 2026, Anthropic launched OSS Scanner: a <strong>free, opt-in AI vulnerability scanner</strong> for open-source projects, powered by its strongest models including Claude Mythos. It grew out of Project Glasswing, which surfaced 29,000+ candidate vulnerabilities in six months — a volume humans could never triage. Would AI find the vulnerability in <em>your</em> open-source project?</p>
+
+<div class="statgrid">
+<div class="stat"><b>88%</b>of pen-tested findings met the disclosure bar</div>
+<div class="stat"><b>74</b>wolfSSL reports — 72 valid</div>
+<div class="stat"><b>5</b>CVEs from wolfSSL scans</div>
+<div class="stat"><b>0</b>human reviewers before reports land</div>
+</div>
+
+<h2>What is Anthropic's OSS Scanner?</h2>
+<p>OSS Scanner is an opt-in service: enrolled open-source projects receive thorough, periodic security scans by Anthropic's strongest models at no cost. Each report includes an explanation of the vulnerability, a self-contained reproducer, a bisection of when the bug entered the code (when possible), and a candidate patch. It is informed by Project Glasswing, Anthropic's research program that surfaced over 29,000 candidate vulnerabilities in six months — of which only about 6,000 could be manually triaged. That triage bottleneck is exactly what OSS Scanner removes: reports are <strong>fully model-generated, with no human review or triage</strong> before they reach maintainers.</p>
+
+<div class="warnbox">
+<strong>The trade-off, stated by Anthropic itself:</strong> no human review means faster and more frequent scanning — but some findings may be incorrect or invalid. A few maintainers have noted inflated severity ratings or misunderstood threat models. Maintainers must validate every report before acting on it.
+</div>
+
+<h2>Why this cybersecurity news matters: the validation numbers</h2>
+<p>To validate the scanner, Anthropic's penetration testers reviewed <strong>97 critical and high-severity findings across 48 projects</strong>:</p>
+<ul>
+<li><strong>85 (88%)</strong> met the bar for coordinated vulnerability disclosure</li>
+<li><strong>11</strong> were real vulnerabilities but duplicated already-known issues</li>
+<li><strong>1</strong> was a false positive</li>
+</ul>
+<p>Early participants back it up. <strong>wolfSSL's Todd Ouska</strong> said the project received 74 reports, all but two valid, with <strong>five becoming CVEs</strong>. curl creator <strong>Daniel Stenberg</strong> said the scanner surfaced one of the worst curl vulnerabilities in years. A PostgreSQL maintainer said an unusually high fraction of findings uncovered real defects.</p>
+
+<h2>How projects enroll — and the context</h2>
+<p>Core maintainers enroll by opening a pull request on Anthropic's OSS Scanner GitHub repository with a YAML config (repo link, primary contact email) and a Dockerfile that builds the project offline so an agent can audit it without internet access. Eligibility mirrors <strong>Google's OSS-Fuzz</strong>: projects must have critical infrastructure or user-security impact — selective, not universal. <strong>116 projects applied in launch week.</strong></p>
+<p>Context worth noting: OSS Scanner is one piece of Anthropic's broader "Cyber Mission," alongside a Critical Infrastructure Defense Program for operational technology in utilities. The same company that warned about self-replicating AI worms spreading through smart TVs is now deploying AI to find vulnerabilities — two sides of one strategy: AI changes both the attack surface and the defense.</p>
+
+<h2>Quiz: Would the scanner catch it?</h2>
+<p>Five questions on the facts above. Click an answer per question.</p>
+<div class="quiz-q" data-a="1">
+<p><strong>1.</strong> Anthropic's pen-testers reviewed 97 critical/high findings across 48 projects. How many met the coordinated-disclosure bar?</p>
+<button class="opt" data-v="0">52 (54%)</button>
+<button class="opt" data-v="1">85 (88%)</button>
+<button class="opt" data-v="2">96 (99%)</button>
+</div>
+<div class="quiz-q" data-a="2">
+<p><strong>2.</strong> Who reviews OSS Scanner reports before they reach maintainers?</p>
+<button class="opt" data-v="0">Anthropic's security team</button>
+<button class="opt" data-v="1">An independent audit board</button>
+<button class="opt" data-v="2">No one — fully model-generated, no human review</button>
+</div>
+<div class="quiz-q" data-a="0">
+<p><strong>3.</strong> How does an open-source project enroll in OSS Scanner?</p>
+<button class="opt" data-v="0">Core maintainers submit a PR with a YAML config and Dockerfile</button>
+<button class="opt" data-v="1">Any repo is scanned automatically</button>
+<button class="opt" data-v="2">Email Anthropic support for an invite code</button>
+</div>
+<div class="quiz-q" data-a="0">
+<p><strong>4.</strong> How many candidate vulnerabilities did Project Glasswing surface in six months?</p>
+<button class="opt" data-v="0">Over 29,000</button>
+<button class="opt" data-v="1">About 6,000</button>
+<button class="opt" data-v="2">Exactly 97</button>
+</div>
+<div class="quiz-q" data-a="1">
+<p><strong>5.</strong> wolfSSL received 74 scanner reports. How many became CVEs?</p>
+<button class="opt" data-v="0">2</button>
+<button class="opt" data-v="1">5</button>
+<button class="opt" data-v="2">72</button>
+</div>
+<div id="quiz-result"></div>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What is Anthropic's OSS Scanner?</summary><p>OSS Scanner, launched October 8, 2026, is a free, opt-in vulnerability scanner for open-source projects, powered by Anthropic's strongest models including Claude Mythos. Enrolled projects receive periodic, model-generated security reports at no cost.</p></details>
+<details><summary>Are OSS Scanner reports reviewed by humans?</summary><p>No. Reports are fully model-generated with no human review or triage before reaching maintainers. Anthropic's own caveat: this allows faster, more frequent scanning, but some findings may be incorrect or invalid — maintainers must validate every report.</p></details>
+<details><summary>How accurate are the OSS Scanner's findings?</summary><p>In validation, Anthropic's penetration testers reviewed 97 critical and high-severity findings across 48 projects: 85 (88%) met the coordinated-disclosure bar, 11 were real but duplicates, and 1 was a false positive. wolfSSL received 74 reports, 72 valid, 5 became CVEs.</p></details>
+<details><summary>How does an open-source project enroll?</summary><p>Core maintainers submit a pull request to Anthropic's oss-scanner GitHub repository containing a YAML configuration (repo link, primary contact email) and a Dockerfile that builds the project offline. 116 projects applied in launch week.</p></details>
+<details><summary>Is every open-source project eligible?</summary><p>No. Eligibility mirrors Google's OSS-Fuzz criteria: projects must have critical impact on infrastructure or user security. Anthropic notes the process is decided case by case and may evolve over time.</p></details>
+
+<div class="xlinks">
+<h3>Related security checks</h3>
+<ul>
+<li><a href="hirudo-android-trojan-check.html">Hirudo Android Trojan — supply-chain malware check</a></li>
+<li><a href="ledger-supply-chain-implant-check.html">Ledger Supply-Chain Implant — hardware tampering check</a></li>
+<li><a href="phone-app-permission-audit-check.html">Phone App Permission Audit — over-privileged apps check</a></li>
+</ul>
+</div>
+
+<p><small>Sources: Anthropic (October 8, 2026 announcement), The Hacker News (October 9, 2026), Engadget, Times of India. Findings summarized from reporting; validate any report against the original sources. This page is informational, not security advice.</small></p>
+
+<a class="cta" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20early%20access%20to%20BreachHunter">Try BreachHunter — AI-powered vulnerability intelligence, early access</a>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script>
+(function(){var total=document.querySelectorAll('.quiz-q').length,score=0,done=0;
+document.querySelectorAll('.quiz-q').forEach(function(q){var correct=parseInt(q.getAttribute('data-a'),10);
+q.querySelectorAll('.opt').forEach(function(b){b.addEventListener('click',function(){if(q.dataset.done)return;q.dataset.done='1';done++;
+var got=parseInt(b.getAttribute('data-v'),10);if(got===correct){score++;b.classList.add('correct');}else{b.classList.add('wrong');q.querySelectorAll('.opt')[correct].classList.add('correct');}
+if(done===total){document.getElementById('quiz-result').textContent=scoreTier(score,total);}});});});})();
+function scoreTier(score,total){return 'You scored '+score+'/'+total+'. '+(score===5?'Scanner-grade: you read AI vuln reports like a maintainer.':(score>=3?'Solid instincts — verify every report, trust the 88%.':'Start at the top: speed without review is the whole trade-off.'));}
+</script>
+<script src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
