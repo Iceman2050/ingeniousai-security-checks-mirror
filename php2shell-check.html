@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, public_page_preflight -->
+<html data-primary-keyword="cybersecurity news today" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity News Today: PHP2Shell RCE Flaws Patched</title>
+<meta name="description" content="Cybersecurity news today: PHP2Shell's two critical PHP RCE flaws (CVSS 9.2) are patched in 8.5.12, 8.4.27, 8.3.36, 8.2.35 — and attacks are live. Check yours.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/php2shell-check.html">
+<meta property="og:title" content="Cybersecurity News Today: PHP2Shell — Two Critical PHP RCE Flaws">
+<meta property="og:description" content="Two critical flaws in the PHP runtime itself (CVSS 9.2 each) allow unauthenticated remote code execution. Emergency fixes shipped October 21, 2026 — and Cloudflare already observed attack traffic. Check your PHP version now.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/php2shell-check.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cybersecurity News Today: PHP2Shell — Two Critical PHP RCE Flaws">
+<meta name="twitter:description" content="CVE-2026-109618 + CVE-2026-109619: unauthenticated RCE in PHP itself. Fixed in 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35. PHP 8.1 and older get no upstream fix. Check your version.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:820px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}
+a{color:#7cc4ff}
+.quiz-q{background:#1a1e27;border-radius:8px;padding:1rem;margin:1rem 0}
+.opt{display:block;background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.7rem 1rem;margin:.5rem 0;cursor:pointer;width:100%;text-align:left;color:#e8e8e8;font-size:1rem}
+.opt:hover{border-color:#ffd166}.opt.picked{border-color:#7cc4ff;background:#24304a}.opt.correct{border-color:#4ade80;background:#14301f}.opt.wrong{border-color:#f87171;background:#3a1a1a}
+#quiz-result{font-weight:700;margin-top:1rem;font-size:1.1rem}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}
+.meta{color:#9aa3b2;font-size:.85rem}
+.src{font-size:.85rem;color:#9aa3b2}
+.warnbox{background:#2a1f10;border:1px solid #8a6d1f;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin:1.2rem 0}
+.stat{background:#1a1e27;border-radius:8px;padding:.9rem;text-align:center}
+.stat b{display:block;font-size:1.5rem;color:#ffd166}
+.stat span{font-size:.85rem;color:#9aa3b2}
+.checker{background:#141a26;border:1px solid #1c6ef2;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.checker label{display:block;margin:.6rem 0 .2rem;font-weight:600}
+.checker select,.checker input{background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.6rem;color:#e8e8e8;font-size:1rem;width:100%;box-sizing:border-box}
+.checker button{background:#1c6ef2;color:#fff;border:none;border-radius:8px;padding:.7rem 1.4rem;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.8rem}
+#verdict{margin-top:1rem;font-weight:600;padding:.8rem;border-radius:8px;display:none}
+#verdict.fixed{display:block;background:#14301f;border:1px solid #4ade80}
+#verdict.vuln{display:block;background:#3a1a1a;border:1px solid #f87171}
+#verdict.eol{display:block;background:#2a1f10;border:1px solid #8a6d1f}
+table.versions{border-collapse:collapse;margin:1rem 0;width:100%}
+table.versions th,table.versions td{border:1px solid #3a4356;padding:.5rem .8rem;text-align:left}
+table.versions th{background:#1a1e27;color:#ffd166}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Cybersecurity News Today: PHP2Shell — Two Critical PHP RCE Flaws","author":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-21","description":"On October 21, 2026, the PHP project shipped an emergency out-of-cycle security release fixing two critical remote code execution vulnerabilities in the PHP runtime, CVE-2026-109618 (RCE via out-of-memory corruption) and CVE-2026-109619 (RCE via stale global state), both rated CVSS 9.2. The fixed versions are PHP 8.5.12, 8.4.27, 8.3.36, and 8.2.35. All PHP installations serving web requests are in scope, with Apache mod_php considered highest risk; PHP 8.1 and older receive no upstream fix. Cloudflare reported observing attack traffic ahead of the release."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://github.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is PHP2Shell, in plain terms?","acceptedAnswer":{"@type":"Answer","text":"PHP2Shell is the name security researchers gave to two critical vulnerabilities in the PHP runtime itself, CVE-2026-109618 and CVE-2026-109619, both rated CVSS 9.2 by the PHP security team. CVE-2026-109618 is a remote code execution flaw triggered when an out-of-memory condition interrupts PHP before request data is fully initialized; CVE-2026-109619 lets internal state from one request survive into a later request handled by the same worker. Either can let an unauthenticated attacker run code on a web server. The name is the researchers', not PHP's; the flaws were disclosed by Calif.io, Wiz, OpenAI, and Quarkslab after exploit details leaked ahead of the coordinated release."}},
+{"@type":"Question","name":"Which PHP versions are fixed, and which are affected?","acceptedAnswer":{"@type":"Answer","text":"PHP says every installation that serves web requests is at risk, across PHP-FPM, Apache mod_php, php-cgi, FrankenPHP, and LiteSpeed, with mod_php considered highest risk because a demonstrated exploit triggers before any application code runs. The fixes shipped October 21, 2026 are PHP 8.5.12, 8.4.27, 8.3.36, and 8.2.35 — any earlier release on those branches is affected. PHP 8.1 and older receive no upstream fix; the PHP security team provided minimal source-level backports for 7.4, 8.0, and 8.1 for people who build PHP from source, and some Linux distributions and LTS vendors ship their own backports."}},
+{"@type":"Question","name":"How do I check what PHP version my site runs?","acceptedAnswer":{"@type":"Answer","text":"On the server itself, run php -v in a terminal. On shared hosting, the version appears in your hosting control panel (cPanel, Plesk, or your host's dashboard), usually under PHP settings. A temporary phpinfo page also shows it — view it once and delete it immediately; a public phpinfo page is itself an information leak. Managed hosting? Get the exact version in writing."}},
+{"@type":"Question","name":"Are the PHP2Shell flaws being exploited already?","acceptedAnswer":{"@type":"Answer","text":"Attack traffic has been observed. Cloudflare said it saw attackers targeting its customers and mutating payloads to get around its rules, and its WAF protections went live at 03:02 UTC on October 21, 2026 for free and paid customers, hours ahead of the fix release. Huntress reported no exploitation in its partner environments as of October 20 and no known public proof of concept at that time, and watchTowr listed the flaws as not in CISA's KEV catalog as of October 21. Because exploit details leaked before the coordinated release, defenders are treating this as patch-today, not patch-this-month."}},
+{"@type":"Question","name":"What if my server runs PHP 8.1 or older?","acceptedAnswer":{"@type":"Answer","text":"It will not receive an upstream PHP fix. In order of preference: upgrade to a supported branch (8.2 or newer) and then to its fixed release; take a verified backport from your Linux distribution or LTS vendor; if you build PHP from source, apply the PHP security team's minimal backports for 7.4, 8.0, or 8.1; or take the system off the public internet, or behind a WAF, until you can do one of the above. About 884,000 internet-facing hosts reported PHP 8.1 or older in Shodan banner data on October 20, 2026 — 59 percent of the hosts reporting any PHP version — so end-of-life PHP is the largest part of the exposed population."}}
+]}
+</script>
+</head>
+<body>
+<p class="meta"><time datetime="2026-10-21">October 21, 2026</time> · cybersecurity news today</p>
+<h1>Cybersecurity News Today: PHP2Shell — Two Critical PHP RCE Flaws, Fixes Shipped, Attacks Already Live</h1>
+<p>The most urgent story in <strong>cybersecurity news today</strong> is a flaw in the language that runs much of the web. Two <strong>critical vulnerabilities in the PHP runtime itself</strong> — tracked as <strong>CVE-2026-109618</strong> and <strong>CVE-2026-109619</strong> and nicknamed <strong>PHP2Shell</strong> by researchers — allow <strong>unauthenticated remote code execution</strong>: an attacker who can reach your website can run code on your server without logging in. Both flaws are rated <strong>CVSS 9.2</strong> by the PHP security team. PHP shipped an <strong>emergency out-of-cycle release on October 21, 2026</strong> after exploit details leaked ahead of the planned disclosure — and Cloudflare reports it has <strong>already observed attack traffic</strong>. If your site runs on PHP (WordPress, Drupal, Joomla, Magento, Laravel, or anything custom), the check below takes under a minute.</p>
+<div class="warnbox"><strong>Honest scope — read this first:</strong> The fixes <strong>exist and are downloadable now</strong>: PHP <strong>8.5.12, 8.4.27, 8.3.36, and 8.2.35</strong>. If your server already runs one of those exact versions, you are done. The exposed population is everyone else: supported branches that have not updated yet, and the much larger group still running <strong>PHP 8.1 or older, which receives no upstream fix at all</strong>. Two more things worth knowing before you panic or relax: on <strong>Apache with mod_php</strong> — the setup PHP considers highest risk — a demonstrated exploit fires <strong>before your application code runs</strong>, so no plugin, framework middleware, or input validation in your app can filter it out; and as of October 21 the flaws are <strong>not yet in CISA's Known Exploited Vulnerabilities catalog</strong> (per watchTowr's tracking), which is a statement about catalog timing, not about whether attacks are happening — Cloudflare says they are.</div>
+
+<h2>The two flaws, exactly as disclosed</h2>
+<ul>
+<li><strong>CVE-2026-109618 — RCE via out-of-memory corruption</strong> (GHSA-w8hw-w9fx-j79w): when an out-of-memory condition interrupts PHP before request data is fully initialized, the partially initialized state can be turned into code execution.</li>
+<li><strong>CVE-2026-109619 — RCE via stale global state</strong> (GHSA-6wmf-4rv5-p3rp): internal state from one request can survive into a later request handled by the same worker process, and that leftover state can be turned into code execution.</li>
+<li><strong>Who disclosed them:</strong> the flaws are credited to <strong>Calif.io, Wiz, OpenAI, and Quarkslab</strong>. The name "PHP2Shell" comes from researchers, not from the PHP project.</li>
+<li><strong>Scope, per PHP's advisory:</strong> <strong>all PHP installations serving web requests</strong> — PHP-FPM, Apache with mod_php, php-cgi, FrankenPHP, and LiteSpeed. Risk is highest for <strong>mod_php</strong>, where the demonstrated exploit is triggered by an unauthenticated request before any application code executes.</li>
+</ul>
+<div class="statgrid">
+<div class="stat"><b>9.2</b><span>CVSS v4.0 score for each flaw, per the PHP security team</span></div>
+<div class="stat"><b>4</b><span>fixed releases shipped October 21, 2026: 8.5.12 · 8.4.27 · 8.3.36 · 8.2.35</span></div>
+<div class="stat"><b>~884,000</b><span>internet-facing hosts reported PHP 8.1 or older in Shodan banner data, October 20</span></div>
+<div class="stat"><b>03:02 UTC</b><span>Cloudflare's WAF protections went live October 21 — hours before the fix release</span></div>
+</div>
+<p>Put the exposure in proportion: about 884,000 internet-facing hosts — <strong>59 percent</strong> of the roughly 1.5 million hosts that reported any PHP version to Shodan on October 20 — reported running <strong>PHP 8.1 or older</strong>, the versions that get no upstream fix. Banner data is not a confirmed-affected list, and a further ~740,000 hosts reported PHP without a version at all — but even with those caveats, end-of-life PHP is plainly the largest part of the problem.</p>
+
+<h2>Why this cybersecurity news today matters: a leak, a race, and a pre-code exploit</h2>
+<p>The timeline is why this became an emergency. On <strong>October 20</strong>, a post claimed two PHP RCE flaws would be disclosed on October 22 — with a CVSS 10.0 figure and a claim that everything since PHP 5 was affected. Researchers at <strong>watchTowr</strong> confirmed the flaws were real and under embargo; the 10.0 score was the leak's number, PHP's own rating is 9.2, and the "everything since PHP 5" scope was not confirmed by any vendor advisory at leak time. PHP moved the release <strong>up a day</strong>, publishing its advance notice at 19:33 UTC on October 20 and shipping the fixes on <strong>October 21</strong>. Meanwhile the defensive race had already started: <strong>Cloudflare</strong> said it observed attackers probing its customers and mutating payloads to evade rules, and switched on WAF protections for free and paid customers at <strong>03:02 UTC</strong> — hours before the patches landed. For comparison, when the PHP CGI flaw CVE-2024-4577 became public in June 2024, Akamai saw exploit attempts against its honeypots <strong>within 24 hours</strong>. PHP flaws of this class do not get a grace period.</p>
+
+<h2>The fixes, branch by branch</h2>
+<table class="versions">
+<tr><th>Your branch</th><th>Fixed in</th><th>Status</th></tr>
+<tr><td>PHP 8.5</td><td><strong>8.5.12</strong></td><td>Update to 8.5.12 or later</td></tr>
+<tr><td>PHP 8.4</td><td><strong>8.4.27</strong></td><td>Update to 8.4.27 or later</td></tr>
+<tr><td>PHP 8.3</td><td><strong>8.3.36</strong></td><td>Update to 8.3.36 or later</td></tr>
+<tr><td>PHP 8.2</td><td><strong>8.2.35</strong></td><td>Update to 8.2.35 or later</td></tr>
+<tr><td>PHP 8.1 and older</td><td><strong>—</strong></td><td>End of life: no upstream fix. Distro/LTS backport, source backport (7.4 / 8.0 / 8.1), or upgrade</td></tr>
+</table>
+<p>Two operational details that decide whether the update actually protects you. First, <strong>restart the PHP workers after updating</strong>: a web-server reload alone can leave detached PHP-FPM or LiteSpeed workers running the old, vulnerable build — verify the new version answers real web requests, not just the CLI. Second, Linux distributions and LTS vendors received patches in advance, so a distribution package with a backported fix counts — but verify it explicitly; PHP noted that the volunteer-maintained Remi repository packages would not have updates on release day, and pointed users to distribution packages or source builds instead.</p>
+
+<h2>Check your version — the 30-second PHP2Shell verdict</h2>
+<div class="checker">
+<p style="margin-top:0">Pick your PHP branch and patch number (the <em>x.y.<strong>z</strong></em> part of your version — from <strong>php -v</strong> or your hosting panel). Everything runs in your browser; nothing is sent anywhere.</p>
+<label for="branch">PHP branch</label>
+<select id="branch">
+<option value="8.5">8.5</option>
+<option value="8.4">8.4</option>
+<option value="8.3" selected>8.3</option>
+<option value="8.2">8.2</option>
+<option value="8.1">8.1</option>
+<option value="8.0">8.0</option>
+<option value="7.4">7.4</option>
+<option value="old">7.3 or older / 5.x</option>
+</select>
+<label for="patch">Patch number (z in x.y.z) — leave blank on end-of-life branches</label>
+<input id="patch" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" placeholder="e.g. 30">
+<button id="go" type="button">Check my version</button>
+<p id="verdict" role="status"></p>
+<noscript><p><em>Enable JavaScript for the version checker — or compare your version against the table above manually.</em></p></noscript>
+</div>
+<script>
+(function(){var FIXED={"8.5":12,"8.4":27,"8.3":36,"8.2":35};
+document.getElementById('go').addEventListener('click',function(){
+var b=document.getElementById('branch').value;
+var raw=document.getElementById('patch').value.replace(/[^0-9]/g,'');
+var p=raw===''?null:parseInt(raw,10);
+var v=document.getElementById('verdict');
+function show(cls,txt){v.className=cls;v.textContent=txt;}
+if(b==='old'){show('eol','END OF LIFE — PHP '+ '7.3 and older (including 5.x) receives no upstream fix and no announced source backport. Upgrade to a supported branch (8.2+) and its fixed release, or take the system off the public internet until you can.');return;}
+if(b==='8.1'||b==='8.0'||b==='7.4'){show('eol','END OF LIFE — PHP '+b+' receives no upstream fix. Your options: a verified backport from your Linux distribution or LTS vendor, the PHP security team\'s minimal source backport for '+b+' (source builds only), or an upgrade to a supported branch. Until one of those lands, keep the server behind a WAF or off the public internet.');return;}
+var need=FIXED[b];
+if(p===null){show('vuln','Enter your patch number to get a verdict — or compare directly: PHP '+b+' is only fixed at '+b+'.'+need+' or later. Anything lower is vulnerable; update today.');return;}
+if(p>=need){show('fixed','FIXED — PHP '+b+'.'+p+' is at or past the fixed release ('+b+'.'+need+'). Make sure the running workers were restarted after the update and are actually serving this version.');}
+else{show('vuln','VULNERABLE — PHP '+b+'.'+p+' is below the fixed release '+b+'.'+need+'. Update to '+b+'.'+need+' (or take your distribution\'s verified backport), then restart every PHP worker. Attack traffic has already been observed — treat this as today, not this month.');}
+});})();
+</script>
+
+<h2>Run the PHP2Shell check now</h2>
+<ul>
+<li><strong>Find your real version:</strong> run <strong>php -v</strong> on the server, or read it in your hosting panel. Then check it against the table above — or use the checker. If a host or developer manages your server, get the exact version <strong>in writing</strong>.</li>
+<li><strong>Know your SAPI:</strong> if PHP runs as <strong>Apache mod_php</strong>, you are in PHP's highest-risk group — the exploit fires before your application code, so patch first and analyze later. PHP-FPM, php-cgi, FrankenPHP, and LiteSpeed are in scope too; none of them is a safe harbor.</li>
+<li><strong>Update, then restart the workers:</strong> install <strong>8.5.12 / 8.4.27 / 8.3.36 / 8.2.35</strong> (or your distribution's verified backport), restart PHP-FPM / LiteSpeed / Apache workers — a bare reload can leave old workers alive — and confirm the new version through a real web request.</li>
+<li><strong>On PHP 8.1 or older:</strong> there is no upstream patch coming. Upgrade branches, take a verified distro/LTS backport, or apply the source backports PHP published for 7.4, 8.0, and 8.1 if you build from source. The UK's NCSC advises organisations on PHP 5 onward to act immediately — and to consider taking a system offline if it cannot be updated or shielded quickly.</li>
+<li><strong>If you cannot patch today:</strong> put the application behind a WAF (Cloudflare's PHP2Shell rules have been live since 03:02 UTC on October 21, including on its free tier) or isolate internet-facing PHP from public networks, as CERT-EU advises. The advisory's configuration measures — OOM exposure-reduction guidance and request-size constraints, the session upload-progress setting, and on PHP 8.5 setting <strong>fatal_error_backtraces=0</strong> — reduce <em>some</em> attack paths only. PHP is explicit that they are <strong>not a complete mitigation</strong>.</li>
+<li><strong>Hunt for compromise before you patch over the evidence:</strong> watch for <strong>php-fpm, php-cgi, httpd, or apache2 processes launching shells, interpreters, or download tools</strong>; check the web root for new files and web shells, and look for new cron jobs, scheduled tasks, and accounts. If you find any of it: isolate the server and preserve the web server and PHP logs first.</li>
+</ul>
+<p><strong>BreachHunter</strong> — Ingenious AI's intrusion and breach-signal hunter — exists for exactly the window PHP2Shell opens: the hours between "exploit traffic observed" and "your patch is verified live," when the question stops being <em>are we exposed</em> and becomes <em>did anyone get in</em>. <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20early%20access%20to%20BreachHunter">Get early access on WhatsApp</a>.</p>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#fff;text-decoration:underline">BreachHunter</a> is built for exactly this: hunting the intrusion signals that matter while a patch window is still open.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20PHP2Shell%20check%20and%20want%20early%20access." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<h2>Quiz: how well do you know PHP2Shell?</h2>
+<div class="quiz-q" data-a="1"><p><strong>1.</strong> What does a PHP2Shell flaw let an attacker do?</p>
+<button class="opt" data-v="0">Read your site's PHP source code</button>
+<button class="opt" data-v="1">Run code on your web server without logging in</button>
+<button class="opt" data-v="2">Reset your hosting account password</button></div>
+<div class="quiz-q" data-a="2"><p><strong>2.</strong> Which PHP setup does PHP consider highest risk, and why?</p>
+<button class="opt" data-v="0">PHP-FPM, because it uses the most memory</button>
+<button class="opt" data-v="1">php-cgi, because it is the oldest</button>
+<button class="opt" data-v="2">Apache mod_php, because a demonstrated exploit fires before any application code runs</button></div>
+<div class="quiz-q" data-a="0"><p><strong>3.</strong> Your site runs PHP 8.3.30. What is the fix?</p>
+<button class="opt" data-v="0">Update to PHP 8.3.36 — the fixed 8.3 release</button>
+<button class="opt" data-v="1">Nothing — 8.3 is a supported branch, so it is safe</button>
+<button class="opt" data-v="2">Add a security plugin to your CMS</button></div>
+<div class="quiz-q" data-a="1"><p><strong>4.</strong> You updated PHP and reloaded the web server. Why might you still be vulnerable?</p>
+<button class="opt" data-v="0">Because the update takes 24 hours to activate</button>
+<button class="opt" data-v="1">Because a reload can leave detached PHP workers running the old build — the workers must be restarted and the live version verified</button>
+<button class="opt" data-v="2">Because attackers can block the update</button></div>
+<div class="quiz-q" data-a="2"><p><strong>5.</strong> Do the advisory's configuration settings fully protect an unpatched server?</p>
+<button class="opt" data-v="0">Yes — they are an official alternative to patching</button>
+<button class="opt" data-v="1">Yes — as long as you also use a CDN</button>
+<button class="opt" data-v="2">No — they only reduce some attack paths; updating to a fixed release is the only complete mitigation</button></div>
+<p id="quiz-result"></p>
+<script>
+(function(){var total=document.querySelectorAll('.quiz-q').length,score=0,done=0;
+document.querySelectorAll('.quiz-q').forEach(function(q){var correct=parseInt(q.getAttribute('data-a'),10);
+q.querySelectorAll('.opt').forEach(function(b){b.addEventListener('click',function(){if(q.dataset.done)return;q.dataset.done='1';done++;
+var got=parseInt(b.getAttribute('data-v'),10);if(got===correct){score++;b.classList.add('correct');}else{b.classList.add('wrong');q.querySelectorAll('.opt')[correct].classList.add('correct');}
+if(done===total){var tier=score===5?'Patch-grade: you check versions, not vibes.':(score>=3?'Cautious operator: solid instincts — verify the live worker version after every update.':'Version-blind — scroll back up and run the PHP2Shell check on your stack.');
+document.getElementById('quiz-result').textContent='You scored '+score+'/'+total+'. '+tier;}});});});})();
+</script>
+<noscript><p><em>Enable JavaScript for the interactive quiz.</em></p></noscript>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What is PHP2Shell, in plain terms?</summary><p>PHP2Shell is the name security researchers gave to two critical vulnerabilities in the PHP runtime itself, CVE-2026-109618 and CVE-2026-109619, both rated CVSS 9.2 by the PHP security team. CVE-2026-109618 is a remote code execution flaw triggered when an out-of-memory condition interrupts PHP before request data is fully initialized; CVE-2026-109619 lets internal state from one request survive into a later request handled by the same worker. Either can let an unauthenticated attacker run code on a web server. The name is the researchers', not PHP's; the flaws were disclosed by Calif.io, Wiz, OpenAI, and Quarkslab after exploit details leaked ahead of the coordinated release.</p></details>
+<details><summary>Which PHP versions are fixed, and which are affected?</summary><p>PHP says every installation that serves web requests is at risk, across PHP-FPM, Apache mod_php, php-cgi, FrankenPHP, and LiteSpeed, with mod_php considered highest risk because a demonstrated exploit triggers before any application code runs. The fixes shipped October 21, 2026 are PHP 8.5.12, 8.4.27, 8.3.36, and 8.2.35 — any earlier release on those branches is affected. PHP 8.1 and older receive no upstream fix; the PHP security team provided minimal source-level backports for 7.4, 8.0, and 8.1 for people who build PHP from source, and some Linux distributions and LTS vendors ship their own backports.</p></details>
+<details><summary>How do I check what PHP version my site runs?</summary><p>On the server itself, run php -v in a terminal. On shared hosting, the version appears in your hosting control panel (cPanel, Plesk, or your host's dashboard), usually under PHP settings. A temporary phpinfo page also shows it — view it once and delete it immediately; a public phpinfo page is itself an information leak. Managed hosting? Get the exact version in writing.</p></details>
+<details><summary>Are the PHP2Shell flaws being exploited already?</summary><p>Attack traffic has been observed. Cloudflare said it saw attackers targeting its customers and mutating payloads to get around its rules, and its WAF protections went live at 03:02 UTC on October 21, 2026 for free and paid customers, hours ahead of the fix release. Huntress reported no exploitation in its partner environments as of October 20 and no known public proof of concept at that time, and watchTowr listed the flaws as not in CISA's KEV catalog as of October 21. Because exploit details leaked before the coordinated release, defenders are treating this as patch-today, not patch-this-month.</p></details>
+<details><summary>What if my server runs PHP 8.1 or older?</summary><p>It will not receive an upstream PHP fix. In order of preference: upgrade to a supported branch (8.2 or newer) and then to its fixed release; take a verified backport from your Linux distribution or LTS vendor; if you build PHP from source, apply the PHP security team's minimal backports for 7.4, 8.0, or 8.1; or take the system off the public internet, or behind a WAF, until you can do one of the above. About 884,000 internet-facing hosts reported PHP 8.1 or older in Shodan banner data on October 20, 2026 — 59 percent of the hosts reporting any PHP version — so end-of-life PHP is the largest part of the exposed population.</p></details>
+
+<p class="src">Sources: <a href="https://thehackernews.com/2026/10/php2shell-two-unpatched-critical-php.html">The Hacker News, October 21, 2026</a> (the leak timeline, watchTowr's confirmation, PHP's advance notice, the Mallory/Shodan host counts, and the Huntress/CERT-EU preparation steps) · <a href="https://patchstack.com/articles/php-major-vulnerability-alert-10-2026/">Patchstack security advisory, October 21, 2026</a> (fixed versions, mod_php risk, backport and Remi-repository notes) · the PHP project's October 21, 2026 security advisory (affected scope, fixed releases, partial configuration measures) and Cloudflare's PHP2Shell disclosure (observed attack traffic; WAF protections live 03:02 UTC, October 21), as reported in the coverage above and cross-checked across CyberPanel's and the NCSC's October 21 response notes.</p>
+
+<div class="xlinks"><strong>Related checks</strong><ul>
+<li><a href="kev-deadlines-check.html">CISA KEV Deadlines Check</a> — the BeyondTrust and Fortinet remediation deadlines that passed October 19</li>
+<li><a href="emudhra-ca-keys-check.html">eMudhra CA Keys Check</a> — eight compromised CA keys and the certificate chains that still trust them</li>
+<li><a href="beyondtrust-zero-day-exposure-check.html">BeyondTrust Zero-Day Exposure Check</a> — the CVE-2026-102764 campaign and triage detail</li>
+</ul></div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
