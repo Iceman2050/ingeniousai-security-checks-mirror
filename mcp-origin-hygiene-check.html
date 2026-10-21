@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, app_creation, public_page_preflight -->
+<html data-primary-keyword="ai agents 2026" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agents 2026: MCP Origin Hygiene Check</title>
+<meta name="description" content="AI agents 2026: paste your MCP config and score every server origin — tunnels, raw IPs, plaintext HTTP, dangling-domain risk. Client-side only.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-origin-hygiene-check.html">
+<meta property="og:title" content="Where Do YOUR MCP Servers Actually Live? — MCP Origin Hygiene Check">
+<meta property="og:description" content="Ox Security found 15,465 MCP servers with zero governance — and 2.3% sat on dangling domains anyone could re-register. Paste your config, score every origin, get a badge. Nothing leaves your browser.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-origin-hygiene-check.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Where Do YOUR MCP Servers Actually Live? — MCP Origin Hygiene Check">
+<meta name="twitter:description" content="Tunnel endpoints, raw IPs, plaintext HTTP, credentials in URLs — score every MCP server in your config, per server: CLEAN, REVIEW or RISKY.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:860px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}h3{font-size:1.1rem;color:#7cc4ff}
+a{color:#7cc4ff}
+.answerbox{background:#141a26;border:1px solid #2e3a52;border-left:4px solid #7cc4ff;border-radius:0 8px 8px 0;padding:1rem 1.2rem;margin:1.2rem 0}
+.privacybox{background:#14301f;border:1px solid #2e5a3a;border-left:4px solid #4ade80;border-radius:0 8px 8px 0;padding:1rem 1.2rem;margin:1.2rem 0}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+.badge{display:inline-block;padding:.15rem .6rem;border-radius:999px;font-size:.78rem;font-weight:700;white-space:nowrap}
+.risky{background:#3a1a1a;color:#f87171}.review{background:#2e2410;color:#ffd166}.clean{background:#14301f;color:#4ade80}
+button.submit{background:#ffd166;color:#111;border:0;border-radius:8px;padding:.7rem 1.4rem;font-weight:700;cursor:pointer;font-size:1rem}
+button.ghost{background:#222836;color:#e8e8e8;border:1px solid #3a4356;border-radius:8px;padding:.5rem 1rem;cursor:pointer;font-size:.9rem;margin:.2rem .2rem .2rem 0}
+textarea{width:100%;box-sizing:border-box;background:#0b0e13;color:#e8e8e8;border:1px solid #3a4356;border-radius:8px;padding:.8rem;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85rem;min-height:190px}
+.servercard{background:#1a1e27;border:1px solid #2a3242;border-radius:8px;padding:1rem;margin:1rem 0}
+.servercard ul{margin:.4rem 0;padding-left:1.2rem}
+code{background:#222836;border-radius:4px;padding:.1rem .35rem;font-size:.88em;word-break:break-all}
+.badgegen{background:#141a26;border:1px dashed #7cc4ff;border-radius:8px;padding:1rem;margin-top:1rem}
+.badgegen code{display:block;padding:.6rem;margin:.5rem 0;white-space:pre-wrap}
+.meta{color:#9aa3b2;font-size:.85rem}
+.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}
+.smallprint{color:#9aa3b2;font-size:.8rem;margin-top:2rem}
+#check-error{color:#f87171;font-weight:600}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "Where Do YOUR MCP Servers Actually Live? — MCP Origin Hygiene Check", "author": {"@type": "Organization", "name": "Ingenious AI"}, "datePublished": "2026-10-21", "dateModified": "2026-10-21", "description": "A pure client-side MCP config origin checker built on Ox Security's October 6, 2026 finding: 15,465 MCP servers with zero governance, 2.3% of them on dangling domains."}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://github.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type": "Question", "name": "What is a dangling domain, and why does it hijack an MCP connection?", "acceptedAnswer": {"@type": "Answer", "text": "A dangling domain is a hostname an MCP server was configured to trust whose registration has lapsed or whose DNS record points at a resource nobody controls anymore. Anyone can re-register the expired domain or claim the abandoned subdomain, put a server behind it, and your MCP client connects to the stranger's server believing it is the original — same config, same trusted name, different operator. Because MCP servers receive your prompts, files and tool results, a hijacked connection is a silent man-in-the-middle with your agent's full context."}},
+{"@type": "Question", "name": "Are tunnel endpoints (ngrok, Cloudflare Tunnel, localtunnel) ever OK for MCP?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — for short-lived local development, on your own machine, while you are watching. A tunnel is a problem when it becomes permanent infrastructure in a shared or production config: free tunnel hostnames are ephemeral, can be reassigned to someone else when they expire, rarely have stable ownership, and bypass the network controls you would apply to a real deployment. If a tunnel URL is still in your config next week, treat it as RISKY and move the server to a domain you own."}},
+{"@type": "Question", "name": "What permissions make a rogue MCP server dangerous?", "acceptedAnswer": {"@type": "Answer", "text": "Two settings multiply the damage: always-allow tool approvals, which let a server run its tools without asking you, and broad secret access, such as an .env file or environment variables carrying API keys the server can read or exfiltrate. A rogue or hijacked server with always-allow plus your .env can call tools, read credentials and ship data out in one session — before you see a single prompt. Keep approvals manual for new servers and give each server only the secrets it strictly needs."}},
+{"@type": "Question", "name": "How do I vet an MCP server before connecting it?", "acceptedAnswer": {"@type": "Answer", "text": "Check who publishes it and whether the project is maintained; read the source or at least the tool list it exposes; prefer servers pinned to a version you chose over auto-updating installs; confirm the origin is a domain the publisher controls (not a tunnel, raw IP or dynamic-DNS host); start with read-only tools and manual approvals; and give it scoped, revocable credentials instead of your personal keys. Re-run this origin check whenever the config changes."}}
+]}
+</script>
+</head>
+<body data-primary-keyword="ai agents 2026">
+<h1>AI Agents 2026: Where Do YOUR MCP Servers Actually Live?</h1>
+<p class="meta">Published <time datetime="2026-10-21">October 21, 2026</time> · by Ingenious AI · Interactive config checker — runs entirely in your browser</p>
+
+<p><strong>AI agents 2026 run on MCP servers — but most people never asked where those servers actually live.</strong> On October 6, 2026, Ox Security reported finding <strong>15,465 MCP servers with zero governance</strong> — and <strong>2.3% of them sat on dangling domains</strong>: expired or abandoned hostnames that anyone can re-register. When that happens, your agent keeps connecting to the same trusted name — now operated by a stranger. This page scores every origin in your own MCP config, right here, before that stranger is on the other end of your tools.</p>
+
+<div class="answerbox">
+<p><strong>The short answer:</strong> an MCP origin is hygienic if it is a stable domain the publisher controls, over HTTPS, on a standard port, with no credentials in the URL. It is <span class="badge risky">RISKY</span> when it is a tunnel endpoint, a raw IP, plaintext HTTP, a punycode or dynamic-DNS host, or a URL with embedded credentials — and a local server is <span class="badge review">REVIEW</span> when it launches through a shell or is handed secret-named environment variables. Paste your config below and get a per-server verdict: <span class="badge clean">CLEAN</span>, <span class="badge review">REVIEW</span> or <span class="badge risky">RISKY</span>, with the reason for every flag.</p>
+</div>
+
+<div class="privacybox">
+<p><strong>🔒 Your config NEVER leaves your browser.</strong> This checker is pure client-side JavaScript: it makes <strong>no network requests</strong>, sends nothing to Ingenious AI or anyone else, and stores nothing. Env <em>values</em> are never displayed — only variable <em>names</em> are flagged. Close the tab and the paste is gone. Don't take our word for it: the same checks run offline in the open-source <a href="https://github.com/Iceman2050/mcp-origin-hygiene">mcp-origin-hygiene</a> tool by Ingenious AI.</p>
+</div>
+
+<h2>What is MCP origin hygiene for AI agents 2026?</h2>
+<p>MCP origin hygiene means knowing — and being able to defend — the actual network origin every Model Context Protocol server in your agent's config points at: who owns the domain, how it is reached, and what happens if that origin changes hands.</p>
+
+<h2>The finding: 15,465 ungoverned servers (labeled source)</h2>
+<p>Source: Ox Security research, reported October 6, 2026 (figures as reported by Ox Security; treat as the researcher's published findings). The pattern that matters for your config:</p>
+<ul>
+<li><strong>15,465 MCP servers</strong> were found operating with <strong>zero governance</strong> — no visible ownership, review or access control discipline.</li>
+<li><strong>2.3%</strong> of them were reachable on <strong>dangling domains</strong> — hostnames whose registration or DNS target had been abandoned, leaving them claimable by anyone.</li>
+<li>Everyday configs recreate the same risk at small scale: a teammate's <strong>ngrok tunnel</strong> pasted last sprint, a server left on a <strong>raw IP over http</strong>, credentials baked into a URL, a dynamic-DNS host standing in for real infrastructure.</li>
+</ul>
+<p>Your client does not warn you about any of this. It resolves the name, connects, and hands the server your context. Origin hygiene is the check nobody runs — so run it now.</p>
+
+<h2>Check your MCP config now</h2>
+<p>Paste your MCP client config JSON — the standard <code>mcpServers</code> format used by Claude Desktop, Cursor, VS Code and most MCP clients. Remote servers (with a <code>url</code>) are scored on their origin; local servers (with a <code>command</code>) are flagged for shell launches and secret-named env vars.</p>
+<textarea id="cfg-input" spellcheck="false" placeholder='{"mcpServers": {"example": {"url": "https://mcp.example.com/sse"}, "local-tool": {"command": "npx", "args": ["-y", "some-server"], "env": {"API_KEY": "..."}}}}'></textarea>
+<p>
+<button class="submit" id="check-go">Score my config</button>
+<button class="ghost" id="load-sample">Load a sample config</button>
+<button class="ghost" id="clear-btn">Clear</button>
+</p>
+<p id="check-error" role="alert"></p>
+<div id="check-summary" role="status"></div>
+<div id="check-results"></div>
+
+<div class="badgegen" id="badge-box" style="display:none">
+<p><strong>Your MCP Origin Hygiene badge (Markdown)</strong> — paste it in your repo README or team wiki:</p>
+<code id="badge-md"></code>
+<button class="ghost" id="badge-copy">Copy badge Markdown</button>
+<p class="meta">The badge is a static shields.io-style line summarizing this run (counts + worst verdict). It contains no config data — only the verdict counts.</p>
+</div>
+
+<h2>What each flag means</h2>
+<ul>
+<li><strong>Tunnel endpoint</strong> (ngrok, trycloudflare, localtunnel and similar): ephemeral by design. When the tunnel lapses, the hostname can be reassigned — your config then points at a stranger.</li>
+<li><strong>Raw IP host:</strong> no domain ownership to verify, no meaningful TLS identity, and IPs get recycled between cloud tenants.</li>
+<li><strong>Plaintext http:</strong> prompts, tool calls and results cross the network readable — and modifiable — by anyone on the path. (Localhost http is noted, not condemned.)</li>
+<li><strong>Non-standard port:</strong> not proof of malice, but a classic marker of ad-hoc, unreviewed deployments that bypassed normal publishing controls.</li>
+<li><strong>Punycode host</strong> (<code>xn--</code>): the encoding behind lookalike-domain spoofing. Verify you intended exactly that domain.</li>
+<li><strong>Credentials in the URL:</strong> anything before the <code>@</code> leaks into logs, history, screenshots and crash reports.</li>
+<li><strong>Dynamic-DNS host:</strong> free, disposable hostnames (duckdns, no-ip and similar) with weak ownership continuity — the dangling-domain pattern in miniature.</li>
+<li><strong>Local servers:</strong> a shell command (<code>sh</code>, <code>bash</code>, <code>powershell</code>…) or shell operators in args mean the config itself is executable code; secret-named env vars (<code>*_API_KEY</code>, <code>*_TOKEN</code>, <code>*_SECRET</code>…) are what a rogue server reads first.</li>
+</ul>
+
+<h2>Go deeper: the full tool</h2>
+<p>This page is the quick check. The full open-source tool — <a href="https://github.com/Iceman2050/mcp-origin-hygiene"><strong>mcp-origin-hygiene</strong> by Ingenious AI</a> (queued for publication) — runs the same origin scoring as a local CLI over whole config folders, with dangling-domain heuristics and a CI-friendly report, still with zero network calls against your config contents.</p>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What is a dangling domain, and why does it hijack an MCP connection?</summary>
+<p>A dangling domain is a hostname an MCP server was configured to trust whose registration has lapsed or whose DNS record points at a resource nobody controls anymore. Anyone can re-register the expired domain or claim the abandoned subdomain, put a server behind it, and your MCP client connects to the stranger's server believing it is the original — same config, same trusted name, different operator. Because MCP servers receive your prompts, files and tool results, a hijacked connection is a silent man-in-the-middle with your agent's full context.</p></details>
+<details><summary>Are tunnel endpoints (ngrok, Cloudflare Tunnel, localtunnel) ever OK for MCP?</summary>
+<p>Yes — for short-lived local development, on your own machine, while you are watching. A tunnel is a problem when it becomes permanent infrastructure in a shared or production config: free tunnel hostnames are ephemeral, can be reassigned to someone else when they expire, rarely have stable ownership, and bypass the network controls you would apply to a real deployment. If a tunnel URL is still in your config next week, treat it as RISKY and move the server to a domain you own.</p></details>
+<details><summary>What permissions make a rogue MCP server dangerous?</summary>
+<p>Two settings multiply the damage: always-allow tool approvals, which let a server run its tools without asking you, and broad secret access, such as an .env file or environment variables carrying API keys the server can read or exfiltrate. A rogue or hijacked server with always-allow plus your .env can call tools, read credentials and ship data out in one session — before you see a single prompt. Keep approvals manual for new servers and give each server only the secrets it strictly needs.</p></details>
+<details><summary>How do I vet an MCP server before connecting it?</summary>
+<p>Check who publishes it and whether the project is maintained; read the source or at least the tool list it exposes; prefer servers pinned to a version you chose over auto-updating installs; confirm the origin is a domain the publisher controls (not a tunnel, raw IP or dynamic-DNS host); start with read-only tools and manual approvals; and give it scoped, revocable credentials instead of your personal keys. Re-run this origin check whenever the config changes.</p></details>
+
+<div class="xlinks">
+<p><strong>Related checks:</strong></p>
+<ul>
+<li><a href="state-of-mcp-security-2026.html">State of MCP Security 2026 — the full landscape</a></li>
+<li><a href="mcp-safety-directory.html">MCP Safety Directory — vetted servers and red flags</a></li>
+<li><a href="home-mcp-server-exposed-check.html">Home MCP Server Exposed Check — is yours reachable from the internet?</a></li>
+<li><a href="mcp-injection-rce-design-flaw-check.html">MCP Injection RCE Design-Flaw Check</a></li>
+<li><a href="mcp-rug-pull-agent-card-poisoning-check.html">MCP Rug-Pull &amp; Agent-Card Poisoning Check</a></li>
+<li><a href="agent-permissions-quiz.html">Agent Permissions Quiz — how much power did you hand your agent?</a></li>
+<li><a href="all-links.html">All free checks on this mirror</a></li>
+<li><a href="security-suite.html"><strong>Bundle deal: all 11 Ingenious AI platforms, one price</strong></a></li>
+</ul>
+</div>
+
+<p><strong>Get early access to the Ingenious AI platforms:</strong>
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard">DisclosureGuard</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder">ModelMinder</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch">TermsWatch</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit">Vibe-Code Audit</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense">Rogue-Agent Defense</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter">BreachHunter</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker">ChatBreaker</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder">Agent Flight Recorder</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway">Agent Auth Gateway</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard">DomainGuard</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI">ContentCraft AI</a>
+</p>
+
+<p class="smallprint">Finding cited on this page: Ox Security research reported October 6, 2026 (15,465 MCP servers with zero governance; 2.3% on dangling domains) — figures as published by the researcher. The checker above is a heuristic origin review of the config text you paste: it cannot prove who operates a server today, and a CLEAN verdict is not a safety guarantee — vet servers per the FAQ. It runs entirely in your browser; nothing you paste is transmitted or stored.</p>
+
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' src="https://static.cloudflareinsights.com/beacon.min.js"></script>
+<script>
+/* --- MCP origin hygiene checker: pure client-side, NO network. --- */
+var TUNNEL_PATTERNS = ["ngrok.io", "ngrok-free.app", "ngrok.app", "trycloudflare.com", "localtunnel.me", "loca.lt", "serveo.net", "zrok.io", "bore.pub", "pinggy.io", "localhost.run", "tunnelto.dev"];
+var DDNS_PATTERNS = ["duckdns.org", "no-ip.com", "no-ip.org", "ddns.net", "dyndns.org", "hopto.org", "zapto.org", "servehttp.com", "dynu.net", "freedns.afraid.org", "changeip.com"];
+var SHELL_COMMANDS = ["sh", "bash", "zsh", "fish", "cmd", "cmd.exe", "powershell", "powershell.exe", "pwsh", "curl", "wget"];
+var SECRET_ENV = /(SECRET|TOKEN|PASSWORD|PASSWD|API_?KEY|PRIVATE_?KEY|ACCESS_?KEY|CREDENTIAL|AUTH|SESSION|COOKIE)/i;
+function hostMatches(host, patterns) {
+  for (var i = 0; i < patterns.length; i++) {
+    if (host === patterns[i] || host.slice(-(patterns[i].length + 1)) === "." + patterns[i]) return patterns[i];
+  }
+  return null;
+}
+function scoreRemote(name, rawUrl) {
+  var flags = [], score = 0, u;
+  try { u = new URL(rawUrl); } catch (e) {
+    return { name: name, kind: "remote", origin: rawUrl, verdict: "RISKY", score: 3, flags: ["Unparseable URL — your client may fail open or resolve this unexpectedly. Replace it with a full https:// URL you can verify."] };
+  }
+  var host = (u.hostname || "").toLowerCase();
+  var isLocal = (host === "localhost" || host === "127.0.0.1" || host === "::1");
+  var tunnel = hostMatches(host, TUNNEL_PATTERNS);
+  if (tunnel) { score += 3; flags.push("Tunnel endpoint (" + tunnel + "): ephemeral hostname that can be reassigned when it lapses — the dangling-origin pattern. Move this server to a domain you or the publisher controls."); }
+  var ddns = hostMatches(host, DDNS_PATTERNS);
+  if (ddns) { score += 3; flags.push("Dynamic-DNS host (" + ddns + "): free disposable hostname with weak ownership continuity — easy to abandon, easy for someone else to claim."); }
+  if (/^\d{1,3}(\.\d{1,3}){3}$/.test(host) || host.indexOf(":") !== -1) { score += 2; flags.push("Raw IP host: no domain ownership to verify, weak TLS identity, and cloud IPs are recycled between tenants."); }
+  if (u.protocol === "http:" && !isLocal) { score += 3; flags.push("Plaintext http: prompts, tool calls and results cross the network readable and modifiable by anyone on the path. Use https."); }
+  if (u.protocol === "http:" && isLocal) { flags.push("Plaintext http to localhost: acceptable for a local dev server only — never expose this port beyond your machine."); }
+  if (u.port && u.port !== "443" && u.port !== "80") { score += 1; flags.push("Non-standard port (" + u.port + "): a marker of ad-hoc deployment that likely bypassed normal publishing controls — confirm it is intentional."); }
+  if (host.indexOf("xn--") !== -1) { score += 2; flags.push("Punycode host (xn--): the encoding behind lookalike-domain spoofing. Verify character-by-character that this is the domain you intended."); }
+  if (u.username || u.password) { score += 3; flags.push("Credentials embedded in the URL: they leak into logs, shell history, screenshots and crash reports. Move them to a scoped env var or secret store and rotate them."); }
+  if (isLocal && !tunnel) { flags.push("Localhost origin: fine while it stays local — make sure nothing forwards this port to the public internet."); }
+  var verdict = score >= 3 ? "RISKY" : (score >= 1 || flags.length > 1 ? "REVIEW" : "CLEAN");
+  if (verdict === "CLEAN") flags.push("Stable https origin on a standard port, no tunnel, no embedded credentials, no spoofing markers detected.");
+  return { name: name, kind: "remote", origin: u.protocol + "//" + u.host, verdict: verdict, score: score, flags: flags };
+}
+function scoreLocal(name, cfg) {
+  var flags = [], score = 0;
+  var cmd = String(cfg.command || "");
+  var base = cmd.split("/").pop().split("\\").pop().toLowerCase();
+  if (SHELL_COMMANDS.indexOf(base) !== -1) { score += 2; flags.push("Shell launch (" + base + "): this config entry is executable shell code. Anyone who can edit the config can run anything — review it like a script, not a setting."); }
+  var args = Array.isArray(cfg.args) ? cfg.args.map(String) : [];
+  var joined = args.join(" ");
+  if (/[;&|`]|\$\(|&&|\|\|/.test(joined)) { score += 2; flags.push("Shell operators in args (" + joined.slice(0, 60) + "…): chained commands hide inside innocent-looking server entries. Split or remove them."); }
+  if ((base === "npx" || base === "uvx") && (joined.indexOf("-y") !== -1 || joined.indexOf("--yes") !== -1)) { score += 1; flags.push("Auto-confirm package runner (" + base + " -y): installs and executes a package without a prompt. Pin an exact version you have reviewed."); }
+  if (cfg.env && typeof cfg.env === "object") {
+    var secretNames = Object.keys(cfg.env).filter(function(k) { return SECRET_ENV.test(k); });
+    if (secretNames.length) { score += 1; flags.push("Secret-named env vars handed to this server: " + secretNames.join(", ") + " (names only — values are never shown). A rogue or hijacked server reads these first; scope them per server and make them revocable."); }
+  }
+  var verdict = score >= 3 ? "RISKY" : (score >= 1 ? "REVIEW" : "CLEAN");
+  if (verdict === "CLEAN") flags.push("Direct command launch, no shell operators, no secret-named env vars detected.");
+  return { name: name, kind: "local", origin: cmd + (args.length ? " " + args.slice(0, 3).join(" ") : ""), verdict: verdict, score: score, flags: flags };
+}
+function analyzeMcpConfig(parsed) {
+  var servers = null;
+  if (parsed && typeof parsed === "object") {
+    if (parsed.mcpServers && typeof parsed.mcpServers === "object") servers = parsed.mcpServers;
+    else if (parsed.servers && typeof parsed.servers === "object") servers = parsed.servers;
+    else servers = parsed;
+  }
+  var results = [];
+  if (!servers) return results;
+  Object.keys(servers).forEach(function(name) {
+    var cfg = servers[name];
+    if (!cfg || typeof cfg !== "object") return;
+    var url = cfg.url || cfg.serverUrl || cfg.endpoint || null;
+    if (typeof url === "string" && url) results.push(scoreRemote(name, url));
+    else if (cfg.command) results.push(scoreLocal(name, cfg));
+    else results.push({ name: name, kind: "unknown", origin: "(no url or command found)", verdict: "REVIEW", score: 1, flags: ["No url or command field found — this entry's shape is not a standard MCP server definition. Verify it manually."] });
+  });
+  return results;
+}
+(function initChecker() {
+  var input = document.getElementById("cfg-input");
+  if (!input) return;
+  var err = document.getElementById("check-error");
+  var summary = document.getElementById("check-summary");
+  var box = document.getElementById("check-results");
+  document.getElementById("load-sample").addEventListener("click", function() {
+    input.value = JSON.stringify({ mcpServers: {
+      "docs-remote": { url: "https://mcp.example.com/sse" },
+      "teammate-tunnel": { url: "https://a1b2c3.ngrok-free.app/mcp" },
+      "old-box": { url: "http://203.0.113.10:8080/mcp?key=demo" },
+      "with-creds": { url: "https://user:hunter2@tools.example.net/mcp" },
+      "local-files": { command: "npx", args: ["-y", "@modelcontextprotocol/server-filesystem", "/tmp"], env: { OPENAI_API_KEY: "sk-demo-not-real" } }
+    } }, null, 2);
+    err.textContent = "";
+  });
+  document.getElementById("clear-btn").addEventListener("click", function() {
+    input.value = ""; err.textContent = ""; summary.innerHTML = ""; box.innerHTML = "";
+    document.getElementById("badge-box").style.display = "none";
+  });
+  document.getElementById("check-go").addEventListener("click", function() {
+    err.textContent = ""; box.innerHTML = ""; summary.innerHTML = "";
+    document.getElementById("badge-box").style.display = "none";
+    var parsed;
+    try { parsed = JSON.parse(input.value); }
+    catch (e) { err.textContent = "That is not valid JSON — check for trailing commas or comments and paste the raw config."; return; }
+    var results = analyzeMcpConfig(parsed);
+    if (!results.length) { err.textContent = "No servers found. Expected an mcpServers object (or a top-level map of server definitions)."; return; }
+    var counts = { CLEAN: 0, REVIEW: 0, RISKY: 0 };
+    results.forEach(function(r) {
+      counts[r.verdict]++;
+      var card = document.createElement("div");
+      card.className = "servercard";
+      var cls = r.verdict.toLowerCase();
+      var h = document.createElement("p");
+      h.innerHTML = "<strong></strong> <span class=\"badge " + cls + "\">" + r.verdict + "</span> <span class=\"meta\"></span>";
+      h.querySelector("strong").textContent = r.name;
+      h.querySelector(".meta").textContent = r.kind + " · " + r.origin;
+      card.appendChild(h);
+      var ul = document.createElement("ul");
+      r.flags.forEach(function(f) {
+        var li = document.createElement("li");
+        li.textContent = f;
+        ul.appendChild(li);
+      });
+      card.appendChild(ul);
+      box.appendChild(card);
+    });
+    var worst = counts.RISKY ? "RISKY" : (counts.REVIEW ? "REVIEW" : "CLEAN");
+    summary.innerHTML = "<p><strong>" + results.length + " server(s) scored:</strong> " +
+      counts.CLEAN + " CLEAN · " + counts.REVIEW + " REVIEW · " + counts.RISKY + " RISKY. " +
+      (worst === "RISKY" ? "Fix the RISKY origins first — a tunnel, dangling or credential-bearing origin means your agent may already be talking to the wrong operator." :
+       worst === "REVIEW" ? "No RISKY origins, but clear the REVIEW items — they are exactly the gaps that turn into next quarter's incident." :
+       "Every origin in this config passed the hygiene checks. Re-run this check whenever the config changes.") + "</p>";
+    var color = worst === "RISKY" ? "red" : (worst === "REVIEW" ? "yellow" : "brightgreen");
+    var msg = counts.CLEAN + "%20clean%20%C2%B7%20" + counts.REVIEW + "%20review%20%C2%B7%20" + counts.RISKY + "%20risky";
+    var md = "[![MCP Origin Hygiene: " + worst + "](https://img.shields.io/badge/MCP%20Origin%20Hygiene-" + msg + "-" + color + ")](https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-origin-hygiene-check.html)";
+    document.getElementById("badge-md").textContent = md;
+    document.getElementById("badge-box").style.display = "block";
+    var copyBtn = document.getElementById("badge-copy");
+    copyBtn.textContent = "Copy badge Markdown";
+    copyBtn.onclick = function() {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(md).then(function() { copyBtn.textContent = "Copied!"; });
+      } else {
+        var ta = document.createElement("textarea");
+        ta.value = md; document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); copyBtn.textContent = "Copied!"; } catch (e) {}
+        document.body.removeChild(ta);
+      }
+    };
+  });
+})();
+</script>
+</body>
+</html>
