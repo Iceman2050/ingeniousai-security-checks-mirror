@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, public_page_preflight -->
+<html data-primary-keyword="cybersecurity news today" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity News Today: eMudhra CA Keys Compromised</title>
+<meta name="description" content="Cybersecurity news today: eight eMudhra CA private keys are compromised. Browsers blocked them in hours, but your apps may still trust the chain. Check yours.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/emudhra-ca-keys-check.html">
+<meta property="og:title" content="Cybersecurity News Today: Eight eMudhra CA Keys Compromised">
+<meta property="og:description" content="The private keys of eight eMudhra intermediate CA certificates are compromised. Chrome and Firefox blocked them within hours on October 17, 2026 — but Go, Python, and other software trust stores only fixed it on October 20, and only if you update.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/emudhra-ca-keys-check.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cybersecurity News Today: Eight eMudhra CA Keys Compromised">
+<meta name="twitter:description" content="8 eMudhra intermediate CA keys compromised. Browsers blocked them Oct 17; software trust stores patched Oct 20. Check whether your site or app still trusts the chain.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:820px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}
+a{color:#7cc4ff}
+.quiz-q{background:#1a1e27;border-radius:8px;padding:1rem;margin:1rem 0}
+.opt{display:block;background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.7rem 1rem;margin:.5rem 0;cursor:pointer;width:100%;text-align:left;color:#e8e8e8;font-size:1rem}
+.opt:hover{border-color:#ffd166}.opt.picked{border-color:#7cc4ff;background:#24304a}.opt.correct{border-color:#4ade80;background:#14301f}.opt.wrong{border-color:#f87171;background:#3a1a1a}
+#quiz-result{font-weight:700;margin-top:1rem;font-size:1.1rem}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}
+.meta{color:#9aa3b2;font-size:.85rem}
+.src{font-size:.85rem;color:#9aa3b2}
+.warnbox{background:#2a1f10;border:1px solid #8a6d1f;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin:1.2rem 0}
+.stat{background:#1a1e27;border-radius:8px;padding:.9rem;text-align:center}
+.stat b{display:block;font-size:1.5rem;color:#ffd166}
+.stat span{font-size:.85rem;color:#9aa3b2}
+blockquote{border-left:3px solid #ffd166;margin:1.2rem 0;padding:.4rem 1rem;color:#d8dee9;background:#141a22;border-radius:0 8px 8px 0}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Cybersecurity News Today: Eight eMudhra CA Keys Compromised","author":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-20","description":"On October 17, 2026, a researcher reported that the private keys of eight eMudhra intermediate certificate authority certificates were compromised, proving possession by signing a message with each key. Chrome blocked the six TLS intermediates via CRLSet the same evening and Mozilla pushed a OneCRL block to Firefox; no certificates chaining to the six TLS intermediates had been logged to Certificate Transparency logs before the block. Follow-on fixes shipped October 20, 2026 in Go, Firefox, NSS, Python certifi, and Rust webpki-roots."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://github.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is the eMudhra CA key compromise, in plain terms?","acceptedAnswer":{"@type":"Answer","text":"The private keys of eight eMudhra intermediate certificate authority (CA) certificates were compromised: the EM DV, OV, and EV TLS CA - G3B and - G3C certificates, plus two code-signing intermediates (EM OV CS CA - G3B and - G3C). A researcher reported the compromise to the browser root programs on October 17, 2026, proving possession of the keys by signing a message with each one. How the keys left eMudhra, and when, is still unknown. eMudhra has revoked all eight certificates."}},
+{"@type":"Question","name":"Am I at risk browsing in Chrome or Firefox?","acceptedAnswer":{"@type":"Answer","text":"Very low. Chrome received the report at 18:05 UTC on October 17, 2026 and had a CRLSet update blocking the six TLS intermediates by 19:45 UTC; Mozilla finished pushing its OneCRL block to Firefox by 22:59 UTC the same evening. Both browsers fetch these revocation lists automatically — no update or restart was needed. Chrome also confirmed that no TLS certificates chaining to the six web intermediates had been logged to Certificate Transparency before the block, so none could have been trusted by default in Chrome or other CT-requiring browsers."}},
+{"@type":"Question","name":"How do I check if my website uses an affected certificate chain?","acceptedAnswer":{"@type":"Answer","text":"Inspect your site's certificate chain: in a browser, open your site, view the certificate details, and read the issuer chain; from a terminal, run openssl s_client -connect yourdomain:443 -showcerts and read the issuer names. If any intermediate is named EM DV TLS CA - G3B or - G3C, EM OV TLS CA - G3B or - G3C, or EM EV TLS CA - G3B or - G3C — or the chain tops out at emSign ECC Root CA - G3 or emSign Root TLS CA - G3 — your chain is affected and you should re-issue under a new chain. Free chain visualizers such as SSL Labs' SSL Test show the same issuer names."}},
+{"@type":"Question","name":"Which software updates fix the trust stores?","acceptedAnswer":{"@type":"Answer","text":"Fixes released October 20, 2026: Go 1.27.3 and 1.26.10 reject any chain containing one of the eight keys (CVE-2026-111943), but Go programs only pick this up when rebuilt, and Go 1.25 and older get no fix. Firefox 158.0.1 (and ESR releases) carries the OneCRL block for installations that cannot receive Remote Settings (CVE-2026-113470). NSS 3.131.1 removes emSign ECC Root CA - G3 from its trusted list; Python's certifi 2026.10.19 and Rust's webpki-roots 1.0.10 drop the same root from their bundles. Node.js and Composer fixes were still pending as of October 20."}},
+{"@type":"Question","name":"What should eMudhra and emSign customers do now?","acceptedAnswer":{"@type":"Answer","text":"Re-issue your certificates under a new chain that does not pass through the eight revoked intermediates or the emSign ECC Root CA - G3 root. Several trust stores (NSS, Python certifi, Rust webpki-roots, Homebrew ca-certificates) removed that root entirely rather than blocking only the compromised keys, and Mozilla has removed it from NSS — so even a legitimate certificate chaining to that root will stop being trusted by software using those stores until the site moves to a new chain."}}
+]}
+</script>
+</head>
+<body>
+<p class="meta"><time datetime="2026-10-20">October 20, 2026</time> · cybersecurity news today</p>
+<h1>Cybersecurity News Today: Eight eMudhra CA Keys Compromised — Is Your Chain Still Trusted?</h1>
+<p>The most consequential story in <strong>cybersecurity news today</strong> is not a breach of a website — it is a breach of the system that decides which websites to trust. The <strong>private keys of eight intermediate certificate authority (CA) certificates belonging to eMudhra</strong> — the Indian CA that sells certificates under the <strong>emSign</strong> brand — are <strong>compromised</strong>, Mozilla and Google's Chrome Root Program confirmed on <strong>October 20, 2026</strong>. Whoever holds an intermediate CA key can mint a certificate for <em>any</em> website that browsers would accept. Chrome and Firefox blocked the certificates within hours of the October 17 report. The rest of the software world only caught up on October 20 — and only where someone actually installs the update.</p>
+<div class="warnbox"><strong>Honest scope — read this first:</strong> There is <strong>no evidence of rogue certificates</strong>. Chrome verified that <strong>no TLS certificate chaining to the six web intermediates had been logged to Certificate Transparency</strong> before its block landed, so none could have been trusted by default in Chrome or any other CT-requiring browser. If you only browse the web in Chrome or Firefox, you need to do nothing — the revocations were pushed to you automatically. The real exposure sits elsewhere: <strong>non-browser software that never checks revocation</strong>, and <strong>legitimate websites whose certificate chains run through eMudhra's emSign roots</strong>, which several trust stores have now removed entirely.</div>
+
+<h2>The eight certificates, exactly as listed</h2>
+<ul>
+<li><strong>TLS, domain validated:</strong> EM DV TLS CA - G3B (eMudhra BV, Netherlands) and EM DV TLS CA - G3C (eMudhra Inc, United States).</li>
+<li><strong>TLS, organization validated:</strong> EM OV TLS CA - G3B and EM OV TLS CA - G3C.</li>
+<li><strong>TLS, extended validation:</strong> EM EV TLS CA - G3B and EM EV TLS CA - G3C.</li>
+<li><strong>Code signing:</strong> EM OV CS CA - G3B and EM OV CS CA - G3C. (Chrome did not need to block these two for web traffic — its TLS verifier will not build a path through an intermediate restricted to code signing.)</li>
+</ul>
+<p>Six of the eight compromised intermediates — 75 percent of the set — exist to sign website certificates; the remaining two sign code. The six TLS intermediates were issued by <strong>emSign Root TLS CA - G3</strong> and chain to <strong>emSign ECC Root CA - G3</strong>, a root that sat in the Chrome and Apple root stores and, until October 20, in Mozilla's. Each of the eight also exists as a cross-signed copy under Sectigo's AAA Certificate Services root; Chrome's block matches the <strong>public key</strong>, so it catches the cross-signed copies too. The compromise was reported on the evening of <strong>October 17</strong> by a researcher credited by Mozilla only as <strong>Wayne</strong>, who proved possession by <strong>signing a message with each of the eight keys</strong>. How the keys left eMudhra — and when — is <strong>not known</strong>. eMudhra has revoked all eight certificates.</p>
+<div class="statgrid">
+<div class="stat"><b>8</b><span>eMudhra intermediate CA private keys compromised</span></div>
+<div class="stat"><b>~100 min</b><span>Chrome: report received 18:05 UTC Oct 17 → CRLSet block live 19:45 UTC</span></div>
+<div class="stat"><b>0</b><span>rogue TLS certificates found in Certificate Transparency logs</span></div>
+<div class="stat"><b>Oct 20</b><span>Go, Firefox, NSS, certifi and webpki-roots fixes all shipped</span></div>
+</div>
+
+<h2>Why this cybersecurity news today matters: browsers moved in hours, software stores moved in days</h2>
+<p>The browser response was the fast part. Chrome's CRLSet block was live <strong>100 minutes</strong> after the report arrived; Mozilla finished pushing its OneCRL block to standard Firefox installations by <strong>22:59 UTC</strong> the same evening. Apple blocked the certificates on <strong>October 19</strong> and Microsoft on <strong>October 20</strong>. None of this required a browser update or a restart — revocation lists are fetched automatically. That machinery is exactly what the rest of the ecosystem lacks. A Go binary, a Python script using certifi, or a Rust program using webpki-roots carries its <strong>own bundled root store</strong> and typically <strong>never checks revocation at all</strong>: it keeps trusting a chain until the bundle changes. That is why the October 20 fixes matter more than the browser blocks — and why they only protect you if you install them, and, for Go, <strong>rebuild</strong> with the new release.</p>
+
+<h2>The fixes, and what each one actually does</h2>
+<ul>
+<li><strong>Go 1.27.3 and 1.26.10</strong> (October 20): the standard library now <strong>rejects any chain containing one of the eight keys</strong> (tracked as CVE-2026-111943), with no setting to turn it off. Programs pick it up <strong>only when rebuilt</strong>; Go 1.25 and older are out of support and get no fix.</li>
+<li><strong>Firefox 158.0.1</strong> (plus ESR 115.43.1 and 153.5.1): carries the OneCRL block for installations that cannot receive Remote Settings (CVE-2026-113470). Standard Firefox installs were already protected by the October 17 push.</li>
+<li><strong>NSS 3.131.1</strong>: <strong>removes emSign ECC Root CA - G3</strong> from the trusted list outright.</li>
+<li><strong>Python certifi 2026.10.19</strong> and <strong>Rust webpki-roots 1.0.10</strong>: drop emSign ECC Root CA - G3 from their bundles. Homebrew's ca-certificates package does the same and also drops emSign Root TLS CA - G3 and AAA Certificate Services by public key.</li>
+<li><strong>Still pending</strong> as of October 20: Node.js (a draft change would block the eight keys) and Composer's ca-bundle (an open change would remove the root).</li>
+</ul>
+<p>Note the split in approach: <strong>key-blocking</strong> (Chrome, Go) surgically rejects the eight compromised keys, while <strong>root removal</strong> (NSS, certifi, webpki-roots) cuts off <em>every</em> certificate chaining to the emSign root — including perfectly legitimate ones. Mozilla, which removed the root from NSS, acknowledged some servers will become unavailable to users of its trust list until those servers move to new chains. Chrome has also said it will remove emSign ECC Root CA - G3 in version 43 of its root store and is reviewing eMudhra's other root, emSign Root CA - G1.</p>
+
+<h2>Run the certificate-trust check now</h2>
+<ul>
+<li><strong>Check your site's chain:</strong> view your certificate in a browser or run <strong>openssl s_client -connect yourdomain:443 -showcerts</strong> and read the issuer names. Any <strong>EM DV/OV/EV TLS CA - G3B or - G3C</strong> intermediate — or a chain topping out at <strong>emSign ECC Root CA - G3</strong> or <strong>emSign Root TLS CA - G3</strong> — means you are affected.</li>
+<li><strong>If you are an eMudhra/emSign customer:</strong> re-issue under a new chain now. Your current certificate was not necessarily abused — but root removals mean it will progressively stop being trusted by updated software.</li>
+<li><strong>Update software trust stores:</strong> rebuild Go services on <strong>1.27.3 / 1.26.10</strong>; update Python environments to <strong>certifi 2026.10.19+</strong>; update Rust builds to <strong>webpki-roots 1.0.10+</strong>; take <strong>NSS 3.131.1</strong> and <strong>Firefox 158.0.1</strong> where you manage them.</li>
+<li><strong>Audit the quiet clients:</strong> internal tools, mobile apps, embedded agents, and CI jobs that pin their own root bundles do not receive browser revocation pushes. Inventory them; they are where a compromised intermediate stays trusted longest.</li>
+<li><strong>End users:</strong> do nothing in Chrome or Firefox — and treat any pop-up, email, or download offering a "certificate fix" as scam bait. The real fixes ship through your browser and your software's normal update channels, never through a download link in a message.</li>
+</ul>
+<p><strong>DomainGuard</strong> — Ingenious AI's domain-impersonation and trust shield — exists for the layer this incident exposes: the names, domains, and certificate chains your customers are asked to trust. <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20early%20access%20to%20DomainGuard">Get early access on WhatsApp</a>.</p>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#fff;text-decoration:underline">DomainGuard</a> is built for exactly this: watching the domains and trust chains your customers rely on, and flagging impersonation before it costs you.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20eMudhra%20certificate-trust%20check%20and%20want%20early%20access." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<h2>Quiz: how well do you know the eMudhra CA compromise?</h2>
+<div class="quiz-q" data-a="1"><p><strong>1.</strong> How was the compromise of the eight eMudhra keys proven to the root programs?</p>
+<button class="opt" data-v="0">The keys were found listed for sale on a forum</button>
+<button class="opt" data-v="1">The researcher signed a message with each of the eight private keys</button>
+<button class="opt" data-v="2">eMudhra announced it in a press release</button></div>
+<div class="quiz-q" data-a="2"><p><strong>2.</strong> How fast did Chrome block the TLS intermediates after the October 17 report?</p>
+<button class="opt" data-v="0">About three weeks — it waited for the next Chrome release</button>
+<button class="opt" data-v="1">About three days</button>
+<button class="opt" data-v="2">About 100 minutes — report at 18:05 UTC, CRLSet block live by 19:45 UTC</button></div>
+<div class="quiz-q" data-a="0"><p><strong>3.</strong> Were rogue certificates issued with the stolen keys found?</p>
+<button class="opt" data-v="0">No — no TLS certificates chaining to the six web intermediates had been logged to Certificate Transparency before the block</button>
+<button class="opt" data-v="1">Yes — thousands were found in the CT logs</button>
+<button class="opt" data-v="2">Yes — but only for test domains</button></div>
+<div class="quiz-q" data-a="1"><p><strong>4.</strong> Why do Go and Python programs stay exposed after browsers are fixed?</p>
+<button class="opt" data-v="0">Because they use a different internet protocol</button>
+<button class="opt" data-v="1">Because they bundle their own root stores and typically never check revocation — they trust the chain until the bundle is updated (and Go apps must be rebuilt)</button>
+<button class="opt" data-v="2">Because eMudhra only sells certificates for browsers</button></div>
+<div class="quiz-q" data-a="2"><p><strong>5.</strong> What happens to legitimate websites that chain to emSign ECC Root CA - G3?</p>
+<button class="opt" data-v="0">Nothing — root removals only affect fake sites</button>
+<button class="opt" data-v="1">They get a free replacement certificate automatically</button>
+<button class="opt" data-v="2">Several trust stores removed that root entirely, so those sites lose trust in updated software until they re-issue under a new chain</button></div>
+<p id="quiz-result"></p>
+<script>
+(function(){var total=document.querySelectorAll('.quiz-q').length,score=0,done=0;
+document.querySelectorAll('.quiz-q').forEach(function(q){var correct=parseInt(q.getAttribute('data-a'),10);
+q.querySelectorAll('.opt').forEach(function(b){b.addEventListener('click',function(){if(q.dataset.done)return;q.dataset.done='1';done++;
+var got=parseInt(b.getAttribute('data-v'),10);if(got===correct){score++;b.classList.add('correct');}else{b.classList.add('wrong');q.querySelectorAll('.opt')[correct].classList.add('correct');}
+if(done===total){var tier=score===5?'Trust-chain grade: you check the chain, not just the padlock.':(score>=3?'Cautious operator: solid instincts — keep verifying your bundles.':'Chain-blind — scroll back up and run the certificate-trust check on your stack.');
+document.getElementById('quiz-result').textContent='You scored '+score+'/'+total+'. '+tier;}});});});})();
+</script>
+<noscript><p><em>Enable JavaScript for the interactive quiz.</em></p></noscript>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What is the eMudhra CA key compromise, in plain terms?</summary><p>The private keys of eight eMudhra intermediate certificate authority (CA) certificates were compromised: the EM DV, OV, and EV TLS CA - G3B and - G3C certificates, plus two code-signing intermediates (EM OV CS CA - G3B and - G3C). A researcher reported the compromise to the browser root programs on October 17, 2026, proving possession of the keys by signing a message with each one. How the keys left eMudhra, and when, is still unknown. eMudhra has revoked all eight certificates.</p></details>
+<details><summary>Am I at risk browsing in Chrome or Firefox?</summary><p>Very low. Chrome received the report at 18:05 UTC on October 17, 2026 and had a CRLSet update blocking the six TLS intermediates by 19:45 UTC; Mozilla finished pushing its OneCRL block to Firefox by 22:59 UTC the same evening. Both browsers fetch these revocation lists automatically — no update or restart was needed. Chrome also confirmed that no TLS certificates chaining to the six web intermediates had been logged to Certificate Transparency before the block, so none could have been trusted by default in Chrome or other CT-requiring browsers.</p></details>
+<details><summary>How do I check if my website uses an affected certificate chain?</summary><p>Inspect your site's certificate chain: in a browser, open your site, view the certificate details, and read the issuer chain; from a terminal, run openssl s_client -connect yourdomain:443 -showcerts and read the issuer names. If any intermediate is named EM DV TLS CA - G3B or - G3C, EM OV TLS CA - G3B or - G3C, or EM EV TLS CA - G3B or - G3C — or the chain tops out at emSign ECC Root CA - G3 or emSign Root TLS CA - G3 — your chain is affected and you should re-issue under a new chain. Free chain visualizers such as SSL Labs' SSL Test show the same issuer names.</p></details>
+<details><summary>Which software updates fix the trust stores?</summary><p>Fixes released October 20, 2026: Go 1.27.3 and 1.26.10 reject any chain containing one of the eight keys (CVE-2026-111943), but Go programs only pick this up when rebuilt, and Go 1.25 and older get no fix. Firefox 158.0.1 (and ESR releases) carries the OneCRL block for installations that cannot receive Remote Settings (CVE-2026-113470). NSS 3.131.1 removes emSign ECC Root CA - G3 from its trusted list; Python's certifi 2026.10.19 and Rust's webpki-roots 1.0.10 drop the same root from their bundles. Node.js and Composer fixes were still pending as of October 20.</p></details>
+<details><summary>What should eMudhra and emSign customers do now?</summary><p>Re-issue your certificates under a new chain that does not pass through the eight revoked intermediates or the emSign ECC Root CA - G3 root. Several trust stores (NSS, Python certifi, Rust webpki-roots, Homebrew ca-certificates) removed that root entirely rather than blocking only the compromised keys, and Mozilla has removed it from NSS — so even a legitimate certificate chaining to that root will stop being trusted by software using those stores until the site moves to a new chain.</p></details>
+
+<p class="src">Sources: <a href="https://thehackernews.com/2026/10/eight-emudhra-ca-keys-compromised.html">The Hacker News, October 20, 2026</a> (reporting Mozilla's and the Chrome Root Program's October 20 confirmations, the October 17 report and block timelines, and the October 20 fix releases) · Dennis Jackson's published certificate list for the eight compromised intermediates · Go security release notes for 1.27.3 / 1.26.10 (CVE-2026-111943) · Mozilla security advisory for Firefox 158.0.1 (CVE-2026-113470). Facts cross-checked against the Mozilla blog and Chrome Root Program statements as cited in that reporting on October 20, 2026.</p>
+
+<div class="xlinks"><strong>Related checks</strong><ul>
+<li><a href="domain-check.html">Domain Check</a> — audit a domain's trust surface</li>
+<li><a href="beyondtrust-zero-day-exposure-check.html">BeyondTrust Zero-Day Exposure Check</a> — the CVE-2026-102764 campaign and triage detail</li>
+<li><a href="microsoft-phishing-takedown-check.html">Microsoft Phishing Takedown Check</a> — how trust abuse gets taken down at scale</li>
+</ul></div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
