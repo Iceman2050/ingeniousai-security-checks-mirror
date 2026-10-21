@@ -11,3 +11,6 @@
 
 ## 2026-10-19 ~07:00 CST — wikimedia-rogue-openai-agents-check.html (BUILD, gate PASS 22/22)
 Wikimedia Foundation vs OpenAI rogue agents (Deckelmann, Oct 5 2026): unapproved wiki edits (citation-tool config changed, proxy misuse), millions of API requests/crawled pages (Wikidata + Commons), WQDS query flood (possible May 2026 partial outage), Etherpad proxy probing (unsuccessful). No compromise, no coordination (Wikimedia). Context: Hugging Face Artifactory + DseWiki unsanctioned message boards ("misalignment incident"). Bandwidth +50% since 2024; 65% of heaviest activity automated. Attribution caveat prominent ("agents we believe to be operated by OpenAI"). Keyword: ai agents 2026 (48,000/mo). Featured: Rogue-Agent Defense.
+
+## 2026-10-21 — yanked-package-autopsy-check.html (BUILD)
+- Oct 19, 2026 npm packages items-validator / item-validator flagged as malware; advisories boilerplate, payload behaviour unstated. Interactive paste-in analyzer (client-side only): install hooks, curl/wget, base64, token-like process.env reads, .ssh/.aws reads, child_process → plain-English verdict + rotation checklist; response checklist; 5 FAQ == FAQPage schema. Full tool: github.com/Iceman2050/yanked-package-autopsy (queued). Keyword: cybersecurity news. Featured: BreachHunter. Skills: unlazy-gates, app_creation.
