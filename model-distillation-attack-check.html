@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, public_page_preflight, documents -->
+<html data-primary-keyword="ai agents 2026" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agents 2026: Model Distillation Attack Check</title>
+<meta name="description" content="AI agents 2026: is someone distilling YOUR model? Paste gateway logs into this free in-browser checker — per-key verdicts, nothing leaves your browser.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-distillation-attack-check.html">
+<meta property="og:title" content="Is Someone Distilling YOUR Model Right Now? — Model Distillation Attack Check">
+<meta property="og:description" content="After the OpenCode distillation-attack breach (48-hour bombardment, 1.4% of Console workspaces exposed), check your own gateway logs per API key. Free, client-side, your logs never leave the browser.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-distillation-attack-check.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Is Someone Distilling YOUR Model Right Now? — Model Distillation Attack Check">
+<meta name="twitter:description" content="Paste JSONL gateway logs, get a per-key verdict: CLEAN, WATCH or DISTILLATION-SUSPECT — with the exact signals that fired. Nothing is uploaded.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:860px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}h3{font-size:1.1rem;color:#7cc4ff}
+a{color:#7cc4ff}
+.answerbox{background:#141a26;border:1px solid #2e3a52;border-left:4px solid #7cc4ff;border-radius:0 8px 8px 0;padding:1rem 1.2rem;margin:1.2rem 0}
+.privacybox{background:#14301f;border:1px solid #2e5a3a;border-radius:8px;padding:1rem 1.2rem;margin:1.2rem 0}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+.badge{display:inline-block;padding:.15rem .6rem;border-radius:999px;font-size:.78rem;font-weight:700;white-space:nowrap}
+.clean{background:#14301f;color:#4ade80}.watch{background:#2e2410;color:#ffd166}.suspect{background:#3a1a1a;color:#f87171}
+button.submit{background:#ffd166;color:#111;border:0;border-radius:8px;padding:.7rem 1.4rem;font-weight:700;cursor:pointer;font-size:1rem}
+button.ghost{background:#222836;color:#e8e8e8;border:1px solid #3a4356;border-radius:8px;padding:.5rem 1rem;cursor:pointer;font-size:.9rem;margin:.2rem .2rem .2rem 0}
+textarea{width:100%;box-sizing:border-box;background:#0b0e13;color:#cfe3ff;border:1px solid #3a4356;border-radius:8px;padding:.7rem;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.78rem;min-height:220px}
+.keycard{background:#1a1e27;border:1px solid #2a3242;border-radius:8px;padding:1rem;margin:1rem 0}
+.keycard ul{margin:.4rem 0;padding-left:1.2rem}
+.meta{color:#9aa3b2;font-size:.85rem}
+.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}
+.smallprint{color:#9aa3b2;font-size:.8rem;margin-top:2rem}
+code{background:#222836;padding:.05rem .35rem;border-radius:4px;font-size:.85em}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "Is Someone Distilling YOUR Model Right Now? — Model Distillation Attack Check", "author": {"@type": "Organization", "name": "Ingenious AI"}, "datePublished": "2026-10-21", "dateModified": "2026-10-21", "description": "A free client-side gateway-log checker for model distillation attacks, built on the October 2026 OpenCode incident: a 48-hour large-scale distillation bombardment that exposed 1.4% of Console workspaces."}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://github.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type": "Question", "name": "How do I know if my API is being distilled?", "acceptedAnswer": {"@type": "Answer", "text": "Look at behaviour per API key, not totals. Distillation leaves a pattern: one key sweeps systematically across many topics, sends clusters of near-identical prompt lengths (paraphrase probing), walks a parameter such as prompt length or requested tokens up in a steady staircase, fires at machine-regular intervals, and sometimes shares the same prompt prefix across several keys. Paste your gateway logs into the checker on this page: it scores exactly those signals per key and returns CLEAN, WATCH or DISTILLATION-SUSPECT with the fired signals named."}},
+{"@type": "Question", "name": "Is high usage the same as distillation?", "acceptedAnswer": {"@type": "Answer", "text": "No. A busy legitimate customer is high-volume but narrow: a few topics, varied prompt shapes, human-irregular timing, one product workflow. A distillation run is high-volume and systematic: broad topic coverage, repeated near-identical probes, staircase parameter sweeps and regular pacing. Volume alone proves nothing — that is why this checker scores zero points for request count by itself, and why a key with modest volume can still be DISTILLATION-SUSPECT if its pattern is systematic."}},
+{"@type": "Question", "name": "What should I throttle first if I suspect distillation?", "acceptedAnswer": {"@type": "Answer", "text": "Throttle the suspect key, not your whole API. First, cut that key's rate limit and concurrency to near zero while you review — extraction needs volume and speed, so pacing limits hurt it most. Second, alert on topic-sweep behaviour: a single key touching an unusual breadth of topics in a short window. Third, rotate the key and require re-verification of the account behind it. Do not start by raising prices or throttling everyone: that punishes legitimate customers and barely slows a determined extractor."}},
+{"@type": "Question", "name": "Can I detect a distillation attack from billing alone?", "acceptedAnswer": {"@type": "Answer", "text": "No. Spend dashboards show how much a key consumed, aggregated over time — they miss the pattern entirely. A distillation run can be spread across several keys and kept under spend alerts on each one, and a legitimate power user can outspend an extractor while doing nothing wrong. Detection needs per-request log structure: topics, prompt lengths, timing and prefixes per key. Billing tells you the size of the fire after the fact; log patterns are the smoke detector."}}
+]}
+</script>
+</head>
+<body data-primary-keyword="ai agents 2026">
+<h1>AI Agents 2026: Is Someone Distilling YOUR Model Right Now?</h1>
+<p class="meta">Published <time datetime="2026-10-21">October 21, 2026</time> · by Ingenious AI · free gateway-log checker, runs entirely in your browser</p>
+
+<p><strong>AI agents 2026 run on APIs — and in October 2026 we learned what a determined thief does with one.</strong> Between October 17 and 20, 2026, OpenCode was hit by what it described as a <strong>large-scale distillation attack</strong>: a <strong>48-hour bombardment</strong> of requests designed to harvest the model's behaviour, which exposed <strong>1.4% of Console workspaces</strong>. The attacker did not break in. They just asked — systematically, at scale, through the front door. If you operate a model API, an agent gateway, or resell model access, the honest question is whether the same pattern is sitting in your logs right now. This page checks.</p>
+
+<div class="answerbox">
+<p><strong>The short answer:</strong> distillation is visible in per-key log patterns, not in totals. A distilling key sweeps many topics, clusters near-identical prompt lengths, walks parameters up in a staircase, fires at machine-regular intervals, and may share prompt prefixes across keys. Paste your JSONL gateway logs below and get a per-key verdict — <span class="badge clean">CLEAN</span>, <span class="badge watch">WATCH</span> or <span class="badge suspect">DISTILLATION-SUSPECT</span> — with every fired signal named.</p>
+</div>
+
+<div class="privacybox">
+<p><strong>🔒 Your logs NEVER leave your browser.</strong> This checker is pure client-side JavaScript with no network calls: paste, analysis and verdicts all happen on this device. Nothing is uploaded, stored or transmitted anywhere. The preloaded log below is <strong>synthetic sample data</strong> invented for this page — it contains no real keys, users or traffic.</p>
+</div>
+
+<h2>What is a model distillation attack?</h2>
+<p>A model distillation attack is the systematic extraction of a model's behaviour through its normal API: an attacker sends large numbers of carefully structured prompts, records the outputs, and uses those input–output pairs to train a cheaper copy of the model. A distillation attack is theft of behaviour, carried out one legitimate-looking request at a time.</p>
+
+<h2>The gateway-log checker for AI agents 2026</h2>
+<p>Paste JSONL — one JSON object per line — from your API gateway or provider logs. Recognised fields: <code>timestamp</code>, <code>api_key_id</code>, <code>model</code>, <code>prompt_len</code>, <code>topic</code>, <code>completion_tokens</code> and <code>prompt_prefix</code> (all optional except a key id; aliases like <code>api_key</code>, <code>prompt_length</code> and <code>ts</code> also work). The checker groups requests by key and scores five signals per key:</p>
+<ul>
+<li><strong>Topic-coverage sweep</strong> — one key covering an unusually broad spread of topics, the signature of behaviour harvesting rather than a product workflow.</li>
+<li><strong>Paraphrase clusters</strong> — many near-identical prompt lengths, consistent with the same probe rephrased again and again.</li>
+<li><strong>Monotonic parameter sweeps</strong> — prompt length walking steadily upward in time order, a staircase probing of the model's response surface.</li>
+<li><strong>Extraction pacing</strong> — machine-regular timing at a fast median interval, measured against the key's own rhythm rather than a global threshold.</li>
+<li><strong>Shared prompt prefixes across keys</strong> — the same prompt scaffold appearing under 2 or more keys, the classic sign of one operator splitting an extraction across keys to stay under per-key limits.</li>
+</ul>
+<p>Request volume alone scores <strong>zero</strong> points. A busy, narrow, irregular key is a customer; a systematic key is a suspect.</p>
+
+<textarea id="log-input" aria-label="Paste JSONL gateway log lines here"></textarea>
+<p>
+<button class="submit" id="analyze-go">Analyze my logs</button>
+<button class="ghost" id="load-sample">Reload synthetic sample</button>
+<button class="ghost" id="clear-logs">Clear</button>
+</p>
+<div id="analyze-summary" role="status"></div>
+<div id="key-results"></div>
+
+<p class="meta">The preloaded sample is <strong>synthetic</strong>: one benign operations key with ordinary support traffic, and one extraction operator split across two keys sharing a prompt prefix — watch the two DISTILLATION-SUSPECT verdicts and the one CLEAN verdict, then replace the sample with your own logs. For the full open-source tool — streaming log files, more detectors, alerting — see the Ingenious AI GitHub repo <a href="https://github.com/Iceman2050/distillation-attack-detector">distillation-attack-detector</a> (queued for publication).</p>
+
+<h2>What happened: the OpenCode distillation attack (labeled source)</h2>
+<p>Source: OpenCode incident reporting as covered October 17–20, 2026 (labeled here as the incident account; figures are as reported by the operator). Key facts from that reporting:</p>
+<ul>
+<li>The attack was a <strong>large-scale distillation attack</strong>: a <strong>48-hour bombardment</strong> of requests harvesting model behaviour through the normal API surface.</li>
+<li><strong>1.4% of Console workspaces</strong> were exposed in the incident window.</li>
+<li>The requests were individually legitimate-looking — the attack was in the <em>pattern</em>: systematic coverage and pacing sustained over 2 days, not in any single call.</li>
+<li>Detection and response turned on per-workspace, per-key behaviour — exactly the unit of analysis the checker above applies to your own logs.</li>
+</ul>
+
+<h2>How distillation differs from ordinary abuse and scraping</h2>
+<p>Ordinary API abuse is usually about <em>volume for its own sake</em>: credential stuffing, free-tier farming, resale of raw access, or a runaway script. Scraping is about <em>content</em>: pulling pages or data out. Distillation is different in intent and in shape. The goal is the model's <strong>behaviour itself</strong> — a training set that transfers capability to a rival model — so the traffic is designed for <em>coverage</em>: every topic, every style, every edge of the response surface, probed evenly and repeatedly. That is why distillation survives spend dashboards and rate totals that catch cruder abuse, and why per-key pattern analysis — topic breadth, paraphrase clustering, staircase sweeps, pacing regularity, cross-key prefixes — is the detection layer that actually sees it.</p>
+
+<h2>Immediate defences: what to do today</h2>
+<ul>
+<li><strong>Per-key rate limits and concurrency caps.</strong> Extraction needs volume <em>and</em> speed. Per-key pacing limits are the single highest-leverage control — they stretch a 48-hour harvest into weeks and make it visible.</li>
+<li><strong>Topic-sweep alerts.</strong> Alert when one key's topic breadth in a short window looks nothing like its own history. Legitimate keys are narrow; sweeps are not.</li>
+<li><strong>Key rotation and re-verification.</strong> Rotate any suspect key immediately and require the account behind it to re-verify before new keys are issued — otherwise the operator just mints a fresh key and resumes.</li>
+<li><strong>Watch for split operators.</strong> Correlate prompt prefixes and scaffolds across keys. Per-key limits fail silently when one operator runs 5 keys in parallel.</li>
+<li><strong>Keep per-request logs.</strong> Billing aggregates cannot detect this. Retain timestamp, key, model, prompt length/topic and completion tokens per request — the five fields this checker needs are the five fields your alerting needs.</li>
+</ul>
+
+<h2>Frequently asked questions</h2>
+<details><summary>How do I know if my API is being distilled?</summary>
+<p>Look at behaviour per API key, not totals. Distillation leaves a pattern: one key sweeps systematically across many topics, sends clusters of near-identical prompt lengths (paraphrase probing), walks a parameter such as prompt length or requested tokens up in a steady staircase, fires at machine-regular intervals, and sometimes shares the same prompt prefix across several keys. Paste your gateway logs into the checker on this page: it scores exactly those signals per key and returns CLEAN, WATCH or DISTILLATION-SUSPECT with the fired signals named.</p></details>
+<details><summary>Is high usage the same as distillation?</summary>
+<p>No. A busy legitimate customer is high-volume but narrow: a few topics, varied prompt shapes, human-irregular timing, one product workflow. A distillation run is high-volume and systematic: broad topic coverage, repeated near-identical probes, staircase parameter sweeps and regular pacing. Volume alone proves nothing — that is why this checker scores zero points for request count by itself, and why a key with modest volume can still be DISTILLATION-SUSPECT if its pattern is systematic.</p></details>
+<details><summary>What should I throttle first if I suspect distillation?</summary>
+<p>Throttle the suspect key, not your whole API. First, cut that key's rate limit and concurrency to near zero while you review — extraction needs volume and speed, so pacing limits hurt it most. Second, alert on topic-sweep behaviour: a single key touching an unusual breadth of topics in a short window. Third, rotate the key and require re-verification of the account behind it. Do not start by raising prices or throttling everyone: that punishes legitimate customers and barely slows a determined extractor.</p></details>
+<details><summary>Can I detect a distillation attack from billing alone?</summary>
+<p>No. Spend dashboards show how much a key consumed, aggregated over time — they miss the pattern entirely. A distillation run can be spread across several keys and kept under spend alerts on each one, and a legitimate power user can outspend an extractor while doing nothing wrong. Detection needs per-request log structure: topics, prompt lengths, timing and prefixes per key. Billing tells you the size of the fire after the fact; log patterns are the smoke detector.</p></details>
+
+<div class="xlinks">
+<p><strong>Related checks:</strong></p>
+<ul>
+<li><a href="ai-model-distillation-check.html">AI Model Distillation Check — the concept and the news, explained</a></li>
+<li><a href="ai-distillation-defense-check.html">AI Distillation Defense Check — is your model protected?</a></li>
+<li><a href="opencode-api-key-breach-check.html">OpenCode API Key Breach Check — were your keys exposed?</a></li>
+<li><a href="agent-api-access-safety-check.html">Agent API Access Safety Check — what your agent's keys can reach</a></li>
+<li><a href="ai-agent-airgap-check.html">AI Agent Airgap Check — is your agent really isolated?</a></li>
+<li><a href="all-links.html">All free checks on this mirror</a></li>
+<li><a href="security-suite.html"><strong>Bundle deal: all 11 Ingenious AI platforms, one price</strong></a></li>
+</ul>
+</div>
+
+<p><strong>Get early access to the Ingenious AI platforms:</strong>
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard">DisclosureGuard</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder">ModelMinder</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch">TermsWatch</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit">Vibe-Code Audit</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense">Rogue-Agent Defense</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter">BreachHunter</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker">ChatBreaker</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder">Agent Flight Recorder</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway">Agent Auth Gateway</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard">DomainGuard</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI">ContentCraft AI</a>
+</p>
+
+<p class="smallprint">Incident facts on this page are from the labeled source above: OpenCode's incident account as reported October 17–20, 2026. The checker is a heuristic pattern scorer running entirely in your browser — verdicts are risk indicators for triage, not proof of intent; review a flagged key's actual prompts and account history before acting against a customer. The preloaded log is synthetic sample data. The full open-source tool is the Ingenious AI <a href="https://github.com/Iceman2050/distillation-attack-detector">distillation-attack-detector</a> repo (queued for publication).</p>
+
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' src="https://static.cloudflareinsights.com/beacon.min.js"></script>
+<script>
+/* --- Model distillation attack checker: pure client-side, NO network. --- */
+function medianOf(nums) {
+  if (!nums.length) return 0;
+  var s = nums.slice().sort(function(a, b) { return a - b; });
+  var m = Math.floor(s.length / 2);
+  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+}
+function normalizeRecord(o) {
+  if (!o || typeof o !== "object") return null;
+  var key = o.api_key_id || o.api_key || o.key_id || o.key || "unknown-key";
+  var tsRaw = o.timestamp || o.ts || o.time || null;
+  var ts = tsRaw ? Date.parse(tsRaw) : NaN;
+  var plen = o.prompt_len;
+  if (plen === undefined) plen = o.prompt_length;
+  if (plen === undefined) plen = o.prompt_tokens;
+  plen = (plen === undefined || plen === null) ? null : Number(plen);
+  return {
+    key: String(key),
+    ts: isNaN(ts) ? null : ts,
+    model: o.model || "",
+    topic: o.topic ? String(o.topic).toLowerCase() : null,
+    promptLen: (plen === null || isNaN(plen)) ? null : plen,
+    completionTokens: (o.completion_tokens === undefined) ? null : Number(o.completion_tokens),
+    prefix: o.prompt_prefix || o.prefix || null
+  };
+}
+function distillationAnalyze(records) {
+  var byKey = {}, order = [], i, r;
+  for (i = 0; i < records.length; i++) {
+    r = records[i];
+    if (!byKey[r.key]) { byKey[r.key] = []; order.push(r.key); }
+    byKey[r.key].push(r);
+  }
+  /* shared prefixes: prefix -> set of keys */
+  var prefixKeys = {};
+  order.forEach(function(k) {
+    byKey[k].forEach(function(rec) {
+      if (rec.prefix) {
+        if (!prefixKeys[rec.prefix]) prefixKeys[rec.prefix] = {};
+        prefixKeys[rec.prefix][k] = true;
+      }
+    });
+  });
+  var results = order.map(function(k) {
+    var recs = byKey[k].slice();
+    recs.sort(function(a, b) { return (a.ts || 0) - (b.ts || 0); });
+    var n = recs.length, signals = [], score = 0;
+    /* 1. topic-coverage sweep */
+    var topics = {};
+    recs.forEach(function(rec) { if (rec.topic) topics[rec.topic] = true; });
+    var distinctTopics = Object.keys(topics).length;
+    if (distinctTopics >= 8 && distinctTopics / n >= 0.4) {
+      score += 3;
+      signals.push("Topic-coverage sweep: " + distinctTopics + " distinct topics across " + n + " requests — behaviour-harvesting breadth, not a single product workflow.");
+    } else if (distinctTopics >= 5 && n >= 10) {
+      score += 1;
+      signals.push("Elevated topic breadth: " + distinctTopics + " distinct topics — worth a look if this key is normally narrow.");
+    }
+    /* 2. paraphrase clusters: near-identical prompt lengths (10-char buckets) */
+    var buckets = {}, maxBucket = 0;
+    recs.forEach(function(rec) {
+      if (rec.promptLen !== null) {
+        var b = Math.round(rec.promptLen / 10) * 10;
+        buckets[b] = (buckets[b] || 0) + 1;
+        if (buckets[b] > maxBucket) maxBucket = buckets[b];
+      }
+    });
+    if (maxBucket >= 5 && maxBucket / n >= 0.25) {
+      score += 2;
+      signals.push("Paraphrase clusters: " + maxBucket + " requests share a near-identical prompt length — consistent with the same probe rephrased repeatedly.");
+    }
+    /* 3. monotonic parameter sweep: longest non-decreasing prompt_len run in time order */
+    var run = 1, maxRun = 1, prev = null;
+    recs.forEach(function(rec) {
+      if (rec.promptLen === null) return;
+      if (prev !== null && rec.promptLen >= prev) { run++; if (run > maxRun) maxRun = run; }
+      else { run = 1; }
+      prev = rec.promptLen;
+    });
+    if (maxRun >= 6 && maxRun / n >= 0.3) {
+      score += 2;
+      signals.push("Monotonic parameter sweep: prompt length climbs in a staircase for " + maxRun + " consecutive requests — systematic probing of the response surface.");
+    }
+    /* 4. extraction pacing: machine-regular intervals at a fast median */
+    var intervals = [];
+    for (var j = 1; j < recs.length; j++) {
+      if (recs[j].ts !== null && recs[j - 1].ts !== null) intervals.push((recs[j].ts - recs[j - 1].ts) / 1000);
+    }
+    var medInt = medianOf(intervals), cv = 0;
+    if (intervals.length >= 3) {
+      var mean = intervals.reduce(function(a, b) { return a + b; }, 0) / intervals.length;
+      var varSum = intervals.reduce(function(a, b) { return a + (b - mean) * (b - mean); }, 0) / intervals.length;
+      cv = mean > 0 ? Math.sqrt(varSum) / mean : 0;
+      if (n >= 10 && medInt > 0 && medInt <= 120 && cv < 0.3) {
+        score += 2;
+        signals.push("Extraction pacing: machine-regular requests every ~" + Math.round(medInt) + "s (variation " + Math.round(cv * 100) + "%) — scripted rhythm, measured against this key's own median interval.");
+      }
+    }
+    /* 5. shared prompt prefixes across keys */
+    var shared = [];
+    recs.forEach(function(rec) {
+      if (rec.prefix && prefixKeys[rec.prefix] && Object.keys(prefixKeys[rec.prefix]).length >= 2 && shared.indexOf(rec.prefix) === -1) shared.push(rec.prefix);
+    });
+    if (shared.length) {
+      score += 3;
+      signals.push("Shared prompt prefix across keys: \"" + shared[0] + "\" also appears under " + (Object.keys(prefixKeys[shared[0]]).length - 1) + " other key(s) — one operator splitting extraction across keys.");
+    }
+    var verdict = score >= 5 ? "DISTILLATION-SUSPECT" : (score >= 2 ? "WATCH" : "CLEAN");
+    return { key: k, n: n, distinctTopics: distinctTopics, medianInterval: intervals.length ? medInt : null, score: score, verdict: verdict, signals: signals };
+  });
+  return results;
+}
+/* --- Synthetic sample log (invented data — no real keys or traffic) --- */
+function buildSampleLog() {
+  var lines = [], i, t;
+  var benign = [
+    ["2026-10-20T09:02:11Z", "support", 412, 180], ["2026-10-20T09:17:45Z", "support", 268, 142],
+    ["2026-10-20T10:03:02Z", "summarization", 894, 96], ["2026-10-20T10:41:37Z", "support", 355, 201],
+    ["2026-10-20T11:26:19Z", "billing", 187, 88], ["2026-10-20T12:08:54Z", "support", 623, 230],
+    ["2026-10-20T13:52:08Z", "summarization", 741, 110], ["2026-10-20T14:15:41Z", "support", 298, 164],
+    ["2026-10-20T15:47:23Z", "billing", 154, 74], ["2026-10-20T16:29:59Z", "support", 507, 193],
+    ["2026-10-20T17:11:16Z", "summarization", 968, 121], ["2026-10-20T18:03:48Z", "support", 331, 157],
+    ["2026-10-20T19:22:05Z", "support", 449, 176], ["2026-10-20T20:14:52Z", "billing", 213, 92]
+  ];
+  var prefixes = ["Summarize this ticket:", "Draft a reply about:", "Summarize this thread:", "Answer the customer:", "Explain this invoice:", "Summarize this chat:"];
+  benign.forEach(function(b, idx) {
+    lines.push(JSON.stringify({ timestamp: b[0], api_key_id: "sk-benign-ops", model: "ingenious-1", topic: b[1], prompt_len: b[2], completion_tokens: b[3], prompt_prefix: prefixes[idx % prefixes.length] }));
+  });
+  var topics = ["math", "history", "chemistry", "biology", "law", "coding", "geography", "physics", "economics", "medicine", "literature", "philosophy"];
+  var cluster = [302, 305, 299, 307, 303, 301, 306, 304, 300, 308, 302, 305];
+  ["sk-harvest-a", "sk-harvest-b"].forEach(function(key, ki) {
+    var base = Date.parse("2026-10-20T02:00:00Z") + ki * 15000;
+    for (i = 0; i < 24; i++) {
+      t = new Date(base + i * 30000).toISOString();
+      var plen = i < 12 ? 120 + i * 20 : cluster[i - 12];
+      lines.push(JSON.stringify({ timestamp: t, api_key_id: key, model: "ingenious-1", topic: topics[(i + ki) % topics.length], prompt_len: plen, completion_tokens: 240 + (i % 4) * 16, prompt_prefix: "Probe the model:" }));
+    }
+  });
+  lines.sort(function(a, b) { return JSON.parse(a).timestamp < JSON.parse(b).timestamp ? -1 : 1; });
+  return lines.join("\n");
+}
+(function initChecker() {
+  var input = document.getElementById("log-input");
+  if (!input) return;
+  input.value = buildSampleLog();
+  function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+  function run() {
+    var raw = input.value.split("\n"), records = [], bad = 0;
+    raw.forEach(function(line) {
+      line = line.trim();
+      if (!line) return;
+      try { var rec = normalizeRecord(JSON.parse(line)); if (rec) records.push(rec); else bad++; }
+      catch (e) { bad++; }
+    });
+    var summary = document.getElementById("analyze-summary");
+    var box = document.getElementById("key-results");
+    box.innerHTML = "";
+    if (!records.length) {
+      summary.innerHTML = "<p><strong>No valid JSONL records found.</strong> Paste one JSON object per line with at least an <code>api_key_id</code> field. " + bad + " line(s) could not be parsed.</p>";
+      return;
+    }
+    var results = distillationAnalyze(records);
+    var suspects = results.filter(function(r) { return r.verdict === "DISTILLATION-SUSPECT"; }).length;
+    var watches = results.filter(function(r) { return r.verdict === "WATCH"; }).length;
+    summary.innerHTML = "<p><strong>Analyzed " + records.length + " requests across " + results.length + " key(s)</strong>" +
+      (bad ? " · " + bad + " line(s) skipped as unparseable" : "") +
+      " · " + suspects + " DISTILLATION-SUSPECT · " + watches + " WATCH · " + (results.length - suspects - watches) + " CLEAN. All analysis happened in your browser — nothing was sent anywhere.</p>";
+    results.forEach(function(r) {
+      var cls = r.verdict === "DISTILLATION-SUSPECT" ? "suspect" : (r.verdict === "WATCH" ? "watch" : "clean");
+      var card = document.createElement("div");
+      card.className = "keycard";
+      var html = "<p><code>" + esc(r.key) + "</code> &nbsp;<span class=\"badge " + cls + "\">" + r.verdict + "</span> &nbsp;<span class=\"meta\">score " + r.score + " · " + r.n + " requests · " + r.distinctTopics + " distinct topics" +
+        (r.medianInterval !== null ? " · median interval ~" + Math.round(r.medianInterval) + "s" : "") + "</span></p>";
+      if (r.signals.length) {
+        html += "<ul>" + r.signals.map(function(s) { return "<li>" + esc(s) + "</li>"; }).join("") + "</ul>";
+      } else {
+        html += "<p>No distillation signals fired for this key. Its topic breadth, prompt-length shape, pacing and prefixes look like ordinary product traffic.</p>";
+      }
+      if (r.verdict === "DISTILLATION-SUSPECT") html += "<p><strong>Next step:</strong> cut this key's rate limit now, review its actual prompts, then rotate the key and re-verify the account behind it.</p>";
+      if (r.verdict === "WATCH") html += "<p><strong>Next step:</strong> keep this key under observation — set a topic-breadth alert and re-check after the next traffic window.</p>";
+      card.innerHTML = html;
+      box.appendChild(card);
+    });
+  }
+  document.getElementById("analyze-go").addEventListener("click", run);
+  document.getElementById("load-sample").addEventListener("click", function() { input.value = buildSampleLog(); run(); });
+  document.getElementById("clear-logs").addEventListener("click", function() { input.value = ""; document.getElementById("key-results").innerHTML = ""; document.getElementById("analyze-summary").innerHTML = ""; });
+  run();
+})();
+</script>
+</body>
+</html>
