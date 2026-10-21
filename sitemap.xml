@@ -694,4 +694,12 @@
     <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-shell-diff-check.html</loc>
     <lastmod>2026-10-21</lastmod>
   </url>
+  <url>
+    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/llm-sink-validation-check.html</loc>
+    <lastmod>2026-10-21</lastmod>
+  </url>
+  <url>
+    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-monitor-tamper-check.html</loc>
+    <lastmod>2026-10-21</lastmod>
+  </url>
 </urlset>

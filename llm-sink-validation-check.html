@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, documents -->
+<html data-primary-keyword="vibe coding" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vibe Coding: LLM Sink Validation Check</title>
+<meta name="description" content="Vibe coding ships agent tools fast. Paste your Python tool code and check whether anything validates input between the LLM and the sink.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/llm-sink-validation-check.html">
+<meta property="og:title" content="Vibe Coding: Is There Validation Between the LLM and the Sink?">
+<meta property="og:description" content="CVE-2026-114107 turned a prompt injection into a root shell because one tool had zero validation. Paste your agent tool code — get a SINK GAP, VALIDATED or NO SINK FOUND verdict in seconds.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/llm-sink-validation-check.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vibe Coding: LLM Sink Validation Check">
+<meta name="twitter:description" content="Paste your agent's tool code — is there validation between the LLM and the sink? Free browser-only check from Ingenious AI.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:860px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}h3{font-size:1.1rem;color:#7cc4ff}
+a{color:#7cc4ff}
+.answerbox{background:#141a26;border:1px solid #2e3a52;border-left:4px solid #7cc4ff;border-radius:0 8px 8px 0;padding:1rem 1.2rem;margin:1.2rem 0}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+.badge{display:inline-block;padding:.15rem .6rem;border-radius:999px;font-size:.78rem;font-weight:700;white-space:nowrap}
+.gap{background:#3a1a1a;color:#f87171}.okv{background:#14301f;color:#4ade80}.none{background:#222836;color:#9aa3b2}
+button.submit{background:#ffd166;color:#111;border:0;border-radius:8px;padding:.7rem 1.4rem;font-weight:700;cursor:pointer;font-size:1rem}
+button.ghost{background:#222836;color:#e8e8e8;border:1px solid #3a4356;border-radius:8px;padding:.5rem 1rem;cursor:pointer;font-size:.9rem;margin:.2rem .2rem .2rem 0}
+textarea{width:100%;min-height:220px;background:#0b0e13;color:#d6e4f0;border:1px solid #3a4356;border-radius:8px;padding:.8rem;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85rem;box-sizing:border-box}
+#sink-result{font-weight:700;margin-top:1rem;font-size:1.15rem}
+.findbox{background:#141a26;border:1px solid #2e3a52;border-radius:8px;padding:1rem 1.2rem;margin-top:1rem}
+.findbox li{margin:.4rem 0}
+.flow{background:#141a26;border:1px solid #2e3a52;border-radius:8px;padding:1rem 1.2rem;margin:1rem 0;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9rem}
+.meta{color:#9aa3b2;font-size:.85rem}
+.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}
+.smallprint{color:#9aa3b2;font-size:.8rem;margin-top:2rem}
+code{background:#222836;padding:.05rem .35rem;border-radius:4px}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "Vibe Coding: Is There Validation Between the LLM and the Sink?", "author": {"@type": "Organization", "name": "Ingenious AI"}, "datePublished": "2026-10-21", "dateModified": "2026-10-21", "description": "A browser-only static check for unvalidated execution sinks in LLM-callable Python tool code, built on the CVE-2026-114107 pattern disclosed October 21, 2026."}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://github.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type": "Question", "name": "What is an execution sink?", "acceptedAnswer": {"@type": "Answer", "text": "An execution sink is the point where data stops being text and becomes action: a shell command runs, a SQL query executes, a file is written, or a request leaves for a URL. If model output can reach that point unchanged, whoever controls the model's input effectively controls the action the sink performs."}},
+{"@type": "Question", "name": "Why do allowlists beat blocklists for LLM tool inputs?", "acceptedAnswer": {"@type": "Answer", "text": "A blocklist tries to name everything dangerous, and attackers only need one spelling, encoding or separator you forgot. An allowlist names the small set of values that are legitimate — three actions, five filenames, one URL host — and rejects everything else by default, including attack shapes nobody has invented yet."}},
+{"@type": "Question", "name": "What validation actually counts between the LLM and a sink?", "acceptedAnswer": {"@type": "Answer", "text": "Validation counts when it constrains the value before the sink sees it: membership in an allowlist, a full-string regex match, a strict type and length check, parameterised SQL instead of string formatting, or shell quoting plus an argument array instead of shell=True. A comment saying the input is trusted does not count."}},
+{"@type": "Question", "name": "How is validation different from a sandbox?", "acceptedAnswer": {"@type": "Answer", "text": "A sandbox limits the damage after a bad command runs: fewer permissions, no network, an isolated filesystem. Validation stops the bad command from being constructed at all. Sandboxes fail open when they are misconfigured or escaped; validated inputs never become commands in the first place. Serious setups use both layers together."}},
+{"@type": "Question", "name": "Does this check send my code anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. The checker on this page is plain client-side JavaScript pattern matching that runs entirely in your browser — your code is never uploaded, logged or transmitted. It is a quick peek, not a full audit. For a deeper scan of a whole repository, use the open-source sink-gap-scanner tool from Ingenious AI, which runs locally on your own machine."}}
+]}
+</script>
+</head>
+<body data-primary-keyword="vibe coding">
+<h1>Vibe Coding: Is There Validation Between the LLM and the Sink?</h1>
+<p class="meta">Published <time datetime="2026-10-21">October 21, 2026</time> · by Ingenious AI · 30-second browser-only check</p>
+
+<p><strong>Vibe coding is exactly where unvalidated sinks ship.</strong> On October 21, 2026, CVE-2026-114107 was disclosed for HKUDS Vibe-Trading: a prompt injection that escalated to a root shell, rated CVSS 8.7. The advisory names the root cause in one sentence — an LLM-callable tool primitive shipped with zero input validation between the LLM and the sink. When a model writes the tool and also supplies its inputs, that missing check is the whole vulnerability. Paste your own agent tool code below and see which side of that line it sits on.</p>
+
+<div class="answerbox">
+<p><strong>The short answer:</strong> a sink gap exists when model-controlled text can reach a shell, SQL query, file write or outbound request with nothing constraining it in between. This page scans pasted Python for sink patterns and validation signals and returns one of three verdicts — <span class="badge gap">SINK GAP</span>, <span class="badge okv">VALIDATED</span> or <span class="badge none">NO SINK FOUND</span>. It is a quick browser peek, not a full audit.</p>
+</div>
+
+<h2>What is an execution sink in vibe coding?</h2>
+<p>An execution sink is the place where data becomes action: a shell command, a SQL query, a file write or an outbound request. In vibe coding workflows the model often writes both the tool and its inputs, so an unvalidated sink turns any prompt injection into direct code execution on your machine.</p>
+
+<h2>The CVE-2026-114107 pattern: document to root shell</h2>
+<p>The Vibe-Trading chain, as described in the advisory, has five links — and only one of them needed to break:</p>
+<div class="flow">1. A document carrying hidden instructions is loaded as context<br>2. Prompt injection: the document steers the model<br>3. The model emits a command as a tool argument<br>4. The tool passes the argument to the sink unvalidated<br>5. The sink executes it — with the agent's privileges, up to a root shell</div>
+<p>Links 1 to 3 are hard to eliminate: models read untrusted documents, and models can be steered. Link 4 is entirely in the tool author's control. A single allowlist check, a full-string match, or an argument array instead of <code>shell=True</code> breaks the chain at the cheapest possible point. The advisory's lesson generalises to every agent framework: audit the gap between the LLM and the sink, not just the prompt.</p>
+
+<h2>Paste your tool code: the 30-second sink check</h2>
+<p>Try the two preloads first — one vulnerable, one fixed — then paste your own Python tool function. Nothing leaves your browser: the scan is pure client-side pattern matching, clearly a quick peek and not a full audit. For a repository-wide scan, use the full open-source tool: <a href="https://github.com/Iceman2050/sink-gap-scanner">sink-gap-scanner by Ingenious AI on GitHub</a> (queued for publication).</p>
+<p>
+<button class="ghost" id="load-vuln" type="button">Load vulnerable example</button>
+<button class="ghost" id="load-fixed" type="button">Load fixed example</button>
+</p>
+<textarea id="code-input" aria-label="Paste your Python agent tool code here" spellcheck="false"></textarea>
+<p><button class="submit" id="scan-go" type="button">Scan for sink gaps</button></p>
+<div id="sink-result" role="status"></div>
+<div class="findbox" id="sink-findings" style="display:none">
+<p><strong>What the scan found</strong></p>
+<p>Sinks:</p>
+<ul id="sink-list"></ul>
+<p>Validation signals:</p>
+<ul id="val-list"></ul>
+</div>
+<textarea id="ex-vuln" hidden aria-hidden="true">import subprocess, os
+
+def run_report_tool(user_text: str) -&gt; str:
+    # LLM-callable tool: the model supplies user_text directly
+    cmd = f"generate-report --title {user_text}"
+    result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+    os.system(f"echo done {user_text}")
+    cursor.execute(f"SELECT * FROM reports WHERE title = '{user_text}'")
+    return result.stdout</textarea>
+<textarea id="ex-fixed" hidden aria-hidden="true">import re, shlex, subprocess, requests
+
+ALLOWED_ACTIONS = {"summary", "export", "preview"}
+ALLOWED_HOSTS = {"reports.internal.example"}
+
+def run_report_tool(action: str, title: str, host: str) -&gt; str:
+    if action not in ALLOWED_ACTIONS:
+        raise ValueError("action not allowed")
+    if host not in ALLOWED_HOSTS:
+        raise ValueError("host not allowed")
+    if not isinstance(title, str) or len(title) &gt; 80:
+        raise ValueError("bad title")
+    if not re.fullmatch(r"[A-Za-z0-9 _-]{1,80}", title):
+        raise ValueError("bad characters")
+    safe_title = shlex.quote(title)
+    result = subprocess.run(["generate-report", "--action", action, "--title", title], capture_output=True, text=True)
+    cursor.execute("SELECT * FROM reports WHERE title = ?", (title,))
+    url = "https://" + host + "/report?title=" + title
+    status = requests.get(url, timeout=10).status_code
+    return result.stdout + safe_title + str(status)</textarea>
+
+<h2>How to fix a sink gap</h2>
+<ul>
+<li><strong>Prefer allowlists.</strong> Enumerate the legitimate values — actions, hosts, filenames — and reject everything else. Validation must reject 100% of values outside the allowlist, not just the attacks you have already seen.</li>
+<li><strong>Never build shell strings.</strong> Pass an argument array to <code>subprocess</code> without <code>shell=True</code>; where a string is unavoidable, quote with <code>shlex.quote</code>.</li>
+<li><strong>Parameterise SQL.</strong> Placeholders and bound parameters, never f-strings or percent formatting into <code>execute</code>.</li>
+<li><strong>Constrain types and shapes.</strong> <code>isinstance</code> and length guards plus a <code>re.fullmatch</code> pattern for free-text fields, checked before the sink — not after.</li>
+<li><strong>Pin outbound requests.</strong> Build request URLs from a fixed host allowlist instead of passing a model-supplied URL straight to <code>requests</code>.</li>
+</ul>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What is an execution sink?</summary>
+<p>An execution sink is the point where data stops being text and becomes action: a shell command runs, a SQL query executes, a file is written, or a request leaves for a URL. If model output can reach that point unchanged, whoever controls the model's input effectively controls the action the sink performs.</p></details>
+<details><summary>Why do allowlists beat blocklists for LLM tool inputs?</summary>
+<p>A blocklist tries to name everything dangerous, and attackers only need one spelling, encoding or separator you forgot. An allowlist names the small set of values that are legitimate — three actions, five filenames, one URL host — and rejects everything else by default, including attack shapes nobody has invented yet.</p></details>
+<details><summary>What validation actually counts between the LLM and a sink?</summary>
+<p>Validation counts when it constrains the value before the sink sees it: membership in an allowlist, a full-string regex match, a strict type and length check, parameterised SQL instead of string formatting, or shell quoting plus an argument array instead of shell=True. A comment saying the input is trusted does not count.</p></details>
+<details><summary>How is validation different from a sandbox?</summary>
+<p>A sandbox limits the damage after a bad command runs: fewer permissions, no network, an isolated filesystem. Validation stops the bad command from being constructed at all. Sandboxes fail open when they are misconfigured or escaped; validated inputs never become commands in the first place. Serious setups use both layers together.</p></details>
+<details><summary>Does this check send my code anywhere?</summary>
+<p>No. The checker on this page is plain client-side JavaScript pattern matching that runs entirely in your browser — your code is never uploaded, logged or transmitted. It is a quick peek, not a full audit. For a deeper scan of a whole repository, use the open-source sink-gap-scanner tool from Ingenious AI, which runs locally on your own machine.</p></details>
+
+<div class="xlinks">
+<p><strong>Related checks:</strong></p>
+<ul>
+<li><a href="vibe-code-security-scan-check.html">Vibe Code Security Scan Check — what AI-written code ships by default</a></li>
+<li><a href="prompt-injection-never-solved.html">Prompt Injection Is Never Solved — why the model layer cannot save you</a></li>
+<li><a href="wild-prompt-injections.html">Wild Prompt Injections — real injection patterns seen in the wild</a></li>
+<li><a href="agent-sandbox-policy-gap-checker.html">Agent Sandbox Policy Gap Checker — is your sandbox actually a boundary?</a></li>
+<li><a href="ship-safe-ai-code-audit-check.html">Ship Safe AI Code Audit Check — independent review for AI-written code</a></li>
+<li><a href="all-links.html">All free checks on this mirror</a></li>
+<li><a href="security-suite.html"><strong>Bundle deal: all 11 Ingenious AI platforms, one price</strong></a></li>
+</ul>
+</div>
+
+<p><strong>Get early access to the Ingenious AI platforms:</strong>
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard">DisclosureGuard</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder">ModelMinder</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch">TermsWatch</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit">Vibe-Code Audit</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense">Rogue-Agent Defense</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter">BreachHunter</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker">ChatBreaker</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder">Agent Flight Recorder</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway">Agent Auth Gateway</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard">DomainGuard</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI">ContentCraft AI</a>
+</p>
+
+<p class="smallprint">Incident framing on this page is based on the CVE-2026-114107 advisory for HKUDS Vibe-Trading as disclosed on October 21, 2026 (CVSS 8.7, prompt injection to root shell; root cause stated as zero input validation between the LLM and the sink). The checker above is a lightweight client-side pattern scan — a quick browser peek, not a full audit: it can miss sinks and can flag code that is safe in context. No pasted code is transmitted or stored. The full repository scanner is the open-source sink-gap-scanner from Ingenious AI.</p>
+
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' src="https://static.cloudflareinsights.com/beacon.min.js"></script>
+<script>
+/* LLM sink validation check: pure client-side pattern scan. Nothing is transmitted. */
+var SINK_PATTERNS = [
+  { re: /subprocess\.(run|call|Popen|check_output|check_call)\s*\([^)]*shell\s*=\s*True/s, label: "subprocess call with shell=True" },
+  { re: /\bos\.system\s*\(/, label: "os.system shell call" },
+  { re: /\bos\.popen\s*\(/, label: "os.popen shell call" },
+  { re: /\b(?:eval|exec)\s*\(/, label: "dynamic code execution call (eval / exec family)" },
+  { re: /\.execute\s*\(\s*(?:f["']|["'][^"']*%|["'][^"']*\+|\w+\s*%|\w+\s*\+|f["'])/, label: "SQL execute built with string formatting or concatenation" },
+  { re: /\.execute\s*\(\s*f["']/, label: "SQL execute with an f-string query" },
+  { re: /\bopen\s*\([^)]*,\s*["'][wa]["']/, label: "open() used to write or append a file" },
+  { re: /\brequests\.(get|post|put|delete|request)\s*\(\s*[a-zA-Z_]/, label: "requests call with a variable (non-literal) URL" },
+  { re: /\burllib\.request\.urlopen\s*\(\s*[a-zA-Z_]/, label: "urlopen call with a variable URL" }
+];
+var VAL_PATTERNS = [
+  { re: /\bnot in\b|\bin\s+(?:ALLOWED|ALLOWLIST|WHITELIST|VALID_|allowed_|ALLOWED_)/, label: "allowlist / membership check" },
+  { re: /\bshlex\.quote\s*\(/, label: "shlex.quote shell quoting" },
+  { re: /\bre\.fullmatch\s*\(/, label: "regex fullmatch validation" },
+  { re: /\bisinstance\s*\([^)]*\)\s*(?:and|or)?[^\n]*\blen\s*\(/, label: "isinstance + length guard" },
+  { re: /\bisinstance\s*\(/, label: "isinstance type guard" },
+  { re: /\blen\s*\([^)]*\)\s*(?:>|<|>=|<=|==)/, label: "length bound check" },
+  { re: /\.execute\s*\(\s*["'][^"']*\?[^"']*["']\s*,/, label: "parameterised SQL query (bound parameters)" }
+];
+function scanSinkCode(code) {
+  var sinks = [], vals = [], i;
+  for (i = 0; i < SINK_PATTERNS.length; i++) {
+    if (SINK_PATTERNS[i].re.test(code)) sinks.push(SINK_PATTERNS[i].label);
+  }
+  for (i = 0; i < VAL_PATTERNS.length; i++) {
+    if (VAL_PATTERNS[i].re.test(code)) vals.push(VAL_PATTERNS[i].label);
+  }
+  sinks = sinks.filter(function(v, idx, a) { return a.indexOf(v) === idx; });
+  vals = vals.filter(function(v, idx, a) { return a.indexOf(v) === idx; });
+  var verdict;
+  if (sinks.length === 0) verdict = "NO SINK FOUND";
+  else if (vals.length > 0) verdict = "VALIDATED";
+  else verdict = "SINK GAP";
+  return { sinks: sinks, vals: vals, verdict: verdict };
+}
+(function initSinkCheck() {
+  var input = document.getElementById("code-input");
+  var vuln = document.getElementById("ex-vuln");
+  var fixed = document.getElementById("ex-fixed");
+  if (!input) return;
+  input.value = vuln.value;
+  document.getElementById("load-vuln").addEventListener("click", function() { input.value = vuln.value; runScan(); });
+  document.getElementById("load-fixed").addEventListener("click", function() { input.value = fixed.value; runScan(); });
+  document.getElementById("scan-go").addEventListener("click", runScan);
+  function fillList(id, items, emptyText) {
+    var ul = document.getElementById(id);
+    ul.innerHTML = "";
+    if (items.length === 0) {
+      var li0 = document.createElement("li");
+      li0.textContent = emptyText;
+      ul.appendChild(li0);
+      return;
+    }
+    items.forEach(function(t) {
+      var li = document.createElement("li");
+      li.textContent = t;
+      ul.appendChild(li);
+    });
+  }
+  function runScan() {
+    var r = scanSinkCode(input.value || "");
+    var out = document.getElementById("sink-result");
+    var cls = { "SINK GAP": "gap", "VALIDATED": "okv", "NO SINK FOUND": "none" }[r.verdict];
+    var note = {
+      "SINK GAP": "A sink was found with no validation signal anywhere in the pasted code. This is the CVE-2026-114107 pattern: model-controlled text can flow straight into execution.",
+      "VALIDATED": "At least one sink and at least one validation signal were found. Check manually that the validation actually guards the same value that reaches the sink — this quick peek cannot prove that.",
+      "NO SINK FOUND": "No known sink pattern matched in the pasted code. That is a good sign, not a guarantee: indirect sinks, wrappers and other languages are outside this quick peek."
+    }[r.verdict];
+    out.innerHTML = "";
+    var badge = document.createElement("span");
+    badge.className = "badge " + cls;
+    badge.textContent = r.verdict;
+    out.appendChild(badge);
+    out.appendChild(document.createTextNode(" " + note));
+    document.getElementById("sink-findings").style.display = "block";
+    fillList("sink-list", r.sinks, "None detected.");
+    fillList("val-list", r.vals, "None detected.");
+  }
+  runScan();
+})();
+</script>
+</body>
+</html>
