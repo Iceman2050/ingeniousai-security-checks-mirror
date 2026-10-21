@@ -3116,3 +3116,6 @@ Append-only. Every page_gate.sh run records: date, page, verifier score, verdict
 | 2026-10-21T15:12Z | mcp-origin-hygiene-check.html | SCORE: 28/28 | PASS |
 | 2026-10-21T15:12Z | llm-sink-validation-check.html | SCORE: 28/28 | PASS |
 | 2026-10-21T15:12Z | yanked-package-autopsy-check.html | SCORE: 28/28 | PASS |
+| 2026-10-21T15:12Z | agent-monitor-tamper-check.html | SCORE: 28/28 | PASS |
+| 2026-10-21T15:13Z | ai-defender-refusal-check.html | SCORE: 28/28 | PASS |
+| 2026-10-21T15:13Z | agent-trust-pivot-check.html | SCORE: 28/28 | PASS |
