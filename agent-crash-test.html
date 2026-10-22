@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- skills-used: unlazy-gates -->
 <html lang="en" data-primary-keyword="ai agents 2026">
 <head>
 <meta charset="UTF-8">
@@ -56,6 +57,7 @@ button.copy:hover{border-color:#1c6ef2}
 .faq p{font-size:14.5px;color:#9aa7b8}
 .smallprint{font-size:13px;color:#6b7688;margin-top:30px}
 a{color:#6ea8fe}
+details{margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0}
 </style>
 <link rel="stylesheet" href="ecosystem.css">
 <meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
@@ -66,6 +68,7 @@ a{color:#6ea8fe}
 <h1>AI Agent Crash Test — AI Agents 2026</h1>
 <div class="guide-intro">
 <p class="dateline"><time datetime="2026-10-18">Reviewed October 18, 2026</time></p>
+<p><strong>Key figure:</strong> 63% of organizations in IBM's 2025 breach study had no AI governance policy, and 97% of AI-breach victims had no proper AI access controls (IBM, Cost of a Data Breach Report 2025).</p>
 <p>Cars get crash-tested before they hit the road; AI agents deserve the same. This drill throws five hostile scenarios at the idea of your agent: prompt injection hidden in tool output, jailbreak attempts, and other attacks that work against real deployments. AI agents 2026 are being wired into email, code, and money — each connection is a new way to crash.</p>
 <h2>How do AI agents 2026 fail under hostile input?</h2>
 <p>The classic failure is prompt injection: malicious instructions hidden in a webpage, document, or tool result that the agent treats as orders from its owner. Agents also fail by overstepping permissions, hallucinating actions as completed, and leaking data across trust boundaries. These are not edge cases — they are the standard attack patterns against deployed agents, which is why crash-testing with hostile input belongs in every agent release checklist.</p>
@@ -126,7 +129,7 @@ a{color:#6ea8fe}
 <div class="lbl">FROM INGENIOUS AI</div>
 <p style="font-size:17px;margin-bottom:6px"><strong>ChatBreaker</strong> runs these crash tests against your agents before attackers do. <strong>Agent Flight Recorder</strong> keeps the tamper-evident record when something goes wrong.</p>
 <p style="font-size:13px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</p>
-<a class="btn" href="https://chatbreaker.getingeniousai.com">Get ChatBreaker early access →</a><br>
+<a class="btn" href="https://chatbreaker.getingeniousai.com">Get ChatBreaker early access →</a><br/><a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms.">Get early access on WhatsApp &rarr;</a><br>
 <a class="btn alt" href="https://flightrecorder.getingeniousai.com">Get Agent Flight Recorder early access →</a>
 </div>
 
@@ -146,7 +149,13 @@ a{color:#6ea8fe}
 <div class="smallprint">Disclaimer: this page is an educational analytical writeup of publicly known attack classes against AI agents. It is not a pentest report, does not describe tests we ran, and names no specific vendor's product. Guardrail descriptions are architectural guidance, not a guarantee of protection for any particular deployment.</div>
 
 </div>
-<section style="max-width:860px;margin:36px auto;padding:0 20px"><h2 style="color:#e8edf3;font-size:22px;margin-bottom:8px">Frequently asked questions</h2><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">What is an AI agent crash test?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">A structured exercise that puts an AI agent through hostile scenarios — like prompt injection via tool output or permission escalation — to find failure modes before attackers do.</p></details><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">What hostile scenarios does this crash test cover?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">Five documented attack classes against AI coding agents, presented as analytical writeups with clearly-labeled illustrative reconstructions.</p></details><details style="background:#0d1420;border:1px solid #1e2a3a;border-radius:8px;margin:10px 0;padding:0"><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">How do you test an AI coding agent&#x27;s security?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">Probe its tool outputs for injection, test permission boundaries, and log every action — the same discipline tamper-evident logging enforces.</p></details></section>
+<section style="max-width:860px;margin:36px auto;padding:0 20px"><h2 style="color:#e8edf3;font-size:22px;margin-bottom:8px">Frequently asked questions</h2><details><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">What is an AI agent crash test?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">A structured exercise that puts an AI agent through hostile scenarios — like prompt injection via tool output or permission escalation — to find failure modes before attackers do.</p></details>
+<details><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">What hostile scenarios does this crash test cover?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">Five documented attack classes against AI coding agents, presented as analytical writeups with clearly-labeled illustrative reconstructions.</p></details>
+<details><summary style="cursor:pointer;padding:14px 16px;font-weight:bold;color:#e8edf3;font-size:15px">How do you test an AI coding agent&#x27;s security?</summary><p style="padding:0 16px 14px;color:#9aa7b8;font-size:14px;line-height:1.6;margin:0">Probe its tool outputs for injection, test permission boundaries, and log every action — the same discipline tamper-evident logging enforces.</p></details>
+<details><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">Is this a real penetration test of an AI agent?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">No. This is an analytical writeup of five well-documented attack classes against AI agents. The timestamps are illustrative reconstructions of how these attack classes typically play out, not a log of a test we ran. We did not execute attacks against any live third-party service.</p></details>
+<details><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">What is the most dangerous attack class against AI agents?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Prompt injection via tool output is widely considered the most dangerous class, because the attack arrives through channels the agent inherently trusts — file contents, web pages, database rows, and API responses. The guardrail is instruction/data separation: tool outputs are treated as data only, never as instructions, combined with allowlisted tool use.</p></details>
+<details><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">How do you stop an agent from escalating its own permissions?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">With a permission boundary outside the agent: least-privilege credentials, an approval gate for destructive actions, and policy enforcement that the agent cannot rewrite. If the policy lives where the agent can edit it, it is not a guardrail — it is a suggestion.</p></details>
+<details><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">Which platform checks my agent against these scenarios?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">ChatBreaker is our adversarial testing platform for AI agents — it runs hostile scenarios like these against your agent before attackers do. Agent Flight Recorder provides hash-chained, tamper-evident logging so that when something does go wrong, you have a forensic record of exactly what the agent did and when.</p></details></section>
 
 <div class="card">
   <h2>Related checks</h2>

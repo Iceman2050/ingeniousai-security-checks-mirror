@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- skills-used: unlazy-gates -->
 <html data-primary-keyword="cybersecurity" lang="en">
 <head>
 <meta charset="utf-8">
@@ -38,6 +39,7 @@ button{background:#1c6ef2;color:#fff;border:0;padding:12px 28px;border-radius:8p
 .tag.old{background:#3a4a1e;color:#d9e8a8}
 .tag.now{background:#123a5e;color:#a8d0f0}
 .tag.unv{background:#5e1f12;color:#f0b8a8}
+details{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0}
 </style>
   <meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -136,15 +138,23 @@ render();
 </script>
 
 <h2>Cybersecurity FAQ</h2>
-<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">Is the viral Alexa recording story real?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Yes - but it happened in May 2018 in Portland, when an Echo recorded a private conversation and sent it to a stranger due to a chain of misheard events. It is real history, not current news.</p></details>
-<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">What are the actual 2026 privacy issues?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Since March 2025 every Echo request is sent to Amazon's cloud (local-only processing was removed); follow-up mode keeps listening longer; a March 2026 ruling let wiretapping claims over false-wake recordings proceed; and Amazon paid a $25 million FTC settlement in 2023 over children's recordings.</p></details>
-<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">Does Alexa listen all the time?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">It listens locally for the wake word by design - that is how a hands-free speaker works. The real issues are false-wake recordings, cloud retention, and human review pipelines.</p></details>
-<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">What are the most important lockdown steps?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Set voice recordings to 'Don't retain' in Alexa Privacy, opt out of human review ('Use of voice recordings'), and use the physical mic-off button - a red ring means hardware-muted, the only setting that is not a software promise.</p></details>
-<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">Is the 'Alexa can see you' video real?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">An October 2026 viral video claiming an Echo showed awareness of people in a room is unverified - treat it as a rumor, not a finding.</p></details>
+<details><summary style="font-weight:700;cursor:pointer;color:#fff">Is the viral Alexa recording story real?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Yes - but it happened in May 2018 in Portland, when an Echo recorded a private conversation and sent it to a stranger due to a chain of misheard events. It is real history, not current news.</p></details>
+<details><summary style="font-weight:700;cursor:pointer;color:#fff">What are the actual 2026 privacy issues?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Since March 2025 every Echo request is sent to Amazon's cloud (local-only processing was removed); follow-up mode keeps listening longer; a March 2026 ruling let wiretapping claims over false-wake recordings proceed; and Amazon paid a $25 million FTC settlement in 2023 over children's recordings.</p></details>
+<details><summary style="font-weight:700;cursor:pointer;color:#fff">Does Alexa listen all the time?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">It listens locally for the wake word by design - that is how a hands-free speaker works. The real issues are false-wake recordings, cloud retention, and human review pipelines.</p></details>
+<details><summary style="font-weight:700;cursor:pointer;color:#fff">What are the most important lockdown steps?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Set voice recordings to 'Don't retain' in Alexa Privacy, opt out of human review ('Use of voice recordings'), and use the physical mic-off button - a red ring means hardware-muted, the only setting that is not a software promise.</p></details>
+<details><summary style="font-weight:700;cursor:pointer;color:#fff">Is the 'Alexa can see you' video real?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">An October 2026 viral video claiming an Echo showed awareness of people in a room is unverified - treat it as a rumor, not a finding.</p></details>
 <nav class="related-checks" style="margin:32px 0;padding:20px 0;border-top:1px solid #2a2f3a">
 <p style="font-size:13px;letter-spacing:2px;color:#6ea8fe;margin-bottom:10px">RELATED SECURITY CHECKS</p>
 <p style="font-size:15px"><a href="meta-glasses-wake-word-recording-check.html">Meta Glasses Recording Check</a> · <a href="amazon-bee-listening-privacy-check.html">Amazon Bee Listening Check</a> · <a href="tplink-tapo-camera-flaw-check.html">TP-Link Tapo Flaw Check</a></p>
 </nav>
+<div class="card">
+<h2>Related checks</h2>
+<ul>
+<li><a href="amazon-bee-listening-privacy-check.html">Amazon Bee Listening: Cybersecurity Questions</a></li>
+<li><a href="eilikio-toy-privacy-check.html">AI Toy Spying Risk: IoT Security News for Parents</a></li>
+<li><a href="breach-check.html">Data Breach News Check — Have Your Credentials Leaked?</a></li>
+</ul>
+</div>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>

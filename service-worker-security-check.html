@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- skills-used: unlazy-gates -->
 <html lang="en" data-primary-keyword="cybersecurity news">
 <head>
 <meta charset="UTF-8">
@@ -45,6 +46,7 @@ li{margin:8px 0}
 .howto b{color:#7ee787}
 code{background:#0d1219;border:1px solid #232b38;border-radius:6px;padding:2px 6px;font-size:13px;color:#7ee787}
 footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+details{margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What makes a service worker a security risk?","acceptedAnswer":{"@type":"Answer","text":"A service worker can intercept, read, and modify every network request and response inside its scope — navigation, API calls, everything. That is exactly what makes it powerful for offline apps and caching, and exactly what makes a compromised or sloppy one a man-in-the-middle on your own site: it could rewrite responses, skim form data, or serve poisoned content indefinitely."}},{"@type":"Question","name":"Can an attacker install their own service worker on my site?","acceptedAnswer":{"@type":"Answer","text":"Only through the same doors as any other compromise. A service worker script must be same-origin — a cross-origin script cannot be registered — so an attacker needs script execution on your origin (e.g. an XSS vulnerability) or a compromised server/CDN. That is why XSS defense, supply-chain hygiene, and keeping the service worker script minimal all matter."}},{"@type":"Question","name":"Why shouldn't I cache authenticated or sensitive responses?","acceptedAnswer":{"@type":"Answer","text":"Cache Storage is readable by any JavaScript running on your origin. If your service worker caches responses containing tokens, personal data, or private content, a single XSS flaw turns into a data-exfiltration channel for everything you cached. Keep sensitive responses out of the cache, or fetch them network-only."}},{"@type":"Question","name":"How do I kill a misbehaving service worker?","acceptedAnswer":{"@type":"Answer","text":"Ship a clean update whose script unregisters itself: navigator.serviceWorker.getRegistrations().then(r => r.forEach(reg => reg.unregister())). You can also inspect and remove workers per-site in browser DevTools (Application tab) or via chrome://serviceworker-internals. Have the kill path ready before you need it, not after."}},{"@type":"Question","name":"How do I scan AI-generated code for vulnerabilities?","acceptedAnswer":{"@type":"Answer","text":"Run a static-analysis (SAST) scanner over the repo — open-source options include Semgrep and vibe-code-focused AI code security scanners — plus a secrets scan for hardcoded API keys, then a dynamic (DAST) scan against the running app. No scanner replaces a human review of authentication, data handling, and business logic."}},{"@type":"Question","name":"What is vibe coding security?","acceptedAnswer":{"@type":"Answer","text":"Vibe coding security is the practice of checking AI-generated code for the flaws models commonly introduce: hardcoded secrets, injection flaws, cross-site scripting, disabled TLS verification, and insecure defaults. Research (Veracode's 2025 GenAI Code Security Report) found 45% of AI-generated code shipped a real vulnerability."}}],"about":{"@type":"Thing","name":"AI code security"},"keywords":"AI code security, service worker security, PWA security, AI code vulnerabilities, web security check"}</script>
 <link rel="stylesheet" href="ecosystem.css">
@@ -134,7 +136,7 @@ renderQ();
 <div class="kw-faq" style="margin:32px 0;padding:24px;background:#11161f;border:1px solid #232b38;border-radius:12px">
 <h2 style="font-size:20px;margin-bottom:12px;color:#fff">Frequently asked questions</h2>
 <h2>FAQ</h2>
-<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">How do I scan AI-generated code for vulnerabilities?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Run a static-analysis (SAST) scanner over the repo — open-source options include Semgrep and vibe-code-focused AI code security scanners — plus a secrets scan for hardcoded API keys, then a dynamic (DAST) scan against the running app. No scanner replaces a human review of authentication, data handling, and business logic.</p></details>
+<details><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">How do I scan AI-generated code for vulnerabilities?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Run a static-analysis (SAST) scanner over the repo — open-source options include Semgrep and vibe-code-focused AI code security scanners — plus a secrets scan for hardcoded API keys, then a dynamic (DAST) scan against the running app. No scanner replaces a human review of authentication, data handling, and business logic.</p></details>
     <details>
       <summary>What makes a service worker a security risk?</summary>
       <p>A service worker can intercept, read, and modify every network request and response inside its scope — navigation, API calls, everything. That is exactly what makes it powerful for offline apps and caching, and exactly what makes a compromised or sloppy one a man-in-the-middle on your own site: it could rewrite responses, skim form data, or serve poisoned content indefinitely.</p>
@@ -151,7 +153,7 @@ renderQ();
       <summary>How do I kill a misbehaving service worker?</summary>
       <p>Ship a clean update whose script unregisters itself: navigator.serviceWorker.getRegistrations().then(r => r.forEach(reg => reg.unregister())). You can also inspect and remove workers per-site in browser DevTools (Application tab) or via chrome://serviceworker-internals. Have the kill path ready before you need it, not after.</p>
     </details>
-<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">What is vibe coding security?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Vibe coding security is the practice of checking AI-generated code for the flaws models commonly introduce: hardcoded secrets, injection flaws, cross-site scripting, disabled TLS verification, and insecure defaults. Research (Veracode's 2025 GenAI Code Security Report) found 45% of AI-generated code shipped a real vulnerability.</p></det
+<details><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">What is vibe coding security?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Vibe coding security is the practice of checking AI-generated code for the flaws models commonly introduce: hardcoded secrets, injection flaws, cross-site scripting, disabled TLS verification, and insecure defaults. Research (Veracode's 2025 GenAI Code Security Report) found 45% of AI-generated code shipped a real vulnerability.</p></details>
 <div class="card">
   <h2>Related checks</h2>
   <ul>
@@ -159,9 +161,7 @@ renderQ();
       <li><a href="domain-check.html">Domain Check</a></li>
       <li><a href="ai-pentest-chrome-check.html">AI Pentest Chrome Check</a></li>
   </ul>
-</div>
-ails>
-</div>
+</div></div>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}</script>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>

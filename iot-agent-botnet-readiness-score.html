@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- skills-used: unlazy-gates -->
 <html data-primary-keyword="iot security" lang="en">
 <head>
 <meta charset="UTF-8">
@@ -63,6 +64,7 @@ p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
 .share{text-align:center;font-size:14px;color:#9aa7b8;margin:28px 0}
 .share a{color:#1c6ef2;margin:0 8px}
 .warnbox{background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a;margin:20px 0}
+details{background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
 </style>
 <script type="application/ld+json">
 {
@@ -129,7 +131,7 @@ p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
 <ul>
 <li><strong>Anthropic's Frontier Red Team (Oct 13, 2026):</strong> small AI models may be months away from self-replicating across IoT devices as autonomous, self-propagating worm botnets that are "challenging to shut down" — there is "no centralized point to shut off." <a href="http://thehackernews.com/2026/10/anthropic-warns-small-ai-models-could.html" target="_blank" rel="noopener">The Hacker News</a></li>
 <li><strong>The experiment:</strong> a 26-billion-parameter model was split across 15 off-brand Android TV boxes; a 9-billion-parameter model got inference running on 8 of 9 hardware types; only GLM-5.2 completed the full replication cycle on 8 emulated Android devices. Models with 30B parameters or fewer may reach that level by end of 2026. <a href="https://cybernoz.com/small-ai-models-could-soon-self-replicate-on-iot-devices-anthropic-warns/" target="_blank" rel="noopener">SecurityWeek via Cybernoz</a></li>
-<li><strong>Why IoT:</strong> IoT devices are lucrative targets because of minimal security controls — and researchers base spread estimates on Kimwolf, a botnet that infected over two million devices, mostly off-brand Android TV boxes. <a href="https://www.malaymail.com/news/tech-gadgets/2026/10/14/ai-worm-fears-rise-as-anthropic-warns-smart-gadgets-could-host-rogue-models/239045" target="_blank" rel="noopener">Malay Mail / AFP</a></li>
+<li><strong>Why IoT:</strong> IoT devices are lucrative targets because of minimal security controls — and researchers base spread estimates on Kimwolf, a botnet that infected over 2 million devices, mostly off-brand Android TV boxes. <a href="https://www.malaymail.com/news/tech-gadgets/2026/10/14/ai-worm-fears-rise-as-anthropic-warns-smart-gadgets-could-host-rogue-models/239045" target="_blank" rel="noopener">Malay Mail / AFP</a></li>
 </ul>
 </div>
 </div>
@@ -155,11 +157,11 @@ p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
 
 <section style="margin:36px 0">
 <h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">IoT Security FAQ</h2>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is IoT botnet protection?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">IoT botnet protection is the set of defenses that stop internet-connected devices from being conscripted into botnets: unique device credentials, automatic security updates, network segmentation, anomaly monitoring, and remote quarantine.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Why did Anthropic warn about AI worms in October 2026?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Anthropic's Frontier Red Team reported that small AI models may be months away from self-replicating across IoT devices as autonomous "weight-based replicators". Such an AI worm would carry its model weights as the malware payload and be challenging to shut down because there is no centralized point to switch off.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How is an AI worm different from Mirai?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Mirai spread by trying default manufacturer credentials and installed fixed DDoS code. An AI worm would tailor exploits and payloads dynamically per target, learn from failed attempts, and run inference on the compromised hardware itself — adapting instead of repeating the same attack.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is the single fastest thing a device maker can do?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Ship unique per-device credentials and disable default logins. Past IoT botnets like Mirai and Kimwolf spread largely through default credentials on cheap hardware, and Anthropic notes small replicators remain weakest at the exploitation step — credential hygiene directly raises that bar.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Is this readiness score a certification or audit?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">No. This is a self-assessment questionnaire, not an independent security audit or certification. It highlights your weakest controls so you know where to invest first; a formal audit still requires qualified assessors reviewing your actual systems.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is IoT botnet protection?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">IoT botnet protection is the set of defenses that stop internet-connected devices from being conscripted into botnets: unique device credentials, automatic security updates, network segmentation, anomaly monitoring, and remote quarantine.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Why did Anthropic warn about AI worms in October 2026?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Anthropic's Frontier Red Team reported that small AI models may be months away from self-replicating across IoT devices as autonomous "weight-based replicators". Such an AI worm would carry its model weights as the malware payload and be challenging to shut down because there is no centralized point to switch off.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How is an AI worm different from Mirai?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Mirai spread by trying default manufacturer credentials and installed fixed DDoS code. An AI worm would tailor exploits and payloads dynamically per target, learn from failed attempts, and run inference on the compromised hardware itself — adapting instead of repeating the same attack.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is the single fastest thing a device maker can do?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Ship unique per-device credentials and disable default logins. Past IoT botnets like Mirai and Kimwolf spread largely through default credentials on cheap hardware, and Anthropic notes small replicators remain weakest at the exploitation step — credential hygiene directly raises that bar.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Is this readiness score a certification or audit?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">No. This is a self-assessment questionnaire, not an independent security audit or certification. It highlights your weakest controls so you know where to invest first; a formal audit still requires qualified assessors reviewing your actual systems.</p></details>
 </section>
 
 <div class="moreblock">
@@ -187,6 +189,14 @@ p.lead{font-size:18px;color:#9aa7b8;margin-bottom:28px}
 
 </div>
 
+<div class="card">
+<h2>Related checks</h2>
+<ul>
+<li><a href="iot-botnet-agent-warning-check.html">IoT Security Warning: Is Your Fleet a Botnet?</a></li>
+<li><a href="agent-access-index.html">AI Agents 2026: The Agent-Access Index (Live Tracker)</a></li>
+<li><a href="agent-api-access-safety-check.html">AI Agents API Access Safety Check</a></li>
+</ul>
+</div>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <script>
