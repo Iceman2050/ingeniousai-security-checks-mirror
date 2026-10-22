@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, public_page_preflight, documents -->
+<html data-primary-keyword="ai agents 2026" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agents 2026: Exposed Dashboard Check</title>
+<meta name="description" content="AI agents 2026: audit your Cairn dashboard in 2 minutes. Check if your agent control panel is public, unauthenticated, or leaking API keys.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/cairn-exposed-dashboard-check.html">
+<meta property="og:title" content="Is YOUR Agent's Control Panel Public? — Cairn Exposed Dashboard Check">
+<meta property="og:description" content="Attackers left their own Cairn panels wide open — and a researcher watched 100+ sites get breached through them. Audit your agent dashboard in 2 minutes.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/cairn-exposed-dashboard-check.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Is YOUR Agent's Control Panel Public? — Cairn Exposed Dashboard Check">
+<meta name="twitter:description" content="10 questions. One verdict: EXPOSED-LIKELY, AT-RISK or HARDENED. Check your AI agent dashboard before someone else operates it.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:860px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}h3{font-size:1.1rem;color:#7cc4ff}
+a{color:#7cc4ff}
+.answerbox{background:#141a26;border:1px solid #2e3a52;border-left:4px solid #7cc4ff;border-radius:0 8px 8px 0;padding:1rem 1.2rem;margin:1.2rem 0}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+.badge{display:inline-block;padding:.15rem .6rem;border-radius:999px;font-size:.78rem;font-weight:700;white-space:nowrap}
+.exposed{background:#3a1a1a;color:#f87171}.atrisk{background:#2e2410;color:#ffd166}.hardened{background:#14301f;color:#4ade80}.unknown{background:#222836;color:#9aa3b2}
+button.submit{background:#ffd166;color:#111;border:0;border-radius:8px;padding:.7rem 1.4rem;font-weight:700;cursor:pointer;font-size:1rem}
+button.ghost{background:#222836;color:#e8e8e8;border:1px solid #3a4356;border-radius:8px;padding:.5rem 1rem;cursor:pointer;font-size:.9rem;margin:.2rem .2rem .2rem 0}
+.qcard{background:#1a1e27;border:1px solid #2a3242;border-radius:8px;padding:1rem;margin:1rem 0}
+.opt{display:block;background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.6rem .9rem;margin:.4rem 0;cursor:pointer;width:100%;text-align:left;color:#e8e8e8;font-size:.95rem;box-sizing:border-box}
+.opt:hover{border-color:#ffd166}.opt.picked{border-color:#7cc4ff;background:#24304a}
+#audit-result{font-weight:700;margin-top:1rem;font-size:1.1rem}
+.fixlist{background:#141a26;border:1px solid #2e3a52;border-radius:8px;padding:1rem 1.2rem;margin-top:1rem}
+.fixlist li{margin:.5rem 0}
+.sharecard{background:#141a26;border:1px dashed #7cc4ff;border-radius:8px;padding:1rem;margin-top:1rem}
+.meta{color:#9aa3b2;font-size:.85rem}
+.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}
+.smallprint{color:#9aa3b2;font-size:.8rem;margin-top:2rem}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "Is YOUR Agent's Control Panel Public? — Cairn Exposed Dashboard Check", "author": {"@type": "Organization", "name": "Ingenious AI"}, "datePublished": "2026-10-20", "dateModified": "2026-10-20", "description": "A 10-question guided self-audit for exposed AI agent orchestration dashboards, built on the October 2026 Cairn incident reporting: 1,200+ sites attempted, 100+ breached through open agent control panels."}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://github.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type": "Question", "name": "What happened in the Cairn dashboard incident?", "acceptedAnswer": {"@type": "Answer", "text": "Threat researcher Snorre Fagerland of NorForge found about two dozen exposed instances of Cairn, an open-source agent-orchestration tool, whose web dashboards operators had left unprotected. Fourteen panels were linked to one Chinese-speaking operator running more than 1,100 attack projects: the agents attempted more than 1,200 websites and breached over 100, with journalists identifying Deere, SharkNinja and Cummins among the victims. The open panels exposed targets, findings, stolen credentials and live progress."}},
+{"@type": "Question", "name": "Why is an exposed agent dashboard worse than an exposed ordinary admin page?", "acceptedAnswer": {"@type": "Answer", "text": "An agent-orchestration dashboard is not a read-only admin page. It typically holds stored API keys and credentials, shows live targets and findings, and offers full control of autonomous agents that can browse, write code and run tools. In the Cairn case the dashboards appeared to expose full admin controls, so a stranger could in theory redirect the agents themselves — the control panel is the weapon, not just a window into it."}},
+{"@type": "Question", "name": "Can this page scan my server to check whether my dashboard is exposed?", "acceptedAnswer": {"@type": "Answer", "text": "No — and any page that claims to scan your server from a browser is misleading you. Browser security rules (CORS) prevent this page from probing your infrastructure, and we do not try. This is a guided self-audit: you answer 10 questions about your own deployment and get a scored verdict. For a real automated scan of systems you own, use the open-source cairn-panel-hunter CLI companion tool, which checks for publicly reachable agent panels from your own network."}},
+{"@type": "Question", "name": "How can I check right now whether my panel is public?", "acceptedAnswer": {"@type": "Answer", "text": "Use a device outside your network: turn off Wi-Fi on your phone so it uses mobile data, then open your dashboard URL. If the panel or its login page loads, it is reachable from the public internet. Also review your cloud security groups, reverse-proxy rules and port-forwarding for the panel's port, and check whether the URL appears in your own external attack-surface scans. If you did not deliberately publish it, treat any public reachability as an incident."}},
+{"@type": "Question", "name": "My panel is exposed. What do I do in the first hour?", "acceptedAnswer": {"@type": "Answer", "text": "First, take the panel off the public internet — bind it to localhost or a private network, or put it behind a VPN or identity-aware proxy. Second, rotate every API key, token and credential the panel could see or had stored; in the Cairn case, hundreds of leaked credentials were found in exposed data and 11% verified as still valid. Third, review access logs and agent run history for projects, targets or runs you do not recognize. Only then re-open access, behind unique accounts with MFA enforced."}}
+]}
+</script>
+</head>
+<body data-primary-keyword="ai agents 2026">
+<h1>AI Agents 2026: Is YOUR Agent's Control Panel Public?</h1>
+<p class="meta">Published <time datetime="2026-10-20">October 20, 2026</time> · by Ingenious AI · 2-minute guided self-audit</p>
+
+<p><strong>AI agents 2026 just handed us the perfect cautionary tale — told by the attackers themselves.</strong> A hacking crew ran its entire intrusion campaign from Cairn, an open-source agent-orchestration tool, and left the web dashboards unprotected. A researcher found the open panels and watched the campaign live: more than 1,200 websites attempted, over 100 breached. If professionals who hack for a living left their agent control panel public, the honest question is whether yours is too. This page audits it in 10 questions.</p>
+
+<div class="answerbox">
+<p><strong>The short answer:</strong> an agent dashboard is exposed if it loads from the public internet, lets anyone reach a login (or worse, no login), still accepts default credentials, or shows stored API keys to whoever gets in. Any one of those made the Cairn panels an open control room. Answer the 10 questions below honestly and you get a verdict — <span class="badge exposed">EXPOSED-LIKELY</span>, <span class="badge atrisk">AT-RISK</span> or <span class="badge hardened">HARDENED</span> — plus the exact fix for every weak answer.</p>
+</div>
+
+<h2>What is an exposed dashboard for AI agents 2026?</h2>
+<p>An exposed agent dashboard is a web control panel for AI agents that anyone on the public internet can reach without a VPN or private network. It often shows live agent runs, stored API keys, targets and full controls, letting strangers watch or operate your agents.</p>
+
+<h2>What happened: the Cairn panels (labeled source)</h2>
+<p>Source: <a href="https://www.technology.org/2026/10/20/hacker-ai-agents-cairn-100-websites-deere-sharkninja-cummins/" rel="noopener">technology.org, October 20, 2026 — "One Hacker's AI Agents Breached 100+ Websites"</a>, reporting NorForge research by principal threat researcher Snorre Fagerland. Key facts from that reporting:</p>
+<ul>
+<li>Fagerland searched for exposed copies of <strong>Cairn</strong>, an open-source tool that gives AI agents a starting point and a goal and lets them work toward it step by step. From around October 2 he found <strong>about two dozen Cairn panels in malicious use</strong>, because operators "often leave its web interface unprotected."</li>
+<li><strong>14 panels</strong> were linked to one Chinese-speaking operator (tracked as AIA0001), running <strong>more than 1,100 attack projects</strong> between them. The campaign began September 25; by mid-October the agents had <strong>tried more than 1,200 sites</strong> and <strong>breached over 100</strong>.</li>
+<li>The open panels showed <strong>everything</strong>: targets, findings, stolen credentials and live progress — and appeared to expose <strong>full admin controls</strong>, so a stranger could in theory redirect the agents.</li>
+<li>Running the Trufflehog scanner over the exposed data found <strong>hundreds of credentials and keys, 11% verified as valid</strong>.</li>
+<li>Journalists identified victims including <strong>Deere, SharkNinja and Cummins</strong> by reviewing the hacker's own Cairn activity. Estimated cost: about $5,000 in AI tokens, roughly $50 per successful break-in.</li>
+</ul>
+<p>Read that list again as a defender. Every item on it is a property of <em>your</em> agent stack too: a web panel, stored keys, live runs, admin controls. The only difference between the hacker's setup and a typical startup's agent deployment is intent — the exposure pattern is identical.</p>
+
+<h2>The 2-minute self-audit: 10 questions</h2>
+<p>Answer for the agent dashboard you actually run — Cairn, or any orchestration / control panel (agent runners, workflow UIs, homegrown admin pages). Pick the answer that is true <em>today</em>, not the one on your roadmap. Your answers never leave your browser.</p>
+<p class="meta"><strong>Honest scope note:</strong> a browser page cannot scan your server for you — browser security rules (CORS) forbid it, and this page does not probe anything. This is a guided self-audit with real scoring. For an automated scan of systems you own, use the open-source <a href="https://github.com/Iceman2050/cairn-panel-hunter">cairn-panel-hunter</a> CLI companion (publishing to the Ingenious AI GitHub estate once the account is restored), which checks for publicly reachable agent panels from your own network.</p>
+
+<div id="audit-questions"></div>
+<button class="submit" id="audit-go">Get my verdict</button>
+<div id="audit-result" role="status"></div>
+<div class="fixlist" id="audit-fixes" style="display:none">
+<p><strong>Your remediation list</strong> — in priority order, worst exposure first:</p>
+<ul id="fix-items"></ul>
+</div>
+<div class="sharecard" id="share-card" style="display:none">
+<p><strong>Your share card</strong></p>
+<p id="share-text"></p>
+<button class="ghost" id="share-copy">Copy text</button>
+<a class="ghost" id="share-x" href="#" target="_blank" rel="noopener" style="text-decoration:none;display:inline-block">Share on X</a>
+<a class="ghost" id="share-li" href="#" target="_blank" rel="noopener" style="text-decoration:none;display:inline-block">Share on LinkedIn</a>
+</div>
+
+<h2>What an exposed panel actually leaks</h2>
+<p>Defenders tend to picture an exposed dashboard as a login page someone might brute-force. The Cairn case shows the real damage model. An orchestration panel concentrates four things attackers normally have to steal separately: <strong>capability</strong> (agents that can browse, write and execute), <strong>credentials</strong> (the API keys and tokens the agents run on), <strong>intelligence</strong> (targets, findings, and what already worked), and <strong>control</strong> (start, stop and redirect buttons for live agents). Whoever reaches the panel does not need to build an attack platform — you already built it, and left the door open. That is why "it is just an internal tool" is the most dangerous sentence in AI agents 2026 operations.</p>
+
+<h2>The five-minute hardening baseline</h2>
+<ul>
+<li><strong>Off the public internet.</strong> Bind the panel to localhost or a private network, or put it behind a VPN / identity-aware proxy. If it must be reachable, an IP allowlist is the floor, not the ceiling.</li>
+<li><strong>Real authentication.</strong> Unique per-person accounts, default credentials changed everywhere, MFA enforced — not offered, enforced.</li>
+<li><strong>Secrets stay secret.</strong> The panel should never render a full API key after creation. Masked, non-copyable, rotatable — and rotate anything an exposed panel ever displayed.</li>
+<li><strong>Sessions expire.</strong> Short-lived sessions and step-up re-authentication before destructive or agent-redirecting actions.</li>
+<li><strong>Watch the watchers.</strong> Log every login and every agent run; alert on failures and on runs nobody on your team started. The Cairn operator's campaign ran for weeks inside panels nobody was reviewing.</li>
+</ul>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What happened in the Cairn dashboard incident?</summary>
+<p>Threat researcher Snorre Fagerland of NorForge found about two dozen exposed instances of Cairn, an open-source agent-orchestration tool, whose web dashboards operators had left unprotected. Fourteen panels were linked to one Chinese-speaking operator running more than 1,100 attack projects: the agents attempted more than 1,200 websites and breached over 100, with journalists identifying Deere, SharkNinja and Cummins among the victims. The open panels exposed targets, findings, stolen credentials and live progress.</p></details>
+<details><summary>Why is an exposed agent dashboard worse than an exposed ordinary admin page?</summary>
+<p>An agent-orchestration dashboard is not a read-only admin page. It typically holds stored API keys and credentials, shows live targets and findings, and offers full control of autonomous agents that can browse, write code and run tools. In the Cairn case the dashboards appeared to expose full admin controls, so a stranger could in theory redirect the agents themselves — the control panel is the weapon, not just a window into it.</p></details>
+<details><summary>Can this page scan my server to check whether my dashboard is exposed?</summary>
+<p>No — and any page that claims to scan your server from a browser is misleading you. Browser security rules (CORS) prevent this page from probing your infrastructure, and we do not try. This is a guided self-audit: you answer 10 questions about your own deployment and get a scored verdict. For a real automated scan of systems you own, use the open-source cairn-panel-hunter CLI companion tool, which checks for publicly reachable agent panels from your own network.</p></details>
+<details><summary>How can I check right now whether my panel is public?</summary>
+<p>Use a device outside your network: turn off Wi-Fi on your phone so it uses mobile data, then open your dashboard URL. If the panel or its login page loads, it is reachable from the public internet. Also review your cloud security groups, reverse-proxy rules and port-forwarding for the panel's port, and check whether the URL appears in your own external attack-surface scans. If you did not deliberately publish it, treat any public reachability as an incident.</p></details>
+<details><summary>My panel is exposed. What do I do in the first hour?</summary>
+<p>First, take the panel off the public internet — bind it to localhost or a private network, or put it behind a VPN or identity-aware proxy. Second, rotate every API key, token and credential the panel could see or had stored; in the Cairn case, hundreds of leaked credentials were found in exposed data and 11% verified as still valid. Third, review access logs and agent run history for projects, targets or runs you do not recognize. Only then re-open access, behind unique accounts with MFA enforced.</p></details>
+
+<div class="xlinks">
+<p><strong>Related checks:</strong></p>
+<ul>
+<li><a href="agent-api-access-safety-check.html">Agent API Access Safety Check — what your agent's keys can reach</a></li>
+<li><a href="ai-agent-airgap-check.html">AI Agent Airgap Check — is your agent really isolated?</a></li>
+<li><a href="agent-permissions-quiz.html">Agent Permissions Quiz — how much power did you hand your agent?</a></li>
+<li><a href="agent-kill-switch-registry.html">Agent Kill-Switch Registry — who can stop a rogue agent</a></li>
+<li><a href="ai-platform-security-self-check-suite.html">AI Platform Security Self-Check Suite — the full battery</a></li>
+<li><a href="all-links.html">All free checks on this mirror</a></li>
+<li><a href="security-suite.html"><strong>Bundle deal: all 11 Ingenious AI platforms, one price</strong></a></li>
+</ul>
+</div>
+
+<p><strong>Get early access to the Ingenious AI platforms:</strong>
+<a href="https://disclosureguard.getingeniousai.com">DisclosureGuard</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder">ModelMinder</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch">TermsWatch</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit">Vibe-Code Audit</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense">Rogue-Agent Defense</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter">BreachHunter</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker">ChatBreaker</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder">Agent Flight Recorder</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway">Agent Auth Gateway</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard">DomainGuard</a> ·
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI">ContentCraft AI</a>
+</p>
+
+<p class="smallprint">Incident facts on this page are from the labeled source above: technology.org (October 20, 2026), reporting NorForge research; victim identifications were made by journalists reviewing the exposed panels, and the amount of data taken has not been confirmed. The audit above is a guided self-assessment with real client-side scoring — it is not an automated scan of your server, and no answers are transmitted anywhere. Verdicts are risk indicators, not guarantees; the cairn-panel-hunter CLI performs the real network-level check on systems you own.</p>
+
+<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' src="https://static.cloudflareinsights.com/beacon.min.js"></script>
+<script>
+/* --- Cairn exposed-dashboard self-audit: pure scoring fn (unit-tested headlessly) --- */
+/* points: array of per-question risk points, each 0 (hardened), 1 (partial), 2 (exposed) */
+function cairnAuditGrade(points) {
+  var score = 0, i;
+  for (i = 0; i < points.length; i++) { score += points[i]; }
+  var max = points.length * 2;
+  var verdict, label, detail;
+  if (score >= 12) {
+    verdict = "EXPOSED-LIKELY"; label = "Your panel matches the Cairn exposure pattern";
+    detail = "On these answers, a stranger who finds your dashboard URL can likely get in, see live agent activity, and possibly operate your agents. Treat the remediation list below as an incident queue, starting today.";
+  } else if (score >= 5) {
+    verdict = "AT-RISK"; label = "Real gaps between you and the Cairn pattern";
+    detail = "Your panel is not wide open, but the weak answers below are exactly the links attackers chain together. Close them in the order listed.";
+  } else {
+    verdict = "HARDENED"; label = "Your panel does not match the Cairn exposure pattern";
+    detail = "On these answers your dashboard is private, authenticated and stingy with secrets. Keep it that way: re-run this audit after every deployment change, and rotate keys on schedule.";
+  }
+  return { score: score, max: max, verdict: verdict, label: label, detail: detail };
+}
+var CAIRN_QS = [
+  { key: "reach", q: "Can the dashboard be opened from the public internet — no VPN, no office network required?",
+    opts: [
+      { t: "Yes — anyone with the URL can load the panel or its login page", pts: 2, fix: "Take the panel off the public internet today: bind it to localhost or a private network, or put it behind a VPN / identity-aware proxy. A public agent control panel is the exact Cairn failure." },
+      { t: "Not sure", pts: 1, fix: "Test it now: phone on mobile data (Wi-Fi off), open the panel URL. If it loads, it is public — then take it off the public internet or gate it behind a VPN / identity-aware proxy." },
+      { t: "No — VPN, private network or bastion only", pts: 0, fix: "" } ] },
+  { key: "auth", q: "Does the panel require a login before it shows anything at all?",
+    opts: [
+      { t: "No login — the panel just opens", pts: 2, fix: "Enable authentication before anything else. An unauthenticated orchestration panel hands full agent control to whoever finds the URL — no password guessing required." },
+      { t: "A login exists, but some pages or APIs answer without it", pts: 1, fix: "Audit every route and API endpoint for unauthenticated access, including status, export and websocket endpoints. Partial auth is how 'protected' panels leak." },
+      { t: "Yes — every page and API call requires auth", pts: 0, fix: "" } ] },
+  { key: "defaults", q: "Are default or vendor-supplied credentials still valid anywhere on the panel or its stack?",
+    opts: [
+      { t: "Yes, or we never changed them", pts: 2, fix: "Change every default credential now — panel, database, bundled services. Default passwords are public knowledge and are the first thing automated scanners try." },
+      { t: "Not sure — nobody has audited this", pts: 1, fix: "Audit defaults today: panel admin, database, message queue, monitoring. 'Nobody checked' scores as exposed because scanners check for you." },
+      { t: "No — all defaults changed and documented", pts: 0, fix: "" } ] },
+  { key: "accounts", q: "How do people sign in to the panel?",
+    opts: [
+      { t: "One shared account everyone uses", pts: 2, fix: "Move to unique per-person accounts. A shared login means no accountability, no revocation when someone leaves, and one leaked password exposes everyone." },
+      { t: "Personal accounts, but passwords only — no SSO", pts: 1, fix: "Put the panel behind SSO so access follows your identity provider: joiner/leaver changes and password policy then apply automatically." },
+      { t: "Unique accounts via SSO / identity provider", pts: 0, fix: "" } ] },
+  { key: "mfa", q: "Is multi-factor authentication enforced for everyone who can reach the panel?",
+    opts: [
+      { t: "No MFA at all", pts: 2, fix: "Enforce MFA for every panel user. The panel controls autonomous agents and stored keys — a single phished password must not be enough." },
+      { t: "MFA is available but optional", pts: 1, fix: "Flip MFA from optional to enforced. Optional MFA protects only the people who least need protecting." },
+      { t: "MFA enforced for all users", pts: 0, fix: "" } ] },
+  { key: "secrets", q: "What does the panel show about stored API keys and credentials?",
+    opts: [
+      { t: "Full keys are visible (and copyable) in the UI", pts: 2, fix: "Stop rendering full secrets after creation and rotate every key the panel has displayed. In the Cairn panels, exposed data yielded hundreds of credentials — 11% verified still valid." },
+      { t: "Keys are masked, but can be revealed or copied", pts: 1, fix: "Remove reveal/copy for stored secrets; show only a fingerprint (last 4 characters). Anything the UI can show, an attacker in the UI can take." },
+      { t: "Keys are never shown again after creation", pts: 0, fix: "" } ] },
+  { key: "gate", q: "Is there an extra gate in front of the panel — IP allowlist, reverse-proxy auth, or zero-trust access?",
+    opts: [
+      { t: "No — the panel's own login is the only barrier", pts: 2, fix: "Add a network-layer gate: IP allowlist, identity-aware proxy, or VPN. Defense in depth means a panel bug or weak password is not immediately game over." },
+      { t: "Partially — some paths or ports bypass it", pts: 1, fix: "Close the bypasses: direct ports, staging hostnames and health endpoints must sit behind the same gate as the main UI." },
+      { t: "Yes — every path goes through the gate", pts: 0, fix: "" } ] },
+  { key: "power", q: "What can someone who reaches the panel actually do?",
+    opts: [
+      { t: "Full control: start, stop and redirect agents, edit goals, run tools or code", pts: 2, fix: "Reduce standing power: make the default view read-only, require step-up re-authentication for starting or redirecting agents, and separate operator from viewer roles. Full control is why an exposed panel is a weapon, not just a leak." },
+      { t: "Can start/stop agents, but not edit goals or run code", pts: 1, fix: "Add step-up re-authentication and role separation for start/stop actions, and log every control action to a system the panel cannot erase." },
+      { t: "Read-only — control happens elsewhere", pts: 0, fix: "" } ] },
+  { key: "sessions", q: "How long do panel login sessions last?",
+    opts: [
+      { t: "Sessions never expire (or last for weeks)", pts: 2, fix: "Shorten session lifetime to hours, expire idle sessions, and require re-authentication for sensitive actions. A stolen never-expiring session is a permanent key." },
+      { t: "Sessions last days", pts: 1, fix: "Bring sessions down to hours with idle timeouts. Days-long sessions outlive laptop thefts, shared machines and forgotten tabs." },
+      { t: "Hours, with idle timeout and re-auth for sensitive actions", pts: 0, fix: "" } ] },
+  { key: "logging", q: "Do you get alerted on panel logins and agent runs — and does anyone review them?",
+    opts: [
+      { t: "No meaningful logging or alerts", pts: 2, fix: "Turn on login and run logging with alerts for failures and for runs nobody started. The Cairn campaign ran for weeks inside panels nobody was watching — unreviewed access is invisible access." },
+      { t: "Logs exist, but nobody reviews them and there are no alerts", pts: 1, fix: "Wire alerts for failed logins, new users and unexpected agent runs, and review access weekly. Logs nobody reads only help the post-mortem." },
+      { t: "Alerting is on and access is reviewed regularly", pts: 0, fix: "" } ] }
+];
+(function initCairnAudit() {
+  var box = document.getElementById("audit-questions");
+  if (!box) return;
+  var picks = CAIRN_QS.map(function() { return -1; });
+  CAIRN_QS.forEach(function(item, i) {
+    var card = document.createElement("div");
+    card.className = "qcard";
+    var qt = document.createElement("p");
+    qt.innerHTML = "<strong>Q" + (i + 1) + ".</strong> " + item.q;
+    card.appendChild(qt);
+    item.opts.forEach(function(opt, j) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "opt"; b.textContent = opt.t;
+      b.addEventListener("click", function() {
+        picks[i] = j;
+        var sibs = card.querySelectorAll(".opt");
+        for (var k = 0; k < sibs.length; k++) sibs[k].classList.remove("picked");
+        b.classList.add("picked");
+      });
+      card.appendChild(b);
+    });
+    box.appendChild(card);
+  });
+  document.getElementById("audit-go").addEventListener("click", function() {
+    var out = document.getElementById("audit-result");
+    if (picks.some(function(p) { return p < 0; })) {
+      out.textContent = "Answer all 10 questions first — an unanswered question is an unaudited risk.";
+      return;
+    }
+    var points = picks.map(function(p, i) { return CAIRN_QS[i].opts[p].pts; });
+    var g = cairnAuditGrade(points);
+    var cls = { "EXPOSED-LIKELY": "exposed", "AT-RISK": "atrisk", "HARDENED": "hardened" }[g.verdict];
+    out.innerHTML = '<span class="badge ' + cls + '">' + g.verdict + "</span> Score " +
+      g.score + "/" + g.max + " — " + g.label + ". " + g.detail;
+    // per-answer remediation, worst first
+    var weak = [];
+    CAIRN_QS.forEach(function(item, i) {
+      var opt = item.opts[picks[i]];
+      if (opt.pts > 0) weak.push({ pts: opt.pts, q: item.q, fix: opt.fix });
+    });
+    weak.sort(function(a, b) { return b.pts - a.pts; });
+    var fixBox = document.getElementById("audit-fixes");
+    var list = document.getElementById("fix-items");
+    list.innerHTML = "";
+    if (weak.length === 0) {
+      fixBox.style.display = "block";
+      var li0 = document.createElement("li");
+      li0.textContent = "No weak answers — every control in this audit is in place. Re-run after any deployment, network or team change.";
+      list.appendChild(li0);
+    } else {
+      fixBox.style.display = "block";
+      weak.forEach(function(w) {
+        var li = document.createElement("li");
+        li.innerHTML = "<strong>" + w.q + "</strong><br>" + w.fix;
+        list.appendChild(li);
+      });
+    }
+    // share card
+    var emoji = { "EXPOSED-LIKELY": "🔴", "AT-RISK": "🟡", "HARDENED": "🟢" }[g.verdict];
+    var pageUrl = "https://iceman2050.github.io/ingeniousai-security-checks-mirror/cairn-exposed-dashboard-check.html";
+    var text = emoji + " Is YOUR agent's control panel public? I audited mine after the Cairn breach (100+ sites hit through open dashboards) — verdict: " +
+      g.verdict + " (" + g.score + "/" + g.max + "). Take the 2-minute check: " + pageUrl;
+    document.getElementById("share-card").style.display = "block";
+    document.getElementById("share-text").textContent = text;
+    document.getElementById("share-x").href = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text);
+    document.getElementById("share-li").href = "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(pageUrl);
+    var copyBtn = document.getElementById("share-copy");
+    copyBtn.onclick = function() {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function() { copyBtn.textContent = "Copied!"; });
+      } else {
+        var ta = document.createElement("textarea");
+        ta.value = text; document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); copyBtn.textContent = "Copied!"; } catch (e) {}
+        document.body.removeChild(ta);
+      }
+    };
+  });
+})();
+</script>
+</body>
+</html>

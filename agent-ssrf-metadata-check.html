@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, app_creation, public_page_preflight -->
+<html data-primary-keyword="ai agents 2026" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agents 2026: SSRF Metadata Risk Checker</title>
+<meta name="description" content="AI agents 2026 SSRF checker: paste any URL to see if a strict validator would BLOCK or ALLOW it — runs locally, fetches nothing, explains CVE-2026-112308.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-ssrf-metadata-check.html">
+<meta property="og:title" content="AI Agents 2026: Will Your Agent's Scraper Hit Cloud Metadata?">
+<meta property="og:description" content="A 100% client-side SSRF URL classifier: metadata IPs, RFC1918, hex loopback, userinfo tricks — which check fires, and what a vulnerable scraping tool would do. Nothing is fetched.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-ssrf-metadata-check.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Agents 2026: Will Your Agent's Scraper Hit Cloud Metadata?">
+<meta name="twitter:description" content="Paste a URL, get a BLOCK/ALLOW verdict under a strict SSRF validator policy — computed locally in your browser. CVE-2026-112308 (crewAI SeleniumScrapingTool) explained.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:820px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}
+a{color:#7cc4ff}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}
+.meta{color:#9aa3b2;font-size:.85rem}
+.src{font-size:.85rem;color:#9aa3b2}
+.warnbox{background:#2a1f10;border:1px solid #8a6d1f;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.answerbox{background:#12241a;border:1px solid #2f6b45;border-radius:8px;padding:1rem;margin:1.2rem 0}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin:1.2rem 0}
+.stat{background:#1a1e27;border-radius:8px;padding:.9rem;text-align:center}
+.stat b{display:block;font-size:1.5rem;color:#ffd166}
+.stat span{font-size:.85rem;color:#9aa3b2}
+table.chan{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.95rem}
+table.chan th,table.chan td{border:1px solid #3a4356;padding:.6rem .8rem;text-align:left;vertical-align:top}
+table.chan th{background:#1a1e27;color:#ffd166}
+.platline{background:#141a26;border-radius:8px;padding:1rem;margin:1.5rem 0;font-size:.95rem}
+.platline ul{margin:.4rem 0;padding-left:1.2rem;columns:2}
+.tool{background:#1a1e27;border-radius:8px;padding:1rem;margin:1.2rem 0}
+.tool label{font-weight:600;display:block;margin-bottom:.4rem}
+#url-input{width:100%;box-sizing:border-box;background:#0f1115;color:#e8e8e8;border:1px solid #3a4356;border-radius:8px;padding:.7rem;font-size:1rem;font-family:ui-monospace,Menlo,Consolas,monospace}
+.probes{display:flex;flex-wrap:wrap;gap:.5rem;margin:.8rem 0}
+.probe{background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.45rem .8rem;cursor:pointer;color:#e8e8e8;font-size:.88rem;font-family:ui-monospace,Menlo,Consolas,monospace}
+.probe:hover{border-color:#ffd166}
+#run-btn{background:#ffd166;color:#111;border:0;border-radius:8px;padding:.7rem 1.4rem;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.6rem}
+#verdict{font-size:1.25rem;font-weight:800;margin:1rem 0 .4rem}
+#verdict.block{color:#f87171}#verdict.allow{color:#4ade80}
+.checkrow{border-left:4px solid #3a4356;padding:.45rem .8rem;margin:.45rem 0;background:#141a26;border-radius:0 8px 8px 0;font-size:.95rem}
+.checkrow.fail{border-left-color:#f87171}.checkrow.pass{border-left-color:#4ade80}.checkrow.warn{border-left-color:#ffd166}
+.checkrow b{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85rem}
+#vuln-note{background:#2a1a1a;border:1px solid #6b2f2f;border-radius:8px;padding:.9rem 1rem;margin-top:1rem;font-size:.95rem}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"AI Agents 2026: Will Your Agent's Scraper Hit Cloud Metadata? SSRF URL Check","author":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-20","description":"A 100% client-side SSRF URL risk classifier for AI agent scrapers, built around CVE-2026-112308 (crewAI crewai-tools SeleniumScrapingTool, disclosed October 19, 2026). Paste a URL and see which strict-validator check fires. Nothing is fetched; classification is a local simulation."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://github.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is SSRF in an AI agent scraper?","acceptedAnswer":{"@type":"Answer","text":"Server-side request forgery (SSRF) in an AI agent scraper is when attacker-influenced input — often a prompt injection in a page, email, or document the agent reads — steers the agent's browsing or scraping tool to a URL the operator never intended, such as a cloud metadata endpoint or an internal admin service. The tool makes the request from inside your network or cloud account, so it can reach addresses that are unreachable from the public internet, and the response comes back to the agent as page content."}},
+{"@type":"Question","name":"What is CVE-2026-112308?","acceptedAnswer":{"@type":"Answer","text":"CVE-2026-112308 is a High-severity SSRF vulnerability (CVSS 7.4, CWE-918) in crewAI's crewai-tools through version 1.15.28, disclosed October 19, 2026. Its SeleniumScrapingTool never applied the validate_url private-address check, so an attacker who could influence agent tool input — for example through prompt injection — could direct the headless browser to loopback, RFC1918, or cloud metadata addresses and disclose internal data and cloud credentials. Source: RedPacket Security CVE alert, labeled on this page."}},
+{"@type":"Question","name":"Why is 169.254.169.254 so dangerous for agents?","acceptedAnswer":{"@type":"Answer","text":"169.254.169.254 is the link-local address of the cloud instance metadata service on AWS and several other clouds. A plain unauthenticated request to its meta-data paths returns temporary IAM role credentials for the machine the agent runs on. If a scraping tool loads that URL and returns the page text to the agent — exactly what scrapers are built to do — those credentials can be exfiltrated through the agent's own output."}},
+{"@type":"Question","name":"Does this check fetch the URL I paste?","acceptedAnswer":{"@type":"Answer","text":"No. Nothing is fetched, ever. The classifier runs entirely in your browser: it parses and normalizes the URL string, decodes alternate IP encodings such as hex, octal, and single-integer forms, and applies a strict validator policy locally. It is a simulation of what a validator would decide, not a network probe — which is precisely why it is safe to paste internal or metadata URLs into it."}},
+{"@type":"Question","name":"Why do hex, octal, and integer IP addresses bypass scrapers?","acceptedAnswer":{"@type":"Answer","text":"Because many validators only pattern-match the familiar dotted-decimal form. A browser, however, happily resolves alternate encodings of the same address: 0x7f.0.0.1, 0177.0.0.1, and the single integer 2130706433 are all 127.0.0.1. A validator that does not decode every encoding to the same 32-bit address before checking its ranges will wave the encoded forms through to exactly the loopback service it meant to block."}},
+{"@type":"Question","name":"What should a strict URL validator for an agent tool check?","acceptedAnswer":{"@type":"Answer","text":"A strict validator should: allow only http and https; reject any URL with embedded userinfo; decode the host from every IP encoding (dotted, hex, octal, integer, and IPv6 including IPv4-mapped forms) and block loopback, RFC1918 private, link-local and metadata, CGNAT, and reserved ranges; block localhost and internal suffixes by name; re-validate after DNS resolution to defeat rebinding; and re-validate every redirect target, because the first URL being public says nothing about where it sends the tool next."}}
+]}
+</script>
+</head>
+<body>
+<p class="meta"><time datetime="2026-10-20">October 20, 2026</time> · AI agents 2026 · SSRF / server-side request forgery</p>
+<h1>AI Agents 2026: Will Your Agent's Scraper Hit Cloud Metadata?</h1>
+<div class="answerbox">
+<p><strong>Direct answer:</strong> If your AI agent's scraper accepts a URL without decoding it and checking the destination address, then yes — in AI agents 2026 the classic SSRF (server-side request forgery) trick still works: steer the tool to <code>169.254.169.254</code>, a loopback port, or an RFC1918 address, and the tool fetches it from <em>inside</em> your cloud account and hands the response back as page content. That is exactly CVE-2026-112308 in crewAI's scraping tool, disclosed October 19, 2026. Paste any URL into the classifier below — it runs 100% in your browser and <strong>fetches nothing</strong> — to see whether a strict validator would BLOCK or ALLOW it, and which check fires.</p>
+</div>
+
+<h2>Why are AI agents 2026 vulnerable to SSRF metadata attacks?</h2>
+<p>AI agents 2026 are vulnerable because their scraping tools fetch URLs from inside your cloud account, so a steered link to 169.254.169.254 or a private address returns metadata credentials and internal pages as ordinary content — unless a strict validator decodes and blocks the destination first.</p>
+
+<h2>The news: CVE-2026-112308 — crewAI's scraper skipped the private-address check</h2>
+<p>On October 19, 2026, CVE-2026-112308 was published: a High-severity SSRF vulnerability (CVSS 7.4, CWE-918) in <strong>crewai-tools through version 1.15.28</strong>. Its <code>SeleniumScrapingTool</code> never applied the <code>validate_url</code> private-address check, so an attacker who could influence agent tool input — the advisory names prompt injection as the steering path — could direct the tool's headless Chrome to loopback, RFC1918, or cloud metadata addresses and disclose internal data and cloud credentials.</p>
+<div class="statgrid">
+<div class="stat"><b>7.4</b><span>CVSS v3.1 score — High severity</span></div>
+<div class="stat"><b>≤ 1.15.28</b><span>crewai-tools versions affected</span></div>
+<div class="stat"><b>CWE-918</b><span>server-side request forgery (SSRF)</span></div>
+<div class="stat"><b>Oct 19, 2026</b><span>CVE publication date</span></div>
+</div>
+<p class="src">Source (labeled): RedPacket Security CVE alert for CVE-2026-112308 — <a href="https://www.redpacketsecurity.com/cve-alert-cve-2026-112308-crewaiinc-crewai-tools/">redpacketsecurity.com/cve-alert-cve-2026-112308-crewaiinc-crewai-tools</a>, summarizing the advisory (which links the upstream crewAI pull request and VulnCheck advisory). No exploitation is known at publication, per the same source. This page's classifier is our own independent implementation of a strict validator policy, not crewAI code.</p>
+<div class="warnbox"><strong>Honest scope:</strong> the classifier below is a <em>local simulation</em> of a strict validator. It parses and normalizes the URL string only — it performs no DNS lookup and no network request of any kind (check the page source: there is no network call to your URL anywhere in it). That means it cannot detect DNS rebinding or see where a redirect actually lands; it flags those as residual risks instead of pretending to resolve them. A hostname verdict of ALLOW means "syntactically public," not "proven safe."</div>
+
+<h2>Try it: the steered-URL classifier</h2>
+<p>Paste a URL your agent might be steered to, or tap a built-in probe. The classifier decodes hex, octal, and integer IP forms, unmasks userinfo confusion, inspects redirect-style parameters, and applies the strict policy check by check.</p>
+<div class="tool">
+<label for="url-input">URL to classify (never fetched — parsed locally only)</label>
+<input type="text" id="url-input" inputmode="url" autocapitalize="off" spellcheck="false" value="http://169.254.169.254/latest/meta-data/" placeholder="https://example.com/page or http://0x7f.0.0.1/admin">
+<div class="probes" id="probes">
+<button class="probe" data-url="http://169.254.169.254/latest/meta-data/">169.254.169.254 (cloud metadata)</button>
+<button class="probe" data-url="http://192.168.1.1/admin">192.168.1.1 (RFC1918)</button>
+<button class="probe" data-url="http://127.0.0.1:8080/admin">127.0.0.1:8080 (loopback)</button>
+<button class="probe" data-url="http://0x7f.0.0.1/admin">0x7f.0.0.1 (hex loopback)</button>
+<button class="probe" data-url="http://example.com@169.254.169.254/latest/meta-data/">example.com@169.254… (userinfo trick)</button>
+<button class="probe" data-url="https://example.com/redirect?url=http://169.254.169.254/latest/meta-data/">redirect-style (?url= metadata)</button>
+<button class="probe" data-url="https://example.com/research/ai-agents-2026">example.com article (normal public URL)</button>
+</div>
+<button id="run-btn">Classify this URL</button>
+<div id="verdict" role="status"></div>
+<div id="checks"></div>
+<div id="vuln-note" hidden></div>
+</div>
+
+<h2>What the strict policy checks — and what a vulnerable tool does instead</h2>
+<table class="chan">
+<tr><th>Check</th><th>Strict validator</th><th>Vulnerable scraper</th></tr>
+<tr><td>Scheme</td><td>Only <code>http</code>/<code>https</code>; everything else blocked</td><td>May follow <code>file:</code>, <code>gopher:</code>, or internal schemes the browser supports</td></tr>
+<tr><td>Userinfo</td><td>Any <code>user@host</code> form blocked — the text before the @ is not the host</td><td>Humans (and some parsers) read <code>example.com@169.254.169.254</code> as example.com; the browser goes to the metadata IP</td></tr>
+<tr><td>IP decoding</td><td>Hex (<code>0x7f.0.0.1</code>), octal (<code>0177.0.0.1</code>), and integer (<code>2130706433</code>) forms decoded to one 32-bit address before range checks</td><td>Pattern-matches dotted decimal only; encoded loopback sails through</td></tr>
+<tr><td>Address ranges</td><td>Loopback, RFC1918, link-local/metadata, CGNAT, and reserved ranges blocked</td><td>No range check at all — the CVE-2026-112308 failure: <code>validate_url</code> existed but was never applied</td></tr>
+<tr><td>Hostname</td><td><code>localhost</code>, <code>.local</code>, <code>.internal</code>, and metadata hostnames blocked by name; result re-checked after DNS resolution</td><td>Trusts the name; DNS rebinding swaps in a private address between check and connect</td></tr>
+<tr><td>Redirects &amp; embedded targets</td><td>Every redirect target and URL-valued parameter re-validated</td><td>Follows the redirect — a public first hop lands on the metadata service</td></tr>
+</table>
+<p>The pattern behind CVE-2026-112308 is worth naming: the validation function <em>existed</em> in the codebase. It simply was never called on the scraping path. SSRF defenses fail by omission far more often than by clever bypass — which is why the useful test is not "does my framework have a validator?" but "paste the steered URL and watch which check fires," exactly what the classifier above simulates.</p>
+
+<p><strong>Rogue-Agent Defense</strong> — Ingenious AI's autonomous-agent monitoring platform — watches agent tool calls for exactly this pattern: browsing and scraping tools steered toward internal address ranges, plus the exfiltration that follows when one lands. <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense">Get early access on WhatsApp</a>. For the gate in front of the tool call itself, <strong>Agent Auth Gateway</strong> adds destination allowlists, approval queues, and a kill switch: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway">Get early access on WhatsApp</a>.</p>
+
+<h2>All 11 Ingenious AI platforms — get early access</h2>
+<div class="platline">
+<p>Every platform is in early access. Tap any link to request access on WhatsApp:</p>
+<ul>
+<li><a href="https://disclosureguard.getingeniousai.com">DisclosureGuard</a> — AI disclosure compliance</li>
+<li><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder">ModelMinder</a> — AI model deprecation radar</li>
+<li><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch">TermsWatch</a> — AI vendor terms watcher</li>
+<li><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit">Vibe-Code Audit</a> — AI code audit</li>
+<li><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense">Rogue-Agent Defense</a> — rogue AI agent defense</li>
+<li><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter">BreachHunter</a> — breach intelligence</li>
+<li><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker">ChatBreaker</a> — conversational AI testing</li>
+<li><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder">Agent Flight Recorder</a> — tamper-evident agent logging</li>
+<li><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway">Agent Auth Gateway</a> — agent budget caps &amp; kill switch</li>
+<li><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard">DomainGuard</a> — domain-impersonation defense</li>
+<li><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI">ContentCraft AI</a> — AI content studio</li>
+</ul>
+<p><strong>Bundle deal:</strong> <a href="security-suite.html">all 11 Ingenious AI platforms, one price</a>.</p>
+</div>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What is SSRF in an AI agent scraper?</summary>
+<p>Server-side request forgery (SSRF) in an AI agent scraper is when attacker-influenced input — often a prompt injection in a page, email, or document the agent reads — steers the agent's browsing or scraping tool to a URL the operator never intended, such as a cloud metadata endpoint or an internal admin service. The tool makes the request from inside your network or cloud account, so it can reach addresses that are unreachable from the public internet, and the response comes back to the agent as page content.</p></details>
+<details><summary>What is CVE-2026-112308?</summary>
+<p>CVE-2026-112308 is a High-severity SSRF vulnerability (CVSS 7.4, CWE-918) in crewAI's crewai-tools through version 1.15.28, disclosed October 19, 2026. Its SeleniumScrapingTool never applied the validate_url private-address check, so an attacker who could influence agent tool input — for example through prompt injection — could direct the headless browser to loopback, RFC1918, or cloud metadata addresses and disclose internal data and cloud credentials. Source: RedPacket Security CVE alert, labeled on this page.</p></details>
+<details><summary>Why is 169.254.169.254 so dangerous for agents?</summary>
+<p>169.254.169.254 is the link-local address of the cloud instance metadata service on AWS and several other clouds. A plain unauthenticated request to its meta-data paths returns temporary IAM role credentials for the machine the agent runs on. If a scraping tool loads that URL and returns the page text to the agent — exactly what scrapers are built to do — those credentials can be exfiltrated through the agent's own output.</p></details>
+<details><summary>Does this check fetch the URL I paste?</summary>
+<p>No. Nothing is fetched, ever. The classifier runs entirely in your browser: it parses and normalizes the URL string, decodes alternate IP encodings such as hex, octal, and single-integer forms, and applies a strict validator policy locally. It is a simulation of what a validator would decide, not a network probe — which is precisely why it is safe to paste internal or metadata URLs into it.</p></details>
+<details><summary>Why do hex, octal, and integer IP addresses bypass scrapers?</summary>
+<p>Because many validators only pattern-match the familiar dotted-decimal form. A browser, however, happily resolves alternate encodings of the same address: 0x7f.0.0.1, 0177.0.0.1, and the single integer 2130706433 are all 127.0.0.1. A validator that does not decode every encoding to the same 32-bit address before checking its ranges will wave the encoded forms through to exactly the loopback service it meant to block.</p></details>
+<details><summary>What should a strict URL validator for an agent tool check?</summary>
+<p>A strict validator should: allow only http and https; reject any URL with embedded userinfo; decode the host from every IP encoding (dotted, hex, octal, integer, and IPv6 including IPv4-mapped forms) and block loopback, RFC1918 private, link-local and metadata, CGNAT, and reserved ranges; block localhost and internal suffixes by name; re-validate after DNS resolution to defeat rebinding; and re-validate every redirect target, because the first URL being public says nothing about where it sends the tool next.</p></details>
+
+<div class="xlinks">
+<h2>Related checks</h2>
+<ul>
+<li><a href="agent-api-access-safety-check.html">Agent API Access Safety — what your agent's keys can reach</a></li>
+<li><a href="ai-agent-airgap-check.html">AI Agent Airgap Check — is your agent really offline?</a></li>
+<li><a href="agent-paranoid-mode-check.html">Agent Paranoid Mode — least-privilege self-check</a></li>
+<li><a href="cve-agent-exploit-mapper.html">CVE Agent Exploit Mapper — map agent CVEs to your stack</a></li>
+<li><a href="rogue-agent-simulator.html">Rogue Agent Simulator — watch a steered agent go wrong</a></li>
+<li><a href="ai-agent-phishing-sucker-check.html">AI Agent Phishing Sucker — would your agent take the bait?</a></li>
+<li><a href="all-links.html">All links — every Ingenious AI check and tool</a></li>
+<li><a href="security-suite.html">Security Suite — all 11 platforms, one price (bundle deal)</a></li>
+</ul>
+</div>
+
+<script>
+function parseIPv4Part(part){
+  if (part === '') return null;
+  var base = 10, digits = part;
+  if (/^0x[0-9a-fA-F]+$/.test(part)){ base = 16; digits = part.slice(2); }
+  else if (/^0[0-7]+$/.test(part)){ base = 8; digits = part.slice(1); }
+  else if (!/^[0-9]+$/.test(part)){ return null; }
+  var v = parseInt(digits, base);
+  return isNaN(v) ? null : v;
+}
+function decodeIPv4(host){
+  // Returns {value:uint32, encoding:string} or null if host is not an IPv4 literal in any encoding.
+  var parts = host.split('.');
+  if (parts.length > 4) return null;
+  var nums = [], i, encoding = 'dotted-decimal';
+  for (i = 0; i < parts.length; i++){
+    var raw = parts[i];
+    if (/^0x[0-9a-fA-F]+$/.test(raw)) encoding = 'hex-encoded';
+    else if (/^0[0-7]+$/.test(raw) && raw.length > 1) encoding = 'octal-encoded';
+    var n = parseIPv4Part(raw);
+    if (n === null) return null;
+    nums.push(n);
+  }
+  if (parts.length === 1){
+    if (nums[0] > 4294967295) return null;
+    return {value: nums[0], encoding: encoding === 'dotted-decimal' ? 'single-integer' : encoding};
+  }
+  for (i = 0; i < nums.length - 1; i++){ if (nums[i] > 255) return null; }
+  var last = nums[nums.length - 1];
+  var maxLast = Math.pow(256, 5 - nums.length) - 1;
+  if (last > maxLast) return null;
+  var value = last;
+  for (i = 0; i < nums.length - 1; i++){ value += nums[i] * Math.pow(256, 3 - i); }
+  return {value: value, encoding: encoding};
+}
+function ipv4RangeName(v){
+  var a = Math.floor(v / 16777216), b = Math.floor(v / 65536) % 256;
+  if (v === 2852039166) return 'cloud metadata address 169.254.169.254 (link-local 169.254.0.0/16)';
+  if (a === 127) return 'loopback range 127.0.0.0/8';
+  if (a === 10) return 'RFC1918 private range 10.0.0.0/8';
+  if (a === 172 && b >= 16 && b <= 31) return 'RFC1918 private range 172.16.0.0/12';
+  if (a === 192 && b === 168) return 'RFC1918 private range 192.168.0.0/16';
+  if (a === 169 && b === 254) return 'link-local range 169.254.0.0/16 (cloud metadata lives here)';
+  if (a === 0) return '"this host" range 0.0.0.0/8';
+  if (a === 100 && b >= 64 && b <= 127) return 'CGNAT shared range 100.64.0.0/10';
+  if (a === 192 && b === 0) return 'IETF special-registry range 192.0.0.0/24';
+  if (a === 198 && (b === 18 || b === 19)) return 'benchmarking range 198.18.0.0/15';
+  if (a >= 224 && a <= 239) return 'multicast range 224.0.0.0/4';
+  if (a >= 240) return 'reserved range 240.0.0.0/4';
+  if (a === 198 && (b === 51)) return 'documentation TEST-NET-2 198.51.100.0/24';
+  if (a === 203 && b === 0) return 'documentation TEST-NET-3 203.0.113.0/24';
+  return null;
+}
+function dottedFromValue(v){
+  return [Math.floor(v/16777216)%256, Math.floor(v/65536)%256, Math.floor(v/256)%256, v%256].join('.');
+}
+function classifyIPv6(host){
+  var h = host.toLowerCase();
+  var mapped = h.match(/::ffff:(\d+\.\d+\.\d+\.\d+)$/);
+  if (mapped){
+    var d = decodeIPv4(mapped[1]);
+    if (d){
+      var r = ipv4RangeName(d.value);
+      if (r) return {blocked: true, detail: 'IPv6 host embeds IPv4-mapped address ' + mapped[1] + ' — ' + r};
+      return {blocked: false, detail: 'IPv6 host embeds public IPv4-mapped address ' + mapped[1]};
+    }
+  }
+  var mappedHex = h.match(/^::ffff:([0-9a-f]{1,4}):([0-9a-f]{1,4})$/);
+  if (mappedHex){
+    var hv = parseInt(mappedHex[1], 16) * 65536 + parseInt(mappedHex[2], 16);
+    var hr = ipv4RangeName(hv);
+    var hd = dottedFromValue(hv);
+    if (hr) return {blocked: true, detail: 'IPv6 host embeds IPv4-mapped address ' + hd + ' (hex form ' + h + ') — ' + hr};
+    return {blocked: false, detail: 'IPv6 host embeds public IPv4-mapped address ' + hd};
+  }
+  if (h === '::1') return {blocked: true, detail: 'IPv6 loopback ::1'};
+  if (h === '::') return {blocked: true, detail: 'IPv6 unspecified address ::'};
+  if (/^fe[89ab]/.test(h)) return {blocked: true, detail: 'IPv6 link-local range fe80::/10'};
+  if (/^f[cd]/.test(h)) return {blocked: true, detail: 'IPv6 unique-local (private) range fc00::/7'};
+  return {blocked: false, detail: 'IPv6 host is not in a blocked range'};
+}
+function classifyUrl(rawInput){
+  var checks = [];
+  function add(name, status, detail){ checks.push({name: name, status: status, detail: detail}); }
+  var vulnTarget = 'the internal destination';
+  var raw = String(rawInput || '').trim();
+  if (!raw){ add('parse', 'fail', 'Empty input — nothing to classify.'); return {verdict: 'BLOCK', checks: checks, vuln: 'A vulnerable tool would typically error out or do nothing; a strict validator blocks empty destinations outright.'}; }
+  var withScheme = /^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(raw) ? raw : 'http://' + raw;
+  var u;
+  try { u = new URL(withScheme); } catch (e){
+    add('parse', 'fail', 'Unparseable URL — a strict validator rejects anything it cannot parse unambiguously.');
+    return {verdict: 'BLOCK', checks: checks, vuln: 'A lenient tool may hand the raw string to the browser anyway and let the browser guess — guessing is how parser differentials start.'};
+  }
+  var scheme = u.protocol.replace(':', '').toLowerCase();
+  if (scheme !== 'http' && scheme !== 'https'){
+    add('scheme', 'fail', 'Scheme "' + scheme + ':" is not http/https — blocked. Non-web schemes can reach local files and legacy internal protocols.');
+    return finish('BLOCK');
+  }
+  add('scheme', 'pass', 'Scheme "' + scheme + ':" is an allowed web scheme.');
+  if (u.username || u.password){
+    add('userinfo', 'fail', 'URL embeds userinfo ("' + decodeURIComponent(u.username || '') + '@"). Everything before the @ is decoration — the real host is ' + u.hostname + '. Strict policy blocks any userinfo URL because it exists to confuse readers and parsers.');
+  } else {
+    add('userinfo', 'pass', 'No embedded userinfo — the host you see is the host you get.');
+  }
+  var host = u.hostname.toLowerCase().replace(/\.$/, '').replace(/^\[/, '').replace(/\]$/, '');
+  if (!host){
+    add('host', 'fail', 'URL has no host.');
+    return finish('BLOCK');
+  }
+  var isV6 = host.indexOf(':') !== -1;
+  var ip = isV6 ? null : decodeIPv4(host);
+  var blocked = checks.some(function(c){ return c.status === 'fail'; });
+  vulnTarget = host;
+  if (isV6){
+    var v6 = classifyIPv6(host);
+    add('ip-range', v6.blocked ? 'fail' : 'pass', v6.detail + '.');
+    if (v6.blocked) blocked = true;
+  } else if (ip){
+    var dotted = dottedFromValue(ip.value);
+    var range = ipv4RangeName(ip.value);
+    if (ip.encoding !== 'dotted-decimal'){
+      add('ip-encoding', range ? 'fail' : 'warn', 'Host "' + host + '" is a ' + ip.encoding + ' encoding of ' + dotted + '. Browsers resolve it to that address; a dotted-decimal-only validator never sees it.');
+    } else {
+      add('ip-encoding', 'pass', 'Host is a plain dotted-decimal IPv4 address: ' + dotted + '.');
+    }
+    if (range){
+      add('ip-range', 'fail', dotted + ' falls in the ' + range + ' — blocked for agent tool traffic.');
+      blocked = true;
+    } else {
+      add('ip-range', 'pass', dotted + ' is a public IPv4 address — not in any blocked range.');
+    }
+    vulnTarget = dotted;
+  } else {
+    if (host === 'localhost' || host.endsWith('.localhost')){
+      add('hostname', 'fail', 'Hostname "' + host + '" is localhost by name — blocked without needing DNS.');
+      blocked = true;
+    } else if (host === 'metadata.google.internal' || host === 'metadata.google' || host === 'instance-data'){
+      add('hostname', 'fail', 'Hostname "' + host + '" is a well-known cloud metadata hostname — blocked by name.');
+      blocked = true;
+    } else if (host.endsWith('.local') || host.endsWith('.internal') || host.endsWith('.lan') || host.endsWith('.home') || host.endsWith('.intranet')){
+      add('hostname', 'fail', 'Hostname "' + host + '" uses an internal suffix — treated as an internal destination and blocked.');
+      blocked = true;
+    } else {
+      add('hostname', 'pass', 'Hostname "' + host + '" is not a blocked name.');
+    }
+    add('dns', 'warn', 'Hostname verdict is name-only: this local simulation does no DNS lookup, so it cannot detect DNS rebinding. A production validator must re-check the resolved address at connect time.');
+  }
+  // Redirect-style / embedded URL parameters
+  var embeddedBlocked = null, embeddedSeen = null;
+  u.searchParams.forEach(function(val, key){
+    var v = String(val);
+    var cand = null;
+    var m = v.match(/(?:https?:)?\/\/([^/?#]+)/) || v.match(/^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/);
+    if (m) cand = m[1];
+    else if (/^(169\.254\.|127\.|10\.|192\.168\.|0x[0-9a-fA-F.]+)/.test(v)) cand = v.split('/')[0];
+    if (cand){
+      var ch = cand.split('@').pop().split(':')[0].toLowerCase();
+      var cip = decodeIPv4(ch);
+      if (cip && ipv4RangeName(cip.value)){ embeddedBlocked = {key: key, target: v}; }
+      else if (/169\.254\.169\.254/.test(v)){ embeddedBlocked = {key: key, target: v}; }
+      else embeddedSeen = {key: key, target: v};
+    }
+  });
+  if (embeddedBlocked){
+    add('redirect-target', 'fail', 'Parameter "' + embeddedBlocked.key + '" carries an embedded private/metadata target (' + embeddedBlocked.target + '). This is the redirect-style steered URL: the first hop looks harmless, the destination is internal. Strict policy re-validates embedded and redirect targets — blocked.');
+    blocked = true;
+  } else if (embeddedSeen){
+    add('redirect-target', 'warn', 'Parameter "' + embeddedSeen.key + '" carries an embedded URL (' + embeddedSeen.target + '). Not a blocked address, but a strict validator re-validates every redirect target at follow time — the first URL being public proves nothing about the second.');
+  } else {
+    add('redirect-target', 'pass', 'No embedded URL parameters detected. Note: real HTTP redirects can only be checked at request time — a production validator must re-run this whole policy on every redirect hop.');
+  }
+  return finish(blocked ? 'BLOCK' : 'ALLOW');
+  function finish(verdict){
+    var vuln;
+    if (verdict === 'BLOCK'){
+      vuln = 'A vulnerable scraping tool — like crewai-tools \u2264 1.15.28 in CVE-2026-112308, which never applied its private-address check — would simply load this URL in headless Chrome from inside your network or cloud account, reach ' + vulnTarget + ', and return whatever it found (metadata credentials, an internal admin page, a loopback service) to the agent as ordinary page text.';
+    } else {
+      vuln = 'A vulnerable tool and a strict validator agree here: the destination is public. The remaining risks are the ones no string check can settle — DNS rebinding and redirect hops — which is why the verdict above carries warnings, not a clean bill of health.';
+    }
+    if (host === '169.254.169.254' || vulnTarget === '169.254.169.254'){
+      vuln = 'A vulnerable scraping tool would load the cloud instance metadata service from the machine your agent runs on. The meta-data paths answer without authentication and hand out temporary IAM role credentials — which the scraper then returns to the agent as page text, ready to be exfiltrated through the agent\u2019s own output. This is the exact disclosure path in CVE-2026-112308.';
+    }
+    return {verdict: verdict, checks: checks, vuln: vuln};
+  }
+}
+if (typeof document !== 'undefined'){
+  (function(){
+    var input = document.getElementById('url-input');
+    var verdictEl = document.getElementById('verdict');
+    var checksEl = document.getElementById('checks');
+    var noteEl = document.getElementById('vuln-note');
+    function render(){
+      var r = classifyUrl(input.value);
+      verdictEl.textContent = (r.verdict === 'BLOCK' ? '\u2716 BLOCK' : '\u2714 ALLOW') + ' — under the strict validator policy';
+      verdictEl.className = r.verdict.toLowerCase();
+      checksEl.innerHTML = '';
+      r.checks.forEach(function(c){
+        var d = document.createElement('div');
+        d.className = 'checkrow ' + (c.status === 'fail' ? 'fail' : c.status === 'warn' ? 'warn' : 'pass');
+        var b = document.createElement('b');
+        b.textContent = '[' + c.name + '] ' + (c.status === 'fail' ? 'FIRED' : c.status === 'warn' ? 'WARNING' : 'passed') + ' — ';
+        d.appendChild(b);
+        d.appendChild(document.createTextNode(c.detail));
+        checksEl.appendChild(d);
+      });
+      noteEl.hidden = false;
+      noteEl.innerHTML = '';
+      var strong = document.createElement('strong');
+      strong.textContent = 'What a vulnerable tool would do: ';
+      noteEl.appendChild(strong);
+      noteEl.appendChild(document.createTextNode(r.vuln));
+    }
+    document.getElementById('run-btn').addEventListener('click', render);
+    input.addEventListener('keydown', function(e){ if (e.key === 'Enter') render(); });
+    document.querySelectorAll('.probe').forEach(function(btn){
+      btn.addEventListener('click', function(){ input.value = btn.getAttribute('data-url'); render(); });
+    });
+    render();
+  })();
+}
+</script>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' src="https://static.cloudflareinsights.com/beacon.min.js"></script>
+</body>
+</html>

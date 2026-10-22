@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, public_page_preflight -->
+<html data-primary-keyword="cybersecurity news today" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity News Today: Tor Exits Hijacked SSH Logins</title>
+<meta name="description" content="Cybersecurity news today: over 300 Tor exit relays redirected SSH logins to interception servers in October. Compare the published host-key fingerprint.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/tor-ssh-interception-check.html">
+<meta property="og:title" content="Cybersecurity News Today: Tor Exits Hijacked SSH Logins">
+<meta property="og:description" content="333 Tor exits sent SSH connections to 12 interception servers. Only password logins could be captured; key-based logins could not be relayed. The window closed October 5.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/tor-ssh-interception-check.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cybersecurity News Today: Tor Exits Hijacked SSH Logins">
+<meta name="twitter:description" content="Root cause: the Ebury OpenSSH backdoor on relay operators' own hosts. Check the interceptor fingerprint and the Ebury signs on this page.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:820px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}
+a{color:#7cc4ff}
+.quiz-q{background:#1a1e27;border-radius:8px;padding:1rem;margin:1rem 0}
+.opt{display:block;background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.7rem 1rem;margin:.5rem 0;cursor:pointer;width:100%;text-align:left;color:#e8e8e8;font-size:1rem}
+.opt:hover{border-color:#ffd166}.opt.picked{border-color:#7cc4ff;background:#24304a}.opt.correct{border-color:#4ade80;background:#14301f}.opt.wrong{border-color:#f87171;background:#3a1a1a}
+#quiz-result{font-weight:700;margin-top:1rem;font-size:1.1rem}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}
+.meta{color:#9aa3b2;font-size:.85rem}
+.src{font-size:.85rem;color:#9aa3b2}
+.warnbox{background:#2a1f10;border:1px solid #8a6d1f;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin:1.2rem 0}
+.stat{background:#1a1e27;border-radius:8px;padding:.9rem;text-align:center}
+.stat b{display:block;font-size:1.5rem;color:#ffd166}
+.stat span{font-size:.85rem;color:#9aa3b2}
+.checker{background:#141a26;border:1px solid #1c6ef2;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.checker label{display:block;margin:.6rem 0 .2rem;font-weight:600}
+.checker select,.checker input{background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.6rem;color:#e8e8e8;font-size:1rem;width:100%;box-sizing:border-box}
+.checker button{background:#1c6ef2;color:#fff;border:none;border-radius:8px;padding:.7rem 1.4rem;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.8rem}
+#verdict{margin-top:1rem;font-weight:600;padding:.8rem;border-radius:8px;display:none}
+#verdict.fixed{display:block;background:#14301f;border:1px solid #4ade80}
+#verdict.vuln{display:block;background:#3a1a1a;border:1px solid #f87171}
+#verdict.eol{display:block;background:#2a1f10;border:1px solid #8a6d1f}
+code{background:#222836;padding:.1rem .4rem;border-radius:4px;font-size:.92em;word-break:break-all}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Cybersecurity News Today: Tor Exits Hijacked SSH Logins","author":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-21","description":"In October 2026 a researcher scanning roughly 3,000 Tor exit relays found 333 of them redirecting SSH connections to the same 12 interception servers; directory-data analysis counted 377 relays run by 59 operators whose exit policy matched the attacker's between October 1 and 4, peaking at 7.46 percent of Tor exit capacity. Only SSH password logins routed over Tor, after the user accepted the interceptor's host key, could be captured; key-based authentication could not be relayed. The root cause on the relay operators' hosts was the Ebury OpenSSH backdoor. The Tor Project voted the relays BadExit from October 4 and none remained in the consensus by the afternoon of October 5."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://github.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is the Tor SSH interception case, in plain terms?","acceptedAnswer":{"@type":"Answer","text":"The Tor SSH interception case is the October 2026 discovery that hundreds of Tor exit relays had been quietly redirecting SSH connections to a set of interception servers. Anyone who logged into a server over Tor with a password, after accepting the interceptor's host key, could have that password captured and reused. The relays' own hosts were compromised by the Ebury OpenSSH backdoor; the Tor Project removed the relays from the network by October 5."}},
+{"@type":"Question","name":"Could the interceptors steal SSH keys too?","acceptedAnswer":{"@type":"Answer","text":"No, and the reason is structural. SSH key authentication proves identity with a signature bound to that specific session, so an interceptor sitting between you and the server cannot replay it to the real server. Password authentication has no such binding: type the password into the wrong endpoint and the interceptor owns it. That is why the exposure test for this incident is Tor plus password plus an accepted host key, and why moving servers to key-only login removes this whole class of attack."}},
+{"@type":"Question","name":"How do I check a session or a server against this incident?","acceptedAnswer":{"@type":"Answer","text":"For a session: compare the fingerprint of the host key your SSH client recorded for connections made over Tor between October 1 and 5 against the published interceptor fingerprint, SHA256:6baCZCPsl+AfQuujUS81fMEE/C7UeJ+AwjrImqmDB3E. It is one of possibly several interceptor keys, so a match is proof and a non-match is not clearance. For a relay or server host: look for the Ebury signs listed on this page, including the setuid libkeyutils file no package owns and the fake rsyslogd process. A clean host check does not rule Ebury out."}},
+{"@type":"Question","name":"I run a Tor relay. What should I do?","acceptedAnswer":{"@type":"Answer","text":"Check your torrc for ExitPolicy or ExitRelay changes you did not make, look for NAT rules touching port 22, and audit for unknown processes, users, SSH keys and cron entries. Then check the Ebury artifacts: a setuid libkeyutils.so.1.10.2 owned by no package, the library symlink pointed at it, the abstract socket named in the research, and connections involving 185.225.226.62. If the host is compromised, take it offline, preserve the disk and logs, reinstall from clean media, start a new relay identity, and rotate every credential the host ever held."}},
+{"@type":"Question","name":"Was I a victim of the interception?","acceptedAnswer":{"@type":"Answer","text":"Nobody can tell you from a list, because no victim count exists. Run the three-part test instead: did you connect to a server by SSH over Tor between October 1 and 5, did that login use a password, and did you accept a host key during it? If all three are true, treat the password as captured and rotate it from a clean machine over a normal connection, whether or not the one published fingerprint matches. If you used key-based authentication, the interception could not relay your login."}}
+]}
+</script>
+</head>
+<body>
+<p class="meta"><time datetime="2026-10-21">October 21, 2026</time> · cybersecurity news today</p>
+<h1>Cybersecurity News Today: Tor Exit Relays Redirected SSH Logins to Interception Servers</h1>
+<p>The network story in <strong>cybersecurity news today</strong> is about the last hop. A researcher scanning roughly 3,000 Tor exit relays on <strong>October 2</strong> found <strong>333 of them redirecting SSH connections to the same 12 interception servers</strong>. Anyone who then logged into their own server over Tor <strong>with a password</strong>, after accepting the host key the interceptor presented, handed that password over. The interceptor passed the session through to the real server, so nothing looked wrong, and later used the stolen passwords to test sudo rights and plant an installer. The relays were not run by the attacker. Their operators' hosts were compromised by <strong>Ebury</strong>, a long-running OpenSSH backdoor. The window is closed; the credential question it leaves behind is not.</p>
+<div class="warnbox"><strong>Honest scope — read this first:</strong> Exposure needed <strong>three things at once</strong>: an SSH connection routed over Tor, between <strong>October 1 and the afternoon of October 5</strong>, using <strong>password authentication</strong>, with the user <strong>accepting the interceptor's host key</strong>. Key-based logins could not be relayed. The larger figure in the research, <strong>377 relays by 59 operators</strong>, counts relays whose exit policy <em>matched</em> the attacker's pattern: a policy match, not proof that each relay was compromised or intercepting. <strong>No victim count exists</strong>, and this page does not invent one.</div>
+
+<h2>What the research found, step by step</h2>
+<ul>
+<li><strong>The scan:</strong> researcher "kaba" tested about 3,000 exit relays on October 2 and found <strong>333 redirecting SSH to 12 shared interception servers</strong>. Analysis of Tor directory data for October 1–4 counted <strong>377 relays from 59 operators</strong> matching the attacker's exit policy, peaking at <strong>7.46 percent of Tor's exit capacity</strong> on October 4.</li>
+<li><strong>The capture:</strong> the interceptor proxied the session to the real server. A captured password was later used to check for sudo access and to run a base64-encoded Perl installer; the operation had patience and a second stage.</li>
+<li><strong>The root cause:</strong> <strong>Ebury</strong>, an OpenSSH backdoor (this wave carried version 1.8.3) living on the relay operators' own hosts. ESET's long-running research counts roughly 400,000 servers infected between 2009 and 2023, with more than 100,000 still infected in late 2023.</li>
+<li><strong>The post-mortem that explains it:</strong> in the largest affected relay family, one password had been reused for the SSH login, for sudo, and as the backup passphrase, stored in plaintext, with password authentication enabled. The attacker was in on August 28 and had root in about five minutes.</li>
+<li><strong>The response:</strong> the Tor Project began BadExit and MiddleOnly voting at 18:00 UTC on October 4; the relays entered the consensus flagged by 21:00, and by 17:00 UTC on <strong>October 5</strong> no relay with the attacker's policy remained. The exit-flag relay count fell by about 370 across October 3–5 and had not recovered by October 18.</li>
+</ul>
+<div class="statgrid">
+<div class="stat"><b>333</b><span>exit relays found redirecting SSH to interception servers</span></div>
+<div class="stat"><b>12</b><span>interception servers shared by all of them</span></div>
+<div class="stat"><b>7.46%</b><span>peak share of Tor exit capacity matching the attacker's policy</span></div>
+<div class="stat"><b>Oct 1–5</b><span>the exposure window, closed by the Tor Project's removal vote</span></div>
+</div>
+<p>The arithmetic deserves one plain sentence: at its October 4 peak, the pattern covered <strong>7.46 percent</strong> of Tor exit capacity, which for a person administering a server over Tor that week was close to a one-in-thirteen chance per exit of meeting an interceptor. The defense that mattered was not luck. It was whether the login used a key instead of a password.</p>
+
+<h2>Why this cybersecurity news today matters: the password is the weak hop</h2>
+<p>Tor did what Tor promises: it hid where the connection came from. It cannot vouch for where the connection ends. An exit relay is a stranger's machine by design, and this incident shows what a compromised stranger can do with an SSH session that authenticates by password: keep it, replay it, escalate it. Key-based authentication survived the same interception untouched, because a signature cannot be lifted out of one session and used in another. The other lesson sits one layer down. The relay operators were not careless hobbyists; their hosts carried a backdoor that has survived since 2009, and in the best-documented family a single reused password turned a foothold into root.</p>
+
+<h2>The interception check: fingerprint and exposure test</h2>
+<div class="checker">
+<p style="margin-top:0">Two parts. If your SSH client recorded a host key for a connection made over Tor during the window, paste its SHA256 fingerprint below (it lives in your known_hosts data or the warning you saw). Everything runs in your browser; nothing is sent anywhere.</p>
+<label for="fp">Host-key fingerprint from the session (optional)</label>
+<input id="fp" type="text" inputmode="text" autocapitalize="off" spellcheck="false" placeholder="SHA256:...">
+<label for="q1">Between October 1 and 5, did you log into any server by SSH over Tor using a password?</label>
+<select id="q1">
+<option value="yes">Yes</option>
+<option value="no" selected>No</option>
+</select>
+<label for="q2">Do you operate a Tor exit relay?</label>
+<select id="q2">
+<option value="yes">Yes</option>
+<option value="no" selected>No</option>
+</select>
+<button id="go" type="button">Run the check</button>
+<p id="verdict" role="status"></p>
+<noscript><p><em>Enable JavaScript for the checker — or work through the six steps below manually.</em></p></noscript>
+</div>
+<script>
+(function(){
+document.getElementById('go').addEventListener('click',function(){
+var fp=document.getElementById('fp').value.replace(/\s+/g,'');
+var known='SHA256:6baCZCPsl+AfQuujUS81fMEE/C7UeJ+AwjrImqmDB3E';
+var q1=document.getElementById('q1').value;
+var q2=document.getElementById('q2').value;
+var v=document.getElementById('verdict');
+function show(cls,txt){v.className=cls;v.textContent=txt;}
+var opNote=q2==='yes'?' As a relay operator, also run the Ebury host checks in the steps below: a clean result does not rule Ebury out.':'';
+if(fp&&fp===known){show('vuln','FINGERPRINT MATCH: the host key from your session is the published interceptor key. Treat every password typed in that session as captured. Rotate those credentials now, from a clean machine over a normal connection, audit the target server for new keys, users and sudo use, and then work the steps below.'+opNote);return;}
+if(q1==='yes'){show('eol','EXPOSURE TEST MET, FINGERPRINT '+(fp?'DOES NOT MATCH':'NOT CHECKED')+': you used a password over Tor inside the window. The published fingerprint is one of possibly several interceptor keys, so this is not clearance. Rotate the passwords used in those sessions from a clean machine, switch the servers to key-only login, and audit for account changes.'+opNote);return;}
+if(fp){show('fixed','NO MATCH, NO PASSWORD EXPOSURE: the fingerprint does not match the published interceptor key, and you report no password login over Tor in the window. Key-based sessions could not be relayed by this interception. Keep host-key verification strict and updates current.'+opNote);return;}
+show('fixed','OUTSIDE THE EXPOSURE PATTERN: exposure required an SSH password login routed over Tor between October 1 and 5 with an accepted host key. If none of that describes your sessions, this incident did not touch your logins. Key-based authentication remains the structural fix.'+opNote);
+});})();
+</script>
+
+<h2>Run the response steps</h2>
+<ul>
+<li><strong>Rotate what the window touched:</strong> any password used for an SSH login over Tor between October 1 and 5 gets changed, from a clean machine over a normal connection. If that password was reused anywhere (the post-mortem pattern), change it everywhere.</li>
+<li><strong>Go key-only:</strong> install key authentication, then disable password authentication on your servers. This incident could not relay a key login; make that permanent.</li>
+<li><strong>Verify host keys out of band:</strong> never accept a changed host key on trust. Compare the fingerprint through a second channel (provider console, a colleague, your records) before typing anything.</li>
+<li><strong>Operators: hunt Ebury on the host:</strong> look for a setuid <code>/usr/lib/x86_64-linux-gnu/libkeyutils.so.1.10.2</code> owned by no package, the libkeyutils.so.1 symlink pointed at it, the abstract socket <code>@event-0YsOG9WSOE</code>, a fake <code>/sbin/rsyslogd</code> inside the ssh.service cgroup, and any link to 185.225.226.62. Check torrc for ExitPolicy changes and NAT rules on port 22, plus unknown users, keys and cron entries.</li>
+<li><strong>If Ebury is present, rebuild, do not clean:</strong> take the host offline, preserve the disk and logs, reinstall from clean media (the implant survived reboots), start a new relay identity, and rotate every credential the host ever held. Never type a password into a suspect server: Ebury captures it locally too.</li>
+<li><strong>Audit the targets:</strong> on servers you administer, review authentication logs for the window and after it: new authorized_keys entries, new users, unexpected sudo. A stolen password's second stage arrived later, not during the session.</li>
+</ul>
+<p><strong>BreachHunter</strong> — Ingenious AI's intrusion and breach-signal hunter — is built for incidents shaped like this one: a quiet redirection, a long dwell time, and a second stage that arrives after the first event looks harmless. <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20early%20access%20to%20BreachHunter">Get early access on WhatsApp</a>.</p>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#fff;text-decoration:underline">BreachHunter</a> is built for exactly this: hunting the intrusion signals that matter while the window is still open.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://disclosureguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20Tor%20SSH%20interception%20check%20and%20want%20early%20access." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<h2>Quiz: what could the interceptors actually take?</h2>
+<div class="quiz-q" data-a="1"><p><strong>1.</strong> How many exit relays did the researcher's scan find redirecting SSH?</p>
+<button class="opt" data-v="0">About 30</button>
+<button class="opt" data-v="1">333, all pointing at 12 interception servers</button>
+<button class="opt" data-v="2">Every exit relay on the network</button></div>
+<div class="quiz-q" data-a="2"><p><strong>2.</strong> What could the interceptors capture?</p>
+<button class="opt" data-v="0">SSH private keys stored on the client</button>
+<button class="opt" data-v="1">Key-based logins, replayed at will</button>
+<button class="opt" data-v="2">A password typed after accepting their host key; key logins could not be relayed</button></div>
+<div class="quiz-q" data-a="0"><p><strong>3.</strong> What was the root cause on the relay operators' hosts?</p>
+<button class="opt" data-v="0">The Ebury OpenSSH backdoor</button>
+<button class="opt" data-v="1">A flaw in the Tor protocol itself</button>
+<button class="opt" data-v="2">Operators selling their exit nodes</button></div>
+<div class="quiz-q" data-a="1"><p><strong>4.</strong> When did the exposure window close?</p>
+<button class="opt" data-v="0">It is still open</button>
+<button class="opt" data-v="1">By the afternoon of October 5, after the Tor Project flagged and removed the relays</button>
+<button class="opt" data-v="2">When the researcher published, in late October</button></div>
+<div class="quiz-q" data-a="2"><p><strong>5.</strong> What does the 377-relay figure actually count?</p>
+<button class="opt" data-v="0">Proven victims</button>
+<button class="opt" data-v="1">Relays the Tor Project operated</button>
+<button class="opt" data-v="2">Relays whose exit policy matched the attacker's pattern, not proven compromises</button></div>
+<p id="quiz-result"></p>
+<script>
+(function(){var total=document.querySelectorAll('.quiz-q').length,score=0,done=0;
+document.querySelectorAll('.quiz-q').forEach(function(q){var correct=parseInt(q.getAttribute('data-a'),10);
+q.querySelectorAll('.opt').forEach(function(b){b.addEventListener('click',function(){if(q.dataset.done)return;q.dataset.done='1';done++;
+var got=parseInt(b.getAttribute('data-v'),10);if(got===correct){score++;b.classList.add('correct');}else{b.classList.add('wrong');q.querySelectorAll('.opt')[correct].classList.add('correct');}
+if(done===total){var tier=score===5?'Sharp: you separated what was proven from what was only pattern-matched.':(score>=3?'Mostly there: the password-versus-key distinction is the core of this incident.':'Worth a re-read: exposure here needed three conditions at once, and the counts mean different things.');
+document.getElementById('quiz-result').textContent='You scored '+score+'/'+total+'. '+tier;}});});});})();
+</script>
+<noscript><p><em>Enable JavaScript for the interactive quiz.</em></p></noscript>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What is the Tor SSH interception case, in plain terms?</summary><p>The Tor SSH interception case is the October 2026 discovery that hundreds of Tor exit relays had been quietly redirecting SSH connections to a set of interception servers. Anyone who logged into a server over Tor with a password, after accepting the interceptor's host key, could have that password captured and reused. The relays' own hosts were compromised by the Ebury OpenSSH backdoor; the Tor Project removed the relays from the network by October 5.</p></details>
+<details><summary>Could the interceptors steal SSH keys too?</summary><p>No, and the reason is structural. SSH key authentication proves identity with a signature bound to that specific session, so an interceptor sitting between you and the server cannot replay it to the real server. Password authentication has no such binding: type the password into the wrong endpoint and the interceptor owns it. That is why the exposure test for this incident is Tor plus password plus an accepted host key, and why moving servers to key-only login removes this whole class of attack.</p></details>
+<details><summary>How do I check a session or a server against this incident?</summary><p>For a session: compare the fingerprint of the host key your SSH client recorded for connections made over Tor between October 1 and 5 against the published interceptor fingerprint, SHA256:6baCZCPsl+AfQuujUS81fMEE/C7UeJ+AwjrImqmDB3E. It is one of possibly several interceptor keys, so a match is proof and a non-match is not clearance. For a relay or server host: look for the Ebury signs listed on this page, including the setuid libkeyutils file no package owns and the fake rsyslogd process. A clean host check does not rule Ebury out.</p></details>
+<details><summary>I run a Tor relay. What should I do?</summary><p>Check your torrc for ExitPolicy or ExitRelay changes you did not make, look for NAT rules touching port 22, and audit for unknown processes, users, SSH keys and cron entries. Then check the Ebury artifacts: a setuid libkeyutils.so.1.10.2 owned by no package, the library symlink pointed at it, the abstract socket named in the research, and connections involving 185.225.226.62. If the host is compromised, take it offline, preserve the disk and logs, reinstall from clean media, start a new relay identity, and rotate every credential the host ever held.</p></details>
+<details><summary>Was I a victim of the interception?</summary><p>Nobody can tell you from a list, because no victim count exists. Run the three-part test instead: did you connect to a server by SSH over Tor between October 1 and 5, did that login use a password, and did you accept a host key during it? If all three are true, treat the password as captured and rotate it from a clean machine over a normal connection, whether or not the one published fingerprint matches. If you used key-based authentication, the interception could not relay your login.</p></details>
+
+<p class="src">Sources: <a href="https://thehackernews.com/2026/10/attackers-hijacked-over-300-tor-exit.html">The Hacker News, October 2026</a>, reporting researcher kaba's scan and directory-data analysis (333 relays, 12 interception servers, 377 policy-matching relays, the 7.46 percent peak, the Ebury root cause, the October 4–5 Tor Project response, and the published interceptor fingerprint), with Ebury history from ESET's long-running research as cited there.</p>
+
+<div class="xlinks"><strong>Related checks</strong><ul>
+<li><a href="vpn-auth-bypass-check.html">VPN Auth Bypass Check</a> — the Palo Alto GlobalProtect flaw ransomware crews have used since June</li>
+<li><a href="kev-deadlines-check.html">CISA KEV Deadlines Check</a> — the federal remediation deadlines that passed October 19</li>
+<li><a href="php2shell-check.html">PHP2Shell Check</a> — the critical PHP flaws patched October 21</li>
+</ul></div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>

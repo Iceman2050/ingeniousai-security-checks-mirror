@@ -39,6 +39,17 @@
     return WA + encodeURIComponent("Hi Ingenious AI! I want early access to " + name + ".");
   }
 
+  /* Platforms LIVE on the new fleet (getingeniousai.com) link direct.
+   * A platform enters this map only after its checker PASS + live 200.
+   * Flip discipline: one entry per verified go-live, never ahead of it. */
+  var LIVE = {
+    "DisclosureGuard": "https://disclosureguard.getingeniousai.com"
+  };
+
+  function platformUrl(name) {
+    return LIVE[name] || prefill(name);
+  }
+
   function el(tag, attrs, text) {
     var n = document.createElement(tag);
     if (attrs) for (var k in attrs) {
@@ -58,12 +69,12 @@
 
     var sub = el("p", { "class": "eco-sub" },
       "Free AI-security checkers, original research, and tools — one ecosystem. " +
-      "Our 11 platforms return November 1; get early access now:");
+      "Our platforms are going live on our new home; live ones link straight in, the rest open early access:");
     wrap.appendChild(sub);
 
     var row = el("div", { "class": "eco-platforms" });
     PLATFORMS.forEach(function (p) {
-      var a = el("a", { href: prefill(p[0]), title: p[1] }, p[0]);
+      var a = el("a", { href: platformUrl(p[0]), title: p[1] }, p[0]);
       row.appendChild(a);
     });
     wrap.appendChild(row);

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, app_creation -->
+<html data-primary-keyword="what is prompt injection" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is Prompt Injection? Template-Escape Payload Tester</title>
+<meta name="description" content="What is prompt injection? Template injection is its server-side cousin. Try 5 canary payloads against an unsafe vs sandboxed renderer, safely in your browser.">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is template injection?", "acceptedAnswer": {"@type": "Answer", "text": "Template injection happens when user-controlled text is placed inside a template and the template engine evaluates expressions inside it instead of treating it as plain data. A harmless-looking input like {{7*7}} returning 49 proves the engine executed the expression. From there, attribute-traversal chains can walk the host language's object graph — the same pattern behind the GitLab AI Gateway sandbox escape, CVE-2026-90970."}}, {"@type": "Question", "name": "What happened in CVE-2026-90970, the GitLab AI Gateway escape?", "acceptedAnswer": {"@type": "Answer", "text": "Per Tech Insider's coverage dated October 2, 2026 (labeled source below), CVE-2026-90970 is a template-injection sandbox escape in GitLab's AI Gateway / Duo Agent Platform, rated CVSS 9.9. A crafted flow configuration allegedly let template expressions break out of the intended sandbox. We present the pattern as reported coverage, not independently verified, and this page reproduces only the mechanism — with harmless canaries — so you can see how the class of bug works."}}, {"@type": "Question", "name": "Why is {{7*7}} used as a template-injection test?", "acceptedAnswer": {"@type": "Answer", "text": "{{7*7}} is the classic canary probe. If a page renders it as 49, the template engine evaluated your input as code. If it renders literally as {{7*7}}, your input was treated as data. It is harmless arithmetic — it touches no files, runs no commands, and reaches no network — which is exactly why testers use it as the first, safe signal."}}, {"@type": "Question", "name": "How does a sandbox stop template escapes?", "acceptedAnswer": {"@type": "Answer", "text": "A real sandbox layers rules: deny attribute names that start with an underscore (which blocks __class__, __mro__ and __subclasses__ traversal), allowlist the small set of attributes templates may legitimately read, refuse to instantiate or call classes, and evaluate expressions with a purpose-built parser instead of the host language's full object model. The sandboxed renderer on this page applies the first three rules and names the exact rule that fires on every blocked payload."}}, {"@type": "Question", "name": "Is this demo safe to use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Both renderers on this page are simulations written for this demo. They evaluate expressions against a small fake object graph that exists only in this page's JavaScript — no real classes, files, commands, or network are reachable, and your input never leaves your browser. The 'escape' payload resolves to a harmless text canary marker, not to anything on any real system."}}]}
+</script>
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/template-escape-payload-check.html">
+<meta property="og:title" content="What Is Prompt Injection? Template-Escape Payload Tester">
+<meta property="og:description" content="What is prompt injection? Template injection is its server-side cousin — CVE-2026-90970 replayed safely: 5 canary payloads, unsafe vs sandboxed renderer.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/template-escape-payload-check.html">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:820px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d1a0f;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+ul{margin:10px 0 10px 20px} li{margin:8px 0}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.cmdbox{background:#000;border:1px solid #3fb950;border-radius:8px;padding:16px 18px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:15px;color:#7ee787;margin:14px 0;overflow-x:auto;white-space:pre-wrap;word-break:break-all}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+button{background:#1c6ef2;border:none;color:#fff;padding:11px 22px;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+button.ghost{background:#161d29;border:1px solid #2a3342;color:#e6edf3}
+button.pay{background:#161d29;border:1px solid #2a3342;color:#7ee787;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;font-weight:400;padding:9px 14px;text-align:left}
+button.pay:hover{border-color:#3fb950}
+textarea{width:100%;min-height:74px;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;padding:12px;font-size:14px;font-family:ui-monospace,Menlo,Consolas,monospace}
+.engines{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+@media(max-width:640px){.engines{grid-template-columns:1fr}}
+.engine{border-radius:10px;padding:16px 18px;font-size:14px;border:1px solid #2a3342;background:#0d1219}
+.engine h3{font-size:16px;color:#fff;margin-bottom:8px}
+.engine.unsafe{border-color:#f85149}
+.engine.safe{border-color:#3fb950}
+.out{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;background:#000;border:1px solid #2a3342;border-radius:6px;padding:10px 12px;white-space:pre-wrap;word-break:break-all;min-height:44px}
+.steps{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:#9aa7b8;margin-top:10px;white-space:pre-wrap;word-break:break-all}
+.rule{color:#ffa198;font-weight:700}
+.canary{color:#d29922;font-weight:700}
+#verdict{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:20px;font-size:16px}
+#verdict.show{display:block}
+#verdict.good{border-color:#3fb950;background:#0d1a0f}
+#verdict.bad{border-color:#f85149;background:#1a0f0f}
+.verd{font-size:19px;letter-spacing:.5px}
+.note{font-size:14px;color:#9aa7b8}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#6ea8fe;text-decoration:none;font-size:14px}
+details{border:1px solid #2a3342;border-radius:10px;padding:14px 18px;margin:12px 0;background:#0d1219}
+summary{cursor:pointer;font-weight:700;color:#fff}
+details p{margin-top:10px}
+.xlinks{margin:24px 0;padding:18px;background:#0d1219;border:1px solid #2a3342;border-radius:10px}
+.xlinks a{color:#6ea8fe}
+.feat{margin:24px 0;padding:20px;background:#0d1a0f;border:1px solid #3fb950;border-radius:10px}
+.feat a{color:#7ee787;font-weight:700}
+.sharebox{margin:24px 0;padding:18px;background:#0d1626;border:1px solid #1c6ef2;border-radius:10px}
+.sharebox a{color:#6ea8fe;margin-right:14px}
+.platline{font-size:13px;color:#6b7688;margin:18px 0;line-height:2}
+.platline a{color:#6ea8fe}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}</script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; All security checks</a>
+<div class="badge">TEMPLATE INJECTION DEMO &middot; <time datetime="2026-10-20">October 20, 2026</time></div>
+<h1>What Is Prompt Injection? When Templates Let AI Agents Escape the Sandbox</h1>
+<p class="lead">Can AI agents escape sandbox controls? In October 2026 they allegedly did — through a template. CVE-2026-90970 (CVSS 9.9, as reported) describes a template-injection escape in GitLab&rsquo;s AI Gateway: a crafted flow config let template expressions walk the host object graph and break out of the sandbox. It is the server-side cousin of prompt injection — instead of tricking the model, you trick the template engine rendering around it. Below, you run the same pattern against two simulated renderers: one unsafe, one sandboxed. Every payload is a harmless canary; nothing real is reachable.</p>
+
+<div class="answer"><strong>Direct answer:</strong> A template escape works when an engine lets an expression traverse attributes like <code>__class__</code> &rarr; <code>__mro__</code> &rarr; <code>__subclasses__</code> until it reaches something callable. The fix is mechanical: deny underscore-prefixed attributes, allowlist what templates may read, and never let templates instantiate classes. Try the payloads below — the sandboxed renderer names the exact rule that stops each escape.</div>
+
+<div class="card">
+<h2>What is prompt injection?</h2>
+<p>Prompt injection is an attack where crafted input tricks an AI system into treating data as instructions. Template injection is the server-side cousin: user text placed inside a template gets evaluated as code, so an expression like {{7*7}} returning 49 proves the engine executed the input instead of displaying it.</p>
+</div>
+
+<div class="card">
+<h2>The demo: unsafe renderer vs sandboxed renderer</h2>
+<p>Both renderers are tiny template-expression evaluators written for this page. They resolve expressions against a <strong>fake object graph</strong> — a demo user, a demo config, and fake &ldquo;class&rdquo; objects that exist only in this page&rsquo;s JavaScript. The unsafe renderer resolves attribute traversal the way a vulnerable engine would, until the chain reaches a <span class="canary">canary marker</span>. The sandboxed renderer runs the same parser with three rules switched on. Pick a payload, or write your own template, and run both.</p>
+<div class="btnrow" id="payload-btns"></div>
+<textarea id="tpl-input" aria-label="Template to test">{{ 7 * 7 }}</textarea>
+<div class="btnrow">
+<button id="run-btn" type="button">Run both engines</button>
+<button class="ghost" id="reset-btn" type="button">Reset</button>
+</div>
+<div class="engines">
+<div class="engine unsafe">
+<h3>Unsafe renderer (no rules)</h3>
+<div class="out" id="out-unsafe">Not run yet.</div>
+<div class="steps" id="steps-unsafe"></div>
+</div>
+<div class="engine safe">
+<h3>Sandboxed renderer (3 rules on)</h3>
+<div class="out" id="out-safe">Not run yet.</div>
+<div class="steps" id="steps-safe"></div>
+</div>
+</div>
+<div id="verdict"></div>
+<p class="note" style="margin-top:14px">Scope note: this is a simulation for education. Real engines differ in syntax and object graphs; the traversal pattern and the three defenses are the transferable lesson. Your input is processed only in this tab — nothing is uploaded, stored, or sent anywhere. Every payload on this page is 100 percent simulated in your browser — nothing real executes.</p>
+</div>
+
+<div class="card">
+<h2>How the GitLab CVE pattern works — and the defenses</h2>
+<ul>
+<li><strong>The entry point:</strong> user-controlled text lands inside a template the platform renders — in the GitLab case, allegedly a Duo Agent flow configuration. If the engine evaluates <code>{{ ... }}</code> expressions in that text, the attacker is writing expressions, not prose.</li>
+<li><strong>The probe:</strong> <code>{{7*7}}</code> rendering as <code>49</code> confirms evaluation. It is the standard first test because it is pure arithmetic — no side effects, total signal.</li>
+<li><strong>The traversal:</strong> from any object, <code>__class__</code> reaches its type, <code>__mro__</code> walks the inheritance chain to the root class, and <code>__subclasses__()</code> enumerates every loaded class — in a real Python engine, that list historically includes classes that can start processes. That is the escape: data became a path to capability.</li>
+<li><strong>The format-string variant:</strong> <code>'{0.__class__}'.format(obj)</code> smuggles the same traversal inside a string-formatting call, bypassing filters that only scan the outer template.</li>
+<li><strong>The defenses (what the sandboxed renderer does):</strong> Rule 1 denies any attribute starting with an underscore; Rule 2 allowlists readable attributes (<code>name</code>, <code>plan</code>, <code>region</code>, <code>upper</code>, <code>lower</code>, <code>format</code>); Rule 3 refuses to call or instantiate class objects. Layered on a purpose-built expression parser — never the host language&rsquo;s full object model — the chain has nowhere to go.</li>
+</ul>
+<p class="src">Labeled source: <a href="https://tech-insider.org/gitlab-ai-gateway-cve-2026-90970-duo-agent-2026/">Tech Insider coverage of CVE-2026-90970</a> (GitLab AI Gateway / Duo Agent template-injection sandbox escape, October 2, 2026, CVSS 9.9 as reported). Presented as reported coverage, not independently verified by Ingenious AI. Keyword basis: &ldquo;what is prompt injection&rdquo; (keywords.json; 1,300/mo, swfte.com, Google Ads API data, Oct 2026). Template injection is presented here as its server-side cousin — the same trust confusion, executed by a template engine instead of a model.</p>
+</div>
+
+<div class="card">
+<h2>Frequently asked questions</h2>
+<details><summary>What is template injection?</summary><p>Template injection happens when user-controlled text is placed inside a template and the template engine evaluates expressions inside it instead of treating it as plain data. A harmless-looking input like {{7*7}} returning 49 proves the engine executed the expression. From there, attribute-traversal chains can walk the host language's object graph — the same pattern behind the GitLab AI Gateway sandbox escape, CVE-2026-90970.</p></details>
+<details><summary>What happened in CVE-2026-90970, the GitLab AI Gateway escape?</summary><p>Per Tech Insider's coverage dated October 2, 2026 (labeled source below), CVE-2026-90970 is a template-injection sandbox escape in GitLab's AI Gateway / Duo Agent Platform, rated CVSS 9.9. A crafted flow configuration allegedly let template expressions break out of the intended sandbox. We present the pattern as reported coverage, not independently verified, and this page reproduces only the mechanism — with harmless canaries — so you can see how the class of bug works.</p></details>
+<details><summary>Why is {{7*7}} used as a template-injection test?</summary><p>{{7*7}} is the classic canary probe. If a page renders it as 49, the template engine evaluated your input as code. If it renders literally as {{7*7}}, your input was treated as data. It is harmless arithmetic — it touches no files, runs no commands, and reaches no network — which is exactly why testers use it as the first, safe signal.</p></details>
+<details><summary>How does a sandbox stop template escapes?</summary><p>A real sandbox layers rules: deny attribute names that start with an underscore (which blocks __class__, __mro__ and __subclasses__ traversal), allowlist the small set of attributes templates may legitimately read, refuse to instantiate or call classes, and evaluate expressions with a purpose-built parser instead of the host language's full object model. The sandboxed renderer on this page applies the first three rules and names the exact rule that fires on every blocked payload.</p></details>
+<details><summary>Is this demo safe to use?</summary><p>Yes. Both renderers on this page are simulations written for this demo. They evaluate expressions against a small fake object graph that exists only in this page's JavaScript — no real classes, files, commands, or network are reachable, and your input never leaves your browser. The 'escape' payload resolves to a harmless text canary marker, not to anything on any real system.</p></details>
+</div>
+
+<div class="sharebox">
+<strong>Share this check:</strong><br><br>
+<a href="https://twitter.com/intent/tweet?text=Try%205%20template-escape%20payloads%20safely%3A%20an%20unsafe%20renderer%20vs%20a%20sandboxed%20one%2C%20side%20by%20side.%20The%20CVE-2026-90970%20pattern%2C%20by%20Ingenious%20AI&url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Ftemplate-escape-payload-check.html">Post on X</a>
+<a href="https://wa.me/?text=Try%205%20template-escape%20payloads%20in%20your%20browser%20%E2%80%94%20unsafe%20vs%20sandboxed%20renderer%3A%20https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Ftemplate-escape-payload-check.html">Share on WhatsApp</a>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Ftemplate-escape-payload-check.html">Share on LinkedIn</a>
+</div>
+
+<div class="feat">
+<strong>Featured:</strong> <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense.">Rogue-Agent Defense</a> &mdash; when an agent&rsquo;s tools become the escape route, you need a layer that watches what agents actually do. Rogue-Agent Defense monitors agent behavior and cuts off runaway actions. <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense.">Get early access on WhatsApp</a>.
+</div>
+
+<p class="platline">All 11 Ingenious AI platforms &mdash; early access on WhatsApp:
+<a href="https://disclosureguard.getingeniousai.com">DisclosureGuard</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder">ModelMinder</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch">TermsWatch</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit">Vibe-Code Audit</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense">Rogue-Agent Defense</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter">BreachHunter</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker">ChatBreaker</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder">Agent Flight Recorder</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway">Agent Auth Gateway</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard">DomainGuard</a> &middot;
+<a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI">ContentCraft AI</a></p>
+
+<div class="xlinks">
+<strong>Related checks:</strong>
+<a href="agent-sandbox-policy-gap-checker.html">Agent Sandbox Policy Gap Checker</a> &middot;
+<a href="agent-escape-room.html">Agent Escape Room</a> &middot;
+<a href="ai-agent-airgap-check.html">AI Agent Airgap Check</a> &middot;
+<a href="anthropic-unintended-actions-escape-check.html">Unintended-Actions Escape Check</a> &middot;
+<a href="ai-exploit-provenance-checker.html">AI Exploit Provenance Checker</a> &middot;
+<a href="ai-vulnerability-patch-check.html">AI Vulnerability Patch Check</a><br><br>
+<a href="all-links.html">All security checks</a> &middot; <a href="security-suite.html">All 11 platforms, one price</a>
+</div>
+
+<p class="src">Built by Ingenious AI. Simulation only: the fake object graph, both renderers, and all payload results exist solely in this page. No real template engine, class, file, command, or network is involved.</p>
+
+</div>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script>
+/* Simulated template engines — pure logic, no DOM access in this section.
+   A hand-written tokenizer + recursive-descent parser + tree-walking resolver
+   over a FAKE object graph. Visitor input is never passed to any dynamic
+   code-execution primitive; it is only parsed into a data AST and resolved
+   against the fake graph below. */
+var TE_CANARY = 'CANARY-SANDBOX-ESCAPE-7F3A';
+var TE_ALLOWLIST = { 'name': true, 'plan': true, 'region': true, 'title': true, 'upper': true, 'lower': true, 'format': true };
+
+function teClassNode(name) {
+  return { t: 'class', name: name, attrs: {} };
+}
+var TE_OBJECT_CLASS = teClassNode('object');
+var TE_STR_CLASS = teClassNode('str');
+var TE_CANARY_CLASS = teClassNode('CanaryProcessLauncher');
+TE_STR_CLASS.attrs['__mro__'] = { t: 'list', items: [TE_STR_CLASS, TE_OBJECT_CLASS] };
+TE_OBJECT_CLASS.attrs['__mro__'] = { t: 'list', items: [TE_OBJECT_CLASS] };
+TE_OBJECT_CLASS.attrs['__subclasses__'] = { t: 'func', name: '__subclasses__', impl: 'subclasses', recv: TE_OBJECT_CLASS };
+TE_CANARY_CLASS.attrs['__mro__'] = { t: 'list', items: [TE_CANARY_CLASS, TE_OBJECT_CLASS] };
+
+function teStr(v) {
+  var n = { t: 'str', v: String(v), attrs: {} };
+  n.attrs['upper'] = { t: 'func', name: 'upper', impl: 'upper', recv: n };
+  n.attrs['lower'] = { t: 'func', name: 'lower', impl: 'lower', recv: n };
+  n.attrs['format'] = { t: 'func', name: 'format', impl: 'format', recv: n };
+  n.attrs['__class__'] = TE_STR_CLASS;
+  return n;
+}
+function teObj(name, attrs) {
+  var cls = teClassNode(name);
+  cls.attrs['__mro__'] = { t: 'list', items: [cls, TE_OBJECT_CLASS] };
+  var o = { t: 'obj', name: name, attrs: attrs || {} };
+  o.attrs['__class__'] = cls;
+  return o;
+}
+var TE_ROOT = teObj('context', {});
+TE_ROOT.attrs['user'] = teObj('User', { 'name': teStr('Ada (demo user)'), 'plan': teStr('free') });
+TE_ROOT.attrs['config'] = teObj('Config', { 'region': teStr('demo-region-1'), 'title': teStr('Demo Config') });
+TE_ROOT.attrs['product'] = teStr('Sandbox Demo');
+
+function teDisplay(v) {
+  if (v.t === 'str') return v.v;
+  if (v.t === 'num') return String(v.v);
+  if (v.t === 'bool') return v.v ? 'true' : 'false';
+  if (v.t === 'class') return "<class '" + v.name + "'> (fake)";
+  if (v.t === 'obj') return '<' + v.name + ' object> (fake)';
+  if (v.t === 'list') return '[' + v.items.map(teDisplay).join(', ') + ']';
+  if (v.t === 'func') return '<built-in method ' + v.name + '> (fake)';
+  return '(unknown)';
+}
+
+function teTokenize(src) {
+  var toks = [], i = 0, c;
+  while (i < src.length) {
+    c = src[i];
+    if (c === ' ' || c === '\t' || c === '\n' || c === '\r') { i++; continue; }
+    if (c >= '0' && c <= '9') {
+      var num = '';
+      while (i < src.length && /[0-9.]/.test(src[i])) { num += src[i]; i++; }
+      toks.push({ k: 'num', v: parseFloat(num) });
+      continue;
+    }
+    if (c === "'" || c === '"') {
+      var q = c, s = ''; i++;
+      while (i < src.length && src[i] !== q) {
+        if (src[i] === '\\' && i + 1 < src.length) { i++; s += src[i]; i++; }
+        else { s += src[i]; i++; }
+      }
+      if (i >= src.length) throw { error: 'unterminated string literal' };
+      i++;
+      toks.push({ k: 'str', v: s });
+      continue;
+    }
+    if (/[A-Za-z_]/.test(c)) {
+      var id = '';
+      while (i < src.length && /[A-Za-z0-9_]/.test(src[i])) { id += src[i]; i++; }
+      toks.push({ k: 'ident', v: id });
+      continue;
+    }
+    if ('.[](),+-*'.indexOf(c) >= 0) { toks.push({ k: c }); i++; continue; }
+    throw { error: "unexpected character '" + c + "' in expression" };
+  }
+  toks.push({ k: 'eof' });
+  return toks;
+}
+
+function teParse(toks) {
+  var pos = 0;
+  function peek() { return toks[pos]; }
+  function next() { return toks[pos++]; }
+  function expect(k) { var t = next(); if (t.k !== k) throw { error: "expected '" + k + "'" }; return t; }
+  function parseExpr() {
+    var left = parseTerm();
+    while (peek().k === '+' || peek().k === '-') {
+      var op = next().k;
+      left = { k: 'bin', op: op, l: left, r: parseTerm() };
+    }
+    return left;
+  }
+  function parseTerm() {
+    var left = parsePostfix();
+    while (peek().k === '*') {
+      next();
+      left = { k: 'bin', op: '*', l: left, r: parsePostfix() };
+    }
+    return left;
+  }
+  function parsePostfix() {
+    var node = parsePrimary();
+    for (;;) {
+      if (peek().k === '.') {
+        next();
+        var id = next();
+        if (id.k !== 'ident') throw { error: 'expected attribute name after .' };
+        node = { k: 'attr', target: node, name: id.v };
+      } else if (peek().k === '[') {
+        next();
+        var idx = parseExpr();
+        expect(']');
+        node = { k: 'index', target: node, index: idx };
+      } else if (peek().k === '(') {
+        next();
+        var args = [];
+        if (peek().k !== ')') {
+          args.push(parseExpr());
+          while (peek().k === ',') { next(); args.push(parseExpr()); }
+        }
+        expect(')');
+        node = { k: 'call', target: node, args: args };
+      } else break;
+    }
+    return node;
+  }
+  function parsePrimary() {
+    var t = next();
+    if (t.k === 'num') return { k: 'num', v: t.v };
+    if (t.k === 'str') return { k: 'str', v: t.v };
+    if (t.k === 'ident') return { k: 'ident', name: t.v };
+    if (t.k === '(') { var e = parseExpr(); expect(')'); return e; }
+    if (t.k === '-') { return { k: 'bin', op: '-', l: { k: 'num', v: 0 }, r: parsePrimary() }; }
+    throw { error: 'unexpected token in expression' };
+  }
+  var ast = parseExpr();
+  if (peek().k !== 'eof') throw { error: 'trailing characters in expression' };
+  return ast;
+}
+
+function teResolveAttr(eng, target, attr) {
+  if (eng.sandbox) {
+    if (attr.charAt(0) === '_') {
+      throw { blocked: "SANDBOX RULE 1 — underscore/dunder attribute '" + attr + "' is denied (traversal blocked)" };
+    }
+    if (!TE_ALLOWLIST[attr]) {
+      throw { blocked: "SANDBOX RULE 2 — attribute '" + attr + "' is not on the allowlist" };
+    }
+  }
+  if (!target.attrs || !(attr in target.attrs)) {
+    throw { error: "attribute '" + attr + "' not found on " + teDisplay(target) };
+  }
+  eng.steps.push('resolve .' + attr + ' -> ' + teDisplay(target.attrs[attr]));
+  return target.attrs[attr];
+}
+
+function teResolveIndex(eng, target, idxVal) {
+  if (idxVal.t === 'str') return teResolveAttr(eng, target, idxVal.v);
+  if (idxVal.t !== 'num') throw { error: 'index must be a number or a string key' };
+  if (target.t !== 'list') throw { error: 'only fake lists can be indexed by number' };
+  var idx = Math.floor(idxVal.v);
+  if (idx < 0 || idx >= target.items.length) throw { error: 'list index out of range' };
+  eng.steps.push('index [' + idx + '] -> ' + teDisplay(target.items[idx]));
+  return target.items[idx];
+}
+
+function teFormat(eng, recvStr, args) {
+  return recvStr.replace(/\{([^{}]*)\}/g, function (m, inner) {
+    var spec = inner.trim();
+    if (spec === '') {
+      var a = args.shift();
+      return a === undefined ? m : teDisplay(a);
+    }
+    var parts = spec.split('.');
+    var first = parts[0];
+    if (!/^\d+$/.test(first)) throw { error: "unsupported format field '{" + spec + "}'" };
+    var cur = args[parseInt(first, 10)];
+    if (cur === undefined) throw { error: 'format argument ' + first + ' missing' };
+    for (var j = 1; j < parts.length; j++) {
+      cur = teResolveAttr(eng, cur, parts[j]);
+    }
+    return teDisplay(cur);
+  });
+}
+
+function teCall(eng, callee, args) {
+  if (callee.t === 'class') {
+    if (eng.sandbox) {
+      throw { blocked: "SANDBOX RULE 3 — class '" + callee.name + "' cannot be instantiated or called" };
+    }
+    eng.steps.push('CALL class ' + callee.name + ' -> canary marker reached');
+    return teStr(TE_CANARY + ' (simulated escape — a fake marker, nothing real ran)');
+  }
+  if (callee.t !== 'func') throw { error: teDisplay(callee) + ' is not callable' };
+  if (callee.impl === 'upper') return teStr(callee.recv.v.toUpperCase());
+  if (callee.impl === 'lower') return teStr(callee.recv.v.toLowerCase());
+  if (callee.impl === 'subclasses') return { t: 'list', items: [TE_STR_CLASS, TE_CANARY_CLASS] };
+  if (callee.impl === 'format') return teStr(teFormat(eng, callee.recv.v, args.slice()));
+  throw { error: "built-in '" + callee.name + "' has no simulation" };
+}
+
+function teResolve(eng, node) {
+  if (node.k === 'num') return { t: 'num', v: node.v };
+  if (node.k === 'str') return teStr(node.v);
+  if (node.k === 'ident') {
+    if (!(node.name in TE_ROOT.attrs)) throw { error: "name '" + node.name + "' is not defined in the demo context" };
+    eng.steps.push('lookup ' + node.name + ' -> ' + teDisplay(TE_ROOT.attrs[node.name]));
+    return TE_ROOT.attrs[node.name];
+  }
+  if (node.k === 'attr') return teResolveAttr(eng, teResolve(eng, node.target), node.name);
+  if (node.k === 'index') return teResolveIndex(eng, teResolve(eng, node.target), teResolve(eng, node.index));
+  if (node.k === 'call') {
+    var callee = teResolve(eng, node.target);
+    var args = node.args.map(function (a) { return teResolve(eng, a); });
+    return teCall(eng, callee, args);
+  }
+  if (node.k === 'bin') {
+    var l = teResolve(eng, node.l), r = teResolve(eng, node.r);
+    if (node.op === '*') {
+      if (l.t === 'num' && r.t === 'num') return { t: 'num', v: l.v * r.v };
+      throw { error: 'multiplication needs two numbers in this demo' };
+    }
+    if (node.op === '+') {
+      if (l.t === 'num' && r.t === 'num') return { t: 'num', v: l.v + r.v };
+      if (l.t === 'str' || r.t === 'str') return teStr(teDisplay(l) + teDisplay(r));
+      throw { error: 'addition needs numbers or a string in this demo' };
+    }
+    if (node.op === '-') {
+      if (l.t === 'num' && r.t === 'num') return { t: 'num', v: l.v - r.v };
+      throw { error: 'subtraction needs two numbers in this demo' };
+    }
+  }
+  throw { error: 'unknown expression node' };
+}
+
+function runTemplate(template, sandbox) {
+  var eng = { sandbox: !!sandbox, steps: [] };
+  try {
+    var out = '', rest = String(template);
+    for (;;) {
+      var open = rest.indexOf('{{');
+      if (open < 0) { out += rest; break; }
+      var close = rest.indexOf('}}', open + 2);
+      if (close < 0) throw { error: 'unclosed {{ in template' };
+      out += rest.slice(0, open);
+      var exprSrc = rest.slice(open + 2, close);
+      var val = teResolve(eng, teParse(teTokenize(exprSrc)));
+      out += teDisplay(val);
+      rest = rest.slice(close + 2);
+    }
+    return { ok: true, output: out, steps: eng.steps, blocked: null, error: null };
+  } catch (e) {
+    if (e && e.blocked) return { ok: false, output: null, steps: eng.steps, blocked: e.blocked, error: null };
+    return { ok: false, output: null, steps: eng.steps, blocked: null, error: (e && e.error) ? e.error : 'expression error' };
+  }
+}
+
+var TE_PAYLOADS = [
+  { label: '1 · Benign lookup', tpl: 'Hello {{ user.name }} — plan: {{ user.plan }}, region: {{ config.region }}' },
+  { label: '2 · Arithmetic canary {{7*7}}', tpl: 'Probe result: {{ 7 * 7 }}' },
+  { label: '3 · Dunder probe', tpl: "{{ ''.__class__ }}" },
+  { label: '4 · Full escape chain', tpl: "{{ ''.__class__.__mro__[1].__subclasses__()[1]() }}" },
+  { label: '5 · Format-string traversal', tpl: "{{ '{0.__class__}'.format(user) }}" }
+];
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { runTemplate: runTemplate, TE_PAYLOADS: TE_PAYLOADS, TE_CANARY: TE_CANARY };
+}
+</script>
+<script>
+/* DOM wiring only — all logic lives in the pure section above. */
+(function () {
+  var input = document.getElementById('tpl-input');
+  var btns = document.getElementById('payload-btns');
+  TE_PAYLOADS.forEach(function (p) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'pay';
+    b.textContent = p.label + '  —  ' + p.tpl;
+    b.addEventListener('click', function () { input.value = p.tpl; runBoth(); });
+    btns.appendChild(b);
+  });
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+  function render(el, res) {
+    if (res.ok) el.innerHTML = esc(res.output);
+    else if (res.blocked) el.innerHTML = '<span class="rule">BLOCKED</span>\n' + esc(res.blocked);
+    else el.textContent = 'Engine error: ' + res.error;
+  }
+  function runBoth() {
+    var tpl = input.value;
+    var u = runTemplate(tpl, false);
+    var s = runTemplate(tpl, true);
+    render(document.getElementById('out-unsafe'), u);
+    render(document.getElementById('out-safe'), s);
+    document.getElementById('steps-unsafe').textContent = u.steps.join('\n');
+    document.getElementById('steps-safe').textContent = s.steps.join('\n');
+    var v = document.getElementById('verdict');
+    v.className = 'show';
+    var escaped = u.ok && u.output.indexOf(TE_CANARY) >= 0;
+    var traversed = !u.ok || escaped || (u.steps.join(' ').indexOf('__') >= 0);
+    if (escaped && s.blocked) {
+      v.className = 'show bad';
+      v.innerHTML = '<span class="verd">VERDICT: ESCAPE REPRODUCED (SIMULATED) — AND BLOCKED.</span><br>The unsafe renderer walked the traversal chain all the way to the <span class="canary">canary marker</span> — in a real engine, this is the step where a class that can act on the host gets instantiated. The sandboxed renderer stopped the same input cold: <strong>' + esc(s.blocked) + '</strong> One rule at the first hop ends the whole chain.';
+    } else if (s.blocked) {
+      v.className = 'show bad';
+      v.innerHTML = '<span class="verd">VERDICT: TRAVERSAL ATTEMPT — BLOCKED BY THE SANDBOX.</span><br>The unsafe renderer resolved privileged structure the template had no business reading. The sandboxed renderer refused: <strong>' + esc(s.blocked) + '</strong> This is the CVE-2026-90970 lesson: the sandbox has to hold at the attribute layer, not just at the network layer.';
+    } else if (u.ok && s.ok && u.output === s.output) {
+      v.className = 'show good';
+      v.innerHTML = '<span class="verd">VERDICT: BENIGN — BOTH ENGINES AGREE.</span><br>This template only reads allowlisted data (or plain arithmetic), so both renderers produce the identical result. Sandboxing costs nothing for legitimate templates — it only bites traversal.';
+    } else if (!u.ok && !s.ok) {
+      v.className = 'show';
+      v.innerHTML = '<span class="verd">VERDICT: EXPRESSION ERROR IN BOTH ENGINES.</span><br>Unsafe: ' + esc(u.error || u.blocked || '') + '<br>Sandboxed: ' + esc(s.error || s.blocked || '') + '<br>Try one of the five built-in payloads above to see the contrast cleanly.';
+    } else {
+      v.className = 'show';
+      v.innerHTML = '<span class="verd">VERDICT: MIXED RESULT.</span><br>Unsafe renderer: ' + (u.ok ? 'rendered.' : esc(u.error || '')) + ' Sandboxed renderer: ' + (s.ok ? 'rendered.' : esc(s.blocked || s.error || '')) + ' Compare the step traces to see exactly where they diverged.';
+    }
+  }
+  document.getElementById('run-btn').addEventListener('click', runBoth);
+  document.getElementById('reset-btn').addEventListener('click', function () {
+    input.value = '{{ 7 * 7 }}';
+    document.getElementById('out-unsafe').textContent = 'Not run yet.';
+    document.getElementById('out-safe').textContent = 'Not run yet.';
+    document.getElementById('steps-unsafe').textContent = '';
+    document.getElementById('steps-safe').textContent = '';
+    var v = document.getElementById('verdict');
+    v.className = '';
+    v.innerHTML = '';
+  });
+})();
+</script>
+<script async src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>

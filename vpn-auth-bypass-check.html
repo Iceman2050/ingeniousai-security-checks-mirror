@@ -74,6 +74,7 @@ li{margin:8px 0}
 <li><strong>Affected:</strong> PAN-OS 12.1, 11.2, 11.1, 10.2 and Prisma Access 11.2, 10.2 — with auth override cookies enabled plus a specific certificate configuration. Panorama and Cloud NGFW are <strong>not</strong> affected.</li>
 <li><strong>Active exploitation, Oct 2026:</strong> ransomware groups Qilin and Settra are actively exploiting it to create unauthorized VPN sessions, per ReliaQuest. <a href="https://www.infosecurity-magazine.com/news/palo-alto-vpn-vulnerability-target/" rel="noopener" style="color:#6ea8fe" target="_blank">Infosecurity Magazine</a>.</li>
 </ul>
+<p><strong>Update, October 19, 2026 (Unit 42):</strong> Palo Alto Networks' Unit 42 reports the Qilin and INC ransomware operations have exploited this flaw since June 2026: through the bypassed gateway with a working VPN session, then sideways with remote-management tools, RDP and SMB. In one case the intruders reached the virtualization layer, disabled ESXi security controls and pulled domain credentials from a domain controller's virtual disk. The hit sectors include education, finance, healthcare, high tech, hospitality, manufacturing, legal, government, transportation, utilities and retail. The operational point: a patched gateway with old sessions left alive is still an open door. Terminate active sessions and rotate credentials when you patch. (Per Unit 42 research reported by The Hacker News, October 2026.)</p>
 </div>
 <div class="card">
 <h2>The 60-second exposure check</h2>

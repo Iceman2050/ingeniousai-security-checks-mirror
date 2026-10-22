@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html data-primary-keyword="password security checker" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- skills-used: unlazy-gates, app_creation -->
+<title>Mock-Auth Detector: Free Password Security Checker</title>
+<meta name="description" content="Free password security checker for code: paste Python auth code to flag mock authentication, hardcoded admin returns and debug bypasses. In your browser.">
+<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mock-auth-detector-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Paste your auth code — is it mock auth? Free mock-auth detector">
+<meta property="og:description" content="CVE-2026-77932: a mock get_user_from_headers granted admin and gave unauthenticated RCE in DB-GPT. Paste your Python auth code and check for the same patterns — in your browser, nothing uploaded.">
+<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mock-auth-detector-check.html">
+<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mock-auth detector — free password security checker for auth code">
+<meta name="twitter:description" content="Mock get_user functions, hardcoded admin returns, debug bypasses, always-true checks. Paste Python auth code, get line-by-line findings. Nothing leaves your browser.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1a0f0f;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+ul{margin:10px 0 10px 20px}
+li{margin:8px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{border:1px solid #2a3342;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#161d29;color:#fff}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.note{font-size:14px;color:#9aa7b8}
+.smallprint{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.src{font-size:13px;color:#6b7688;margin-top:10px}
+.src a{color:#1c6ef2}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.privnote{background:#0d1a0f;border:1px solid #3fb950;border-radius:10px;padding:14px 18px;font-size:14px;color:#7ee787;margin-bottom:20px}
+details{background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px;margin:10px 0}
+details summary{font-weight:700;color:#fff;cursor:pointer}
+details p{margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6}
+.crosslinks{background:#0d1420;border:1px solid #232b38;border-radius:10px;padding:20px 24px;margin:28px 0}
+.crosslinks h2{font-size:18px;color:#fff;margin-bottom:8px}
+.crosslinks ul{margin:8px 0 0 20px}
+.crosslinks li{margin:6px 0;font-size:15px}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+textarea#codeinput{width:100%;min-height:280px;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.btnrow button{background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px 16px;font-size:14px;font-weight:600;cursor:pointer}
+.btnrow button:hover{border-color:#1c6ef2}
+.btnrow button.primary{background:#1c6ef2;color:#fff;border-color:#1c6ef2}
+#summary{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:18px;font-size:16px}
+#summary.good{border-color:#3fb950;background:#0d1a0f}
+#summary.bad{border-color:#f85149;background:#1a0f0f}
+#summary b.verd{font-size:19px;letter-spacing:.5px}
+.finding{border:1px solid #2a3342;border-radius:10px;padding:14px 16px;margin:12px 0;background:#0d1219}
+.finding .meta{font-size:13px;color:#9aa7b8;margin-bottom:6px}
+.sev{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;margin-right:8px;letter-spacing:.5px}
+.sev.CRITICAL{background:#2b1215;border:1px solid #f85149;color:#ffa198}
+.sev.HIGH{background:#2b1215;border:1px solid #f85149;color:#ffa198}
+.sev.MEDIUM{background:#1a1408;border:1px solid #d29922;color:#e3b341}
+.finding .rule{font-weight:700;color:#fff}
+.finding .expl{font-size:14px;color:#9aa7b8;margin-top:6px}
+.finding .snip{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:#7ee787;background:#000;border:1px solid #2a3342;border-radius:6px;padding:8px 10px;margin-top:8px;white-space:pre-wrap;word-break:break-word}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Mock-Auth Detector — Paste Your Auth Code","applicationCategory":"SecurityApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/mock-auth-detector-check.html","description":"Free password security checker for code: a client-side static checker that flags mock authentication patterns in pasted Python auth code — mock get_user functions, hardcoded admin returns, debug bypasses, always-true checks and TODO auth stubs.","author":{"@type":"Organization","name":"Ingenious AI"},"keywords":"password security checker, mock authentication, authentication vulnerability, CVE-2026-77932, DB-GPT, get_user_from_headers, code security scan"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is mock authentication?","acceptedAnswer":{"@type":"Answer","text":"Mock authentication is placeholder auth code written for demos, tests or local development — a get_user function that returns a fixed user (often an admin) without verifying any credential, token or signature. It is safe only while it never reaches production. When it ships, anyone who can reach the app is effectively logged in as that user."}},{"@type":"Question","name":"What happened in CVE-2026-77932?","acceptedAnswer":{"@type":"Answer","text":"Per TheHackerWire's vulnerability entry (Oct 20, 2026), DB-GPT versions up to 0.8.2 shipped a mock get_user_from_headers implementation that granted admin privileges without real authentication, enabling unauthenticated remote code execution. The lesson generalizes: a single leftover mock auth function can hand an attacker the highest privilege in the app with no password at all."}},{"@type":"Question","name":"What does this mock-auth detector check?","acceptedAnswer":{"@type":"Answer","text":"Paste Python auth code and the in-browser pattern engine flags, with line numbers and severity: mock, demo, fake or stub get_user functions; hardcoded admin or role returns; debug-flag auth bypasses; always-true checks such as if True or return True in a verifier; hardcoded credential comparisons; auth functions that perform no verification at all; and TODO or FIXME auth stubs."}},{"@type":"Question","name":"Is it safe to paste my code here?","acceptedAnswer":{"@type":"Answer","text":"This page runs entirely in your browser — there is no server, no upload and no storage, and the checker works offline once loaded. Even so, good practice is to paste only the auth function you are reviewing, and to strip real secrets, tokens and production credentials before pasting code into any tool, including this one."}},{"@type":"Question","name":"What are the limits of this check?","acceptedAnswer":{"@type":"Answer","text":"Honest scope: this is a quick heuristic pattern check in the browser, not a proof your auth is safe. It can miss renamed functions, indirect bypasses and logic flaws, and a clean result is not a security guarantee. The mock-auth-sniffer CLI does the deep AST scan — parsing the code structure, tracing return paths and checking call sites — which catches what text patterns cannot."}},{"@type":"Question","name":"How do I fix mock auth before production?","acceptedAnswer":{"@type":"Answer","text":"Delete the mock implementation rather than disabling it with a flag; verify a real credential on every request (signed token or session, checked against a secret from the environment); load the user and their role from your user store, never from a literal in the code; fail closed with a 401 on any verification error; and add a startup check that refuses to boot if any bypass flag or demo user is present."}}]}</script>
+<link rel="stylesheet" href="ecosystem.css">
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free security checks</a>
+<div class="badge">NEWSJACK &mdash; CVE-2026-77932 &middot; DB-GPT MOCK AUTH RCE &middot; OCT 20, 2026</div>
+<h1>Password Security Checker: Paste Your Auth Code — <span class="red">Is It Mock Auth?</span></h1>
+<p class="lead">This free password security checker works on code, not passwords: paste your Python authentication code below and it flags <strong>mock authentication</strong> — the placeholder <code>get_user</code> functions, hardcoded admin returns and debug bypasses that were only ever meant for the demo. On October 20, 2026, CVE-2026-77932 showed where that ends: DB-GPT &le;0.8.2 shipped a mock <code>get_user_from_headers</code> that granted admin, and attackers got unauthenticated remote code execution. Sixty seconds to check your own auth code for the same shapes.</p>
+
+<div class="privnote"><strong>Privacy:</strong> this entire page runs in your browser. Nothing you paste is sent anywhere — there is no server, no upload, no storage. Still, paste only the auth code you are reviewing and strip real secrets or tokens first, as you would with any tool.</div>
+
+<p class="answer"><strong>Short answer:</strong> if any function in your codebase returns a user — especially an admin — without verifying a real credential, you do not have authentication, you have a suggestion. The checker below finds the common shapes in seconds: mock/demo/stub user functions, hardcoded role returns, debug-flag bypasses, always-true verifiers and TODO auth stubs, each with a line number and severity.</p>
+
+<div class="card">
+<h2>Paste your auth code — free password security checker for mock auth</h2>
+<p class="note">Paste a Python auth function (a <code>get_user</code>, <code>get_current_user</code>, <code>authenticate</code> or token verifier is ideal). Or load a built-in sample first: the vulnerable sample mirrors the CVE-2026-77932 pattern, the clean sample shows a verifier that checks a signed token and fails closed. This is a quick heuristic check — see the honest scope note under the results.</p>
+<textarea id="codeinput" spellcheck="false" autocapitalize="off" placeholder="# Paste your Python auth code here, e.g. your get_user / get_current_user / authenticate function"></textarea>
+<div class="btnrow">
+<button class="primary" id="scanbtn" type="button">Scan code</button>
+<button id="loadvuln" type="button">Load vulnerable sample</button>
+<button id="loadclean" type="button">Load clean sample</button>
+<button id="clearbtn" type="button">Clear</button>
+</div>
+<div id="summary" role="status" aria-live="polite"></div>
+<div id="results"></div>
+<p class="note" style="margin-top:14px"><strong>Honest scope note:</strong> this is a quick heuristic check in the browser — pattern matching over the code you paste, not a proof of safety. It can miss renamed or indirect bypasses. The <strong>mock-auth-sniffer CLI</strong> does the deep AST scan: it parses code structure, traces return paths and inspects call sites. Treat a clean result here as &ldquo;no known mock-auth shapes found,&rdquo; never as &ldquo;secure.&rdquo;</p>
+</div>
+
+<div class="card">
+<h2>What happened in CVE-2026-77932?</h2>
+<p>In the CVE-2026-77932 pattern, 100% of requests reaching the mock function were treated as admin — no credential was checked at all. Per TheHackerWire (October 20, 2026), DB-GPT up to version 0.8.2 shipped that mock get_user_from_headers code, turning a demo shortcut into unauthenticated remote code execution.</p>
+<table>
+<tr><th>Fact</th><th>Detail</th></tr>
+<tr><td>The flaw</td><td>A <strong>mock <code>get_user_from_headers</code></strong> implementation — placeholder auth code — <strong>granted admin privileges</strong> without real authentication.</td></tr>
+<tr><td>The impact</td><td><strong>Unauthenticated remote code execution</strong>: no password, no token — reach the app, inherit admin, run code.</td></tr>
+<tr><td>Affected</td><td><strong>DB-GPT versions &le;0.8.2</strong>, per the vulnerability entry.</td></tr>
+<tr><td>The pattern</td><td>Mock auth is written for demos and local dev, then ships. A debug flag, a demo user or an always-true verifier survives code review because it <em>looks</em> like plumbing.</td></tr>
+<tr><td>The fix pattern</td><td>Verify a real credential on every request, load role from the user store, fail closed with 401, and refuse to boot with any bypass present.</td></tr>
+</table>
+<p class="src">Source: <a href="https://www.thehackerwire.com/vulnerability/CVE-2026-77932/" target="_blank" rel="noopener">TheHackerWire — CVE-2026-77932 (Oct 20, 2026)</a> — cited and labeled as the source for the vulnerability summary above.</p>
+</div>
+
+<div class="card">
+<h2>Patterns this detector flags</h2>
+<table>
+<tr><th>Pattern</th><th>Severity</th><th>Why it matters</th></tr>
+<tr><td>Mock / demo / fake / stub <code>get_user</code> function</td><td>HIGH&ndash;CRITICAL</td><td>The function exists to skip verification. If it is reachable in production, so is the bypass.</td></tr>
+<tr><td>Hardcoded admin / role return</td><td>HIGH&ndash;CRITICAL</td><td>A literal <code>role: "admin"</code> or <code>is_admin: True</code> in a return hands top privilege to whoever reaches the code path.</td></tr>
+<tr><td>Debug-flag bypass</td><td>HIGH</td><td><code>if DEBUG: return user</code> is one environment mistake away from open admin.</td></tr>
+<tr><td>Always-true check (<code>if True</code>, <code>or True</code>, verifier returning <code>True</code>)</td><td>HIGH&ndash;CRITICAL</td><td>The check runs, logs success, and verifies nothing.</td></tr>
+<tr><td>Hardcoded credential comparison</td><td>HIGH</td><td><code>password == "…"</code> / <code>token == "…"</code> puts a shared secret in source, history and every clone.</td></tr>
+<tr><td>Auth function with no verification</td><td>MEDIUM</td><td>A <code>get_user</code> whose body never touches a token, signature, secret or hash is returning trust from nothing.</td></tr>
+<tr><td>TODO / FIXME auth stub</td><td>MEDIUM</td><td>A marker that the auth is unfinished — shipped stubs have a way of staying shipped.</td></tr>
+</table>
+</div>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#fff;text-decoration:underline">Agent Auth Gateway</a> puts real authentication in front of your apps and agents — budget caps, allowlists and a kill switch included.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://disclosureguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder." style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20TermsWatch." style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Vibe-Code%20Audit." style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense." style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20BreachHunter." style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ChatBreaker." style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder." style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20DomainGuard." style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ContentCraft%20AI." style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20mock-auth%20detector%20check%20and%20want%20early%20access%20to%20Agent%20Auth%20Gateway." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<div class="crosslinks">
+<h2>Keep exploring — related checks</h2>
+<ul>
+<li><a href="vibe-code-security-scan-check.html">Vibe-Code Security Scan</a> — scan AI-generated code for the classic shipped-insecure patterns.</li>
+<li><a href="ship-safe-ai-code-audit-check.html">Ship Safe AI Code Audit</a> — a pre-deploy audit checklist for AI-built apps.</li>
+<li><a href="app-password-2fa-bypass-check.html">App-Password 2FA Bypass Check</a> — the other auth shortcut: credentials that skip your second factor entirely.</li>
+<li><a href="vpn-auth-bypass-check.html">VPN Auth Bypass Check</a> — when the perimeter login itself is the weak point.</li>
+<li><a href="ai-vulnerability-patch-check.html">AI Vulnerability Patch Check</a> — is your stack carrying known, patched-elsewhere CVEs?</li>
+<li><a href="all-links.html">All free security checks</a> — the full index.</li>
+<li><a href="security-suite.html">The all-bundle suite deal</a> — all 11 Ingenious AI platforms, one price.</li>
+</ul>
+</div>
+
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=A%20mock%20get_user_from_headers%20granted%20admin%20and%20gave%20unauthenticated%20RCE%20%28CVE-2026-77932%29.%20Paste%20your%20Python%20auth%20code%20into%20this%20free%20mock-auth%20detector&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mock-auth-detector-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mock-auth-detector-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mock-auth-detector-check.html&title=Mock-auth%20detector%20%E2%80%94%20paste%20your%20auth%20code%2C%20find%20hardcoded%20admin%20returns%20and%20debug%20bypasses" target="_blank" rel="noopener">Reddit</a></div>
+
+<div class="card">
+<h2>Frequently asked questions</h2>
+<details><summary>What is mock authentication?</summary><p>Mock authentication is placeholder auth code written for demos, tests or local development — a get_user function that returns a fixed user (often an admin) without verifying any credential, token or signature. It is safe only while it never reaches production. When it ships, anyone who can reach the app is effectively logged in as that user.</p></details>
+<details><summary>What happened in CVE-2026-77932?</summary><p>Per TheHackerWire's vulnerability entry (Oct 20, 2026), DB-GPT versions up to 0.8.2 shipped a mock get_user_from_headers implementation that granted admin privileges without real authentication, enabling unauthenticated remote code execution. The lesson generalizes: a single leftover mock auth function can hand an attacker the highest privilege in the app with no password at all.</p></details>
+<details><summary>What does this mock-auth detector check?</summary><p>Paste Python auth code and the in-browser pattern engine flags, with line numbers and severity: mock, demo, fake or stub get_user functions; hardcoded admin or role returns; debug-flag auth bypasses; always-true checks such as if True or return True in a verifier; hardcoded credential comparisons; auth functions that perform no verification at all; and TODO or FIXME auth stubs.</p></details>
+<details><summary>Is it safe to paste my code here?</summary><p>This page runs entirely in your browser — there is no server, no upload and no storage, and the checker works offline once loaded. Even so, good practice is to paste only the auth function you are reviewing, and to strip real secrets, tokens and production credentials before pasting code into any tool, including this one.</p></details>
+<details><summary>What are the limits of this check?</summary><p>Honest scope: this is a quick heuristic pattern check in the browser, not a proof your auth is safe. It can miss renamed functions, indirect bypasses and logic flaws, and a clean result is not a security guarantee. The mock-auth-sniffer CLI does the deep AST scan — parsing the code structure, tracing return paths and checking call sites — which catches what text patterns cannot.</p></details>
+<details><summary>How do I fix mock auth before production?</summary><p>Delete the mock implementation rather than disabling it with a flag; verify a real credential on every request (signed token or session, checked against a secret from the environment); load the user and their role from your user store, never from a literal in the code; fail closed with a 401 on any verification error; and add a startup check that refuses to boot if any bypass flag or demo user is present.</p></details>
+</div>
+
+<div class="smallprint">
+Built by Ingenious AI — reporting on third-party research. Facts summarized, not reproduced.<br>
+This page is general information, not legal advice. This page never asks for, stores, or transmits your credentials or code.
+</div>
+</div>
+
+<script>
+/* Pure, headless-testable detector logic (no DOM). Returns findings: {line, severity, rule, explanation, snippet}. */
+var SAMPLE_VULN = [
+"# Demo auth copied from the quickstart - never audited",
+"# TODO: replace mock auth before production",
+"DEBUG_AUTH_BYPASS = True",
+"",
+"def get_user_from_headers(headers):",
+"    # mock implementation for the demo",
+"    if True:",
+"        return {\"username\": \"demo\", \"role\": \"admin\", \"is_admin\": True}",
+"    return None",
+"",
+"def verify_token(token):",
+"    return True",
+""
+].join("\n");
+var SAMPLE_CLEAN = [
+"import os",
+"import jwt",
+"from fastapi import HTTPException",
+"",
+"SECRET = os.environ[\"JWT_SECRET\"]",
+"ALGORITHMS = [\"HS256\"]",
+"",
+"def get_current_user(token: str):",
+"    try:",
+"        payload = jwt.decode(token, SECRET, algorithms=ALGORITHMS)",
+"    except jwt.InvalidTokenError:",
+"        raise HTTPException(status_code=401, detail=\"Invalid token\")",
+"    user = user_store.get(payload[\"sub\"])",
+"    if user is None or not user.is_active:",
+"        raise HTTPException(status_code=401, detail=\"Unknown user\")",
+"    return user",
+"",
+"def check_password(user, supplied: str) -> bool:",
+"    return verify_hash(supplied, user.password_hash)",
+""
+].join("\n");
+function scanAuthCode(code){
+  var findings=[];
+  if(!code || !code.trim()){ return {empty:true, findings:findings, counts:{CRITICAL:0,HIGH:0,MEDIUM:0}, verdict:"EMPTY"}; }
+  var lines=code.split("\n");
+  function add(lineNo,severity,rule,explanation,snippet){
+    findings.push({line:lineNo,severity:severity,rule:rule,explanation:explanation,snippet:(snippet||"").trim()});
+  }
+  var i, line;
+  for(i=0;i<lines.length;i++){
+    line=lines[i]; var ln=i+1;
+    if(/^\s*def\s+\w*(mock|demo|fake|stub|dummy|test_user)\w*\s*\(/i.test(line) || /^\s*def\s+(get_user_from_headers|get_user|get_current_user)\b/.test(line) && /\b(mock|demo|fake|stub)\b/i.test(line)){
+      add(ln,"HIGH","Mock auth function","Function name or signature marks this as mock/demo auth code. Mock implementations exist to skip verification — if this is deployed, the bypass is deployed."," "+line);
+    }
+    if(/\b(mock|demo|fake|stub)\b[^\n#]*\b(auth|user|login|token)\b/i.test(line) || /\b(auth|login)\b[^\n#]*\b(mock|demo|fake|stub)\b/i.test(line)){
+      if(!/^\s*def\s/.test(line)) add(ln,"HIGH","Mock/demo auth marker","This line wires mock/demo behavior into auth. Demo shortcuts in production auth code are the CVE-2026-77932 pattern.",line);
+    }
+    if(/\breturn\b[^\n]*(\brole\b\s*[:=]\s*[\"']admin[\"']|\bis_admin\b\s*[:=]\s*True|\"admin\"|'admin')/i.test(line)){
+      add(ln,"CRITICAL","Hardcoded admin return","This return hands admin privilege from a literal in the code, not from a verified user record. Anyone reaching this path is admin.",line);
+    } else if(/\breturn\b[^\n]*(\brole\b\s*[:=]\s*[\"'][a-z_]+[\"']|\bis_admin\b|\bpermissions\b\s*[:=])/i.test(line)){
+      add(ln,"HIGH","Hardcoded role in return","A role or permission set is hardcoded in a return value instead of being loaded from the authenticated user's record.",line);
+    }
+    if(/\breturn\b[^\n]*\{[^\n]*(\buser(name)?\b\s*:|\bid\b\s*:)/i.test(line) && !/jwt|decode|verify|token|payload|store|query|session/i.test(line)){
+      add(ln,"HIGH","Hardcoded user return","This returns a literal user object with no verification on the line. If the surrounding function does not verify a credential first, this is mock auth.",line);
+    }
+    if(/(DEBUG|BYPASS_AUTH|AUTH_DISABLED|ALLOW_ANON|SKIP_AUTH)[A-Z_]*\s*=\s*True/i.test(line) || /\bif\b[^\n]*\b(DEBUG|debug|BYPASS)\b[^\n]*:/.test(line)){
+      add(ln,"HIGH","Debug / bypass flag","A debug or bypass switch guards or disables authentication. One environment mistake turns this into an open door.",line);
+    }
+    if(/\bif\s+True\s*:/.test(line) || /\bor\s+True\b/.test(line)){
+      add(ln,"CRITICAL","Always-true check","An always-true condition makes the surrounding check decorative — it passes for every request, credentialed or not.",line);
+    }
+    if(/(password|passwd|pwd|token|secret|api_key)\s*==\s*[\"'][^\"']+[\"']/i.test(line) || /[\"'][^\"']+[\"']\s*==\s*\w*(password|token|secret|api_key)/i.test(line)){
+      add(ln,"HIGH","Hardcoded credential comparison","A credential is compared against a literal string in source. That secret is now in every clone, build log and git history.",line);
+    }
+    if(/(TODO|FIXME|XXX)[^\n]*(auth|login|user|token|security)/i.test(line) || /(auth|login|token)[^\n]*(TODO|FIXME)/i.test(line)){
+      add(ln,"MEDIUM","TODO auth stub","An unfinished-auth marker shipped in the code. Stubs marked TODO have a way of still being there at the incident review.",line);
+    }
+    if(/\breturn\s+True\b/.test(line)){
+      add(ln,"HIGH","Verifier returns True","A bare return True in auth code — if this sits in a verify/authenticate/check function without a real comparison behind it, the verifier approves everything. Confirm a real check precedes it.",line);
+    }
+  }
+  /* Auth-function verification presence: find auth-ish defs, inspect their bodies. */
+  var defRe=/^\s*def\s+(\w+)\s*\(/;
+  for(i=0;i<lines.length;i++){
+    var m=lines[i].match(defRe);
+    if(!m) continue;
+    var name=m[1];
+    if(!/(get_user|get_current_user|authenticate|verify_token|check_auth|current_user|require_auth|login)/i.test(name)) continue;
+    var indent=(lines[i].match(/^\s*/)||[""])[0].length;
+    var body=[];
+    for(var j=i+1;j<lines.length;j++){
+      if(lines[j].trim()===""){ body.push(lines[j]); continue; }
+      var ind=(lines[j].match(/^\s*/)||[""])[0].length;
+      if(ind<=indent && defRe.test(lines[j])) break;
+      if(ind<=indent && lines[j].trim()!=="") break;
+      body.push(lines[j]);
+    }
+    var bodyText=body.join("\n");
+    var hasVerify=/jwt|decode|verify|signature|secret|password_hash|verify_hash|check_password|session\.get|authenticate\(|credentials|hmac|compare_digest/i.test(bodyText);
+    var hasReturnTrue=/\breturn\s+True\b/.test(bodyText);
+    if(hasReturnTrue && /(verify|check|auth)/i.test(name)){
+      /* already flagged line-level; keep function-level note only if no real verify */
+      if(!hasVerify) add(i+1,"CRITICAL","Verifier approves everything","Function "+name+" returns True and its body contains no token decoding, signature check, secret or password-hash verification. This verifier approves every request.",lines[i]);
+    } else if(!hasVerify && bodyText.trim()!==""){
+      add(i+1,"MEDIUM","Auth function performs no verification","Function "+name+" never touches a token, signature, secret, session or password hash in its body. It appears to return trust without checking a credential.",lines[i]);
+    }
+    /* mock word inside auth function body */
+    if(/\b(mock|demo|fake|stub)\b/i.test(bodyText) && !findings.some(function(f){return f.rule==="Mock auth function" && Math.abs(f.line-(i+1))<2;})){
+      add(i+1,"HIGH","Mock behavior inside auth function","Function "+name+" mentions mock/demo/fake/stub behavior in its body — the shape that shipped as CVE-2026-77932.",lines[i]);
+    }
+  }
+  findings.sort(function(a,b){return a.line-b.line;});
+  var counts={CRITICAL:0,HIGH:0,MEDIUM:0};
+  findings.forEach(function(f){counts[f.severity]=(counts[f.severity]||0)+1;});
+  var verdict = (counts.CRITICAL>0||counts.HIGH>0) ? "FAIL" : (counts.MEDIUM>0 ? "REVIEW" : "CLEAN");
+  return {empty:false, findings:findings, counts:counts, verdict:verdict};
+}
+</script>
+<script>
+(function(){
+var ta=document.getElementById("codeinput");
+var summary=document.getElementById("summary");
+var results=document.getElementById("results");
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function render(r){
+  results.innerHTML="";
+  if(r.empty){
+    summary.className=""; summary.style.display="block";
+    summary.innerHTML="<b class='verd'>Nothing to scan</b><br><br>Paste some Python auth code first — or load the vulnerable or clean sample above — then hit Scan code.";
+    return;
+  }
+  var total=r.findings.length;
+  var label, cls, advice;
+  if(r.verdict==="FAIL"){ label="MOCK AUTH DETECTED"; cls="bad"; advice="This code contains patterns that hand out access without real verification. Do not ship it: delete the mock path, verify a real credential on every request, load roles from the user store, and fail closed with a 401."; }
+  else if(r.verdict==="REVIEW"){ label="REVIEW — unfinished-auth signals"; cls=""; advice="No high-severity bypass shape was found, but the medium findings above mark unfinished or unverified auth. Resolve them before shipping, and run the deep AST scan (mock-auth-sniffer CLI) for certainty."; }
+  else { label="NO MOCK-AUTH PATTERNS FOUND"; cls="good"; advice="None of the known mock-auth shapes matched the code you pasted. That is a good sign, not a guarantee — this heuristic check cannot see renamed or indirect bypasses. The deep AST scan (mock-auth-sniffer CLI) is the thorough pass."; }
+  summary.className=cls; summary.style.display="block";
+  summary.innerHTML="<b class='verd'>"+label+"</b> — "+total+" finding"+(total===1?"":"s")+" (Critical: "+r.counts.CRITICAL+" · High: "+r.counts.HIGH+" · Medium: "+r.counts.MEDIUM+")<br><br>"+advice;
+  r.findings.forEach(function(f){
+    var d=document.createElement("div"); d.className="finding";
+    d.innerHTML="<div class='meta'><span class='sev "+f.severity+"'>"+f.severity+"</span>Line "+f.line+"</div><div class='rule'>"+esc(f.rule)+"</div><div class='expl'>"+esc(f.explanation)+"</div><div class='snip'>"+esc(f.snippet)+"</div>";
+    results.appendChild(d);
+  });
+  summary.scrollIntoView({behavior:"smooth",block:"center"});
+}
+document.getElementById("scanbtn").onclick=function(){ render(scanAuthCode(ta.value)); };
+document.getElementById("loadvuln").onclick=function(){ ta.value=SAMPLE_VULN; render(scanAuthCode(ta.value)); };
+document.getElementById("loadclean").onclick=function(){ ta.value=SAMPLE_CLEAN; render(scanAuthCode(ta.value)); };
+document.getElementById("clearbtn").onclick=function(){ ta.value=""; results.innerHTML=""; summary.style.display="none"; ta.focus(); };
+})();
+</script>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
