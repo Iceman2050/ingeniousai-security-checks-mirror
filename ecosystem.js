@@ -43,7 +43,16 @@
    * A platform enters this map only after its checker PASS + live 200.
    * Flip discipline: one entry per verified go-live, never ahead of it. */
   var LIVE = {
-    "DisclosureGuard": "https://disclosureguard.getingeniousai.com"
+    "DisclosureGuard": "https://disclosureguard.getingeniousai.com",
+    "ModelMinder": "https://modelminder.getingeniousai.com",
+    "TermsWatch": "https://termswatch.getingeniousai.com",
+    "Vibe-Code Audit": "https://vibe-audit.getingeniousai.com",
+    "Rogue-Agent Defense": "https://rogue-defense.getingeniousai.com",
+    "BreachHunter": "https://breachhunter.getingeniousai.com",
+    "ChatBreaker": "https://chatbreaker.getingeniousai.com",
+    "Agent Flight Recorder": "https://flightrecorder.getingeniousai.com",
+    "Agent Auth Gateway": "https://authgateway.getingeniousai.com",
+    "DomainGuard": "https://domainguard.getingeniousai.com"
   };
 
   function platformUrl(name) {
