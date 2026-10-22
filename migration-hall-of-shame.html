@@ -144,13 +144,13 @@ li{margin:8px 0}
 <div><b>1. Pin exact snapshots — in code AND config.</b> The retirement list is snapshot-pinned: <code>gpt-4o-2024-05-13</code> dies while bare <code>gpt-4o</code> survives. Grep for literal identifiers, not model names.</div>
 <div><b>2. Treat the model name as config, with a fallback.</b> Env var, not hardcoded strings — a model list (primary first, then fallbacks) means a deprecation is a config change, not a code change. The Zappiq AI story is the proof.</div>
 <div><b>3. Keep a regression set of real inputs.</b> Run a set of real conversations through old and new models and compare outputs. You can't judge a model swap by vibes — different models follow instructions and format JSON differently.</div>
-<div><b>4. Run a deprecation radar over your fleet.</b> Subscribe to vendor deprecation pages and let a watcher poll them. <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20ModelMinder.">ModelMinder</a> exists for exactly this: it watches your models so the next retirement comes with a warning, not a 404.</div>
+<div><b>4. Run a deprecation radar over your fleet.</b> Subscribe to vendor deprecation pages and let a watcher poll them. <a href="https://modelminder.getingeniousai.com">ModelMinder</a> exists for exactly this: it watches your models so the next retirement comes with a warning, not a 404.</div>
 <div><b>5. Audit where model IDs actually hide.</b> WordPress AI plugins store the model in the options table; Drupal's AI module in config YAML; serverless functions in hosting dashboards — none of which appear in a code grep. The most reliable audit: pull the <code>model</code> field from 30 days of your own request logs and count distinct values.</div>
 <div><b>6. Plan fine-tune exits early.</b> Fine-tuned models die with their base, retraining options narrow fast, and OpenAI closes fine-tuning-job creation entirely on January 6, 2027. Start the retrain before you're forced to.</div>
 <div><b>7. Don't trust the error code — alert on the outcome.</b> Community reports consistently show retired models returning 404 <code>model_not_found</code>, which is indistinguishable from "does not exist" or an entitlement problem. Alert on a drop in successful completions instead.</div>
 <p class="note" style="margin-top:14px">Checklist synthesized from the incidents above and the linked sources — defensive guidance, not vendor advice. Where a step rests on a specific source's claim, that source is cited in the entry above.</p>
 </div>
-<a class="cta" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20read%20your%20Model-Retirement%20Hall%20of%20Shame%20and%20want%20early%20access%20to%20ModelMinder.">Get ModelMinder early access on WhatsApp →</a>
+<a class="cta" href="https://modelminder.getingeniousai.com">Get ModelMinder early access on WhatsApp →</a>
 <a class="cta sec" href="model-obituaries/index.html">Read the model obituaries with verified migration paths →</a>
 <div class="morelinks">
 <h2>More from Ingenious AI</h2>
