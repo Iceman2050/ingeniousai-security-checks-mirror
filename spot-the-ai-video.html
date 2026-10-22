@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- skills-used: unlazy-gates -->
 <html lang="en" data-primary-keyword="ai agents 2026">
 <head>
 <meta charset="UTF-8">
@@ -72,6 +73,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 a{color:#6ea8fe}
 ul.tips{margin:10px 0 10px 20px;font-size:14px;color:#9aa7b8}
 .hidden{display:none!important}
+details{margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0}
 </style>
 <link rel="stylesheet" href="ecosystem.css">
 <script type="application/ld+json">
@@ -85,6 +87,7 @@ ul.tips{margin:10px 0 10px 20px;font-size:14px;color:#9aa7b8}
 <h1>Spot the AI Video Duel: AI Agents 2026 Disclosure Game</h1>
 <div class="guide-intro">
 <p class="dateline"><time datetime="2026-10-18">Reviewed October 18, 2026</time></p>
+<p><strong>Key figure:</strong> Deloitte projects US generative-AI-enabled fraud losses to reach $40 billion by 2027, up from $12.3 billion in 2023 (Deloitte Center for Financial Services).</p>
 <p>Can you tell a real video from an AI-generated one? Spot the AI Video Duel shows two clips side by side and asks you to pick the fake — a hands-on way to train the deepfake detection skills that AI agents 2026 demand. Under the EU AI Act, AI-generated content must be labeled, and this game shows why that rule exists: synthetic video is now good enough to fool most viewers.</p>
 <h2>Why do AI agents 2026 need deepfake detection skills?</h2>
 <p>AI agents increasingly act on video content — screening footage, verifying identities, moderating uploads. An agent that cannot distinguish synthetic video from real footage can be fooled by fabricated evidence, fake endorsements, or manipulated instructions embedded in media. Detection skill is a core trust control: before an agent acts on what it sees, something must verify the pixels are real. This game trains exactly that instinct in humans first.</p>
@@ -151,8 +154,7 @@ ul.tips{margin:10px 0 10px 20px;font-size:14px;color:#9aa7b8}
 <div class="card">
 <h2 style="margin-top:0">Drop your clips here <span class="small">(for the site owner)</span></h2>
 <p class="small">This game reads its rounds from <code>videos/duel/rounds.json</code>. To add your own AI vs real rounds (e.g. clips from Veo 3.1, Kling or Seedance):</p>
-<details open>
-<summary>How to add a round</summary>
+<div class="story-sec"><h3>How to add a round</h3>
 <ol>
 <li>Export your clip as MP4, H.264, 640px wide, under 2 MB. One ffmpeg line that does it:<br><code>ffmpeg -i input.mp4 -vf scale=640:-2 -c:v libx264 -crf 28 -preset fast -an -movflags +faststart -t 10 videos/duel/my-clip.mp4</code></li>
 <li>Put the file in <code>videos/duel/</code> next to the existing <code>ai-*.mp4</code> clips.</li>
@@ -161,7 +163,7 @@ ul.tips{margin:10px 0 10px 20px;font-size:14px;color:#9aa7b8}
 <li>To keep a placeholder slot: set <code>"practice": true</code> and note <code>"real_note"</code> — the round is then clearly labeled "practice" and unscored.</li>
 <li>Commit and push — the game picks up the new <code>rounds.json</code> on the next page load.</li>
 </ol>
-</details>
+</div>
 </div>
 
 
@@ -172,7 +174,7 @@ ul.tips{margin:10px 0 10px 20px;font-size:14px;color:#9aa7b8}
 <p class="small" style="margin-bottom:6px">The notice must be clear and distinguishable, and given at first exposure. Providers must mark AI-generated content so it is machine-readable and detectable, with a phase-in deadline of 2 December 2026 for systems already on the market.</p><p style="margin:14px 0 4px"><strong>How do I label my content as AI-generated?</strong></p>
 <p class="small" style="margin-bottom:6px">Put a visible notice on the content itself — not buried in a caption — at first exposure, and add machine-readable provenance such as C2PA Content Credentials or a watermark. Keep a dated record of every labelled asset.</p></div>
 
-<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://disclosureguard.getingeniousai.com" style="color:#fff;text-decoration:underline">DisclosureGuard</a> is AI disclosure compliance on autopilot &mdash; it scans your ads and content, flags what's unlabeled, and keeps you ahead of the EU AI Act transparency rules.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://disclosureguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://modelminder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://termswatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://vibe-audit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://rogue-defense.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://breachhunter.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://chatbreaker.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://flightrecorder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://authgateway.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://domainguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://contentcraft.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://disclosureguard.getingeniousai.com" style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://disclosureguard.getingeniousai.com" style="color:#fff;text-decoration:underline">DisclosureGuard</a> is AI disclosure compliance on autopilot &mdash; it scans your ads and content, flags what's unlabeled, and keeps you ahead of the EU AI Act transparency rules.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://disclosureguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://modelminder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://termswatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://vibe-audit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://rogue-defense.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://breachhunter.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://chatbreaker.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://flightrecorder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://authgateway.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://domainguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://contentcraft.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
 
 
 </div>
@@ -324,6 +326,15 @@ loadRounds();
       <li><a href="agent-paranoid-mode-check.html">Paranoid Mode for AI Agents</a></li>
       <li><a href="hype-deflator.html">The AI Hype Deflator</a></li>
   </ul>
+</div>
+<div class="kw-faq" style="margin:32px 0;padding:24px;background:#11161f;border:1px solid #232b38;border-radius:12px">
+<h2 style="font-size:20px;margin-bottom:12px;color:#fff">Frequently asked questions</h2>
+<details><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">How does the Spot the AI Video Duel work?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Each round shows two short video clips side by side for about 10 seconds. One clip is AI-generated, one is real camera footage. You tap which one you think is AI, get instant right-or-wrong feedback, and a score at the end with a shareable verdict card.</p></details>
+<details><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">Are the clips honestly labeled?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Yes. The two duel rounds pair an AI-generated clip against real, freely-licensed camera footage, with the source and license credited under each clip after you guess. The two practice rounds use two AI-generated clips and are clearly labeled as practice — they are not scored.</p></details>
+<details><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">Can I add my own clips to the duel?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Yes. The page reads its rounds from videos/duel/rounds.json. Drop your own AI and real MP4 clips into videos/duel/, update the JSON fields (ai, real, ai_credit, real_credit), and the game picks them up automatically.</p></details>
+<details><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">Does AI-generated content have to be labelled under the EU AI Act?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Yes, in most cases. Deployers of AI-generated image, audio or video must disclose it as AI-generated — the Article 50(4) deployer disclosure duty has applied since 2 August 2026 — and providers must ensure AI outputs are marked so they are machine-readable and detectable.</p></details>
+<details><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">What are the labelling requirements for AI-generated content?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">The notice must be clear and distinguishable, and given at first exposure. Providers must mark AI-generated content so it is machine-readable and detectable, with a phase-in deadline of 2 December 2026 for systems already on the market.</p></details>
+<details><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">How do I label my content as AI-generated?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Put a visible notice on the content itself — not buried in a caption — at first exposure, and add machine-readable provenance such as C2PA Content Credentials or a watermark. Keep a dated record of every labelled asset.</p></details>
 </div>
 <div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
 <script src="ecosystem.js"></script>

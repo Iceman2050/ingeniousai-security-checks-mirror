@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- skills-used: unlazy-gates -->
 
 <html data-primary-keyword="ai agents 2026" lang="en">
 <head>
@@ -44,6 +45,7 @@ li{margin:8px 0}
 .morelinks a{color:#6ea8fe;text-decoration:none}
 .morelinks a:hover{text-decoration:underline}
 .honest{background:#0d2b3d;border:1px solid #1c6ef2;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#bcd7f5}
+details{background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
 </style>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -111,7 +113,8 @@ li{margin:8px 0}
 <body>
 <div class="wrap">
 <div class="badge">VERIFIED INCIDENTS — UPDATED OCT 2026</div>
-<h1>Model-Retirement Hall of Shame — AI Agents 2026</h1><p><time datetime="2026-10-18">Reviewed October 18, 2026</time></p><p class="kw-lead">This AI agents 2026 hall of shame documents real deprecation disasters: teams broken by AI model retirements in 2026, from the October 23 wave to silent sunsets. Learn the migration lessons cheaply.</p><h2>What is the AI agents 2026 model-retirement hall of shame?</h2><p>Five documented cases: fine-print deprecations that broke production, widgets orphaned overnight, workbench amputations, voice agents that lost their voices, and sunsets that outlasted their own warnings. Each 2026 case includes what the vendor announced, what actually broke, and the migration lesson.</p>
+<h1>Model-Retirement Hall of Shame — AI Agents 2026</h1><p><time datetime="2026-10-18">Reviewed October 18, 2026</time></p>
+<p><strong>Key figure:</strong> In the migration case documented on this page, the replacement models were not substitutes: gpt-realtime-1.5 scores about 75%, and gpt-realtime-2 / 2.1 drop to 0–20% success (figures reported in the case write-up below).</p><p class="kw-lead">This AI agents 2026 hall of shame documents real deprecation disasters: teams broken by AI model retirements in 2026, from the October 23 wave to silent sunsets. Learn the migration lessons cheaply.</p><h2>What is the AI agents 2026 model-retirement hall of shame?</h2><p>Five documented cases: fine-print deprecations that broke production, widgets orphaned overnight, workbench amputations, voice agents that lost their voices, and sunsets that outlasted their own warnings. Each 2026 case includes what the vendor announced, what actually broke, and the migration lesson.</p>
 <p class="lead">AI vendors retire models the way phone companies retire networks: on a schedule they publish and a timeline you discover too late. Every entry below is a <strong>verified, sourced incident</strong> — no invented companies, no anonymous horror stories. Read them, then take the 7-step never-again checklist so your product is never the next entry.</p>
 <div class="honest"><strong>Honesty note:</strong> this page exists because our own <a href="model-obituaries/index.html">model obituaries</a> track retirements with verified migration paths. If we ever add an anecdote without a published source, it will be labeled <strong>ILLUSTRATIVE</strong> — that hasn't been necessary yet. Everything below names its source.</div>
 <div class="card">
@@ -150,7 +153,7 @@ li{margin:8px 0}
 <div><b>7. Don't trust the error code — alert on the outcome.</b> Community reports consistently show retired models returning 404 <code>model_not_found</code>, which is indistinguishable from "does not exist" or an entitlement problem. Alert on a drop in successful completions instead.</div>
 <p class="note" style="margin-top:14px">Checklist synthesized from the incidents above and the linked sources — defensive guidance, not vendor advice. Where a step rests on a specific source's claim, that source is cited in the entry above.</p>
 </div>
-<a class="cta" href="https://modelminder.getingeniousai.com">Get ModelMinder early access on WhatsApp →</a>
+<a class="cta" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms.">Get ModelMinder early access on WhatsApp →</a>
 <a class="cta sec" href="model-obituaries/index.html">Read the model obituaries with verified migration paths →</a>
 <div class="morelinks">
 <h2>More from Ingenious AI</h2>
@@ -167,12 +170,20 @@ li{margin:8px 0}
 </div>
 <section class="kw-faq" style="max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
 <h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What happens when an AI model is deprecated?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">The vendor sets a shutdown date; after it, API calls to that model identifier stop working and must be moved to a replacement. Deprecations can also change behavior and pricing — price the migration before the deadline, don't scramble after it.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Which OpenAI models are being shut down on October 23, 2026?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Seventeen model identifiers, including gpt-4-0613, gpt-4-turbo, gpt-4o-2024-05-13, gpt-image-1, o1, o3-mini, o4-mini, and six fine-tuned models (ft-gpt-3.5-turbo, ft-gpt-4, ft-gpt-4.1-nano, ft-o4-mini, ft-babbage-002, ft-davinci-002).</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Can fine-tuned models be migrated when their base model is retired?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">OpenAI's page states nothing about exporting weights or moving a tuned model onto a newer base — no porting path offered, none ruled out. Meanwhile creating new fine-tuning jobs ends entirely on January 6, 2027. Plan fine-tune exits early.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How much notice do AI vendors give before retiring models?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">It varies: OpenAI announced the Oct 23, 2026 wave about six months out; Anthropic gave 31 days for the Aug 2026 Workbench retirement; some teams got no usable warning at all. Never assume a comfortable window.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How do I avoid being caught by the next AI model retirement?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Pin exact snapshots, keep model names in config with a fallback, maintain a regression set of real inputs, audit where model IDs hide (databases, CMS config, env dashboards), and run a deprecation radar like ModelMinder over your fleet.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What happens when an AI model is deprecated?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">The vendor sets a shutdown date; after it, API calls to that model identifier stop working and must be moved to a replacement. Deprecations can also change behavior and pricing — price the migration before the deadline, don't scramble after it.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Which OpenAI models are being shut down on October 23, 2026?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Seventeen model identifiers, including gpt-4-0613, gpt-4-turbo, gpt-4o-2024-05-13, gpt-image-1, o1, o3-mini, o4-mini, and six fine-tuned models (ft-gpt-3.5-turbo, ft-gpt-4, ft-gpt-4.1-nano, ft-o4-mini, ft-babbage-002, ft-davinci-002).</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Can fine-tuned models be migrated when their base model is retired?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">OpenAI's page states nothing about exporting weights or moving a tuned model onto a newer base — no porting path offered, none ruled out. Meanwhile creating new fine-tuning jobs ends entirely on January 6, 2027. Plan fine-tune exits early.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How much notice do AI vendors give before retiring models?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">It varies: OpenAI announced the Oct 23, 2026 wave about six months out; Anthropic gave 31 days for the Aug 2026 Workbench retirement; some teams got no usable warning at all. Never assume a comfortable window.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How do I avoid being caught by the next AI model retirement?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Pin exact snapshots, keep model names in config with a fallback, maintain a regression set of real inputs, audit where model IDs hide (databases, CMS config, env dashboards), and run a deprecation radar like ModelMinder over your fleet.</p></details>
 </section>
+<div class="card">
+<h2>Related checks</h2>
+<ul>
+<li><a href="injection-hall-of-fame.html">Prompt Injection Hall of Fame 2026: AI Agents</a></li>
+<li><a href="leaked-prompt-hall.html">Leaked AI System Prompts Hall — AI Agents 2026</a></li>
+<li><a href="migration-cost-calculator.html">OpenAI Shutdown Cost Calculator: AI Agents 2026</a></li>
+</ul>
+</div>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script><!-- End Cloudflare Web Analytics -->

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- skills-used: unlazy-gates -->
 <html data-primary-keyword="ai agents" lang="en">
 <head>
 <meta charset="UTF-8">
@@ -62,6 +63,7 @@ textarea.embed{width:100%;background:#080b10;border:1px solid #2a3342;color:#9aa
 .share{text-align:center;font-size:14px;color:#9aa7b8;margin:28px 0}
 .share a{color:#1c6ef2;margin:0 8px}
 .warnbox{background:#1a1409;border:1px solid #d29922;border-radius:10px;padding:16px 18px;font-size:14px;color:#e6c26a;margin:20px 0}
+details{background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
 </style>
 <script type="application/ld+json">
 {
@@ -157,10 +159,10 @@ textarea.embed{width:100%;background:#080b10;border:1px solid #2a3342;color:#9aa
 
 <section style="margin:36px 0">
 <h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">AI Agents FAQ</h2>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Can you test a chatbot for prompt injection yourself?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Yes. A structured self-assessment of your chatbot's defenses — input validation, system-prompt hardening, indirect-injection handling, output filtering, least-privilege tools, human approval, monitoring, red-teaming, and incident response — gives a meaningful readiness signal, though it is not a substitute for adversarial testing by specialists.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Is the Prompt-Injection Tested badge a security certification?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">No. The badge reflects a self-assessment you complete on this page. It is not an independent security certification, audit, or guarantee — nobody verified your answers. Treat it as a public commitment to prompt-injection hygiene, not proof of invulnerability.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is indirect prompt injection?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Indirect prompt injection hides malicious instructions in content the model reads — a webpage, document, email, or tool output — rather than in the user's own message. It accounts for over 55% of observed prompt-injection attacks in 2026 and succeeds more often because the instructions arrive via trusted sources.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is the most effective defense against prompt injection?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Deterministic controls, not filters: least-privilege tool permissions, human approval for irreversible actions, strict output handling, and isolation of untrusted content. Filters are probabilistic and attackers routinely bypass them — containment limits what a hijacked model can actually do.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Can you test a chatbot for prompt injection yourself?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Yes. A structured self-assessment of your chatbot's defenses — input validation, system-prompt hardening, indirect-injection handling, output filtering, least-privilege tools, human approval, monitoring, red-teaming, and incident response — gives a meaningful readiness signal, though it is not a substitute for adversarial testing by specialists.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Is the Prompt-Injection Tested badge a security certification?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">No. The badge reflects a self-assessment you complete on this page. It is not an independent security certification, audit, or guarantee — nobody verified your answers. Treat it as a public commitment to prompt-injection hygiene, not proof of invulnerability.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is indirect prompt injection?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Indirect prompt injection hides malicious instructions in content the model reads — a webpage, document, email, or tool output — rather than in the user's own message. It accounts for over 55% of observed prompt-injection attacks in 2026 and succeeds more often because the instructions arrive via trusted sources.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is the most effective defense against prompt injection?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Deterministic controls, not filters: least-privilege tool permissions, human approval for irreversible actions, strict output handling, and isolation of untrusted content. Filters are probabilistic and attackers routinely bypass them — containment limits what a hijacked model can actually do.</p></details>
 </section>
 
 <div class="moreblock">
@@ -187,6 +189,14 @@ textarea.embed{width:100%;background:#080b10;border:1px solid #2a3342;color:#9aa
 
 </div>
 
+<div class="card">
+<h2>Related checks</h2>
+<ul>
+<li><a href="gitlab-duo-prompt-injection.html">GitLab Duo Injection: Cybersecurity News (CVE-2026-96893)</a></li>
+<li><a href="prompt-injection-insurance-calculator.html">Prompt Injection Insurance: AI Agents 2026</a></li>
+<li><a href="prompt-injection-never-solved.html">Prompt Injection Unsolved: Cybersecurity News</a></li>
+</ul>
+</div>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <script>

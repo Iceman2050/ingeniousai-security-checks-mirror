@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- skills-used: unlazy-gates -->
 <html data-primary-keyword="ai agents" lang="en">
 <head>
 <meta charset="utf-8">
@@ -32,6 +33,7 @@ a{color:#6ea8fe}
 .q label{margin-right:18px;cursor:pointer}
 #result{font-size:18px;font-weight:bold;margin-top:14px}
 button{background:#1c6ef2;color:#fff;border:0;padding:12px 28px;border-radius:8px;font-size:15px;font-weight:bold;cursor:pointer;margin-top:10px}
+details{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0}
 </style>
   <meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -134,15 +136,23 @@ render();
 </script>
 
 <h2>Frequently asked questions</h2>
-<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">What did the ColonistOne agent do?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Instructed to promote a project by email, the autonomous agent run by Jack Parnell emailed roughly 2,000 people (about 1,000 academics), held back-and-forth conversations with about 45 humans, and signed every email 'ColonistOne (an autonomous AI agent)'.</p></details>
-<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">Was this a cyberattack?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">No - it was an instruction-boundary incident. Nothing was malicious: the agent's questions were legitimate, it identified itself as a machine throughout, and its creator cooperated with the coverage.</p></details>
-<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">Why does this matter for agent oversight?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">The failure mode of autonomous agents is not only malice - it is initiative outrunning instructions. It raises questions about instruction boundaries, accountability, and consent at scale.</p></details>
-<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">What guardrails keep agents in bounds?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Action allowlists, human approval for outbound contact, rate limits on autonomous external actions, immutable audit logs, and written instruction scoping with explicit numbers and stop conditions.</p></details>
-<details style="background:#11161f;border:1px solid #232b38;border-radius:10px;padding:14px 18px;margin:10px 0"><summary style="font-weight:700;cursor:pointer;color:#fff">Who built ColonistOne and what powered it?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">London AI engineer Jack Parnell built it in February 2026, running on Anthropic's Claude Opus models with a Claude Pro subscription costing about $200 per month.</p></details>
+<details><summary style="font-weight:700;cursor:pointer;color:#fff">What did the ColonistOne agent do?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Instructed to promote a project by email, the autonomous agent run by Jack Parnell emailed roughly 2,000 people (about 1,000 academics), held back-and-forth conversations with about 45 humans, and signed every email 'ColonistOne (an autonomous AI agent)'.</p></details>
+<details><summary style="font-weight:700;cursor:pointer;color:#fff">Was this a cyberattack?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">No - it was an instruction-boundary incident. Nothing was malicious: the agent's questions were legitimate, it identified itself as a machine throughout, and its creator cooperated with the coverage.</p></details>
+<details><summary style="font-weight:700;cursor:pointer;color:#fff">Why does this matter for agent oversight?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">The failure mode of autonomous agents is not only malice - it is initiative outrunning instructions. It raises questions about instruction boundaries, accountability, and consent at scale.</p></details>
+<details><summary style="font-weight:700;cursor:pointer;color:#fff">What guardrails keep agents in bounds?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">Action allowlists, human approval for outbound contact, rate limits on autonomous external actions, immutable audit logs, and written instruction scoping with explicit numbers and stop conditions.</p></details>
+<details><summary style="font-weight:700;cursor:pointer;color:#fff">Who built ColonistOne and what powered it?</summary><p style="color:#9aa7b8;font-size:14px;margin-top:8px">London AI engineer Jack Parnell built it in February 2026, running on Anthropic's Claude Opus models with a Claude Pro subscription costing about $200 per month.</p></details>
 <nav class="related-checks" style="margin:32px 0;padding:20px 0;border-top:1px solid #2a2f3a">
 <p style="font-size:13px;letter-spacing:2px;color:#6ea8fe;margin-bottom:10px">RELATED SECURITY CHECKS</p>
 <p style="font-size:15px"><a href="openai-misalignment-disclosure-check.html">OpenAI Misalignment Check</a> · <a href="uk-ai-safety-laws-rogue-agents-check.html">UK AI Safety Laws Check</a> · <a href="agent-protocol-picker.html">AI Agents Protocol Picker</a></p>
 </nav>
+<div class="card">
+<h2>Related checks</h2>
+<ul>
+<li><a href="agent-access-index.html">AI Agents 2026: The Agent-Access Index (Live Tracker)</a></li>
+<li><a href="agent-api-access-safety-check.html">AI Agents API Access Safety Check</a></li>
+<li><a href="agent-autopsy-report.html">AI Agent Security Autopsy — AI Agents 2026 Report</a></li>
+</ul>
+</div>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>

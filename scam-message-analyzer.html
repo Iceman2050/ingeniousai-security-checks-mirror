@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- skills-used: unlazy-gates -->
 <html data-primary-keyword="phishing" lang="en">
 <head>
 <meta charset="utf-8">
@@ -270,7 +271,7 @@ body.kidsmode h1{font-size:34px}
 
 <div id="results">
 <div id="verdict" class="verdict"></div>
-<details class="card" style="margin-top:0"><summary style="cursor:pointer;color:#fff;font-weight:bold" data-i18n="breakdown_title">Why this score? (show the math)</summary><div id="breakdown" style="margin-top:10px"></div></details>
+<div class="story-sec"><h3>Why this score? (show the math)</h3><div id="breakdown" style="margin-top:10px"></div></div>
 <div style="margin:0 0 16px"><button id="speakBtn" type="button" class="ghost" data-i18n="speak">🔊 Listen to verdict</button></div>
 <div class="card">
 <h3 data-i18n="riskscore">Risk score</h3>
@@ -2714,7 +2715,7 @@ function renderBreakdown(){
     return '<div class="histrow"><span class="tierpill caution">+'+w+'</span><div>'+esc(typeof c==="string"?c:comboNote(c))+'</div></div>';
   }).join("");
   var sum=r.flags.reduce(function(s,f){return s+f.weight;},0)+r.combos.reduce(function(s,c){return s+((typeof c==="object"&&c.weight)?c.weight:0);},0);
-  box.innerHTML='<details><summary><strong>'+esc(T("breakdown_title"))+'</strong> <span class="small">('+esc(T("scorelabel").replace("{s}",String(r.score)))+')</span></summary><div style="margin-top:8px">'+rows+combos+'<div class="histrow"><span class="tierpill low">=</span><div><strong>'+esc(T("scorelabel").replace("{s}",String(r.score)))+'</strong> <span class="small">(raw '+sum+' → clamped 0–100)</span></div></div></div></details>';
+  box.innerHTML='<div class="story-sec"><h3>'+esc(T("breakdown_title"))+'   ('+esc(T("scorelabel").replace("{s}",String(r.score)))+')</h3><div style="margin-top:8px">'+rows+combos+'<div class="histrow"><span class="tierpill low">=</span><div><strong>'+esc(T("scorelabel").replace("{s}",String(r.score)))+'</strong> <span class="small">(raw '+sum+' → clamped 0–100)</span></div></div></div></div>';
 }
 function renderHeatmap(){
   var box=document.getElementById("heatmap"),detail=document.getElementById("heatmapdetail");
@@ -3737,6 +3738,14 @@ comp_scam:"Estafa",tl_total:"Total perdido",kit_flags:"Señales",kit_msg:"Mensaj
 daily_win:"Acertaste. 🎯",daily_lose:"Difícil: revisa las señales e inténtalo mañana.",daily_streak_share:"Mi racha detectando estafas:",famquiz_copied:"¡Copiado!"
 });
 </script>
+<div class="card">
+<h2>Related checks</h2>
+<ul>
+<li><a href="ai-senior-scam-protection-check.html">Cybersecurity News Today: AI Scams Target Seniors</a></li>
+<li><a href="ai-voice-scam-check.html">Microsoft Scam 2.0: AI Voice Scams</a></li>
+<li><a href="amazon-prime-scam-check.html">Amazon Scam: That Cancel Button Is the Trap</a></li>
+</ul>
+</div>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>

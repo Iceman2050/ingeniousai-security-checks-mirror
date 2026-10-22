@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- skills-used: unlazy-gates -->
 
 <html data-primary-keyword="ai agents 2026" lang="en">
 <head>
@@ -57,6 +58,7 @@ a{color:#6ea8fe}
 .more-links a{display:inline-block;background:#161d28;border:1px solid #2a3342;border-radius:8px;padding:8px 14px;margin:4px 6px 4px 0;font-size:13px;text-decoration:none}
 .err{color:#ff7b72;font-size:13px;margin-top:8px}
 .hidden{display:none}
+details{background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
 </style>
 <link href="ecosystem.css" rel="stylesheet"/>
 </head>
@@ -92,7 +94,11 @@ a{color:#6ea8fe}
 <p class="tiny" style="margin-top:12px">Every figure above is an estimate derived from the numbers you entered. No provider pricing is assumed or invented — your invoice figures are the only source of truth. This tool is a guidance aid, not an official billing audit.</p>
 </div>
 <div class="card">
-<h2 style="margin-top:0">AI API spending — quick answers — FAQ</h2><details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is the biggest factor affecting LLM API costs?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Token count drives the bill — and output tokens are typically priced several times higher than input tokens by most providers. (Estimate.) An AI API cost calculator shows whether input or output dominates your spend; agents that "think out loud" usually show a heavy output skew, which is the first waste flag this tool checks.</p></details><details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How do I reduce my LLM API bill?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">The usual wins: enable prompt caching, use the cheapest model that passes your quality bar, trim oversized context windows, cap output length, add retry backoff so failures don't burn tokens twice, and batch calls instead of one-at-a-time requests. Fix the waste flags this tool reports first — they are the highest-leverage items.</p></details><details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is prompt caching and how much does it save?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Prompt caching lets providers reuse the processing of repeated prompt prefixes — like your system prompt — at a discounted input rate instead of charging full price every call. This tool estimates your cache-hit tokens from the cache percentage you enter; if that percentage is under 10%, the missing cache is flagged as your first cost fix. (Estimate.)</p></details><details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Should I use the batch API to cut AI API costs?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">If the workload isn't time-sensitive, yes. Providers' batch queues are typically advertised at roughly half the standard rate, with results delivered hours later instead of seconds — good for summarization, enrichment, and evaluation runs; bad for real-time chat. (Estimate — check your provider's current batch pricing.)</p></details><details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Is this an official audit of my provider invoice?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">No. Every number on this page is an estimate derived from the numbers you type in. We never invent provider pricing — your own invoice figures are the only source of truth, and this tool is a guidance aid, not an official billing audit.</p></details>
+<h2 style="margin-top:0">AI API spending — quick answers — FAQ</h2><details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is the biggest factor affecting LLM API costs?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Token count drives the bill — and output tokens are typically priced several times higher than input tokens by most providers. (Estimate.) An AI API cost calculator shows whether input or output dominates your spend; agents that "think out loud" usually show a heavy output skew, which is the first waste flag this tool checks.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How do I reduce my LLM API bill?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">The usual wins: enable prompt caching, use the cheapest model that passes your quality bar, trim oversized context windows, cap output length, add retry backoff so failures don't burn tokens twice, and batch calls instead of one-at-a-time requests. Fix the waste flags this tool reports first — they are the highest-leverage items.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is prompt caching and how much does it save?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Prompt caching lets providers reuse the processing of repeated prompt prefixes — like your system prompt — at a discounted input rate instead of charging full price every call. This tool estimates your cache-hit tokens from the cache percentage you enter; if that percentage is under 10%, the missing cache is flagged as your first cost fix. (Estimate.)</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Should I use the batch API to cut AI API costs?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">If the workload isn't time-sensitive, yes. Providers' batch queues are typically advertised at roughly half the standard rate, with results delivered hours later instead of seconds — good for summarization, enrichment, and evaluation runs; bad for real-time chat. (Estimate — check your provider's current batch pricing.)</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Is this an official audit of my provider invoice?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">No. Every number on this page is an estimate derived from the numbers you type in. We never invent provider pricing — your own invoice figures are the only source of truth, and this tool is a guidance aid, not an official billing audit.</p></details>
 <h3 style="font-size:16px;margin:16px 0 6px">How can I calculate my AI API costs?</h3>
 <p class="small">Start with your invoice or usage summary: total input tokens, total output tokens, total cost, and the billing period. An AI API cost calculator then splits spend into input vs output, estimates cache-hit tokens, and flags waste patterns like over-generation. Fix the flagged waste first — it is the highest-leverage saving.</p>
 <p style="margin:14px 0 4px"><strong>What is the biggest factor affecting LLM API costs?</strong></p>
@@ -118,7 +124,7 @@ a{color:#6ea8fe}
 <a href="security-suite.html">Security suite</a>
 </div>
 </div>
-<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://authgateway.getingeniousai.com" style="color:#fff;text-decoration:underline">Agent Auth Gateway</a> stops runaway agent bills before they happen — per-agent budget caps, spend allowlists, and a kill switch for rogue spenders.</strong></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</div><a href="https://authgateway.getingeniousai.com" style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp →</a></div>
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://authgateway.getingeniousai.com" style="color:#fff;text-decoration:underline">Agent Auth Gateway</a> stops runaway agent bills before they happen — per-agent budget caps, spend allowlists, and a kill switch for rogue spenders.</strong></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp →</a></div>
 </div>
 <script>
 /* PURE-LOGIC-START */
@@ -230,6 +236,14 @@ function fmtInt(x){
   });
 })();
 </script>
+<div class="card">
+<h2>Related checks</h2>
+<ul>
+<li><a href="agent-access-index.html">AI Agents 2026: The Agent-Access Index (Live Tracker)</a></li>
+<li><a href="agent-api-access-safety-check.html">AI Agents API Access Safety Check</a></li>
+<li><a href="agent-autopsy-report.html">AI Agent Security Autopsy — AI Agents 2026 Report</a></li>
+</ul>
+</div>
 <div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
 <script src="ecosystem.js"></script>
 <script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script>

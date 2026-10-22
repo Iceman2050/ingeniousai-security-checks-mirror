@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- skills-used: unlazy-gates -->
+<html data-primary-keyword="what is prompt injection" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MCP Prompt Injection to RCE Check: Is Your MCP Deployment Shaped Like the "WTF Is MCP?" Flaw? | Ingenious AI</title>
-<meta name="description" content=""WTF is MCP?" (published 2026-10-18) describes a critical prompt-injection-to-RCE design flaw in MCP agent architecture. Take the 5-question check: is your MCP deployment shaped like the vulnerable pattern? Free, no signup.">
+<title>MCP Prompt Injection to RCE Check</title>
+<meta name="description" content="“WTF IS MCP?” DISCLOSURE — PUBLISHED 2026-10-18 — PROMPT INJECTION TO RCE Is your MCP deployment shaped like the vulnerable pattern?"WTF is MCP?" (published 2026-10-18) describes a critical prompt-injection-to-RCE design flaw in MCP agent architecture. Take the 5-question check: is your MCP deployment shaped like the vulnerable pattern? Free, no signup.">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
-<meta property="og:title" content="MCP Prompt Injection to RCE Check: Is Your MCP Deployment Shaped Like the "WTF Is MCP?" Flaw?">
-<meta property="og:description" content=""WTF is MCP?" describes a critical prompt-injection-to-remote-code-execution design flaw in MCP agent architecture. Check whether your MCP deployment matches the vulnerable pattern.">
+<meta property="og:title" content="MCP Prompt Injection to RCE Check: Is Your MCP Deployment Shaped Like the &quot;WTF Is MCP?&quot; Flaw?">
+<meta property="og:description" content="The 'WTF is MCP?' disclosure describes a critical prompt-injection-to-remote-code-execution design flaw in MCP agent architecture. Check whether your MCP deployment matches the vulnerable pattern.">
+
 <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-injection-rce-design-flaw-check.html">
 <meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-injection-rce-design-flaw-check.html">
@@ -60,12 +62,15 @@ li{margin:8px 0}
 .share a{color:#1c6ef2;margin:0 8px}
 code{background:#0d1219;border:1px solid #232b38;border-radius:4px;padding:1px 6px;font-size:13px}
 </style>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI"}</script>
 </head>
 <body>
 <div class="wrap">
 <div class="badge">&ldquo;WTF IS MCP?&rdquo; DISCLOSURE &mdash; PUBLISHED 2026-10-18 &mdash; PROMPT INJECTION TO RCE</div>
-<h1>Is your MCP deployment <span class="red">shaped like the vulnerable pattern?</span></h1>
+<h1>What Is Prompt Injection: Is your MCP deployment <span class="red">shaped like the vulnerable pattern?</span></h1>
 <p class="lead">A disclosure published October 18, 2026, titled <strong>&ldquo;WTF is MCP?&rdquo;</strong>, describes a <strong>critical prompt-injection-to-remote-code-execution design flaw</strong> in an MCP-based AI agent architecture. The shape of it: a web-analysis tool dumps attacker-controlled text into the agent&rsquo;s context, a privileged tool executes commands, and the whole thing runs with your full environment &mdash; <strong>AWS keys, GitHub tokens, SSH identities</strong>. The author&rsquo;s verdict: this is not a prompt-engineering bug, it is a <strong>capability-isolation failure</strong>. Five questions will tell you whether your MCP deployment shares the same shape. Free, no signup.</p>
+<p><strong>Key figure:</strong> 63% of organizations in IBM's 2025 breach study had no AI governance policy, and 97% of AI-breach victims had no proper AI access controls (IBM, Cost of a Data Breach Report 2025).</p>
 
 <div class="directanswer">
 <b>The short answer:</b> The &ldquo;WTF is MCP?&rdquo; disclosure (2026-10-18) shows how <strong>untrusted web content crosses a missing trust boundary into command execution</strong> in MCP agent architecture: one tool ingests attacker text, another tool runs commands with your full credentials. The client-side <code>destructiveHint</code> is &ldquo;not a security control. It is a suggestion.&rdquo; If your deployment lets tool output drive command execution, inherits full environments, and guards destructive actions with hints instead of enforcement, it is shaped like the vulnerable pattern &mdash; take the check below.
@@ -160,12 +165,14 @@ function runQuiz(){
 <a href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html">&rarr; Security suite overview</a>
 </div>
 
-<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://rogue-defense.getingeniousai.com" style="color:#fff;text-decoration:underline">Rogue-Agent Defense</a> is the AI agent firewall: it enforces trust boundaries between untrusted tool output and privileged execution, so prompt injection never becomes RCE.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://disclosureguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://modelminder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://termswatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://vibe-audit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://rogue-defense.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://breachhunter.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://chatbreaker.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://flightrecorder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://authgateway.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://domainguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://contentcraft.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://rogue-defense.getingeniousai.com" style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://rogue-defense.getingeniousai.com" style="color:#fff;text-decoration:underline">Rogue-Agent Defense</a> is the AI agent firewall: it enforces trust boundaries between untrusted tool output and privileged execution, so prompt injection never becomes RCE.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://disclosureguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://modelminder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://termswatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://vibe-audit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://rogue-defense.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://breachhunter.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://chatbreaker.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://flightrecorder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://authgateway.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://domainguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://contentcraft.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 &mdash; get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
 
+<h2>What is the "WTF is MCP?" disclosure?</h2>
+<p>"WTF is MCP?" is a security disclosure published October 18, 2026, describing a critical prompt-injection-to-remote-code-execution design flaw in an MCP-based AI agent architecture. The core problem is a missing trust boundary: untrusted web content is analyzed by one tool and then fed to a privileged command-execution tool, letting attacker-controlled text cross into code execution with the agent's full environment and credentials.</p>
 <div class="share">Share this check: <a href="https://x.com/intent/post?text=%22WTF%20is%20MCP%3F%22%20%E2%80%94%20a%20prompt-injection-to-RCE%20design%20flaw%20in%20MCP%20agent%20architecture.%20Is%20your%20deployment%20shaped%20like%20the%20vulnerable%20pattern%3F&url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-injection-rce-design-flaw-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-injection-rce-design-flaw-check.html" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.reddit.com/submit?url=https%3A//iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-injection-rce-design-flaw-check.html&title=%22WTF%20is%20MCP%3F%22%20disclosure%3A%20is%20your%20MCP%20deployment%20shaped%20like%20the%20prompt-injection-to-RCE%20pattern%3F" target="_blank" rel="noopener">Reddit</a></div>
 
 <section class="kw-faq" style="max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
-<h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
+<h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">What is prompt injection? Frequently asked questions</h2>
 <details><summary>What is the &ldquo;WTF is MCP?&rdquo; disclosure?</summary><p>&ldquo;WTF is MCP?&rdquo; is a security disclosure published October 18, 2026, describing a critical prompt-injection-to-remote-code-execution design flaw in an MCP-based AI agent architecture. The core problem is a missing trust boundary: untrusted web content is analyzed by one tool and then fed to a privileged command-execution tool, letting attacker-controlled text cross into code execution with the agent&rsquo;s full environment and credentials.</p></details>
 <details><summary>How does the prompt-injection-to-RCE chain work?</summary><p>Per the disclosure: a web-analyzer tool dumps injected text from an attacker-controlled web bundle, GitHub issue, blog post, PDF, or comment into the agent&rsquo;s context, and a privileged tool then executes commands. Because the agent inherits the user&rsquo;s full environment, that means AWS keys, GitHub tokens, and SSH identities &mdash; plus persistence via SSH authorized_keys, cloud IAM keys, cron jobs, and shell profiles.</p></details>
 <details><summary>What does &ldquo;destructiveHint is not a security control&rdquo; mean?</summary><p>In the disclosed architecture, warnings about destructive commands existed only as a client-side destructiveHint &mdash; a suggestion to the model, not an enforced control. The disclosure&rsquo;s point: a hint that the model may or may not honor is not a security boundary. Real protection needs server-side enforcement &mdash; sandboxing, capability isolation, and explicit approval &mdash; not text asking the model to be careful.</p></details>
@@ -175,6 +182,15 @@ function runQuiz(){
 <p class="note" style="text-align:center;max-width:760px;margin:0 auto 24px">Informational only: this page reflects the &ldquo;WTF is MCP?&rdquo; disclosure published 2026-10-18. It analyzes one demonstrated architecture and tests whether yours shares its shape. Not a security audit.</p>
 </div>
 
+<div class="card">
+<h2>Related checks — Prompt Injection</h2>
+<ul>
+<li><a href="chatgpt-github-connector-flaw.html">ChatGPT GitHub Flaw: Cybersecurity News Warning</a></li>
+<li><a href="drupal-rce-exposure-check.html">Drupal RCE: Cybersecurity Patch Alert</a></li>
+<li><a href="framing-gap-injection-channel-check.html">Cybersecurity News: The Prompt Injection Framing Gap</a></li>
+</ul>
+</div>
+<p>Filed under What Is Prompt Injection by Ingenious AI — see the related checks above for more in this series.</p>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->

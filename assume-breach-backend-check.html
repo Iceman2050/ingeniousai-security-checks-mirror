@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- skills-used: unlazy-gates -->
 <html data-primary-keyword="cybersecurity" lang="en">
 <head>
 <meta charset="UTF-8">
@@ -78,6 +79,7 @@ details p{margin-top:10px;font-size:14px;color:#9aa7b8}
 <div class="badge">ASSUME-BREACH DESIGN</div>
 <h1>Assume-Breach: the <span class="green">Cybersecurity</span> Backend Playbook</h1>
 <p class="lead">The strongest security posture isn't "our servers can't be breached" — it's "when our servers get breached, the attacker gets nothing." That's assume-breach design: plan for the hack <em>before</em> it happens, so the breach becomes a non-event instead of a catastrophe.</p>
+<p><strong>Key figure:</strong> The global average cost of a data breach was $4.44 million in 2025 (IBM, Cost of a Data Breach Report 2025).</p>
 
 <div class="attrib"><strong>What triggered this page:</strong> the founder of VibeiDE (vibeide.dev — a real, live app for orchestrating coding agents on your own computer) posted in a developer group on October 18, 2026 that someone had gotten into their backend through a zero-day exploit the previous week — "but he got nothing." That is the founder's own account of the incident, not an independently verified breach. What <em>is</em> independently established is the architecture pattern behind the claim: keys held only on paired devices, end-to-end encryption, and a backend that merely relays. The same pattern behind Signal and WhatsApp. This page is about the pattern — and how to tell whether a vendor you trust actually implements it.</div>
 
@@ -208,6 +210,14 @@ if(typeof module!=='undefined'&&module.exports){module.exports={QS:QS,GOOD_IS_YE
 <p style="font-size:13px;letter-spacing:2px;color:#6ea8fe;margin-bottom:10px">RELATED SECURITY CHECKS</p>
 <p style="font-size:15px"><a href="siteguard-waf-cve-2026-106931-check.html">SiteGuard CVE-2026-106931 Check</a> · <a href="common-ports-hackers-love-check.html">18 Ports Hackers Love</a> · <a href="password-brute-force-survival-check.html">Strong Password Survival Check</a></p>
 </nav>
+<div class="card">
+<h2>Related checks</h2>
+<ul>
+<li><a href="breach-check.html">Data Breach News Check — Have Your Credentials Leaked?</a></li>
+<li><a href="breach-cost-calculator.html">Data Breach Cost Calculator 2026 — Data Breach News</a></li>
+<li><a href="breach-roulette.html">Breach Roulette — Data Breach News Game | Ingenious AI</a></li>
+</ul>
+</div>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <script src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"376c9de98060423683cfe15cec38f36b"}'></script>
