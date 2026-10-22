@@ -52,7 +52,8 @@
     "ChatBreaker": "https://chatbreaker.getingeniousai.com",
     "Agent Flight Recorder": "https://flightrecorder.getingeniousai.com",
     "Agent Auth Gateway": "https://authgateway.getingeniousai.com",
-    "DomainGuard": "https://domainguard.getingeniousai.com"
+    "DomainGuard": "https://domainguard.getingeniousai.com",
+    "ContentCraft AI": "https://contentcraft.getingeniousai.com"
   };
 
   function platformUrl(name) {
