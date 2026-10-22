@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, app-creation -->
+<html data-primary-keyword="what is prompt injection" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is Prompt Injection? Workflow Leak Check</title>
+<meta name="description" content="What is prompt injection damage, concretely? Paste your Flowise, Langflow or n8n export and see what leaks — keys, privileged nodes — 100% in your browser.">
+<link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/workflow-leak-check.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="What Is Prompt Injection? Paste Your Exported AI Workflow — What's Leaking?">
+<meta property="og:description" content="Sekoia, October 22, 2026: attackers harvested credentials from exposed Flowise workflows. Paste your export — this page parses it locally, hunts credential patterns, and walks LLM-to-privileged-node paths. Nothing is uploaded.">
+<meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/workflow-leak-check.html">
+<meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What Is Prompt Injection? Paste Your Exported AI Workflow — What's Leaking?">
+<meta name="twitter:description" content="Sekoia, October 22, 2026: attackers harvested credentials from exposed Flowise workflows. Paste your export — this page parses it locally, hunts credential patterns, and walks LLM-to-privileged-node paths. Nothing is uploaded.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1a0f0f;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+h2.sec{font-size:22px;margin:32px 0 12px;color:#fff}
+ul,ol{margin:10px 0 10px 20px}
+li{margin:8px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{border:1px solid #2a3342;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#161d29;color:#fff}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.note{font-size:14px;color:#9aa7b8}
+.smallprint{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.privnote{background:#0d1a0f;border:1px solid #3fb950;border-radius:10px;padding:14px 18px;font-size:14px;color:#7ee787;margin-bottom:20px}
+details{background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px;margin:10px 0}
+details summary{font-weight:700;color:#fff;cursor:pointer}
+details p{margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6}
+.crosslinks{background:#0d1420;border:1px solid #232b38;border-radius:10px;padding:20px 24px;margin:28px 0}
+.crosslinks h2{font-size:18px;color:#fff;margin-bottom:8px}
+.crosslinks ul{margin:8px 0 0 20px}
+.crosslinks li{margin:6px 0;font-size:15px}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+textarea.ta{width:100%;min-height:180px;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical}
+select,input[type="text"],input[type="number"]{background:#000;border:1px solid #2a3342;border-radius:8px;color:#e6edf3;padding:9px 12px;font-size:14px;width:100%;margin:6px 0 12px}
+label.flabel{display:block;font-size:14px;color:#fff;font-weight:600;margin-top:10px}
+.chk{display:flex;gap:10px;align-items:flex-start;margin:10px 0;font-size:15px}
+.chk input{margin-top:4px;flex:none}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.btnrow button{background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px 16px;font-size:14px;font-weight:600;cursor:pointer}
+.btnrow button:hover{border-color:#1c6ef2}
+.btnrow button.primary{background:#1c6ef2;color:#fff;border-color:#1c6ef2}
+#summary{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:18px;font-size:16px}
+#summary.good{border-color:#3fb950;background:#0d1a0f}
+#summary.bad{border-color:#f85149;background:#1a0f0f}
+#summary b.verd{font-size:19px;letter-spacing:.5px}
+.finding{border:1px solid #2a3342;border-radius:10px;padding:14px 16px;margin:12px 0;background:#0d1219}
+.finding .meta{font-size:13px;color:#9aa7b8;margin-bottom:6px}
+.sev{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;margin-right:8px;letter-spacing:.5px}
+.sev.CRITICAL{background:#2b1215;border:1px solid #f85149;color:#ffa198}
+.sev.HIGH{background:#2b1215;border:1px solid #f85149;color:#ffa198}
+.sev.MEDIUM{background:#1a1408;border:1px solid #d29922;color:#e3b341}
+.sev.LOW{background:#0d1626;border:1px solid #1c6ef2;color:#6ea8fe}
+.finding .rule{font-weight:700;color:#fff}
+.finding .expl{font-size:14px;color:#9aa7b8;margin-top:6px}
+.finding .snip{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:#7ee787;background:#000;border:1px solid #2a3342;border-radius:6px;padding:8px 10px;margin-top:8px;white-space:pre-wrap;word-break:break-word}
+pre.cmd{background:#000;border:1px solid #2a3342;border-radius:6px;padding:10px 12px;font-size:12.5px;color:#7ee787;white-space:pre-wrap;word-break:break-all;margin:8px 0;font-family:ui-monospace,Menlo,Consolas,monospace}
+.probe{border:1px solid #2a3342;border-radius:10px;padding:14px 16px;margin:12px 0;background:#0d1219}
+.probe .meta{font-size:13px;color:#9aa7b8;margin-bottom:4px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+.steps li{margin:12px 0}
+.meta{color:#9aa3b2;font-size:.85rem}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "What Is Prompt Injection? Paste Your Exported AI Workflow \u2014 What's Leaking?", "author": {"@type": "Organization", "name": "Ingenious AI"}, "datePublished": "2026-10-22", "dateModified": "2026-10-22", "description": "Interactive AI workflow leak checker: paste a Flowise, Langflow or n8n export JSON and get a fully local analysis \u2014 credential-pattern scan with redacted findings, privileged-node detection, and a reachability walk from LLM nodes over the workflow's own edges."}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://gitlab.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is prompt injection in an AI workflow?", "acceptedAnswer": {"@type": "Answer", "text": "Prompt injection is hostile instruction text hidden in content a language model reads, which the model then obeys as if its owner wrote it. In a workflow the stakes are higher than a wrong answer: if the model's flow reaches a code, HTTP or database node, the injected text can steer real actions. The reachability walk on this page maps exactly that path in your export."}}, {"@type": "Question", "name": "Why do exported workflows leak credentials?", "acceptedAnswer": {"@type": "Answer", "text": "Because builders store what you type. A key entered into a node becomes a parameter, parameters are written verbatim into export JSON, and exports get shared, backed up and committed. Sekoia's October 22, 2026 report documented attackers harvesting exactly these stored credentials from exposed Flowise servers \u2014 no exploit needed, just access to the files."}}, {"@type": "Question", "name": "Is it safe to paste my workflow export into this page?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 the analysis runs entirely in your browser with JavaScript on this page. Nothing is uploaded, stored or transmitted, and any secret the analyzer finds is displayed redacted to its first 4 characters. That said, good practice is to rotate any real key you find in an export regardless of where you found it, because the export itself is the leak."}}, {"@type": "Question", "name": "What should I do with a key I find in an old export?", "acceptedAnswer": {"@type": "Answer", "text": "Rotate it: revoke the old value and issue a new one, then replace the typed-in value in the workflow with an environment or credential-store reference and re-export. Deleting the key from the file is not enough \u2014 every existing copy of that export, including git history and backups, still holds a working credential until it is revoked."}}, {"@type": "Question", "name": "What does the full auditor check that this page cannot?", "acceptedAnswer": {"@type": "Answer", "text": "This page analyzes the one export you paste. The full agent-workflow-leak-auditor scans entire export folders and builder instances, inventories every workflow's credentials and privileged paths at once, and tracks findings across versions \u2014 use it for a complete audit rather than a single-file check."}}]}
+</script>
+</head>
+<body data-primary-keyword="what is prompt injection">
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free security checks</a>
+<div class="badge">NEWSJACK — OCT 22, 2026 · SEKOIA ON EXPOSED FLOWISE WORKFLOWS</div>
+<h1>What Is Prompt Injection? Paste Your Exported AI Workflow — <span class="red">What's Leaking?</span></h1>
+<p class="meta">Published <time datetime="2026-10-22">October 22, 2026</time> · by Ingenious AI · interactive explainer and checker</p>
+<p class="lead">Ask what is prompt injection in the abstract and you get a definition. Ask it about your own workflow and you get a list: the API key typed into a node and stored in every export, the code node sitting one hop downstream of the model, the credentials Sekoia reported being harvested from exposed Flowise servers on October 22, 2026. Paste your Flowise, Langflow or n8n export below — the analysis runs entirely in your browser, and you will see exactly what your workflow is leaking.</p>
+<div class="privnote"><strong>Privacy:</strong> everything on this page runs locally in your browser. Your export is never uploaded, stored or sent anywhere — the analysis is JavaScript on this page, and secrets in the results are shown redacted to their first 4 characters only.</div>
+<p class="answer"><strong>Short answer:</strong> your exported workflow file itself. A Flowise, Langflow or n8n export stores node parameters verbatim, so a key typed into a node is a key written into every export, backup and shared copy — 100% of the credentials stored in an exposed workflow travel with the file, per Sekoia's October 22, 2026 reporting on harvested Flowise credentials. Add a privileged node downstream of the model, and the same file also documents the attack path.</p>
+<h2 class="sec">Prompt injection news: what happened on October 22, 2026?</h2>
+<p>On October 22, 2026, Sekoia reported that attackers were harvesting credentials from exposed Flowise servers — instances of the popular visual agent builder left reachable on the internet, their saved workflows holding the API keys, database passwords and service tokens the builders had typed into nodes. The attackers did not need an exploit in the traditional sense: the workflows were the vault, and the vault was open.</p>
+<p>Flowise is one name for a general shape. Langflow and n8n exports have the same property: a workflow file is a complete description of an automation, including its parameters, and parameters are where credentials live. Teams export workflows to share them, back them up, post them in forums for help, and commit them to repositories — each copy carrying the keys in plaintext, readable by anyone who opens the file.</p>
+<p>The second leak in the same file is structural. The export also records which nodes connect to which, so it shows whether a language-model node — the component that reads untrusted text — can reach a code, HTTP or database node. That path is the prompt-injection kill chain, drawn by the workflow's own author: hostile content reaches the model, the model steers the flow, and the privileged node at the end executes. The analyzer below checks both leaks, in your browser, on the file you paste.</p>
+<h2 class="sec">What is prompt injection?</h2>
+<p>Prompt injection is an attack where hostile instructions hidden in content a language model reads — a web page, an email, a document, a tool result — override the instructions the model's owner gave it. The model cannot reliably separate data from commands, so text that arrives as input can act as orders. On its own, a hijacked answer is embarrassing. Wired into a workflow where the model's output flows to code execution, HTTP requests or database queries, it becomes remote control — which is why the reachability walk in the analyzer matters as much as the credential scan.</p>
+<div class="card" id="quiz-check">
+<h2>Paste your export — the leak analysis runs locally</h2>
+<p class="note">Paste a Flowise, Langflow or n8n export (the full JSON). The analyzer parses it here in your browser, scans for credential patterns and plaintext credential fields, detects privileged nodes (code, shell, HTTP, SQL), and walks the workflow's own edges from LLM nodes to see which privileged nodes they can reach. Findings show secrets redacted to the first 4 characters only. <strong>Nothing is uploaded — there is no server behind this page.</strong> Or load a sample first: the leaking sample carries a demo key and an LLM-to-code-to-HTTP chain; the clean sample uses an environment reference and no privileged nodes.</p>
+<textarea class="ta" id="wfin" spellcheck="false" autocapitalize="off" placeholder="Paste your Flowise / Langflow / n8n export JSON here — it never leaves your browser"></textarea>
+<div class="btnrow">
+<button class="primary" id="scanbtn" type="button">Analyze pasted export</button>
+<button id="loadleak" type="button">Load leaking sample</button>
+<button id="loadclean" type="button">Load clean sample</button>
+<button id="clearbtn" type="button">Clear</button>
+</div>
+<div id="summary" role="status" aria-live="polite"></div>
+<div id="results"></div>
+<p class="note" style="margin-top:14px"><strong>Honest scope note:</strong> this analyzer reads the single export you paste: it cannot see credentials stored server-side in the builder's own database, other workflows on the same instance, or whether your Flowise server is internet-exposed right now — check exposure separately. Pattern matching also cannot catch keys in unusual formats. The full tool is the open-source <a href="https://gitlab.com/Iceman2050">agent-workflow-leak-auditor</a> repo by Ingenious AI, which audits whole instances and export folders.</p>
+</div>
+<div class="card">
+<h2>What the analyzer hunts — and why each finding matters</h2>
+<table>
+<tr><th>Finding</th><th>Severity</th><th>Why it matters</th></tr>
+<tr><td>Credential pattern in the export (sk-, AKIA, ghp_, xox, private keys, JWTs)</td><td>CRITICAL</td><td>The key is in the file, in plaintext. Every copy of the export is a copy of the key. Rotate first; deleting the line does not un-leak it.</td></tr>
+<tr><td>Plaintext credential field on a node</td><td>HIGH</td><td>The builder stored the secret as a parameter instead of a reference. Exports, backups and shared templates all inherit it.</td></tr>
+<tr><td>Privileged node reachable from an LLM node</td><td>HIGH</td><td>The prompt-injection kill chain in one hop: untrusted text steers the model, the model's flow reaches code, HTTP or SQL execution.</td></tr>
+<tr><td>Privileged node present (not LLM-reachable)</td><td>MEDIUM</td><td>Legitimate in many designs, but it defines the blast radius if any upstream path changes — re-check after every workflow edit.</td></tr>
+</table>
+</div>
+<h2 class="sec">Leaking export? Do this now</h2>
+<p>If the analyzer flags your export, the file has already been a credential copy everywhere it has been — work this list in order:</p>
+<ol class="steps">
+<li><strong>Rotate every flagged credential.</strong> Revoke the old values, do not just add new ones. A key found in an export must be assumed copied — by the exposure Sekoia documented, by shared drives, by chat logs where the file was pasted for help.</li>
+<li><strong>Re-issue the export clean.</strong> Replace typed-in secrets with environment or credential-store references, re-export, and verify with the analyzer above before the new file goes anywhere.</li>
+<li><strong>Hunt the old copies.</strong> Repositories, backups, forum posts, tickets, shared drives: find every copy of the leaking export and delete or replace it. Git history counts — a deleted line in a commit is still in the commit.</li>
+<li><strong>Break the kill chain.</strong> Put a human approval or a strict allowlist between LLM nodes and code, HTTP or SQL nodes, or remove the privileged node from any flow whose inputs include untrusted content.</li>
+<li><strong>Check the instance, not just the file.</strong> If your Flowise, Langflow or n8n instance is reachable from the internet without authentication, the exports on it are exposed whether or not you ever downloaded them. Close that first.</li>
+<li><strong>Make the check a habit.</strong> Run every export through this analyzer before sharing it. Exports feel like documentation; they are closer to a keyring.</li>
+</ol>
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://breachhunter.getingeniousai.com" style="color:#fff;text-decoration:underline">BreachHunter</a> hunts the breaches behind stories like this — exposed data, leaked credentials and supply-chain fallout — before they become your incident.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://disclosureguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://modelminder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://termswatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://vibe-audit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://rogue-defense.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://breachhunter.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://chatbreaker.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://flightrecorder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://authgateway.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://domainguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://contentcraft.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+<div class="crosslinks">
+<h2>Keep exploring — related checks</h2>
+<ul>
+<li><a href="agent-toolcall-exposure-check.html">Penetration Testing: Agent Tool-Call Exposure Check</a> — CVE-2026-75128: Langchain-Chatchat POST /tools/call runs any tool with no login (CVSS 9.8). Probe your own agent deployment with copy-ready curl commands and get an exposed / auth-required / not-present verdict.</li>
+<li><a href="patch-to-exploit-clock-check.html">Data Breach Today: Patch-to-Exploit Clock Check</a> — PHP2Shell's exploit was rebuilt from a patch in about 1.5 hours with Codex; Sansec reversed Magento BlockStrap in about 24 hours. Score any patch and get its band: under 6h, 6-24h, 24-72h, 3-7d or over 7d.</li>
+<li><a href="release-swap-check.html">Vibe Coding: Release Swap Check</a> — LiteLLM 1.107.0's tampered release stole credentials from a package with about 23 million weekly downloads. Paste a setup.py or install hook and scan for the swap shapes: credential reads, encoded payloads, download-and-run.</li>
+<li><a href="wp-keyplant-check.html">Data Breach News: WordPress Key-Plant Check</a> — The UpdraftCentral breach (October 21-22, 2026): stolen remote-management keys planted at least 99 backdoor plugins; about 400,000 sites may hold such keys, per redrobot.online. Paste your plugin list and audit your key-plane.</li>
+<li><a href="mcp-server-shadow-check.html">AI Governance: MCP Server Shadow Check</a> — Claude Code v2.1.305 fixed a bug where a user-settings MCP server silently replaced a cloud/SDK-set one. Paste your user, project and runtime configs and see which definition actually wins for every server name.</li>
+<li><a href="all-links.html">All free security checks</a> — the full index.</li>
+<li><a href="security-suite.html">The all-bundle suite deal</a> — all 11 Ingenious AI platforms, one price.</li>
+</ul>
+</div>
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=Sekoia%3A%20attackers%20harvested%20credentials%20from%20exposed%20Flowise%20workflows.%20Paste%20your%20export%20—%20what%27s%20leaking%3F%20Free%2C%20100%25%20in-browser%20check&amp;url=https%3A%2F%2Fingeniousai-security-checks-mirror-0e97b6.gitlab.io%2Fworkflow-leak-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fingeniousai-security-checks-mirror-0e97b6.gitlab.io%2Fworkflow-leak-check.html" target="_blank" rel="noopener">LinkedIn</a></div>
+<div class="card">
+<h2>Frequently asked questions</h2>
+<details><summary>What is prompt injection in an AI workflow?</summary><p>Prompt injection is hostile instruction text hidden in content a language model reads, which the model then obeys as if its owner wrote it. In a workflow the stakes are higher than a wrong answer: if the model's flow reaches a code, HTTP or database node, the injected text can steer real actions. The reachability walk on this page maps exactly that path in your export.</p></details>
+<details><summary>Why do exported workflows leak credentials?</summary><p>Because builders store what you type. A key entered into a node becomes a parameter, parameters are written verbatim into export JSON, and exports get shared, backed up and committed. Sekoia's October 22, 2026 report documented attackers harvesting exactly these stored credentials from exposed Flowise servers — no exploit needed, just access to the files.</p></details>
+<details><summary>Is it safe to paste my workflow export into this page?</summary><p>Yes — the analysis runs entirely in your browser with JavaScript on this page. Nothing is uploaded, stored or transmitted, and any secret the analyzer finds is displayed redacted to its first 4 characters. That said, good practice is to rotate any real key you find in an export regardless of where you found it, because the export itself is the leak.</p></details>
+<details><summary>What should I do with a key I find in an old export?</summary><p>Rotate it: revoke the old value and issue a new one, then replace the typed-in value in the workflow with an environment or credential-store reference and re-export. Deleting the key from the file is not enough — every existing copy of that export, including git history and backups, still holds a working credential until it is revoked.</p></details>
+<details><summary>What does the full auditor check that this page cannot?</summary><p>This page analyzes the one export you paste. The full agent-workflow-leak-auditor scans entire export folders and builder instances, inventories every workflow's credentials and privileged paths at once, and tracks findings across versions — use it for a complete audit rather than a single-file check.</p></details>
+</div>
+<div class="smallprint">
+Built by Ingenious AI — reporting on third-party security research. The Flowise credential-harvesting account is summarized from Sekoia's reporting of October 22, 2026.<br>
+This page is general information, not legal advice. This page never asks for, stores, or transmits your credentials or pasted text. Full tool: <a href="https://gitlab.com/Iceman2050" style="color:#6ea8fe">agent-workflow-leak-auditor</a> on GitLab — part of the Ingenious AI toolkit.
+</div>
+</div>
+<script>
+/* Pure workflow-leak analyzer (no DOM, no network). Parses exported
+   Flowise / Langflow / n8n JSON, scans for credential patterns, detects
+   privileged nodes, and walks reachability from LLM nodes over the edges.
+   Secrets are only ever returned redacted to their first 4 characters. */
+var CRED_PATTERNS = [
+  { re: /sk-[A-Za-z0-9\-_]{10,}/g, label: "OpenAI-style API key", sev: "CRITICAL" },
+  { re: /AKIA[0-9A-Z]{16}/g, label: "AWS access key ID", sev: "CRITICAL" },
+  { re: /ghp_[A-Za-z0-9]{20,}/g, label: "GitHub personal access token", sev: "CRITICAL" },
+  { re: /xox[baprs]-[A-Za-z0-9\-]{8,}/g, label: "Slack token", sev: "CRITICAL" },
+  { re: /-----BEGIN [A-Z ]*PRIVATE KEY-----/g, label: "Embedded private key", sev: "CRITICAL" },
+  { re: /eyJ[A-Za-z0-9\-_]{10,}\.[A-Za-z0-9\-_]{10,}\.[A-Za-z0-9\-_]{6,}/g, label: "JWT-shaped token", sev: "HIGH" }
+];
+function redact(s){ return s.length <= 4 ? s : s.slice(0, 4) + "…[redacted]"; }
+function analyzeWorkflow(text){
+  var findings = [];
+  function add(sev, rule, expl){ findings.push({ severity: sev, rule: rule, explanation: expl }); }
+  if (!text || !text.trim()) return { empty: true, findings: findings, verdict: "EMPTY", nodeCount: 0 };
+  var root;
+  try { root = JSON.parse(text); }
+  catch (e) { return { empty: false, error: "JSON parse failed: " + e.message, findings: findings, verdict: "UNPARSEABLE", nodeCount: 0 }; }
+  var i, m;
+  for (i = 0; i < CRED_PATTERNS.length; i++){
+    var cp = CRED_PATTERNS[i]; cp.re.lastIndex = 0;
+    while ((m = cp.re.exec(text)) !== null){
+      add(cp.sev, "Credential in export: " + cp.label, "Found " + redact(m[0]) + " in the pasted export. Anyone who gets this file — a screenshot, a shared template, an exposed Flowise server — gets the credential. Rotate it; removing it from the file does not un-leak it.");
+    }
+  }
+  /* credential-shaped fields anywhere in the JSON tree */
+  var fieldHits = 0;
+  (function walk(o, path){
+    if (!o || typeof o !== "object") return;
+    Object.keys(o).forEach(function(k){
+      var v = o[k];
+      if (typeof v === "string" && /(pass(word|wd)?|api[-_]?key|secret|access[-_]?token|auth[-_]?token)/i.test(k)
+          && v.length >= 6 && v.indexOf("{{") === -1 && !/^(your|replace|example|xxx|changeme|placeholder)/i.test(v)){
+        fieldHits++;
+        add("HIGH", "Credential field set in plaintext: " + k, "Field at " + path + " holds a plaintext value (" + redact(v) + "). Exports store node parameters verbatim — a key typed into a node is a key written into every export, backup and shared copy of this workflow.");
+      }
+      if (v && typeof v === "object") walk(v, path + "." + k);
+    });
+  })(root, "$");
+  /* node collection across Flowise / Langflow / n8n shapes */
+  var nodes = [];
+  function nodeLabel(n){
+    if (!n || typeof n !== "object") return "";
+    var d = n.data || {};
+    return String(d.label || d.name || d.type || n.type || n.name || "");
+  }
+  function collect(o){
+    if (!o || typeof o !== "object") return;
+    if (Array.isArray(o.nodes)) o.nodes.forEach(function(n){ if (n && typeof n === "object") nodes.push(n); });
+    Object.keys(o).forEach(function(k){ if (k !== "nodes" && o[k] && typeof o[k] === "object") collect(o[k]); });
+  }
+  collect(root);
+  var PRIV = /(code|shell|command|exec|http|sql|database|postgres|mysql|python|function|webhook)/i;
+  var LLM = /(llm|chat|agent|prompt|openai|anthropic|model)/i;
+  var idOf = function(n, idx){ return String(n.id || n.name || nodeLabel(n) || ("node-" + idx)); };
+  var privNodes = [], llmNodes = [];
+  nodes.forEach(function(n, idx){
+    var lab = nodeLabel(n) + " " + String(n.type || "") + " " + String(n.name || "");
+    if (PRIV.test(lab)) privNodes.push({ id: idOf(n, idx), label: lab.trim() });
+    if (LLM.test(lab)) llmNodes.push({ id: idOf(n, idx), label: lab.trim() });
+  });
+  privNodes.forEach(function(pn){
+    add("MEDIUM", "Privileged node present: " + pn.label, "This workflow contains a node that can run code, make arbitrary HTTP calls, or query a database (" + pn.id + "). On its own that may be legitimate design — combined with the reachability check below it becomes the risk that matters.");
+  });
+  /* edges: Flowise/Langflow edge arrays + n8n connections object */
+  var adj = {};
+  function link(a, b){ if (!adj[a]) adj[a] = []; adj[a].push(b); }
+  (function walkEdges(o){
+    if (!o || typeof o !== "object") return;
+    if (Array.isArray(o.edges)) o.edges.forEach(function(e){
+      if (e && e.source && e.target) link(String(e.source), String(e.target));
+    });
+    if (o.connections && typeof o.connections === "object"){
+      Object.keys(o.connections).forEach(function(src){
+        var kinds = o.connections[src] || {};
+        Object.keys(kinds).forEach(function(kind){
+          (kinds[kind] || []).forEach(function(list){ (list || []).forEach(function(t){ if (t && t.node) link(src, String(t.node)); }); });
+        });
+      });
+    }
+    Object.keys(o).forEach(function(k){ if (k !== "edges" && k !== "connections" && o[k] && typeof o[k] === "object") walkEdges(o[k]); });
+  })(root);
+  /* name->id resolution for n8n (connections keyed by name) */
+  var nameToId = {};
+  nodes.forEach(function(n, idx){ if (n.name) nameToId[String(n.name)] = idOf(n, idx); });
+  Object.keys(adj).forEach(function(a){
+    adj[a] = adj[a].map(function(b){ return nameToId[b] || b; });
+    var ra = nameToId[a] || a;
+    if (ra !== a){ adj[ra] = (adj[ra] || []).concat(adj[a]); delete adj[a]; }
+  });
+  var seen = {}, queue = llmNodes.map(function(n){ return n.id; });
+  queue.forEach(function(id){ seen[id] = true; });
+  while (queue.length){
+    var cur = queue.shift();
+    (adj[cur] || []).forEach(function(nx){ if (!seen[nx]){ seen[nx] = true; queue.push(nx); } });
+  }
+  var reachablePriv = privNodes.filter(function(pn){ return seen[pn.id]; });
+  reachablePriv.forEach(function(pn){
+    add("HIGH", "Privileged node reachable from an LLM node: " + pn.label, "Following this workflow's own edges, output from a language-model node can reach " + pn.id + ". That is the prompt-injection kill chain in one hop: hostile text in a document, email or web page the model reads can steer it toward the code, HTTP or database node downstream.");
+  });
+  var hasCred = findings.some(function(f){ return f.severity === "CRITICAL"; });
+  var verdict = hasCred || reachablePriv.length ? "LEAKING" : (findings.length ? "REVIEW" : "NO-FINDINGS");
+  return { empty: false, findings: findings, verdict: verdict, nodeCount: nodes.length,
+           privCount: privNodes.length, llmCount: llmNodes.length, reachableCount: reachablePriv.length, fieldHits: fieldHits };
+}
+var SAMPLE_WORKFLOW = JSON.stringify({
+  nodes: [
+    { id: "chatOpenAI_0", data: { label: "ChatOpenAI", name: "chatOpenAI", inputs: { openAIApiKey: "sk-demo1234567890abcdef" } } },
+    { id: "code_1", data: { label: "Code Node", name: "code" } },
+    { id: "http_2", data: { label: "HTTP Request", name: "httpRequest" } }
+  ],
+  edges: [
+    { source: "chatOpenAI_0", target: "code_1" },
+    { source: "code_1", target: "http_2" }
+  ]
+}, null, 2);
+var SAMPLE_CLEAN_WORKFLOW = JSON.stringify({
+  nodes: [
+    { id: "prompt_0", data: { label: "Prompt Template", name: "promptTemplate" } },
+    { id: "llm_1", data: { label: "ChatOpenAI", name: "chatOpenAI", inputs: { openAIApiKey: "{{$env.OPENAI_API_KEY}}" } } }
+  ],
+  edges: [ { source: "prompt_0", target: "llm_1" } ]
+}, null, 2);
+</script>
+<script>
+(function(){
+var root = document.getElementById('quiz-check');
+var ta = document.getElementById("wfin");
+var summary = document.getElementById("summary");
+var results = document.getElementById("results");
+function esc(s){ return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+function render(r){
+  results.innerHTML = "";
+  if (r.empty){
+    summary.className = ""; summary.style.display = "block";
+    summary.innerHTML = "<b class='verd'>Nothing to analyze</b><br><br>Paste a Flowise, Langflow or n8n export first — or load the leaking or clean sample. Everything is analyzed locally in your browser; nothing is uploaded.";
+    return;
+  }
+  if (r.error){
+    summary.className = "bad"; summary.style.display = "block";
+    summary.innerHTML = "<b class='verd'>NOT VALID JSON</b><br><br>" + esc(r.error) + "<br><br>Export the workflow again and paste the complete file — a truncated paste is the usual cause.";
+    return;
+  }
+  var label, cls, advice;
+  if (r.verdict === "LEAKING"){ label = "LEAKING — ACT ON THIS EXPORT"; cls = "bad"; advice = "This export contains live credentials, or a privileged node sits downstream of a model node, or both. Treat every copy of this file as a credential disclosure: rotate the keys, re-export with secrets removed, and review who could reach the workflow."; }
+  else if (r.verdict === "REVIEW"){ label = "REVIEW — SIGNALS FOUND"; cls = ""; advice = "No live credential pattern matched and no privileged node is reachable from a model node, but the findings below deserve a look — privileged nodes in a workflow are safe only while the paths into them stay clean."; }
+  else { label = "NO FINDINGS IN THIS EXPORT"; cls = "good"; advice = "No credential patterns, no plaintext credential fields, and no privileged nodes were found in the pasted export. That covers this file — re-run it on every export you share, because the next version of the workflow is a new file."; }
+  summary.className = cls; summary.style.display = "block";
+  summary.innerHTML = "<b class='verd'>" + label + "</b> — " + r.nodeCount + " node(s) parsed · " + r.privCount + " privileged · " + r.reachableCount + " reachable from an LLM node<br><br>" + advice;
+  r.findings.forEach(function(f){
+    var d = document.createElement("div"); d.className = "finding";
+    d.innerHTML = "<div class='meta'><span class='sev " + f.severity + "'>" + f.severity + "</span></div><div class='rule'>" + esc(f.rule) + "</div><div class='expl'>" + esc(f.explanation) + "</div>";
+    results.appendChild(d);
+  });
+  summary.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+document.getElementById("scanbtn").onclick = function(){ render(analyzeWorkflow(ta.value)); };
+document.getElementById("loadleak").onclick = function(){ ta.value = SAMPLE_WORKFLOW; render(analyzeWorkflow(ta.value)); };
+document.getElementById("loadclean").onclick = function(){ ta.value = SAMPLE_CLEAN_WORKFLOW; render(analyzeWorkflow(ta.value)); };
+document.getElementById("clearbtn").onclick = function(){ ta.value = ""; results.innerHTML = ""; summary.style.display = "none"; ta.focus(); };
+})();
+</script>
+<div id="ecosystem-footer"><a href="https://gitlab.com/Iceman2050">GitLab: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

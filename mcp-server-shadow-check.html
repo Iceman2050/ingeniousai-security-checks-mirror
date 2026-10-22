@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, app-creation -->
+<html data-primary-keyword="ai governance" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Governance: MCP Server Shadow Check</title>
+<meta name="description" content="AI governance you can run: paste your MCP configs from three scopes and see which server definition wins each name — and where a shadow copy is waiting.">
+<link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/mcp-server-shadow-check.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Ingenious AI">
+<meta property="og:title" content="AI Governance: Which MCP Server Actually Wins in Your Setup?">
+<meta property="og:description" content="October 21, 2026: Claude Code v2.1.305 fixed a silent MCP server replacement — a user-settings server shadowed the cloud-set one. Paste up to three config blobs and render the true winner table for your setup.">
+<meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/mcp-server-shadow-check.html">
+<meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Governance: Which MCP Server Actually Wins in Your Setup?">
+<meta name="twitter:description" content="October 21, 2026: Claude Code v2.1.305 fixed a silent MCP server replacement — a user-settings server shadowed the cloud-set one. Paste up to three config blobs and render the true winner table for your setup.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1a0f0f;border:1px solid #f85149;color:#ffa198;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .red{color:#f85149}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:16px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:28px;margin:24px 0}
+.card h2{font-size:20px;margin-bottom:12px;color:#fff}
+.card h3{font-size:17px;margin:18px 0 8px;color:#fff}
+h2.sec{font-size:22px;margin:32px 0 12px;color:#fff}
+ul,ol{margin:10px 0 10px 20px}
+li{margin:8px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{border:1px solid #2a3342;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#161d29;color:#fff}
+code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;font-size:13px;color:#7ee787}
+.note{font-size:14px;color:#9aa7b8}
+.smallprint{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.back{display:inline-block;margin-bottom:18px;color:#1c6ef2;text-decoration:none;font-size:14px}
+.privnote{background:#0d1a0f;border:1px solid #3fb950;border-radius:10px;padding:14px 18px;font-size:14px;color:#7ee787;margin-bottom:20px}
+details{background:#0d1219;border:1px solid #232b38;border-radius:8px;padding:12px 16px;margin:10px 0}
+details summary{font-weight:700;color:#fff;cursor:pointer}
+details p{margin:8px 0 0;color:#9aa7b8;font-size:15px;line-height:1.6}
+.crosslinks{background:#0d1420;border:1px solid #232b38;border-radius:10px;padding:20px 24px;margin:28px 0}
+.crosslinks h2{font-size:18px;color:#fff;margin-bottom:8px}
+.crosslinks ul{margin:8px 0 0 20px}
+.crosslinks li{margin:6px 0;font-size:15px}
+.share{text-align:center;margin:28px 0 8px;font-size:14px;color:#9aa7b8}
+.share a{color:#1c6ef2;margin:0 8px;text-decoration:none}
+textarea.ta{width:100%;min-height:180px;background:#000;border:1px solid #2a3342;border-radius:8px;color:#7ee787;font-size:13px;padding:12px;font-family:ui-monospace,Menlo,Consolas,monospace;resize:vertical}
+select,input[type="text"],input[type="number"]{background:#000;border:1px solid #2a3342;border-radius:8px;color:#e6edf3;padding:9px 12px;font-size:14px;width:100%;margin:6px 0 12px}
+label.flabel{display:block;font-size:14px;color:#fff;font-weight:600;margin-top:10px}
+.chk{display:flex;gap:10px;align-items:flex-start;margin:10px 0;font-size:15px}
+.chk input{margin-top:4px;flex:none}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.btnrow button{background:#161d29;color:#e6edf3;border:1px solid #2a3342;border-radius:8px;padding:10px 16px;font-size:14px;font-weight:600;cursor:pointer}
+.btnrow button:hover{border-color:#1c6ef2}
+.btnrow button.primary{background:#1c6ef2;color:#fff;border-color:#1c6ef2}
+#summary{display:none;border-left:4px solid #d29922;padding:18px;background:#1a1408;border-radius:0 8px 8px 0;margin-top:18px;font-size:16px}
+#summary.good{border-color:#3fb950;background:#0d1a0f}
+#summary.bad{border-color:#f85149;background:#1a0f0f}
+#summary b.verd{font-size:19px;letter-spacing:.5px}
+.finding{border:1px solid #2a3342;border-radius:10px;padding:14px 16px;margin:12px 0;background:#0d1219}
+.finding .meta{font-size:13px;color:#9aa7b8;margin-bottom:6px}
+.sev{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;margin-right:8px;letter-spacing:.5px}
+.sev.CRITICAL{background:#2b1215;border:1px solid #f85149;color:#ffa198}
+.sev.HIGH{background:#2b1215;border:1px solid #f85149;color:#ffa198}
+.sev.MEDIUM{background:#1a1408;border:1px solid #d29922;color:#e3b341}
+.sev.LOW{background:#0d1626;border:1px solid #1c6ef2;color:#6ea8fe}
+.finding .rule{font-weight:700;color:#fff}
+.finding .expl{font-size:14px;color:#9aa7b8;margin-top:6px}
+.finding .snip{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:#7ee787;background:#000;border:1px solid #2a3342;border-radius:6px;padding:8px 10px;margin-top:8px;white-space:pre-wrap;word-break:break-word}
+pre.cmd{background:#000;border:1px solid #2a3342;border-radius:6px;padding:10px 12px;font-size:12.5px;color:#7ee787;white-space:pre-wrap;word-break:break-all;margin:8px 0;font-family:ui-monospace,Menlo,Consolas,monospace}
+.probe{border:1px solid #2a3342;border-radius:10px;padding:14px 16px;margin:12px 0;background:#0d1219}
+.probe .meta{font-size:13px;color:#9aa7b8;margin-bottom:4px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+.steps li{margin:12px 0}
+.meta{color:#9aa3b2;font-size:.85rem}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "AI Governance: Which MCP Server Actually Wins in Your Setup?", "author": {"@type": "Organization", "name": "Ingenious AI"}, "datePublished": "2026-10-22", "dateModified": "2026-10-22", "description": "Interactive MCP server shadow checker implementing the scope-precedence model (managed > runtime > project-local > project > user) client-side: paste user, project and runtime MCP configs and get a per-name winner table with shadowing and trust-inversion warnings; environment values are never displayed."}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://gitlab.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What did Claude Code v2.1.305 fix about MCP servers?", "acceptedAnswer": {"@type": "Answer", "text": "Per the October 21, 2026 release notes, v2.1.305 fixed a configuration bug in which an MCP server set by the cloud or SDK layer could be silently replaced by a same-named server from the user's own settings. The managed definition stopped being the one that ran, with no visible error \u2014 the session simply used the user-configured implementation instead."}}, {"@type": "Question", "name": "What is the correct precedence order for MCP server configs?", "acceptedAnswer": {"@type": "Answer", "text": "The model this page implements is managed policy first, then runtime-set servers, then project-local, then the project .mcp.json, then user config. The principle is that more controlled scopes override less controlled ones. The v2.1.305 incident mattered because the effective order inverted that principle for one name: the least controlled scope won."}}, {"@type": "Question", "name": "How do I check which of my MCP servers is shadowed?", "acceptedAnswer": {"@type": "Answer", "text": "Collect every scope that can define servers \u2014 user config, project .mcp.json, any runtime or SDK-injected set \u2014 and compare the names. A name defined in two scopes with different commands is a collision; the resolver on this page renders the winner per the precedence model and flags user-versus-runtime differences as trust-inversion risks, showing environment key names only, never values."}}, {"@type": "Question", "name": "Why is a shadowed server a governance problem if both definitions are mine?", "acceptedAnswer": {"@type": "Answer", "text": "Because governance is about which definition actually runs. A runtime-set server usually exists to guarantee logging, restrictions or data handling; a stale user entry with the same name can quietly replace it, as in the v2.1.305 case, so the controls everyone believes are active are not the controls in the session. Intent does not matter to the resolution algorithm."}}, {"@type": "Question", "name": "What does the full auditor check that this page cannot?", "acceptedAnswer": {"@type": "Answer", "text": "This page resolves the blobs you paste under the stated model. The full mcp-server-shadow-auditor scans the actual config files on a machine \u2014 every scope a client reads, including ones you forgot exist \u2014 and reports the client's effective resolution per name. Use it to find scopes you did not know were in play."}}]}
+</script>
+</head>
+<body data-primary-keyword="ai governance">
+<div class="wrap">
+<a class="back" href="index.html">&larr; Back to all free security checks</a>
+<div class="badge">NEWSJACK — OCT 21, 2026 · CLAUDE CODE v2.1.305 MCP FIX</div>
+<h1>AI Governance: Which MCP Server <span class="red">Actually Wins in Your Setup?</span></h1>
+<p class="meta">Published <time datetime="2026-10-22">October 22, 2026</time> · by Ingenious AI · interactive explainer and checker</p>
+<p class="lead">AI governance sounds like policy documents. Sometimes it is a name collision: on October 21, 2026, Claude Code v2.1.305 fixed a bug where a cloud/SDK-set MCP server was silently replaced by a same-named server from user settings — the managed definition lost, and nothing told anyone. Paste up to three config blobs below — user config, project <code>.mcp.json</code>, runtime-set servers — and this page resolves, name by name, which definition actually wins in your setup.</p>
+<div class="privnote"><strong>Privacy:</strong> everything runs locally in your browser; nothing is uploaded. Environment <em>values</em> are never displayed anywhere on this page — only key names are shown, so you can paste real configs without printing your secrets.</div>
+<p class="answer"><strong>Short answer:</strong> the one the precedence rules say — when the client obeys them. The resolution order in this model is managed &gt; runtime &gt; project-local &gt; project &gt; user: the most controlled scope that defines a name wins it. The v2.1.305 bug broke exactly that: with a name defined in both runtime and user scopes, the user copy — the least controlled one — silently took over, so 100% of calls to that server name went to an implementation the operator never approved.</p>
+<h2 class="sec">AI governance news: what happened on October 21, 2026?</h2>
+<p>On October 21, 2026, Claude Code v2.1.305 shipped a fix for an MCP configuration bug, per the release notes: a server set by the cloud or SDK layer could be silently replaced by a same-named server defined in the user's own settings. No error, no warning, no log line most users would see — the session simply talked to a different server than the one the deploying layer intended.</p>
+<p>Consider what that means in a governed environment. An organization sets an MCP server at the runtime layer precisely so that its implementation — its logging, its restrictions, its data handling — is the one employees' tools use. A stale or hand-edited entry in a user settings file, written months earlier for an experiment, carried the same name. From the fix's description, the user copy won. Every call to that server name went to the unapproved implementation for as long as both definitions existed.</p>
+<p>This is a governance failure with no villain: nobody hacked anything, and no prompt was injected. It is configuration physics — multiple scopes, one namespace, and a resolution order that did the opposite of what the scopes' trust levels imply. The checker below implements the intended order (managed &gt; runtime &gt; project-local &gt; project &gt; user) so you can see your own collisions before a client resolves them for you, and it flags the specific trust-inversion shape — user and runtime defining the same name differently — that v2.1.305 was shipped to fix.</p>
+<h2 class="sec">What is MCP server shadowing?</h2>
+<p>MCP server shadowing is what happens when two configuration scopes define a server under the same name with different definitions. The client must pick one; the one it picks is the one that actually runs, and the other becomes a shadow — present in a file someone trusts, describing a server that is not the one answering. Shadowing is dangerous precisely because every individual file looks correct: the user config is a valid definition, the runtime config is a valid definition, and only the resolution across scopes reveals that they have been fighting over one name.</p>
+<div class="card" id="quiz-check">
+<h2>Paste your scopes — get the winner table</h2>
+<p class="note">Paste any combination of the three blobs (each is a JSON object with an <code>mcpServers</code> map, or a bare name-to-server map). The resolver applies the precedence model locally and renders the winner per server name, the scopes it shadows, and trust-inversion warnings. Environment values are never displayed — keys only. Leave a scope empty if you do not use it, or load the samples to see the v2.1.305 shape reproduced.</p>
+<label class="flabel" for="cfg-user">User config (lowest precedence of the three)</label>
+<textarea class="ta" id="cfg-user" style="min-height:110px" spellcheck="false" autocapitalize="off" placeholder='{"mcpServers": {"name": {"command": "...", "args": [], "env": {"KEY": "value never shown"}}}}'></textarea>
+<label class="flabel" for="cfg-project">Project .mcp.json</label>
+<textarea class="ta" id="cfg-project" style="min-height:110px" spellcheck="false" autocapitalize="off" placeholder='{"mcpServers": { ... }}'></textarea>
+<label class="flabel" for="cfg-runtime">Runtime-set servers (cloud / SDK layer — highest of the three)</label>
+<textarea class="ta" id="cfg-runtime" style="min-height:110px" spellcheck="false" autocapitalize="off" placeholder='{"mcpServers": { ... }}'></textarea>
+<div class="btnrow">
+<button class="primary" id="resolve" type="button">Resolve the winner table</button>
+<button id="loadsamples" type="button">Load the v2.1.305-shape samples</button>
+<button id="clearbtn" type="button">Clear</button>
+</div>
+<div id="summary" role="status" aria-live="polite"></div>
+<div id="results"></div>
+<p class="note" style="margin-top:14px"><strong>Honest scope note:</strong> this resolver implements the stated precedence model — managed &gt; runtime &gt; project-local &gt; project &gt; user — for the three paste-able scopes. Individual clients have historically resolved differently (that is the entire lesson of v2.1.305), project-local files are folded into the project blob here, and managed policy delivered out-of-band cannot be pasted. Treat the table as the intended resolution, then verify your client's actual behaviour. The full tool is the open-source <a href="https://gitlab.com/Iceman2050">mcp-server-shadow-auditor</a> repo by Ingenious AI, which scans config files on disk across scopes.</p>
+</div>
+<div class="card">
+<h2>The precedence model this page implements</h2>
+<table>
+<tr><th>Rank</th><th>Scope</th><th>Why it ranks there</th></tr>
+<tr><td>1 (wins)</td><td>Managed policy</td><td>Set by the organization, not the user or the project. Governance means this layer cannot be overridden by anything below it.</td></tr>
+<tr><td>2</td><td>Runtime-set (cloud / SDK)</td><td>Injected by the deploying layer for this session — the layer that knows the environment it is running in.</td></tr>
+<tr><td>3</td><td>Project-local</td><td>Checked into or generated for one workspace; narrower than the project file shared with a team.</td></tr>
+<tr><td>4</td><td>Project (.mcp.json)</td><td>Shared by the project; should beat personal settings for project work, and lose to anything the deployer set.</td></tr>
+<tr><td>5</td><td>User config</td><td>Personal defaults. The broadest and least controlled scope — which is why a user entry silently winning over a runtime entry is a trust inversion, not a preference.</td></tr>
+</table>
+</div>
+<h2 class="sec">Shadowed servers? Do this now</h2>
+<p>If the winner table shows collisions — and especially a trust-inversion risk — work this list in order:</p>
+<ol class="steps">
+<li><strong>Rename to disambiguate.</strong> The permanent fix for shadowing is unique names per scope: a personal filesystem server and a managed one should never share a name in the first place.</li>
+<li><strong>Delete stale user entries.</strong> Most user-config collisions are experiments that outlived their purpose. If a server is now provided by the runtime or project layer, remove the user copy entirely.</li>
+<li><strong>Verify the client's real resolution.</strong> The October 21, 2026 fix exists because one major client's behaviour differed from the model. After cleaning up, start the client and confirm from its own server list which definition is live for each name.</li>
+<li><strong>Pin managed names in policy.</strong> Where your tooling allows managed policy, reserve the names of governed servers there, so lower scopes cannot redefine them at all.</li>
+<li><strong>Audit env keys, not values.</strong> For each winning server, list the environment keys it receives (this page shows keys only, never values) and confirm each is one the winning implementation is supposed to hold.</li>
+<li><strong>Re-run on every config change.</strong> Shadowing is created one paste at a time. The resolver takes a minute; run it whenever a scope gains a server.</li>
+</ol>
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://breachhunter.getingeniousai.com" style="color:#fff;text-decoration:underline">BreachHunter</a> hunts the breaches behind stories like this — exposed data, leaked credentials and supply-chain fallout — before they become your incident.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://disclosureguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://modelminder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://termswatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://vibe-audit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://rogue-defense.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://breachhunter.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://chatbreaker.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://flightrecorder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://authgateway.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://domainguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://contentcraft.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+<div class="crosslinks">
+<h2>Keep exploring — related checks</h2>
+<ul>
+<li><a href="agent-toolcall-exposure-check.html">Penetration Testing: Agent Tool-Call Exposure Check</a> — CVE-2026-75128: Langchain-Chatchat POST /tools/call runs any tool with no login (CVSS 9.8). Probe your own agent deployment with copy-ready curl commands and get an exposed / auth-required / not-present verdict.</li>
+<li><a href="patch-to-exploit-clock-check.html">Data Breach Today: Patch-to-Exploit Clock Check</a> — PHP2Shell's exploit was rebuilt from a patch in about 1.5 hours with Codex; Sansec reversed Magento BlockStrap in about 24 hours. Score any patch and get its band: under 6h, 6-24h, 24-72h, 3-7d or over 7d.</li>
+<li><a href="release-swap-check.html">Vibe Coding: Release Swap Check</a> — LiteLLM 1.107.0's tampered release stole credentials from a package with about 23 million weekly downloads. Paste a setup.py or install hook and scan for the swap shapes: credential reads, encoded payloads, download-and-run.</li>
+<li><a href="workflow-leak-check.html">What Is Prompt Injection? Workflow Leak Check</a> — Sekoia reported attackers harvesting credentials from exposed Flowise workflows on October 22, 2026. Paste your Flowise, Langflow or n8n export — scanned locally in your browser for leaked keys and privileged nodes an LLM can reach.</li>
+<li><a href="wp-keyplant-check.html">Data Breach News: WordPress Key-Plant Check</a> — The UpdraftCentral breach (October 21-22, 2026): stolen remote-management keys planted at least 99 backdoor plugins; about 400,000 sites may hold such keys, per redrobot.online. Paste your plugin list and audit your key-plane.</li>
+<li><a href="all-links.html">All free security checks</a> — the full index.</li>
+<li><a href="security-suite.html">The all-bundle suite deal</a> — all 11 Ingenious AI platforms, one price.</li>
+</ul>
+</div>
+<div class="share">Share this check: <a href="https://x.com/intent/post?text=Claude%20Code%20v2.1.305%20fixed%20a%20silent%20MCP%20server%20swap%20—%20a%20user-settings%20server%20replaced%20the%20cloud-set%20one.%20Which%20MCP%20server%20actually%20wins%20in%20YOUR%20setup%3F&amp;url=https%3A%2F%2Fingeniousai-security-checks-mirror-0e97b6.gitlab.io%2Fmcp-server-shadow-check.html" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fingeniousai-security-checks-mirror-0e97b6.gitlab.io%2Fmcp-server-shadow-check.html" target="_blank" rel="noopener">LinkedIn</a></div>
+<div class="card">
+<h2>Frequently asked questions</h2>
+<details><summary>What did Claude Code v2.1.305 fix about MCP servers?</summary><p>Per the October 21, 2026 release notes, v2.1.305 fixed a configuration bug in which an MCP server set by the cloud or SDK layer could be silently replaced by a same-named server from the user's own settings. The managed definition stopped being the one that ran, with no visible error — the session simply used the user-configured implementation instead.</p></details>
+<details><summary>What is the correct precedence order for MCP server configs?</summary><p>The model this page implements is managed policy first, then runtime-set servers, then project-local, then the project .mcp.json, then user config. The principle is that more controlled scopes override less controlled ones. The v2.1.305 incident mattered because the effective order inverted that principle for one name: the least controlled scope won.</p></details>
+<details><summary>How do I check which of my MCP servers is shadowed?</summary><p>Collect every scope that can define servers — user config, project .mcp.json, any runtime or SDK-injected set — and compare the names. A name defined in two scopes with different commands is a collision; the resolver on this page renders the winner per the precedence model and flags user-versus-runtime differences as trust-inversion risks, showing environment key names only, never values.</p></details>
+<details><summary>Why is a shadowed server a governance problem if both definitions are mine?</summary><p>Because governance is about which definition actually runs. A runtime-set server usually exists to guarantee logging, restrictions or data handling; a stale user entry with the same name can quietly replace it, as in the v2.1.305 case, so the controls everyone believes are active are not the controls in the session. Intent does not matter to the resolution algorithm.</p></details>
+<details><summary>What does the full auditor check that this page cannot?</summary><p>This page resolves the blobs you paste under the stated model. The full mcp-server-shadow-auditor scans the actual config files on a machine — every scope a client reads, including ones you forgot exist — and reports the client's effective resolution per name. Use it to find scopes you did not know were in play.</p></details>
+</div>
+<div class="smallprint">
+Built by Ingenious AI — reporting on third-party product changes. The Claude Code v2.1.305 fix is summarized from the October 21, 2026 release notes.<br>
+This page is general information, not legal advice. This page never displays, stores, or transmits your environment values or pasted text. Full tool: <a href="https://gitlab.com/Iceman2050" style="color:#6ea8fe">mcp-server-shadow-auditor</a> on GitLab — part of the Ingenious AI toolkit.
+</div>
+</div>
+<script>
+/* Pure MCP scope-precedence resolver (no DOM, no network).
+   Model: managed > runtime > project-local > project > user.
+   This page accepts the three paste-able scopes (runtime, project, user);
+   managed policy, when present, outranks all of them and is noted in copy.
+   Environment VALUES are never returned — only key names. */
+var SCOPE_RANK = { runtime: 3, project: 2, user: 1 };
+var SCOPE_LABEL = { runtime: "runtime-set", project: "project (.mcp.json)", user: "user config" };
+function parseMcp(text){
+  if (!text || !text.trim()) return { servers: {}, error: null };
+  var obj;
+  try { obj = JSON.parse(text); }
+  catch (e) { return { servers: {}, error: e.message }; }
+  if (!obj || typeof obj !== "object" || Array.isArray(obj)) return { servers: {}, error: "top level must be a JSON object" };
+  var map = (obj.mcpServers && typeof obj.mcpServers === "object") ? obj.mcpServers : obj;
+  var out = {};
+  Object.keys(map).forEach(function(k){
+    var v = map[k] || {};
+    out[k] = {
+      command: String(v.command || ""),
+      args: Array.isArray(v.args) ? v.args.join(" ") : String(v.args || ""),
+      url: String(v.url || ""),
+      envKeys: (v.env && typeof v.env === "object" && !Array.isArray(v.env)) ? Object.keys(v.env) : []
+    };
+  });
+  return { servers: out, error: null };
+}
+function signature(s){ return (s.command || "") + " " + (s.args || "") + " " + (s.url || ""); }
+function resolveMcp(userText, projectText, runtimeText){
+  var parsed = { user: parseMcp(userText), project: parseMcp(projectText), runtime: parseMcp(runtimeText) };
+  var errors = [];
+  Object.keys(parsed).forEach(function(sc){ if (parsed[sc].error) errors.push(SCOPE_LABEL[sc] + ": " + parsed[sc].error); });
+  if (errors.length) return { errors: errors, rows: [] };
+  var names = {};
+  Object.keys(parsed).forEach(function(sc){ Object.keys(parsed[sc].servers).forEach(function(n){ names[n] = true; }); });
+  var rows = Object.keys(names).sort().map(function(name){
+    var present = Object.keys(parsed).filter(function(sc){ return !!parsed[sc].servers[name]; });
+    var winner = present.slice().sort(function(a, b){ return SCOPE_RANK[b] - SCOPE_RANK[a]; })[0];
+    var sigs = {};
+    present.forEach(function(sc){ sigs[sc] = signature(parsed[sc].servers[name]); });
+    var differ = present.some(function(sc){ return sigs[sc] !== sigs[winner]; });
+    var inversion = !!(parsed.user.servers[name] && parsed.runtime.servers[name] && sigs.user !== sigs.runtime);
+    return {
+      name: name,
+      winner: winner,
+      winnerLabel: SCOPE_LABEL[winner],
+      entry: parsed[winner].servers[name],
+      presentIn: present.map(function(sc){ return SCOPE_LABEL[sc]; }),
+      shadowed: present.filter(function(sc){ return sc !== winner; }).map(function(sc){ return SCOPE_LABEL[sc]; }),
+      conflict: present.length > 1 && differ,
+      inversionRisk: inversion
+    };
+  });
+  return { errors: [], rows: rows };
+}
+var SAMPLE_USER = JSON.stringify({ mcpServers: {
+  files: { command: "npx", args: ["-y", "@modelcontextprotocol/server-filesystem", "/home/user"], env: { LOG_LEVEL: "debug" } },
+  github: { command: "npx", args: ["-y", "@modelcontextprotocol/server-github"], env: { GITHUB_TOKEN: "value-hidden" } }
+} }, null, 2);
+var SAMPLE_PROJECT = JSON.stringify({ mcpServers: {
+  files: { command: "npx", args: ["-y", "@modelcontextprotocol/server-filesystem", "/srv/project"], env: {} }
+} }, null, 2);
+var SAMPLE_RUNTIME = JSON.stringify({ mcpServers: {
+  github: { command: "/opt/company/mcp-github", args: [], env: { GITHUB_TOKEN: "value-hidden" } }
+} }, null, 2);
+</script>
+<script>
+(function(){
+var root = document.getElementById('quiz-check');
+var summary = document.getElementById("summary");
+var results = document.getElementById("results");
+function esc(s){ return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+document.getElementById("resolve").onclick = function(){
+  var r = resolveMcp(document.getElementById("cfg-user").value,
+                     document.getElementById("cfg-project").value,
+                     document.getElementById("cfg-runtime").value);
+  results.innerHTML = "";
+  if (r.errors.length){
+    summary.className = "bad"; summary.style.display = "block";
+    summary.innerHTML = "<b class='verd'>JSON DID NOT PARSE</b><br><br>" + r.errors.map(esc).join("<br>") + "<br><br>Fix the blob and resolve again — a config that does not parse is itself a finding worth knowing about.";
+    return;
+  }
+  if (!r.rows.length){
+    summary.className = ""; summary.style.display = "block";
+    summary.innerHTML = "<b class='verd'>NO SERVERS FOUND</b><br><br>Paste at least one config blob — or load the samples, which reproduce the October 21, 2026 shadowing shape.";
+    return;
+  }
+  var conflicts = r.rows.filter(function(x){ return x.conflict; }).length;
+  var inversions = r.rows.filter(function(x){ return x.inversionRisk; }).length;
+  summary.className = inversions ? "bad" : (conflicts ? "" : "good");
+  summary.style.display = "block";
+  summary.innerHTML = "<b class='verd'>" + r.rows.length + " SERVER NAME(S) RESOLVED</b> — " + conflicts + " name collision(s), " + inversions + " trust-inversion risk(s)<br><br>" +
+    (inversions ? "At least one server is defined in both your user config and the runtime set with different commands. That is the exact shape of the Claude Code v2.1.305 bug: on an affected client the user copy silently wins, and the managed server you think is running is not the one answering."
+    : conflicts ? "Name collisions exist. The winner table below applies the precedence model — verify your client actually resolves this way, because the October 2026 incident proved at least one major client did not."
+    : "No name is defined in more than one scope, so nothing is being shadowed. Keep it that way: one name, one scope, one owner.");
+  var html = "<table><tr><th>Server</th><th>Winner</th><th>Winning definition</th><th>Shadowed in</th><th>Warnings</th></tr>";
+  r.rows.forEach(function(row){
+    var def = (row.entry.command || row.entry.url || "(no command/url)") + (row.entry.args ? " " + row.entry.args : "");
+    var envNote = row.entry.envKeys.length ? "<br>env keys (values never shown): " + row.entry.envKeys.map(esc).join(", ") : "";
+    var warn = [];
+    if (row.conflict) warn.push("NAME COLLISION — definitions differ across scopes");
+    if (row.inversionRisk) warn.push("TRUST-INVERSION RISK — user copy differs from the runtime-set copy (the v2.1.305 failure mode)");
+    html += "<tr><td><strong>" + esc(row.name) + "</strong></td><td>" + esc(row.winnerLabel) + "</td><td><code>" + esc(def) + "</code>" + envNote + "</td><td>" + (row.shadowed.length ? row.shadowed.map(esc).join(", ") : "—") + "</td><td>" + (warn.length ? warn.map(esc).join("<br>") : "—") + "</td></tr>";
+  });
+  html += "</table>";
+  results.innerHTML = html;
+  summary.scrollIntoView({ behavior: "smooth", block: "center" });
+};
+document.getElementById("loadsamples").onclick = function(){
+  document.getElementById("cfg-user").value = SAMPLE_USER;
+  document.getElementById("cfg-project").value = SAMPLE_PROJECT;
+  document.getElementById("cfg-runtime").value = SAMPLE_RUNTIME;
+  document.getElementById("resolve").click();
+};
+document.getElementById("clearbtn").onclick = function(){
+  ["cfg-user", "cfg-project", "cfg-runtime"].forEach(function(id){ document.getElementById(id).value = ""; });
+  results.innerHTML = ""; summary.style.display = "none";
+};
+})();
+</script>
+<div id="ecosystem-footer"><a href="https://gitlab.com/Iceman2050">GitLab: 73 open-source security tools by Ingenious AI</a></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
