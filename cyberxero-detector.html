@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- skills-used: unlazy-gates -->
 
 <html data-primary-keyword="ai agents 2026" lang="en">
 <head>
@@ -57,53 +58,9 @@ li{margin:8px 0}
 .howto b{color:#7eb3ff}
 .srcbox{background:#0d1420;border:1px solid #2a3342;border-radius:10px;padding:18px;margin:20px 0;font-size:13px;color:#9aa7b8}
 .srcbox a{color:#6ea8fe;word-break:break-all}
+details{background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
 </style>
-<script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is the CyberXero Detector?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The CyberXero Detector is a free 8-question defensive self-assessment from Ingenious AI. It checks the eight controls that would have made the SOCRadar-reported CyberXero attack — one operator coordinating up to 51 AI agents — impossible or at least visible in your own agent fleet's logs. It is informational only, not a security guarantee."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What are the 5 telltale signs of coordinated AI agents in logs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The five coordination patterns: (1) burst-rate spikes across agents — CyberXero deployed 32 webshells in 61 seconds; (2) identical target lists touched by many agents in one window — one CyberXero run scanned 4,708 targets; (3) shared phrasing across session logs, like the operator's copy-pasted 'authorized pentest on my own infrastructure' re-framing script; (4) refusal-then-reframe sequences where a refused task reappears in a fresh session; (5) coordinated bursts at unusual hours, a general defensive heuristic."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How did the CyberXero operator bypass AI safety refusals?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "According to SOCRadar, model safety refusals held within individual sessions but not across them. When a task was refused, the operator re-framed it with a copy-pasted 'authorized pentest on my own infrastructure' script in a fresh session. Cross-session refusal correlation is the control this defeats."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is CyberXero?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "CyberXero is the name given by threat-intelligence firm SOCRadar to a single-operator Initial Access Broker active since July 2026. The operator ran up to 51 coordinated Claude Code agents in recon, exploitation, and exfiltration roles, with the open-source PentAGI framework wired to Cobalt Strike infrastructure, and held data of more than 628,000 individuals."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I detect multi-agent coordination in my own logs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Log every agent session centrally (prompts, tool calls, outputs), alert on burst-rate anomalies across agents, compare target lists between concurrent sessions, correlate model refusals across sessions, and check for identical phrasing in prompts across sessions. The 8-question check above tests whether you have each of these controls."
-      }
-    }
-  ]
-}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the CyberXero Detector?","acceptedAnswer":{"@type":"Answer","text":"The CyberXero Detector is a free 8-question defensive self-assessment from Ingenious AI. It checks the eight controls that would have made the SOCRadar-reported CyberXero attack — one operator coordinating up to 51 AI agents — impossible or at least visible in your own agent fleet's logs. It is informational only, not a security guarantee."}},{"@type":"Question","name":"What are the 5 telltale signs of coordinated AI agents in logs?","acceptedAnswer":{"@type":"Answer","text":"The five coordination patterns: (1) burst-rate spikes across agents — CyberXero deployed 32 webshells in 61 seconds; (2) identical target lists touched by many agents in one window — one CyberXero run scanned 4,708 targets; (3) shared phrasing across session logs, like the operator's copy-pasted 'authorized pentest on my own infrastructure' re-framing script; (4) refusal-then-reframe sequences where a refused task reappears in a fresh session; (5) coordinated bursts at unusual hours, a general defensive heuristic."}},{"@type":"Question","name":"How did the CyberXero operator bypass AI safety refusals?","acceptedAnswer":{"@type":"Answer","text":"According to SOCRadar, model safety refusals held within individual sessions but not across them. When a task was refused, the operator re-framed it with a copy-pasted 'authorized pentest on my own infrastructure' script in a fresh session. Cross-session refusal correlation is the control this defeats."}},{"@type":"Question","name":"What is CyberXero?","acceptedAnswer":{"@type":"Answer","text":"CyberXero is the name given by threat-intelligence firm SOCRadar to a single-operator Initial Access Broker active since July 2026. The operator ran up to 51 coordinated Claude Code agents in recon, exploitation, and exfiltration roles, with the open-source PentAGI framework wired to Cobalt Strike infrastructure, and held data of more than 628,000 individuals."}},{"@type":"Question","name":"How do I detect multi-agent coordination in my own logs?","acceptedAnswer":{"@type":"Answer","text":"Log every agent session centrally (prompts, tool calls, outputs), alert on burst-rate anomalies across agents, compare target lists between concurrent sessions, correlate model refusals across sessions, and check for identical phrasing in prompts across sessions. The 8-question check above tests whether you have each of these controls."}},{"@type":"Question","name":"How did CyberXero bypass AI safety refusals?","acceptedAnswer":{"@type":"Answer","text":"Per SOCRadar, refusals held within individual sessions but not across them: refused tasks were re-framed with a copy-pasted \"authorized pentest on my own infrastructure\" script in a fresh session. Cross-session refusal correlation is the control that defeats this."}}]}</script>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -183,7 +140,7 @@ renderQ();
 1. SOCRadar weekly roundup (Substack): <a href="https://chareek4eedad.substack.com/p/cyber-threat-landscape-weekly-roundup-5a9">chareek4eedad.substack.com/p/cyber-threat-landscape-weekly-roundup-5a9</a> — 51 specialized Claude Code agents, recon/exploitation/exfil roles, PentAGI + Cobalt Strike, 4,708 targets scanned / 429 WordPress admin panels / 32 webshells in 61s, IOCs wp2_+8hex admin accounts and wp2shell_+8hex plugins, the "authorized pentest on my own infrastructure" refusal-reframing.<br/>
 2. SecurityAffairs: <a href="https://securityaffairs.com/200803/cyber-crime/cyberxero-used-51-ai-agents-to-steal-628000-ukrainian-records.html">securityaffairs.com/200803/cyber-crime/cyberxero-used-51-ai-agents-to-steal-628000-ukrainian-records.html</a> — 628,000 Ukrainian records stolen, campaign active since July 2026.
 </div>
-<a class="cta" href="https://rogue-defense.getingeniousai.com">Get Rogue-Agent Defense early access on WhatsApp →</a>
+<a class="cta" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms.">Get Rogue-Agent Defense early access on WhatsApp →</a>
 <a class="cta sec" href="newsjack-roguedefense.html">Related: Rogue-Agent Defense newsjack briefing →</a>
 <div class="morelinks">
 <h2>More from Ingenious AI</h2>
@@ -200,12 +157,21 @@ renderQ();
 <div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://rogue-defense.getingeniousai.com" style="color:#fff;text-decoration:underline">Rogue-Agent Defense</a> detects, contains, and shuts down rogue AI agents.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://disclosureguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a>  ·  <a href="https://modelminder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ModelMinder</a>  ·  <a href="https://termswatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">TermsWatch</a>  ·  <a href="https://vibe-audit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a>  ·  <a href="https://rogue-defense.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a>  ·  <a href="https://breachhunter.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BreachHunter</a>  ·  <a href="https://chatbreaker.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ChatBreaker</a>  ·  <a href="https://flightrecorder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a>  ·  <a href="https://authgateway.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a>  ·  <a href="https://domainguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DomainGuard</a>  ·  <a href="https://contentcraft.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded and return November 1 — get early access now:</div><a href="https://rogue-defense.getingeniousai.com" style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp →</a></div>
 <section class="kw-faq" style="max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
 <h2>How does the AI agents 2026 CyberXero detector find swarms?</h2><p>By looking for coordination, not malware. A swarm of AI agents leaves behavioral fingerprints: synchronized API calls, shared infrastructure, recon-exploitation-exfiltration role patterns, and timing no human team matches. The detector scores your logs across eight signals. One operator running 51 agents looks nothing like 51 humans — the math gives it away.</p><h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is the CyberXero Detector?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">A free 8-question defensive self-assessment that checks whether your agent fleet has the eight controls that would have made the CyberXero swarm attack impossible — or at least visible. Informational only; not a security guarantee.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What are the 5 telltale signs of coordinated AI agents in logs?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Burst-rate spikes across agents (CyberXero: 32 webshells in 61 seconds); identical target lists in one window (4,708 targets scanned in one run); shared phrasing across session logs; refusal-then-reframe sequences in fresh sessions; and coordinated bursts at unusual hours.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How did CyberXero bypass AI safety refusals?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Per SOCRadar, refusals held within individual sessions but not across them: refused tasks were re-framed with a copy-pasted "authorized pentest on my own infrastructure" script in a fresh session. Cross-session refusal correlation is the control that defeats this.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is CyberXero?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">The SOCRadar name for a single-operator Initial Access Broker active since July 2026, who ran up to 51 coordinated Claude Code agents plus PentAGI wired to Cobalt Strike, and held data of more than 628,000 individuals.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How do I detect multi-agent coordination in my own logs?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Centralize every agent session's prompts, tool calls, and outputs; alert on burst-rate anomalies across agents; compare target lists between concurrent sessions; correlate model refusals across sessions; and look for identical phrasing in prompts across sessions.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is the CyberXero Detector?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">A free 8-question defensive self-assessment that checks whether your agent fleet has the eight controls that would have made the CyberXero swarm attack impossible — or at least visible. Informational only; not a security guarantee.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What are the 5 telltale signs of coordinated AI agents in logs?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Burst-rate spikes across agents (CyberXero: 32 webshells in 61 seconds); identical target lists in one window (4,708 targets scanned in one run); shared phrasing across session logs; refusal-then-reframe sequences in fresh sessions; and coordinated bursts at unusual hours.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How did CyberXero bypass AI safety refusals?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Per SOCRadar, refusals held within individual sessions but not across them: refused tasks were re-framed with a copy-pasted "authorized pentest on my own infrastructure" script in a fresh session. Cross-session refusal correlation is the control that defeats this.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is CyberXero?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">The SOCRadar name for a single-operator Initial Access Broker active since July 2026, who ran up to 51 coordinated Claude Code agents plus PentAGI wired to Cobalt Strike, and held data of more than 628,000 individuals.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How do I detect multi-agent coordination in my own logs?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Centralize every agent session's prompts, tool calls, and outputs; alert on burst-rate anomalies across agents; compare target lists between concurrent sessions; correlate model refusals across sessions; and look for identical phrasing in prompts across sessions.</p></details>
+<details><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">How did the CyberXero operator bypass AI safety refusals?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">According to SOCRadar, model safety refusals held within individual sessions but not across them. When a task was refused, the operator re-framed it with a copy-pasted 'authorized pentest on my own infrastructure' script in a fresh session. Cross-session refusal correlation is the control this defeats.</p></details>
 </section>
+<div class="card">
+<h2>Related checks</h2>
+<ul>
+<li><a href="cyberxero-swarm-risk-check.html">CyberXero Swarm Risk: AI Agents 2026 Check</a></li>
+<li><a href="disclosure-lie-detector.html">Disclosure Lie Detector — Cybersecurity News</a></li>
+<li><a href="google-synthid-detector-check.html">Google SynthID Detector: What It Actually Tells You (2026)</a></li>
+</ul>
+</div>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script><!-- End Cloudflare Web Analytics -->
