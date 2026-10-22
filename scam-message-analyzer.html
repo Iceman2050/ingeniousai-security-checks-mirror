@@ -8,8 +8,8 @@
 <meta name="description" content="Is this text a phishing scam? Paste any suspicious message for a free instant check. 100% private, runs in your browser. Free.">
 <meta property="og:title" content="Scam Text Checker — Is This Message a Scam? Free Instant Check">
 <meta property="og:description" content="Free scam text message checker: paste a suspicious text, email, or call transcript and get an instant 0–100 risk score with red flags highlighted. Private, in-browser, no signup.">
-<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/scam-message-analyzer.html">
-<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/scam-message-analyzer.html">
+<meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/scam-message-analyzer.html">
+<link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/scam-message-analyzer.html">
 <meta name="theme-color" content="#0a0f16">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,7 +19,7 @@
 <link rel="manifest" href="scam-analyzer-manifest.json">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"WebApplication","name":"Scam Text Checker — Is This Message a Scam?","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/scam-message-analyzer.html","applicationCategory":"SecurityApplication","operatingSystem":"Any","inLanguage":["en","es"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free scam text message checker. Paste a suspicious text, email, or call transcript for an instant 0–100 risk score with red flags highlighted. 100% client-side: nothing leaves your device, no signup."},
+{"@type":"WebApplication","name":"Scam Text Checker — Is This Message a Scam?","url":"https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/scam-message-analyzer.html","applicationCategory":"SecurityApplication","operatingSystem":"Any","inLanguage":["en","es"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free scam text message checker. Paste a suspicious text, email, or call transcript for an instant 0–100 risk score with red flags highlighted. 100% client-side: nothing leaves your device, no signup."},
 {"@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"Will the real FBI ever call me?","acceptedAnswer":{"@type":"Answer","text":"No. The FBI says law enforcement will never call, text, or email to demand payment, gift cards, cryptocurrency, or personal information. Anyone claiming to be the FBI who asks for money or your Social Security number is a scammer — hang up and report it at ic3.gov."}},
 {"@type":"Question","name":"How can I check if a text message is a scam?","acceptedAnswer":{"@type":"Answer","text":"Paste it into the checker above. It scans for the red flags the FBI warns about — fake agency names, arrest threats, gift-card or crypto demands, manufactured urgency, and look-alike links — and returns a 0–100 risk score instantly, all inside your browser."}},
@@ -178,9 +178,9 @@ body.kidsmode h1{font-size:34px}
 #breakdown .bdrow{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid #1e2a3a;font-size:14px}
 #breakdown .bdtot{display:flex;justify-content:space-between;font-weight:bold;color:#fff;padding:8px 0 0;font-size:16px}
 </style>
-  <meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+  <meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
   <meta name="twitter:card" content="summary_large_image">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/"}</script>
 </head>
 <body>
 <div class="wrap">
@@ -1698,7 +1698,7 @@ function renderVerdictCard(cv,r){
   if(!top.length){ctx.fillStyle="#2e9e5b";ctx.fillText("✓ "+T("share_noflags"),100,y);}
   else top.forEach(function(f){ctx.fillStyle="#ffd7db";y=wrapText(ctx,"⚠ "+flagName(f.id)+" (+"+f.weight+")",100,y,W-200,52);});
   ctx.textAlign="center";ctx.fillStyle="#8b98a9";ctx.font="400 26px system-ui,sans-serif";
-  var url="iceman2050.github.io/ingeniousai-security-checks-mirror/scam-message-analyzer.html";
+  var url="ingeniousai-security-checks-mirror-0e97b6.gitlab.io/scam-message-analyzer.html";
   ctx.fillText(url,W/2,H-140);
   ctx.fillStyle="#6ea8fe";ctx.font="400 28px system-ui,sans-serif";
   wrapText(ctx,T("share_tagline"),W/2,H-95,W-160,38);
@@ -1717,7 +1717,7 @@ function shareVerdict(){
   if(!lastResult)return Promise.resolve("no-result");
   var cv=document.getElementById("vcard");
   renderVerdictCard(cv,lastResult.r);
-  var url="https://iceman2050.github.io/ingeniousai-security-checks-mirror/scam-message-analyzer.html";
+  var url="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/scam-message-analyzer.html";
   function legacy(){
     if(typeof navigator!=="undefined"&&navigator.share){
       return navigator.share({title:T("share_title"),text:T("share_sub"),url:url}).then(function(){return "shared";},function(e){return (e&&e.name==="AbortError")?"aborted":"failed";});
@@ -1744,7 +1744,7 @@ function shareVerdict(){
   });
 }
 /* Family WhatsApp warning — EN/ES aware, URL-encoded */
-var PAGE_URL="https://iceman2050.github.io/ingeniousai-security-checks-mirror/scam-message-analyzer.html";
+var PAGE_URL="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/scam-message-analyzer.html";
 function familyShareUrl(r){
   var tTitle=T(r.tier==="high"?"v_high_t":(r.tier==="caution"?"v_caution_t":"v_low_t"));
   var top=r.flags.filter(function(f){return !f.trust;}).sort(function(a,b){return b.weight-a.weight;})[0];
@@ -2984,7 +2984,7 @@ victim_body:"<strong>Nada de esto es obra tuya.</strong> Los estafadores envían
 });
 function pageUrl(){
   if(typeof location!=="undefined"&&location.href)return location.href.split("?")[0].split("#")[0];
-  return "https://iceman2050.github.io/ingeniousai-security-checks-mirror/scam-message-analyzer.html";
+  return "https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/scam-message-analyzer.html";
 }
 /* ---- triage ---- */
 function renderTriage(key){

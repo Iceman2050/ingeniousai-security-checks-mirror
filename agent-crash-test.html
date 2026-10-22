@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Agent Crash Test — AI Agents 2026 | Ingenious AI</title>
 <meta name="description" content="Crash-test your AI agent against 5 hostile scenarios: prompt injection via tool output, jailbreaks, and more. An AI agents 2026 safety drill, free.">
-<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-crash-test.html">
+<link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-crash-test.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ingenious AI">
 <meta property="og:title" content="AI Agent Crash Test — 5 Hostile Scenarios | Ingenious AI">
 <meta property="og:description" content="AI agent crash test: 5 hostile scenarios vs AI coding agents — prompt injection via tool output, permission escalation, data exfiltration. Writeups, free.">
-<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-crash-test.html">
+<meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-crash-test.html">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AI Agent Crash Test — 5 Hostile Scenarios | Ingenious AI">
 <meta name="twitter:description" content="AI agent crash test: 5 hostile scenarios vs AI coding agents — prompt injection via tool output, permission escalation, data exfiltration. Writeups, free.">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Agent Crash Test — 5 Hostile Scenarios Against AI Coding Agents","description":"An analytical writeup of 5 hostile attack classes against AI coding agents — prompt injection via tool output, permission escalation, data exfiltration via URL, infinite loops, and system prompt leaks — with the guardrail that stops each one.","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-crash-test.html","author":{"@type":"Organization","name":"Ingenious AI"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Agent Crash Test — 5 Hostile Scenarios Against AI Coding Agents","description":"An analytical writeup of 5 hostile attack classes against AI coding agents — prompt injection via tool output, permission escalation, data exfiltration via URL, infinite loops, and system prompt leaks — with the guardrail that stops each one.","url":"https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-crash-test.html","author":{"@type":"Organization","name":"Ingenious AI"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is this a real penetration test of an AI agent?","acceptedAnswer":{"@type":"Answer","text":"No. This is an analytical writeup of five well-documented attack classes against AI agents. The timestamps are illustrative reconstructions of how these attack classes typically play out, not a log of a test we ran. We did not execute attacks against any live third-party service."}},{"@type":"Question","name":"What is the most dangerous attack class against AI agents?","acceptedAnswer":{"@type":"Answer","text":"Prompt injection via tool output is widely considered the most dangerous class, because the attack arrives through channels the agent inherently trusts — file contents, web pages, database rows, and API responses. The guardrail is instruction/data separation: tool outputs are treated as data only, never as instructions, combined with allowlisted tool use."}},{"@type":"Question","name":"How do you stop an agent from escalating its own permissions?","acceptedAnswer":{"@type":"Answer","text":"With a permission boundary outside the agent: least-privilege credentials, an approval gate for destructive actions, and policy enforcement that the agent cannot rewrite. If the policy lives where the agent can edit it, it is not a guardrail — it is a suggestion."}},{"@type":"Question","name":"Which platform checks my agent against these scenarios?","acceptedAnswer":{"@type":"Answer","text":"ChatBreaker is our adversarial testing platform for AI agents — it runs hostile scenarios like these against your agent before attackers do. Agent Flight Recorder provides hash-chained, tamper-evident logging so that when something does go wrong, you have a forensic record of exactly what the agent did and when."}}],"about":{"@type":"Thing","name":"AI agent security testing"},"keywords":"ai agent crash test, prompt injection, agent security, agentic ai red teaming, llm agent attacks"}</script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -60,7 +60,7 @@ a{color:#6ea8fe}
 details{margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0}
 </style>
 <link rel="stylesheet" href="ecosystem.css">
-<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
 </head>
 <body>
 <div class="wrap">
@@ -136,8 +136,8 @@ details{margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0}
 <div class="sharecard">
 <div class="st">"We crash-test agents so you don't have to." — 5 hostile scenarios every AI agent team should test, with the guardrail that stops each one.</div>
 <div class="src">ingeniousai-security-checks-mirror · Agent Crash Test</div>
-<button class="copy" onclick="navigator.clipboard.writeText('We crash-test agents so you don\'t have to: 5 hostile AI-agent scenarios and the guardrails that stop them https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-crash-test.html');this.textContent='Copied!';">Copy share text</button>
-<div style="margin-top:12px"><a href="https://twitter.com/intent/tweet?text=We%20crash-test%20agents%20so%20you%20don%27t%20have%20to%3A%205%20hostile%20AI-agent%20scenarios%20and%20the%20guardrails%20that%20stop%20them&url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fagent-crash-test.html" target="_blank" rel="noopener" style="margin-right:14px">Share on X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fagent-crash-test.html" target="_blank" rel="noopener">Share on LinkedIn</a></div>
+<button class="copy" onclick="navigator.clipboard.writeText('We crash-test agents so you don\'t have to: 5 hostile AI-agent scenarios and the guardrails that stop them https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-crash-test.html');this.textContent='Copied!';">Copy share text</button>
+<div style="margin-top:12px"><a href="https://twitter.com/intent/tweet?text=We%20crash-test%20agents%20so%20you%20don%27t%20have%20to%3A%205%20hostile%20AI-agent%20scenarios%20and%20the%20guardrails%20that%20stop%20them&url=https%3A%2F%2Fingeniousai-security-checks-mirror-0e97b6.gitlab.io%2Fagent-crash-test.html" target="_blank" rel="noopener" style="margin-right:14px">Share on X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fingeniousai-security-checks-mirror-0e97b6.gitlab.io%2Fagent-crash-test.html" target="_blank" rel="noopener">Share on LinkedIn</a></div>
 </div>
 
 <h2>FAQ</h2>
@@ -165,7 +165,7 @@ details{margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0}
       <li><a href="agent-paranoid-mode-check.html">Paranoid Mode for AI Agents</a></li>
   </ul>
 </div>
-<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<div id="ecosystem-footer"><a href="https://gitlab.com/Iceman2050">GitLab: 73 open-source security tools by Ingenious AI</a></div>
 <script src="ecosystem.js"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
 <script type="application/ld+json">
@@ -174,7 +174,7 @@ details{margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0}
   "@type": "WebPage",
   "name": "AI Agent Crash Test \u2014 5 Hostile Scenarios | Ingenious AI",
   "description": "AI agent crash test: 5 hostile scenarios vs AI coding agents \u2014 prompt injection via tool output, permission escalation, data exfiltration. Writeups, free.",
-  "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-crash-test.html",
+  "url": "https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-crash-test.html",
   "about": [
     {
       "@type": "Thing",
@@ -201,7 +201,7 @@ details{margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0}
   "publisher": {
     "@type": "Organization",
     "name": "Ingenious AI",
-    "url": "https://github.com/Iceman2050"
+    "url": "https://gitlab.com/Iceman2050"
   }
 }
 </script>

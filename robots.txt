@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://iceman2050.github.io/ingeniousai-security-checks-mirror/sitemap.xml
+Sitemap: https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/sitemap.xml

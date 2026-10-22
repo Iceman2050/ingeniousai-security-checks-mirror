@@ -6,12 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Agents 2026: MCP Origin Hygiene Check</title>
 <meta name="description" content="AI agents 2026: paste your MCP config and score every server origin — tunnels, raw IPs, plaintext HTTP, dangling-domain risk. Client-side only.">
-<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-origin-hygiene-check.html">
+<link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/mcp-origin-hygiene-check.html">
 <meta property="og:title" content="Where Do YOUR MCP Servers Actually Live? — MCP Origin Hygiene Check">
 <meta property="og:description" content="Ox Security found 15,465 MCP servers with zero governance — and 2.3% sat on dangling domains anyone could re-register. Paste your config, score every origin, get a badge. Nothing leaves your browser.">
-<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-origin-hygiene-check.html">
+<meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/mcp-origin-hygiene-check.html">
 <meta property="og:type" content="article">
-<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Where Do YOUR MCP Servers Actually Live? — MCP Origin Hygiene Check">
 <meta name="twitter:description" content="Tunnel endpoints, raw IPs, plaintext HTTP, credentials in URLs — score every MCP server in your config, per server: CLEAN, REVIEW or RISKY.">
@@ -44,7 +44,7 @@ code{background:#222836;border-radius:4px;padding:.1rem .35rem;font-size:.88em;w
 {"@context": "https://schema.org", "@type": "Article", "headline": "Where Do YOUR MCP Servers Actually Live? — MCP Origin Hygiene Check", "author": {"@type": "Organization", "name": "Ingenious AI"}, "datePublished": "2026-10-21", "dateModified": "2026-10-21", "description": "A pure client-side MCP config origin checker built on Ox Security's October 6, 2026 finding: 15,465 MCP servers with zero governance, 2.3% of them on dangling domains."}
 </script>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://github.com/Iceman2050"}
+{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://gitlab.com/Iceman2050"}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -66,7 +66,7 @@ code{background:#222836;border-radius:4px;padding:.1rem .35rem;font-size:.88em;w
 </div>
 
 <div class="privacybox">
-<p><strong>🔒 Your config NEVER leaves your browser.</strong> This checker is pure client-side JavaScript: it makes <strong>no network requests</strong>, sends nothing to Ingenious AI or anyone else, and stores nothing. Env <em>values</em> are never displayed — only variable <em>names</em> are flagged. Close the tab and the paste is gone. Don't take our word for it: the same checks run offline in the open-source <a href="https://github.com/Iceman2050/mcp-origin-hygiene">mcp-origin-hygiene</a> tool by Ingenious AI.</p>
+<p><strong>🔒 Your config NEVER leaves your browser.</strong> This checker is pure client-side JavaScript: it makes <strong>no network requests</strong>, sends nothing to Ingenious AI or anyone else, and stores nothing. Env <em>values</em> are never displayed — only variable <em>names</em> are flagged. Close the tab and the paste is gone. Don't take our word for it: the same checks run offline in the open-source <a href="https://gitlab.com/Iceman2050">mcp-origin-hygiene</a> tool by Ingenious AI.</p>
 </div>
 
 <h2>What is MCP origin hygiene for AI agents 2026?</h2>
@@ -113,7 +113,7 @@ code{background:#222836;border-radius:4px;padding:.1rem .35rem;font-size:.88em;w
 </ul>
 
 <h2>Go deeper: the full tool</h2>
-<p>This page is the quick check. The full open-source tool — <a href="https://github.com/Iceman2050/mcp-origin-hygiene"><strong>mcp-origin-hygiene</strong> by Ingenious AI</a> (queued for publication) — runs the same origin scoring as a local CLI over whole config folders, with dangling-domain heuristics and a CI-friendly report, still with zero network calls against your config contents.</p>
+<p>This page is the quick check. The full open-source tool — <a href="https://gitlab.com/Iceman2050"><strong>mcp-origin-hygiene</strong> by Ingenious AI</a> (queued for publication) — runs the same origin scoring as a local CLI over whole config folders, with dangling-domain heuristics and a CI-friendly report, still with zero network calls against your config contents.</p>
 
 <h2>Frequently asked questions</h2>
 <details><summary>What is a dangling domain, and why does it hijack an MCP connection?</summary>
@@ -156,7 +156,7 @@ code{background:#222836;border-radius:4px;padding:.1rem .35rem;font-size:.88em;w
 
 <p class="smallprint">Finding cited on this page: Ox Security research reported October 6, 2026 (15,465 MCP servers with zero governance; 2.3% on dangling domains) — figures as published by the researcher. The checker above is a heuristic origin review of the config text you paste: it cannot prove who operates a server today, and a CLEAN verdict is not a safety guarantee — vet servers per the FAQ. It runs entirely in your browser; nothing you paste is transmitted or stored.</p>
 
-<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<div id="ecosystem-footer"><a href="https://gitlab.com/Iceman2050">GitLab: 73 open-source security tools by Ingenious AI</a></div>
 <script src="ecosystem.js"></script>
 <script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' src="https://static.cloudflareinsights.com/beacon.min.js"></script>
 <script>
@@ -285,7 +285,7 @@ function analyzeMcpConfig(parsed) {
        "Every origin in this config passed the hygiene checks. Re-run this check whenever the config changes.") + "</p>";
     var color = worst === "RISKY" ? "red" : (worst === "REVIEW" ? "yellow" : "brightgreen");
     var msg = counts.CLEAN + "%20clean%20%C2%B7%20" + counts.REVIEW + "%20review%20%C2%B7%20" + counts.RISKY + "%20risky";
-    var md = "[![MCP Origin Hygiene: " + worst + "](https://img.shields.io/badge/MCP%20Origin%20Hygiene-" + msg + "-" + color + ")](https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-origin-hygiene-check.html)";
+    var md = "[![MCP Origin Hygiene: " + worst + "](https://img.shields.io/badge/MCP%20Origin%20Hygiene-" + msg + "-" + color + ")](https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/mcp-origin-hygiene-check.html)";
     document.getElementById("badge-md").textContent = md;
     document.getElementById("badge-box").style.display = "block";
     var copyBtn = document.getElementById("badge-copy");

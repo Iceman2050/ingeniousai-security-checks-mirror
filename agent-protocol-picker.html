@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI Agents Protocol Picker: MCP vs A2A</title>
 <meta name="description" content="MCP, A2A, AG-UI: which protocol do your AI agents need? 6 questions give your recommendation plus a security checklist for each. Free.">
-<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-protocol-picker.html">
+<link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-protocol-picker.html">
 <meta property="og:title" content="AI Agents Protocol Picker: MCP vs A2A">
 <meta property="og:description" content="They're not competing — they're complementary. Answer 6 questions and get your protocol pick with a security checklist. Free, no signup.">
 <meta property="og:type" content="article">
@@ -44,10 +44,10 @@ button{background:#1c6ef2;color:#fff;border:0;border-radius:8px;padding:12px 28p
 .src{font-size:12px;color:#6b7686;margin-top:14px}
 .small{font-size:13px;color:#8b98a9}
 </style>
-  <meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+  <meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-protocol-picker.html">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}</script>
+  <meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-protocol-picker.html">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/"}</script>
 </head>
 <body>
 <div class="wrap">
@@ -116,8 +116,8 @@ button{background:#1c6ef2;color:#fff;border:0;border-radius:8px;padding:12px 28p
 <details><summary>Do MCP and A2A compete with each other?</summary><p>No — they're complementary. MCP connects an agent to tools and data (vertical); A2A connects agents to other agents (horizontal). Production systems use both: the orchestrator delegates over A2A, specialists call tools over MCP.</p></details>
 <details><summary>Which protocol should I learn first?</summary><p>MCP, in most cases. Connecting your agent to your own tools and data is the step nearly every project needs. A2A matters once you have multiple agents collaborating across teams or vendors.</p></details>
 <details><summary>What is AG-UI for, exactly?</summary><p>AG-UI is the event-streaming protocol between agents and the interfaces people see — the live feed where humans watch the agent work and approve steps. It's the human-in-the-loop layer, complementary to both MCP and A2A.</p></details>
-<details><summary>What are the main security risks of MCP?</summary><p>Malicious servers hiding instructions in tool descriptions. Defenses: review every MCP server like a software dependency, grant least-privilege tools only, never expose a generic pass-through tool, and pin spec versions. Our open-source <a href="https://github.com/Iceman2050/mcp-provenance-scanner" style="color:#6ea8fe">mcp-provenance-scanner</a> checks tool descriptions for hidden instructions.</p></details>
-<details><summary>How should A2A be secured?</summary><p>Agent Cards advertise capabilities publicly, so decide who may call what before production, require strong authentication for cross-organization calls, and log every delegation like a network call. Our open-source <a href="https://github.com/Iceman2050/a2a-security-scanner" style="color:#6ea8fe">a2a-security-scanner</a> audits Agent Card exposure.</p></details>
+<details><summary>What are the main security risks of MCP?</summary><p>Malicious servers hiding instructions in tool descriptions. Defenses: review every MCP server like a software dependency, grant least-privilege tools only, never expose a generic pass-through tool, and pin spec versions. Our open-source <a href="https://gitlab.com/Iceman2050" style="color:#6ea8fe">mcp-provenance-scanner</a> checks tool descriptions for hidden instructions.</p></details>
+<details><summary>How should A2A be secured?</summary><p>Agent Cards advertise capabilities publicly, so decide who may call what before production, require strong authentication for cross-organization calls, and log every delegation like a network call. Our open-source <a href="https://gitlab.com/Iceman2050" style="color:#6ea8fe">a2a-security-scanner</a> audits Agent Card exposure.</p></details>
 </div>
 
 <h2>Honest scope</h2>

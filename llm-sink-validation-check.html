@@ -6,12 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vibe Coding: LLM Sink Validation Check</title>
 <meta name="description" content="Vibe coding ships agent tools fast. Paste your Python tool code and check whether anything validates input between the LLM and the sink.">
-<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/llm-sink-validation-check.html">
+<link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/llm-sink-validation-check.html">
 <meta property="og:title" content="Vibe Coding: Is There Validation Between the LLM and the Sink?">
 <meta property="og:description" content="CVE-2026-114107 turned a prompt injection into a root shell because one tool had zero validation. Paste your agent tool code — get a SINK GAP, VALIDATED or NO SINK FOUND verdict in seconds.">
-<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/llm-sink-validation-check.html">
+<meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/llm-sink-validation-check.html">
 <meta property="og:type" content="article">
-<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Vibe Coding: LLM Sink Validation Check">
 <meta name="twitter:description" content="Paste your agent's tool code — is there validation between the LLM and the sink? Free browser-only check from Ingenious AI.">
@@ -42,7 +42,7 @@ code{background:#222836;padding:.05rem .35rem;border-radius:4px}
 {"@context": "https://schema.org", "@type": "Article", "headline": "Vibe Coding: Is There Validation Between the LLM and the Sink?", "author": {"@type": "Organization", "name": "Ingenious AI"}, "datePublished": "2026-10-21", "dateModified": "2026-10-21", "description": "A browser-only static check for unvalidated execution sinks in LLM-callable Python tool code, built on the CVE-2026-114107 pattern disclosed October 21, 2026."}
 </script>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://github.com/Iceman2050"}
+{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://gitlab.com/Iceman2050"}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -73,7 +73,7 @@ code{background:#222836;padding:.05rem .35rem;border-radius:4px}
 <p>Links 1 to 3 are hard to eliminate: models read untrusted documents, and models can be steered. Link 4 is entirely in the tool author's control. A single allowlist check, a full-string match, or an argument array instead of <code>shell=True</code> breaks the chain at the cheapest possible point. The advisory's lesson generalises to every agent framework: audit the gap between the LLM and the sink, not just the prompt.</p>
 
 <h2>Paste your tool code: the 30-second sink check</h2>
-<p>Try the two preloads first — one vulnerable, one fixed — then paste your own Python tool function. Nothing leaves your browser: the scan is pure client-side pattern matching, clearly a quick peek and not a full audit. For a repository-wide scan, use the full open-source tool: <a href="https://github.com/Iceman2050/sink-gap-scanner">sink-gap-scanner by Ingenious AI on GitHub</a> (queued for publication).</p>
+<p>Try the two preloads first — one vulnerable, one fixed — then paste your own Python tool function. Nothing leaves your browser: the scan is pure client-side pattern matching, clearly a quick peek and not a full audit. For a repository-wide scan, use the full open-source tool: <a href="https://gitlab.com/Iceman2050">sink-gap-scanner by Ingenious AI on GitHub</a> (queued for publication).</p>
 <p>
 <button class="ghost" id="load-vuln" type="button">Load vulnerable example</button>
 <button class="ghost" id="load-fixed" type="button">Load fixed example</button>
@@ -169,7 +169,7 @@ def run_report_tool(action: str, title: str, host: str) -&gt; str:
 
 <p class="smallprint">Incident framing on this page is based on the CVE-2026-114107 advisory for HKUDS Vibe-Trading as disclosed on October 21, 2026 (CVSS 8.7, prompt injection to root shell; root cause stated as zero input validation between the LLM and the sink). The checker above is a lightweight client-side pattern scan — a quick browser peek, not a full audit: it can miss sinks and can flag code that is safe in context. No pasted code is transmitted or stored. The full repository scanner is the open-source sink-gap-scanner from Ingenious AI.</p>
 
-<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<div id="ecosystem-footer"><a href="https://gitlab.com/Iceman2050">GitLab: 73 open-source security tools by Ingenious AI</a></div>
 <script src="ecosystem.js"></script>
 <script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' src="https://static.cloudflareinsights.com/beacon.min.js"></script>
 <script>

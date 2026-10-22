@@ -14,7 +14,7 @@
 (function(){
   var el=document.getElementById('ingenious-status');
   var ctl=new AbortController(); var t=setTimeout(function(){ctl.abort()},8000);
-  fetch('https://iceman2050.github.io/ingeniousai-security-checks-mirror/status.json?_='+Date.now(),{signal:ctl.signal,cache:'no-store'})
+  fetch('https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/status.json?_='+Date.now(),{signal:ctl.signal,cache:'no-store'})
     .then(function(r){clearTimeout(t); if(!r.ok) throw 0; return r.json();})
     .then(function(s){
       if(typeof s.down_count!=='number') throw 0;

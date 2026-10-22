@@ -1,729 +1,729 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/app-password-2fa-bypass-check.html</loc><lastmod>2026-10-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/google-workspace-mcp-oauth-deadline-check.html</loc><lastmod>2026-10-18</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/pwnescape-kernel-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/hirudo-android-trojan-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/cisco-seg-cve-2026-76519.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/anthropic-ai-worm-iot-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/docker-ghostpat-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextjs-rce-oct2026-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/cve-patch-comparison-oct2026.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/paste-version-checker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/kev-stack-checker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/patch-leaderboard-weekly.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/badges/scanned-by-generator.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/share-cards/</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/cve-ticker/</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/breach-cost-calculator.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/spot-the-phish-quiz.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-txt-generator.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ivanti-connect-secure-cve-2026-104935-checker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/rogue-ai-agent-exposure-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/gitlab-cve-2026-97229-checker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ahsaycbs-xmrig-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/bipa-ai-biometric-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/claude-false-police-tip-guardrail-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-vulnerability-patch-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-fake-research-redflag-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/g7-ai-cyber-drills-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-companion-minor-safety-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/openai-math-proofs-verification-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/linux-ai-code-disclosure-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/cnap-caller-id-scam-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/lmcache-cve-2026-105192.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/claude-code-sneakpeek.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/si-control-incident-readiness-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/eilikio-toy-privacy-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ledger-supply-chain-implant-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/vibe-code-security-scan-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/homelibrary-shared-agent-memory-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/pinokio-local-ai-apps-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-agent-transparency-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/cyber-security-toolkit-picker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-agent-knowledge-layer-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-consciousness-welfare-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-agent-crypto-wallet-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/vibe-scanner-roundup.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/tencent-rogue-agent-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/insider-ip-theft-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/digital-footprint-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-agent-airgap-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/founder-toolkit-picker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/office-bug-espionage-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/service-worker-security-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-pentest-chrome-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-governance-reality-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/http-header-ai-agents.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-attck-v20-ai-techniques.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/chatgpt-github-connector-flaw.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/gitlab-duo-prompt-injection.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/prompt-injection-never-solved.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-news-quiz-oct12-2026.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-webshell-leftovers-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-disclosure-gap-timeline.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-exposure-quiz.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-eol-trap-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-october-patch-planner.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-crown-jewels-audit.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-paranoid-mode-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-catastrophe-readiness-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/france-supermarket-iot-hack-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/meta-muse-wonder-agent-risk-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/watchtower-ai-pentest-agents-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-incident-tracker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/state-of-mcp-security-2026.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/migration-cost-calculator.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/disclosure-badge.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/connectwise-cloud-backup-breach-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/nordlayer-ai-data-exposure-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-dfir-detection-pack-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/mass-recursive-self-improvement-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/picus-exposure-validation-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ets-california-student-breach-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ship-safe-ai-code-audit-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/repomesh-cross-agent-handoff-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/app-password-2fa-bypass-check.html</loc><lastmod>2026-10-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/google-workspace-mcp-oauth-deadline-check.html</loc><lastmod>2026-10-18</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/pwnescape-kernel-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/hirudo-android-trojan-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/cisco-seg-cve-2026-76519.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/anthropic-ai-worm-iot-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/docker-ghostpat-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/nextjs-rce-oct2026-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/cve-patch-comparison-oct2026.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/paste-version-checker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/kev-stack-checker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/patch-leaderboard-weekly.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/badges/scanned-by-generator.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/share-cards/</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/cve-ticker/</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/breach-cost-calculator.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/spot-the-phish-quiz.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/security-txt-generator.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ivanti-connect-secure-cve-2026-104935-checker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/rogue-ai-agent-exposure-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/gitlab-cve-2026-97229-checker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ahsaycbs-xmrig-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/bipa-ai-biometric-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/claude-false-police-tip-guardrail-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-vulnerability-patch-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-fake-research-redflag-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/g7-ai-cyber-drills-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-companion-minor-safety-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/openai-math-proofs-verification-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/linux-ai-code-disclosure-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/cnap-caller-id-scam-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/lmcache-cve-2026-105192.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/claude-code-sneakpeek.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/si-control-incident-readiness-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/eilikio-toy-privacy-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ledger-supply-chain-implant-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/vibe-code-security-scan-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/homelibrary-shared-agent-memory-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/pinokio-local-ai-apps-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-agent-transparency-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/cyber-security-toolkit-picker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-agent-knowledge-layer-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-consciousness-welfare-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-agent-crypto-wallet-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/vibe-scanner-roundup.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/tencent-rogue-agent-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/insider-ip-theft-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/digital-footprint-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-agent-airgap-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/founder-toolkit-picker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/office-bug-espionage-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/service-worker-security-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-pentest-chrome-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-governance-reality-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/http-header-ai-agents.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/mitre-attck-v20-ai-techniques.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/chatgpt-github-connector-flaw.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/gitlab-duo-prompt-injection.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/prompt-injection-never-solved.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/security-news-quiz-oct12-2026.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/nextcloud-webshell-leftovers-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/nextcloud-disclosure-gap-timeline.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/nextcloud-exposure-quiz.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/nextcloud-eol-trap-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/nextcloud-october-patch-planner.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/nextcloud-crown-jewels-audit.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-paranoid-mode-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-catastrophe-readiness-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/france-supermarket-iot-hack-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/meta-muse-wonder-agent-risk-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/watchtower-ai-pentest-agents-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-incident-tracker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/state-of-mcp-security-2026.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/migration-cost-calculator.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/disclosure-badge.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/connectwise-cloud-backup-breach-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/nordlayer-ai-data-exposure-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-dfir-detection-pack-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/mass-recursive-self-improvement-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/picus-exposure-validation-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ets-california-student-breach-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ship-safe-ai-code-audit-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/repomesh-cross-agent-handoff-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
 
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-obituaries/index.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-obituaries/rip-o1.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/transparent-ai-index.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-insurance-quote.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-stack-mapper.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/tos-training-clause-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-fail-theater.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/injection-hall-of-fame.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/disclosure-registry.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/which-voicemail-is-ai.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-incident-bingo.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-ctf-arena.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/proof-of-innocence.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/which-ai-wrote-this-ad.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/honeypot-live.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-safety-directory.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-report-cards.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-act-countdown.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/state-of-ai-ad-disclosure-2026.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/spot-the-ai-video.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/have-i-been-flocked-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-security-badge.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-vendor-tos-diffs.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/article-50-ready.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/breach-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/breachhunter-vs-pentester.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/candiru-adfection-spyware-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/docker-grader.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/domain-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/embed-checker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/fake-windows-alert.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/gitlab-cve-2026-97229.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/help-tds-tech-support-scam.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/homelab-exposure-quiz.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/is-nextcloud-safe.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/langflow-cve-2026-105740.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/lg-webos-root-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/newsjack-agent-traceability.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/newsjack-authgateway.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/newsjack-chatbreaker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/newsjack-contentcraft.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/newsjack-dec2-labels.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/newsjack-disclosureguard.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/newsjack-domainguard.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/newsjack-flightrecorder.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/newsjack-modelminder.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/newsjack-rfi-survival.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/newsjack-roguedefense.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/newsjack-termswatch.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/newsjack-vibeaudit.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/newsletter.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/nextcloud-cve-2026-110447.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/palo-alto-cve-2026-0322.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/patch-leaderboard.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/phish-quiz.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/threat-map.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/wild-prompt-injections.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/facial-recognition-retail-surveillance-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/cybersecurity-career-field-picker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/triada-cia-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/all-links.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-autopsy-report.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/injection-bounty-board.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/shadow-ai-confessional.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/terms-diff-weekly.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/disclosure-cop.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-eulogy-hotline.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ninety-second-audit.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/breakup-letters.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-permissions-quiz.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/phone-app-permission-audit-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/model-obituaries/index.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/model-obituaries/rip-o1.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/transparent-ai-index.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-insurance-quote.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-stack-mapper.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/tos-training-clause-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-fail-theater.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/injection-hall-of-fame.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/disclosure-registry.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/which-voicemail-is-ai.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-incident-bingo.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-ctf-arena.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/proof-of-innocence.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/which-ai-wrote-this-ad.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/honeypot-live.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/mcp-safety-directory.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-report-cards.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-act-countdown.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/state-of-ai-ad-disclosure-2026.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/spot-the-ai-video.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/security-suite.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/have-i-been-flocked-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-security-badge.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-vendor-tos-diffs.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/article-50-ready.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/breach-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/breachhunter-vs-pentester.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/candiru-adfection-spyware-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/docker-grader.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/domain-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/embed-checker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/fake-windows-alert.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/gitlab-cve-2026-97229.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/help-tds-tech-support-scam.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/homelab-exposure-quiz.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/is-nextcloud-safe.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/langflow-cve-2026-105740.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/lg-webos-root-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/newsjack-agent-traceability.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/newsjack-authgateway.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/newsjack-chatbreaker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/newsjack-contentcraft.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/newsjack-dec2-labels.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/newsjack-disclosureguard.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/newsjack-domainguard.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/newsjack-flightrecorder.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/newsjack-modelminder.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/newsjack-rfi-survival.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/newsjack-roguedefense.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/newsjack-termswatch.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/newsjack-vibeaudit.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/newsletter.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/nextcloud-cve-2026-110447.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/palo-alto-cve-2026-0322.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/patch-leaderboard.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/phish-quiz.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/threat-map.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/wild-prompt-injections.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/facial-recognition-retail-surveillance-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/cybersecurity-career-field-picker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/triada-cia-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/all-links.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-autopsy-report.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/injection-bounty-board.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/shadow-ai-confessional.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/terms-diff-weekly.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/disclosure-cop.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/model-eulogy-hotline.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ninety-second-audit.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/breakup-letters.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-permissions-quiz.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/phone-app-permission-audit-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-crash-test.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-crash-test.html</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-lockin-calculator.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/vendor-lockin-calculator.html</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/leaked-prompt-hall.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/leaked-prompt-hall.html</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/compliance-deadline-ticker.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/compliance-deadline-ticker.html</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/rogue-agent-simulator.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/rogue-agent-simulator.html</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/prompt-heist.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/prompt-heist.html</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-bom-generator.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-bom-generator.html</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/dark-pattern-safari.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/dark-pattern-safari.html</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-downgrade-detector.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/model-downgrade-detector.html</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-incident-fantasy-league.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-incident-fantasy-league.html</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-agency-audit-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/winrar-cve-2025-8088-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-automation-system-picker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/llm-inference-engine-picker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-agency-audit-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/winrar-cve-2025-8088-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-automation-system-picker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/llm-inference-engine-picker.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-prenup.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-prenup.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/pager-test-3am.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/pager-test-3am.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/vibe-code-confessional.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/vibe-code-confessional.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-escape-room.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-escape-room.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/terms-graveyard.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/terms-graveyard.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/opt-out-a-thon.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/opt-out-a-thon.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/breach-roulette.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/breach-roulette.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/disclosure-lie-detector.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/disclosure-lie-detector.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-roast-battle.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/vendor-roast-battle.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/shadow-model-census.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/shadow-model-census.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-spyware-signature-theft-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-agent-builder-roadmap.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-workplace-readiness-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/anthropic-ai-safety-bill-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-spyware-signature-theft-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-agent-builder-roadmap.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-workplace-readiness-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/anthropic-ai-safety-bill-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-prenup.html</loc>
-    <lastmod>2026-10-17</lastmod>
-  </url>
-  <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/prompt-tar-pit.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/vendor-prenup.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-report-card.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/prompt-tar-pit.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-speedrun.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/vendor-report-card.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/breach-time-machine.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-speedrun.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/terms-bingo.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/breach-time-machine.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-autopsy.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/terms-bingo.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/shadow-it-amnesty.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/model-autopsy.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/hype-deflator.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/shadow-it-amnesty.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/incident-commander-day.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/hype-deflator.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-data-use-checker.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/incident-commander-day.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/double-extortion-survival-quiz.html</loc>
-    <lastmod>2026-10-17</lastmod>
-  </url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-model-distillation-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/aomei-backupper-supply-chain-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/europol-digital-forensics-gap-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/cyberxero-swarm-risk-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-regulatory-heat-map.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/openai-shutdown-last-call.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/eu-ai-act-dec2-countdown.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/shaihulud-node-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ghostaction-ci-audit.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/whatsapp-pricing-calculator.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-liability-quiz.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/amazon-prime-scam-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/cyberxero-detector.html</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/migration-hall-of-shame.html</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ftc-subpoena-simulator.html</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/eu-ai-act-46day-sprint.html</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/whatsapp-bill-shock-calculator.html</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/shaihulud-patient-zero.html</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ghostaction-workflow-audit.html</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/deepseek-data-flow-mapper.html</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ransomware-72hour-playbook.html</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-insurance-underwriter-quiz.html</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/opencode-api-key-breach-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-espionage-sudo-hijack-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-kill-switch-registry.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/vendor-data-use-checker.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/prompt-injection-insurance-calculator.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/double-extortion-survival-quiz.html</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-model-distillation-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/aomei-backupper-supply-chain-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/europol-digital-forensics-gap-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/cyberxero-swarm-risk-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-regulatory-heat-map.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/openai-shutdown-last-call.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/eu-ai-act-dec2-countdown.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/shaihulud-node-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ghostaction-ci-audit.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/whatsapp-pricing-calculator.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-liability-quiz.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/amazon-prime-scam-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/cyberxero-detector.html</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/migration-hall-of-shame.html</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ftc-subpoena-simulator.html</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/eu-ai-act-46day-sprint.html</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/whatsapp-bill-shock-calculator.html</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/shaihulud-patient-zero.html</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ghostaction-workflow-audit.html</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/deepseek-data-flow-mapper.html</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ransomware-72hour-playbook.html</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-insurance-underwriter-quiz.html</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/opencode-api-key-breach-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-espionage-sudo-hijack-check.html</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-kill-switch-registry.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/shadow-model-exchange.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/prompt-injection-insurance-calculator.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/cve-agent-exploit-mapper.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/shadow-model-exchange.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-vendor-dead-pool.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/cve-agent-exploit-mapper.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-trust-protocol.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-vendor-dead-pool.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/cisa-election-phishing-warning-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-trust-protocol.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/hexstrike-ai-pentest-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/cisa-election-phishing-warning-check.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/cybersecurity-future-vendor-report-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/hexstrike-ai-pentest-check.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/fbi-impersonation-scam-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/cybersecurity-future-vendor-report-check.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/scam-message-analyzer.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/fbi-impersonation-scam-check.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-lab-espionage-honeypot-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/scam-message-analyzer.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/colonistone-agent-offscript-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-lab-espionage-honeypot-check.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-self-audit-fallacy-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/colonistone-agent-offscript-check.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/alexa-always-listening-privacy-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-self-audit-fallacy-check.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-background-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/alexa-always-listening-privacy-check.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/disclosure-audit-trail.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-background-check.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-spending-forensics.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/disclosure-audit-trail.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/compliance-burden-calculator.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-spending-forensics.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/tos-time-machine.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/compliance-burden-calculator.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-retirement-insurance-estimator.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/tos-time-machine.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/prompt-injection-vaccine.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/model-retirement-insurance-estimator.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/deepfake-defense-kit.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/prompt-injection-vaccine.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/api-deprecation-roulette.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/deepfake-defense-kit.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/rogue-agent-war-games.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/api-deprecation-roulette.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/gtm-gap-diagnostic.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/rogue-agent-war-games.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/aoki-ai-assistant-credential-theft-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/gtm-gap-diagnostic.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/vpn-auth-bypass-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/aoki-ai-assistant-credential-theft-check.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/self-healing-backdoor-detector.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/vpn-auth-bypass-check.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-critical-thinking-check.html</loc>
-    <lastmod>2026-10-17</lastmod>
-  </url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/tplink-tapo-camera-flaw-check.html</loc><lastmod>2026-10-17</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/openai-misalignment-disclosure-check.html</loc><lastmod>2026-10-17</lastmod></url>
-  <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/mark-of-the-web-bypass-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/self-healing-backdoor-detector.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/training-data-summary-tracker.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-critical-thinking-check.html</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/tplink-tapo-camera-flaw-check.html</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/openai-misalignment-disclosure-check.html</loc><lastmod>2026-10-17</lastmod></url>
+  <url>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/mark-of-the-web-bypass-check.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ct-provenance-duty-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/training-data-summary-tracker.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/beyondtrust-zero-day-exposure-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ct-provenance-duty-check.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/si-incident-readiness-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/beyondtrust-zero-day-exposure-check.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/patch-tuesday-triage-calculator.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/si-incident-readiness-check.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/android-scam-shield-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/patch-tuesday-triage-calculator.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-api-access-safety-check.html</loc><lastmod>2026-10-17</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/qr-code-scam-check.html</loc><lastmod>2026-10-17</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-protocol-picker.html</loc><lastmod>2026-10-17</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/email-bombing-attack-check.html</loc><lastmod>2026-10-17</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/torvalds-ai-code-disclosure-check.html</loc><lastmod>2026-10-17</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/google-gmail-smart-features-lawsuit-check.html</loc><lastmod>2026-10-17</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/darksword-iphone-spyware-check.html</loc><lastmod>2026-10-17</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/connectwise-m365-tenant-compromise-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/drupal-rce-exposure-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-distillation-defense-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/iot-botnet-agent-warning-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/npm-supply-chain-1500-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/sap-cvss10-oauth-theft-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-sandbox-policy-gap-checker.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/eu-ai-act-high-risk-countdown.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-exploit-provenance-checker.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/vendor-app-consent-blast-radius-mapper.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/iot-agent-botnet-readiness-score.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/deepfake-incident-response-plan-generator.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-agent-liability-clause-generator.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/prompt-injection-tested-badge.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/assume-breach-backend-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/microsoft-phishing-takedown-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/https-candado-enganoso-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/amazon-bee-listening-privacy-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/meta-glasses-wake-word-recording-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/disaster-charity-scam-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/password-brute-force-survival-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/common-ports-hackers-love-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/siteguard-waf-cve-2026-106931-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/uk-ai-safety-laws-rogue-agents-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-agent-phishing-sucker-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/pliny-liberator-jailbreak-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/harari-davos-2026-ai-agent-warning-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/car-hacking-techniques-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-traffic-camera-surveillance-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/langflow-cve-2026-105697-rce-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/unc7017-aomei-tamper-window-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/anthropic-unintended-actions-escape-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/adception-clickfix-campaign-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/gpt56-sol-sepolia-spend-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/meta-scrape-terms-reversal-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/claude-plugin-auto-update-drift-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/darktrace-history-poisoning-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-agents-negotiating-deals-check.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-agent-security-mastery-roadmap.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-platform-security-self-check-suite.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/openai-exploitgym-huggingface-breach-check.html</loc><lastmod>2026-10-18</lastmod></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/flock-cve-numbering-authority-check.html</loc><lastmod>2026-10-18</lastmod></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/llm-pattern-matching-riddle-test.html</loc><lastmod>2026-10-18</lastmod></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-griefbot-digital-afterlife-check.html</loc><lastmod>2026-10-18</lastmod></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-generated-neuroscience-papers-check.html</loc><lastmod>2026-10-18</lastmod></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/google-rsi-treadmill-brin-check.html</loc><lastmod>2026-10-18</lastmod></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/cheatbench-ai-agents-cheating-check.html</loc><lastmod>2026-10-18</lastmod></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/claude-mythos-leak-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-hack-nuclear-weapons-warning-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/google-synthid-detector-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/face-id-security-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/gpt-6-astra-starcraft-cheat-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/underground-hacking-tutorials-surge-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/microsoft-quicksand-ai-sandbox-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/google-dorking-exposure-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-promo-pipeline-offer.html</loc><lastmod>2026-10-18</lastmod></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/shawshank-environmental-jailbreak-check.html</loc><lastmod>2026-10-18</lastmod></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-injection-rce-design-flaw-check.html</loc><lastmod>2026-10-18</lastmod></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-rug-pull-agent-card-poisoning-check.html</loc><lastmod>2026-10-18</lastmod></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-as-c2-gentlemen-files-check.html</loc><lastmod>2026-10-18</lastmod></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/field-to-sheet-whatsapp-pipeline-offer.html</loc><lastmod>2026-10-18</lastmod></url>
-<url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/pentagi-ai-pentest-agents-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/microsoft-x-clippy-crypto-hijack-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/yandex-strikes-russian-bots-myth-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-firms-liable-rogue-agents-sif-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/nist-curve-seeds-claude-solved-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/linkedin-ai-slop-crackdown-check.html</loc><lastmod>2026-10-18</lastmod></url>  <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/karpathy-ai-verification-gap-check.html</loc>
+  <url>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/android-scam-shield-check.html</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-api-access-safety-check.html</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/qr-code-scam-check.html</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-protocol-picker.html</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/email-bombing-attack-check.html</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/torvalds-ai-code-disclosure-check.html</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/google-gmail-smart-features-lawsuit-check.html</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/darksword-iphone-spyware-check.html</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/connectwise-m365-tenant-compromise-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/drupal-rce-exposure-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-distillation-defense-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/iot-botnet-agent-warning-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/npm-supply-chain-1500-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/sap-cvss10-oauth-theft-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-sandbox-policy-gap-checker.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/eu-ai-act-high-risk-countdown.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-exploit-provenance-checker.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/vendor-app-consent-blast-radius-mapper.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/iot-agent-botnet-readiness-score.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/deepfake-incident-response-plan-generator.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-agent-liability-clause-generator.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/prompt-injection-tested-badge.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/assume-breach-backend-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/microsoft-phishing-takedown-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/https-candado-enganoso-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/amazon-bee-listening-privacy-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/meta-glasses-wake-word-recording-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/disaster-charity-scam-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/password-brute-force-survival-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/common-ports-hackers-love-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/siteguard-waf-cve-2026-106931-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/uk-ai-safety-laws-rogue-agents-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-agent-phishing-sucker-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/pliny-liberator-jailbreak-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/harari-davos-2026-ai-agent-warning-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/car-hacking-techniques-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-traffic-camera-surveillance-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/langflow-cve-2026-105697-rce-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/unc7017-aomei-tamper-window-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/anthropic-unintended-actions-escape-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/adception-clickfix-campaign-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/gpt56-sol-sepolia-spend-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/meta-scrape-terms-reversal-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/claude-plugin-auto-update-drift-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/darktrace-history-poisoning-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-agents-negotiating-deals-check.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-agent-security-mastery-roadmap.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-platform-security-self-check-suite.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/openai-exploitgym-huggingface-breach-check.html</loc><lastmod>2026-10-18</lastmod></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/flock-cve-numbering-authority-check.html</loc><lastmod>2026-10-18</lastmod></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/llm-pattern-matching-riddle-test.html</loc><lastmod>2026-10-18</lastmod></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-griefbot-digital-afterlife-check.html</loc><lastmod>2026-10-18</lastmod></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-generated-neuroscience-papers-check.html</loc><lastmod>2026-10-18</lastmod></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/google-rsi-treadmill-brin-check.html</loc><lastmod>2026-10-18</lastmod></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/cheatbench-ai-agents-cheating-check.html</loc><lastmod>2026-10-18</lastmod></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/claude-mythos-leak-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-hack-nuclear-weapons-warning-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/google-synthid-detector-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/face-id-security-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/gpt-6-astra-starcraft-cheat-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/underground-hacking-tutorials-surge-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/microsoft-quicksand-ai-sandbox-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/google-dorking-exposure-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-promo-pipeline-offer.html</loc><lastmod>2026-10-18</lastmod></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/shawshank-environmental-jailbreak-check.html</loc><lastmod>2026-10-18</lastmod></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/mcp-injection-rce-design-flaw-check.html</loc><lastmod>2026-10-18</lastmod></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/mcp-rug-pull-agent-card-poisoning-check.html</loc><lastmod>2026-10-18</lastmod></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/mcp-as-c2-gentlemen-files-check.html</loc><lastmod>2026-10-18</lastmod></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/field-to-sheet-whatsapp-pipeline-offer.html</loc><lastmod>2026-10-18</lastmod></url>
+<url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/pentagi-ai-pentest-agents-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/microsoft-x-clippy-crypto-hijack-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/yandex-strikes-russian-bots-myth-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-firms-liable-rogue-agents-sif-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/nist-curve-seeds-claude-solved-check.html</loc><lastmod>2026-10-18</lastmod></url><url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/linkedin-ai-slop-crackdown-check.html</loc><lastmod>2026-10-18</lastmod></url>  <url>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/karpathy-ai-verification-gap-check.html</loc>
     <lastmod>2026-10-18</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/perplexity-space-sandbox-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/perplexity-space-sandbox-check.html</loc>
     <lastmod>2026-10-18</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/anthropic-staff-bypass-mode-blocked-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/anthropic-staff-bypass-mode-blocked-check.html</loc>
     <lastmod>2026-10-18</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ledger-hardware-irony-cryptobilis-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ledger-hardware-irony-cryptobilis-check.html</loc>
     <lastmod>2026-10-18</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/cert-in-ai-agents-attack-vectors-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/cert-in-ai-agents-attack-vectors-check.html</loc>
     <lastmod>2026-10-18</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-access-index.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-access-index.html</loc>
     <lastmod>2026-10-18</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-agents-blocked-full-list-oct-2026-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-agents-blocked-full-list-oct-2026-check.html</loc>
     <lastmod>2026-10-18</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/openai-boundary-crossing-cases-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/openai-boundary-crossing-cases-check.html</loc>
     <lastmod>2026-10-18</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/cert-in-eval-agent-exposure-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/cert-in-eval-agent-exposure-check.html</loc>
     <lastmod>2026-10-18</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-liability-who-pays-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-liability-who-pays-check.html</loc>
     <lastmod>2026-10-18</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/block-ai-agents-one-click-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/block-ai-agents-one-click-check.html</loc>
     <lastmod>2026-10-18</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-shoppable-store-audit-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-shoppable-store-audit-check.html</loc>
     <lastmod>2026-10-18</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/home-mcp-server-exposed-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/home-mcp-server-exposed-check.html</loc>
     <lastmod>2026-10-18</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/yelp-charges-ai-agents-data-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/yelp-charges-ai-agents-data-check.html</loc>
     <lastmod>2026-10-18</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-wallet-key-derivation-guard-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-wallet-key-derivation-guard-check.html</loc>
     <lastmod>2026-10-18</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/divd-ai-driven-attack-fingerprints-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/divd-ai-driven-attack-fingerprints-check.html</loc>
     <lastmod>2026-10-18</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-worst-month-cve-cluster-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/mcp-worst-month-cve-cluster-check.html</loc>
     <lastmod>2026-10-18</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/eilik-ai-robot-leak-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/eilik-ai-robot-leak-check.html</loc>
     <lastmod>2026-10-18</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/n0n-ransomware-telecom-egypt-infostealer-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/n0n-ransomware-telecom-egypt-infostealer-check.html</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/fake-whatsapp-play-store-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/fake-whatsapp-play-store-check.html</loc>
     <lastmod>2026-10-18</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/chatbot-accuracy-fullfact-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/chatbot-accuracy-fullfact-check.html</loc>
     <lastmod>2026-10-18</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/eilik-ai-robot-leak-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/eilik-ai-robot-leak-check.html</loc>
     <lastmod>2026-10-18</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/anthropic-oss-scanner-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/anthropic-oss-scanner-check.html</loc>
     <lastmod>2026-10-19</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/wikimedia-rogue-openai-agents-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/wikimedia-rogue-openai-agents-check.html</loc>
     <lastmod>2026-10-19</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/fake-apex-accelerator-npm-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/fake-apex-accelerator-npm-check.html</loc>
     <lastmod>2026-10-19</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/hawk-pqc-ai-break-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/hawk-pqc-ai-break-check.html</loc>
     <lastmod>2026-10-19</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-ransomware-84-percent-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-ransomware-84-percent-check.html</loc>
     <lastmod>2026-10-19</lastmod>
   </url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/mitre-v20-agent-defense-quiz-check.html</loc><lastmod>2026-10-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/mitre-v20-agent-defense-quiz-check.html</loc><lastmod>2026-10-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-wall-verdict-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-wall-verdict-check.html</loc>
     <lastmod>2026-10-19</lastmod>
   </url>
-  <url><loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/framing-gap-injection-channel-check.html</loc><lastmod>2026-10-19</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/framing-gap-injection-channel-check.html</loc><lastmod>2026-10-19</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/clipboard-paste-truth-check.html</loc>
-    <lastmod>2026-10-19</lastmod>
-  </url>
-  <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-senior-scam-protection-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/clipboard-paste-truth-check.html</loc>
     <lastmod>2026-10-19</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/microsoft-guardian-agents-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-senior-scam-protection-check.html</loc>
     <lastmod>2026-10-19</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-voice-scam-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/microsoft-guardian-agents-check.html</loc>
     <lastmod>2026-10-19</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/openai-eight-states-lawsuit-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-voice-scam-check.html</loc>
     <lastmod>2026-10-19</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/kev-deadlines-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/openai-eight-states-lawsuit-check.html</loc>
+    <lastmod>2026-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/kev-deadlines-check.html</loc>
     <lastmod>2026-10-20</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/emudhra-ca-keys-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/emudhra-ca-keys-check.html</loc>
     <lastmod>2026-10-20</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/php2shell-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/php2shell-check.html</loc>
     <lastmod>2026-10-21</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-shell-diff-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-shell-diff-check.html</loc>
     <lastmod>2026-10-21</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/llm-sink-validation-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/llm-sink-validation-check.html</loc>
     <lastmod>2026-10-21</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-monitor-tamper-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-monitor-tamper-check.html</loc>
     <lastmod>2026-10-21</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-trust-pivot-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-trust-pivot-check.html</loc>
     <lastmod>2026-10-21</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/mcp-origin-hygiene-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/mcp-origin-hygiene-check.html</loc>
     <lastmod>2026-10-21</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/yanked-package-autopsy-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/yanked-package-autopsy-check.html</loc>
     <lastmod>2026-10-21</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-defender-refusal-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-defender-refusal-check.html</loc>
     <lastmod>2026-10-21</lastmod>
   </url>
   <url>
-    <loc>https://iceman2050.github.io/ingeniousai-security-checks-mirror/model-distillation-attack-check.html</loc>
+    <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/model-distillation-attack-check.html</loc>
     <lastmod>2026-10-21</lastmod>
   </url>
 </urlset>

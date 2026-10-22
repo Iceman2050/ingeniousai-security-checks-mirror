@@ -9,12 +9,12 @@
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is template injection?", "acceptedAnswer": {"@type": "Answer", "text": "Template injection happens when user-controlled text is placed inside a template and the template engine evaluates expressions inside it instead of treating it as plain data. A harmless-looking input like {{7*7}} returning 49 proves the engine executed the expression. From there, attribute-traversal chains can walk the host language's object graph — the same pattern behind the GitLab AI Gateway sandbox escape, CVE-2026-90970."}}, {"@type": "Question", "name": "What happened in CVE-2026-90970, the GitLab AI Gateway escape?", "acceptedAnswer": {"@type": "Answer", "text": "Per Tech Insider's coverage dated October 2, 2026 (labeled source below), CVE-2026-90970 is a template-injection sandbox escape in GitLab's AI Gateway / Duo Agent Platform, rated CVSS 9.9. A crafted flow configuration allegedly let template expressions break out of the intended sandbox. We present the pattern as reported coverage, not independently verified, and this page reproduces only the mechanism — with harmless canaries — so you can see how the class of bug works."}}, {"@type": "Question", "name": "Why is {{7*7}} used as a template-injection test?", "acceptedAnswer": {"@type": "Answer", "text": "{{7*7}} is the classic canary probe. If a page renders it as 49, the template engine evaluated your input as code. If it renders literally as {{7*7}}, your input was treated as data. It is harmless arithmetic — it touches no files, runs no commands, and reaches no network — which is exactly why testers use it as the first, safe signal."}}, {"@type": "Question", "name": "How does a sandbox stop template escapes?", "acceptedAnswer": {"@type": "Answer", "text": "A real sandbox layers rules: deny attribute names that start with an underscore (which blocks __class__, __mro__ and __subclasses__ traversal), allowlist the small set of attributes templates may legitimately read, refuse to instantiate or call classes, and evaluate expressions with a purpose-built parser instead of the host language's full object model. The sandboxed renderer on this page applies the first three rules and names the exact rule that fires on every blocked payload."}}, {"@type": "Question", "name": "Is this demo safe to use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Both renderers on this page are simulations written for this demo. They evaluate expressions against a small fake object graph that exists only in this page's JavaScript — no real classes, files, commands, or network are reachable, and your input never leaves your browser. The 'escape' payload resolves to a harmless text canary marker, not to anything on any real system."}}]}
 </script>
-<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/template-escape-payload-check.html">
+<link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/template-escape-payload-check.html">
 <meta property="og:title" content="What Is Prompt Injection? Template-Escape Payload Tester">
 <meta property="og:description" content="What is prompt injection? Template injection is its server-side cousin — CVE-2026-90970 replayed safely: 5 canary payloads, unsafe vs sandboxed renderer.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/template-escape-payload-check.html">
-<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/template-escape-payload-check.html">
+<meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="ecosystem.css">
 <style>
@@ -68,7 +68,7 @@ details p{margin-top:10px}
 .platline{font-size:13px;color:#6b7688;margin:18px 0;line-height:2}
 .platline a{color:#6ea8fe}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/"}</script>
 </head>
 <body>
 <div class="wrap">
@@ -132,9 +132,9 @@ details p{margin-top:10px}
 
 <div class="sharebox">
 <strong>Share this check:</strong><br><br>
-<a href="https://twitter.com/intent/tweet?text=Try%205%20template-escape%20payloads%20safely%3A%20an%20unsafe%20renderer%20vs%20a%20sandboxed%20one%2C%20side%20by%20side.%20The%20CVE-2026-90970%20pattern%2C%20by%20Ingenious%20AI&url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Ftemplate-escape-payload-check.html">Post on X</a>
-<a href="https://wa.me/?text=Try%205%20template-escape%20payloads%20in%20your%20browser%20%E2%80%94%20unsafe%20vs%20sandboxed%20renderer%3A%20https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Ftemplate-escape-payload-check.html">Share on WhatsApp</a>
-<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Ftemplate-escape-payload-check.html">Share on LinkedIn</a>
+<a href="https://twitter.com/intent/tweet?text=Try%205%20template-escape%20payloads%20safely%3A%20an%20unsafe%20renderer%20vs%20a%20sandboxed%20one%2C%20side%20by%20side.%20The%20CVE-2026-90970%20pattern%2C%20by%20Ingenious%20AI&url=https%3A%2F%2Fingeniousai-security-checks-mirror-0e97b6.gitlab.io%2Ftemplate-escape-payload-check.html">Post on X</a>
+<a href="https://wa.me/?text=Try%205%20template-escape%20payloads%20in%20your%20browser%20%E2%80%94%20unsafe%20vs%20sandboxed%20renderer%3A%20https%3A%2F%2Fingeniousai-security-checks-mirror-0e97b6.gitlab.io%2Ftemplate-escape-payload-check.html">Share on WhatsApp</a>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fingeniousai-security-checks-mirror-0e97b6.gitlab.io%2Ftemplate-escape-payload-check.html">Share on LinkedIn</a>
 </div>
 
 <div class="feat">

@@ -1,5 +1,5 @@
 # Ingenious AI Security Checks Mirror — llms.txt
-# https://iceman2050.github.io/ingeniousai-security-checks-mirror/
+# https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/
 
 ## What this site is
 This is the mirror of Ingenious AI's free security-checker hub: interactive, no-signup
@@ -9,33 +9,33 @@ interactive check or quiz that runs entirely in the visitor's browser. All conte
 free, no account required. Public brand: Ingenious AI.
 
 ## How to cite this site
-- Site: https://iceman2050.github.io/ingeniousai-security-checks-mirror/
-- Page directory: https://iceman2050.github.io/ingeniousai-security-checks-mirror/all-links.html
-- Sitemap: https://iceman2050.github.io/ingeniousai-security-checks-mirror/sitemap.xml
-- Canonical form of each page URL: https://iceman2050.github.io/ingeniousai-security-checks-mirror/<slug>.html
+- Site: https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/
+- Page directory: https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/all-links.html
+- Sitemap: https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/sitemap.xml
+- Canonical form of each page URL: https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/<slug>.html
 - Many pages carry FAQPage JSON-LD with short direct answers; prefer citing those answers.
 
 ## Main categories
 - **Checkers & scanners (130+ pages):** CVE and vulnerability checkers, breach exposure checks,
   scam-spotting tools. Examples:
-  - TP-Link Tapo camera flaw check: https://iceman2050.github.io/ingeniousai-security-checks-mirror/tplink-tapo-camera-flaw-check.html
-  - PwnEscape Linux kernel check (CVE-2026-99999): https://iceman2050.github.io/ingeniousai-security-checks-mirror/pwnescape-kernel-check.html
-  - FBI impersonation scam check: https://iceman2050.github.io/ingeniousai-security-checks-mirror/fbi-impersonation-scam-check.html
-  - Free Scam Message Analyzer: https://iceman2050.github.io/ingeniousai-security-checks-mirror/scam-message-analyzer.html
+  - TP-Link Tapo camera flaw check: https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/tplink-tapo-camera-flaw-check.html
+  - PwnEscape Linux kernel check (CVE-2026-99999): https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/pwnescape-kernel-check.html
+  - FBI impersonation scam check: https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/fbi-impersonation-scam-check.html
+  - Free Scam Message Analyzer: https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/scam-message-analyzer.html
 - **Games & quizzes (34 pages):** phishing-spotting quizzes and security training games. Examples:
-  - Spot-the-phish quiz: https://iceman2050.github.io/ingeniousai-security-checks-mirror/spot-the-phish-quiz.html
-  - AI critical thinking check: https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-critical-thinking-check.html
+  - Spot-the-phish quiz: https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/spot-the-phish-quiz.html
+  - AI critical thinking check: https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-critical-thinking-check.html
 - **Research & reports (49 pages):** sourced deep-dives on AI agent risks, supply-chain attacks,
   and security research. Examples:
-  - AI self-audit fallacy check: https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-self-audit-fallacy-check.html
-  - ColonistOne agent off-script check: https://iceman2050.github.io/ingeniousai-security-checks-mirror/colonistone-agent-offscript-check.html
-  - Cybersecurity 2026 vendor report reader's guide: https://iceman2050.github.io/ingeniousai-security-checks-mirror/cybersecurity-future-vendor-report-check.html
-  - HexStrike AI pentest framework check: https://iceman2050.github.io/ingeniousai-security-checks-mirror/hexstrike-ai-pentest-check.html
+  - AI self-audit fallacy check: https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-self-audit-fallacy-check.html
+  - ColonistOne agent off-script check: https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/colonistone-agent-offscript-check.html
+  - Cybersecurity 2026 vendor report reader's guide: https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/cybersecurity-future-vendor-report-check.html
+  - HexStrike AI pentest framework check: https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/hexstrike-ai-pentest-check.html
 - **Newsjack deep-dives (19 pages):** fast explainers on current security news. Examples:
-  - Anthropic AI-worm IoT warning: https://iceman2050.github.io/ingeniousai-security-checks-mirror/anthropic-ai-worm-iot-check.html
-  - G7 AI cyber-drills check: https://iceman2050.github.io/ingeniousai-security-checks-mirror/g7-ai-cyber-drills-check.html
-  - AI lab espionage honeypot check: https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-lab-espionage-honeypot-check.html
-  - Alexa always-listening privacy check: https://iceman2050.github.io/ingeniousai-security-checks-mirror/alexa-always-listening-privacy-check.html
+  - Anthropic AI-worm IoT warning: https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/anthropic-ai-worm-iot-check.html
+  - G7 AI cyber-drills check: https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/g7-ai-cyber-drills-check.html
+  - AI lab espionage honeypot check: https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-lab-espionage-honeypot-check.html
+  - Alexa always-listening privacy check: https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/alexa-always-listening-privacy-check.html
 - **Badges & share cards (4 pages):** shareable verdict cards generated from quiz results.
 
 ## Guidance for AI crawlers and assistants

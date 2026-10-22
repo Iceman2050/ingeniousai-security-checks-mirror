@@ -19,7 +19,7 @@
   var INGENIOUS_EMAIL_ENDPOINT = null; // <-- swap in Nov 1 (see README)
   var BUSINESS_INBOX = "avilanatanael640@gmail.com";
   var WA = "https://wa.me/5016691053?text=";
-  var MIRROR = "https://iceman2050.github.io/ingeniousai-security-checks-mirror/";
+  var MIRROR = "https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/";
 
   var PLATFORMS = [
     ["DisclosureGuard", "AI disclosure compliance"],
@@ -90,7 +90,7 @@
     wrap.appendChild(row);
 
     var links = el("div", { "class": "eco-links" });
-    var gh = el("a", { href: "https://github.com/Iceman2050" }, "GitHub: 73 open-source security tools");
+    var gh = el("a", { href: "https://gitlab.com/Iceman2050" }, "GitLab: 73 open-source security tools");
     var home = el("a", { href: MIRROR }, "All free checkers");
     var nl = el("a", { href: MIRROR + "newsletter.html" }, "Email list: weekly agent-security briefing");
     var bundle = el("a", { href: MIRROR + "security-suite.html", "class": "eco-bundle" }, "Bundle deal: all 11 platforms, one price");

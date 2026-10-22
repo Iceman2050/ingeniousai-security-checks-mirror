@@ -6,12 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Agents 2026: Agent Trust Pivot Check</title>
 <meta name="description" content="AI agents 2026 trust check: watch a planted canary instruction pivot from agent to agent — and see which mode blocks it. Protocol pivoting, explained.">
-<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-trust-pivot-check.html">
+<link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-trust-pivot-check.html">
 <meta property="og:title" content="Would YOUR Agents Obey Each Other's Instructions Blindly? — Agent Trust Pivot Check">
 <meta property="og:description" content="New 'protocol pivoting' research (Oct 20, 2026) shows MCP/A2A agents inherit trust they never earned. Run the 60-second two-agent demo and see the pivot happen.">
-<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-trust-pivot-check.html">
+<meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-trust-pivot-check.html">
 <meta property="og:type" content="article">
-<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Would YOUR Agents Obey Each Other Blindly? — Agent Trust Pivot Check">
 <meta name="twitter:description" content="Toggle the second agent between Trusting, Provenance-checking and Sandboxed — and watch whether a planted canary instruction gets executed. Pure client-side demo.">
@@ -51,7 +51,7 @@ button.ghost{background:#222836;color:#e8e8e8;border:1px solid #3a4356;border-ra
 {"@context": "https://schema.org", "@type": "Article", "headline": "Would YOUR Agents Obey Each Other's Instructions Blindly? — Agent Trust Pivot Check", "author": {"@type": "Organization", "name": "Ingenious AI"}, "datePublished": "2026-10-21", "dateModified": "2026-10-21", "description": "An interactive two-agent demo of protocol pivoting — the inter-agent trust gap in MCP/A2A multi-agent systems described in research published October 20, 2026 — plus the provenance fix and what to demand from multi-agent frameworks."}
 </script>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://github.com/Iceman2050"}
+{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://gitlab.com/Iceman2050"}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -111,7 +111,7 @@ button.ghost{background:#222836;color:#e8e8e8;border:1px solid #3a4356;border-ra
 <li><strong>Signed instructions.</strong> Principals sign instructions; agents verify signatures at every handoff, not just at the front door.</li>
 <li><strong>A data/instruction firewall.</strong> Content from tools, documents and peer agents is typed as data in the protocol itself — an agent should need an explicit, signed elevation to treat any of it as a command.</li>
 <li><strong>Provenance in the logs.</strong> Every action an agent takes should record which signed instruction authorized it, so a pivot is visible in the audit trail, not discovered in the incident report.</li>
-<li><strong>Canary testing in CI.</strong> Plant inert marker instructions in test content and fail the build if a downstream agent executes one — the same test this page demos, automated. Ingenious AI's open-source <a href="https://github.com/Iceman2050/trust-pivot-prober">trust-pivot-prober</a> (queued for publication on the Ingenious AI GitHub estate) runs exactly this probe across your agent handoffs.</li>
+<li><strong>Canary testing in CI.</strong> Plant inert marker instructions in test content and fail the build if a downstream agent executes one — the same test this page demos, automated. Ingenious AI's open-source <a href="https://gitlab.com/Iceman2050">trust-pivot-prober</a> (queued for publication on the Ingenious AI GitHub estate) runs exactly this probe across your agent handoffs.</li>
 <li><strong>Least-privilege downstream agents.</strong> The agent that summarizes should not hold the keys the agent that executes uses. Pivots hurt in proportion to the tools within reach.</li>
 </ul>
 
@@ -156,7 +156,7 @@ button.ghost{background:#222836;color:#e8e8e8;border:1px solid #3a4356;border-ra
 
 <p class="smallprint">The demo above is a pure client-side simulation: no real agents, no network calls, and the "canary" is an inert marker word that exists only as text on this page. The protocol-pivoting research referenced was published October 20, 2026 and concerns structural trust gaps in MCP/A2A-style inter-agent communication; acknowledgments attributed to Google, JPMorgan Chase, Rapid7, Weaviate and government agencies are as reported with that research. Verdicts in the demo illustrate the three configuration outcomes; your stack's behavior depends on its own provenance and privilege controls. Test your own systems only in staging, with canaries you planted yourself.</p>
 
-<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<div id="ecosystem-footer"><a href="https://gitlab.com/Iceman2050">GitLab: 73 open-source security tools by Ingenious AI</a></div>
 <script src="ecosystem.js"></script>
 <script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' src="https://static.cloudflareinsights.com/beacon.min.js"></script>
 <script>
@@ -218,7 +218,7 @@ function trustPivotSim(mode) {
         chat.appendChild(d);
         if (i === r.steps.length - 1) {
           out.innerHTML = '<span class="badge ' + r.badge + '">' + r.verdict + "</span> " + r.detail;
-          var pageUrl = "https://iceman2050.github.io/ingeniousai-security-checks-mirror/agent-trust-pivot-check.html";
+          var pageUrl = "https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-trust-pivot-check.html";
           var emoji = { "PIVOTED": "🔴", "BLOCKED": "🟢", "CONTAINED": "🟡" }[r.verdict];
           var label = { "trusting": "Trusting", "provenance": "Provenance-checking", "sandboxed": "Sandboxed" }[mode];
           var text = emoji + " Would YOUR agents obey each other's instructions blindly? I ran the inter-agent trust demo with Agent B in " + label +

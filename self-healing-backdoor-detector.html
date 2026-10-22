@@ -3,8 +3,8 @@
 
 <html data-primary-keyword="cybersecurity news" lang="en">
 <head>
-<link href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/self-healing-backdoor-detector.html" rel="canonical"/>
-<meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/self-healing-backdoor-detector.html" property="og:url"/><meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png" property="og:image"/>
+<link href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/self-healing-backdoor-detector.html" rel="canonical"/>
+<meta content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/self-healing-backdoor-detector.html" property="og:url"/><meta content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png" property="og:image"/>
 <meta content="Self-Healing Backdoor Detector — Cybersecurity News" name="twitter:title"/>
 <meta content="Cybersecurity news: WordPress backdoors that reinstall themselves. Run the 5-sign self-diagnostic and remove them in the right order." name="twitter:description"/>
 <meta charset="utf-8"/>
@@ -58,7 +58,7 @@ details{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:1
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a self-healing WordPress backdoor?", "acceptedAnswer": {"@type": "Answer", "text": "It is a WordPress backdoor that repairs itself after you try to remove it. Per Wordfence research reported by The Hacker News ThreatsDay bulletin in October 2026, this variant is delivered as a must-use plugin (mu-plugin) with self-healing mechanisms, so deleting the malicious file alone does not end the infection — it restores itself from the other footholds it created."}}, {"@type": "Question", "name": "Can a WordPress backdoor survive a full file cleanup?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Community members on r/WordPress documented a self-healing attack that survived a full file-level cleanup and returned within 24 hours, because persistence lived in the database and in wp-config.php, not just on disk: base64 payloads in wp_options transients, malicious mu-plugins, and a restore routine that rewrites plugin files from the database on every page load. (Per WPTips, Oct 2026: https://wptips.com/guides/self-healing-wordpress-malware-survives-file-cleanup/)"}}, {"@type": "Question", "name": "Why does the WordPress malware keep coming back after I delete it?", "acceptedAnswer": {"@type": "Answer", "text": "Because you are removing the symptom, not the reinfection path. Self-healing backdoors persist through multiple footholds: rogue admin accounts in the database, scheduled tasks (wp-cron) that re-download the payload, and the mu-plugin itself, which WordPress loads before anything else. Until every foothold is removed in the right order, one survivor rebuilds the rest."}}, {"@type": "Question", "name": "How do I check my mu-plugins folder for malware?", "acceptedAnswer": {"@type": "Answer", "text": "Connect over SFTP (or your host's file manager) and open wp-content/mu-plugins/. Any legitimate site rarely needs files there, so anything you did not put there yourself deserves suspicion. Compare the file dates against your last legitimate change, and if you are unsure what a file does, treat the whole site as compromised and follow the full removal order rather than deleting one file."}}, {"@type": "Question", "name": "What is the correct order to remove a persistent WordPress backdoor?", "acceptedAnswer": {"@type": "Answer", "text": "Take the site offline or into maintenance mode first, then work in this order: the database (rogue admin accounts and malicious cron entries live here), the mu-plugins folder, scheduled tasks, all user accounts and passwords, and finally rotate the security salts in wp-config.php. Then reinstall WordPress core and every theme and plugin from clean sources. Doing it in any other order lets a surviving foothold re-infect the parts you already cleaned."}}]}
 </script>
 <link href="ecosystem.css" rel="stylesheet"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"WordPress Backdoor Detector: Self-Healing Malware Check","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/self-healing-backdoor-detector.html","description":"WordPress backdoor self-check: a self-healing strain delivered as a mu-plugin rebuilds itself after deletion. Free 5-sign diagnostic and removal order.","about":{"@type":"Thing","name":"WordPress backdoor"},"keywords":["wordpress backdoor","wordpress backdoor scanner","self-healing wordpress malware","wordpress mu-plugin malware","wordpress hacked how to clean"],"provider":{"@type":"Organization","name":"Ingenious AI"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"WordPress Backdoor Detector: Self-Healing Malware Check","url":"https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/self-healing-backdoor-detector.html","description":"WordPress backdoor self-check: a self-healing strain delivered as a mu-plugin rebuilds itself after deletion. Free 5-sign diagnostic and removal order.","about":{"@type":"Thing","name":"WordPress backdoor"},"keywords":["wordpress backdoor","wordpress backdoor scanner","self-healing wordpress malware","wordpress mu-plugin malware","wordpress hacked how to clean"],"provider":{"@type":"Organization","name":"Ingenious AI"}}</script>
 <meta content="summary_large_image" name="twitter:card"/></head>
 <body>
 <div class="wrap">
@@ -166,7 +166,7 @@ details{background:#11161f;border:1px solid #232b38;border-radius:10px;padding:1
 <strong style="color:#fff">All 11 platforms:</strong><br/>
 <a href="https://disclosureguard.getingeniousai.com">DisclosureGuard</a><a href="https://modelminder.getingeniousai.com">ModelMinder</a><a href="https://termswatch.getingeniousai.com">TermsWatch</a><a href="https://vibe-audit.getingeniousai.com">Vibe-Code Audit</a><a href="https://rogue-defense.getingeniousai.com">Rogue-Agent Defense</a><a href="https://breachhunter.getingeniousai.com">BreachHunter</a><a href="https://chatbreaker.getingeniousai.com">ChatBreaker</a><a href="https://flightrecorder.getingeniousai.com">Agent Flight Recorder</a><a href="https://authgateway.getingeniousai.com">Agent Auth Gateway</a><a href="https://domainguard.getingeniousai.com">DomainGuard</a><a href="https://contentcraft.getingeniousai.com">ContentCraft AI</a>
 </div>
-<a class="ia-cta" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/security-suite.html">Explore the full Security Suite →</a>
+<a class="ia-cta" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/security-suite.html">Explore the full Security Suite →</a>
 </div>
 </div>
 <script>
@@ -202,7 +202,7 @@ function verdictFor(score){
 <li><a href="cyberxero-detector.html">CyberXero Detector: AI Agents 2026 Scanner</a></li>
 </ul>
 </div>
-<div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
+<div id="ecosystem-footer"><a href="https://gitlab.com/Iceman2050">GitLab: 73 open-source security tools by Ingenious AI</a></div>
 <script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script><!-- End Cloudflare Web Analytics -->
 </body>

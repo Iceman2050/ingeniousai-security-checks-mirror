@@ -1,6 +1,6 @@
 /* EU AI Act Countdown Widget by Ingenious AI
  * Paste anywhere:
- * <script src="https://iceman2050.github.io/ingeniousai-security-checks-mirror/embed/ai-act-countdown.js" data-deadline="2026-12-02" data-theme="dark"><\/script>
+ * <script src="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/embed/ai-act-countdown.js" data-deadline="2026-12-02" data-theme="dark"><\/script>
  * data-deadline: 2026-12-02 | 2027-12-02 | 2028-08-02
  * data-theme: dark | light
  * Deadlines per EU AI Act as updated by Digital Omnibus Regulation (EU) 2026/1744.
@@ -55,7 +55,7 @@
   box.setAttribute('role','timer');
   box.setAttribute('aria-live','off');
 
-  var HOME = 'https://iceman2050.github.io/ingeniousai-security-checks-mirror/ai-act-countdown.html';
+  var HOME = 'https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-act-countdown.html';
 
   box.innerHTML =
     '<div style="font-size:11px;letter-spacing:2px;font-weight:700;color:' + css.num + ';margin-bottom:6px">EU AI ACT COUNTDOWN</div>' +
