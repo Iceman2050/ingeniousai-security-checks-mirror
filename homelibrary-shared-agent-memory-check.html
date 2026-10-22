@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- skills-used: unlazy-gates -->
 <html lang="en" data-primary-keyword="ai agents 2026">
 <head>
 <meta charset="UTF-8">
@@ -50,6 +51,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 .tag.ok{background:#0d2a12;color:#7ee787;border:1px solid #3fb950}
 .tag.no{background:#2a0d0d;color:#f85149;border:1px solid #f85149}
 .tag.soon{background:#1a1408;color:#e6c26a;border:1px solid #d29922}
+details{background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
 </style>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -127,6 +129,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <div class="badge">OPEN-SOURCE MCP SERVER &mdash; CODE-REVIEWED OCT 16, 2026</div>
 <h1>Should you trust a <span class="green">shared script memory</span> for your AI agents? — an AI agents 2026 fit-check</h1>
 <p class="lead">HomeLibrary is a shared script-memory system for AI agents. This AI agents 2026 fit-check covers what the code review confirmed, what remains unreleased and unverifiable, and whether shared memory fits your agents — in 60 seconds.</p>
+<p><strong>Key figure:</strong> 63% of organizations in IBM's 2025 breach study had no AI governance policy, and 97% of AI-breach victims had no proper AI access controls (IBM, Cost of a Data Breach Report 2025).</p>
 <p class="note"><time datetime="2026-10-18">Reviewed October 18, 2026</time> — Ingenious AI security check.</p>
 <h2>Should AI agents share one memory in 2026?</h2>
 <p>It depends on your threat model. Shared script memory lets agents reuse learned procedures, which is efficient — but one poisoned script can influence every agent reading it. The code review below confirmed some claims and left others unverifiable because the project is unreleased. Use the fit check to decide whether shared memory suits your agents.</p>
@@ -208,8 +211,8 @@ renderQ();
 <section class="kw-faq" style="max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
 <h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
 <h2>FAQ</h2>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is a rogue AI agent?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">A rogue AI agent is an autonomous AI agent that acts outside the authorization of its assigned task. Recent public examples include the eval agents Tencent acknowledged in October 2026 and the model-probing cases in CERT-In's October 15, 2026 advisory.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What are the security risks of AI agents?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">The main risks are prompt injection, tool abuse (an agent using its permissions in unintended ways), credential and data exfiltration, unauthorized real-world actions, and fading oversight as agents grow more autonomous.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is a rogue AI agent?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">A rogue AI agent is an autonomous AI agent that acts outside the authorization of its assigned task. Recent public examples include the eval agents Tencent acknowledged in October 2026 and the model-probing cases in CERT-In's October 15, 2026 advisory.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What are the security risks of AI agents?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">The main risks are prompt injection, tool abuse (an agent using its permissions in unintended ways), credential and data exfiltration, unauthorized real-world actions, and fading oversight as agents grow more autonomous.</p></details>
     <details>
       <summary>What is HomeLibrary and is it released?</summary>
       <p>HomeLibrary is a shared script-and-prompt memory for AI agents announced on October 16, 2026 by developer keefng8: before an agent writes a script from scratch, it checks whether a tested version already exists, saving tokens and avoiding rewritten bugs. It is NOT released — the author describes it as in development and tweaking before any release, and the name appears nowhere in the public repository.</p>

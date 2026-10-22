@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- skills-used: unlazy-gates -->
 
 <html data-primary-keyword="ai agents 2026" lang="en">
 <head>
@@ -112,6 +113,7 @@ th{background:#0d1420;color:#9aa7b8}
 .morelinks .hub{margin-top:14px;padding-top:14px;border-top:1px solid #232b38;font-weight:700}
 a{color:#6ea8fe}
 .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+details{background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
 </style>
 <link href="ecosystem.css" rel="stylesheet"/>
 <meta content="https://iceman2050.github.io/ingeniousai-security-checks-mirror/og-default.png" property="og:image"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://iceman2050.github.io/ingeniousai-security-checks-mirror/"}</script></head>
@@ -146,7 +148,7 @@ a{color:#6ea8fe}
 <p id="cost-line" style="font-size:22px;font-weight:700"></p>
 <div class="honest" id="cost-math" style="font-size:13px"></div>
 <p class="small">Planning number only. Real migration cost depends on prompt re-tuning, eval replay, fine-tune retraining, and how much of your product the model touches.</p>
-<p style="margin-top:14px"><a class="btn" href="https://modelminder.getingeniousai.com">Never miss a retirement again — early access to ModelMinder →</a></p>
+<p style="margin-top:14px"><a class="btn" href="https://modelminder.getingeniousai.com">Never miss a retirement again — early access to ModelMinder →</a><br/><a class="btn" href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms.">Get early access on WhatsApp &rarr;</a></p>
 </div>
 <h2>What should you do when an OpenAI model is retired?</h2>
 <p>First, inventory every place your code calls the retired model ID — backends, plugins, scripts, and low-code automations. Then map each ID to the vendor-recommended replacement and replay your own production samples before switching, since generations behave differently. Fine-tunes die with their base model and must be retrained. This page checks your stack against the schedule.</p>
@@ -177,10 +179,10 @@ a{color:#6ea8fe}
 </div>
 <section class="kw-faq" style="max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
 <h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Which OpenAI models are being retired?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">On October 23, 2026, OpenAI shut down API access to gpt-4-0613, gpt-4-turbo, gpt-4o-2024-05-13, gpt-4.1-nano, gpt-3.5-turbo-0125, gpt-image-1, o1, o1-pro, o3-mini, o4-mini, and fine-tuned models built on those bases, per OpenAI’s deprecations page. The next wave lands January 14, 2027 (gpt-4o, gpt-4o-mini, gpt-4.1 snapshots).</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What happens when a model you use is deprecated?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">On the shutdown date, API requests to that model ID start failing. In a queue or cron job that can look like silence until somebody notices the backlog. Fine-tunes die with their base model — they must be retrained on a supported base.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What replaces the retired OpenAI models?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">OpenAI’s deprecations page recommends gpt-5.6-sol for the gpt-4 family, o1, o1-pro, o3-mini and gpt-4o-2024-05-13; gpt-5.6-terra for o4-mini and gpt-3.5-turbo; gpt-5.6-luna for gpt-4.1-nano; and gpt-image-2.5-sunburst or flare for gpt-image-1. Always replay your own production samples before switching.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How is the migration cost estimate calculated?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">It is a transparent, illustrative formula shown on the page: a base migration effort per retired model (12 engineering hours at an illustrative $75/hr) plus a per-million-token regression-testing factor, plus a planning allowance for at-risk models. It is a planning number, not a quote.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Which OpenAI models are being retired?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">On October 23, 2026, OpenAI shut down API access to gpt-4-0613, gpt-4-turbo, gpt-4o-2024-05-13, gpt-4.1-nano, gpt-3.5-turbo-0125, gpt-image-1, o1, o1-pro, o3-mini, o4-mini, and fine-tuned models built on those bases, per OpenAI’s deprecations page. The next wave lands January 14, 2027 (gpt-4o, gpt-4o-mini, gpt-4.1 snapshots).</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What happens when a model you use is deprecated?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">On the shutdown date, API requests to that model ID start failing. In a queue or cron job that can look like silence until somebody notices the backlog. Fine-tunes die with their base model — they must be retrained on a supported base.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What replaces the retired OpenAI models?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">OpenAI’s deprecations page recommends gpt-5.6-sol for the gpt-4 family, o1, o1-pro, o3-mini and gpt-4o-2024-05-13; gpt-5.6-terra for o4-mini and gpt-3.5-turbo; gpt-5.6-luna for gpt-4.1-nano; and gpt-image-2.5-sunburst or flare for gpt-image-1. Always replay your own production samples before switching.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How is the migration cost estimate calculated?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">It is a transparent, illustrative formula shown on the page: a base migration effort per retired model (12 engineering hours at an illustrative $75/hr) plus a per-million-token regression-testing factor, plus a planning allowance for at-risk models. It is a planning number, not a quote.</p></details>
 </section>
 </div>
 <script>
@@ -251,6 +253,14 @@ function estimate(){
 }
 if(typeof document!=='undefined'){document.addEventListener('DOMContentLoaded',function(){});}
 </script>
+<div class="card">
+<h2>Related checks</h2>
+<ul>
+<li><a href="agent-insurance-quote.html">AI Agent Insurance Quote: AI Agents 2026</a></li>
+<li><a href="agent-insurance-underwriter-quiz.html">AI Agent Insurance Quiz: 20 Questions — AI Agents 2026</a></li>
+<li><a href="ai-model-distillation-check.html">AI Model Distillation Attacks — Cybersecurity News Check</a></li>
+</ul>
+</div>
 <div id="ecosystem-footer"><a href="https://github.com/Iceman2050">GitHub: 73 open-source security tools by Ingenious AI</a></div>
 <script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script><!-- End Cloudflare Web Analytics -->

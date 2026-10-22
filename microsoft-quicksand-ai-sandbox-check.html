@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html data-primary-keyword="ai agent sandbox" lang="en">
+<!-- skills-used: unlazy-gates -->
+<html data-primary-keyword="ai agents 2026" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Microsoft Quicksand: Sandbox Your AI Agent (and Its Limits)</title>
-<meta name="description" content="Microsoft's Quicksand runs AI agents inside isolated QEMU VMs. What the ai agent sandbox does, how MXC fits in, and the honest limits of sandboxing.">
+<title>AI Agents 2026: Microsoft Quicksand</title>
+<meta name="description" content="AI Agents 2026: Microsoft's Quicksand runs AI agents inside isolated QEMU VMs. What the ai agent sandbox does, how MXC fits in, and the honest limits of">
 <link rel="canonical" href="https://iceman2050.github.io/ingeniousai-security-checks-mirror/microsoft-quicksand-ai-sandbox-check.html">
 <meta property="og:title" content="Microsoft Quicksand: Sandbox Your AI Agent (and Its Limits)">
 <meta property="og:description" content="Microsoft's open-source Quicksand sandboxes AI agents in QEMU virtual machines. What the tool does — and the Trail of Bits test that showed why sandboxes are necessary but not sufficient.">
@@ -52,8 +53,9 @@ pre code{background:none;padding:0}
 </head>
 <body>
 <p class="meta"><time datetime="2026-10-18">October 18, 2026</time> · Cybersecurity news</p>
-<h1>Microsoft Quicksand: Sandbox Your AI Agent (and Its Limits)</h1>
+<h1>AI Agents 2026: Microsoft Quicksand: Sandbox Your AI Agent (and Its Limits)</h1>
 <p>Your coding agent has a shell, your home directory, your cloud credentials, and an open network connection. The only thing between it and a destructive command is often a system prompt that says "please don't." Microsoft's open-source <strong>Quicksand</strong> project is a serious answer to that problem: an <strong>ai agent sandbox</strong> that runs agents and their commands inside isolated QEMU virtual machines instead of on your host. It is genuinely useful — and it is also, honestly, not enough on its own. This page covers both halves.</p>
+<p><strong>Key figure:</strong> 63% of organizations in IBM's 2025 breach study had no AI governance policy, and 97% of AI-breach victims had no proper AI access controls (IBM, Cost of a Data Breach Report 2025).</p>
 
 <h2>What is Microsoft Quicksand?</h2>
 <p>Quicksand (github.com/microsoft/quicksand) is an async Python API for launching, controlling, and snapshotting QEMU virtual machines, built specifically for sandboxing AI agents. Instead of letting an agent execute everything on your actual machine, you give it an isolated Linux environment where it can experiment — with checkpoints and rollback when something goes wrong.</p>
@@ -101,7 +103,7 @@ asyncio.run(main())</code></pre>
 </ul>
 <p>The line to remember: <strong>containment reduces blast radius; it does not make an agent trustworthy.</strong></p>
 
-<p><strong>Rogue-Agent Defense</strong> — Ingenious AI's agent security platform — is built for exactly this threat model: detecting agents that probe their boundaries, containing escape attempts, and enforcing least-privilege tool access. <a href="https://rogue-defense.getingeniousai.com">Get early access on WhatsApp</a>.</p>
+<p><strong>Rogue-Agent Defense</strong> — Ingenious AI's agent security platform — is built for exactly this threat model: detecting agents that probe their boundaries, containing escape attempts, and enforcing least-privilege tool access. <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20want%20early%20access%20to%20Ingenious%20AI%20platforms.">Get early access on WhatsApp</a>.</p>
 
 <h2>Quiz: do you understand agent sandboxing?</h2>
 <div class="quiz-q" data-a="1"><p><strong>1.</strong> What does Microsoft Quicksand use to isolate AI agents?</p>
@@ -135,7 +137,7 @@ document.getElementById('quiz-result').textContent='You scored '+score+'/'+total
 </script>
 <noscript><p><em>Enable JavaScript for the interactive quiz.</em></p></noscript>
 
-<h2>Frequently asked questions</h2>
+<h2>AI agents in 2026: frequently asked questions</h2>
 <details><summary>What is Microsoft Quicksand?</summary><p>Quicksand is Microsoft's open-source async Python API for launching, controlling, and snapshotting QEMU virtual machines, built specifically for sandboxing AI agents. It ships pre-built Ubuntu and Alpine Linux VMs for x86_64 and ARM64, runs on macOS, Linux, and Windows, and needs no root privileges or Docker. Features include running commands inside VMs, mounting host directories, configurable network isolation, checkpoints and rollback, save/load of environments, and desktop control.</p></details>
 <details><summary>How do I install Quicksand?</summary><p>Install with pip: pip install 'quick-sandbox[qemu,alpine]' bundles the QEMU runtime and images on supported platforms, or pip install quick-sandbox followed by quicksand install qemu alpine. A basic usage is: async with Sandbox(image='ubuntu') as sb: result = await sb.execute('echo hello'). The latest release as of mid-October 2026 was v0.13.0/v0.14.0, adding bidirectional port forwarding between host and guest.</p></details>
 <details><summary>What is Microsoft MXC?</summary><p>MXC (Microsoft Execution Containers) 1.0 shipped on Windows 11 on October 7, 2026. It is a policy-driven, OS-level sandbox for running untrusted or model-generated code: you declare what a process may touch, and MXC enforces it from outside the agent. Microsoft's stated principle is that an agent cannot be its own security authority — the boundary must be defined by the developer or organization and enforced independently of the agent itself.</p></details>
