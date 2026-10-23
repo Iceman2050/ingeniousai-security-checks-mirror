@@ -806,4 +806,18 @@
     <loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/model-distillation-attack-check.html</loc>
     <lastmod>2026-10-21</lastmod>
   </url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/eval-agent-reachability-check.html</loc><lastmod>2026-10-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/eval-agent-disclosure-check.html</loc><lastmod>2026-10-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-boundary-crossing-check.html</loc><lastmod>2026-10-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-log-token-leak-check.html</loc><lastmod>2026-10-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-payment-authorization-check.html</loc><lastmod>2026-10-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-action-receipt-check.html</loc><lastmod>2026-10-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/store-agent-checkout-check.html</loc><lastmod>2026-10-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-shopping-agent-ready-check.html</loc><lastmod>2026-10-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-scraper-blocking-check.html</loc><lastmod>2026-10-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-agent-traffic-check.html</loc><lastmod>2026-10-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/home-mcp-exposure-check.html</loc><lastmod>2026-10-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/smart-home-ai-server-check.html</loc><lastmod>2026-10-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-access-policy-check.html</loc><lastmod>2026-10-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agentic-ai-policy-standard-check.html</loc><lastmod>2026-10-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 </urlset>

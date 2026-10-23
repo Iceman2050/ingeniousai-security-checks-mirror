@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, public_page_preflight -->
+<html data-primary-keyword="web scraping" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Scraping by AI Crawlers: Block or Let Them In?</title>
+<meta name="description" content="Web scraping of your site by AI crawlers now runs at industrial scale: about 35 requests a day on the median small site. Decide your policy, then enforce it.">
+<link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-scraper-blocking-check.html">
+<meta property="og:title" content="Web Scraping by AI Crawlers: Block or Let Them In?">
+<meta property="og:description" content="A 924-site study (LovedByAI, October 2026) found AI crawlers made 40.7% of identified bot requests. This check turns your scraping policy into an enforceable one.">
+<meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-scraper-blocking-check.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Web Scraping by AI Crawlers: Block or Let Them In?">
+<meta name="twitter:description" content="A 924-site study (LovedByAI, October 2026) found AI crawlers made 40.7% of identified bot requests. This check turns your scraping policy into an enforceable one.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:820px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}
+a{color:#7cc4ff}
+.quiz-q{background:#1a1e27;border-radius:8px;padding:1rem;margin:1rem 0}
+.opt{display:block;background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.7rem 1rem;margin:.5rem 0;cursor:pointer;width:100%;text-align:left;color:#e8e8e8;font-size:1rem}
+.opt:hover{border-color:#ffd166}.opt.picked{border-color:#7cc4ff;background:#24304a}.opt.correct{border-color:#4ade80;background:#14301f}.opt.wrong{border-color:#f87171;background:#3a1a1a}
+#quiz-result{font-weight:700;margin-top:1rem;font-size:1.1rem}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}
+.meta{color:#9aa3b2;font-size:.85rem}
+.src{font-size:.85rem;color:#9aa3b2}
+.warnbox{background:#2a1f10;border:1px solid #8a6d1f;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin:1.2rem 0}
+.stat{background:#1a1e27;border-radius:8px;padding:.9rem;text-align:center}
+.stat b{display:block;font-size:1.5rem;color:#ffd166}
+.stat span{font-size:.85rem;color:#9aa3b2}
+.checker{background:#141a26;border:1px solid #1c6ef2;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.checker label{display:block;margin:.6rem 0 .2rem;font-weight:600}
+.checker select,.checker input{background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.6rem;color:#e8e8e8;font-size:1rem;width:100%;box-sizing:border-box}
+.checker button{background:#1c6ef2;color:#fff;border:none;border-radius:8px;padding:.7rem 1.4rem;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.8rem}
+#verdict{margin-top:1rem;font-weight:600;padding:.8rem;border-radius:8px;display:none}
+#verdict.trusted{display:block;background:#14301f;border:1px solid #4ade80}
+#verdict.review{display:block;background:#2a1f10;border:1px solid #8a6d1f}
+#verdict.revoke{display:block;background:#3a1a1a;border:1px solid #f87171}
+#actions{display:none;margin-top:.6rem}
+#actions.show{display:block}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "Web Scraping by AI Crawlers: Block or Let Them In?", "author": {"@type": "Organization", "name": "Ingenious AI"}, "datePublished": "2026-10-23", "description": "AI crawlers now scrape the average small-business site about 35 times a day (LovedByAI study of 924 sites, September-October 2026). This check scores whether your scraping policy is real or decorative."}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://gitlab.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is AI web scraping?", "acceptedAnswer": {"@type": "Answer", "text": "AI web scraping is the automated collection of site content by AI companies' crawlers, mainly to train models and to answer questions in AI search. It runs at industrial scale: a study of 924 small-business sites counted a median 1,050 AI-crawler requests per site per month in autumn 2026. AgentBlock exists to let site owners decide which of those agents get served."}}, {"@type": "Question", "name": "What is AgentBlock?", "acceptedAnswer": {"@type": "Answer", "text": "AgentBlock is Ingenious AI's one-click blocking kit for known AI agents. You pick a policy and deploy it as a Cloudflare Worker, a WordPress plugin or a JS snippet. It classifies known agent user-agents and blocks the ones your policy denies. By design it has no user accounts: the policy lives in your own edge, not in our dashboard."}}, {"@type": "Question", "name": "Does robots.txt block AI crawlers?", "acceptedAnswer": {"@type": "Answer", "text": "robots.txt declares your preferences; it cannot enforce them. Honest crawlers from major AI companies generally honor it, and it is worth publishing as your public policy. Scrapers that ignore it lose nothing, which is why enforcement at the edge, classifying user-agents in the request path, is the layer that makes the policy real."}}, {"@type": "Question", "name": "Which AI crawlers visit a typical site?", "acceptedAnswer": {"@type": "Answer", "text": "In the LovedByAI study of 924 small-business sites (September-October 2026), the most active was Meta-ExternalAgent at 21.6% of AI-crawler requests, then ClaudeBot at 18.5% and GPTBot at 12.2%. OpenAI's crawlers together took the largest company share at 27.2%. The median site saw 11 different AI crawlers in a month."}}, {"@type": "Question", "name": "Should I block all AI crawlers?", "acceptedAnswer": {"@type": "Answer", "text": "Not necessarily, and AgentBlock does not force one answer. Training crawlers take content and return nothing; AI search crawlers can send visitors; transactional agents may become customers. Most owners land on a split policy: block training, allow search, decide agents case by case. What matters is that the decision is yours and enforced."}}]}
+</script>
+</head>
+<body>
+<p class="meta"><time datetime="2026-10-23">October 23, 2026</time> · web scraping</p>
+<h1>Web scraping by AI crawlers: your policy is whatever your site enforces</h1>
+<p>Web scraping used to mean a competitor copying prices. In 2026 it means AI crawlers harvesting your content for training and answers, at a scale most site owners have never looked at. A study of 924 small-business websites (LovedByAI, September to October 2026) counted a median 1,050 AI-crawler requests per site per month, about 35 a day, from 11 different AI crawlers.</p>
+<p><strong>AgentBlock</strong> is Ingenious AI's one-click answer. It blocks known AI agents with a Cloudflare Worker, a WordPress plugin or a JS snippet, with no user accounts to manage. This check scores the gap between the policy you think you have and the one your site actually enforces.</p>
+<div class="warnbox"><strong>Honest scope, read this first:</strong> this page distinguishes policy from enforcement. A robots.txt line is a request, not a barrier; well-behaved crawlers honor it and scrapers ignore it. AgentBlock classifies known agent user-agents and blocks at the edge. It does not stop a scraper that lies about its identity, and no tool honestly can promise that.</div>
+
+<h2>Web scraping at scale: what the 924-site study found</h2>
+<p>The LovedByAI study read a month of server logs from 924 small-business websites, the kind of sites that assume they are beneath notice. AI crawlers made 40.7% of identified bot page requests, level with all search engines combined at 40.8%. On 79% of the sites, AI crawlers out-requested Googlebot, at a median ratio of 3.1 AI-crawler requests for every one from Google.</p>
+<p>The most active single crawler was Meta-ExternalAgent at 21.6% of AI-crawler requests, ahead of ClaudeBot at 18.5% and GPTBot at 12.2%. None of this appears in ordinary analytics, because bots do not run the tracking script. The scraping is visible only in server logs, which is why most owners have a policy about it that their site has never enforced.</p>
+<ul>
+<li><strong>The scale:</strong> median 1,050 AI-crawler requests per small site per month, about 35 a day (LovedByAI, 924 sites, September-October 2026).</li>
+<li><strong>The share:</strong> AI crawlers made 40.7% of identified bot requests, level with all search engines combined.</li>
+<li><strong>The leader:</strong> Meta-ExternalAgent, 21.6% of AI-crawler requests, ahead of ClaudeBot (18.5%) and GPTBot (12.2%).</li>
+<li><strong>The invisibility:</strong> none of it shows in analytics dashboards; bots skip the tracking script. Logs or nothing.</li>
+<li><strong>The policy gap:</strong> robots.txt asks politely. Enforcement decides what actually happens to a scraper that ignores the ask.</li>
+</ul>
+<div class="statgrid">
+<div class="stat"><b>1,050</b><span>median AI-crawler requests per small site per month (LovedByAI, 924 sites)</span></div>
+<div class="stat"><b>40.7%</b><span>of identified bot requests were AI crawlers, level with search engines at 40.8%</span></div>
+<div class="stat"><b>21.6%</b><span>share of the most active AI crawler, Meta-ExternalAgent</span></div>
+<div class="stat"><b>11</b><span>different AI crawlers visiting the median site in one month</span></div>
+</div>
+
+<h2>Why does robots.txt not stop AI scraping?</h2>
+<p>Because robots.txt is a convention, not a control. It publishes your wishes in a file honest crawlers read and honor. A training scraper that ignores it loses nothing: the file cannot refuse a request, throttle it or even reliably notice it. Policy lives in robots.txt; enforcement has to live at the edge, in the path of the request itself.</p>
+
+<h2>Check your scraping policy: wishes or enforcement?</h2>
+<div class="checker">
+<p style="margin-top:0">Answer for your main site as it behaves today. Everything runs in your browser; nothing is sent anywhere.</p>
+<label for="q0">What is your current AI-crawler policy?</label>
+<select id="q0"><option value="0">Written down: which agents are allowed, which are blocked, and why</option><option value="1">In my head: I have preferences but nothing written</option><option value="2">There is no policy: I have never decided</option></select>
+<label for="q1">What enforces it?</label>
+<select id="q1"><option value="0">Edge rules that classify agent user-agents and block on sight</option><option value="1">robots.txt only</option><option value="2">Nothing: whatever arrives, gets served</option></select>
+<label for="q2">Have you looked at your server logs for AI crawlers?</label>
+<select id="q2"><option value="0">Yes: I know my top agent visitors by name and volume</option><option value="1">Once, briefly, or a long time ago</option><option value="2">Never: I only see analytics, where bots do not appear</option></select>
+<label for="q3">What happens to a crawler that ignores your robots.txt?</label>
+<select id="q3"><option value="0">It is blocked anyway by the edge policy</option><option value="1">It gets a polite email, eventually</option><option value="2">It scrapes freely: the file was the whole defense</option></select>
+<button id="go" type="button">Score my setup</button>
+<p id="verdict" role="status"></p>
+<div id="actions"></div>
+<noscript><p><em>Enable JavaScript for the audit, or score manually: the riskiest answer on every question is the profile this page warns about.</em></p></noscript>
+</div>
+<script>
+/*AUDIT-LOGIC-START*/
+function auditVerdict(q){
+var score=q[0]+q[1]+q[2]+q[3];
+var acts=[];
+if(q[0]===1){acts.push("An unwritten policy cannot be enforced consistently or defended later. Write the allow and block lists down; AgentBlock's policies start from exactly that list.");}
+if(q[0]===2){acts.push("No policy means every scraper sets it for you. Decide first: training crawlers, search crawlers and agent buyers are three different answers.");}
+if(q[1]===1){acts.push("robots.txt alone is a wish. Add edge enforcement that classifies known agent user-agents and acts on the policy.");}
+if(q[1]===2){acts.push("Serving everything is a policy too, the scraper's favorite. Put a classification and blocking layer in the request path.");}
+if(q[2]===1){acts.push("Old log data understates a fast-growing channel. Pull last month's logs and name your top AI crawlers before setting policy.");}
+if(q[2]===2){acts.push("You are being scraped at a scale you cannot see from analytics. Server logs are the only mirror; look once and the policy writes itself.");}
+if(q[3]===1){acts.push("A crawler that ignores the file and loses nothing will ignore it forever. Make the second request meet the edge rule, not another copy of the file.");}
+if(q[3]===2){acts.push("If the file is the whole defense, there is no defense. Enforcement at the edge is the difference between a policy and a hope.");}
+var cls,head;
+if(score>=6){cls='revoke';head="OPEN BY DEFAULT. No policy, no enforcement, no log review. Your content trains whoever asks, at whatever volume they choose.";}
+else if(score>=3){cls='review';head="POLICY ON PAPER. You have wishes, maybe even a good robots.txt, and no enforcement behind them. The scrapers have noticed, even if you have not.";}
+else{cls='trusted';head="POLICY ENFORCED. Your allow and block lists are written, classified at the edge and checked against the logs. Scrapers meet a decision, not a suggestion.";}
+return {cls:cls,head:head+' (risk score '+score+'/8)',acts:acts,score:score};
+}
+/*AUDIT-LOGIC-END*/
+(function(){
+document.getElementById('go').addEventListener('click',function(){
+var r=auditVerdict([0,1,2,3].map(function(i){return parseInt(document.getElementById('q'+i).value,10);}));
+var v=document.getElementById('verdict');
+v.className=r.cls;v.textContent=r.head;
+var a=document.getElementById('actions');
+a.innerHTML='';
+var ul=document.createElement('ul');
+r.acts.forEach(function(t){var li=document.createElement('li');li.textContent=t;ul.appendChild(li);});
+a.appendChild(ul);
+a.className='show';
+});
+})();
+</script>
+
+<h2>From wishes to enforcement: the working order</h2>
+<ol>
+<li><strong>Read the logs first:</strong> name your top AI crawlers and their volumes for the last month. Policy written blind is policy written wrong.</li>
+<li><strong>Decide in three buckets:</strong> training crawlers, AI search crawlers and transactional agents get separate answers. One blanket rule serves none of them well.</li>
+<li><strong>Publish the policy:</strong> robots.txt carries the public statement, so honest agents can comply without being blocked.</li>
+<li><strong>Enforce at the edge:</strong> classify known agent user-agents and block the denied ones in the request path. AgentBlock ships this as a Worker, a plugin or a snippet.</li>
+<li><strong>Review monthly:</strong> new crawlers appear and volumes shift. A quarterly look at the logs keeps the policy a fact.</li>
+</ol>
+<p><strong>AgentBlock</strong>, by Ingenious AI, gives you one-click blocking of known AI agents through a Cloudflare Worker, WordPress plugin or JS snippet: pick a policy, download the kit, and the edge enforces it, with no accounts to create and nothing to babysit. <a href="https://agentblock.getingeniousai.com">See how AgentBlock works</a>.</p>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://agentblock.getingeniousai.com" style="color:#fff;text-decoration:underline">AgentBlock</a> turns your scraping policy into enforcement in one click, on Cloudflare, WordPress or a plain snippet.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 21 platforms: <a href="https://disclosureguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://modelminder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://termswatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://vibe-audit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://rogue-defense.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://breachhunter.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://chatbreaker.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://flightrecorder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://authgateway.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://domainguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://contentcraft.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a> &nbsp;·&nbsp; <a href="https://evalscope.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">EvalScope</a> &nbsp;·&nbsp; <a href="https://boundaryvault.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BoundaryVault</a> &nbsp;·&nbsp; <a href="https://agentic-receipts.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agentic Receipts</a> &nbsp;·&nbsp; <a href="https://storeaudit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent-Ready Store Audit</a> &nbsp;·&nbsp; <a href="https://agentblock.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">AgentBlock</a> &nbsp;·&nbsp; <a href="https://homeshield.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">HomeShield MCP</a> &nbsp;·&nbsp; <a href="https://agentgate.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">AgentGate</a> &nbsp;·&nbsp; <a href="https://admt.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ADMT</a> &nbsp;·&nbsp; <a href="https://dueladder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DueLadder</a> &nbsp;·&nbsp; <a href="https://wirewatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">WireWatch</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">One suite, one deal: <a href="security-suite.html" style="color:#6ea8fe">the Ingenious AI Security Suite</a>. Get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20took%20the%20AI%20scraper%20blocking%20check%20and%20want%20early%20access." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<h2>Quiz: how well do you know the AI scraping wave?</h2>
+<div class="quiz-q" data-a="1"><p><strong>1.</strong> How many AI-crawler requests hit the median small site per month?</p>
+<button class="opt" data-v="0">About 35</button><button class="opt" data-v="1">About 1,050</button><button class="opt" data-v="2">About 100,000</button></div>
+<div class="quiz-q" data-a="2"><p><strong>2.</strong> Which AI crawler was most active in the 924-site study?</p>
+<button class="opt" data-v="0">ClaudeBot</button><button class="opt" data-v="1">GPTBot</button><button class="opt" data-v="2">Meta-ExternalAgent</button></div>
+<div class="quiz-q" data-a="0"><p><strong>3.</strong> Why does AI scraping not appear in your analytics?</p>
+<button class="opt" data-v="0">Bots do not run the tracking script</button><button class="opt" data-v="1">Analytics vendors hide it</button><button class="opt" data-v="2">It happens at night</button></div>
+<div class="quiz-q" data-a="0"><p><strong>4.</strong> What share of identified bot requests were AI crawlers?</p>
+<button class="opt" data-v="0">40.7%, level with all search engines combined</button><button class="opt" data-v="1">4%</button><button class="opt" data-v="2">98%</button></div>
+<div class="quiz-q" data-a="2"><p><strong>5.</strong> Why does robots.txt fail against a determined scraper?</p>
+<button class="opt" data-v="0">Scrapers cannot read text files</button><button class="opt" data-v="1">The file format is broken</button><button class="opt" data-v="2">It is a convention honest crawlers honor, with no power to refuse a request</button></div>
+<p id="quiz-result"></p>
+<script>
+(function(){var total=document.querySelectorAll('.quiz-q').length,score=0,done=0;
+document.querySelectorAll('.quiz-q').forEach(function(q){var correct=parseInt(q.getAttribute('data-a'),10);
+q.querySelectorAll('.opt').forEach(function(b){b.addEventListener('click',function(){if(q.dataset.done)return;q.dataset.done='1';done++;
+var got=parseInt(b.getAttribute('data-v'),10);if(got===correct){score++;b.classList.add('correct');}else{b.classList.add('wrong');q.querySelectorAll('.opt')[correct].classList.add('correct');}
+if(done===total){document.getElementById('quiz-result').textContent='You scored '+score+'/'+total+'. '+"A policy nobody enforces is a press release. Enforcement is the policy.";}});});});})();
+</script>
+<noscript><p><em>Enable JavaScript for the interactive quiz.</em></p></noscript>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What is AI web scraping?</summary><p>AI web scraping is the automated collection of site content by AI companies' crawlers, mainly to train models and to answer questions in AI search. It runs at industrial scale: a study of 924 small-business sites counted a median 1,050 AI-crawler requests per site per month in autumn 2026. AgentBlock exists to let site owners decide which of those agents get served.</p></details>
+<details><summary>What is AgentBlock?</summary><p>AgentBlock is Ingenious AI's one-click blocking kit for known AI agents. You pick a policy and deploy it as a Cloudflare Worker, a WordPress plugin or a JS snippet. It classifies known agent user-agents and blocks the ones your policy denies. By design it has no user accounts: the policy lives in your own edge, not in our dashboard.</p></details>
+<details><summary>Does robots.txt block AI crawlers?</summary><p>robots.txt declares your preferences; it cannot enforce them. Honest crawlers from major AI companies generally honor it, and it is worth publishing as your public policy. Scrapers that ignore it lose nothing, which is why enforcement at the edge, classifying user-agents in the request path, is the layer that makes the policy real.</p></details>
+<details><summary>Which AI crawlers visit a typical site?</summary><p>In the LovedByAI study of 924 small-business sites (September-October 2026), the most active was Meta-ExternalAgent at 21.6% of AI-crawler requests, then ClaudeBot at 18.5% and GPTBot at 12.2%. OpenAI's crawlers together took the largest company share at 27.2%. The median site saw 11 different AI crawlers in a month.</p></details>
+<details><summary>Should I block all AI crawlers?</summary><p>Not necessarily, and AgentBlock does not force one answer. Training crawlers take content and return nothing; AI search crawlers can send visitors; transactional agents may become customers. Most owners land on a split policy: block training, allow search, decide agents case by case. What matters is that the decision is yours and enforced.</p></details>
+
+<p class="src">Sources: LovedByAI, AI Crawler Statistics 2026 (924 small-business websites, September 6 - October 5, 2026) · Cloudflare Radar AI-crawler measurements (2026) · Semrush keyword data (web scraping, 1,830,000/mo global).</p>
+
+<div class="xlinks"><strong>Related checks</strong><ul>
+<li><a href="ai-agent-traffic-check.html">AI Agent Traffic Check</a>: the companion check: bots are now the majority of web traffic</li>
+<li><a href="agent-access-policy-check.html">Agent Access Policy Check</a>: blocking is one answer; a published agent policy is the other</li>
+<li><a href="http-header-ai-agents.html">HTTP Header AI Agents</a>: how agents identify themselves in requests</li>
+</ul></div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>

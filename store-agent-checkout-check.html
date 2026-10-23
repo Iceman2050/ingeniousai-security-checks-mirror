@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, public_page_preflight -->
+<html data-primary-keyword="agentic commerce" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic Commerce Audit: Can an Agent Buy From You?</title>
+<meta name="description" content="Agentic commerce went live on Shopify on October 13, 2026. If an agent cannot complete your checkout, the sale never existed. Run the purchase-path check.">
+<link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/store-agent-checkout-check.html">
+<meta property="og:title" content="Agentic Commerce Audit: Can an Agent Buy From You?">
+<meta property="og:description" content="Shopify's Shop MCP lets agents search catalogs and complete Shop Pay checkouts. Agent-Ready Store Audit tests the full purchase path on your store, then hands you the fix list.">
+<meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/store-agent-checkout-check.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Agentic Commerce Audit: Can an Agent Buy From You?">
+<meta name="twitter:description" content="Shopify's Shop MCP lets agents search catalogs and complete Shop Pay checkouts. Agent-Ready Store Audit tests the full purchase path on your store, then hands you the fix list.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:820px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}
+a{color:#7cc4ff}
+.quiz-q{background:#1a1e27;border-radius:8px;padding:1rem;margin:1rem 0}
+.opt{display:block;background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.7rem 1rem;margin:.5rem 0;cursor:pointer;width:100%;text-align:left;color:#e8e8e8;font-size:1rem}
+.opt:hover{border-color:#ffd166}.opt.picked{border-color:#7cc4ff;background:#24304a}.opt.correct{border-color:#4ade80;background:#14301f}.opt.wrong{border-color:#f87171;background:#3a1a1a}
+#quiz-result{font-weight:700;margin-top:1rem;font-size:1.1rem}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}
+.meta{color:#9aa3b2;font-size:.85rem}
+.src{font-size:.85rem;color:#9aa3b2}
+.warnbox{background:#2a1f10;border:1px solid #8a6d1f;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin:1.2rem 0}
+.stat{background:#1a1e27;border-radius:8px;padding:.9rem;text-align:center}
+.stat b{display:block;font-size:1.5rem;color:#ffd166}
+.stat span{font-size:.85rem;color:#9aa3b2}
+.checker{background:#141a26;border:1px solid #1c6ef2;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.checker label{display:block;margin:.6rem 0 .2rem;font-weight:600}
+.checker select,.checker input{background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.6rem;color:#e8e8e8;font-size:1rem;width:100%;box-sizing:border-box}
+.checker button{background:#1c6ef2;color:#fff;border:none;border-radius:8px;padding:.7rem 1.4rem;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.8rem}
+#verdict{margin-top:1rem;font-weight:600;padding:.8rem;border-radius:8px;display:none}
+#verdict.trusted{display:block;background:#14301f;border:1px solid #4ade80}
+#verdict.review{display:block;background:#2a1f10;border:1px solid #8a6d1f}
+#verdict.revoke{display:block;background:#3a1a1a;border:1px solid #f87171}
+#actions{display:none;margin-top:.6rem}
+#actions.show{display:block}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "Agentic Commerce Audit: Can an Agent Buy From You?", "author": {"@type": "Organization", "name": "Ingenious AI"}, "datePublished": "2026-10-23", "description": "Since October 13, 2026, Shopify's Shop MCP lets AI agents search catalogs and complete checkouts. This check scores whether an agent can actually buy from your store."}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://gitlab.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is agentic commerce?", "acceptedAnswer": {"@type": "Answer", "text": "Agentic commerce is commerce where an AI agent discovers, compares and purchases on a buyer's behalf. Since October 13, 2026, Shopify's Shop MCP lets agents search catalogs and complete Shop Pay checkouts. US searches for 'agentic commerce' reached 5,600 a month in 2026, up 464% year over year (Ahrefs), and merchants now compete to be completable by machines."}}, {"@type": "Question", "name": "What is an agentic commerce audit?", "acceptedAnswer": {"@type": "Answer", "text": "An agentic commerce audit tests whether an AI agent can buy from your store. Agent-Ready Store Audit reads your public pages and structured data, runs a simulated agent purchase path, and returns a fix list, a retest and a pass badge. It differs from structure-only checklists by walking the purchase path in the order an agent meets it."}}, {"@type": "Question", "name": "How is this different from Shopify's free Agentic Readiness audit?", "acceptedAnswer": {"@type": "Answer", "text": "Shopify's free audit checks 31 structural points, and structure is the right first pass. The Store Audit adds the purchase path itself: variants, totals, terms and checkout steps tested as one journey. Stores regularly pass structure and still lose the agent at a script-only variant or a human-only step."}}, {"@type": "Question", "name": "What most often blocks an agent purchase?", "acceptedAnswer": {"@type": "Answer", "text": "Four things: catalog data that only exists visually, variants and totals exposed too late or only in scripts, terms trapped in images and PDFs, and a checkout step an agent cannot complete. All four are fixable, and the fix list from a simulated purchase path arrives in the order the agent met the problems."}}, {"@type": "Question", "name": "Does passing the audit guarantee agent sales?", "acceptedAnswer": {"@type": "Answer", "text": "No audit can guarantee sales; agents still compare price, reviews and delivery. Passing means the mechanical path completes: an agent that chooses your product can actually buy it. That removes the silent loss, the agent that wanted to buy and could not, which no analytics dashboard shows you."}}]}
+</script>
+</head>
+<body>
+<p class="meta"><time datetime="2026-10-23">October 23, 2026</time> · agentic commerce</p>
+<h1>Agentic commerce is live: can an AI agent actually buy from your store?</h1>
+<p>Agentic commerce stopped being a slide deck on October 13, 2026, when Shopify's Shop MCP went live: AI agents can now search a store's catalog and complete a Shop Pay checkout. Shopify even gives away a free Agentic Readiness audit. What it checks is structure. What it cannot tell you is whether an agent survives your actual purchase path, end to end.</p>
+<p><strong>Agent-Ready Store Audit</strong> is Ingenious AI's audit for that question. It runs a simulated agent purchase path on your storefront and hands you a fix list, a retest and a pass badge. This check scores the four places agent purchases go to die.</p>
+<div class="warnbox"><strong>Honest scope, read this first:</strong> this page distinguishes structure checks from purchase-path proof. Shopify's free audit is real and useful for structure; it is described here as published. Our audit's purchase-path probe is a simulation against your public storefront, not a live transaction with a real payment. A pass means an agent-shaped buyer could complete the path, not that sales are guaranteed.</div>
+
+<h2>Agentic commerce: what changed on October 13, 2026</h2>
+<p>Shop MCP turned agent buying from demos into distribution. An agent helping a customer can now search a Shopify catalog, compare options and check out through Shop Pay without handing the customer a browser tab. For merchants, the funnel acquired a new first step: being readable, and completable, by a machine buyer that never sees your design.</p>
+<p>Shopify's free Agentic Readiness audit checks 31 structural points, and structure matters. But agents fail in the seams structure checklists skip: the variant that only exists in a script, the shipping rule stated in an image, the checkout step that demands a human-only interaction. A simulated purchase path walks those seams in order, the way an agent meets them.</p>
+<ul>
+<li><strong>The launch:</strong> on October 13, 2026, Shopify's Shop MCP let agents search catalogs and complete Shop Pay checkouts.</li>
+<li><strong>The free tool:</strong> Shopify's Agentic Readiness audit covers 31 structural checks, free for merchants.</li>
+<li><strong>The gap:</strong> structure is not a purchase. Agents fail on script-only variants, image-only terms and human-only checkout steps.</li>
+<li><strong>The audit difference:</strong> a simulated agent purchase path, then a fix list, a retest and a pass badge when the path completes.</li>
+<li><strong>The cost of failing:</strong> an agent that cannot finish does not complain. It recommends a competitor whose path completes.</li>
+</ul>
+<div class="statgrid">
+<div class="stat"><b>Oct 13, 2026</b><span>Shopify Shop MCP launch: agent search and Shop Pay checkout</span></div>
+<div class="stat"><b>31</b><span>structural checks in Shopify's free Agentic Readiness audit</span></div>
+<div class="stat"><b>4</b><span>places agent purchases die: data, variants, terms, checkout steps</span></div>
+<div class="stat"><b>$900B-$1T</b><span>US retail revenue McKinsey estimates agents could orchestrate by 2030</span></div>
+</div>
+
+<h2>Why do agents abandon checkouts humans complete?</h2>
+<p>Because agents read, they do not look. A human sees the size selector, the shipping note in the banner image and the discount explained in a popup. An agent gets the page's data: if the variant, the price or the term is not machine-readable in the path, the path ends. The agent does not struggle; it leaves, and buys where the data completes.</p>
+
+<h2>Check your store: the four places agent purchases die</h2>
+<div class="checker">
+<p style="margin-top:0">Answer for your store as an agent would meet it, not as your theme renders it. Everything runs in your browser; nothing is sent anywhere.</p>
+<label for="q0">Is your catalog machine-readable?</label>
+<select id="q0"><option value="0">Yes: clean structured data, prices in the page data, feeds current</option><option value="1">Partially: some products or prices only render visually</option><option value="2">No: an agent would have to guess from rendered pages</option></select>
+<label for="q1">Can an agent select a variant and get a final price?</label>
+<select id="q1"><option value="0">Yes: variants, stock and totals are exposed as data</option><option value="1">Variants yes, but shipping or totals appear late or visually</option><option value="2">No: key choices live in scripts, images or apps an agent cannot drive</option></select>
+<label for="q2">Are your terms readable by a machine?</label>
+<select id="q2"><option value="0">Shipping, returns and policies are plain text in the path</option><option value="1">Policies exist but live in PDFs, images or footers agents skip</option><option value="2">An agent could buy without ever surfacing your terms</option></select>
+<label for="q3">Does your checkout contain a human-only step?</label>
+<select id="q3"><option value="0">No: the full path completes with machine inputs</option><option value="1">One step needs help: an unusual challenge or confirmation</option><option value="2">Yes: a step an agent cannot complete at all</option></select>
+<button id="go" type="button">Score my setup</button>
+<p id="verdict" role="status"></p>
+<div id="actions"></div>
+<noscript><p><em>Enable JavaScript for the audit, or score manually: the riskiest answer on every question is the profile this page warns about.</em></p></noscript>
+</div>
+<script>
+/*AUDIT-LOGIC-START*/
+function auditVerdict(q){
+var score=q[0]+q[1]+q[2]+q[3];
+var acts=[];
+if(q[0]===1){acts.push("Visually rendered prices are invisible prices to an agent. Expose the full catalog as data: structured markup and a current feed.");}
+if(q[0]===2){acts.push("An agent guessing from rendered pages will guess a competitor's cleaner store instead. Publish machine-readable catalog data first.");}
+if(q[1]===1){acts.push("Late totals kill agent purchases mid-path. Surface variant, stock, shipping and total as data before the checkout step.");}
+if(q[1]===2){acts.push("Script-only variants are unsellable variants for agents. Move choices into the page data or a feed the agent can read.");}
+if(q[2]===1){acts.push("Terms in images and PDFs do not bind an agent's decision, and may not bind the sale. Put shipping and returns in plain text inside the purchase path.");}
+if(q[2]===2){acts.push("An agent buying blind creates returns and disputes you priced as sales. Surface terms in the path before payment, in text.");}
+if(q[3]===1){acts.push("One assisted step is survivable if it is rare and honest. Measure how often agents hit it; that rate is your leak.");}
+if(q[3]===2){acts.push("A human-only step is a wall with a sign that says humans only. Remove it, or accept that agent demand goes elsewhere.");}
+var cls,head;
+if(score>=6){cls='revoke';head="AGENT-BLOCKED. An agent cannot buy from you today. Every agent-referred customer is being handed to a store whose path completes.";}
+else if(score>=3){cls='review';head="STRUCTURE PASSES, PATH LEAKS. Your checklist looks fine and agents still die in the seams. Run the purchase path, fix the seams in order, retest.";}
+else{cls='trusted';head="AGENT-COMPLETABLE. Your catalog reads as data, your terms sit in the path, and the checkout completes. Retest after every theme or app change.";}
+return {cls:cls,head:head+' (risk score '+score+'/8)',acts:acts,score:score};
+}
+/*AUDIT-LOGIC-END*/
+(function(){
+document.getElementById('go').addEventListener('click',function(){
+var r=auditVerdict([0,1,2,3].map(function(i){return parseInt(document.getElementById('q'+i).value,10);}));
+var v=document.getElementById('verdict');
+v.className=r.cls;v.textContent=r.head;
+var a=document.getElementById('actions');
+a.innerHTML='';
+var ul=document.createElement('ul');
+r.acts.forEach(function(t){var li=document.createElement('li');li.textContent=t;ul.appendChild(li);});
+a.appendChild(ul);
+a.className='show';
+});
+})();
+</script>
+
+<h2>Make your store agent-completable: the fix order</h2>
+<ol>
+<li><strong>Publish the catalog as data:</strong> structured product data and a current feed, with prices and stock an agent can read without rendering your theme.</li>
+<li><strong>Expose the whole price:</strong> variants, shipping and totals as data early in the path. Agents abandon surprises faster than humans do.</li>
+<li><strong>Put terms in the path:</strong> shipping, returns and warranty as plain text where the purchase happens, not in a footer PDF.</li>
+<li><strong>Remove human-only steps:</strong> walk the checkout as a machine. Any step that needs eyes, a mouse flourish or an undocumented challenge is a wall.</li>
+<li><strong>Prove it, then badge it:</strong> run the simulated purchase path, fix what it finds, retest, and carry the pass badge. Agent-Ready Store Audit runs this loop with you.</li>
+</ol>
+<p><strong>Agent-Ready Store Audit</strong>, by Ingenious AI, tests whether an AI agent can buy from your store: it reads your public pages and structured data, runs a simulated agent purchase path, and hands you a fix list in plain language, a retest and a pass badge. <a href="https://storeaudit.getingeniousai.com">See how Agent-Ready Store Audit works</a>.</p>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://storeaudit.getingeniousai.com" style="color:#fff;text-decoration:underline">Agent-Ready Store Audit</a> goes past the free structure checklist: it walks an agent through your real purchase path and shows you where the sale dies.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 21 platforms: <a href="https://disclosureguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://modelminder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://termswatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://vibe-audit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://rogue-defense.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://breachhunter.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://chatbreaker.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://flightrecorder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://authgateway.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://domainguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://contentcraft.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a> &nbsp;·&nbsp; <a href="https://evalscope.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">EvalScope</a> &nbsp;·&nbsp; <a href="https://boundaryvault.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BoundaryVault</a> &nbsp;·&nbsp; <a href="https://agentic-receipts.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agentic Receipts</a> &nbsp;·&nbsp; <a href="https://storeaudit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent-Ready Store Audit</a> &nbsp;·&nbsp; <a href="https://agentblock.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">AgentBlock</a> &nbsp;·&nbsp; <a href="https://homeshield.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">HomeShield MCP</a> &nbsp;·&nbsp; <a href="https://agentgate.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">AgentGate</a> &nbsp;·&nbsp; <a href="https://admt.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ADMT</a> &nbsp;·&nbsp; <a href="https://dueladder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DueLadder</a> &nbsp;·&nbsp; <a href="https://wirewatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">WireWatch</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">One suite, one deal: <a href="security-suite.html" style="color:#6ea8fe">the Ingenious AI Security Suite</a>. Get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20took%20the%20store%20agent%20checkout%20check%20and%20want%20early%20access." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<h2>Quiz: how well do you know agent checkout?</h2>
+<div class="quiz-q" data-a="0"><p><strong>1.</strong> What did Shopify launch on October 13, 2026?</p>
+<button class="opt" data-v="0">Shop MCP: agent catalog search and Shop Pay checkout</button><button class="opt" data-v="1">A new theme store</button><button class="opt" data-v="2">A shipping company</button></div>
+<div class="quiz-q" data-a="1"><p><strong>2.</strong> How many checks are in Shopify's free Agentic Readiness audit?</p>
+<button class="opt" data-v="0">7</button><button class="opt" data-v="1">31</button><button class="opt" data-v="2">300</button></div>
+<div class="quiz-q" data-a="2"><p><strong>3.</strong> Why do agents abandon checkouts humans complete?</p>
+<button class="opt" data-v="0">Agents prefer expensive stores</button><button class="opt" data-v="1">Agents get bored</button><button class="opt" data-v="2">Agents read data, not design: missing machine-readable data ends the path</button></div>
+<div class="quiz-q" data-a="0"><p><strong>4.</strong> What happens when an agent cannot complete your checkout?</p>
+<button class="opt" data-v="0">It buys from a store whose path completes</button><button class="opt" data-v="1">It emails your support team</button><button class="opt" data-v="2">It waits for a human</button></div>
+<div class="quiz-q" data-a="1"><p><strong>5.</strong> What does the Store Audit add beyond a structure checklist?</p>
+<button class="opt" data-v="0">A logo review</button><button class="opt" data-v="1">A simulated agent purchase path, fix list, retest and pass badge</button><button class="opt" data-v="2">A new theme</button></div>
+<p id="quiz-result"></p>
+<script>
+(function(){var total=document.querySelectorAll('.quiz-q').length,score=0,done=0;
+document.querySelectorAll('.quiz-q').forEach(function(q){var correct=parseInt(q.getAttribute('data-a'),10);
+q.querySelectorAll('.opt').forEach(function(b){b.addEventListener('click',function(){if(q.dataset.done)return;q.dataset.done='1';done++;
+var got=parseInt(b.getAttribute('data-v'),10);if(got===correct){score++;b.classList.add('correct');}else{b.classList.add('wrong');q.querySelectorAll('.opt')[correct].classList.add('correct');}
+if(done===total){document.getElementById('quiz-result').textContent='You scored '+score+'/'+total+'. '+"Agents do not abandon carts. They were never able to fill them.";}});});});})();
+</script>
+<noscript><p><em>Enable JavaScript for the interactive quiz.</em></p></noscript>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What is agentic commerce?</summary><p>Agentic commerce is commerce where an AI agent discovers, compares and purchases on a buyer's behalf. Since October 13, 2026, Shopify's Shop MCP lets agents search catalogs and complete Shop Pay checkouts. US searches for 'agentic commerce' reached 5,600 a month in 2026, up 464% year over year (Ahrefs), and merchants now compete to be completable by machines.</p></details>
+<details><summary>What is an agentic commerce audit?</summary><p>An agentic commerce audit tests whether an AI agent can buy from your store. Agent-Ready Store Audit reads your public pages and structured data, runs a simulated agent purchase path, and returns a fix list, a retest and a pass badge. It differs from structure-only checklists by walking the purchase path in the order an agent meets it.</p></details>
+<details><summary>How is this different from Shopify's free Agentic Readiness audit?</summary><p>Shopify's free audit checks 31 structural points, and structure is the right first pass. The Store Audit adds the purchase path itself: variants, totals, terms and checkout steps tested as one journey. Stores regularly pass structure and still lose the agent at a script-only variant or a human-only step.</p></details>
+<details><summary>What most often blocks an agent purchase?</summary><p>Four things: catalog data that only exists visually, variants and totals exposed too late or only in scripts, terms trapped in images and PDFs, and a checkout step an agent cannot complete. All four are fixable, and the fix list from a simulated purchase path arrives in the order the agent met the problems.</p></details>
+<details><summary>Does passing the audit guarantee agent sales?</summary><p>No audit can guarantee sales; agents still compare price, reviews and delivery. Passing means the mechanical path completes: an agent that chooses your product can actually buy it. That removes the silent loss, the agent that wanted to buy and could not, which no analytics dashboard shows you.</p></details>
+
+<p class="src">Sources: Shopify Shop MCP launch and Agentic Readiness audit (October 13, 2026) · McKinsey agentic commerce estimates (via startup.info, October 2026) · Ahrefs keyword data (agentic commerce, 5,600/mo US, +464% YoY).</p>
+
+<div class="xlinks"><strong>Related checks</strong><ul>
+<li><a href="ai-shopping-agent-ready-check.html">AI Shopping Agent Ready Check</a>: the companion check: how agent shoppers read your product pages</li>
+<li><a href="agent-payment-authorization-check.html">Agent Payment Authorization Check</a>: when the agent can buy, who approved the payment?</li>
+<li><a href="agent-action-receipt-check.html">Agent Action Receipt Check</a>: receipts for the purchases agents complete</li>
+<li><a href="security-suite.html">Ingenious AI Security Suite</a>: the whole platform suite, one deal</li>
+</ul></div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>

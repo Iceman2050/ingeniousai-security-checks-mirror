@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, public_page_preflight -->
+<html data-primary-keyword="ai agents" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agents Need a Policy File. Yours Is Missing.</title>
+<meta name="description" content="AI agents now read your site before your customers do, and there is no standard file telling them your rules. Check what an agent learns about your terms today.">
+<link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-access-policy-check.html">
+<meta property="og:title" content="AI Agents Need a Policy File. Yours Is Missing.">
+<meta property="og:description" content="robots.txt was written in 1994 for crawlers. AgentGate's agent-policy.json declares which AI agents may use your site, what they may do, and on what terms, in machine-readable form.">
+<meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/agent-access-policy-check.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Agents Need a Policy File. Yours Is Missing.">
+<meta name="twitter:description" content="robots.txt was written in 1994 for crawlers. AgentGate's agent-policy.json declares which AI agents may use your site, what they may do, and on what terms, in machine-readable form.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:820px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}
+a{color:#7cc4ff}
+.quiz-q{background:#1a1e27;border-radius:8px;padding:1rem;margin:1rem 0}
+.opt{display:block;background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.7rem 1rem;margin:.5rem 0;cursor:pointer;width:100%;text-align:left;color:#e8e8e8;font-size:1rem}
+.opt:hover{border-color:#ffd166}.opt.picked{border-color:#7cc4ff;background:#24304a}.opt.correct{border-color:#4ade80;background:#14301f}.opt.wrong{border-color:#f87171;background:#3a1a1a}
+#quiz-result{font-weight:700;margin-top:1rem;font-size:1.1rem}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}
+.meta{color:#9aa3b2;font-size:.85rem}
+.src{font-size:.85rem;color:#9aa3b2}
+.warnbox{background:#2a1f10;border:1px solid #8a6d1f;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin:1.2rem 0}
+.stat{background:#1a1e27;border-radius:8px;padding:.9rem;text-align:center}
+.stat b{display:block;font-size:1.5rem;color:#ffd166}
+.stat span{font-size:.85rem;color:#9aa3b2}
+.checker{background:#141a26;border:1px solid #1c6ef2;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.checker label{display:block;margin:.6rem 0 .2rem;font-weight:600}
+.checker select,.checker input{background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.6rem;color:#e8e8e8;font-size:1rem;width:100%;box-sizing:border-box}
+.checker button{background:#1c6ef2;color:#fff;border:none;border-radius:8px;padding:.7rem 1.4rem;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.8rem}
+#verdict{margin-top:1rem;font-weight:600;padding:.8rem;border-radius:8px;display:none}
+#verdict.trusted{display:block;background:#14301f;border:1px solid #4ade80}
+#verdict.review{display:block;background:#2a1f10;border:1px solid #8a6d1f}
+#verdict.revoke{display:block;background:#3a1a1a;border:1px solid #f87171}
+#actions{display:none;margin-top:.6rem}
+#actions.show{display:block}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "AI Agents Need a Policy File. Yours Is Missing.", "author": {"@type": "Organization", "name": "Ingenious AI"}, "datePublished": "2026-10-23", "description": "A draft standard called agent.json (Agent Web Protocol, v0.2) and AgentGate's agent-policy.json both target the same gap: no machine-readable policy tells AI agents a site's rules. This check scores what agents can learn about yours."}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://gitlab.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is an agent-access policy?", "acceptedAnswer": {"@type": "Answer", "text": "An agent-access policy is a machine-readable declaration of how AI agents may use your site: which agents are welcome, what actions they may take, what limits and terms apply, and who to contact. AgentGate publishes it as agent-policy.json in the /.well-known/ directory, where agents and tools are learning to look for it."}}, {"@type": "Question", "name": "What is AgentGate?", "acceptedAnswer": {"@type": "Answer", "text": "AgentGate is Ingenious AI's agent-access policy standard and tooling. It generates and hosts the policy file at /.well-known/agent-policy.json, declaring named agents, permitted actions, limits and terms. Where robots.txt gave crawlers one bit of information, refuse or allow, AgentGate gives agents the actual rules of engagement for your site."}}, {"@type": "Question", "name": "How is this different from robots.txt?", "acceptedAnswer": {"@type": "Answer", "text": "robots.txt, written in 1994, answers one question for crawlers: may you fetch this path. An agent policy answers the agent-era questions: which agents, doing what, how much, under what terms, and who to contact. The files complement each other; a serious site keeps both consistent, because agents and disputes read both."}}, {"@type": "Question", "name": "What about the agent.json standard?", "acceptedAnswer": {"@type": "Answer", "text": "agent.json is a rival proposal from the Agent Web Protocol project, currently at draft v0.2, aiming at the same /.well-known/ slot. Standards competition is normal at this stage. AgentGate's bet is policy depth: named agents, actions, limits and terms. Publishing a policy now matters more than which draft ultimately wins, because terms you publish are yours under any standard."}}, {"@type": "Question", "name": "Does a policy file stop bad agents?", "acceptedAnswer": {"@type": "Answer", "text": "No, and it does not claim to. A policy governs honest agents, documents your terms for disputes, and separates the welcome from the refused in writing. Stopping agents that ignore policy is enforcement, a different layer (see AgentBlock). Declaration plus enforcement is the complete posture; either alone is half."}}]}
+</script>
+</head>
+<body>
+<p class="meta"><time datetime="2026-10-23">October 23, 2026</time> · ai agents</p>
+<h1>AI agents visit your site daily. What policy do AI agents find there?</h1>
+<p>AI agents read your site before your customers do: crawling it for training, fetching it to answer questions, and increasingly transacting on it. Every one of those visits happens under rules you never published. robots.txt, written for 1994 crawlers, can say 'stay out'. It cannot say 'agents may read prices, may not scrape reviews, and may transact up to this limit with attribution'.</p>
+<p><strong>AgentGate</strong> is Ingenious AI's machine-readable agent-access policy standard: a file at /.well-known/agent-policy.json declaring which AI agents may use your site, what they may do, and on what terms. This check scores what an agent can learn about your rules today.</p>
+<div class="warnbox"><strong>Honest scope, read this first:</strong> this page is about declared policy, not enforcement. A policy file tells honest agents your terms and gives you a published standard to point at in a dispute; blocking agents that ignore it is a separate, enforcement problem. The rival agent.json draft is real (Agent Web Protocol, draft v0.2); standards here are young and competing, and this page says so.</div>
+
+<h2>AI agents and the standards race over one small file</h2>
+<p>Two proposals now chase the same slot in the /.well-known/ directory. The Agent Web Protocol's agent.json (draft v0.2) pitches itself as the agent-era successor to robots.txt. AgentGate's agent-policy.json takes the policy angle: named agents, permitted actions, terms and a contact, in a file built for the questions site owners actually get asked after an agent does something expensive.</p>
+<p>Whoever wins, the direction is settled by the traffic itself: bots passed humans in web requests in June 2026 (57.5% of HTML traffic, Cloudflare), and rules for the majority are being written now, in draft files and defaults. Sites that publish a policy early choose their terms. Sites that wait will have terms chosen for them by platform defaults.</p>
+<ul>
+<li><strong>The gap:</strong> robots.txt (1994) can refuse crawlers. It cannot express agent permissions, action limits or terms.</li>
+<li><strong>The race:</strong> agent.json (Agent Web Protocol, draft v0.2) and AgentGate's agent-policy.json both target /.well-known/.</li>
+<li><strong>The traffic:</strong> bots passed humans in June 2026: 57.5% of HTML requests (Cloudflare Radar). The audience for a policy file is the majority.</li>
+<li><strong>The content:</strong> a real policy names agents, permitted actions, limits, terms and a contact channel.</li>
+<li><strong>The risk of silence:</strong> with no published policy, platform defaults and agent guesses become your terms.</li>
+</ul>
+<div class="statgrid">
+<div class="stat"><b>1994</b><span>the year robots.txt was written: before agents, before LLMs</span></div>
+<div class="stat"><b>57.5%</b><span>bot share of HTML traffic in June 2026 (Cloudflare): the policy file's audience</span></div>
+<div class="stat"><b>v0.2</b><span>the current draft of the rival agent.json standard</span></div>
+<div class="stat"><b>1</b><span>file is all a policy takes: /.well-known/agent-policy.json</span></div>
+</div>
+
+<h2>Why publish rules for agents instead of just blocking them?</h2>
+<p>Because blocking is a wall and a policy is a door with terms. Some agents are customers in waiting, some are search infrastructure you want, and only some are pure extraction. A published policy separates them in writing: it invites the welcome, conditions the tolerated and strengthens your position against the rest, in a form agents and courts can both read.</p>
+
+<h2>Check your agent policy: what can an agent learn?</h2>
+<div class="checker">
+<p style="margin-top:0">Answer for your main site as a well-behaved agent would find it. Everything runs in your browser; nothing is sent anywhere.</p>
+<label for="q0">Does your site publish any machine-readable rules for agents?</label>
+<select id="q0"><option value="0">Yes: an agent policy file covering permissions and terms</option><option value="1">robots.txt only</option><option value="2">Nothing machine-readable at all</option></select>
+<label for="q1">Could an agent learn which actions are permitted?</label>
+<select id="q1"><option value="0">Yes: read, transact and restricted actions are spelled out</option><option value="1">Partially: a human page describes terms an agent might find</option><option value="2">No: permissions are nowhere written for machines</option></select>
+<label for="q2">Are limits and terms stated: rates, attribution, data use?</label>
+<select id="q2"><option value="0">Yes: limits and terms are in the policy file</option><option value="1">Some live in legal pages written for humans</option><option value="2">No terms exist for agent use</option></select>
+<label for="q3">If an agent misbehaves, is there a published contact and process?</label>
+<select id="q3"><option value="0">Yes: a named contact in the policy, and we monitor agent traffic</option><option value="1">A generic contact page</option><option value="2">No: we would not know it happened, or who to contact</option></select>
+<button id="go" type="button">Score my setup</button>
+<p id="verdict" role="status"></p>
+<div id="actions"></div>
+<noscript><p><em>Enable JavaScript for the audit, or score manually: the riskiest answer on every question is the profile this page warns about.</em></p></noscript>
+</div>
+<script>
+/*AUDIT-LOGIC-START*/
+function auditVerdict(q){
+var score=q[0]+q[1]+q[2]+q[3];
+var acts=[];
+if(q[0]===1){acts.push("robots.txt is the floor, not the policy. Publish an agent-policy.json that names agents, actions and terms in machine-readable form.");}
+if(q[0]===2){acts.push("Silence is a policy agents interpret themselves. Publish the file; one page at /.well-known/ ends the guessing.");}
+if(q[1]===1){acts.push("Human-readable terms help humans. Restate the operative permissions in the policy file where agents actually look.");}
+if(q[1]===2){acts.push("Unwritten permissions become whatever the agent's default is. Declare read, transact and restricted actions explicitly.");}
+if(q[2]===1){acts.push("Terms buried in legal pages are rarely machine-actionable. Summarize limits and data-use terms in the policy file itself.");}
+if(q[2]===2){acts.push("No terms for agent use means no terms to enforce or cite. Draft them now, while the choosing is yours.");}
+if(q[3]===1){acts.push("A generic contact page is a start. Put a named agent-policy contact in the file, where the agent's operator will look.");}
+if(q[3]===2){acts.push("Unmonitored agent traffic plus no contact is governance by luck. Instrument agent visits and publish the contact together.");}
+var cls,head;
+if(score>=6){cls='revoke';head="GOVERNED BY DEFAULTS. Your terms for the majority of your traffic are being written by agent platforms. Publish your own while the standard is young and the choosing is cheap.";}
+else if(score>=3){cls='review';head="HALF-DECLARED. Something exists, a robots.txt or a human page, but the operative rules are not where agents look. Publish the policy file and close the gap.";}
+else{cls='trusted';head="POLICY PUBLISHED. Agents can read your rules in machine form: permissions, limits, terms, contact. You are negotiating from a document, not from silence.";}
+return {cls:cls,head:head+' (risk score '+score+'/8)',acts:acts,score:score};
+}
+/*AUDIT-LOGIC-END*/
+(function(){
+document.getElementById('go').addEventListener('click',function(){
+var r=auditVerdict([0,1,2,3].map(function(i){return parseInt(document.getElementById('q'+i).value,10);}));
+var v=document.getElementById('verdict');
+v.className=r.cls;v.textContent=r.head;
+var a=document.getElementById('actions');
+a.innerHTML='';
+var ul=document.createElement('ul');
+r.acts.forEach(function(t){var li=document.createElement('li');li.textContent=t;ul.appendChild(li);});
+a.appendChild(ul);
+a.className='show';
+});
+})();
+</script>
+
+<h2>Publish your agent policy: the working order</h2>
+<ol>
+<li><strong>Decide the three buckets:</strong> which agents may read, which may transact, which are refused, and the limits on each. This is a business decision, not a technical one.</li>
+<li><strong>Write it in machine form:</strong> an agent-policy.json at /.well-known/ naming agents, actions, limits, terms and a contact. AgentGate's generator drafts it from your answers.</li>
+<li><strong>Keep robots.txt aligned:</strong> the old file and the new file should never contradict. Agents read both; disputes will too.</li>
+<li><strong>Link it where agents look:</strong> reference the policy from your llms.txt and your site footer, so discovery does not depend on the well-known path alone.</li>
+<li><strong>Review on the traffic:</strong> watch which agents actually visit (your logs know) and revise the policy as the ecosystem moves. Standards are young; early publishers shape them.</li>
+</ol>
+<p><strong>AgentGate</strong>, by Ingenious AI, is the machine-readable agent-access policy standard: declare which AI agents may use your site, what they may do and on what terms, at /.well-known/agent-policy.json, the robots.txt of the agentic economy. <a href="https://agentgate.getingeniousai.com">See how AgentGate works</a>.</p>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://agentgate.getingeniousai.com" style="color:#fff;text-decoration:underline">AgentGate</a> lets you publish your rules once, in the file agents are learning to read first.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 21 platforms: <a href="https://disclosureguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://modelminder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://termswatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://vibe-audit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://rogue-defense.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://breachhunter.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://chatbreaker.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://flightrecorder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://authgateway.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://domainguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://contentcraft.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a> &nbsp;·&nbsp; <a href="https://evalscope.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">EvalScope</a> &nbsp;·&nbsp; <a href="https://boundaryvault.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BoundaryVault</a> &nbsp;·&nbsp; <a href="https://agentic-receipts.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agentic Receipts</a> &nbsp;·&nbsp; <a href="https://storeaudit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent-Ready Store Audit</a> &nbsp;·&nbsp; <a href="https://agentblock.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">AgentBlock</a> &nbsp;·&nbsp; <a href="https://homeshield.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">HomeShield MCP</a> &nbsp;·&nbsp; <a href="https://agentgate.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">AgentGate</a> &nbsp;·&nbsp; <a href="https://admt.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ADMT</a> &nbsp;·&nbsp; <a href="https://dueladder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DueLadder</a> &nbsp;·&nbsp; <a href="https://wirewatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">WireWatch</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">One suite, one deal: <a href="security-suite.html" style="color:#6ea8fe">the Ingenious AI Security Suite</a>. Get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20took%20the%20agent%20access%20policy%20check%20and%20want%20early%20access." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<h2>Quiz: how well do you know the policy race?</h2>
+<div class="quiz-q" data-a="0"><p><strong>1.</strong> What year was robots.txt written?</p>
+<button class="opt" data-v="0">1994</button><button class="opt" data-v="1">2004</button><button class="opt" data-v="2">2019</button></div>
+<div class="quiz-q" data-a="1"><p><strong>2.</strong> What can robots.txt not express?</p>
+<button class="opt" data-v="0">A refusal for crawlers</button><button class="opt" data-v="1">Agent permissions, action limits and terms</button><button class="opt" data-v="2">A sitemap location</button></div>
+<div class="quiz-q" data-a="2"><p><strong>3.</strong> What is the rival draft standard called?</p>
+<button class="opt" data-v="0">agent.xml</button><button class="opt" data-v="1">site-policy.txt</button><button class="opt" data-v="2">agent.json (Agent Web Protocol)</button></div>
+<div class="quiz-q" data-a="1"><p><strong>4.</strong> Where does an agent policy file live?</p>
+<button class="opt" data-v="0">In a cookie</button><button class="opt" data-v="1">At /.well-known/ on your domain</button><button class="opt" data-v="2">In the site's logo file</button></div>
+<div class="quiz-q" data-a="1"><p><strong>5.</strong> Why publish a policy instead of only blocking?</p>
+<button class="opt" data-v="0">Blocking is illegal</button><button class="opt" data-v="1">A policy separates welcome, tolerated and refused agents in enforceable writing</button><button class="opt" data-v="2">Policies are fashionable</button></div>
+<p id="quiz-result"></p>
+<script>
+(function(){var total=document.querySelectorAll('.quiz-q').length,score=0,done=0;
+document.querySelectorAll('.quiz-q').forEach(function(q){var correct=parseInt(q.getAttribute('data-a'),10);
+q.querySelectorAll('.opt').forEach(function(b){b.addEventListener('click',function(){if(q.dataset.done)return;q.dataset.done='1';done++;
+var got=parseInt(b.getAttribute('data-v'),10);if(got===correct){score++;b.classList.add('correct');}else{b.classList.add('wrong');q.querySelectorAll('.opt')[correct].classList.add('correct');}
+if(done===total){document.getElementById('quiz-result').textContent='You scored '+score+'/'+total+'. '+"Silence is also a policy. It is just written by somebody else.";}});});});})();
+</script>
+<noscript><p><em>Enable JavaScript for the interactive quiz.</em></p></noscript>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What is an agent-access policy?</summary><p>An agent-access policy is a machine-readable declaration of how AI agents may use your site: which agents are welcome, what actions they may take, what limits and terms apply, and who to contact. AgentGate publishes it as agent-policy.json in the /.well-known/ directory, where agents and tools are learning to look for it.</p></details>
+<details><summary>What is AgentGate?</summary><p>AgentGate is Ingenious AI's agent-access policy standard and tooling. It generates and hosts the policy file at /.well-known/agent-policy.json, declaring named agents, permitted actions, limits and terms. Where robots.txt gave crawlers one bit of information, refuse or allow, AgentGate gives agents the actual rules of engagement for your site.</p></details>
+<details><summary>How is this different from robots.txt?</summary><p>robots.txt, written in 1994, answers one question for crawlers: may you fetch this path. An agent policy answers the agent-era questions: which agents, doing what, how much, under what terms, and who to contact. The files complement each other; a serious site keeps both consistent, because agents and disputes read both.</p></details>
+<details><summary>What about the agent.json standard?</summary><p>agent.json is a rival proposal from the Agent Web Protocol project, currently at draft v0.2, aiming at the same /.well-known/ slot. Standards competition is normal at this stage. AgentGate's bet is policy depth: named agents, actions, limits and terms. Publishing a policy now matters more than which draft ultimately wins, because terms you publish are yours under any standard.</p></details>
+<details><summary>Does a policy file stop bad agents?</summary><p>No, and it does not claim to. A policy governs honest agents, documents your terms for disputes, and separates the welcome from the refused in writing. Stopping agents that ignore policy is enforcement, a different layer (see AgentBlock). Declaration plus enforcement is the complete posture; either alone is half.</p></details>
+
+<p class="src">Sources: Agent Web Protocol, agent.json draft v0.2 · Cloudflare Radar automated-traffic milestone (June 3, 2026) · Ahrefs keyword data (ai agents, 46,000/mo US) · Ingenious AI unicorn audit of AgentGate (October 23, 2026).</p>
+
+<div class="xlinks"><strong>Related checks</strong><ul>
+<li><a href="agentic-ai-policy-standard-check.html">Agentic AI Policy Standard Check</a>: the companion check: grading your policy against the emerging standard</li>
+<li><a href="ai-agent-traffic-check.html">AI Agent Traffic Check</a>: know your agent visitors before you write rules for them</li>
+<li><a href="ai-scraper-blocking-check.html">AI Scraper Blocking Check</a>: the enforcement half: blocking the agents your policy refuses</li>
+<li><a href="http-header-ai-agents.html">HTTP Header AI Agents</a>: how agents identify themselves in requests</li>
+</ul></div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>

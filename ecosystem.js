@@ -53,7 +53,17 @@
     "Agent Flight Recorder": "https://flightrecorder.getingeniousai.com",
     "Agent Auth Gateway": "https://authgateway.getingeniousai.com",
     "DomainGuard": "https://domainguard.getingeniousai.com",
-    "ContentCraft AI": "https://contentcraft.getingeniousai.com"
+    "ContentCraft AI": "https://contentcraft.getingeniousai.com",
+    "EvalScope": "https://evalscope.getingeniousai.com",
+    "BoundaryVault": "https://boundaryvault.getingeniousai.com",
+    "Agentic Receipts": "https://agentic-receipts.getingeniousai.com",
+    "Store Audit": "https://storeaudit.getingeniousai.com",
+    "AgentBlock": "https://agentblock.getingeniousai.com",
+    "HomeShield": "https://homeshield.getingeniousai.com",
+    "AgentGate": "https://agentgate.getingeniousai.com",
+    "ADMT": "https://admt.getingeniousai.com",
+    "DueLadder": "https://dueladder.getingeniousai.com",
+    "WireWatch": "https://wirewatch.getingeniousai.com"
   };
 
   function platformUrl(name) {

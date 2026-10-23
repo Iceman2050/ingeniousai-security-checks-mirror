@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, public_page_preflight -->
+<html data-primary-keyword="smart home security" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Home Security: Your AI Server May Be Public</title>
+<meta name="description" content="Smart home security has a new weakest link: the AI server you added this year. If its endpoint is public, strangers can knock. Run the exposure check first.">
+<link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/smart-home-ai-server-check.html">
+<meta property="og:title" content="Smart Home Security: Your AI Server May Be Public">
+<meta property="og:description" content="Cameras and locks got the smart home security attention. The AI server quietly joined the network with an endpoint, a tunnel and your credentials. HomeShield checks whether it is public.">
+<meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/smart-home-ai-server-check.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Smart Home Security: Your AI Server May Be Public">
+<meta name="twitter:description" content="Cameras and locks got the smart home security attention. The AI server quietly joined the network with an endpoint, a tunnel and your credentials. HomeShield checks whether it is public.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:820px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}
+a{color:#7cc4ff}
+.quiz-q{background:#1a1e27;border-radius:8px;padding:1rem;margin:1rem 0}
+.opt{display:block;background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.7rem 1rem;margin:.5rem 0;cursor:pointer;width:100%;text-align:left;color:#e8e8e8;font-size:1rem}
+.opt:hover{border-color:#ffd166}.opt.picked{border-color:#7cc4ff;background:#24304a}.opt.correct{border-color:#4ade80;background:#14301f}.opt.wrong{border-color:#f87171;background:#3a1a1a}
+#quiz-result{font-weight:700;margin-top:1rem;font-size:1.1rem}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}
+.meta{color:#9aa3b2;font-size:.85rem}
+.src{font-size:.85rem;color:#9aa3b2}
+.warnbox{background:#2a1f10;border:1px solid #8a6d1f;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin:1.2rem 0}
+.stat{background:#1a1e27;border-radius:8px;padding:.9rem;text-align:center}
+.stat b{display:block;font-size:1.5rem;color:#ffd166}
+.stat span{font-size:.85rem;color:#9aa3b2}
+.checker{background:#141a26;border:1px solid #1c6ef2;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.checker label{display:block;margin:.6rem 0 .2rem;font-weight:600}
+.checker select,.checker input{background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.6rem;color:#e8e8e8;font-size:1rem;width:100%;box-sizing:border-box}
+.checker button{background:#1c6ef2;color:#fff;border:none;border-radius:8px;padding:.7rem 1.4rem;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.8rem}
+#verdict{margin-top:1rem;font-weight:600;padding:.8rem;border-radius:8px;display:none}
+#verdict.trusted{display:block;background:#14301f;border:1px solid #4ade80}
+#verdict.review{display:block;background:#2a1f10;border:1px solid #8a6d1f}
+#verdict.revoke{display:block;background:#3a1a1a;border:1px solid #f87171}
+#actions{display:none;margin-top:.6rem}
+#actions.show{display:block}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "Smart Home Security: Your AI Server May Be Public", "author": {"@type": "Organization", "name": "Ingenious AI"}, "datePublished": "2026-10-23", "description": "Smart home security in 2026 includes a device class nobody threat-modeled: the home AI server. This check scores the exposure habits around MCP endpoints, tunnels and credentials at home."}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://gitlab.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is smart home security for AI servers?", "acceptedAnswer": {"@type": "Answer", "text": "Smart home security for AI servers means treating the home machine that runs your agents and MCP endpoints as a security boundary: keeping it off the public internet, authenticating its endpoints, scoping its credentials and inventorying what it can reach. HomeShield MCP checks the exposure layer of that posture with read-only probes."}}, {"@type": "Question", "name": "What is HomeShield MCP?", "acceptedAnswer": {"@type": "Answer", "text": "HomeShield MCP is Ingenious AI's free self-check for home AI exposure. Paste your home MCP endpoint's public URL and it runs safe, read-only probes, then reports whether the internet can reach the endpoint and what a stranger could touch. It tests only the URL you give it and never scans your wider network."}}, {"@type": "Question", "name": "Why do home AI servers get exposed?", "acceptedAnswer": {"@type": "Answer", "text": "Usually through convenience: a tunnel such as ngrok or a forwarded port opened for remote access, combined with an endpoint that has no authentication of its own because it was built for a trusted LAN. OX Security found 15,465 public MCP servers in October 2026. The fix is boring and complete: close public paths, authenticate the endpoint, use a VPN for remote access."}}, {"@type": "Question", "name": "What is the worst case for an exposed home MCP server?", "acceptedAnswer": {"@type": "Answer", "text": "An MCP server can expose whatever tools it was given: file access, smart-home device controls, messages, and credentials stored for other services. A stranger reaching it inherits that reach. The worst case is not a defaced gadget; it is an actor operating your home systems and pivoting into your accounts with your own keys."}}, {"@type": "Question", "name": "How often should I re-check my home setup?", "acceptedAnswer": {"@type": "Answer", "text": "Re-check whenever the setup changes: a new tunnel, a new tool on the server, a new service connected. Home setups evolve monthly in enthusiast hands. A dated inventory and a fresh outside probe after each change keep the posture true, and HomeShield's probe is free to rerun."}}]}
+</script>
+</head>
+<body>
+<p class="meta"><time datetime="2026-10-23">October 23, 2026</time> · smart home security</p>
+<h1>Smart home security in 2026: the riskiest device is your AI server</h1>
+<p>Smart home security used to mean cameras, locks and a router password. Then the AI server moved in: a home machine running MCP endpoints so agents can reach your files, media and devices. It is the most capable thing on the network, and in October 2026 OX Security counted 15,465 public MCP servers answering the internet, home setups among them.</p>
+<p><strong>HomeShield MCP</strong> is Ingenious AI's check for this exact exposure. Give it your endpoint's public URL and it runs safe, read-only probes and reports what a stranger can reach. This audit covers the habits around the server: tunnels, authentication, credentials and inventory.</p>
+<div class="warnbox"><strong>Honest scope, read this first:</strong> this page is about the AI layer of a smart home, not a review of cameras or locks. OX Security's 15,465 figure counts public MCP servers overall, not only homes. HomeShield probes only the URL you provide, read-only. It cannot find a server you do not tell it about; the inventory questions below exist for that reason.</div>
+
+<h2>Smart home security: the device class nobody threat-modeled</h2>
+<p>Every smart home device class got its security reckoning in turn: cameras with default passwords, locks with weak pairing, routers with ancient firmware. The AI server skipped the queue because it arrived as software, installed by the most technical person in the house, on a machine that also holds the family's files and a wallet of API credentials.</p>
+<p>The exposure path is mundane. Remote access is convenient, so a tunnel goes up. The endpoint itself often ships without authentication, because on a LAN it never needed any. Put those together and the most powerful device in the home is answering the public internet with no credential check, which is how home setups joined a list of 15,465.</p>
+<ul>
+<li><strong>The new device class:</strong> home AI servers running MCP endpoints, holding files, device controls and credentials.</li>
+<li><strong>The count:</strong> 15,465 public MCP servers found by OX Security in October 2026, home machines among them.</li>
+<li><strong>The usual cause:</strong> a convenience tunnel plus an endpoint with no authentication of its own.</li>
+<li><strong>The forgotten factor:</strong> setups change monthly; exposure inventories, when they exist, describe last season's network.</li>
+<li><strong>The cheap control:</strong> an outside probe. If your endpoint answers a stranger's read-only request, the question is settled.</li>
+</ul>
+<div class="statgrid">
+<div class="stat"><b>15,465</b><span>public MCP servers found by OX Security (October 2026)</span></div>
+<div class="stat"><b>8,100</b><span>monthly US searches for smart home security: the audience knows the category, not this device</span></div>
+<div class="stat"><b>2</b><span>ingredients in nearly every home exposure: a tunnel and no endpoint auth</span></div>
+<div class="stat"><b>5 min</b><span>the monthly inventory habit that keeps a home setup off the list</span></div>
+</div>
+
+<h2>Why is the AI server riskier than a smart camera?</h2>
+<p>Because of what it can do. A compromised camera watches; a compromised AI server acts. It holds tool access to files and devices, stored credentials for other services, and an agent's standing permission to use them. The blast radius of the most convenient device in the house is the whole house, plus every account its credentials touch.</p>
+
+<h2>Score your home AI security posture</h2>
+<div class="checker">
+<p style="margin-top:0">Answer for your actual home setup, including the experiments. Especially the experiments. Everything runs in your browser; nothing is sent anywhere.</p>
+<label for="q0">How does remote access to your home AI work?</label>
+<select id="q0"><option value="0">It does not: LAN only, or through a VPN I control</option><option value="1">A tunnel with authentication in front</option><option value="2">A public tunnel or forwarded port, up for convenience</option></select>
+<label for="q1">If a stranger reached your MCP endpoint tonight, what stops them?</label>
+<select id="q1"><option value="0">Endpoint authentication I control</option><option value="1">Only the tunnel's login, nothing on the endpoint</option><option value="2">Nothing: it would answer and serve</option></select>
+<label for="q2">What credentials live on the AI server?</label>
+<select id="q2"><option value="0">Scoped keys for its own tools, nothing broader</option><option value="1">A working set: several service keys and tokens</option><option value="2">The master set: keys that reach email, cloud and money</option></select>
+<label for="q3">Could you list every service your home agents can touch?</label>
+<select id="q3"><option value="0">Yes: an inventory exists and is current</option><option value="1">Mostly, from memory</option><option value="2">No: tools accumulated across experiments</option></select>
+<button id="go" type="button">Score my setup</button>
+<p id="verdict" role="status"></p>
+<div id="actions"></div>
+<noscript><p><em>Enable JavaScript for the audit, or score manually: the riskiest answer on every question is the profile this page warns about.</em></p></noscript>
+</div>
+<script>
+/*AUDIT-LOGIC-START*/
+function auditVerdict(q){
+var score=q[0]+q[1]+q[2]+q[3];
+var acts=[];
+if(q[0]===1){acts.push("An authenticated tunnel is a start, not a finish. Plan the move to VPN-only access, and authenticate the endpoint meanwhile.");}
+if(q[0]===2){acts.push("Convenience tunnels are the exposure. Close the public path today; convenience is recoverable, a compromise is not.");}
+if(q[1]===1){acts.push("One login between the internet and an open endpoint is one phished password from open. Add authentication on the endpoint itself.");}
+if(q[1]===2){acts.push("An answering, unauthenticated endpoint is the finding in the OX report. Take it off the public path before anything else on this page.");}
+if(q[2]===1){acts.push("Several live keys on an exposed-adjacent machine deserve a pass: scope each to its tool and rotate the broad ones.");}
+if(q[2]===2){acts.push("Master credentials on the home AI server concentrate your whole digital life in one compromise. Move them off; give the server scoped keys only.");}
+if(q[3]===1){acts.push("Memory is not an inventory. Write the list: every tool, service and credential the home agents can reach.");}
+if(q[3]===2){acts.push("Unmapped tool access means unmapped blast radius. Inventory the setup, then decide what the agents actually need.");}
+var cls,head;
+if(score>=6){cls='revoke';head="WIDE OPEN. A reachable endpoint, no auth, rich credentials. Your smart home's strongest device is its weakest point. Close the path now.";}
+else if(score>=3){cls='review';head="SOFT SPOTS. The setup works and mostly behaves, but one layer, tunnel, auth or credentials, would fail a stranger's knock. Fix the soft layer.";}
+else{cls='trusted';head="GUARDED. Access is private, the endpoint authenticates, credentials are scoped and the inventory is real. This is what good looks like at home.";}
+return {cls:cls,head:head+' (risk score '+score+'/8)',acts:acts,score:score};
+}
+/*AUDIT-LOGIC-END*/
+(function(){
+document.getElementById('go').addEventListener('click',function(){
+var r=auditVerdict([0,1,2,3].map(function(i){return parseInt(document.getElementById('q'+i).value,10);}));
+var v=document.getElementById('verdict');
+v.className=r.cls;v.textContent=r.head;
+var a=document.getElementById('actions');
+a.innerHTML='';
+var ul=document.createElement('ul');
+r.acts.forEach(function(t){var li=document.createElement('li');li.textContent=t;ul.appendChild(li);});
+a.appendChild(ul);
+a.className='show';
+});
+})();
+</script>
+
+<h2>Harden the home AI layer: the working order</h2>
+<ol>
+<li><strong>Probe from outside:</strong> run HomeShield's read-only probe on your public URL. Settle the exposure question with evidence, not vibes.</li>
+<li><strong>Close public paths:</strong> remove forwarded ports and public tunnels. Move remote access behind a VPN you control.</li>
+<li><strong>Authenticate the endpoint:</strong> the MCP server itself must demand a credential, even on the LAN. LANs leak; endpoints should not care.</li>
+<li><strong>Scope the credentials:</strong> the server holds keys for its own tools only. Email, cloud and money credentials live elsewhere.</li>
+<li><strong>Keep the inventory:</strong> one list of servers, tunnels, tools and keys, refreshed monthly. Five minutes, whole control.</li>
+</ol>
+<p><strong>HomeShield MCP</strong>, by Ingenious AI, checks whether your home MCP endpoint is exposed to the internet, with safe read-only probes against the public URL you provide and a plain-language report of what a stranger can reach. <a href="https://homeshield.getingeniousai.com">See how HomeShield MCP works</a>.</p>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://homeshield.getingeniousai.com" style="color:#fff;text-decoration:underline">HomeShield MCP</a> is the security check your smart home did not know it needed: is the AI server public?</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 21 platforms: <a href="https://disclosureguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://modelminder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://termswatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://vibe-audit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://rogue-defense.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://breachhunter.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://chatbreaker.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://flightrecorder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://authgateway.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://domainguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://contentcraft.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a> &nbsp;·&nbsp; <a href="https://evalscope.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">EvalScope</a> &nbsp;·&nbsp; <a href="https://boundaryvault.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BoundaryVault</a> &nbsp;·&nbsp; <a href="https://agentic-receipts.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agentic Receipts</a> &nbsp;·&nbsp; <a href="https://storeaudit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent-Ready Store Audit</a> &nbsp;·&nbsp; <a href="https://agentblock.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">AgentBlock</a> &nbsp;·&nbsp; <a href="https://homeshield.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">HomeShield MCP</a> &nbsp;·&nbsp; <a href="https://agentgate.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">AgentGate</a> &nbsp;·&nbsp; <a href="https://admt.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ADMT</a> &nbsp;·&nbsp; <a href="https://dueladder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DueLadder</a> &nbsp;·&nbsp; <a href="https://wirewatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">WireWatch</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">One suite, one deal: <a href="security-suite.html" style="color:#6ea8fe">the Ingenious AI Security Suite</a>. Get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20took%20the%20smart%20home%20AI%20server%20check%20and%20want%20early%20access." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<h2>Quiz: how well do you know home AI risk?</h2>
+<div class="quiz-q" data-a="1"><p><strong>1.</strong> What joined the smart home attack surface in 2026?</p>
+<button class="opt" data-v="0">A smarter doorbell</button><button class="opt" data-v="1">The home AI server running MCP endpoints</button><button class="opt" data-v="2">A new router color</button></div>
+<div class="quiz-q" data-a="0"><p><strong>2.</strong> What two ingredients make most home exposures?</p>
+<button class="opt" data-v="0">A tunnel and no endpoint authentication</button><button class="opt" data-v="1">Two routers</button><button class="opt" data-v="2">A long password and a short cable</button></div>
+<div class="quiz-q" data-a="1"><p><strong>3.</strong> Why is an AI server worse to compromise than a camera?</p>
+<button class="opt" data-v="0">It is louder</button><button class="opt" data-v="1">It can act: tools, files and credentials, not just watch</button><button class="opt" data-v="2">It uses more power</button></div>
+<div class="quiz-q" data-a="0"><p><strong>4.</strong> What does a read-only probe tell you?</p>
+<button class="opt" data-v="0">Whether the endpoint answers a stranger, which settles exposure</button><button class="opt" data-v="1">The server's resale value</button><button class="opt" data-v="2">Nothing at all</button></div>
+<div class="quiz-q" data-a="2"><p><strong>5.</strong> Where should master credentials live?</p>
+<button class="opt" data-v="0">On the AI server, for convenience</button><button class="opt" data-v="1">In a note on the fridge</button><button class="opt" data-v="2">Off the AI server: it gets scoped keys only</button></div>
+<p id="quiz-result"></p>
+<script>
+(function(){var total=document.querySelectorAll('.quiz-q').length,score=0,done=0;
+document.querySelectorAll('.quiz-q').forEach(function(q){var correct=parseInt(q.getAttribute('data-a'),10);
+q.querySelectorAll('.opt').forEach(function(b){b.addEventListener('click',function(){if(q.dataset.done)return;q.dataset.done='1';done++;
+var got=parseInt(b.getAttribute('data-v'),10);if(got===correct){score++;b.classList.add('correct');}else{b.classList.add('wrong');q.querySelectorAll('.opt')[correct].classList.add('correct');}
+if(done===total){document.getElementById('quiz-result').textContent='You scored '+score+'/'+total+'. '+"The smartest device in the house deserves the strongest door in the house.";}});});});})();
+</script>
+<noscript><p><em>Enable JavaScript for the interactive quiz.</em></p></noscript>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What is smart home security for AI servers?</summary><p>Smart home security for AI servers means treating the home machine that runs your agents and MCP endpoints as a security boundary: keeping it off the public internet, authenticating its endpoints, scoping its credentials and inventorying what it can reach. HomeShield MCP checks the exposure layer of that posture with read-only probes.</p></details>
+<details><summary>What is HomeShield MCP?</summary><p>HomeShield MCP is Ingenious AI's free self-check for home AI exposure. Paste your home MCP endpoint's public URL and it runs safe, read-only probes, then reports whether the internet can reach the endpoint and what a stranger could touch. It tests only the URL you give it and never scans your wider network.</p></details>
+<details><summary>Why do home AI servers get exposed?</summary><p>Usually through convenience: a tunnel such as ngrok or a forwarded port opened for remote access, combined with an endpoint that has no authentication of its own because it was built for a trusted LAN. OX Security found 15,465 public MCP servers in October 2026. The fix is boring and complete: close public paths, authenticate the endpoint, use a VPN for remote access.</p></details>
+<details><summary>What is the worst case for an exposed home MCP server?</summary><p>An MCP server can expose whatever tools it was given: file access, smart-home device controls, messages, and credentials stored for other services. A stranger reaching it inherits that reach. The worst case is not a defaced gadget; it is an actor operating your home systems and pivoting into your accounts with your own keys.</p></details>
+<details><summary>How often should I re-check my home setup?</summary><p>Re-check whenever the setup changes: a new tunnel, a new tool on the server, a new service connected. Home setups evolve monthly in enthusiast hands. A dated inventory and a fresh outside probe after each change keep the posture true, and HomeShield's probe is free to rerun.</p></details>
+
+<p class="src">Sources: OX Security, public MCP server exposure report (October 2026) · Ingenious AI unicorn audit of HomeShield MCP (October 23, 2026) · SEOJuice industry keyword table (smart home security, 8,100/mo US).</p>
+
+<div class="xlinks"><strong>Related checks</strong><ul>
+<li><a href="home-mcp-exposure-check.html">Home MCP Exposure Check</a>: the companion check: are you one of the 15,465?</li>
+<li><a href="state-of-mcp-security-2026.html">State of MCP Security 2026</a>: the wider MCP exposure picture</li>
+<li><a href="homelab-exposure-quiz.html">Homelab Exposure Quiz</a>: the broader homelab exposure self-test</li>
+<li><a href="mcp-safety-directory.html">MCP Safety Directory</a>: the estate's directory of MCP safety resources</li>
+</ul></div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>

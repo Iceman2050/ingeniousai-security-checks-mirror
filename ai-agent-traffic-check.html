@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, public_page_preflight -->
+<html data-primary-keyword="ai agents" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agents Are Most of Your Traffic Now. Prove It.</title>
+<meta name="description" content="AI agents and bots passed humans in web traffic in 2026: 57.5% of HTML requests, per Cloudflare. Check whether you can even see the majority of your visitors.">
+<link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-agent-traffic-check.html">
+<meta property="og:title" content="AI Agents Are Most of Your Traffic Now. Prove It.">
+<meta property="og:description" content="Cloudflare's CEO shared the milestone on June 3, 2026: automated requests overtook humans. AgentBlock classifies the agent share of your traffic and blocks the ones your policy denies.">
+<meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-agent-traffic-check.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Agents Are Most of Your Traffic Now. Prove It.">
+<meta name="twitter:description" content="Cloudflare's CEO shared the milestone on June 3, 2026: automated requests overtook humans. AgentBlock classifies the agent share of your traffic and blocks the ones your policy denies.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:820px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}
+a{color:#7cc4ff}
+.quiz-q{background:#1a1e27;border-radius:8px;padding:1rem;margin:1rem 0}
+.opt{display:block;background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.7rem 1rem;margin:.5rem 0;cursor:pointer;width:100%;text-align:left;color:#e8e8e8;font-size:1rem}
+.opt:hover{border-color:#ffd166}.opt.picked{border-color:#7cc4ff;background:#24304a}.opt.correct{border-color:#4ade80;background:#14301f}.opt.wrong{border-color:#f87171;background:#3a1a1a}
+#quiz-result{font-weight:700;margin-top:1rem;font-size:1.1rem}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}
+.meta{color:#9aa3b2;font-size:.85rem}
+.src{font-size:.85rem;color:#9aa3b2}
+.warnbox{background:#2a1f10;border:1px solid #8a6d1f;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin:1.2rem 0}
+.stat{background:#1a1e27;border-radius:8px;padding:.9rem;text-align:center}
+.stat b{display:block;font-size:1.5rem;color:#ffd166}
+.stat span{font-size:.85rem;color:#9aa3b2}
+.checker{background:#141a26;border:1px solid #1c6ef2;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.checker label{display:block;margin:.6rem 0 .2rem;font-weight:600}
+.checker select,.checker input{background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.6rem;color:#e8e8e8;font-size:1rem;width:100%;box-sizing:border-box}
+.checker button{background:#1c6ef2;color:#fff;border:none;border-radius:8px;padding:.7rem 1.4rem;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.8rem}
+#verdict{margin-top:1rem;font-weight:600;padding:.8rem;border-radius:8px;display:none}
+#verdict.trusted{display:block;background:#14301f;border:1px solid #4ade80}
+#verdict.review{display:block;background:#2a1f10;border:1px solid #8a6d1f}
+#verdict.revoke{display:block;background:#3a1a1a;border:1px solid #f87171}
+#actions{display:none;margin-top:.6rem}
+#actions.show{display:block}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "AI Agents Are Most of Your Traffic Now. Prove It.", "author": {"@type": "Organization", "name": "Ingenious AI"}, "datePublished": "2026-10-23", "description": "On June 3, 2026, Cloudflare data showed automated traffic passing humans for the first time: 57.5% of HTML requests. This check scores whether you can identify and govern the agent share of your traffic."}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://gitlab.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What are AI agents in web traffic?", "acceptedAnswer": {"@type": "Answer", "text": "In web traffic, 'AI agents' covers the automated visitors from AI systems: training crawlers collecting content, AI search crawlers fetching pages to answer questions, and transactional agents browsing or buying for users. Together with other bots they passed human traffic in 2026: 57.5% of HTML requests, per Cloudflare. AgentBlock classifies the known AI ones by user-agent."}}, {"@type": "Question", "name": "What is AgentBlock?", "acceptedAnswer": {"@type": "Answer", "text": "AgentBlock is Ingenious AI's one-click kit for governing known AI agents on your site. Pick a policy, deploy it as a Cloudflare Worker, WordPress plugin or JS snippet, and denied agents are blocked at the edge. It deliberately has no user accounts: the classification and policy run in your infrastructure, under your control."}}, {"@type": "Question", "name": "How much of my traffic is AI agents?", "acceptedAnswer": {"@type": "Answer", "text": "It varies, and the honest answer is: measure it. Network-wide, bots were 57.5% of HTML traffic in June 2026 (Cloudflare), and on small-business sites AI crawlers alone made 40.7% of identified bot requests (LovedByAI, 924 sites). Your mix is in your server logs, grouped by user-agent, waiting to be counted."}}, {"@type": "Question", "name": "Why not block every bot?", "acceptedAnswer": {"@type": "Answer", "text": "Because bots are not one thing. Search crawlers send your customers, AI search crawlers increasingly do the same, and transactional agents may arrive ready to buy. Training crawlers are the usual block target: they take content and return nothing. A split policy beats a blanket one in both directions."}}, {"@type": "Question", "name": "Can AgentBlock stop a scraper pretending to be a browser?", "acceptedAnswer": {"@type": "Answer", "text": "No, and be suspicious of any tool that promises it. Classification works on declared identity: known agent user-agents. A scraper that forges a browser identity needs other defenses, such as rate limits and behavior analysis. AgentBlock's honest scope is the declared majority, which is most of the volume and all of the reputable crawlers."}}]}
+</script>
+</head>
+<body>
+<p class="meta"><time datetime="2026-10-23">October 23, 2026</time> · ai agents</p>
+<h1>AI agents are the majority of your traffic now. Can you prove it?</h1>
+<p>AI agents crossed a line in 2026. On June 3, 2026, Cloudflare's CEO Matthew Prince shared Radar data showing automated requests had overtaken humans for the first time in internet history: bots generated 57.5% of HTML web traffic, against 42.5% from people. AI crawlers are the fastest-growing part of that majority, and most sites cannot name a single one of theirs.</p>
+<p><strong>AgentBlock</strong> is Ingenious AI's classification and blocking kit for known AI agents: a Cloudflare Worker, WordPress plugin or JS snippet that acts on your policy at the edge. This check starts one step earlier: could you even identify the agent traffic you already get?</p>
+<div class="warnbox"><strong>Honest scope, read this first:</strong> this page reports Cloudflare's published network measurements as reported; your site's mix will differ, which is the point of checking. AgentBlock classifies traffic by known agent user-agents and enforces your allow or block policy. A scraper that forges a browser user-agent defeats classification, and no honest tool claims otherwise.</div>
+
+<h2>AI agents and the majority flip of June 2026</h2>
+<p>Cloudflare Radar sits on enough of the web to call the turn: on June 3, 2026, its CEO announced bots had passed humans, 57.5% of HTML traffic to 42.5%. Imperva's 2025 Bad Bot Report had already put automated traffic at 51% of all web traffic for 2024. The direction is not in dispute, and the composition matters: AI crawlers reached roughly a fifth of verified bot traffic in 2026 measurements, with training crawlers the largest slice.</p>
+<p>Sites experience this as a quiet distortion. Analytics show the human minority and call it 'traffic'. Server bills, crawl budgets and content exposure are set by the machine majority nobody itemized. The first governance act is simply naming your agent visitors: which companies, which crawlers, what volume, allowed or not.</p>
+<ul>
+<li><strong>The milestone:</strong> on June 3, 2026, Cloudflare reported bots at 57.5% of HTML web traffic, humans at 42.5%, a first in internet history.</li>
+<li><strong>The trend:</strong> Imperva's 2025 Bad Bot Report already measured automated traffic at 51% of all web traffic in 2024.</li>
+<li><strong>The AI slice:</strong> AI crawlers are the fastest-growing bot category, and training crawlers return almost no referral traffic.</li>
+<li><strong>The most blocked:</strong> GPTBot is the most widely blocked AI bot, refused by 5.89% of websites (Ahrefs data).</li>
+<li><strong>The visibility gap:</strong> analytics tools miss bots entirely. Your agent traffic exists only in server logs and edge data.</li>
+</ul>
+<div class="statgrid">
+<div class="stat"><b>57.5%</b><span>of HTML web traffic was bots in June 2026 (Cloudflare Radar)</span></div>
+<div class="stat"><b>51%</b><span>automated share of all web traffic already in 2024 (Imperva Bad Bot Report)</span></div>
+<div class="stat"><b>5.89%</b><span>of websites block GPTBot, the most refused AI crawler (Ahrefs)</span></div>
+<div class="stat"><b>42.5%</b><span>the human share: the minority your analytics calls 'traffic'</span></div>
+</div>
+
+<h2>Why can't you see most of your own traffic?</h2>
+<p>Because the measurement stack was built for people. Analytics tools run a script in a browser; bots do not run scripts, so the entire machine majority is filtered out before reporting begins. What remains is presented as 'your traffic' without the caveat that it is the human 42.5%. Server logs and edge data are the only complete record.</p>
+
+<h2>Check your agent-traffic visibility</h2>
+<div class="checker">
+<p style="margin-top:0">Answer for your main site, honestly, as of today. Everything runs in your browser; nothing is sent anywhere.</p>
+<label for="q0">Can you name the AI agents visiting your site?</label>
+<select id="q0"><option value="0">Yes: top agent crawlers by name and volume, from the last month</option><option value="1">I could guess the famous ones</option><option value="2">No idea: I have never itemized agent traffic</option></select>
+<label for="q1">Where would you even look?</label>
+<select id="q1"><option value="0">Server logs or edge analytics, reviewed on a schedule</option><option value="1">I know logs exist somewhere</option><option value="2">Analytics dashboard only, where bots never appear</option></select>
+<label for="q2">Do AI agents get the same answer from your site?</label>
+<select id="q2"><option value="0">No: my policy treats training, search and agent traffic differently</option><option value="1">There is a robots.txt, unevenly honored</option><option value="2">Yes: everything that asks, gets served</option></select>
+<label for="q3">If one AI company doubled its crawling tomorrow, would you notice?</label>
+<select id="q3"><option value="0">Yes: agent volume is monitored with rough thresholds</option><option value="1">Maybe, from the server bill</option><option value="2">No: nothing watches agent volume at all</option></select>
+<button id="go" type="button">Score my setup</button>
+<p id="verdict" role="status"></p>
+<div id="actions"></div>
+<noscript><p><em>Enable JavaScript for the audit, or score manually: the riskiest answer on every question is the profile this page warns about.</em></p></noscript>
+</div>
+<script>
+/*AUDIT-LOGIC-START*/
+function auditVerdict(q){
+var score=q[0]+q[1]+q[2]+q[3];
+var acts=[];
+if(q[0]===1){acts.push("Guessing the famous three is not an inventory. Pull a month of logs and itemize every AI crawler by volume.");}
+if(q[0]===2){acts.push("You cannot govern traffic you cannot name. Itemizing your agent visitors is step one, and the logs already hold the answer.");}
+if(q[1]===1){acts.push("Logs you never open are a rumor of evidence. Schedule a monthly agent-traffic review; it takes minutes once the query exists.");}
+if(q[1]===2){acts.push("The dashboard shows the human minority only. Any traffic decision made from it alone is made blind to most of your visitors.");}
+if(q[2]===1){acts.push("A robots.txt is a statement, not a mechanism. Back the policy with edge classification and blocking for the agents you deny.");}
+if(q[2]===2){acts.push("Serving everything is the default the crawlers prefer. Set a split policy: training, search and transactional agents are different guests.");}
+if(q[3]===1){acts.push("The server bill is a lagging, expensive alert. Put a simple threshold on agent volume before the invoice teaches you.");}
+if(q[3]===2){acts.push("Unmonitored agent volume grows until it hurts. Watch it monthly; growth curves are strategy, whichever side of them you are on.");}
+var cls,head;
+if(score>=6){cls='revoke';head="GOVERNING THE MINORITY. Your reporting, policy and costs are all set by the human 42.5%. The machine majority is unmeasured, unclassified and unnoticed.";}
+else if(score>=3){cls='review';head="PARTIALLY BLIND. You know agents visit and roughly why, but the inventory, enforcement or monitoring has a hole. The majority is making decisions you have not made.";}
+else{cls='trusted';head="MAJORITY ACCOUNTED FOR. You can name your agent traffic, your policy is enforced, and volume changes surface in review. You govern the whole visitor base, not the human slice.";}
+return {cls:cls,head:head+' (risk score '+score+'/8)',acts:acts,score:score};
+}
+/*AUDIT-LOGIC-END*/
+(function(){
+document.getElementById('go').addEventListener('click',function(){
+var r=auditVerdict([0,1,2,3].map(function(i){return parseInt(document.getElementById('q'+i).value,10);}));
+var v=document.getElementById('verdict');
+v.className=r.cls;v.textContent=r.head;
+var a=document.getElementById('actions');
+a.innerHTML='';
+var ul=document.createElement('ul');
+r.acts.forEach(function(t){var li=document.createElement('li');li.textContent=t;ul.appendChild(li);});
+a.appendChild(ul);
+a.className='show';
+});
+})();
+</script>
+
+<h2>Take back the majority view: the working order</h2>
+<ol>
+<li><strong>Itemize the agents:</strong> one month of server logs, grouped by AI crawler, with volumes. This list is the foundation of every later choice.</li>
+<li><strong>Classify by intent:</strong> training, AI search, and transactional agents are different guests. Give each class its own answer.</li>
+<li><strong>Publish, then enforce:</strong> robots.txt states the policy for honest agents; edge rules enforce it for the rest. AgentBlock packages the enforcement.</li>
+<li><strong>Monitor the mix:</strong> a monthly look at agent share and growth. What doubles quietly becomes next year's cost line.</li>
+<li><strong>Revisit quarterly:</strong> new agents launch and old ones change behavior. A policy is a subscription to a changing web, not a one-time setting.</li>
+</ol>
+<p><strong>AgentBlock</strong>, by Ingenious AI, classifies known AI agents in your traffic and blocks the ones your policy denies, via a Cloudflare Worker, WordPress plugin or JS snippet, with no user accounts by design: your policy, your edge, your call. <a href="https://agentblock.getingeniousai.com">See how AgentBlock works</a>.</p>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://agentblock.getingeniousai.com" style="color:#fff;text-decoration:underline">AgentBlock</a> names the machine majority in your traffic, and lets you decide, agent by agent, who gets served.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 21 platforms: <a href="https://disclosureguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://modelminder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://termswatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://vibe-audit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://rogue-defense.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://breachhunter.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://chatbreaker.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://flightrecorder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://authgateway.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://domainguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://contentcraft.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a> &nbsp;·&nbsp; <a href="https://evalscope.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">EvalScope</a> &nbsp;·&nbsp; <a href="https://boundaryvault.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BoundaryVault</a> &nbsp;·&nbsp; <a href="https://agentic-receipts.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agentic Receipts</a> &nbsp;·&nbsp; <a href="https://storeaudit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent-Ready Store Audit</a> &nbsp;·&nbsp; <a href="https://agentblock.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">AgentBlock</a> &nbsp;·&nbsp; <a href="https://homeshield.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">HomeShield MCP</a> &nbsp;·&nbsp; <a href="https://agentgate.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">AgentGate</a> &nbsp;·&nbsp; <a href="https://admt.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ADMT</a> &nbsp;·&nbsp; <a href="https://dueladder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DueLadder</a> &nbsp;·&nbsp; <a href="https://wirewatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">WireWatch</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">One suite, one deal: <a href="security-suite.html" style="color:#6ea8fe">the Ingenious AI Security Suite</a>. Get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20took%20the%20AI%20agent%20traffic%20check%20and%20want%20early%20access." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<h2>Quiz: how well do you know the traffic flip?</h2>
+<div class="quiz-q" data-a="0"><p><strong>1.</strong> What did Cloudflare report on June 3, 2026?</p>
+<button class="opt" data-v="0">Bots passed humans: 57.5% of HTML traffic</button><button class="opt" data-v="1">The internet got faster</button><button class="opt" data-v="2">AI was banned from crawling</button></div>
+<div class="quiz-q" data-a="1"><p><strong>2.</strong> What did Imperva measure for 2024?</p>
+<button class="opt" data-v="0">No bot traffic at all</button><button class="opt" data-v="1">Automated traffic at 51% of all web traffic</button><button class="opt" data-v="2">Humans at 99% of traffic</button></div>
+<div class="quiz-q" data-a="2"><p><strong>3.</strong> Why do analytics dashboards miss bot traffic?</p>
+<button class="opt" data-v="0">Dashboards are broken</button><button class="opt" data-v="1">Bots visit at night</button><button class="opt" data-v="2">Analytics need a browser script to run, and bots do not run it</button></div>
+<div class="quiz-q" data-a="0"><p><strong>4.</strong> Which AI bot is the most widely blocked?</p>
+<button class="opt" data-v="0">GPTBot, refused by 5.89% of websites</button><button class="opt" data-v="1">Googlebot</button><button class="opt" data-v="2">Bingbot</button></div>
+<div class="quiz-q" data-a="1"><p><strong>5.</strong> Where does a complete record of your agent traffic live?</p>
+<button class="opt" data-v="0">In your analytics dashboard</button><button class="opt" data-v="1">In server logs and edge data</button><button class="opt" data-v="2">Nowhere: it cannot be measured</button></div>
+<p id="quiz-result"></p>
+<script>
+(function(){var total=document.querySelectorAll('.quiz-q').length,score=0,done=0;
+document.querySelectorAll('.quiz-q').forEach(function(q){var correct=parseInt(q.getAttribute('data-a'),10);
+q.querySelectorAll('.opt').forEach(function(b){b.addEventListener('click',function(){if(q.dataset.done)return;q.dataset.done='1';done++;
+var got=parseInt(b.getAttribute('data-v'),10);if(got===correct){score++;b.classList.add('correct');}else{b.classList.add('wrong');q.querySelectorAll('.opt')[correct].classList.add('correct');}
+if(done===total){document.getElementById('quiz-result').textContent='You scored '+score+'/'+total+'. '+"You cannot govern a majority you refuse to count.";}});});});})();
+</script>
+<noscript><p><em>Enable JavaScript for the interactive quiz.</em></p></noscript>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What are AI agents in web traffic?</summary><p>In web traffic, 'AI agents' covers the automated visitors from AI systems: training crawlers collecting content, AI search crawlers fetching pages to answer questions, and transactional agents browsing or buying for users. Together with other bots they passed human traffic in 2026: 57.5% of HTML requests, per Cloudflare. AgentBlock classifies the known AI ones by user-agent.</p></details>
+<details><summary>What is AgentBlock?</summary><p>AgentBlock is Ingenious AI's one-click kit for governing known AI agents on your site. Pick a policy, deploy it as a Cloudflare Worker, WordPress plugin or JS snippet, and denied agents are blocked at the edge. It deliberately has no user accounts: the classification and policy run in your infrastructure, under your control.</p></details>
+<details><summary>How much of my traffic is AI agents?</summary><p>It varies, and the honest answer is: measure it. Network-wide, bots were 57.5% of HTML traffic in June 2026 (Cloudflare), and on small-business sites AI crawlers alone made 40.7% of identified bot requests (LovedByAI, 924 sites). Your mix is in your server logs, grouped by user-agent, waiting to be counted.</p></details>
+<details><summary>Why not block every bot?</summary><p>Because bots are not one thing. Search crawlers send your customers, AI search crawlers increasingly do the same, and transactional agents may arrive ready to buy. Training crawlers are the usual block target: they take content and return nothing. A split policy beats a blanket one in both directions.</p></details>
+<details><summary>Can AgentBlock stop a scraper pretending to be a browser?</summary><p>No, and be suspicious of any tool that promises it. Classification works on declared identity: known agent user-agents. A scraper that forges a browser identity needs other defenses, such as rate limits and behavior analysis. AgentBlock's honest scope is the declared majority, which is most of the volume and all of the reputable crawlers.</p></details>
+
+<p class="src">Sources: Cloudflare Radar, automated traffic milestone (June 3, 2026, via Cloudflare CEO Matthew Prince; compiled at digitalapplied.com) · Imperva 2025 Bad Bot Report · Ahrefs AI-bot blocking data (via superlines.io) · Ahrefs keyword data (ai agents, 46,000/mo US).</p>
+
+<div class="xlinks"><strong>Related checks</strong><ul>
+<li><a href="ai-scraper-blocking-check.html">AI Scraper Blocking Check</a>: the companion check: from counting crawlers to enforcing a policy</li>
+<li><a href="agent-access-policy-check.html">Agent Access Policy Check</a>: publish the rules agents should follow, not just blocks</li>
+<li><a href="state-of-mcp-security-2026.html">State of MCP Security 2026</a>: the agent-tooling exposure picture, 2026 edition</li>
+<li><a href="http-header-ai-agents.html">HTTP Header AI Agents</a>: how agents identify themselves in requests</li>
+</ul></div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, public_page_preflight -->
+<html data-primary-keyword="eu ai act" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EU AI Act: Can Your Eval Agent Reach Production?</title>
+<meta name="description" content="EU AI Act duties land on eval setups too. CERT-In named the three weakness classes in October 2026. Check what your eval agent can reach first.">
+<link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/eval-agent-reachability-check.html">
+<meta property="og:title" content="EU AI Act: Can Your Eval Agent Reach Production?">
+<meta property="og:description" content="CERT-In advisory CIAD-2026-0049 named exposed secrets, permissive roles and open configs in eval environments. Run the reachability check: what can your eval agent touch?">
+<meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/eval-agent-reachability-check.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="EU AI Act: Can Your Eval Agent Reach Production?">
+<meta name="twitter:description" content="CERT-In advisory CIAD-2026-0049 named exposed secrets, permissive roles and open configs in eval environments. Run the reachability check: what can your eval agent touch?">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:820px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}
+a{color:#7cc4ff}
+.quiz-q{background:#1a1e27;border-radius:8px;padding:1rem;margin:1rem 0}
+.opt{display:block;background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.7rem 1rem;margin:.5rem 0;cursor:pointer;width:100%;text-align:left;color:#e8e8e8;font-size:1rem}
+.opt:hover{border-color:#ffd166}.opt.picked{border-color:#7cc4ff;background:#24304a}.opt.correct{border-color:#4ade80;background:#14301f}.opt.wrong{border-color:#f87171;background:#3a1a1a}
+#quiz-result{font-weight:700;margin-top:1rem;font-size:1.1rem}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}
+.meta{color:#9aa3b2;font-size:.85rem}
+.src{font-size:.85rem;color:#9aa3b2}
+.warnbox{background:#2a1f10;border:1px solid #8a6d1f;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin:1.2rem 0}
+.stat{background:#1a1e27;border-radius:8px;padding:.9rem;text-align:center}
+.stat b{display:block;font-size:1.5rem;color:#ffd166}
+.stat span{font-size:.85rem;color:#9aa3b2}
+.checker{background:#141a26;border:1px solid #1c6ef2;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.checker label{display:block;margin:.6rem 0 .2rem;font-weight:600}
+.checker select,.checker input{background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.6rem;color:#e8e8e8;font-size:1rem;width:100%;box-sizing:border-box}
+.checker button{background:#1c6ef2;color:#fff;border:none;border-radius:8px;padding:.7rem 1.4rem;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.8rem}
+#verdict{margin-top:1rem;font-weight:600;padding:.8rem;border-radius:8px;display:none}
+#verdict.trusted{display:block;background:#14301f;border:1px solid #4ade80}
+#verdict.review{display:block;background:#2a1f10;border:1px solid #8a6d1f}
+#verdict.revoke{display:block;background:#3a1a1a;border:1px solid #f87171}
+#actions{display:none;margin-top:.6rem}
+#actions.show{display:block}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "EU AI Act: Can Your Eval Agent Reach Production?", "author": {"@type": "Organization", "name": "Ingenious AI"}, "datePublished": "2026-10-23", "description": "In October 2026, CERT-In advisory CIAD-2026-0049 named the weakness classes that let evaluation agents reach production systems: exposed secrets, permissive roles and open configs. This check scores an eval setup against those classes."}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Organization", "name": "Ingenious AI", "url": "https://gitlab.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is eval-agent reachability?", "acceptedAnswer": {"@type": "Answer", "text": "Eval-agent reachability is the set of systems, data and actions an agent under evaluation can actually touch from inside the eval environment. It is defined by the eval's network routes, the secrets present in its configs and the permissions on its role. EvalScope measures it from your declared files, so the answer is evidence, not opinion."}}, {"@type": "Question", "name": "What is CERT-In advisory CIAD-2026-0049?", "acceptedAnswer": {"@type": "Answer", "text": "CIAD-2026-0049 is an advisory from CERT-In, India's national incident response authority, published on October 15, 2026. It names three weakness classes in AI evaluation environments: exposed secrets in eval configs, permissive roles granted to eval agents, and open configuration surfaces. The advisory is the reason this check exists."}}, {"@type": "Question", "name": "Does the EU AI Act cover evaluation setups?", "acceptedAnswer": {"@type": "Answer", "text": "The EU AI Act regulates AI systems by risk class and role, and its transparency obligations have applied since August 2, 2026. An eval environment that can reach production data undermines the governance story your documentation tells. Whether a specific duty applies to your setup is a legal call; the reachability facts underneath it are measurable."}}, {"@type": "Question", "name": "How does EvalScope scan an eval setup?", "acceptedAnswer": {"@type": "Answer", "text": "EvalScope reads the repo files and configs you declare: the files your eval actually loads. It reports exposed secrets, permissive roles and open configs as reachability findings, each with a severity and a concrete fix. It does not probe live production systems, and it does not run your evals for you."}}, {"@type": "Question", "name": "How often should eval reachability be checked?", "acceptedAnswer": {"@type": "Answer", "text": "Check it whenever the eval environment changes: new datasets, new tools for the agent, new infrastructure, or a copied production config. Eval setups drift toward realism over time, and drift is exactly how production secrets and routes arrive. A scan per change keeps the evidence current for audits."}}]}
+</script>
+</head>
+<body>
+<p class="meta"><time datetime="2026-10-23">October 23, 2026</time> · eu ai act</p>
+<h1>EU AI Act readiness starts in your eval sandbox: what can your eval agent reach?</h1>
+<p>On October 15, 2026, India's CERT-In issued advisory CIAD-2026-0049 on weaknesses in AI evaluation environments. The pattern it names is specific: an eval agent is handed real secrets, a permissive role and an open config, and the sandbox everyone assumed was isolated turns out to be wired into production.</p>
+<p><strong>EvalScope</strong> is Ingenious AI's scanner for exactly this surface. It reads the repo files and configs you declare and reports eval-agent reachability: exposed secrets, permissive roles and open configs, each with a severity and a fix. The audit below applies the same three classes to your setup, in plain questions.</p>
+<div class="warnbox"><strong>Honest scope, read this first:</strong> this page checks declared setup, not live systems. EvalScope scans the files and configs you point it at; it does not probe your production environment, run your evals, or certify EU AI Act compliance. The CERT-In advisory is summarized as published; the compliance duty for your specific system depends on its risk class and role, and that call belongs to your own legal review.</div>
+
+<h2>The EU AI Act angle: the advisory, as published</h2>
+<p>CERT-In is India's national incident response authority, and CIAD-2026-0049 is aimed at a target most security programs skip: the evaluation environment. Evals run agents against realistic tasks, and realistic tasks tempt teams to hand over realistic access. The advisory's three weakness classes are the result: secrets sitting in eval configs, roles that allow far more than the eval needs, and configuration files that leave the eval surface open.</p>
+<p>The timing matters for European duties too. The EU AI Act's transparency obligations have applied since August 2, 2026, and the grace period for marking AI-generated content ends on December 2, 2026. An eval agent that can reach production data is not just a security finding; it is a governance gap in the system your documentation describes.</p>
+<ul>
+<li><strong>The advisory:</strong> CERT-In CIAD-2026-0049, issued October 15, 2026, covers weaknesses in AI evaluation environments.</li>
+<li><strong>Weakness class 1:</strong> exposed secrets: real API keys and credentials present in eval configs, fixtures or prompts.</li>
+<li><strong>Weakness class 2:</strong> permissive roles: the eval agent's identity can do more than the evaluation requires, up to production writes.</li>
+<li><strong>Weakness class 3:</strong> open configs: eval endpoints, buckets and dashboards reachable without the controls production would demand.</li>
+<li><strong>The EU clock:</strong> EU AI Act transparency obligations apply from August 2, 2026; the content-marking grace period ends December 2, 2026.</li>
+<li><strong>The demand signal:</strong> ‘eu ai act’ draws 6,600 US searches a month and ‘ai governance’ 3,200 (SearchEngineLand, 2026): the compliance audience is already looking.</li>
+</ul>
+<div class="statgrid">
+<div class="stat"><b>3</b><span>weakness classes named in CERT-In advisory CIAD-2026-0049: secrets, roles, configs</span></div>
+<div class="stat"><b>Oct 15, 2026</b><span>the date CERT-In published the eval-environment advisory</span></div>
+<div class="stat"><b>Aug 2, 2026</b><span>EU AI Act transparency obligations took effect</span></div>
+<div class="stat"><b>Dec 2, 2026</b><span>the EU AI Act content-marking grace period ends</span></div>
+</div>
+
+<h2>Why does an eval sandbox become a production risk?</h2>
+<p>Because evals reward realism. Teams copy production configs into the eval environment, hand the agent production-shaped credentials, and leave both in place after the run. The agent under test then holds a working path into real systems, and the first outsider to find that path inherits it.</p>
+
+<h2>Audit your eval setup: what can the agent under test reach?</h2>
+<div class="checker">
+<p style="margin-top:0">Answer for the eval environment as it exists today, not as it was designed. Everything runs in your browser; nothing is sent anywhere.</p>
+<label for="q0">Where do your evals run?</label>
+<select id="q0"><option value="0">In a dedicated sandbox with no route to production</option><option value="1">On shared infrastructure, separated by config only</option><option value="2">Against staging or production-like systems with real data paths</option></select>
+<label for="q1">What secrets live in the eval environment?</label>
+<select id="q1"><option value="0">Synthetic or scoped test credentials only</option><option value="1">A mix: some real keys in fixtures or prompts</option><option value="2">Real production API keys and tokens</option></select>
+<label for="q2">What can the eval agent's role do?</label>
+<select id="q2"><option value="0">Read-only, scoped to the eval dataset</option><option value="1">Not sure: the role was never reviewed</option><option value="2">Broad permissions, including writes outside the eval</option></select>
+<label for="q3">Who can reach the eval configs and dashboards?</label>
+<select id="q3"><option value="0">The team only, behind authentication</option><option value="1">Anyone with the link or on the internal network</option><option value="2">They are publicly reachable or committed to a public repo</option></select>
+<button id="go" type="button">Score my setup</button>
+<p id="verdict" role="status"></p>
+<div id="actions"></div>
+<noscript><p><em>Enable JavaScript for the audit, or score manually: the riskiest answer on every question is the profile this page warns about.</em></p></noscript>
+</div>
+<script>
+/*AUDIT-LOGIC-START*/
+function auditVerdict(q){
+var score=q[0]+q[1]+q[2]+q[3];
+var acts=[];
+if(q[0]===1){acts.push("Shared infrastructure separated by config alone is one bad flag away from a production path. Move evals onto infrastructure with no network route to production systems.");}
+if(q[0]===2){acts.push("Your eval agent runs where it can touch real data paths. Isolate it first; every other fix on this list is weaker while the route exists.");}
+if(q[1]===1){acts.push("Some real keys are sitting in fixtures or prompts. Rotate them, then replace them with scoped test credentials that die with the eval run.");}
+if(q[1]===2){acts.push("Real production keys in an eval environment are exposed secrets by the advisory's own definition. Rotate every one today and audit where they were used.");}
+if(q[2]===1){acts.push("An unreviewed role is an unbounded role. List what the eval identity can actually do, then cut it to the eval dataset.");}
+if(q[2]===2){acts.push("A broad role plus a reachable eval surface is the advisory's worst case. Scope the role to read-only on eval data before the next run.");}
+if(q[3]===1){acts.push("Link-only access is not access control. Put eval dashboards and configs behind authentication before someone outside the team finds the link.");}
+if(q[3]===2){acts.push("Publicly reachable eval configs are an open door with the keys next to it. Take them private now, then rotate anything they exposed.");}
+var cls,head;
+if(score>=6){cls='revoke';head="CLOSE THE ROUTE NOW. Your eval setup matches the advisory's weakness classes. Isolate the environment and rotate the secrets before the next eval run.";}
+else if(score>=3){cls='review';head="REVIEW THIS WEEK. One or more of route, secrets, role or config exposure is loose. An auditor, or an attacker, will find the same answers you just gave.";}
+else{cls='trusted';head="ISOLATED AND SCOPED. Your eval agent cannot reach production, holds no real secrets and runs under a reviewed role. Recheck after every infra change.";}
+return {cls:cls,head:head+' (risk score '+score+'/8)',acts:acts,score:score};
+}
+/*AUDIT-LOGIC-END*/
+(function(){
+document.getElementById('go').addEventListener('click',function(){
+var r=auditVerdict([0,1,2,3].map(function(i){return parseInt(document.getElementById('q'+i).value,10);}));
+var v=document.getElementById('verdict');
+v.className=r.cls;v.textContent=r.head;
+var a=document.getElementById('actions');
+a.innerHTML='';
+var ul=document.createElement('ul');
+r.acts.forEach(function(t){var li=document.createElement('li');li.textContent=t;ul.appendChild(li);});
+a.appendChild(ul);
+a.className='show';
+});
+})();
+</script>
+
+<h2>Close the eval-to-production path: the order matters</h2>
+<ol>
+<li><strong>Map the route:</strong> list every way the eval environment can reach production: network paths, shared buckets, shared queues, shared credentials. If a path exists on paper, treat it as open.</li>
+<li><strong>Rotate before you tidy:</strong> any real secret that has lived in an eval config is already exposed. Rotate it first; cleaning the file afterwards does not un-expose the old key.</li>
+<li><strong>Scope the role to the eval:</strong> the agent under test needs the dataset and nothing else. Read-only, one environment, expiring with the run.</li>
+<li><strong>Scan the declared files:</strong> run a reachability scan over the repo files and configs your eval actually loads, and fix findings by severity. This is the scan EvalScope automates.</li>
+<li><strong>Keep evidence:</strong> keep the scan output with your EU AI Act documentation. When an auditor asks how you know the eval surface is contained, a dated scan beats a memory.</li>
+</ol>
+<p><strong>EvalScope</strong>, by Ingenious AI, scans your declared repo files and configs for eval-agent reachability and reports exposed secrets, permissive roles and open configs with severity and fixes, so the three advisory classes get checked on every change instead of once. <a href="https://evalscope.getingeniousai.com">See how EvalScope works</a>.</p>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://evalscope.getingeniousai.com" style="color:#fff;text-decoration:underline">EvalScope</a> is built for exactly this: a reachability scan over the files and configs your eval loads, with findings your compliance file can cite.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 21 platforms: <a href="https://disclosureguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://modelminder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://termswatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://vibe-audit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://rogue-defense.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://breachhunter.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://chatbreaker.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://flightrecorder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://authgateway.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://domainguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://contentcraft.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a> &nbsp;·&nbsp; <a href="https://evalscope.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">EvalScope</a> &nbsp;·&nbsp; <a href="https://boundaryvault.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BoundaryVault</a> &nbsp;·&nbsp; <a href="https://agentic-receipts.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agentic Receipts</a> &nbsp;·&nbsp; <a href="https://storeaudit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent-Ready Store Audit</a> &nbsp;·&nbsp; <a href="https://agentblock.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">AgentBlock</a> &nbsp;·&nbsp; <a href="https://homeshield.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">HomeShield MCP</a> &nbsp;·&nbsp; <a href="https://agentgate.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">AgentGate</a> &nbsp;·&nbsp; <a href="https://admt.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ADMT</a> &nbsp;·&nbsp; <a href="https://dueladder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DueLadder</a> &nbsp;·&nbsp; <a href="https://wirewatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">WireWatch</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">One suite, one deal: <a href="security-suite.html" style="color:#6ea8fe">the Ingenious AI Security Suite</a>. Get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20took%20the%20eval%20agent%20reachability%20check%20and%20want%20early%20access." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<h2>Quiz: how well do you know the eval advisory?</h2>
+<div class="quiz-q" data-a="0"><p><strong>1.</strong> What did CERT-In advisory CIAD-2026-0049 cover?</p>
+<button class="opt" data-v="0">Weaknesses in AI evaluation environments</button><button class="opt" data-v="1">A recall of consumer chatbots</button><button class="opt" data-v="2">New rules for AI advertising</button></div>
+<div class="quiz-q" data-a="1"><p><strong>2.</strong> Which of these is one of the advisory's three weakness classes?</p>
+<button class="opt" data-v="0">Slow eval runtimes</button><button class="opt" data-v="1">Permissive roles for the eval agent</button><button class="opt" data-v="2">Missing dark mode in dashboards</button></div>
+<div class="quiz-q" data-a="0"><p><strong>3.</strong> When did the EU AI Act transparency obligations take effect?</p>
+<button class="opt" data-v="0">August 2, 2026</button><button class="opt" data-v="1">January 1, 2027</button><button class="opt" data-v="2">They have not taken effect yet</button></div>
+<div class="quiz-q" data-a="2"><p><strong>4.</strong> Why do real production keys end up in eval environments?</p>
+<button class="opt" data-v="0">Evals require them by law</button><button class="opt" data-v="1">Regulators distribute them</button><button class="opt" data-v="2">Teams copy production configs to make evals realistic</button></div>
+<div class="quiz-q" data-a="1"><p><strong>5.</strong> What is the first fix when a real secret has lived in an eval config?</p>
+<button class="opt" data-v="0">Delete the file quietly</button><button class="opt" data-v="1">Rotate the secret, because it is already exposed</button><button class="opt" data-v="2">Rename the config file</button></div>
+<p id="quiz-result"></p>
+<script>
+(function(){var total=document.querySelectorAll('.quiz-q').length,score=0,done=0;
+document.querySelectorAll('.quiz-q').forEach(function(q){var correct=parseInt(q.getAttribute('data-a'),10);
+q.querySelectorAll('.opt').forEach(function(b){b.addEventListener('click',function(){if(q.dataset.done)return;q.dataset.done='1';done++;
+var got=parseInt(b.getAttribute('data-v'),10);if(got===correct){score++;b.classList.add('correct');}else{b.classList.add('wrong');q.querySelectorAll('.opt')[correct].classList.add('correct');}
+if(done===total){document.getElementById('quiz-result').textContent='You scored '+score+'/'+total+'. '+"The eval environment is part of your attack surface and your audit surface. Treat it like both.";}});});});})();
+</script>
+<noscript><p><em>Enable JavaScript for the interactive quiz.</em></p></noscript>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What is eval-agent reachability?</summary><p>Eval-agent reachability is the set of systems, data and actions an agent under evaluation can actually touch from inside the eval environment. It is defined by the eval's network routes, the secrets present in its configs and the permissions on its role. EvalScope measures it from your declared files, so the answer is evidence, not opinion.</p></details>
+<details><summary>What is CERT-In advisory CIAD-2026-0049?</summary><p>CIAD-2026-0049 is an advisory from CERT-In, India's national incident response authority, published on October 15, 2026. It names three weakness classes in AI evaluation environments: exposed secrets in eval configs, permissive roles granted to eval agents, and open configuration surfaces. The advisory is the reason this check exists.</p></details>
+<details><summary>Does the EU AI Act cover evaluation setups?</summary><p>The EU AI Act regulates AI systems by risk class and role, and its transparency obligations have applied since August 2, 2026. An eval environment that can reach production data undermines the governance story your documentation tells. Whether a specific duty applies to your setup is a legal call; the reachability facts underneath it are measurable.</p></details>
+<details><summary>How does EvalScope scan an eval setup?</summary><p>EvalScope reads the repo files and configs you declare: the files your eval actually loads. It reports exposed secrets, permissive roles and open configs as reachability findings, each with a severity and a concrete fix. It does not probe live production systems, and it does not run your evals for you.</p></details>
+<details><summary>How often should eval reachability be checked?</summary><p>Check it whenever the eval environment changes: new datasets, new tools for the agent, new infrastructure, or a copied production config. Eval setups drift toward realism over time, and drift is exactly how production secrets and routes arrive. A scan per change keeps the evidence current for audits.</p></details>
+
+<p class="src">Sources: CERT-In advisory CIAD-2026-0049 (October 15, 2026) · EU AI Act transparency timeline (obligations from August 2, 2026; content-marking grace period to December 2, 2026) · Ingenious AI unicorn audit of EvalScope (October 23, 2026).</p>
+
+<div class="xlinks"><strong>Related checks</strong><ul>
+<li><a href="eval-agent-disclosure-check.html">Eval Agent Disclosure Check</a>: the companion check: what to disclose when an eval agent crosses a line</li>
+<li><a href="agent-boundary-crossing-check.html">Agent Boundary Crossing Check</a>: when agents cross lines in production, the log is the evidence</li>
+<li><a href="state-of-mcp-security-2026.html">State of MCP Security 2026</a>: the wider agent-tooling exposure picture</li>
+<li><a href="newsjack-agent-traceability.html">Agent Traceability</a>: why every agent action needs a trail an auditor can follow</li>
+</ul></div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
