@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, public_page_preflight -->
+<html data-primary-keyword="cybersecurity news today" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity News Today: Railway Breach Key Check</title>
+<meta name="description" content="Cybersecurity news today: Railway's breach put API keys in about 100,000 workspaces at risk. Run the rotation-risk check and rotate in the safe order.">
+<link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/railway-breach-key-rotation-check.html">
+<meta property="og:title" content="Cybersecurity News Today: Railway Breach, Stored API Keys Exposed">
+<meta property="og:description" content="Railway's preliminary report: an attacker hunting AI provider keys decrypted a subset of stored environment variables. At most 1.85% of workspaces, about 100,000, are in the potential exposure set. Check your rotation risk.">
+<meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/railway-breach-key-rotation-check.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cybersecurity News Today: Railway Breach Key Check">
+<meta name="twitter:description" content="Attack window October 20 to 22, 2026. The target was AI provider API keys. Railway advises everyone who signed up before October 21 to rotate stored keys. Score your risk in a minute.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:820px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}
+a{color:#7cc4ff}
+.quiz-q{background:#1a1e27;border-radius:8px;padding:1rem;margin:1rem 0}
+.opt{display:block;background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.7rem 1rem;margin:.5rem 0;cursor:pointer;width:100%;text-align:left;color:#e8e8e8;font-size:1rem}
+.opt:hover{border-color:#ffd166}.opt.picked{border-color:#7cc4ff;background:#24304a}.opt.correct{border-color:#4ade80;background:#14301f}.opt.wrong{border-color:#f87171;background:#3a1a1a}
+#quiz-result{font-weight:700;margin-top:1rem;font-size:1.1rem}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}
+.meta{color:#9aa3b2;font-size:.85rem}
+.src{font-size:.85rem;color:#9aa3b2}
+.warnbox{background:#2a1f10;border:1px solid #8a6d1f;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin:1.2rem 0}
+.stat{background:#1a1e27;border-radius:8px;padding:.9rem;text-align:center}
+.stat b{display:block;font-size:1.5rem;color:#ffd166}
+.stat span{font-size:.85rem;color:#9aa3b2}
+.checker{background:#141a26;border:1px solid #1c6ef2;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.checker label{display:block;margin:.6rem 0 .2rem;font-weight:600}
+.checker select,.checker input{background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.6rem;color:#e8e8e8;font-size:1rem;width:100%;box-sizing:border-box}
+.checker button{background:#1c6ef2;color:#fff;border:none;border-radius:8px;padding:.7rem 1.4rem;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.8rem}
+#verdict{margin-top:1rem;font-weight:600;padding:.8rem;border-radius:8px;display:none}
+#verdict.fixed{display:block;background:#14301f;border:1px solid #4ade80}
+#verdict.vuln{display:block;background:#3a1a1a;border:1px solid #f87171}
+#verdict.eol{display:block;background:#2a1f10;border:1px solid #8a6d1f}
+table.versions{border-collapse:collapse;margin:1rem 0;width:100%}
+table.versions th,table.versions td{border:1px solid #3a4356;padding:.5rem .8rem;text-align:left}
+table.versions th{background:#1a1e27;color:#ffd166}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Cybersecurity News Today: Railway Breach Key Check","author":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-23","description":"Railway, the app hosting platform, published a preliminary report on October 22, 2026 about a break-in that ran from October 20 to October 22, 2026. An attacker escalated privileges in Railway's build infrastructure, reached credentials for its CI environment and decrypted a subset of stored environment variables while hunting AI provider API keys to perform distillation attacks. At most 1.85% of all workspaces, about 100,000, had some environment variables potentially compromised. User accounts were not accessed. Railway advises everyone who signed up prior to October 21, 2026 to rotate the keys stored on Railway."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://gitlab.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is the Railway breach, in plain terms?","acceptedAnswer":{"@type":"Answer","text":"The Railway breach is a break-in at Railway, the app hosting platform, in which an attacker got into internal systems between October 20 and October 22, 2026 and decrypted a subset of the environment variables customers stored there. Railway published the details in a preliminary report on October 22, 2026. The attacker was hunting AI provider API keys. User accounts were not accessed."}},
+{"@type":"Question","name":"How many workspaces were affected by the Railway breach?","acceptedAnswer":{"@type":"Answer","text":"Railway says at most 1.85% of all workspaces had some environment variables potentially compromised, about 100,000 workspaces. Because the keys were envelope encrypted, Railway cannot tell which specific variables in a project were decrypted. Railway is contacting customers it counts as definitely affected or high risk, including workspaces holding very many variables or many AI keys."}},
+{"@type":"Question","name":"What was the attacker after in the Railway breach?","acceptedAnswer":{"@type":"Answer","text":"The attacker's goal, per Railway's report, was AI provider API keys, taken to perform distillation attacks. Railway says the attacker had access to abliterated models and substantial compute and used sophisticated exploits against its build infrastructure. Railway has not published the exploit details or indicators of compromise, and says forensic work is still running, with a final report to come."}},
+{"@type":"Question","name":"A vendor emailed me that a key was revoked. Does that mean I was hacked?","acceptedAnswer":{"@type":"Answer","text":"No. On October 21, 2026, Railway asked vendors including GitHub, GitLab, Anthropic, OpenAI, OpenRouter, Stripe and Google to revoke keys, and out of caution it gave some vendors every key stored on the platform. More users got revocation notices than were impacted, Railway says. Treat the email as a prompt to rotate, not as proof your workspace was compromised."}},
+{"@type":"Question","name":"What should I do if I stored keys on Railway?","acceptedAnswer":{"@type":"Answer","text":"Rotate them. Railway recommends that everyone who signed up prior to October 21, 2026 rotate the keys stored on Railway, out of caution. Create the new key at the provider, update it in Railway, redeploy, then revoke the old key at the provider. Also remove public network access to databases, check GitHub audit logs and app access, and check Docker Hub registry audit logs."}}
+]}
+</script>
+</head>
+<body>
+<p class="meta"><time datetime="2026-10-23">October 23, 2026</time> · cybersecurity news today</p>
+<h1>Cybersecurity News Today: Railway Breach Exposed Stored API Keys, and Rotation Is the Fix</h1>
+<p>The urgent story in <strong>cybersecurity news today</strong> is a break-in at <strong>Railway</strong>, the platform many teams use to host apps and databases. Railway published a <strong>preliminary report</strong> on October 22, 2026, written by Jacob Cooper and Angelo Saraceno. It says an attacker was inside Railway's internal systems from <strong>October 20 to October 22, 2026</strong>, hunting <strong>AI provider API keys</strong>, and decrypted a subset of the environment variables customers store on the platform. At most <strong>1.85% of all workspaces, about 100,000 workspaces</strong>, had some variables potentially compromised. If you signed up for Railway before October 21 and stored keys there, Railway's advice is plain: rotate them. The checker below scores your rotation risk using Railway's own risk buckets.</p>
+<div class="warnbox"><strong>Honest scope, read this first:</strong> Railway cannot tell which specific variables in a project were decrypted, because the stored keys were envelope encrypted and the query the attacker ran cannot be tied to individual keys. That unknown is the whole story: the advice is rotate by default, not rotate if you get a definite-impact email. Three more limits from the report itself. The attacker did <strong>not</strong> access user accounts. Railway has <strong>not ruled out</strong> that the attacker accessed user source code; the final forensic report will confirm. And a vendor revocation email is <strong>not</strong> proof of compromise: Railway gave some vendors every key stored on the platform, so notices went to more users than were impacted.</div>
+
+<h2>What happened, per Railway's preliminary report</h2>
+<ul>
+<li><strong>The window:</strong> Railway believes the attack ran from <strong>October 20, 13:58 UTC</strong> to <strong>October 22, 03:32 UTC</strong>. The end time is when Railway confirmed the attacker no longer had access to any internal system.</li>
+<li><strong>Detection:</strong> monitoring paged an on-call engineer over abnormal latency on October 20. Railway identified a privilege escalation in its build infrastructure, halted build pipelines, and at <strong>19:53 UTC on October 20</strong> became aware it was facing a sustained and targeted campaign.</li>
+<li><strong>The goal:</strong> AI provider API keys, to perform distillation attacks. Railway says the attacker had access to abliterated models and substantial compute, which enabled highly sophisticated exploits. Railway has not published the exploit details or indicators of compromise; forensics are ongoing and a final report is promised.</li>
+<li><strong>The path in:</strong> the attacker first pulled secrets in encrypted form, then reached credentials for Railway's CI environment, and used compromised credentials to decrypt a subset of the environment variables it had queried from Railway's database.</li>
+<li><strong>Customer impact during the fight:</strong> new builds and deployments were paused and the dashboard, API, CLI and support tooling had periods of unavailability. Running deployments stayed online throughout. Builds for all tiers are now restored.</li>
+</ul>
+<div class="statgrid">
+<div class="stat"><b>100,000</b><span>workspaces had some environment variables potentially compromised, at most (Railway)</span></div>
+<div class="stat"><b>1.85%</b><span>of all workspaces fall in that potential exposure set, per Railway's preliminary report</span></div>
+<div class="stat"><b>Oct 20, 19:53 UTC</b><span>when Railway became aware of the sustained, targeted campaign</span></div>
+<div class="stat"><b>Oct 21, 09:25 UTC</b><span>when Railway notified vendors and asked them to revoke potentially compromised keys</span></div>
+</div>
+<p>The scale needs care. Railway says at most 1.85% of all workspaces had some environment variables potentially compromised, which it puts at about 100,000 workspaces. It also says the number of users touched by vendor revocation requests is larger than 100,000, because out of caution it handed some vendors all of the keys stored on the platform. Railway names two high-risk buckets it is contacting proactively: workspaces with a very large number of environment variables, and environments with a high amount of AI keys from vendors. If your workspace sits in either bucket, treat this as a rotate-today item even if no email has arrived.</p>
+
+<h2>Why this cybersecurity news today story is about keys, not accounts</h2>
+<p>Most breach advice starts with passwords. This one does not, because the attacker never needed yours. Railway states plainly that the attacker did not access Railway user accounts and that individual accounts were not logged into. The break-in hit internal systems, and the prize was the secrets layer underneath the accounts: the API keys, database credentials and registry credentials that apps store as environment variables so they can run unattended. Whoever holds those keys can call the provider as your app, spend against your account, and read what your app can read, all without touching your login.</p>
+<p>That is also why the vendor list matters. On October 21 at 09:25 UTC, Railway proactively notified vendors and asked them to revoke keys. The report names GitHub, GitLab, Anthropic, OpenAI, OpenRouter, Stripe, and Google among them. If you received a revocation notice from one of those vendors this week, this incident is the likely reason. Railway's own response went further than notifications: it rolled all of its internal keys, then rolled them again after confirming the attacker was out; it rolled credentials for all storage buckets on the platform; it rebuilt its internal tooling from validated source; it accelerated a move to fourth-generation single-tenant builder infrastructure; it engaged external incident response experts and the authorities; and it added a way to mass-revoke Railway application permissions whenever suspicious activity is suspected.</p>
+
+<h2>Check your rotation risk</h2>
+<div class="checker">
+<p style="margin-top:0">Five answers, scored in your browser against the risk buckets Railway names in its report. Nothing is sent anywhere.</p>
+<label for="signup">When did you sign up for Railway?</label>
+<select id="signup">
+<option value="before" selected>Before October 21, 2026</option>
+<option value="after">On or after October 21, 2026</option>
+<option value="unsure">Not sure</option>
+</select>
+<label for="nvars">How many environment variables do your Railway projects hold?</label>
+<select id="nvars">
+<option value="few" selected>A few: 1 to 10</option>
+<option value="many">Many: 11 to 50</option>
+<option value="verymany">Very many: over 50</option>
+</select>
+<label for="aikeys">Do those variables include AI provider keys (OpenAI, Anthropic, OpenRouter or similar)?</label>
+<select id="aikeys">
+<option value="yes">Yes</option>
+<option value="no" selected>No</option>
+</select>
+<label for="revoked">Did a vendor (GitHub, OpenAI, Stripe or another) email you that a key was revoked?</label>
+<select id="revoked">
+<option value="yes">Yes</option>
+<option value="no" selected>No</option>
+</select>
+<label for="dbpub">Can any of your databases be reached from the public internet?</label>
+<select id="dbpub">
+<option value="yes">Yes</option>
+<option value="no" selected>No</option>
+<option value="unsure">Not sure</option>
+</select>
+<button id="go" type="button">Score my rotation risk</button>
+<p id="verdict" role="status"></p>
+<noscript><p><em>Enable JavaScript for the rotation-risk checker, or follow the rotation steps below, which Railway recommends for every pre-October 21 signup.</em></p></noscript>
+</div>
+<script>
+function rwVerdict(signup,nvars,aikeys,revoked,dbpub){
+var s=0;
+if(signup==='before')s+=2;else if(signup==='unsure')s+=1;
+if(nvars==='verymany')s+=2;else if(nvars==='many')s+=1;
+if(aikeys==='yes')s+=2;
+if(revoked==='yes')s+=1;
+if(dbpub==='yes')s+=2;else if(dbpub==='unsure')s+=1;
+var tier=s>=4?'rotate-now':s>=2?'rotate-as-caution':'lower-risk';
+if(signup==='before'&&aikeys==='yes')tier='rotate-now';
+if(signup==='before'&&nvars==='verymany')tier='rotate-now';
+if(dbpub==='yes'&&tier==='lower-risk')tier='rotate-as-caution';
+return {score:s,tier:tier};
+}
+(function(){document.getElementById('go').addEventListener('click',function(){
+var su=document.getElementById('signup').value,nv=document.getElementById('nvars').value,ak=document.getElementById('aikeys').value,rv=document.getElementById('revoked').value,db=document.getElementById('dbpub').value;
+var r=rwVerdict(su,nv,ak,rv,db);
+var v=document.getElementById('verdict');
+function show(cls,txt){v.className=cls;v.textContent=txt;}
+var dbNote='';
+if(db==='yes')dbNote=' Your database can be reached from the public internet: remove public network access to it today. Railway lists that as a customer action in its own report.';
+else if(db==='unsure')dbNote=' You are not sure whether a database is publicly reachable: find out today, and remove public access if it is there.';
+var order=' Rotation order for each key: create the new key at the provider, update it in Railway, redeploy the service, then revoke the old key at the provider. Changing the value in Railway alone does not stop a leaked key from working, and revoking first breaks your app.';
+if(r.tier==='rotate-now'){show('vuln','ROTATE NOW. Your answers match the profile Railway is most worried about: keys stored before October 21, in the groups the attacker was hunting. Railway cannot tell which variables in a project were decrypted, so do not wait for a definite-impact email.'+order+dbNote);}
+else if(r.tier==='rotate-as-caution'){show('eol','ROTATE AS A CAUTION. Railway recommends that everyone who signed up prior to October 21, 2026 rotate the keys stored on Railway, out of caution, and your answers put you in or near that group. A revocation email by itself does not prove your workspace was compromised, because Railway sent some vendors every key on the platform.'+order+dbNote);}
+else{show('fixed','LOWER RISK. Nothing in your answers matches the two high-risk buckets Railway names: very many stored variables, or many AI vendor keys, in a pre-October 21 workspace. Still do two things: check your providers\u2019 usage and audit logs for the October 20 to 22 window, and replace any key a vendor already revoked, because a revoked key is dead either way.'+dbNote);}
+});})();
+</script>
+
+<h2>Run the Railway rotation check now</h2>
+<ul>
+<li><strong>List what you stored:</strong> every environment variable in every Railway project and environment. You cannot rotate what you have not listed, and Railway cannot tell you which of your variables were decrypted.</li>
+<li><strong>Rotate AI provider keys first:</strong> they are what the attacker came for. Then database credentials, then payment keys such as Stripe, then everything else, including private registry credentials.</li>
+<li><strong>Use the safe order for every key:</strong> create the new key at the provider, update it in Railway, redeploy the service so the new key is live, then revoke the old key at the provider. A key that was only changed inside Railway can still work for whoever copied the old value.</li>
+<li><strong>Remove public network access to databases:</strong> Railway lists this as a customer action. A database that the public internet can reach turns one copied credential into a direct login.</li>
+<li><strong>Check the logs Railway names:</strong> your GitHub account audit logs and app access, and the audit logs in registries such as Docker Hub. Add each AI provider's usage logs for October 20 to 22, 2026 and look for calls your app did not make.</li>
+<li><strong>Replace what vendors revoked:</strong> Railway revoked all Railway API tokens and rolled all storage bucket credentials on its side, and vendors revoked keys at Railway's request. Anything revoked is dead: create replacements and update CI, scripts and GitHub Actions secrets that used the old values.</li>
+<li><strong>Ask Railway if you are unsure:</strong> support@railway.com. Railway says it is contacting definitely affected and high-risk customers directly, and a follow-up report is promised when the forensic investigation concludes.</li>
+</ul>
+<p><strong>Agent Auth Gateway</strong>, Ingenious AI's control point for AI agent credentials, is built for the problem this breach exposes: valuable keys sitting in one store, reachable in bulk, with no per-key limit on what they can do once copied. The Gateway puts budget caps, allowlists and a kill switch in front of the keys your agents use, so a single stolen key cannot spend or roam without limit. <a href="https://authgateway.getingeniousai.com">See how Agent Auth Gateway works</a>.</p>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://authgateway.getingeniousai.com" style="color:#fff;text-decoration:underline">Agent Auth Gateway</a> is built for exactly this: caps, allowlists and a kill switch for the API keys your AI agents use.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 21 platforms: <a href="https://disclosureguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://modelminder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://termswatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://vibe-audit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://rogue-defense.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://breachhunter.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://chatbreaker.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://flightrecorder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://authgateway.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://domainguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://contentcraft.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a> &nbsp;·&nbsp; <a href="https://evalscope.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">EvalScope</a> &nbsp;·&nbsp; <a href="https://boundaryvault.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BoundaryVault</a> &nbsp;·&nbsp; <a href="https://agentic-receipts.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agentic Receipts</a> &nbsp;·&nbsp; <a href="https://storeaudit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Store Audit</a> &nbsp;·&nbsp; <a href="https://agentblock.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">AgentBlock</a> &nbsp;·&nbsp; <a href="https://homeshield.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">HomeShield</a> &nbsp;·&nbsp; <a href="https://agentgate.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">AgentGate</a> &nbsp;·&nbsp; <a href="https://admt.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ADMT</a> &nbsp;·&nbsp; <a href="https://dueladder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DueLadder</a> &nbsp;·&nbsp; <a href="https://wirewatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">WireWatch</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Every platform is live on its own getingeniousai.com domain:</div><a href="https://authgateway.getingeniousai.com" style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Visit Agent Auth Gateway &rarr;</a> <a href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/security-suite.html" style="display:inline-block;background:#222836;color:#e8edf3;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Explore the full Security Suite &rarr;</a></div>
+
+<h2>Quiz: how well do you know the Railway breach?</h2>
+<div class="quiz-q" data-a="1"><p><strong>1.</strong> What was the attacker hunting for inside Railway?</p>
+<button class="opt" data-v="0">Customer passwords and login cookies</button>
+<button class="opt" data-v="1">AI provider API keys, to perform distillation attacks</button>
+<button class="opt" data-v="2">Credit card numbers from billing records</button></div>
+<div class="quiz-q" data-a="0"><p><strong>2.</strong> How many workspaces had environment variables potentially compromised, at most?</p>
+<button class="opt" data-v="0">About 100,000 workspaces, which is 1.85% of all workspaces</button>
+<button class="opt" data-v="1">Every workspace on the platform</button>
+<button class="opt" data-v="2">Fewer than 100 workspaces</button></div>
+<div class="quiz-q" data-a="2"><p><strong>3.</strong> Did the attacker log into Railway user accounts?</p>
+<button class="opt" data-v="0">Yes, thousands of accounts were taken over</button>
+<button class="opt" data-v="1">Yes, but only admin accounts</button>
+<button class="opt" data-v="2">No. Railway says user accounts were not accessed; the break-in hit internal systems</button></div>
+<div class="quiz-q" data-a="1"><p><strong>4.</strong> A vendor emailed you that a key was revoked. What does that prove?</p>
+<button class="opt" data-v="0">Your workspace was definitely compromised</button>
+<button class="opt" data-v="1">Nothing by itself. Railway gave some vendors every key on the platform, so notices went to more users than were impacted</button>
+<button class="opt" data-v="2">Railway is closing your account</button></div>
+<div class="quiz-q" data-a="2"><p><strong>5.</strong> What is the safe order for rotating a stored key?</p>
+<button class="opt" data-v="0">Revoke the old key first, then create a new one when the app breaks</button>
+<button class="opt" data-v="1">Change the value in Railway and leave the old key active at the provider</button>
+<button class="opt" data-v="2">Create the new key at the provider, update it in Railway, redeploy, then revoke the old key at the provider</button></div>
+<p id="quiz-result"></p>
+<script>
+(function(){var total=document.querySelectorAll('.quiz-q').length,score=0,done=0;
+document.querySelectorAll('.quiz-q').forEach(function(q){var correct=parseInt(q.getAttribute('data-a'),10);
+q.querySelectorAll('.opt').forEach(function(b){b.addEventListener('click',function(){if(q.dataset.done)return;q.dataset.done='1';done++;
+var got=parseInt(b.getAttribute('data-v'),10);if(got===correct){score++;b.classList.add('correct');}else{b.classList.add('wrong');q.querySelectorAll('.opt')[correct].classList.add('correct');}
+if(done===total){var tier=score===5?'Rotation-grade: you know what was taken, what a revocation email means, and the safe order to rotate.':(score>=3?'Key-aware: solid grasp. Re-read the rotation order above before you touch a live key.':'Notice-skimmer: scroll back up, run the risk checker, and rotate before the next notice arrives.');
+document.getElementById('quiz-result').textContent='You scored '+score+'/'+total+'. '+tier;}});});});})();
+</script>
+<noscript><p><em>Enable JavaScript for the interactive quiz.</em></p></noscript>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What is the Railway breach, in plain terms?</summary><p>The Railway breach is a break-in at Railway, the app hosting platform, in which an attacker got into internal systems between October 20 and October 22, 2026 and decrypted a subset of the environment variables customers stored there. Railway published the details in a preliminary report on October 22, 2026. The attacker was hunting AI provider API keys. User accounts were not accessed.</p></details>
+<details><summary>How many workspaces were affected by the Railway breach?</summary><p>Railway says at most 1.85% of all workspaces had some environment variables potentially compromised, about 100,000 workspaces. Because the keys were envelope encrypted, Railway cannot tell which specific variables in a project were decrypted. Railway is contacting customers it counts as definitely affected or high risk, including workspaces holding very many variables or many AI keys.</p></details>
+<details><summary>What was the attacker after in the Railway breach?</summary><p>The attacker's goal, per Railway's report, was AI provider API keys, taken to perform distillation attacks. Railway says the attacker had access to abliterated models and substantial compute and used sophisticated exploits against its build infrastructure. Railway has not published the exploit details or indicators of compromise, and says forensic work is still running, with a final report to come.</p></details>
+<details><summary>A vendor emailed me that a key was revoked. Does that mean I was hacked?</summary><p>No. On October 21, 2026, Railway asked vendors including GitHub, GitLab, Anthropic, OpenAI, OpenRouter, Stripe and Google to revoke keys, and out of caution it gave some vendors every key stored on the platform. More users got revocation notices than were impacted, Railway says. Treat the email as a prompt to rotate, not as proof your workspace was compromised.</p></details>
+<details><summary>What should I do if I stored keys on Railway?</summary><p>Rotate them. Railway recommends that everyone who signed up prior to October 21, 2026 rotate the keys stored on Railway, out of caution. Create the new key at the provider, update it in Railway, redeploy, then revoke the old key at the provider. Also remove public network access to databases, check GitHub audit logs and app access, and check Docker Hub registry audit logs.</p></details>
+
+<p class="src">Sources: <a href="https://blog.railway.com/p/preliminary-report-october-security-incident">Railway, "Preliminary Report: Oct 21st Security Incident"</a>, by Jacob Cooper and Angelo Saraceno, Railway blog, October 22, 2026, updated October 23, 2026 (attack window, privilege escalation in build infrastructure, CI credential access, decrypted subset of environment variables, the 1.85% and about 100,000 workspace figures, the high-risk buckets, the October 21 vendor notifications, and the customer rotation guidance) · <a href="https://safeguard.sh/resources/blog/railway-preliminary-report-ci-credentials-ai-key-theft">Safeguard, "Railway Preliminary Incident Report: CI Credentials and AI Key Theft"</a> (independent summary of the same report) · <a href="https://blog.claroc.io/railway-security-incident/">Claroc, "Railway security incident"</a> (rotation guidance for database credentials and the sealed-variables open question) · <a href="https://pandromeda.com/security/railway-security-breach-what-happened-and-what-to-do-now">Pandromeda, "Railway Security Breach: What to Rotate Right Now"</a> (status page timeline, token and session invalidation times).</p>
+<p class="src">Questions about this check: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20have%20a%20question%20about%20the%20Railway%20breach%20check.">message Ingenious AI on WhatsApp</a>.</p>
+
+<div class="xlinks"><strong>Related checks</strong><ul>
+<li><a href="release-swap-check.html">Release Swap Check</a>: the tampered LiteLLM release from the same week of attacks on AI key stores</li>
+<li><a href="ai-discovered-bugs-fire-drill-check.html">AI-Discovered Bugs Fire Drill Check</a>: the Reuters week-in-review that named Railway among six major disclosure stories</li>
+<li><a href="tencent-rogue-agent-check.html">Tencent Rogue Agent Check</a>: the agent fleet that ran on leaked API keys</li>
+<li><a href="artex-agent-app-credential-check.html">ARTEX Agent App Credential Check</a>: stolen app credentials used as the way in</li>
+</ul></div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
