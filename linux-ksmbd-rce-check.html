@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, public_page_preflight -->
+<html data-primary-keyword="cybersecurity news today" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity News Today: Linux KSMBD RCE Flaws, No Fix Yet</title>
+<meta name="description" content="Cybersecurity news today: two CVSS 9.0 RCE flaws in KSMBD, the Linux kernel SMB server, have no patch yet. Check your port 445 exposure and lock it down.">
+<link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/linux-ksmbd-rce-check.html">
+<meta property="og:title" content="Cybersecurity News Today: Linux KSMBD RCE Flaws, No Fix Yet">
+<meta property="og:description" content="Trend Micro ZDI disclosed two CVSS 9.0 remote code execution flaws in KSMBD, the SMB server built into the Linux kernel, before any fix existed. One needs no authentication. Check your exposure and close it today.">
+<meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/linux-ksmbd-rce-check.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cybersecurity News Today: Linux KSMBD RCE Flaws, No Fix Yet">
+<meta name="twitter:description" content="ZDI-CAN-33774 and ZDI-CAN-33549: two CVSS 9.0 RCE flaws in the Linux kernel's KSMBD server, published before any fix. No CVE numbers yet. Check port 445 and lock it down.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:820px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}
+a{color:#7cc4ff}
+.quiz-q{background:#1a1e27;border-radius:8px;padding:1rem;margin:1rem 0}
+.opt{display:block;background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.7rem 1rem;margin:.5rem 0;cursor:pointer;width:100%;text-align:left;color:#e8e8e8;font-size:1rem}
+.opt:hover{border-color:#ffd166}.opt.picked{border-color:#7cc4ff;background:#24304a}.opt.correct{border-color:#4ade80;background:#14301f}.opt.wrong{border-color:#f87171;background:#3a1a1a}
+#quiz-result{font-weight:700;margin-top:1rem;font-size:1.1rem}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}
+.meta{color:#9aa3b2;font-size:.85rem}
+.src{font-size:.85rem;color:#9aa3b2}
+.warnbox{background:#2a1f10;border:1px solid #8a6d1f;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin:1.2rem 0}
+.stat{background:#1a1e27;border-radius:8px;padding:.9rem;text-align:center}
+.stat b{display:block;font-size:1.5rem;color:#ffd166}
+.stat span{font-size:.85rem;color:#9aa3b2}
+.checker{background:#141a26;border:1px solid #1c6ef2;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.checker label{display:block;margin:.6rem 0 .2rem;font-weight:600}
+.checker select,.checker input{background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.6rem;color:#e8e8e8;font-size:1rem;width:100%;box-sizing:border-box}
+.checker button{background:#1c6ef2;color:#fff;border:none;border-radius:8px;padding:.7rem 1.4rem;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.8rem}
+#verdict{margin-top:1rem;font-weight:600;padding:.8rem;border-radius:8px;display:none}
+#verdict.fixed{display:block;background:#14301f;border:1px solid #4ade80}
+#verdict.vuln{display:block;background:#3a1a1a;border:1px solid #f87171}
+#verdict.eol{display:block;background:#2a1f10;border:1px solid #8a6d1f}
+#verdict ul{font-weight:400;margin:.5rem 0 .2rem;padding-left:1.2rem}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Cybersecurity News Today: Linux KSMBD RCE Flaws, No Fix Yet","author":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-22","description":"On October 21 and 22, 2026, Trend Micro's Zero Day Initiative disclosed two remote code execution flaws in KSMBD, the SMB server built into the Linux kernel, on public kernel mailing lists before any fix existed. ZDI-CAN-33774 is an unauthenticated race condition in the protocol handler table, reachable on TCP port 445. ZDI-CAN-33549 is an integer underflow in the SMB Direct (RDMA) path. Both are rated CVSS 9.0. Neither flaw has a CVE identifier or a fix in the mainline kernel as of October 22, 2026, so mitigation is exposure control: disable KSMBD if unused, firewall port 445, and turn off SMB Direct."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://gitlab.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is the KSMBD flaw, in plain terms?","acceptedAnswer":{"@type":"Answer","text":"The KSMBD flaw is not one bug but two remote code execution flaws in the SMB file server built into the Linux kernel, both rated CVSS 9.0 by Trend Micro's Zero Day Initiative. They were published on October 21 and 22, 2026, before any fix existed, and neither has a CVE number yet."}},
+{"@type":"Question","name":"How is ZDI-CAN-33774 triggered, and who can reach it?","acceptedAnswer":{"@type":"Answer","text":"ZDI-CAN-33774 is a race condition in how KSMBD assigns its protocol handlers. A burst of short SMB1 packets followed by an SMB2 packet in the same TCP write makes a worker read SMB1 data with an SMB2 handler, past the end of the buffer. It needs no login, so anyone who can reach port 445 can try it."}},
+{"@type":"Question","name":"What does ZDI-CAN-33549 need that the other flaw does not?","acceptedAnswer":{"@type":"Answer","text":"ZDI-CAN-33549 is an integer underflow in KSMBD's SMB Direct path: a first RDMA buffer descriptor longer than the declared payload wraps a size counter, so a later copy overruns its buffer. Unlike the race flaw, it needs three things in place: an RDMA-capable interface or the rxe software driver, a writable KSMBD share, and SMB Direct negotiation."}},
+{"@type":"Question","name":"Why is there no patch and no CVE number yet?","acceptedAnswer":{"@type":"Answer","text":"The kernel project assigns CVE numbers only after a fix reaches the stable kernel trees, and as of October 22, 2026 neither flaw had a named fix in the mainline kernel or in linux-next. Fixes then have to flow to distribution kernels, which typically takes weeks. Phoronix reported a submitted fix for one flaw, unconfirmed elsewhere."}},
+{"@type":"Question","name":"My server uses Samba, not KSMBD. Am I affected?","acceptedAnswer":{"@type":"Answer","text":"No. Samba is a separate file server that runs in userspace, and these two flaws are in KSMBD, the server built into the Linux kernel itself. If your machine does not load the ksmbd module, the flaws do not apply to it. Keep Samba itself updated as usual, and check any machine where KSMBD might be enabled."}}
+]}
+</script>
+</head>
+<body>
+<p class="meta"><time datetime="2026-10-22">October 22, 2026</time> · cybersecurity news today</p>
+<h1>Cybersecurity News Today: Two CVSS 9.0 RCE Flaws in the Linux Kernel's KSMBD Server, With No Patch Yet</h1>
+<p>The hardest story in <strong>cybersecurity news today</strong> is one you cannot patch. <strong>KSMBD is the SMB file server built into the Linux kernel itself</strong>, and on <strong>October 21 and 22, 2026</strong>, Trend Micro's <strong>Zero Day Initiative</strong> published <strong>two remote code execution flaws</strong> in it, each rated <strong>CVSS 9.0</strong>, on the public kernel mailing lists <strong>before any fix existed</strong>. One of them, <strong>ZDI-CAN-33774</strong>, needs <strong>no authentication at all</strong>: any host that can reach TCP port 445 can trigger it. Neither flaw has a CVE number yet, and no fixed kernel is available. Until one is, exposure control is the whole defense. The checker below takes a minute.</p>
+<div class="warnbox"><strong>Honest scope, read this first:</strong> There is <strong>no patch to apply today</strong>. As of October 22, 2026, neither flaw has a <strong>CVE identifier</strong>, because the kernel project assigns CVEs only after a fix reaches the stable trees, and neither has a <strong>named fix in the mainline kernel or in linux-next</strong>. Phoronix reported that SMB Direct maintainer Stefan Metzmacher has submitted a fix for ZDI-CAN-33549 aimed at the next kernel cycle, but that report is <strong>unconfirmed elsewhere</strong>. No active exploitation and no public proof of concept have been reported. And the scope limit matters: if you do not run KSMBD (many servers use Samba in userspace instead, or no SMB at all), these flaws do not apply to you. If you do run it, the mitigations further down work today.</div>
+
+<h2>The two flaws, exactly as disclosed</h2>
+<ul>
+<li><strong>ZDI-CAN-33774, the unauthenticated race:</strong> a race condition in how KSMBD assigns its protocol handler table. A burst of short SMB1 packets followed by an SMB2 packet in the same TCP write makes worker threads process SMB1 data with an SMB2 handler, reading past the end of the shorter buffer. A path to writing past the buffer also exists once an attacker has access to a share. The trigger needs <strong>no authentication</strong> and is reachable on <strong>any server running KSMBD on TCP port 445</strong>.</li>
+<li><strong>ZDI-CAN-33549, the SMB Direct underflow:</strong> an integer underflow in KSMBD's SMB Direct path. A client can supply RDMA buffer descriptors in which the first descriptor is longer than the declared payload, which wraps the server's size counter so a subsequent memory copy overruns the end of its buffer. This one needs three things in place: an <strong>RDMA-capable interface</strong> (hardware, or the rxe software driver), a <strong>writable KSMBD share</strong>, and a client that negotiates <strong>SMB Direct</strong>.</li>
+<li><strong>Why kernel space raises the stakes:</strong> KSMBD runs inside the kernel, not as a normal application. Memory corruption there carries <strong>kernel-level impact</strong>, not a crashed file-sharing process.</li>
+<li><strong>Who found them:</strong> The Hacker News credits Trend Micro's AI scanner, TrendAI, among the finders. A threat-intel source credits researcher Hyeontae Lee, working with ZDI and TrendAI, for ZDI-CAN-33549 specifically.</li>
+</ul>
+<div class="statgrid">
+<div class="stat"><b>9.0</b><span>CVSS score ZDI assigned to each of the two flaws</span></div>
+<div class="stat"><b>445</b><span>TCP port KSMBD listens on, where the unauthenticated flaw is reachable</span></div>
+<div class="stat"><b>0%</b><span>authentication required to trigger ZDI-CAN-33774</span></div>
+<div class="stat"><b>0</b><span>CVE identifiers and fixed kernels available as of October 22, 2026</span></div>
+</div>
+<p>The disclosure order is the sharp edge here. ZDI published both flaws on <strong>public mailing lists</strong> before a fix existed in mainline or linux-next, which means the technical details are public while the patch is not. Fixes for kernel flaws then have to travel from mainline to the stable trees and out to distribution kernels, a trip that typically takes <strong>weeks</strong>. Every KSMBD server that stays reachable in that window is relying on its network position, not on a patch.</p>
+
+<h2>Why this cybersecurity news today matters: the disclosure came before the fix</h2>
+<p>Most critical flaws arrive with a patch attached, and the race is about who updates first. This pair inverts that: the details are out, the CVE numbers do not exist yet, and there is nothing to update to. That changes the defender's job from patch management to exposure management. The only questions that matter this week are whether the ksmbd module is loaded, whether port 445 can be reached by hosts you do not trust, and whether SMB Direct widens the second flaw's path.</p>
+<p>It also lands in a week that keeps widening. The PHP runtime, Node.js, and GitLab all took critical flaws in the same few days, and the finders keep crediting AI tooling: TrendAI is named on this disclosure, just as AI models were credited on the PHP flaws. Whether or not that pattern holds, the practical effect for server operators is the same: flaw details now travel faster than fixes do, and quiet, correctly firewalled services are worth more than they were.</p>
+
+<h2>What can you do about the KSMBD flaws today?</h2>
+<p>You cannot patch yet, because no fixed kernel exists, so the work today is exposure control. Find out whether the ksmbd module is loaded, close or firewall TCP port 445 so only trusted hosts can reach it, turn off SMB Direct, tighten writable shares, and apply your distribution's kernel update the day the fix lands.</p>
+
+<h2>Check your KSMBD exposure in under a minute</h2>
+<div class="checker">
+<p style="margin-top:0">Answer four questions about the server you care about. Everything runs in your browser; nothing is sent anywhere.</p>
+<label for="srv">Which SMB file server do you run?</label>
+<select id="srv">
+<option value="ksmbd">KSMBD, the kernel SMB server (ksmbd module)</option>
+<option value="samba">Samba in userspace (smbd), not KSMBD</option>
+<option value="none">No SMB file sharing at all</option>
+<option value="unsure">Not sure</option>
+</select>
+<label for="port">Who can reach TCP port 445 on this server?</label>
+<select id="port">
+<option value="internet">The whole internet</option>
+<option value="lan">My local network only (LAN)</option>
+<option value="closed">Nobody, it is closed or firewalled off</option>
+</select>
+<label for="rdma">Is SMB Direct (RDMA) enabled?</label>
+<select id="rdma">
+<option value="hardware">Yes, on RDMA hardware</option>
+<option value="rxe">Yes, through the rxe software driver</option>
+<option value="disabled">No, it is disabled</option>
+<option value="unsure">Not sure</option>
+</select>
+<label for="shares">How are your file shares set up?</label>
+<select id="shares">
+<option value="guest">Some shares are writable by guests or broad groups</option>
+<option value="authwrite">Writable, but only for signed-in named users</option>
+<option value="readonly">Read-only, or no shares at all</option>
+</select>
+<button id="go" type="button">Check my exposure</button>
+<div id="verdict" role="status"></div>
+<noscript><p><em>Enable JavaScript for the exposure checker, or work through the lockdown steps below manually.</em></p></noscript>
+</div>
+<script>
+function ksmbdVerdict(srv, port, rdma, shares){
+  var base = "There is no patch today. Follow your distribution's kernel security announcements and install the stable kernel update the day it lands; fixes typically take weeks to travel from mainline to stable to distribution kernels.";
+  if(srv === "none"){
+    return {level:"fixed", title:"NOT EXPOSED by these flaws", actions:["You run no SMB server, so there is nothing for the KSMBD flaws to hit. Keep it that way: if you add file sharing later, use a patched kernel or Samba, and never expose port 445 to the internet."]};
+  }
+  if(srv === "samba"){
+    return {level:"fixed", title:"NOT EXPOSED by these flaws", actions:["Samba is a separate userspace program; these flaws live in the kernel KSMBD module only. Keep Samba itself on its own patch cycle, and confirm the ksmbd module is not also loaded: run lsmod and look for ksmbd."]};
+  }
+  if(srv === "unsure"){
+    var ua = ["Find out before anything else: run lsmod | grep ksmbd on the server. If a line comes back, the kernel SMB server is loaded and the rest of this page applies to you. Also check whether a ksmbd service is enabled at boot.", "Until you know, treat the machine as exposed: keep TCP port 445 firewalled to trusted hosts only."];
+    if(port === "internet"){ ua.push("You said port 445 is open to the internet. If KSMBD turns out to be loaded, that is the critical case: close or firewall 445 today, before you finish investigating."); }
+    ua.push(base);
+    return {level:"eol", title:"UNKNOWN: CHECK FIRST", actions:ua};
+  }
+  var a = [], level, title;
+  if(port === "internet"){
+    level = "vuln"; title = "INTERNET-EXPOSED: CRITICAL";
+    a.push("Close the hole today: firewall TCP port 445 so only named trusted hosts can reach it, or stop KSMBD entirely until a fixed kernel exists. ZDI-CAN-33774 needs no login, so any internet scanner can reach the trigger.");
+  } else if(port === "lan"){
+    level = "eol"; title = "LAN RISK";
+    a.push("Port 445 is not internet-facing, which removes mass scanning, but any compromised or rogue device on your local network can still trigger the unauthenticated flaw. Firewall 445 to the specific hosts that need file access.");
+  } else {
+    level = "fixed"; title = "NOT EXPOSED while 445 stays closed";
+    a.push("TCP port 445 is closed or blocked, so neither flaw has a network path in. Keep it closed until a fixed kernel is installed and verified.");
+  }
+  if(rdma === "hardware" || rdma === "rxe"){
+    a.push("SMB Direct is on, and that is the extra path ZDI-CAN-33549 needs. Disable SMB Direct, or unload the RDMA stack, until the fix lands.");
+  }
+  if(rdma === "unsure"){
+    a.push("You are not sure about SMB Direct: check whether the rxe driver or RDMA hardware is present and whether KSMBD is set up for SMB Direct. Assume it is on until you confirm otherwise.");
+  }
+  if(shares === "guest"){
+    a.push("Guest or broad-group writable shares widen both flaws: a write path exists past the race flaw's buffer once an attacker has share access, and a writable share is one of the three things the SMB Direct flaw needs. Make shares read-only, or restrict writes to named users, today.");
+  }
+  if(shares === "authwrite"){
+    a.push("Writable shares for signed-in users still satisfy one of the three conditions for ZDI-CAN-33549 when SMB Direct is on. Review who genuinely needs write access.");
+  }
+  a.push("If this server does not need KSMBD at all, the cleanest move is to stop it: unload the ksmbd module and blacklist it so it stays off after a reboot.");
+  a.push(base);
+  return {level:level, title:title, actions:a};
+}
+(function(){
+document.getElementById('go').addEventListener('click', function(){
+  var r = ksmbdVerdict(document.getElementById('srv').value, document.getElementById('port').value, document.getElementById('rdma').value, document.getElementById('shares').value);
+  var v = document.getElementById('verdict');
+  v.className = r.level;
+  v.textContent = "";
+  var s = document.createElement('strong'); s.textContent = r.title; v.appendChild(s);
+  var ul = document.createElement('ul');
+  r.actions.forEach(function(t){ var li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
+  v.appendChild(ul);
+});
+})();
+</script>
+
+<h2>Run the KSMBD lockdown now</h2>
+<ol>
+<li><strong>Find out whether KSMBD is even loaded:</strong> run <strong>lsmod | grep ksmbd</strong> on the server. If nothing comes back and you serve files with Samba (smbd) instead, these flaws do not apply to that machine. Check every Linux server, not just the one you think of as the file server: KSMBD is a kernel module and can be enabled quietly.</li>
+<li><strong>If KSMBD is unused, stop and disable it today:</strong> unload the ksmbd module and blacklist it, so it does not come back at boot. An unused kernel file server is pure exposure.</li>
+<li><strong>Firewall TCP port 445 to trusted hosts only:</strong> the unauthenticated flaw needs nothing but reachability. If 445 is open to the internet, closing it down is the single highest-value move on this page, and it works today, patch or no patch.</li>
+<li><strong>Disable SMB Direct:</strong> if you do not run RDMA, confirm the rxe driver and the RDMA stack are not loaded. If you do run RDMA, weigh turning SMB Direct off until the fix lands; it is one of the three conditions the second flaw needs.</li>
+<li><strong>Tighten writable shares:</strong> remove guest writes and broad-group writes. Keep writable shares limited to named users who need them, or make shares read-only for the duration.</li>
+<li><strong>Watch for the fix, then move the day it lands:</strong> follow your distribution's kernel security announcements. Remember the chain: mainline first, then stable, then your distribution, which typically takes weeks. When the fixed kernel arrives, install it, reboot into it, and confirm KSMBD is the patched build before you loosen any of the controls above.</li>
+</ol>
+<p><strong>BreachHunter</strong>, Ingenious AI's external exposure hunter, exists for exactly this gap: a critical flaw with public details and no patch, where the only question that matters is whether your own servers are reachable from outside. It sweeps your public footprint for the ports and services that should not be answering. <a href="https://breachhunter.getingeniousai.com">Get early access on WhatsApp</a>.</p>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://breachhunter.getingeniousai.com" style="color:#fff;text-decoration:underline">BreachHunter</a> is built for exactly this: finding the services your servers expose to the internet, before someone else finds them.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://disclosureguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://modelminder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://termswatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://vibe-audit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://rogue-defense.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://breachhunter.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://chatbreaker.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://flightrecorder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://authgateway.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://domainguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://contentcraft.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded. Get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20KSMBD%20check%20and%20want%20early%20access." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<h2>Quiz: how well do you know the KSMBD flaws?</h2>
+<div class="quiz-q" data-a="1"><p><strong>1.</strong> What is unusual about how these flaws were disclosed?</p>
+<button class="opt" data-v="0">They were announced at a conference with a live demo</button>
+<button class="opt" data-v="1">They were published on public mailing lists before any fix existed</button>
+<button class="opt" data-v="2">They were sold to a broker before disclosure</button></div>
+<div class="quiz-q" data-a="2"><p><strong>2.</strong> What does an attacker need to trigger ZDI-CAN-33774?</p>
+<button class="opt" data-v="0">A valid user account on the server</button>
+<button class="opt" data-v="1">A writable share and an RDMA adapter</button>
+<button class="opt" data-v="2">Nothing but network access to TCP port 445, with no authentication</button></div>
+<div class="quiz-q" data-a="0"><p><strong>3.</strong> Which extra pieces does ZDI-CAN-33549, the SMB Direct flaw, require?</p>
+<button class="opt" data-v="0">An RDMA-capable interface, a writable KSMBD share, and SMB Direct negotiation</button>
+<button class="opt" data-v="1">Root access and a local account</button>
+<button class="opt" data-v="2">A signed kernel module</button></div>
+<div class="quiz-q" data-a="1"><p><strong>4.</strong> Why do the two flaws have no CVE numbers yet?</p>
+<button class="opt" data-v="0">ZDI did not request any</button>
+<button class="opt" data-v="1">The kernel project assigns CVEs only after a fix reaches the stable trees</button>
+<button class="opt" data-v="2">Linux kernel flaws never get CVE numbers</button></div>
+<div class="quiz-q" data-a="2"><p><strong>5.</strong> Your server runs KSMBD with port 445 open to the internet. What is the right move today?</p>
+<button class="opt" data-v="0">Wait quietly for the patch, it should only be days</button>
+<button class="opt" data-v="1">Move SMB to a different port number and say nothing</button>
+<button class="opt" data-v="2">Firewall 445 to trusted hosts, or stop KSMBD now, because no patch exists yet</button></div>
+<p id="quiz-result"></p>
+<script>
+(function(){var total=document.querySelectorAll('.quiz-q').length,score=0,done=0;
+document.querySelectorAll('.quiz-q').forEach(function(q){var correct=parseInt(q.getAttribute('data-a'),10);
+q.querySelectorAll('.opt').forEach(function(b){b.addEventListener('click',function(){if(q.dataset.done)return;q.dataset.done='1';done++;
+var got=parseInt(b.getAttribute('data-v'),10);if(got===correct){score++;b.classList.add('correct');}else{b.classList.add('wrong');q.querySelectorAll('.opt')[correct].classList.add('correct');}
+if(done===total){var tier=score===5?'Exposure-grade: you check what is reachable, not what is patched.':(score>=3?'Cautious operator: solid instincts. Remember that no patch exists yet, so reachability is the whole game.':'Patch-waiting is the risk here. Scroll back up and run the KSMBD exposure check on your servers.');
+document.getElementById('quiz-result').textContent='You scored '+score+'/'+total+'. '+tier;}});});});})();
+</script>
+<noscript><p><em>Enable JavaScript for the interactive quiz.</em></p></noscript>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What is the KSMBD flaw, in plain terms?</summary><p>The KSMBD flaw is not one bug but two remote code execution flaws in the SMB file server built into the Linux kernel, both rated CVSS 9.0 by Trend Micro's Zero Day Initiative. They were published on October 21 and 22, 2026, before any fix existed, and neither has a CVE number yet.</p></details>
+<details><summary>How is ZDI-CAN-33774 triggered, and who can reach it?</summary><p>ZDI-CAN-33774 is a race condition in how KSMBD assigns its protocol handlers. A burst of short SMB1 packets followed by an SMB2 packet in the same TCP write makes a worker read SMB1 data with an SMB2 handler, past the end of the buffer. It needs no login, so anyone who can reach port 445 can try it.</p></details>
+<details><summary>What does ZDI-CAN-33549 need that the other flaw does not?</summary><p>ZDI-CAN-33549 is an integer underflow in KSMBD's SMB Direct path: a first RDMA buffer descriptor longer than the declared payload wraps a size counter, so a later copy overruns its buffer. Unlike the race flaw, it needs three things in place: an RDMA-capable interface or the rxe software driver, a writable KSMBD share, and SMB Direct negotiation.</p></details>
+<details><summary>Why is there no patch and no CVE number yet?</summary><p>The kernel project assigns CVE numbers only after a fix reaches the stable kernel trees, and as of October 22, 2026 neither flaw had a named fix in the mainline kernel or in linux-next. Fixes then have to flow to distribution kernels, which typically takes weeks. Phoronix reported a submitted fix for one flaw, unconfirmed elsewhere.</p></details>
+<details><summary>My server uses Samba, not KSMBD. Am I affected?</summary><p>No. Samba is a separate file server that runs in userspace, and these two flaws are in KSMBD, the server built into the Linux kernel itself. If your machine does not load the ksmbd module, the flaws do not apply to it. Keep Samba itself updated as usual, and check any machine where KSMBD might be enabled.</p></details>
+
+<p class="src">Sources: <a href="http://thehackernews.com/2026/10/two-cvss-90-linux-ksmbd-rce-flaws.html">The Hacker News, October 22, 2026</a> (the two flaws, their triggers and requirements, the mailing-list disclosure before fixes, the missing CVE identifiers, and the TrendAI finder credit) · Trend Micro Zero Day Initiative disclosures for ZDI-CAN-33774 and ZDI-CAN-33549, as published on the public kernel mailing lists, October 21 to 22, 2026 · Phoronix, October 2026 (the reported, still unconfirmed SMB Direct fix submitted by Stefan Metzmacher for the next kernel cycle).</p>
+
+<div class="xlinks"><strong>Related checks</strong><ul>
+<li><a href="php2shell-check.html">PHP2Shell Check</a>: two CVSS 9.2 RCE flaws in the PHP runtime itself, patched October 21 with attacks already live</li>
+<li><a href="nodejs-brotli-rce-check.html">Node.js Brotli RCE Check</a>: CVE-2026-111497 in the Brotli decoder Node.js bundles, fixed in 22.23.4, 24.22.1 and 26.12.1</li>
+<li><a href="gitlab-cve-2026-110264-check.html">GitLab CVE-2026-110264 Check</a>: the CVSS 10.0 regex overflow in every self-managed GitLab release since 2014</li>
+</ul></div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
