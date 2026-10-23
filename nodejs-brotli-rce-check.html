@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, public_page_preflight -->
+<html data-primary-keyword="cybersecurity news today" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity News Today: Node.js Brotli Decoder RCE</title>
+<meta name="description" content="Cybersecurity news today: a flaw in Node.js's bundled Brotli decoder (CVE-2026-111497) can allow RCE. Fixed in 22.23.4, 24.22.1, 26.12.1 — check yours.">
+<link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/nodejs-brotli-rce-check.html">
+<meta property="og:title" content="Cybersecurity News Today: Node.js Brotli Decoder Flaw — RCE in All Supported Versions">
+<meta property="og:description" content="CVE-2026-111497 is an out-of-bounds write in the Brotli decoder Node.js bundles. It can allow remote code execution when an app decompresses attacker-controlled data. Fixes shipped October 21 for 22.x, 24.x and 26.x. Check your version.">
+<meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/nodejs-brotli-rce-check.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cybersecurity News Today: Node.js Brotli Decoder Flaw — RCE in All Supported Versions">
+<meta name="twitter:description" content="CVE-2026-111497: RCE risk in Node.js's bundled Brotli decoder. Fixed in 22.23.4 / 24.22.1 / 26.12.1. Node 20.x and older get no fix. Check your version.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:820px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}
+a{color:#7cc4ff}
+.quiz-q{background:#1a1e27;border-radius:8px;padding:1rem;margin:1rem 0}
+.opt{display:block;background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.7rem 1rem;margin:.5rem 0;cursor:pointer;width:100%;text-align:left;color:#e8e8e8;font-size:1rem}
+.opt:hover{border-color:#ffd166}.opt.picked{border-color:#7cc4ff;background:#24304a}.opt.correct{border-color:#4ade80;background:#14301f}.opt.wrong{border-color:#f87171;background:#3a1a1a}
+#quiz-result{font-weight:700;margin-top:1rem;font-size:1.1rem}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}
+.meta{color:#9aa3b2;font-size:.85rem}
+.src{font-size:.85rem;color:#9aa3b2}
+.warnbox{background:#2a1f10;border:1px solid #8a6d1f;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin:1.2rem 0}
+.stat{background:#1a1e27;border-radius:8px;padding:.9rem;text-align:center}
+.stat b{display:block;font-size:1.5rem;color:#ffd166}
+.stat span{font-size:.85rem;color:#9aa3b2}
+.checker{background:#141a26;border:1px solid #1c6ef2;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.checker label{display:block;margin:.6rem 0 .2rem;font-weight:600}
+.checker select,.checker input{background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.6rem;color:#e8e8e8;font-size:1rem;width:100%;box-sizing:border-box}
+.checker button{background:#1c6ef2;color:#fff;border:none;border-radius:8px;padding:.7rem 1.4rem;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.8rem}
+#verdict,#expverdict{margin-top:1rem;font-weight:600;padding:.8rem;border-radius:8px;display:none}
+#verdict.fixed,#expverdict.fixed{display:block;background:#14301f;border:1px solid #4ade80}
+#verdict.vuln,#expverdict.vuln{display:block;background:#3a1a1a;border:1px solid #f87171}
+#verdict.eol,#expverdict.eol{display:block;background:#2a1f10;border:1px solid #8a6d1f}
+table.versions{border-collapse:collapse;margin:1rem 0;width:100%}
+table.versions th,table.versions td{border:1px solid #3a4356;padding:.5rem .8rem;text-align:left}
+table.versions th{background:#1a1e27;color:#ffd166}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Cybersecurity News Today: Node.js Brotli Decoder Flaw — RCE in All Supported Versions","author":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-22","description":"On October 21, 2026, Node.js shipped security releases for its three supported lines — 22.23.4, 24.22.1, and 26.12.1 — fixing 10 flaws. The most serious, CVE-2026-111497, is an out-of-bounds write in the Brotli decoder Node.js bundles, which the project says can allow remote code execution when an application decompresses attacker-controlled Brotli data. A public proof of concept reached code execution only on a deliberately weakened test build, and no exploitation in the wild had been reported as of October 22. Node 20.x and earlier are end-of-life and receive no fix. The same releases also block the eight compromised eMudhra CA keys."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://gitlab.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is CVE-2026-111497, in plain terms?","acceptedAnswer":{"@type":"Answer","text":"CVE-2026-111497 is a high-severity flaw in the Brotli decoder that Node.js bundles inside itself. When an application decompresses Brotli data an attacker controls — a request body, or a compressed response it fetched — malformed input can write outside the intended memory. The Node.js project says that can allow remote code execution. It affects all three supported Node.js lines, and the fix is updating to the October 21, 2026 security releases."}},
+{"@type":"Question","name":"Which Node.js versions are fixed, and which are affected?","acceptedAnswer":{"@type":"Answer","text":"The October 21, 2026 security releases fix all three supported lines: update 22.x to 22.23.4, 24.x to 24.22.1, and 26.x to 26.12.1 or later. Any earlier build on those lines is affected. Node 20.x and everything older are end-of-life: no fixed build exists and none is coming, so the only remedy is moving to a supported line and testing your application there."}},
+{"@type":"Question","name":"How do I know if my application is exposed to the Brotli flaw?","acceptedAnswer":{"@type":"Answer","text":"Exposure needs your application to decompress Brotli data an attacker controls. The two paths are decompressing request bodies through node:zlib or a framework feature, and fetching URLs whose responses arrive Brotli-compressed, which fetch() decompresses automatically. If neither happens in your code, the decoder flaw has no obvious route in — but the same releases fix TLS, DNS, and certificate issues, so upgrading is still the right move."}},
+{"@type":"Question","name":"Has CVE-2026-111497 been exploited, and how strong is the proof of concept?","acceptedAnswer":{"@type":"Answer","text":"As of October 22, 2026, no exploitation in the wild had been reported. A public proof of concept appeared the same week: it reached code execution only against a deliberately weakened test build, while a standard Node.js build crashed with a limited read of process memory, and its author said a working attack on a normal build was not achieved. Patched builds reject the malformed input it uses."}},
+{"@type":"Question","name":"My app runs Node 20.x, or I cannot upgrade yet. What are my options?","acceptedAnswer":{"@type":"Answer","text":"Node 20.x and older are end-of-life: no fix exists and none is coming, so the real option is moving to a supported line — 22.x or 24.x — and testing there. If a supported-line upgrade must wait days, the advisory offers no workaround inside Node.js itself. Host firewall rules can block the inbound request path, but they do not cover responses your application fetches from other servers."}}
+]}
+</script>
+</head>
+<body>
+<p class="meta"><time datetime="2026-10-22">October 22, 2026</time> · cybersecurity news today</p>
+<h1>Cybersecurity News Today: Node.js Brotli Decoder Flaw Can Allow RCE in Every Supported Version</h1>
+<p>The most urgent story in <strong>cybersecurity news today</strong> is a flaw inside the runtime that powers a large share of the web's servers and APIs. On <strong>October 21, 2026</strong>, Node.js shipped security releases for all three supported lines, fixing <strong>10 flaws</strong>. The headline is <strong>CVE-2026-111497</strong>: an <strong>out-of-bounds write in the Brotli decompression code Node.js bundles</strong>, which the project says can allow <strong>remote code execution</strong> when an application decompresses Brotli data an attacker controls. Every supported line is affected — and <strong>Node 20.x and older, now end-of-life, get no fix at all</strong>. Run <strong>node -v</strong>, then use the checker below for a verdict and your exact upgrade target.</p>
+<div class="warnbox"><strong>Honest scope — read this first:</strong> "Remote code execution" is <strong>the Node.js project's own description</strong> of what this flaw could allow, and the flaw is rated <strong>high, not critical</strong>. How far it has been shown in practice is narrower: a <strong>public proof of concept published October 22</strong> reached code execution <strong>only against a deliberately weakened test build</strong>; on a standard Node.js build it produced a <strong>crash and a limited read of process memory</strong>, and its author said a working attack on a normal build was not achieved. <strong>No exploitation in the wild had been reported as of October 22</strong>, and patched builds reject the malformed input the proof of concept uses. None of that makes the fix optional: exposure needs only an app that decompresses attacker-controlled Brotli data, and the advisory offers <strong>no workaround</strong> — upgrading is the fix.</div>
+
+<h2>The flaws, exactly as disclosed</h2>
+<ul>
+<li><strong>CVE-2026-111497 — out-of-bounds write in the bundled Brotli decoder:</strong> the flaw is in code Node.js ships, not in your program. Node.js runs that decoder whenever it decompresses Brotli data — directly through the <strong>node:zlib</strong> module, or automatically when code calls <strong>fetch()</strong> on a response sent with Brotli compression. An application is exposed where it decompresses Brotli data an attacker controls: a request body, or a response fetched from another server. The fix is an <strong>upstream patch from the Brotli project</strong> that Node.js copied in, and it makes the decoder catch invalid input and stop earlier rather than writing past the buffer. Brotli itself shipped the same fix in <strong>1.2.1, 1.1.1, and 1.0.10</strong> on October 21, so other software that bundles Brotli may need the same update.</li>
+<li><strong>CVE-2026-106069 and CVE-2026-105483 — TLS hostname checks an attacker can bypass:</strong> both are rated high. Each lets a certificate match a host it should not when an IP address is written in an unusual form — a <strong>non-canonical form</strong> in one case, <strong>fullwidth digits</strong> in the other. Node.js rates CVE-2026-105483 high, though the commit that fixed it calls the bug low-severity and hard to exploit.</li>
+<li><strong>CVE-2026-105482 — DNS names cut short at a null byte:</strong> also rated high, it stops <strong>dns.resolve</strong> from truncating a hostname at an embedded null byte, which could make a lookup silently resolve a different name than the one the code asked for.</li>
+<li><strong>The eMudhra block rides along:</strong> the same releases stop Node.js from trusting the <strong>eight compromised eMudhra intermediate CA keys</strong> and remove three emSign roots. Node.js uses the Mozilla root list but does not perform revocation checks by default, so before this update a certificate chain built on one of the compromised keys still passed — the block had to ship in code. We track that incident on the <a href="emudhra-ca-keys-check.html">eMudhra CA keys check</a>.</li>
+</ul>
+<div class="statgrid">
+<div class="stat"><b>HIGH</b><span>severity of CVE-2026-111497 — the project's RCE description, rated below the critical line</span></div>
+<div class="stat"><b>10</b><span>flaws fixed in the October 21, 2026 releases across the 22.x, 24.x and 26.x lines</span></div>
+<div class="stat"><b>3</b><span>fixed builds, one per supported line: 22.23.4 · 24.22.1 · 26.12.1</span></div>
+<div class="stat"><b>0</b><span>workarounds offered for the Brotli flaw — upgrading is the only fix in the advisory</span></div>
+</div>
+<p>Put the scope in one sentence: the vulnerable decoder is bundled inside Node.js itself, so <strong>100 percent of supported release lines — 22.x, 24.x, and 26.x — needed a patched build on the same day</strong>, and every line older than that is end-of-life and gets nothing.</p>
+
+<h2>Why this cybersecurity news today matters: the bug lives in the runtime, not your code</h2>
+<p>Most dependency scares live in a package somebody chose. This one lives in the runtime itself. Brotli is Google's compression library, and Node.js ships its own copy, so the flaw follows Node.js into every application built on it — including applications whose own code never touches compression directly, because <strong>fetch() decompresses Brotli responses automatically</strong>. The timeline deserves a look as well: the change was first made in Brotli's source in <strong>February 2026</strong> and shipped as a security release only in October. Bundled code runs on its own patch clock, separate from yours — and nothing in your dependency list tells you it exists.</p>
+<p>The rest of the set is not filler. The two TLS bypasses weaken the check that a certificate really belongs to the host you reached. A medium flaw, <strong>CVE-2026-106074</strong>, makes <strong>crypto.randomUUID()</strong> and <strong>crypto.randomInt()</strong> hand back the same values in every process when an application is built as a startup snapshot or a single-executable application — quietly undermining anything that relies on those values being unpredictable. The bundled <strong>undici</strong>, the HTTP client behind fetch(), moves to a version that fixes three moderate advisories, including two memory-exhaustion flaws, one of them in the WebSocket client built into Node.js. The releases also refresh the bundled c-ares on all lines, OpenSSL on 22.x and 24.x, and SQLite on 22.x.</p>
+<p>If you cannot upgrade today, the options are thin and worth stating plainly. The advisory offers <strong>no temporary workaround</strong> for the Brotli flaw. <strong>Vercel</strong>, which runs Node.js for its customers, said it added firewall rules on October 21 that block the attack in inbound requests — but those rules do not cover Brotli responses an application fetches from other servers, and they do not replace upgrading. Treat any firewall layer as time bought, not as the fix.</p>
+
+<h2>The fixes, line by line</h2>
+<table class="versions">
+<tr><th>Your line</th><th>Fixed in</th><th>Status</th></tr>
+<tr><td>22.x (LTS), before 22.23.4</td><td><strong>22.23.4</strong></td><td>Update to 22.23.4 or later</td></tr>
+<tr><td>24.x (LTS), before 24.22.1</td><td><strong>24.22.1</strong></td><td>Update to 24.22.1 or later</td></tr>
+<tr><td>26.x (current), before 26.12.1</td><td><strong>26.12.1</strong></td><td>Update to 26.12.1 or later</td></tr>
+<tr><td>20.x and earlier</td><td><strong>—</strong></td><td>End of life: no fix is coming. Move to a supported line</td></tr>
+</table>
+<p>One operational detail decides whether the update actually protects you: the version that matters is the one <strong>answering production requests</strong>. Dockerfiles, CI images, serverless runtime settings, and hosting panels routinely pin a different Node.js than the one on your laptop — a dependency update alone does not change the Node.js binary your code runs on. Check every place the runtime is pinned, not just the first one you find.</p>
+
+<h2>Check your version — and your exposure — in under a minute</h2>
+<div class="checker">
+<p style="margin-top:0">Type your Node.js version exactly as <strong>node -v</strong> reports it (a leading <strong>v</strong> is fine). Everything runs in your browser; nothing is sent anywhere.</p>
+<label for="ver">Your Node.js version</label>
+<input id="ver" type="text" inputmode="text" autocapitalize="off" autocomplete="off" spellcheck="false" placeholder="e.g. v24.22.0">
+<button id="go" type="button">Check my version</button>
+<p id="verdict" role="status"></p>
+<noscript><p><em>Enable JavaScript for the version checker — or compare your version against the table above manually.</em></p></noscript>
+</div>
+<script>
+function checkNodeVersion(raw){
+  if(raw===null||raw===undefined) return {status:'invalid'};
+  var s=String(raw).trim().toLowerCase();
+  if(s.charAt(0)==='v') s=s.slice(1);
+  var m=s.match(/^(\d+)(?:\.(\d+))?(?:\.(\d+))?$/);
+  if(!m) return {status:'invalid'};
+  var a=parseInt(m[1],10), b=(m[2]===undefined?0:parseInt(m[2],10)), c=(m[3]===undefined?0:parseInt(m[3],10));
+  var ver=a+'.'+b+'.'+c;
+  var FIXED={22:[23,4],24:[22,1],26:[12,1]};
+  var FIXEDV={22:'22.23.4',24:'24.22.1',26:'26.12.1'};
+  if(FIXED[a]){
+    var f=FIXED[a];
+    if(b>f[0]||(b===f[0]&&c>=f[1])) return {status:'fixed',target:FIXEDV[a],version:ver};
+    return {status:'vulnerable',target:FIXEDV[a],version:ver};
+  }
+  if(a>26) return {status:'fixed',target:null,version:ver};
+  return {status:'eol',target:null,version:ver};
+}
+document.getElementById('go').addEventListener('click',function(){
+var r=checkNodeVersion(document.getElementById('ver').value);
+var v=document.getElementById('verdict');
+function show(cls,txt){v.className=cls;v.textContent=txt;}
+if(r.status==='invalid'){show('eol','NO VERDICT — enter a full Node.js version like 24.22.0 (a leading v is fine). Find it with node -v, the engines field in package.json, or your host\u2019s runtime settings.');return;}
+if(r.status==='fixed'){show('fixed','FIXED — Node.js '+r.version+' is at or past the fixed release for CVE-2026-111497'+(r.target?' ('+r.target+')':' — a line newer than the October 2026 releases')+'. Stay on the security-release cycle; this set also carried TLS, DNS and certificate fixes.');return;}
+if(r.status==='eol'){show('eol','END OF LIFE — Node.js '+r.version+' belongs to a release line that receives no security fixes, and none is coming for CVE-2026-111497. Move to a supported line — 22.x at 22.23.4 or later, or 24.x at 24.22.1 or later — and test your application there. Until then, no patch can protect this runtime.');return;}
+show('vuln','VULNERABLE — Node.js '+r.version+' is below the fixed release '+r.target+' for its line. Update to '+r.target+'. If your app decompresses request bodies or fetches external URLs, you sit on the Brotli exposure path — treat this as today, not this month.');
+});
+</script>
+
+<div class="checker">
+<p style="margin-top:0"><strong>Exposure check:</strong> the version verdict says whether a patch exists for you. These three answers say whether the Brotli flaw has a route into your application at all.</p>
+<label for="exp1">Does your application decompress Brotli request bodies (uploads, webhooks, compressed API payloads — via node:zlib or a framework feature)?</label>
+<select id="exp1"><option value="no">No</option><option value="yes">Yes</option></select>
+<label for="exp2">Does your application fetch() external URLs or call third-party APIs whose responses can arrive Brotli-compressed?</label>
+<select id="exp2"><option value="no">No</option><option value="yes">Yes</option></select>
+<label for="exp3">Do you run Node.js 20.x or older anywhere — servers, containers, CI, or a side project?</label>
+<select id="exp3"><option value="no">No</option><option value="yes">Yes</option></select>
+<button id="exp-go" type="button">Read my exposure</button>
+<p id="expverdict" role="status"></p>
+<noscript><p><em>Enable JavaScript for the exposure check.</em></p></noscript>
+</div>
+<script>
+function exposureRead(q1,q2,q3){
+  var paths=(q1==='yes'?1:0)+(q2==='yes'?1:0);
+  if(q3==='yes') return {cls:'eol',text:'END OF LIFE IN THE MIX — at least one runtime you run belongs to a line that receives no security fixes at all, for this flaw or any future one. Moving that workload to a supported line (22.x or 24.x) is the highest-value step on this page, ahead of everything else.'};
+  if(paths===2) return {cls:'vuln',text:'DIRECTLY EXPOSED, BOTH PATHS — you decompress request bodies AND fetch external content. Either route can deliver a malformed Brotli stream to the vulnerable decoder. Update every runtime to its line\u2019s fixed build today, then check what else in your stack bundles Brotli — the same upstream fix shipped in Brotli 1.2.1, 1.1.1 and 1.0.10.'};
+  if(paths===1) return {cls:'vuln',text:'DIRECTLY EXPOSED — '+(q1==='yes'?'your application decompresses request bodies':'your application fetches external URLs whose responses can arrive Brotli-compressed')+', which is exactly the input the vulnerable decoder processes. Update every runtime to its line\u2019s fixed build today.'};
+  return {cls:'fixed',text:'NO DIRECT BROTLI PATH FOUND — you neither decompress request bodies nor fetch external content, so the decoder flaw has no obvious route into your application. Upgrade on the normal cycle anyway: the same releases fix two TLS hostname-check bypasses, a DNS truncation flaw, and add the eMudhra CA block.'};
+}
+document.getElementById('exp-go').addEventListener('click',function(){
+var r=exposureRead(document.getElementById('exp1').value,document.getElementById('exp2').value,document.getElementById('exp3').value);
+var v=document.getElementById('expverdict');
+v.className=r.cls;v.textContent=r.text;
+});
+</script>
+
+<h2>Run the Node.js check now</h2>
+<ul>
+<li><strong>Find your real version, everywhere it runs:</strong> <strong>node -v</strong> on your machine is the start, not the answer. Check production next — Dockerfiles, CI images, serverless runtime settings, and your host's panel routinely pin a different version. The version that matters is the one answering requests.</li>
+<li><strong>Upgrade to your line's fixed build:</strong> <strong>22.23.4 / 24.22.1 / 26.12.1</strong>. On managed platforms, set the runtime version explicitly and redeploy; a dependency update alone does not change the Node.js binary your code runs on.</li>
+<li><strong>Know your exposure paths:</strong> if your app decompresses request bodies (uploads, webhooks, APIs accepting compressed payloads) or fetches external URLs, you are on the Brotli path — patch first, analyze second. Neither path requires your own code to import a compression library by name; fetch() decompresses on its own.</li>
+<li><strong>On Node 20.x or older:</strong> there is no patch coming, for this flaw or any future one. Plan the move to a supported line now — 22.x or 24.x — and budget the testing. End-of-life runtimes are where the next flaw will find you too.</li>
+<li><strong>If you cannot patch today:</strong> there is no configuration workaround inside Node.js. Host firewall rules — Vercel added inbound rules on October 21 — can block the request-body path, but they do not cover Brotli responses your application fetches from other servers. A shield for days, not a fix.</li>
+<li><strong>Take the rest of the release too:</strong> the same builds fix two TLS hostname-check bypasses, the dns.resolve null-byte flaw, and the randomUUID repetition in snapshot-built and single-executable apps — and they block the eight compromised <a href="emudhra-ca-keys-check.html">eMudhra CA keys</a>. Skipping the release because Brotli does not reach you still leaves those open.</li>
+</ul>
+<p><strong>Vibe-Code Audit</strong> — Ingenious AI's security audit for AI-built and fast-shipped applications — exists for exactly the gap this release exposes: apps generated quickly, runtimes and bundled libraries chosen by default, and nobody tracking which Node.js version production actually runs until a CVE names it. A vulnerable decoder hiding inside the runtime is the kind of finding a feature demo never shows you. <a href="https://vibe-audit.getingeniousai.com">Get early access on WhatsApp</a>.</p>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://vibe-audit.getingeniousai.com" style="color:#fff;text-decoration:underline">Vibe-Code Audit</a> is built for exactly this: auditing AI-built and fast-shipped apps for the runtime-version and bundled-dependency gaps nobody is tracking.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 11 platforms: <a href="https://disclosureguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DisclosureGuard</a> &nbsp;·&nbsp; <a href="https://modelminder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ModelMinder</a> &nbsp;·&nbsp; <a href="https://termswatch.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">TermsWatch</a> &nbsp;·&nbsp; <a href="https://vibe-audit.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Vibe-Code Audit</a> &nbsp;·&nbsp; <a href="https://rogue-defense.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Rogue-Agent Defense</a> &nbsp;·&nbsp; <a href="https://breachhunter.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">BreachHunter</a> &nbsp;·&nbsp; <a href="https://chatbreaker.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ChatBreaker</a> &nbsp;·&nbsp; <a href="https://flightrecorder.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Flight Recorder</a> &nbsp;·&nbsp; <a href="https://authgateway.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Agent Auth Gateway</a> &nbsp;·&nbsp; <a href="https://domainguard.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">DomainGuard</a> &nbsp;·&nbsp; <a href="https://contentcraft.getingeniousai.com" style="color:#6ea8fe;text-decoration:none">ContentCraft AI</a></div><div style="font-size:14px;color:#9aa7b8;margin-bottom:14px">Our platforms are being upgraded — get early access now:</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%21%20I%20took%20the%20Node.js%20Brotli%20check%20and%20want%20early%20access." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Get early access on WhatsApp &rarr;</a></div>
+
+<h2>Quiz: how well do you know CVE-2026-111497?</h2>
+<div class="quiz-q" data-a="1"><p><strong>1.</strong> What does CVE-2026-111497 put at risk, per the Node.js project?</p>
+<button class="opt" data-v="0">Your npm account credentials</button>
+<button class="opt" data-v="1">Code execution on systems whose apps decompress attacker-controlled Brotli data</button>
+<button class="opt" data-v="2">The contents of your package.json</button></div>
+<div class="quiz-q" data-a="2"><p><strong>2.</strong> What did the public proof of concept achieve on a standard Node.js build?</p>
+<button class="opt" data-v="0">Full remote code execution</button>
+<button class="opt" data-v="1">Nothing at all — it did not run</button>
+<button class="opt" data-v="2">A crash and a limited read of process memory; code execution only on a deliberately weakened test build</button></div>
+<div class="quiz-q" data-a="0"><p><strong>3.</strong> Your production app runs Node 24.22.0. What is your status?</p>
+<button class="opt" data-v="0">Vulnerable — 24.22.1 is the fixed build for your line</button>
+<button class="opt" data-v="1">Fixed — 24.x is a supported line, so you are covered</button>
+<button class="opt" data-v="2">End of life — you must move to 26.x</button></div>
+<div class="quiz-q" data-a="2"><p><strong>4.</strong> You still run Node 20.x. What does the October 21 release do for you?</p>
+<button class="opt" data-v="0">Patches your runtime automatically</button>
+<button class="opt" data-v="1">Gives you an official workaround to apply</button>
+<button class="opt" data-v="2">Nothing — 20.x is end-of-life and receives no fix; you must move lines</button></div>
+<div class="quiz-q" data-a="1"><p><strong>5.</strong> Besides the 10 flaws, what did the same releases change about certificates?</p>
+<button class="opt" data-v="0">They start trusting the eMudhra keys again</button>
+<button class="opt" data-v="1">They block the eight compromised eMudhra CA keys and remove three emSign roots</button>
+<button class="opt" data-v="2">They disable certificate validation by default</button></div>
+<p id="quiz-result"></p>
+<script>
+(function(){var total=document.querySelectorAll('.quiz-q').length,score=0,done=0;
+document.querySelectorAll('.quiz-q').forEach(function(q){var correct=parseInt(q.getAttribute('data-a'),10);
+q.querySelectorAll('.opt').forEach(function(b){b.addEventListener('click',function(){if(q.dataset.done)return;q.dataset.done='1';done++;
+var got=parseInt(b.getAttribute('data-v'),10);if(got===correct){score++;b.classList.add('correct');}else{b.classList.add('wrong');q.querySelectorAll('.opt')[correct].classList.add('correct');}
+if(done===total){var tier=score===5?'Patch-grade: you check versions, not vibes.':(score>=3?'Cautious operator: solid instincts — verify the live runtime version after every update.':'Version-blind — scroll back up and run the Node.js check on your stack.');
+document.getElementById('quiz-result').textContent='You scored '+score+'/'+total+'. '+tier;}});});});})();
+</script>
+<noscript><p><em>Enable JavaScript for the interactive quiz.</em></p></noscript>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What is CVE-2026-111497, in plain terms?</summary><p>CVE-2026-111497 is a high-severity flaw in the Brotli decoder that Node.js bundles inside itself. When an application decompresses Brotli data an attacker controls — a request body, or a compressed response it fetched — malformed input can write outside the intended memory. The Node.js project says that can allow remote code execution. It affects all three supported Node.js lines, and the fix is updating to the October 21, 2026 security releases.</p></details>
+<details><summary>Which Node.js versions are fixed, and which are affected?</summary><p>The October 21, 2026 security releases fix all three supported lines: update 22.x to 22.23.4, 24.x to 24.22.1, and 26.x to 26.12.1 or later. Any earlier build on those lines is affected. Node 20.x and everything older are end-of-life: no fixed build exists and none is coming, so the only remedy is moving to a supported line and testing your application there.</p></details>
+<details><summary>How do I know if my application is exposed to the Brotli flaw?</summary><p>Exposure needs your application to decompress Brotli data an attacker controls. The two paths are decompressing request bodies through node:zlib or a framework feature, and fetching URLs whose responses arrive Brotli-compressed, which fetch() decompresses automatically. If neither happens in your code, the decoder flaw has no obvious route in — but the same releases fix TLS, DNS, and certificate issues, so upgrading is still the right move.</p></details>
+<details><summary>Has CVE-2026-111497 been exploited, and how strong is the proof of concept?</summary><p>As of October 22, 2026, no exploitation in the wild had been reported. A public proof of concept appeared the same week: it reached code execution only against a deliberately weakened test build, while a standard Node.js build crashed with a limited read of process memory, and its author said a working attack on a normal build was not achieved. Patched builds reject the malformed input it uses.</p></details>
+<details><summary>My app runs Node 20.x, or I cannot upgrade yet. What are my options?</summary><p>Node 20.x and older are end-of-life: no fix exists and none is coming, so the real option is moving to a supported line — 22.x or 24.x — and testing there. If a supported-line upgrade must wait days, the advisory offers no workaround inside Node.js itself. Host firewall rules can block the inbound request path, but they do not cover responses your application fetches from other servers.</p></details>
+
+<p class="src">Sources: <a href="https://thehackernews.com/2026/10/nodejs-brotli-decoder-bug-could-allow.html">The Hacker News, October 2026</a> (the CVE-2026-111497 disclosure, the fixed versions, the proof-of-concept results, the other nine flaws, the eMudhra block, and the Vercel firewall note) · the Node.js project's October 21, 2026 security releases for the 22.x, 24.x, and 26.x lines, as reported in the coverage above · the Brotli project's 1.2.1 / 1.1.1 / 1.0.10 security releases, as reported in the same coverage.</p>
+
+<div class="xlinks"><strong>Related checks</strong><ul>
+<li><a href="emudhra-ca-keys-check.html">eMudhra CA Keys Check</a> — the eight compromised CA keys the same Node.js releases now block</li>
+<li><a href="gitlab-cve-2026-110264-check.html">GitLab CVE-2026-110264 Check</a> — the CVSS 10.0 flaw that catches October's patchers again</li>
+<li><a href="php2shell-check.html">PHP2Shell Check</a> — two critical PHP runtime RCE flaws, patched October 21</li>
+</ul></div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
