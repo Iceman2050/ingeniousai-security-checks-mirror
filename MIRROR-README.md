@@ -26,6 +26,11 @@ This mirror keeps new security newsjack pages shipping daily at zero cost:
 
 ## Deploy procedure (future pages)
 
+0. **UNIQUE-DATA RULE (2026-10-24, Aldo's order): no page ships without at
+   least one unique-data element — a working checker, live data, or original
+   sourced analysis. A template with swapped keywords does not ship.**
+   Verdicts for every page live in `UNIQUE-DATA-AUDIT.md`; a page graded
+   THIN there does not publish until it is upgraded and re-measured PASS.
 1. Add the new `*.html` page to this repo (with mirror `og:url` + canonical,
    FAQ schema, share row per the house template).
 2. Add an entry to `sitemap.xml` using the **mirror** URL.

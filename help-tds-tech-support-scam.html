@@ -54,37 +54,53 @@ details{background:#11161f;border:1px solid #232b38;border-radius:8px;padding:14
 <h3>What is a TDS?</h3>
 <p>A traffic distribution system: infrastructure that routes victims — often from malvertising or compromised sites — to scam pages. Help TDS specialized in tech-support scam lures.</p>
 
-<p class="lead">On October 15, 2026, researchers at Infoblox reported that a long-running scam network called Help TDS &mdash; now linked to an affiliate program named Hotejka &mdash; is serving fake Microsoft Windows security alerts across more than 20,000 domains on Cloudflare's free hosting. The alerts lock your browser, show a phone number, and the call center on the other end talks victims into installing remote-access software. It is a phishing operation run through the browser: the alert is the lure, the phone call is the trap. Spot one in 30 seconds with the check below. No signup, nothing installed.</p>
+<p class="lead">On October 15, 2026, researchers at Infoblox reported that a long-running scam network called Help TDS &mdash; now linked to an affiliate program named Hotejka &mdash; is serving fake Microsoft Windows security alerts across more than 20,000 domains on Cloudflare's free hosting. The alerts lock your browser, show a phone number, and the call center on the other end talks victims into installing remote-access software. It is a phishing operation run through the browser: the alert is the lure, the phone call is the trap. Spot one in 30 seconds with the check below. No signup, nothing installed. This page is the network view: how the routing works stage by stage, and how to tell whether your own website has been recruited as one of its feeders.</p>
 
 <div class="card">
-<h2>The 30-second spot-the-scam check</h2>
-<div class="step"><div class="stepnum">1</div><div>
-<p><strong>You can't close the tab.</strong> The page goes fullscreen, or the alert pops straight back when you try to leave. Real Microsoft warnings never trap your browser.</p>
-</div></div>
-<div class="step"><div class="stepnum">2</div><div>
-<p><strong>It shows a phone number to call.</strong> Microsoft will never ask you to call a number from a browser popup. That number reaches a scam call center, not support.</p>
-</div></div>
-<div class="step"><div class="stepnum">3</div><div>
-<p><strong>Scare language and fake error codes.</strong> "Virus detected!", "Your computer is blocked", long codes like 0x800... &mdash; all written to panic you into acting fast.</p>
-</div></div>
-<div class="step"><div class="stepnum">4</div><div>
-<p><strong>It tells you to install something.</strong> Especially "remote support" or screen-sharing software. That is the actual goal: getting inside your computer.</p>
-</div></div>
-<div class="step"><div class="stepnum">5</div><div>
-<p><strong>Check the address bar.</strong> If it is not microsoft.com, it is not Microsoft. This wave runs on throwaway domains, many on free pages.dev hosting.</p>
-</div></div>
-<div class="verdict"><strong>Two or more of these &rarr; it is a scam.</strong> Close it, call nobody, install nothing.</div>
-<div class="verdict safe"><strong>A genuine Windows Security notification</strong> comes from the Windows Security app on your own PC &mdash; never from a website, never with a phone number.</div>
+<h2>Site owners: is your website feeding the TDS?</h2>
+<p>Help TDS does not only run its own pages — it rides other people's websites. Compromised sites and bought ad slots funnel real visitors into the network, and the funnel is cloaked: the site looks clean to its owner and dirty to the visitors being routed. Tick every sign you have seen on your own site, then score it. The check runs on this page; nothing is sent anywhere.</p>
+<div id="tds-signs">
+<label style="display:block;margin:10px 0"><input type="checkbox" class="tds-sign" value="Visitors report redirects you cannot reproduce — the classic TDS cloak: owners and repeat visitors are shown the clean site"> Visitors report being redirected to strange pages, but the site looks fine when you visit it yourself</label>
+<label style="display:block;margin:10px 0"><input type="checkbox" class="tds-sign" value="Code you do not recognise is an active injection until proven otherwise — diff your templates and includes against a clean copy"> Your pages contain scripts, iframes or redirect rules you do not recognise</label>
+<label style="display:block;margin:10px 0"><input type="checkbox" class="tds-sign" value="Selective redirects are the profiling layer: the TDS only routes visitors who match its target profile"> Redirects hit only some visitors — mobile users, certain countries, or people arriving from search and ads</label>
+<label style="display:block;margin:10px 0"><input type="checkbox" class="tds-sign" value="Unknown outbound domains are the exit ramp into the network — list every external script source and link you did not choose"> Outbound links or script sources point to domains you never chose, including free-hosting domains like pages.dev</label>
+<label style="display:block;margin:10px 0"><input type="checkbox" class="tds-sign" value="Unexplained file changes mean someone else has write access — templates, .htaccess and header/footer includes are the usual injection points"> Files on your hosting changed recently that you did not edit</label>
+<label style="display:block;margin:10px 0"><input type="checkbox" class="tds-sign" value="Instant exits to an unknown domain are routed sessions, not ordinary bounces — check referrer and landing-page reports for the pattern"> Analytics show sudden bounce spikes, or sessions that leave instantly to an unknown domain</label>
+</div>
+<button id="tds-score" style="background:#1c6ef2;color:#fff;border:0;padding:12px 26px;border-radius:8px;font-weight:bold;font-size:15px;cursor:pointer;margin-top:8px">Score my site</button>
+<div id="tds-result" style="margin-top:16px"></div>
+<script>
+document.getElementById('tds-score').addEventListener('click', function () {
+  var boxes = document.querySelectorAll('.tds-sign');
+  var hit = [];
+  boxes.forEach(function (b) { if (b.checked) hit.push(b.value); });
+  var out = document.getElementById('tds-result');
+  var head, cls;
+  if (hit.length >= 2) { head = 'Verdict: treat your site as compromised until proven otherwise.'; cls = '#3a0d12'; }
+  else if (hit.length === 1) { head = 'Verdict: one feeder sign — investigate it this week, before it becomes the funnel.'; cls = '#33270a'; }
+  else { head = 'Verdict: none of the feeder signs matched.'; cls = '#0d2a12'; }
+  var html = '<div style="background:' + cls + ';border:1px solid #2a3648;border-radius:10px;padding:16px"><p><strong>' + head + '</strong></p>';
+  if (hit.length) {
+    html += '<ul>' + hit.map(function (h) { return '<li>' + h + '</li>'; }).join('') + '</ul>';
+    html += '<p>Do this now: compare your live templates and includes against a clean backup and remove anything you did not write; check redirect rules (.htaccess, server config, CDN rules) for conditions you did not set; change hosting, CMS and registrar passwords and turn on two-factor; test the site as a first-time mobile visitor from a different network, the way the TDS expects to meet your visitors; tell your host — feeder injections usually mean the account, not just the site, is exposed.</p>';
+  } else {
+    html += '<p>Keep it that way: the TDS recruits feeders constantly, so re-run this check after any plugin, theme or ad-network change, and after any traffic source you did not buy starts sending visitors.</p>';
+  }
+  out.innerHTML = html + '</div>';
+});
+</script>
 </div>
 
 <div class="card">
-<h2>A fake alert just popped up &mdash; do this</h2>
-<ul>
-<li><strong>Do not call the number. Do not install anything.</strong> Nothing on that page can help you; everything on it can hurt you.</li>
-<li><strong>Kill the tab:</strong> press Alt+F4 on Windows (or force-quit the browser on Mac). If the browser offers to restore tabs, say no.</li>
-<li><strong>Revoke notification permission</strong> if you ever clicked "Allow" on a suspicious popup: Settings &rarr; Privacy &rarr; Site settings &rarr; Notifications &mdash; remove the site. This is how the follow-up spam reaches you.</li>
-<li><strong>Warn the people scammers want most:</strong> older relatives and anyone who panics at a virus warning. Send them this page.</li>
-</ul>
+<h2>How Help TDS routes one victim — stage by stage</h2>
+<p>The network is a routing business. One visitor's journey, and the signal each stage leaves for defenders:</p>
+<table style="width:100%;border-collapse:collapse;font-size:15px">
+<tr><td style="padding:8px;border-bottom:1px solid #232b38"><strong>1. Entry</strong></td><td style="padding:8px;border-bottom:1px solid #232b38">Malvertising or a compromised website delivers a real visitor. Signal: referrers you never bought start appearing in your analytics.</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid #232b38"><strong>2. Profiling</strong></td><td style="padding:8px;border-bottom:1px solid #232b38">The TDS fingerprints the visitor — device, browser, geography, behaviour — and scores how convincing a target they are. The decision takes milliseconds and is invisible to the victim.</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid #232b38"><strong>3. Routing</strong></td><td style="padding:8px;border-bottom:1px solid #232b38">Top-scored visitors go to the fake Windows alert. Everyone else is sent to "verify you are human" pages. Signal: two visitors following the same link see completely different pages.</td></tr>
+<tr><td style="padding:8px"><strong>4. Monetisation</strong></td><td style="padding:8px">The call centre works the alert victims toward a remote-access install. The leftover traffic is farmed for notification permission and resold as spam reach. The domains are disposable; the kit and the call centre are the business.</td></tr>
+</table>
+<p class="note">Mechanism as described in the Infoblox disclosure of Help TDS / Hotejka, October 15, 2026 — the same reporting this page's figures come from.</p>
 </div>
 
 <div class="card">

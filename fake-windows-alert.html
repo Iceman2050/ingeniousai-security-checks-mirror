@@ -78,6 +78,55 @@ details{background:#11161f;border:1px solid #232b38;border-radius:8px;padding:14
 </div>
 
 <div class="card">
+<h2>Run the check against your screen</h2>
+<p>Looking at a warning right now? Tick everything that matches what is on your screen, then score it. Nothing is sent anywhere &mdash; the check runs on this page, on your device.</p>
+<div id="fw-signs">
+<label style="display:block;margin:10px 0"><input type="checkbox" class="fw-sign" value="The tab will not close, the page is fullscreen, or the alert pops straight back when you try to leave"> The tab will not close, or the alert keeps coming back</label>
+<label style="display:block;margin:10px 0"><input type="checkbox" class="fw-sign" value="There is a phone number on the alert — Microsoft never puts a support number in a browser popup"> There is a phone number on the alert telling you to call</label>
+<label style="display:block;margin:10px 0"><input type="checkbox" class="fw-sign" value="Scare language or a long error code is being used to rush you — real warnings do not count you down"> Scare language, a countdown, or a long error code like 0x800...</label>
+<label style="display:block;margin:10px 0"><input type="checkbox" class="fw-sign" value="It wants you to install software, especially remote-support or screen-sharing — that install is the actual attack"> It tells you to install something, especially remote-support software</label>
+<label style="display:block;margin:10px 0"><input type="checkbox" class="fw-sign" value="The address bar is not microsoft.com — this wave runs on throwaway domains, many on free pages.dev hosting"> The address bar is not microsoft.com</label>
+</div>
+<button id="fw-score" style="background:#1c6ef2;color:#fff;border:0;padding:12px 26px;border-radius:8px;font-weight:bold;font-size:15px;cursor:pointer;margin-top:8px">Score my screen</button>
+<div id="fw-result" style="margin-top:16px"></div>
+<script>
+document.getElementById('fw-score').addEventListener('click', function () {
+  var boxes = document.querySelectorAll('.fw-sign');
+  var hit = [];
+  boxes.forEach(function (b) { if (b.checked) hit.push(b.value); });
+  var out = document.getElementById('fw-result');
+  var head, cls;
+  if (hit.length >= 2) { head = 'Verdict: this is the Help TDS / Hotejka fake-alert pattern — a scam.'; cls = '#3a0d12'; }
+  else if (hit.length === 1) { head = 'Verdict: one hard sign matched — treat it as a scam until proven otherwise.'; cls = '#33270a'; }
+  else { head = 'Verdict: none of the five signs matched.'; cls = '#0d2a12'; }
+  var html = '<div style="background:' + cls + ';border:1px solid #2a3648;border-radius:10px;padding:16px"><p><strong>' + head + '</strong></p>';
+  if (hit.length) {
+    html += '<ul>' + hit.map(function (h) { return '<li>' + h + '</li>'; }).join('') + '</ul>';
+    html += '<p>Do this now: force-quit the browser (Alt+F4 on Windows, force quit on Mac), restart without restoring tabs, call nobody, install nothing.</p>';
+  } else {
+    html += '<p>A genuine Windows warning comes from the Windows Security app on your PC — never from a website, and never with a phone number. If a warning is on a web page and demands action, close the tab.</p>';
+  }
+  out.innerHTML = html + '</div>';
+});
+</script>
+</div>
+
+<div class="card">
+<h2>Anatomy of this wave — the sourced numbers</h2>
+<p>This is not random popups. It is one researched operation, measured by the team that disclosed it:</p>
+<table style="width:100%;border-collapse:collapse;font-size:15px">
+<tr><td style="padding:8px;border-bottom:1px solid #232b38"><strong>Scale</strong></td><td style="padding:8px;border-bottom:1px solid #232b38">20,000+ domains serving the fake alerts, rotating daily</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid #232b38"><strong>Hosting</strong></td><td style="padding:8px;border-bottom:1px solid #232b38">Cloudflare free hosting — many lure pages on pages.dev subdomains</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid #232b38"><strong>Operator pattern</strong></td><td style="padding:8px;border-bottom:1px solid #232b38">Help TDS, a traffic-distribution network, now linked to an affiliate program named Hotejka</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid #232b38"><strong>Disclosed</strong></td><td style="padding:8px;border-bottom:1px solid #232b38">Infoblox threat research, October 15, 2026</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid #232b38"><strong>The lure</strong></td><td style="padding:8px;border-bottom:1px solid #232b38">A fake Microsoft Windows security alert that locks the browser with exit-prevention scripts</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid #232b38"><strong>The trap</strong></td><td style="padding:8px;border-bottom:1px solid #232b38">The phone call: a scam call centre talks the victim into installing remote-access software</td></tr>
+<tr><td style="padding:8px"><strong>The side business</strong></td><td style="padding:8px">Traffic that does not convert is resold to fake "verify you are human" pages that harvest notification permission for spam</td></tr>
+</table>
+<p class="note">Every figure above is from the Infoblox disclosure of this wave — no estimates added.</p>
+</div>
+
+<div class="card">
 <h2>A fake alert just popped up &mdash; do this</h2>
 <ul>
 <li><strong>Do not call the number. Do not install anything.</strong> Nothing on that page can help you; everything on it can hurt you.</li>
