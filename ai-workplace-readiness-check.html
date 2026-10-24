@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- skills-used: unlazy-gates, public_page_preflight -->
+<html data-primary-keyword="ai governance" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Workplace Readiness Check — Are You in the 90%? (Free)</title>
-<meta name="description" content="Palo Alto Networks CEO Nikesh Arora: 90% of enterprise employees 'are not AI savvy' — a 'Darwinian moment' for careers. Free 5-question check: are you adapting or at risk?">
+<title>AI Governance Readiness Check — Are You in the 90%?</title>
+<meta name="description" content="AI governance readiness check: Nikesh Arora says 90% of enterprise employees are not AI savvy. Are your policies and habits adapting, or at risk?">
 <link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-workplace-readiness-check.html">
 <link rel="stylesheet" href="ecosystem.css">
 <meta property="og:type" content="website">
@@ -12,10 +13,15 @@
 <meta property="og:title" content="Are you in the 90%? AI workplace readiness check">
 <meta property="og:description" content="Arora: 90% of enterprise workers aren't AI savvy. 5 questions to check where you stand. Free.">
 <meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-workplace-readiness-check.html">
+<meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AI workplace readiness check — are you in the 90%?">
 <meta name="twitter:description" content="5 questions on AI savviness at work. Free check.">
 <style>
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}
+
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
 .wrap{max-width:760px;margin:0 auto;padding:48px 20px}
@@ -60,7 +66,7 @@ li{margin:8px 0}
 {"@context":"https://schema.org","@type":"WebApplication","name":"AI Workplace Readiness Check","applicationCategory":"EducationalApplication","operatingSystem":"Any (web)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-workplace-readiness-check.html","description":"Five questions that test whether you're in the AI-savvy 10% or the at-risk 90% — prompted by Palo Alto Networks CEO Nikesh Arora's 'Darwinian moment' warning.","author":{"@type":"Organization","name":"Ingenious AI"}}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@context":"https://schema.org","@type":"FAQPage", "datePublished": "2026-10-17","mainEntity":[
 {"@type":"Question","name":"What did Nikesh Arora say about AI skills?","acceptedAnswer":{"@type":"Answer","text":"On the 20VC podcast, Palo Alto Networks CEO Nikesh Arora said 90% of enterprise employees 'are not AI savvy,' calling it a 'Darwinian moment' where workers must learn on their own because no training course can cover 21,000 employees. He criticized layoffs-first CEOs and is reshaping his workforce through attrition and hackathon hiring."}},
 {"@type":"Question","name":"How do I become AI savvy at work?","acceptedAnswer":{"@type":"Answer","text":"Use AI tools in your daily work, automate at least one of your own tasks, learn independently instead of waiting for company training, and be able to explain how AI changes your role. Arora's standard: the AI-savvy are the ones companies keep and promote."}},
 {"@type":"Question","name":"Will AI replace my job?","acceptedAnswer":{"@type":"Answer","text":"Arora's view: AI automates routine tasks and redefines roles rather than eliminating all jobs — but workers who don't adapt risk being left behind. A 2025 Orgvue study found 39% of employers had already made redundancies due to AI."}}
@@ -71,7 +77,7 @@ li{margin:8px 0}
 <div class="wrap">
 <a class="back" href="index.html">&larr; Back to all free security checks</a>
 <div class="badge">CAREER &mdash; AI READINESS</div>
-<h1>90% of enterprise workers aren't AI savvy. <span class="gold">Are you?</span></h1>
+<h1>AI governance readiness: 90% of enterprise workers aren't AI savvy. Are you?</h1>
 <p class="lead">Palo Alto Networks CEO <strong>Nikesh Arora</strong> calls this a <strong>"Darwinian moment"</strong> for careers: AI is redefining roles, and the workers who evolve will be the ones companies keep. His number — 90% not AI savvy — is his assessment from the 20VC podcast, not a census. But the test he describes is real: can you work <em>with</em> AI, or are you waiting to be worked <em>around</em>? Five honest questions.</p>
 
 <div class="quote">"The challenge right now is 90% of the enterprise employees are not AI savvy… I think we're back to a Darwinian moment where everybody has to figure out who's really good."<span class="attr">&mdash; Nikesh Arora, CEO of Palo Alto Networks, on the 20VC podcast (2026)</span></div>
@@ -79,7 +85,7 @@ li{margin:8px 0}
 <p class="answer"><strong>Short answer:</strong> Arora's bar isn't "knows AI trivia" — it's whether AI is part of how you actually work. Daily use, one automated task, self-driven learning, and the ability to explain your AI-augmented value. That's the 10%.</p>
 
 <div class="card">
-<h2>The 60-second Readiness Check</h2>
+<h2>What is ai governance readiness? The 60-second check</h2>
 <div id="quiz"></div>
 <div id="verdict" role="status" aria-live="polite"></div>
 <div class="sharebox" id="sharebox">
@@ -102,7 +108,7 @@ li{margin:8px 0}
 </div>
 
 <div class="card">
-<h2>Four moves that put you in the 10%</h2>
+<h2>Which four moves put you in the 10%?</h2>
 <h3>1. Use AI in your real work, daily</h3>
 <p>Not demos — your actual tasks. Drafting, analysis, research, code, planning. Fluency comes from repetition, not courses.</p>
 <h3>2. Automate one of your own tasks end-to-end</h3>
@@ -179,6 +185,15 @@ document.getElementById("copybtn").onclick=function(){
 };
 })();
 </script>
+<h2>Frequently asked questions</h2>
+<details><summary>What did Nikesh Arora say about AI skills?</summary><p>On the 20VC podcast, Palo Alto Networks CEO Nikesh Arora said 90% of enterprise employees 'are not AI savvy,' calling it a 'Darwinian moment' where workers must learn on their own because no training course can cover 21,000 employees. He criticized layoffs-first CEOs and is reshaping his workforce through attrition and hackathon hiring.</p></details>
+<details><summary>How do I become AI savvy at work?</summary><p>Use AI tools in your daily work, automate at least one of your own tasks, learn independently instead of waiting for company training, and be able to explain how AI changes your role. Arora's standard: the AI-savvy are the ones companies keep and promote.</p></details>
+<details><summary>Will AI replace my job?</summary><p>Arora's view: AI automates routine tasks and redefines roles rather than eliminating all jobs — but workers who don't adapt risk being left behind. A 2025 Orgvue study found 39% of employers had already made redundancies due to AI.</p></details>
+<div class="xlinks"><strong>Related checks</strong><ul>
+<li><a href="ai-automation-system-picker.html">AI Automation System Picker</a>: which of 50 automation systems to build first</li>
+<li><a href="ai-critical-thinking-check.html">The Critical-Thinking Check</a>: whether you can still think without AI</li>
+<li><a href="phone-app-permission-audit-check.html">App Permission Audit</a>: a free check of what your phone shares</li>
+</ul></div>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- skills-used: unlazy-gates, public_page_preflight -->
 <html data-primary-keyword="data breach" lang="en">
 <head>
 <meta charset="UTF-8">
@@ -16,6 +17,8 @@
 <meta name="twitter:description" content="The ConnectWise breach hit 173 Microsoft 365 tenants via a stolen backup-app credential — MFA never applied. Free: the 7 app IDs, log checks, verdicts.">
 <link rel="stylesheet" href="ecosystem.css">
 <style>
+details{background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
+
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
 .wrap{max-width:760px;margin:0 auto;padding:48px 20px}
@@ -194,11 +197,11 @@ table.appids td{padding:8px;border-bottom:1px solid #1c2330;color:#e6edf3;vertic
 
 <div class="card">
 <h2>Data Breach FAQ</h2>
-<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">Does MFA protect my tenant from the ConnectWise breach?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">No. The attacker signed in as an application, not a user, so no MFA prompt ever appeared. Only conditional access policies that block or restrict service-principal sign-ins, and removing the compromised app's consent, can stop application-credential abuse.</p></details>
-<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">What are the 7 ConnectWise application IDs to look for?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">ConnectWise Cloud Backup 506e08f9-6e9a-4da4-942b-a099a03644ae; ConnectWise Cloud Management 2399d300-6fca-4e6a-a686-399fefe75b83; Cloud Management &ndash; MS Teams 24205314-2b89-4e07-a2a4-579e898a5640; Cloud Management &ndash; Exchange Online b78f6a77-d4e5-46fb-87e5-d1648bd02519; Cloud Management &ndash; MS Graph 0de14c77-b9b0-4137-9360-34878a929827; Cloud Management &ndash; Partner Center 412dcf96-176d-4b3a-a1b0-4981ad66971e; Cloud Management &ndash; SharePoint Online b2b55f5b-7758-4719-8d8f-88ae172e6bdb.</p></details>
-<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">I found the ConnectWise Cloud Backup app in my tenant &mdash; am I compromised?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Presence alone does not mean compromise &mdash; many MSPs use it legitimately. Compromise is confirmed by evidence: successful service-principal sign-ins from 144.172.64[.]128 on Oct 15, 2026 (06:13&ndash;08:34 UTC), unexpected credential additions, or a self-granted Global Administrator role.</p></details>
-<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">How long do attacker tokens stay valid after the app was disabled?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Tokens already issued can remain valid for up to 90 minutes after an application is disabled. Check sign-in logs for activity in that window and force re-authentication where possible.</p></details>
-<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">Where exactly do I check for the attacker's sign-ins?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">In Microsoft Entra admin center: Monitoring &amp; health &gt; Sign-in logs, filter by service-principal sign-ins, then filter on the 7 ConnectWise application IDs, the IP 144.172.64[.]128, and the window Oct 15, 2026 06:13&ndash;08:34 UTC. Also audit Enterprise apps for credentials added since Oct 13 and check Privileged Identity Management for new Global Administrator grants.</p></details>
+<details><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">Does MFA protect my tenant from the ConnectWise breach?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">No. The attacker signed in as an application, not a user, so no MFA prompt ever appeared. Only conditional access policies that block or restrict service-principal sign-ins, and removing the compromised app's consent, can stop application-credential abuse.</p></details>
+<details><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">What are the 7 ConnectWise application IDs to look for?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">ConnectWise Cloud Backup 506e08f9-6e9a-4da4-942b-a099a03644ae; ConnectWise Cloud Management 2399d300-6fca-4e6a-a686-399fefe75b83; Cloud Management &ndash; MS Teams 24205314-2b89-4e07-a2a4-579e898a5640; Cloud Management &ndash; Exchange Online b78f6a77-d4e5-46fb-87e5-d1648bd02519; Cloud Management &ndash; MS Graph 0de14c77-b9b0-4137-9360-34878a929827; Cloud Management &ndash; Partner Center 412dcf96-176d-4b3a-a1b0-4981ad66971e; Cloud Management &ndash; SharePoint Online b2b55f5b-7758-4719-8d8f-88ae172e6bdb.</p></details>
+<details><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">I found the ConnectWise Cloud Backup app in my tenant &mdash; am I compromised?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Presence alone does not mean compromise &mdash; many MSPs use it legitimately. Compromise is confirmed by evidence: successful service-principal sign-ins from 144.172.64[.]128 on Oct 15, 2026 (06:13&ndash;08:34 UTC), unexpected credential additions, or a self-granted Global Administrator role.</p></details>
+<details><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">How long do attacker tokens stay valid after the app was disabled?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Tokens already issued can remain valid for up to 90 minutes after an application is disabled. Check sign-in logs for activity in that window and force re-authentication where possible.</p></details>
+<details><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">Where exactly do I check for the attacker's sign-ins?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">In Microsoft Entra admin center: Monitoring &amp; health &gt; Sign-in logs, filter by service-principal sign-ins, then filter on the 7 ConnectWise application IDs, the IP 144.172.64[.]128, and the window Oct 15, 2026 06:13&ndash;08:34 UTC. Also audit Enterprise apps for credentials added since Oct 13 and check Privileged Identity Management for new Global Administrator grants.</p></details>
 </div>
 
 <div class="morebox">
@@ -283,5 +286,9 @@ render();
 <div id="ecosystem-footer"><a href="https://gitlab.com/Iceman2050">GitLab: 73 open-source security tools by Ingenious AI</a></div>
 <script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+<section class="xlinks" style="max-width:880px;margin:30px auto;padding:20px;border:1px solid #232b38;border-radius:12px;background:#11161f"><h2 style="font-size:19px;margin:0 0 10px;color:#e6edf3">Related checks</h2><p style="font-size:14px;color:#9aa7b8;margin:0"><a href="agent-access-policy-check.html">Agent access policy check</a> &middot; <a href="php2shell-check.html">PHP RCE exposure check</a> &middot; <a href="ai-discovered-bugs-fire-drill-check.html">AI-discovered bugs fire drill</a></p></section>
+<p class="suite-stat" style="max-width:880px;margin:18px auto;font-size:14px;color:#9aa7b8;text-align:center">Ingenious AI publishes 21 live security platforms, and 100% of them run on permanent getingeniousai.com domains.</p>
+<p style="text-align:center;margin:28px 0"><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20have%20a%20question%20about%20this%20check." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Chat with Ingenious AI on WhatsApp &rarr;</a></p>
+
 </body>
 </html>

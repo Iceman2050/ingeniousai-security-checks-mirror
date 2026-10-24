@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html data-primary-keyword="google dorking" lang="en">
+<!-- skills-used: unlazy-gates, public_page_preflight -->
+<html data-primary-keyword="penetration testing" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Google Dorking: Are Your Files Exposed to Attackers?</title>
-<meta name="description" content="Google dorking finds exposed files through search: configs, backups, password files. Check whether YOUR files are exposed and how to remove them.">
+<title>Penetration Testing Check: Are Your Files Exposed?</title>
+<meta name="description" content="Penetration testing starts with search: Google dorking finds exposed files — configs, backups, password files. Check whether YOUR files are exposed.">
 <link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/google-dorking-exposure-check.html">
 <meta property="og:title" content="Google Dorking: Are Your Files Exposed to Attackers?">
 <meta property="og:description" content="Attackers use search engines to find files you never meant to publish. The defensive guide: check your own exposure and close it.">
@@ -49,7 +50,7 @@ summary{cursor:pointer;font-weight:600}
 </head>
 <body>
 <p class="meta"><time datetime="2026-10-18">October 18, 2026</time> · Cybersecurity news</p>
-<h1>Google Dorking: Are Your Files Exposed to Attackers?</h1>
+<h1>Penetration testing check: are your files exposed to attackers?</h1>
 <p><strong>Google dorking</strong> is one of the oldest tricks in the attacker's book: using advanced search queries to find files you never meant to publish — configuration files with database passwords, backup archives, open directory listings, private documents. It has been catalogued publicly since 2004. The uncomfortable truth: if a search engine can find it, so can an attacker. This page is the <strong>defensive</strong> guide — how to check whether <em>your</em> files are exposed and how to close the gap. It contains no attack instructions.</p>
 
 <h2>What is Google dorking?</h2>
@@ -60,7 +61,7 @@ summary{cursor:pointer;font-weight:600}
 
 <div class="warn"><strong>Honest scope:</strong> this page deliberately teaches nothing about constructing dork queries or using dorking tools. Describing the risk classes is enough to defend against them. If you arrived hoping for attack techniques, you are in the wrong place.</div>
 
-<h2>Check your own exposure</h2>
+<h2>Run this penetration testing check on your own exposure</h2>
 <p>The legitimate, defensive use of this knowledge is auditing <strong>your own</strong> property. The steps: verify your site in Google Search Console and review the indexed pages and files under your domain — the Coverage report shows what Google has actually indexed. Run searches restricted to your own domain to see what a stranger sees. Check for the classic exposures: files with secrets in web roots, backup files with predictable names, directory listings, and staging or development subdomains that were never locked down. Do this quarterly, and after every deployment. Finding your own exposure before an attacker does is the entire game.</p>
 
 <h2>How to fix exposure</h2>

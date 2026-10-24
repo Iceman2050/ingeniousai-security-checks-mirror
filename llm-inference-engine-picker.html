@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- skills-used: unlazy-gates, public_page_preflight -->
+<html data-primary-keyword="vibe coding" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ollama vs vLLM vs SGLang — Which Inference Engine Fits? (Free Picker)</title>
-<meta name="description" content="Ollama, vLLM, and SGLang run the same open models — pick wrong and you waste a GPU or cripple concurrency. Free 5-question picker with verified benchmarks and the security trade-offs.">
+<title>Vibe Coding Stack: Ollama vs vLLM vs SGLang — Which Fits?</title>
+<meta name="description" content="Your vibe coding stack runs on a local LLM runtime: Ollama, vLLM, and SGLang run the same open models. Pick wrong and you waste a GPU or cripple speed.">
 <link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/llm-inference-engine-picker.html">
 <link rel="stylesheet" href="ecosystem.css">
 <meta property="og:type" content="website">
@@ -12,10 +13,15 @@
 <meta property="og:title" content="Ollama vs vLLM vs SGLang — which engine fits your workload?">
 <meta property="og:description" content="Same models, wildly different engines. 5 questions to pick yours — plus what each choice means for your data. Free picker.">
 <meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/llm-inference-engine-picker.html">
+<meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ollama vs vLLM vs SGLang — engine picker">
 <meta name="twitter:description" content="5 questions to pick your LLM inference engine, with verified benchmarks.">
 <style>
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}
+
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
 .wrap{max-width:760px;margin:0 auto;padding:48px 20px}
@@ -74,13 +80,14 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <div class="wrap">
 <a class="back" href="index.html">&larr; Back to all free security checks</a>
 <div class="badge">LLM INFRA &mdash; ENGINE PICKER</div>
-<h1>Ollama vs vLLM vs SGLang: same models, <span style="color:#3fb950">different machines</span></h1>
+<h1>Vibe coding stack picker: Ollama vs vLLM vs SGLang — which local LLM runtime fits?</h1>
+<p class="suite-stat" style="max-width:880px;margin:18px auto;font-size:14px;color:#9aa7b8;text-align:center">Ingenious AI publishes 21 live security platforms, and 100% of them run on permanent getingeniousai.com domains.</p>
 <p class="lead">All three run the same open models. Pick wrong and you'll either waste an expensive GPU or watch requests queue behind each other. Five questions to match the engine to your workload — plus what each choice means for where your data goes.</p>
 
 <p class="answer"><strong>Short answer:</strong> just you on a laptop &rarr; <strong>Ollama</strong>. Many users asking different things &rarr; <strong>vLLM</strong>. Agents, long chats, or JSON outputs with repeated prompts &rarr; <strong>SGLang</strong>. The quiz below makes it precise.</p>
 
 <div class="card">
-<h2>The 60-second Engine Picker</h2>
+<h2>The 60-second vibe coding runtime picker</h2>
 <div id="quiz"></div>
 <div id="verdict" role="status" aria-live="polite"></div>
 <div class="sharebox" id="sharebox">
@@ -108,7 +115,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 </div>
 
 <div class="card">
-<h2>What benchmarks actually show</h2>
+<h2>What do benchmarks actually show?</h2>
 <ul>
 <li><strong>Single stream</strong> (Qwen 2.5 Coder 32B, dual RTX 4090): Ollama 44.2 tok/s, vLLM 58.7, SGLang 63.4 — close enough that simplicity wins for one user.</li>
 <li><strong>32 concurrent clients:</strong> Ollama crashed (OOM); vLLM 412.8 tok/s; SGLang 461.5 tok/s — roughly <strong>8x the throughput</strong> of single-stream via continuous batching.</li>
@@ -203,6 +210,16 @@ document.getElementById("copybtn").onclick=function(){
 };
 })();
 </script>
+<h2>Frequently asked questions</h2>
+<details><summary>When should I use Ollama vs vLLM vs SGLang?</summary><p>Ollama: local development and prototyping on a laptop — simplest setup, runs fully offline. vLLM: serving many concurrent users with different prompts — continuous batching and PagedAttention maximize GPU throughput. SGLang: AI agents, multi-turn chats, and structured JSON outputs — RadixAttention reuses shared prompt prefixes instead of recomputing them.</p></details>
+<details><summary>What is PagedAttention?</summary><p>vLLM's core technique: it stores the KV cache (the model's memory of processed tokens) in small pages like an OS manages RAM, instead of one fixed block per request. This eliminates 60-80% memory waste and lets far more requests share the GPU.</p></details>
+<details><summary>What is RadixAttention?</summary><p>SGLang's core technique: a radix tree that caches shared prompt prefixes (system prompts, tool definitions, chat history) across requests, so repeated beginnings are reused rather than recomputed — a large win for agents and multi-turn chat.</p></details>
+<details><summary>Which inference engine is best for data privacy?</summary><p>Ollama runs fully offline on your own machine — prompts never leave it. vLLM and SGLang are typically deployed as servers, so prompts travel to the server; keep them inside your own network or VPC for sensitive data.</p></details>
+<div class="xlinks"><strong>Related checks</strong><ul>
+<li><a href="ai-automation-system-picker.html">AI Automation System Picker</a>: which of 50 automation systems to build first</li>
+<li><a href="ai-critical-thinking-check.html">The Critical-Thinking Check</a>: whether you can still think without AI</li>
+<li><a href="api-deprecation-roulette.html">API Deprecation Roulette</a>: how to survive API breaking changes</li>
+</ul></div>
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->

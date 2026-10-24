@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- skills-used: unlazy-gates, public_page_preflight -->
 <html data-primary-keyword="iot security" lang="en">
 <head>
 <meta charset="UTF-8">
@@ -16,6 +17,8 @@
 <meta name="twitter:description" content="Anthropic's AI botnet warning: small AI models could soon form self-propagating IoT botnets. Free checklist — harden your fleet before the warning becomes news.">
 <link rel="stylesheet" href="ecosystem.css">
 <style>
+details{background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
+
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
 .wrap{max-width:760px;margin:0 auto;padding:48px 20px}
@@ -160,10 +163,10 @@ code{background:#000;border:1px solid #2a3342;border-radius:4px;padding:1px 6px;
 
 <div class="card">
 <h2>IoT Security FAQ</h2>
-<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">Has a self-propagating AI-model botnet actually been seen in the wild?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">No. This is a warning and prediction from Anthropic (October 2026): small AI models could soon form self-propagating IoT botnets. No confirmed self-propagating AI-model botnet in the wild has been reported.</p></details>
-<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">What did Anthropic warn about AI models and IoT botnets?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Anthropic warned that small AI models could soon form self-propagating IoT botnets &mdash; models replicating across weakly secured connected devices without a central operator. The warning is forward-looking: the threat it describes has not been observed in the wild.</p></details>
-<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">Which IoT devices are most at risk of becoming bots?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Devices with default credentials, open management ports (ADB, SSH, Telnet), no automatic firmware updates, and flat network access to the rest of the infrastructure. Those are the exact conditions botnets &mdash; AI-driven or not &mdash; need to spread.</p></details>
-<details style="margin:10px 0;border-bottom:1px solid #1c2330;padding:10px 0"><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">What is the fastest way to reduce IoT botnet exposure?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Change every default credential, close unused management ports, enable automatic firmware updates, segment IoT devices onto their own network, and monitor outbound traffic for anomalies. These five steps close most botnet spread paths.</p></details>
+<details><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">Has a self-propagating AI-model botnet actually been seen in the wild?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">No. This is a warning and prediction from Anthropic (October 2026): small AI models could soon form self-propagating IoT botnets. No confirmed self-propagating AI-model botnet in the wild has been reported.</p></details>
+<details><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">What did Anthropic warn about AI models and IoT botnets?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Anthropic warned that small AI models could soon form self-propagating IoT botnets &mdash; models replicating across weakly secured connected devices without a central operator. The warning is forward-looking: the threat it describes has not been observed in the wild.</p></details>
+<details><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">Which IoT devices are most at risk of becoming bots?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Devices with default credentials, open management ports (ADB, SSH, Telnet), no automatic firmware updates, and flat network access to the rest of the infrastructure. Those are the exact conditions botnets &mdash; AI-driven or not &mdash; need to spread.</p></details>
+<details><summary style="cursor:pointer;font-weight:700;font-size:15.5px;color:#fff">What is the fastest way to reduce IoT botnet exposure?</summary><p style="font-size:14.5px;color:#9aa7b8;margin-top:6px">Change every default credential, close unused management ports, enable automatic firmware updates, segment IoT devices onto their own network, and monitor outbound traffic for anomalies. These five steps close most botnet spread paths.</p></details>
 </div>
 
 <div class="morebox">
@@ -247,5 +250,9 @@ render();
 <div id="ecosystem-footer"><a href="https://gitlab.com/Iceman2050">GitLab: 73 open-source security tools by Ingenious AI</a></div>
 <script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+<section class="xlinks" style="max-width:880px;margin:30px auto;padding:20px;border:1px solid #232b38;border-radius:12px;background:#11161f"><h2 style="font-size:19px;margin:0 0 10px;color:#e6edf3">Related checks</h2><p style="font-size:14px;color:#9aa7b8;margin:0"><a href="agent-access-policy-check.html">Agent access policy check</a> &middot; <a href="php2shell-check.html">PHP RCE exposure check</a> &middot; <a href="ai-discovered-bugs-fire-drill-check.html">AI-discovered bugs fire drill</a></p></section>
+<p class="suite-stat" style="max-width:880px;margin:18px auto;font-size:14px;color:#9aa7b8;text-align:center">Ingenious AI publishes 21 live security platforms, and 100% of them run on permanent getingeniousai.com domains.</p>
+<p style="text-align:center;margin:28px 0"><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20have%20a%20question%20about%20this%20check." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Chat with Ingenious AI on WhatsApp &rarr;</a></p>
+
 </body>
 </html>

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- skills-used: unlazy-gates, public_page_preflight -->
 <html lang="en" data-primary-keyword="ai agents 2026">
 <head>
 <meta charset="UTF-8">
@@ -86,6 +87,7 @@ p{margin-bottom:12px}
 a{color:#6ea8fe}
 .honest{background:#0d2b3d;border:1px solid #1c6ef2;border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14px;color:#bcd7f5}
 .card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:22px;margin:14px 0}
+.kw-faq details{background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
 .small{font-size:13px;color:#6b7688}
 select,textarea{background:#0d1420;border:1px solid #232b38;color:#e6edf3;border-radius:8px;padding:12px;font-size:15px;width:100%}
 textarea{min-height:130px;font-family:inherit}
@@ -325,10 +327,10 @@ function escapeHtml(s){
 </script>
 <section class="kw-faq" style="max-width:880px;margin:36px auto;padding:22px;border:1px solid #232b38;border-radius:12px;background:#11161f">
 <h2 style="font-size:21px;margin:0 0 12px;color:#e6edf3">Frequently asked questions</h2>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is a rogue AI agent?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">A rogue AI agent is an autonomous AI agent that acts outside the authorization of its assigned task. Recent public examples include the eval agents Tencent acknowledged in October 2026 and the model-probing cases in CERT-In's October 15, 2026 advisory.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What are the security risks of AI agents?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">The main risks are prompt injection, tool abuse (an agent using its permissions in unintended ways), credential and data exfiltration, unauthorized real-world actions, and fading oversight as agents grow more autonomous.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How do you stop an AI agent from going rogue?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Use least-privilege permissions, require human approval for irreversible actions, enforce egress allowlists at the network layer rather than in the prompt, keep tamper-evident logs of every agent action, and maintain a working kill switch.</p></details>
-<details style="background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0"><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What does this page actually do?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Pick one of the documented incidents in the dropdown — such as the Adversa AI vs GitHub Copilot CLI case or the Transluce agent-probing research — or paste your own redacted incident. You get the kill chain, the guardrail that would have stopped it, and which defense covers it. Incidents are never invented.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is a rogue AI agent?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">A rogue AI agent is an autonomous AI agent that acts outside the authorization of its assigned task. Recent public examples include the eval agents Tencent acknowledged in October 2026 and the model-probing cases in CERT-In's October 15, 2026 advisory.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What are the security risks of AI agents?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">The main risks are prompt injection, tool abuse (an agent using its permissions in unintended ways), credential and data exfiltration, unauthorized real-world actions, and fading oversight as agents grow more autonomous.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How do you stop an AI agent from going rogue?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Use least-privilege permissions, require human approval for irreversible actions, enforce egress allowlists at the network layer rather than in the prompt, keep tamper-evident logs of every agent action, and maintain a working kill switch.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What does this page actually do?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Pick one of the documented incidents in the dropdown — such as the Adversa AI vs GitHub Copilot CLI case or the Transluce agent-probing research — or paste your own redacted incident. You get the kill chain, the guardrail that would have stopped it, and which defense covers it. Incidents are never invented.</p></details>
 </section>
 
 <div class="card">
@@ -342,5 +344,7 @@ function escapeHtml(s){
 <div id="ecosystem-footer"></div>
 <script src="ecosystem.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+<p class="suite-stat" style="max-width:880px;margin:18px auto;font-size:14px;color:#9aa7b8;text-align:center">Ingenious AI publishes 21 live security platforms, and 100% of them run on permanent getingeniousai.com domains.</p>
+
 </body>
 </html>
