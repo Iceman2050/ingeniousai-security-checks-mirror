@@ -526,3 +526,59 @@ status-badge.html is a live-data embed component (renders the fleet status badge
 | yandex-strikes-russian-bots-myth-check.html | PASS | 1717 | 0.997 | 0.0 | true | 15 | 1 |
 | yanked-package-autopsy-check.html | PASS | 1766 | 0.978 | 0.029 | true | 1 | 1 |
 | yelp-charges-ai-agents-data-check.html | PASS | 1185 | 0.996 | 0.015 | true | 1 | 0 |
+
+## Platform spot-audit (Phase 3, 2026-10-24 — live homepages fetched)
+
+All 21 platform homepages returned HTTP 200 with the actual tool on the page
+(interactive inputs present on every homepage) and distinct product copy —
+no swapped-keyword clones found.
+
+| platform | code | tool inputs on homepage | page words | note |
+|---|---|---|---|---|
+| Vibe-Code Audit | 200 | 5 | 1736 | scanner entry on homepage |
+| Rogue-Agent Defense | 200 | 7 | 1862 | form + injection-defense tool |
+| BreachHunter | 200 | 6 | 1448 | scan entry on homepage |
+| ChatBreaker | 200 | 4 | 1505 | red-team tool entry |
+| DisclosureGuard | 200 | 7 | 2773 | checker + 2 forms, deepest homepage |
+| ModelMinder | 200 | 4 | 1576 | radar signup/check inputs |
+| TermsWatch | 200 | 4 | 1113 | tracker inputs |
+| Agent Flight Recorder | 200 | 3 | 1423 | audit-trail tool entry |
+| Agent Auth Gateway | 200 | 14 | 1766 | richest input surface |
+| DomainGuard | 200 | 6 | 1108 | brand-check form |
+| ContentCraft AI | 200 | 7 | 1149 | generator form |
+| EvalScope | 200 | 1 | 683 | lean single-purpose entry |
+| BoundaryVault | 200 | 1 | 665 | lean single-purpose entry |
+| Agentic Receipts | 200 | 1 | 558 | leanest homepage — still a distinct tool entry, not a clone |
+| Store Audit | 200 | 1 | 721 | store-URL audit entry |
+| AgentBlock | 200 | 2 | 816 | blocking tool form |
+| HomeShield MCP | 200 | 2 | 716 | exposure-check form |
+| AgentGate | 200 | 1 | 657 | lean single-purpose entry |
+| ADMT Notice Kit | 200 | 4 | 938 | notice-kit inputs |
+| DueLadder | 200 | 4 | 919 | invoice-tool inputs |
+| WireWatch | 200 | 4 | 691 | wire-check inputs |
+
+Verdict: no platform homepage is a thin template. Five homepages are lean
+(558–721 words: Agentic Receipts, AgentGate, BoundaryVault, EvalScope,
+WireWatch) but each fronts a distinct working tool with its own input flow —
+the unique element is the function. No rebuilds raised from this audit.
+
+## Cold-checker verification (2026-10-24, independent, live fetched HTML)
+
+An independent checker fetched 10 pages from the live GitLab Pages host and
+verified them against this audit's claims: **10/10 PASS, no FAILs.**
+
+- fake-windows-alert.html — 5 `.fw-sign` checkboxes, `#fw-score` button, JS
+  verdict into `#fw-result`, "Anatomy of this wave" table with the sourced
+  figures (20,000+ domains, Hotejka, Infoblox, October 15, 2026). PASS.
+- help-tds-tech-support-scam.html — 6 `.tds-sign` checkboxes, `#tds-score`,
+  `#tds-result` with compromise-remediation text, Entry/Profiling/Routing/
+  Monetisation stage table; the duplicated victim checklist card confirmed
+  GONE; bodies no longer near-duplicates. PASS.
+- agent-access-policy-check.html — scored quiz inputs + verdict containers. PASS.
+- ai-video-prompts-for-fitness-brands.html — prompt-builder widget present. PASS.
+- security-suite.html — 2 data tables + ~1,380 unique words. PASS.
+- state-of-mcp-security-2026.html — 1,019 words original research content. PASS.
+- newsjack-domainguard.html — meta-refresh stub as recorded. PASS.
+- whatsapp-pricing-calculator.html — meta-refresh stub as recorded. PASS.
+- gtm-gap-diagnostic.html (held page) — working JS diagnostic. PASS.
+- ledger-implant-theft-check.html — meta-refresh stub, ~49 words. PASS.
