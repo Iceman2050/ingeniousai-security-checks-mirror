@@ -39,6 +39,13 @@ code.cmd{display:block;background:#000;border:1px solid #2a3342;border-radius:8p
 ul{margin:10px 0 10px 20px}
 li{margin:8px 0}
 footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:13px;color:#6b7688;text-align:center}
+.gx-block{background:#141a26;border:1px solid #2a3348;border-radius:8px;padding:1rem 1.2rem;margin:1.8rem 0}
+.gx-block .gx-headline{margin:.2rem 0 .6rem;font-size:1.15rem;color:#ffd166}
+.gx-block p{margin:.4rem 0}
+.gx-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin:.8rem 0 .2rem}
+.gx-link{display:inline-block;padding:.5rem .9rem;border-radius:6px;background:#222836;border:1px solid #3a4356;color:#7cc4ff;text-decoration:none}
+.gx-link--pack{background:#1c6ef2;border-color:#1c6ef2;color:#fff;font-weight:700}
+.gx-note{font-size:.85rem;color:#9aa3b2}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I check if my Claude Code Desktop is patched against SneakPeek?","acceptedAnswer":{"@type":"Answer","text":"Open Claude Desktop and check the build number (Settings / About). Build 1.30096.1 or newer, released August 17, 2026, contains the full fix. Anything older is vulnerable to the SneakPeek preview-pane flaw — update through the app's auto-update immediately."}},{"@type":"Question","name":"What did the SneakPeek vulnerability actually do?","acceptedAnswer":{"@type":"Answer","text":"SneakPeek, disclosed by Noma Labs on October 14, 2026, chained three flaws in Claude Code Desktop's HTML preview pane: files over 256KB were written to disk and loaded as file:// URLs (bypassing the CSP applied to smaller files), the file:// origin gave the preview renderer local filesystem access, and the request filter meant to block file access was inactive. A poisoned HTML file over 256KB — e.g. a test coverage report in a cloned repo — could silently read SSH keys, AWS credentials, GitHub tokens and Kubernetes configs and exfiltrate them, with no click required. Anthropic scored it CVSS 8.7."}},{"@type":"Question","name":"Was SneakPeek exploited in the wild?","acceptedAnswer":{"@type":"Answer","text":"No confirmed in-the-wild exploitation has been reported — the public reporting describes a resolved research disclosure, not evidence that a specific user was compromised. The risk window was July 4 to August 17, 2026 on unpatched builds. If you reviewed HTML files from cloned repos on an old build during that window, rotate the secrets that lived on that machine as a precaution."}},{"@type":"Question","name":"What is a CVE checker?","acceptedAnswer":{"@type":"Answer","text":"A CVE checker is a free tool that tells you whether your software is affected by a published CVE — a publicly known cybersecurity vulnerability. It compares your version or configuration against the official advisory and gives you a patched, vulnerable, or unknown verdict in about 30 seconds."}},{"@type":"Question","name":"How do I check if my software has a CVE?","acceptedAnswer":{"@type":"Answer","text":"Find your exact version number, then compare it against the vendor's security advisory or the NVD entry for the CVE. The fastest way is a CVE checker built for that product: paste your version and get an instant verdict against the published version tables."}},{"@type":"Question","name":"How do I know if I am affected by a CVE?","acceptedAnswer":{"@type":"Answer","text":"You are affected when you run a vulnerable version and the vulnerable component is reachable or enabled — for example, open sign-ups, an exposed management port, or a vulnerable app installed. A CVE checker gives you the version verdict in seconds; the advisory's conditions tell you whether that verdict means real exposure."}}]}
@@ -62,6 +69,18 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #232b38;font-size:1
 <li><strong>Turn off auto-preview of untrusted HTML</strong> in your AI tools until you've confirmed the setting exists and is enforced.</li>
 </ul>
 </div>
+
+<aside class="gx-block gx-block--claude" aria-label="Claude video director suite on Gumroad">
+  <h3 class="gx-headline">Claude AI prompts for video direction</h3>
+  <p class="gx-copy">Go deeper: the complete prompt pack for this topic is on our Gumroad store, with a free 10-prompt sampler.</p>
+  <p class="gx-detail">Give Claude AI one prompt from the suite to storyboard a video, then reuse the full set of prompts across projects — each prompt directs a different stage, from concept to final cut.</p>
+  <p class="gx-actions">
+    <a class="gx-link gx-link--pack" href="https://aldovideos.gumroad.com/?sort=page_layout&amp;tags=claude+prompts&utm_source=mirror&utm_medium=matched-block&utm_campaign=gumroad-v2-mirror-block&utm_content=claude">Claude Skills Video Director Suite</a>
+    <a class="gx-link gx-link--store" href="https://aldovideos.gumroad.com/?sort=page_layout&amp;tags=claude+prompts&utm_source=mirror&utm_medium=matched-block&utm_campaign=gumroad-v2-mirror-block&utm_content=claude">Browse Claude prompts and packs on our Gumroad store</a>
+    <a class="gx-link gx-link--sampler" href="https://aldovideos.gumroad.com/l/kwudm?utm_source=mirror&utm_medium=matched-block&utm_campaign=gumroad-v2-mirror-block&utm_content=claude">Free 10-prompt sampler</a>
+  </p>
+  <p class="gx-note">The cross-promo spec names this product but does not give its direct product link, so the product link above is the tag-filtered store view for this topic.</p>
+</aside>
 
 <a class="cta" href="wild-prompt-injections.html">See the live feed of AI attacks found in the wild &rarr;</a>
 <p class="note" style="text-align:center">SneakPeek is an AI-tooling attack. The wild injections feed tracks every real-world AI attack with dates and sources — and the chatbot red-team test lets you try 5 adversarial prompts on your own bot.</p>

@@ -34,6 +34,13 @@ summary{cursor:pointer;font-weight:600}
 .honest{background:#141a26;border-left:4px solid #ffd166;border-radius:0 8px 8px 0;padding:.9rem 1rem;margin:1.4rem 0;font-size:.97rem}
 .meta{color:#9aa3b2;font-size:.85rem}
 .src{font-size:.85rem;color:#9aa3b2}
+.gx-block{background:#141a26;border:1px solid #2a3348;border-radius:8px;padding:1rem 1.2rem;margin:1.8rem 0}
+.gx-block .gx-headline{margin:.2rem 0 .6rem;font-size:1.15rem;color:#ffd166}
+.gx-block p{margin:.4rem 0}
+.gx-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin:.8rem 0 .2rem}
+.gx-link{display:inline-block;padding:.5rem .9rem;border-radius:6px;background:#222836;border:1px solid #3a4356;color:#7cc4ff;text-decoration:none}
+.gx-link--pack{background:#1c6ef2;border-color:#1c6ef2;color:#fff;font-weight:700}
+.gx-note{font-size:.85rem;color:#9aa3b2}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Article","headline":"Google SynthID Detector: What It Actually Tells You","author":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-18","description":"Google opened its SynthID Detector to the public on October 7, 2026. It detects invisible SynthID watermarks in images, video, and audio — but it is not a general AI detector."}
@@ -85,6 +92,18 @@ summary{cursor:pointer;font-weight:600}
 <li><strong>Watch the free quota.</strong> Roughly ten checks per user per day, a limit Google says exists to stop anyone hammering the detector to train watermark-removal tools. Uploads are processed in real time and deleted right after; only a digital signature is kept for 24 hours to enforce the quota.</li>
 <li><strong>Check the URL.</strong> Type synthid.com yourself — copycat "AI detector" sites will appear around a launch like this.</li>
 </ol>
+
+<aside class="gx-block gx-block--gemini" aria-label="Gemini Omni Flash playbook on Gumroad">
+  <h3 class="gx-headline">Gemini AI prompts for video, shot by shot</h3>
+  <p class="gx-copy">Go deeper: the complete prompt pack for this topic is on our Gumroad store, with a free 10-prompt sampler.</p>
+  <p class="gx-detail">Start with a single Gemini AI prompt, then work through the playbook's prompts for each new clip — one prompt per shot, with the settings that go with it.</p>
+  <p class="gx-actions">
+    <a class="gx-link gx-link--pack" href="https://aldovideos.gumroad.com/?sort=page_layout&amp;tags=gemini+prompts&utm_source=mirror&utm_medium=matched-block&utm_campaign=gumroad-v2-mirror-block&utm_content=gemini">Gemini Omni Flash Playbook</a>
+    <a class="gx-link gx-link--store" href="https://aldovideos.gumroad.com/?sort=page_layout&amp;tags=gemini+prompts&utm_source=mirror&utm_medium=matched-block&utm_campaign=gumroad-v2-mirror-block&utm_content=gemini">Browse Gemini prompts and packs on our Gumroad store</a>
+    <a class="gx-link gx-link--sampler" href="https://aldovideos.gumroad.com/l/kwudm?utm_source=mirror&utm_medium=matched-block&utm_campaign=gumroad-v2-mirror-block&utm_content=gemini">Free 10-prompt sampler</a>
+  </p>
+  <p class="gx-note">The cross-promo spec names this product but does not give its direct product link, so the product link above is the tag-filtered store view for this topic.</p>
+</aside>
 
 <h2>The EU AI Act context: why watermarking matters now</h2>
 <p>The launch did not happen in a vacuum. Since <strong>August 2, 2026</strong>, the EU AI Act has required machine-readable marking of AI-generated media — watermarks like SynthID are the compliance layer that rule points at. That is why coverage keeps expanding: the more providers that adopt compatible provenance technology, the more a tool like this can see. The industry-wide standard is still voluntary and fragmented — images, audio, and video have different technical requirements — which is exactly why the detector covers four partners and not forty.</p>
