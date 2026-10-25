@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates -->
+<html data-primary-keyword="ai governance" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Agent Access Policy Cheat Sheet | AI Governance</title>
+<meta content="AI governance cheat sheet for agent access: what a policy declares, where it lives, and validation — plus AgentGate&#x27;s free generator and validator." name="description"/>
+<link href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-agent-access-policy-cheat-sheet.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Ingenious AI" property="og:site_name"/>
+<meta content="AI Agent Access Policy Cheat Sheet | AI Governance" property="og:title"/>
+<meta content="AI governance cheat sheet for agent access: what a policy declares, where it lives, and validation — plus AgentGate&#x27;s free generator and validator." property="og:description"/>
+<meta content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-agent-access-policy-cheat-sheet.html" property="og:url"/>
+<meta content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="AI Agent Access Policy Cheat Sheet | AI Governance" name="twitter:title"/>
+<meta content="AI governance cheat sheet for agent access: what a policy declares, where it lives, and validation — plus AgentGate&#x27;s free generator and validator." name="twitter:description"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Ingenious AI",
+  "url": "https://getingeniousai.com"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "AI Agent Access Policy Cheat Sheet | AI Governance",
+  "url": "https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-agent-access-policy-cheat-sheet.html",
+  "description": "AI governance cheat sheet for agent access: what a policy declares, where it lives, and validation — plus AgentGate's free generator and validator.",
+  "datePublished": "2026-10-25",
+  "dateModified": "2026-10-25",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Ingenious AI Security Checks",
+    "url": "https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ingenious AI",
+    "url": "https://getingeniousai.com"
+  },
+  "about": "AI Agent Access Policy"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "AI Agent Access Policy Cheat Sheet",
+      "item": "https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-agent-access-policy-cheat-sheet.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an AI agent access policy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is a machine-readable file, published at /.well-known/agent-policy.json, that declares which AI agents may use your site, what actions each may take, and on what commercial terms. Unlike a human terms page, agents and tools can read and apply it automatically, which makes it an AI governance control rather than a statement of intent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is an agent policy different from robots.txt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Robots.txt is a coarse, decades-old convention: mostly crawl permission per user-agent, with no actions, no commercial terms and no identity verification. An agent access policy is richer — per-agent permissions for specific actions like summarising or transacting, plus terms — and the two are designed to agree, with robots.txt handling classic crawling."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where does the agent policy file live?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At the standard well-known location: https://your-domain/.well-known/agent-policy.json, served over HTTPS as JSON without authentication. The fixed location is the point — agents, validators and audit tools all look in exactly one place, the same way they do for security.txt and robots.txt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does AgentGate cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AgentGate's policy generator and validator are free. Pro is $49 per month for managed policies, change alerts and multiple sites, and Team is $149 per month. The free tools produce the complete standard file, so a single site can publish a valid policy today without paying anything."
+      }
+    }
+  ]
+}
+</script>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:880px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d2b1a;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+.crumbs{font-size:13px;color:#6b7688;margin-bottom:18px}
+.crumbs a{color:#6ea8fe;text-decoration:none}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .h1-kw{color:#7ee787}
+h2{font-size:22px;margin:30px 0 12px;color:#fff}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+p{margin-bottom:14px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:22px;margin:14px 0}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:18px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.small{font-size:13px;color:#6b7688}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px;margin:4px 8px 4px 0}
+.btn:hover{background:#2b7fff}
+.btn-ghost{background:#0d1420;border:1px solid #232b38;color:#e6edf3}
+ul,ol{margin:10px 0 14px 22px}
+li{margin:8px 0}
+.morelinks{background:#0d1420;border:1px solid #2a3342;border-radius:12px;padding:22px;margin:28px 0}
+.morelinks h2{margin-top:0;font-size:19px}
+.morelinks ul{list-style:none;margin:0;padding:0}
+.morelinks li{margin:8px 0;font-size:15px}
+.morelinks a{color:#6ea8fe;text-decoration:none}
+.morelinks a:hover{text-decoration:underline}
+a{color:#6ea8fe}
+details{background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
+time{color:#6b7688;font-size:14px}
+</style>
+<style>
+  .ia-crosspromo{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;max-width:640px;margin:24px auto;padding:20px 22px;border-radius:14px;color:#eaf0ff;background:linear-gradient(135deg,#0b1226 0%,#131c3a 60%,#1b1440 100%);border:1px solid rgba(120,140,255,.25);box-shadow:0 8px 28px rgba(10,20,60,.35)}
+  .ia-crosspromo h3{margin:0 0 4px;font-size:18px;font-weight:700;letter-spacing:.2px;color:#fff}
+  .ia-crosspromo h3 .ia-badge{display:inline-block;font-size:11px;font-weight:600;vertical-align:middle;margin-left:8px;padding:3px 9px;border-radius:999px;color:#0b1226;background:linear-gradient(90deg,#7df9c6,#4de3ff)}
+  .ia-crosspromo .ia-sub{margin:0 0 14px;font-size:13.5px;color:#aeb9dd;line-height:1.45}
+  .ia-crosspromo .ia-pair{font-size:14px;line-height:1.5;padding:9px 0;border-top:1px solid rgba(140,160,255,.14)}
+  .ia-crosspromo .ia-pair:first-of-type{border-top:none}
+  .ia-crosspromo .ia-pair strong{color:#fff}
+  .ia-crosspromo a{color:#8fd8ff;text-decoration:none;font-weight:600}
+  .ia-crosspromo a:hover{text-decoration:underline;color:#c4ecff}
+  .ia-crosspromo .ia-all{margin-top:14px;padding-top:12px;border-top:1px solid rgba(140,160,255,.2);font-size:12.5px;line-height:1.9;color:#aeb9dd}
+  .ia-crosspromo .ia-all a{display:inline-block;margin:2px 4px 2px 0;padding:3px 10px;border-radius:999px;background:rgba(120,150,255,.12);border:1px solid rgba(120,150,255,.28);font-size:12px;font-weight:600;color:#dbe4ff;white-space:nowrap}
+  .ia-crosspromo .ia-all a:hover{background:rgba(120,150,255,.25);text-decoration:none}
+  .ia-crosspromo .ia-cta{display:inline-block;margin-top:14px;padding:10px 18px;border-radius:10px;background:linear-gradient(90deg,#4de3ff,#7df9c6);color:#0b1226!important;font-weight:700;font-size:14px;text-decoration:none!important}
+  .ia-crosspromo .ia-cta:hover{filter:brightness(1.08)}
+</style>
+<link href="ecosystem.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="wrap">
+<nav class="crumbs"><a href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/">Home</a> &rsaquo; AI Agent Access Policy Cheat Sheet</nav>
+<div class="badge">FREE CHEAT SHEET — AGENTGATE BY INGENIOUS AI</div>
+<h1>AI Agent Access Policy Cheat Sheet<span class="h1-kw"> — ai governance, published where agents can read it</span></h1>
+<p><time datetime="2026-10-25">Reviewed October 25, 2026</time> — Ingenious AI security checks.</p>
+<div class="answer"><strong>Direct answer:</strong> An AI agent access policy is a machine-readable declaration of which agents may use your site, what they may do, and on what commercial terms — published where agents look for it. This cheat sheet is for site owners doing AI governance on their own front door. AgentGate generates and validates the policy for you (Free generator and validator, Pro $49/mo, Team $149/mo), starting free at the standard location.</div>
+<h2>Key facts</h2>
+<ul>
+<li><strong>One standard location:</strong> the policy lives at /.well-known/agent-policy.json, where agents and tools know to look.</li>
+<li><strong>3 declarations do the work:</strong> who may access, what they may do, and the commercial terms that apply.</li>
+<li><strong>A policy is only real if it validates:</strong> malformed JSON at the right URL is a locked door with no keyhole — agents skip it and guess.</li>
+</ul>
+<h2>What does an agent access policy declare about ai governance?</h2>
+<p>An agent access policy declares the rules of your site in a form machines can apply without a human reading a terms page: which identified agents are welcome, which actions they may take — read, summarise, transact — and the commercial terms attached to each, such as attribution, rate limits or paid tiers. It turns your AI governance from a paragraph nobody's agent reads into a file every agent can.</p>
+<ul>
+<li><strong>Who:</strong> named agents, classes of agents, or verified identities — allow, deny or conditional per identity.</li>
+<li><strong>What:</strong> the actions permitted per identity — browsing, indexing, summarising, quoting, purchasing, or none.</li>
+<li><strong>Terms:</strong> attribution requirements, rate limits, caching rules and commercial terms for use beyond the free grant.</li>
+<li><strong>Contact and precedence:</strong> where disputes go, and how this file relates to robots.txt and your human terms.</li>
+</ul>
+<h2>How do you publish and validate one?</h2>
+<ol>
+<li><strong>Decide the defaults:</strong> what may an unlisted agent do? Deny-by-default and allow-by-default are both legitimate — ambiguity is not.</li>
+<li><strong>Generate the file</strong> from the decisions, in the standard schema, rather than hand-writing JSON.</li>
+<li><strong>Publish at /.well-known/agent-policy.json</strong> over HTTPS, served as JSON, with no login wall in front of it.</li>
+<li><strong>Validate</strong> the live file: syntax, schema and reachability — the copy on the server, not the draft on your disk.</li>
+<li><strong>Align robots.txt and terms</strong> so the three signals never contradict each other.</li>
+<li><strong>Review on a cadence:</strong> new agents and new business terms both make last quarter's policy stale.</li>
+</ol>
+
+<h2>Run the free check</h2>
+<p>The fastest way to apply this cheat sheet is the free check on <strong>AgentGate</strong>: its free generator drafts the policy and the validator checks the live file. Start on the <a href="https://agentgate.getingeniousai.com">AgentGate homepage</a>, compare tiers on <a href="https://agentgate.getingeniousai.com/pricing">AgentGate pricing</a>, and keep the full hosted reference open at the <a href="https://agentgate.getingeniousai.com/resources/ai-agent-access-policy-cheat-sheet">AI Agent Access Policy cheat sheet on AgentGate</a>. Questions or orders: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20have%20a%20question%20about%20AgentGate.">ask Ingenious AI on WhatsApp</a> or email orders@getingeniousai.com.</p>
+<p><a class="btn" href="https://agentgate.getingeniousai.com">Run the free check on AgentGate &rarr;</a> <a class="btn btn-ghost" href="https://agentgate.getingeniousai.com/resources/ai-agent-access-policy-cheat-sheet">Open the hosted cheat sheet &rarr;</a></p>
+<div class="ia-crosspromo">
+  <h3>More from Ingenious AI <span class="ia-badge">21-PLATFORM SUITE</span></h3>
+  <p class="ia-sub">One vendor, one security posture. Every platform below is live now on getingeniousai.com.</p>
+  <div class="ia-pair"><strong>Using BreachHunter?</strong> Pair it with <a href="https://disclosureguard.getingeniousai.com">DisclosureGuard</a> for EU AI Act readiness — find the exposure, then prove compliance.</div>
+  <div class="ia-pair"><strong>Using DisclosureGuard?</strong> Add <a href="https://termswatch.getingeniousai.com">TermsWatch</a> — your AI vendors change their terms silently; we catch it.</div>
+  <div class="ia-pair"><strong>Using ModelMinder?</strong> Pair it with <a href="https://termswatch.getingeniousai.com">TermsWatch</a> — deprecation radar plus terms-change alerts on the same models.</div>
+  <div class="ia-pair"><strong>Using Rogue-Agent Defense?</strong> Lock it down with <a href="https://authgateway.getingeniousai.com">Agent Auth Gateway</a> (budget caps, allowlists, kill switch) and <a href="https://flightrecorder.getingeniousai.com">Agent Flight Recorder</a> (hash-chained forensics).</div>
+  <div class="ia-pair"><strong>Running agents in production?</strong> <a href="https://flightrecorder.getingeniousai.com">Agent Flight Recorder</a> + <a href="https://authgateway.getingeniousai.com">Agent Auth Gateway</a> give you the audit trail and the emergency brake.</div>
+  <div class="ia-pair"><strong>Using ChatBreaker?</strong> Harden the human layer with <a href="https://domainguard.getingeniousai.com">DomainGuard</a> — most social-engineering runs on lookalike domains.</div>
+  <div class="ia-pair"><strong>Using DomainGuard?</strong> Sweep for what is already exposed with <a href="https://breachhunter.getingeniousai.com">BreachHunter</a>.</div>
+  <div class="ia-pair"><strong>Shipping AI-built code?</strong> <a href="https://vibe-audit.getingeniousai.com">Vibe-Code Audit</a> reviews it before attackers do — and <a href="https://rogue-defense.getingeniousai.com">Rogue-Agent Defense</a> watches the agents that wrote it.</div>
+  <div class="ia-pair"><strong>Publishing AI content?</strong> <a href="https://contentcraft.getingeniousai.com">ContentCraft AI</a> plus <a href="https://disclosureguard.getingeniousai.com">DisclosureGuard</a> keeps every asset disclosed and compliant.</div>
+  <div class="ia-all">
+    <strong style="color:#fff">All 21 platforms:</strong><br>
+    <a href="https://disclosureguard.getingeniousai.com">DisclosureGuard</a><a href="https://modelminder.getingeniousai.com">ModelMinder</a><a href="https://termswatch.getingeniousai.com">TermsWatch</a><a href="https://vibe-audit.getingeniousai.com">Vibe-Code Audit</a><a href="https://rogue-defense.getingeniousai.com">Rogue-Agent Defense</a><a href="https://breachhunter.getingeniousai.com">BreachHunter</a><a href="https://chatbreaker.getingeniousai.com">ChatBreaker</a><a href="https://flightrecorder.getingeniousai.com">Agent Flight Recorder</a><a href="https://authgateway.getingeniousai.com">Agent Auth Gateway</a><a href="https://domainguard.getingeniousai.com">DomainGuard</a><a href="https://contentcraft.getingeniousai.com">ContentCraft AI</a><a href="https://evalscope.getingeniousai.com">EvalScope</a><a href="https://boundaryvault.getingeniousai.com">BoundaryVault</a><a href="https://agentic-receipts.getingeniousai.com">Agentic Receipts</a><a href="https://storeaudit.getingeniousai.com">Store Audit</a><a href="https://agentblock.getingeniousai.com">AgentBlock</a><a href="https://homeshield.getingeniousai.com">HomeShield</a><a href="https://agentgate.getingeniousai.com">AgentGate</a><a href="https://admt.getingeniousai.com">ADMT</a><a href="https://dueladder.getingeniousai.com">DueLadder</a><a href="https://wirewatch.getingeniousai.com">WireWatch</a>
+  </div>
+  <a class="ia-cta" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/security-suite.html">Explore the full Security Suite →</a>
+</div>
+<section class="kw-faq">
+<h2>Frequently asked questions</h2>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is an AI agent access policy?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">It is a machine-readable file, published at /.well-known/agent-policy.json, that declares which AI agents may use your site, what actions each may take, and on what commercial terms. Unlike a human terms page, agents and tools can read and apply it automatically, which makes it an AI governance control rather than a statement of intent.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How is an agent policy different from robots.txt?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Robots.txt is a coarse, decades-old convention: mostly crawl permission per user-agent, with no actions, no commercial terms and no identity verification. An agent access policy is richer — per-agent permissions for specific actions like summarising or transacting, plus terms — and the two are designed to agree, with robots.txt handling classic crawling.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Where does the agent policy file live?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">At the standard well-known location: https://your-domain/.well-known/agent-policy.json, served over HTTPS as JSON without authentication. The fixed location is the point — agents, validators and audit tools all look in exactly one place, the same way they do for security.txt and robots.txt.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What does AgentGate cost?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">AgentGate&#x27;s policy generator and validator are free. Pro is $49 per month for managed policies, change alerts and multiple sites, and Team is $149 per month. The free tools produce the complete standard file, so a single site can publish a valid policy today without paying anything.</p></details>
+</section>
+<div class="morelinks">
+<h2>Related checks</h2>
+<ul>
+<li><a href="agent-access-index.html">Agent Access Index — what agents can reach, mapped</a></li>
+<li><a href="agent-access-policy-check.html">Agent Access Policy Check — validate a live policy</a></li>
+<li><a href="http-header-ai-agents.html">HTTP Header AI Agents — signals agents send and read</a></li>
+<li><a href="security-suite.html">Ingenious AI Security Suite — all 21 platforms, one bundle price</a></li>
+<li><a href="ai-platform-security-self-check-suite.html">AI Platform Security Self-Check Suite — the free self-check battery</a></li>
+</ul>
+</div>
+</div>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates -->
+<html data-primary-keyword="web scraping" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Bot Identification Cheat Sheet — Web Scraping Bots</title>
+<meta content="Web scraping bot identification cheat sheet: the 5 identity signals, the dated agent database and the blocking kit — plus AgentBlock&#x27;s free tier." name="description"/>
+<link href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-bot-identification-cheat-sheet.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Ingenious AI" property="og:site_name"/>
+<meta content="AI Bot Identification Cheat Sheet — Web Scraping Bots" property="og:title"/>
+<meta content="Web scraping bot identification cheat sheet: the 5 identity signals, the dated agent database and the blocking kit — plus AgentBlock&#x27;s free tier." property="og:description"/>
+<meta content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-bot-identification-cheat-sheet.html" property="og:url"/>
+<meta content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="AI Bot Identification Cheat Sheet — Web Scraping Bots" name="twitter:title"/>
+<meta content="Web scraping bot identification cheat sheet: the 5 identity signals, the dated agent database and the blocking kit — plus AgentBlock&#x27;s free tier." name="twitter:description"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Ingenious AI",
+  "url": "https://getingeniousai.com"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "AI Bot Identification Cheat Sheet — Web Scraping Bots",
+  "url": "https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-bot-identification-cheat-sheet.html",
+  "description": "Web scraping bot identification cheat sheet: the 5 identity signals, the dated agent database and the blocking kit — plus AgentBlock's free tier.",
+  "datePublished": "2026-10-25",
+  "dateModified": "2026-10-25",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Ingenious AI Security Checks",
+    "url": "https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ingenious AI",
+    "url": "https://getingeniousai.com"
+  },
+  "about": "AI Bot Identification"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "AI Bot Identification Cheat Sheet",
+      "item": "https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-bot-identification-cheat-sheet.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is web scraping by AI bots?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Web scraping is automated visiting and extraction of a site's content at scale. AI bots do it to train models, power answer engines, compare prices or run agents. Some declare themselves and follow the rules; others spoof identities or ignore robots directives — which is why identification combines five signals instead of trusting one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I tell which bots visit my site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start from your server logs: record the user-agent, then verify it against the vendor's published IP ranges and documentation, check reverse DNS, and compare behaviour and robots conduct with what that vendor promises. AgentBlock's database does this matching against dated, vendor-documented records for the known agent population."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I block all AI bots?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That is a business decision with real costs: blocking answer-engine and search crawlers removes you from the answers their users read, while allowing every undeclared scraper gives your content away unthrottled. Identification exists so the choice can be per-agent — allow, throttle or block — instead of one blunt rule for everything automated."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does AgentBlock cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AgentBlock starts with a free tier covering the core agent database and a starter blocking kit. Pro is $29 per month and Team is $79 per month for more sites, fresher updates and team seats. The free tier enforces real rules for the agents you choose, so the kit is testable before any upgrade."
+      }
+    }
+  ]
+}
+</script>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:880px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d2b1a;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+.crumbs{font-size:13px;color:#6b7688;margin-bottom:18px}
+.crumbs a{color:#6ea8fe;text-decoration:none}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .h1-kw{color:#7ee787}
+h2{font-size:22px;margin:30px 0 12px;color:#fff}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+p{margin-bottom:14px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:22px;margin:14px 0}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:18px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.small{font-size:13px;color:#6b7688}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px;margin:4px 8px 4px 0}
+.btn:hover{background:#2b7fff}
+.btn-ghost{background:#0d1420;border:1px solid #232b38;color:#e6edf3}
+ul,ol{margin:10px 0 14px 22px}
+li{margin:8px 0}
+.morelinks{background:#0d1420;border:1px solid #2a3342;border-radius:12px;padding:22px;margin:28px 0}
+.morelinks h2{margin-top:0;font-size:19px}
+.morelinks ul{list-style:none;margin:0;padding:0}
+.morelinks li{margin:8px 0;font-size:15px}
+.morelinks a{color:#6ea8fe;text-decoration:none}
+.morelinks a:hover{text-decoration:underline}
+a{color:#6ea8fe}
+details{background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
+time{color:#6b7688;font-size:14px}
+</style>
+<style>
+  .ia-crosspromo{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;max-width:640px;margin:24px auto;padding:20px 22px;border-radius:14px;color:#eaf0ff;background:linear-gradient(135deg,#0b1226 0%,#131c3a 60%,#1b1440 100%);border:1px solid rgba(120,140,255,.25);box-shadow:0 8px 28px rgba(10,20,60,.35)}
+  .ia-crosspromo h3{margin:0 0 4px;font-size:18px;font-weight:700;letter-spacing:.2px;color:#fff}
+  .ia-crosspromo h3 .ia-badge{display:inline-block;font-size:11px;font-weight:600;vertical-align:middle;margin-left:8px;padding:3px 9px;border-radius:999px;color:#0b1226;background:linear-gradient(90deg,#7df9c6,#4de3ff)}
+  .ia-crosspromo .ia-sub{margin:0 0 14px;font-size:13.5px;color:#aeb9dd;line-height:1.45}
+  .ia-crosspromo .ia-pair{font-size:14px;line-height:1.5;padding:9px 0;border-top:1px solid rgba(140,160,255,.14)}
+  .ia-crosspromo .ia-pair:first-of-type{border-top:none}
+  .ia-crosspromo .ia-pair strong{color:#fff}
+  .ia-crosspromo a{color:#8fd8ff;text-decoration:none;font-weight:600}
+  .ia-crosspromo a:hover{text-decoration:underline;color:#c4ecff}
+  .ia-crosspromo .ia-all{margin-top:14px;padding-top:12px;border-top:1px solid rgba(140,160,255,.2);font-size:12.5px;line-height:1.9;color:#aeb9dd}
+  .ia-crosspromo .ia-all a{display:inline-block;margin:2px 4px 2px 0;padding:3px 10px;border-radius:999px;background:rgba(120,150,255,.12);border:1px solid rgba(120,150,255,.28);font-size:12px;font-weight:600;color:#dbe4ff;white-space:nowrap}
+  .ia-crosspromo .ia-all a:hover{background:rgba(120,150,255,.25);text-decoration:none}
+  .ia-crosspromo .ia-cta{display:inline-block;margin-top:14px;padding:10px 18px;border-radius:10px;background:linear-gradient(90deg,#4de3ff,#7df9c6);color:#0b1226!important;font-weight:700;font-size:14px;text-decoration:none!important}
+  .ia-crosspromo .ia-cta:hover{filter:brightness(1.08)}
+</style>
+<link href="ecosystem.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="wrap">
+<nav class="crumbs"><a href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/">Home</a> &rsaquo; AI Bot Identification Cheat Sheet</nav>
+<div class="badge">FREE CHEAT SHEET — AGENTBLOCK BY INGENIOUS AI</div>
+<h1>AI Bot Identification Cheat Sheet<span class="h1-kw"> — web scraping bots, named before they are blocked</span></h1>
+<p><time datetime="2026-10-25">Reviewed October 25, 2026</time> — Ingenious AI security checks.</p>
+<div class="answer"><strong>Direct answer:</strong> AI bot identification is how a site tells which automated visitors are which — declared AI crawlers, shopping agents, web scraping bots and the undeclared rest — before deciding what each may do. This cheat sheet is for site owners who want control, not guesswork. AgentBlock turns identification into a one-click blocking kit (Free tier, Pro $29/mo, Team $79/mo), and its free tier starts from the dated, vendor-documented agent database.</div>
+<h2>Key facts</h2>
+<ul>
+<li><strong>Identification precedes blocking:</strong> a bot you cannot name is a bot you cannot deliberately allow, throttle or stop.</li>
+<li><strong>5 signals combine:</strong> user-agent declaration, published IP ranges, behaviour, robots compliance and reverse-DNS or registry records.</li>
+<li><strong>The database is dated and vendor-documented:</strong> agent identities come from vendors' own published documentation, with the date checked — not from folklore lists.</li>
+</ul>
+<h2>How do you identify a web scraping bot?</h2>
+<p>You identify a bot by combining signals, because no single one is proof. Honest crawlers declare a recognisable user-agent and publish the IP ranges and verification methods they use; dishonest scrapers borrow those names. Matching the declared identity against the vendor's own documentation — ranges, behaviour and robots conduct — is what separates identification from guessing.</p>
+<ul>
+<li><strong>User-agent declaration:</strong> the name the visitor claims — necessary, never sufficient.</li>
+<li><strong>Published IP ranges:</strong> does the traffic arrive from the ranges that vendor actually publishes?</li>
+<li><strong>Reverse DNS and registry records:</strong> does the address resolve back to the claimed operator?</li>
+<li><strong>Behaviour:</strong> request rate, path order, asset loading and session shape — crawlers, agents and scrapers move differently.</li>
+<li><strong>Robots and policy conduct:</strong> does the visitor respect robots.txt and your published agent policy, as its documentation promises?</li>
+</ul>
+<h2>What do you do with an identification?</h2>
+<ul>
+<li><strong>Allow</strong> the verified agents you want — search, answer engines and your customers' assistants.</li>
+<li><strong>Throttle</strong> the heavy but legitimate — rate limits keep a keen crawler from becoming an outage.</li>
+<li><strong>Block</strong> the undeclared, the spoofed and the abusive — by identity and behaviour, not by country-sized net blocks.</li>
+<li><strong>Log and revisit:</strong> new agents launch constantly; an identification list ages in weeks, so the database behind it must be maintained and dated.</li>
+</ul>
+<h2>What is the blocking kit?</h2>
+<p>Identification becomes protection when it ships as deployable rules. AgentBlock builds the same decisions into three forms — a Cloudflare Worker, a WordPress plugin and a JavaScript snippet — so the allow, throttle and block lists you chose are enforced at the edge, in the CMS, or on the page, without hand-editing server rules.</p>
+
+<h2>Run the free check</h2>
+<p>The fastest way to apply this cheat sheet is the free check on <strong>AgentBlock</strong>: it identifies the known agents in the database and builds your blocking kit. Start on the <a href="https://agentblock.getingeniousai.com">AgentBlock homepage</a>, compare tiers on <a href="https://agentblock.getingeniousai.com/pricing">AgentBlock pricing</a>, and keep the full hosted reference open at the <a href="https://agentblock.getingeniousai.com/resources/ai-bot-identification-cheat-sheet">AI Bot Identification cheat sheet on AgentBlock</a>. Questions or orders: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20have%20a%20question%20about%20AgentBlock.">ask Ingenious AI on WhatsApp</a> or email orders@getingeniousai.com.</p>
+<p><a class="btn" href="https://agentblock.getingeniousai.com">Run the free check on AgentBlock &rarr;</a> <a class="btn btn-ghost" href="https://agentblock.getingeniousai.com/resources/ai-bot-identification-cheat-sheet">Open the hosted cheat sheet &rarr;</a></p>
+<div class="ia-crosspromo">
+  <h3>More from Ingenious AI <span class="ia-badge">21-PLATFORM SUITE</span></h3>
+  <p class="ia-sub">One vendor, one security posture. Every platform below is live now on getingeniousai.com.</p>
+  <div class="ia-pair"><strong>Using BreachHunter?</strong> Pair it with <a href="https://disclosureguard.getingeniousai.com">DisclosureGuard</a> for EU AI Act readiness — find the exposure, then prove compliance.</div>
+  <div class="ia-pair"><strong>Using DisclosureGuard?</strong> Add <a href="https://termswatch.getingeniousai.com">TermsWatch</a> — your AI vendors change their terms silently; we catch it.</div>
+  <div class="ia-pair"><strong>Using ModelMinder?</strong> Pair it with <a href="https://termswatch.getingeniousai.com">TermsWatch</a> — deprecation radar plus terms-change alerts on the same models.</div>
+  <div class="ia-pair"><strong>Using Rogue-Agent Defense?</strong> Lock it down with <a href="https://authgateway.getingeniousai.com">Agent Auth Gateway</a> (budget caps, allowlists, kill switch) and <a href="https://flightrecorder.getingeniousai.com">Agent Flight Recorder</a> (hash-chained forensics).</div>
+  <div class="ia-pair"><strong>Running agents in production?</strong> <a href="https://flightrecorder.getingeniousai.com">Agent Flight Recorder</a> + <a href="https://authgateway.getingeniousai.com">Agent Auth Gateway</a> give you the audit trail and the emergency brake.</div>
+  <div class="ia-pair"><strong>Using ChatBreaker?</strong> Harden the human layer with <a href="https://domainguard.getingeniousai.com">DomainGuard</a> — most social-engineering runs on lookalike domains.</div>
+  <div class="ia-pair"><strong>Using DomainGuard?</strong> Sweep for what is already exposed with <a href="https://breachhunter.getingeniousai.com">BreachHunter</a>.</div>
+  <div class="ia-pair"><strong>Shipping AI-built code?</strong> <a href="https://vibe-audit.getingeniousai.com">Vibe-Code Audit</a> reviews it before attackers do — and <a href="https://rogue-defense.getingeniousai.com">Rogue-Agent Defense</a> watches the agents that wrote it.</div>
+  <div class="ia-pair"><strong>Publishing AI content?</strong> <a href="https://contentcraft.getingeniousai.com">ContentCraft AI</a> plus <a href="https://disclosureguard.getingeniousai.com">DisclosureGuard</a> keeps every asset disclosed and compliant.</div>
+  <div class="ia-all">
+    <strong style="color:#fff">All 21 platforms:</strong><br>
+    <a href="https://disclosureguard.getingeniousai.com">DisclosureGuard</a><a href="https://modelminder.getingeniousai.com">ModelMinder</a><a href="https://termswatch.getingeniousai.com">TermsWatch</a><a href="https://vibe-audit.getingeniousai.com">Vibe-Code Audit</a><a href="https://rogue-defense.getingeniousai.com">Rogue-Agent Defense</a><a href="https://breachhunter.getingeniousai.com">BreachHunter</a><a href="https://chatbreaker.getingeniousai.com">ChatBreaker</a><a href="https://flightrecorder.getingeniousai.com">Agent Flight Recorder</a><a href="https://authgateway.getingeniousai.com">Agent Auth Gateway</a><a href="https://domainguard.getingeniousai.com">DomainGuard</a><a href="https://contentcraft.getingeniousai.com">ContentCraft AI</a><a href="https://evalscope.getingeniousai.com">EvalScope</a><a href="https://boundaryvault.getingeniousai.com">BoundaryVault</a><a href="https://agentic-receipts.getingeniousai.com">Agentic Receipts</a><a href="https://storeaudit.getingeniousai.com">Store Audit</a><a href="https://agentblock.getingeniousai.com">AgentBlock</a><a href="https://homeshield.getingeniousai.com">HomeShield</a><a href="https://agentgate.getingeniousai.com">AgentGate</a><a href="https://admt.getingeniousai.com">ADMT</a><a href="https://dueladder.getingeniousai.com">DueLadder</a><a href="https://wirewatch.getingeniousai.com">WireWatch</a>
+  </div>
+  <a class="ia-cta" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/security-suite.html">Explore the full Security Suite →</a>
+</div>
+<section class="kw-faq">
+<h2>Frequently asked questions</h2>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is web scraping by AI bots?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Web scraping is automated visiting and extraction of a site&#x27;s content at scale. AI bots do it to train models, power answer engines, compare prices or run agents. Some declare themselves and follow the rules; others spoof identities or ignore robots directives — which is why identification combines five signals instead of trusting one.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How can I tell which bots visit my site?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Start from your server logs: record the user-agent, then verify it against the vendor&#x27;s published IP ranges and documentation, check reverse DNS, and compare behaviour and robots conduct with what that vendor promises. AgentBlock&#x27;s database does this matching against dated, vendor-documented records for the known agent population.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Should I block all AI bots?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">That is a business decision with real costs: blocking answer-engine and search crawlers removes you from the answers their users read, while allowing every undeclared scraper gives your content away unthrottled. Identification exists so the choice can be per-agent — allow, throttle or block — instead of one blunt rule for everything automated.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What does AgentBlock cost?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">AgentBlock starts with a free tier covering the core agent database and a starter blocking kit. Pro is $29 per month and Team is $79 per month for more sites, fresher updates and team seats. The free tier enforces real rules for the agents you choose, so the kit is testable before any upgrade.</p></details>
+</section>
+<div class="morelinks">
+<h2>Related checks</h2>
+<ul>
+<li><a href="ai-scraper-blocking-check.html">AI Scraper Blocking Check — who is scraping you?</a></li>
+<li><a href="block-ai-agents-one-click-check.html">Block AI Agents One-Click Check — the fast block</a></li>
+<li><a href="ai-agents-blocked-full-list-oct-2026-check.html">AI Agents Blocked Full List — October 2026</a></li>
+<li><a href="security-suite.html">Ingenious AI Security Suite — all 21 platforms, one bundle price</a></li>
+<li><a href="ai-platform-security-self-check-suite.html">AI Platform Security Self-Check Suite — the free self-check battery</a></li>
+</ul>
+</div>
+</div>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

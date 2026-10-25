@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates -->
+<html data-primary-keyword="vibe coding" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vibe Coding Security Cheat Sheet | Ingenious AI</title>
+<meta content="Vibe coding security cheat sheet: the flaw families AI assistants introduce, the 4-command sweep, and the review steps — plus Vibe-Code Audit&#x27;s free scan." name="description"/>
+<link href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-generated-code-security-cheat-sheet.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Ingenious AI" property="og:site_name"/>
+<meta content="Vibe Coding Security Cheat Sheet | Ingenious AI" property="og:title"/>
+<meta content="Vibe coding security cheat sheet: the flaw families AI assistants introduce, the 4-command sweep, and the review steps — plus Vibe-Code Audit&#x27;s free scan." property="og:description"/>
+<meta content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-generated-code-security-cheat-sheet.html" property="og:url"/>
+<meta content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Vibe Coding Security Cheat Sheet | Ingenious AI" name="twitter:title"/>
+<meta content="Vibe coding security cheat sheet: the flaw families AI assistants introduce, the 4-command sweep, and the review steps — plus Vibe-Code Audit&#x27;s free scan." name="twitter:description"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Ingenious AI",
+  "url": "https://getingeniousai.com"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Vibe Coding Security Cheat Sheet | Ingenious AI",
+  "url": "https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-generated-code-security-cheat-sheet.html",
+  "description": "Vibe coding security cheat sheet: the flaw families AI assistants introduce, the 4-command sweep, and the review steps — plus Vibe-Code Audit's free scan.",
+  "datePublished": "2026-10-25",
+  "dateModified": "2026-10-25",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Ingenious AI Security Checks",
+    "url": "https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ingenious AI",
+    "url": "https://getingeniousai.com"
+  },
+  "about": "AI-Generated Code Security"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "AI-Generated Code Security Cheat Sheet",
+      "item": "https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/ai-generated-code-security-cheat-sheet.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is vibe coding security?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vibe coding security is the practice of checking AI-generated code for the flaws models commonly introduce: hardcoded secrets, injection flaws, cross-site scripting, disabled TLS verification and insecure defaults. Veracode's 2025 GenAI Code Security Report found 45 percent of AI-generated code shipped a real vulnerability, so review is not optional."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I check AI-generated code for leaked API keys?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Search the repository for key-shaped strings — the sk-, AKIA, ghp- and xox- prefixes cover the common providers — and for password or api_key assignments with quoted values. Any real hit must be rotated immediately, because a committed key is a compromised key even if the commit is later deleted."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a grep sweep enough to secure AI-written code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is the right first pass, not the whole job. The sweep catches the mechanical families — secrets, dynamic execution, disabled defaults — quickly and repeatably. Judgment flaws like missing authorisation checks and broken business logic still need a human or a deeper scanner reading the code in context."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does Vibe-Code Audit cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vibe-Code Audit starts with a free scan of one repository. Pro is a $49 one-time unlock and Team is $149 one-time — no monthly subscription. The free scan returns the same flaw-family report, so you see exactly what the paid deep scan would work on."
+      }
+    }
+  ]
+}
+</script>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0f17;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.wrap{max-width:880px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#0d2b1a;border:1px solid #3fb950;color:#7ee787;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px}
+.crumbs{font-size:13px;color:#6b7688;margin-bottom:18px}
+.crumbs a{color:#6ea8fe;text-decoration:none}
+h1{font-size:34px;line-height:1.25;margin-bottom:16px}
+h1 .h1-kw{color:#7ee787}
+h2{font-size:22px;margin:30px 0 12px;color:#fff}
+p.lead{font-size:18px;color:#9aa7b8;margin-bottom:24px}
+p{margin-bottom:14px}
+.card{background:#11161f;border:1px solid #232b38;border-radius:12px;padding:22px;margin:14px 0}
+.answer{background:#0d1626;border:1px solid #1c6ef2;border-radius:10px;padding:18px 20px;font-size:16px;margin-bottom:24px}
+.answer strong{color:#fff}
+.small{font-size:13px;color:#6b7688}
+.btn{display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px;margin:4px 8px 4px 0}
+.btn:hover{background:#2b7fff}
+.btn-ghost{background:#0d1420;border:1px solid #232b38;color:#e6edf3}
+ul,ol{margin:10px 0 14px 22px}
+li{margin:8px 0}
+.morelinks{background:#0d1420;border:1px solid #2a3342;border-radius:12px;padding:22px;margin:28px 0}
+.morelinks h2{margin-top:0;font-size:19px}
+.morelinks ul{list-style:none;margin:0;padding:0}
+.morelinks li{margin:8px 0;font-size:15px}
+.morelinks a{color:#6ea8fe;text-decoration:none}
+.morelinks a:hover{text-decoration:underline}
+a{color:#6ea8fe}
+details{background:#0d1420;border:1px solid #232b38;border-radius:8px;padding:14px 16px;margin:10px 0}
+time{color:#6b7688;font-size:14px}
+</style>
+<style>
+  .ia-crosspromo{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;max-width:640px;margin:24px auto;padding:20px 22px;border-radius:14px;color:#eaf0ff;background:linear-gradient(135deg,#0b1226 0%,#131c3a 60%,#1b1440 100%);border:1px solid rgba(120,140,255,.25);box-shadow:0 8px 28px rgba(10,20,60,.35)}
+  .ia-crosspromo h3{margin:0 0 4px;font-size:18px;font-weight:700;letter-spacing:.2px;color:#fff}
+  .ia-crosspromo h3 .ia-badge{display:inline-block;font-size:11px;font-weight:600;vertical-align:middle;margin-left:8px;padding:3px 9px;border-radius:999px;color:#0b1226;background:linear-gradient(90deg,#7df9c6,#4de3ff)}
+  .ia-crosspromo .ia-sub{margin:0 0 14px;font-size:13.5px;color:#aeb9dd;line-height:1.45}
+  .ia-crosspromo .ia-pair{font-size:14px;line-height:1.5;padding:9px 0;border-top:1px solid rgba(140,160,255,.14)}
+  .ia-crosspromo .ia-pair:first-of-type{border-top:none}
+  .ia-crosspromo .ia-pair strong{color:#fff}
+  .ia-crosspromo a{color:#8fd8ff;text-decoration:none;font-weight:600}
+  .ia-crosspromo a:hover{text-decoration:underline;color:#c4ecff}
+  .ia-crosspromo .ia-all{margin-top:14px;padding-top:12px;border-top:1px solid rgba(140,160,255,.2);font-size:12.5px;line-height:1.9;color:#aeb9dd}
+  .ia-crosspromo .ia-all a{display:inline-block;margin:2px 4px 2px 0;padding:3px 10px;border-radius:999px;background:rgba(120,150,255,.12);border:1px solid rgba(120,150,255,.28);font-size:12px;font-weight:600;color:#dbe4ff;white-space:nowrap}
+  .ia-crosspromo .ia-all a:hover{background:rgba(120,150,255,.25);text-decoration:none}
+  .ia-crosspromo .ia-cta{display:inline-block;margin-top:14px;padding:10px 18px;border-radius:10px;background:linear-gradient(90deg,#4de3ff,#7df9c6);color:#0b1226!important;font-weight:700;font-size:14px;text-decoration:none!important}
+  .ia-crosspromo .ia-cta:hover{filter:brightness(1.08)}
+</style>
+<link href="ecosystem.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="wrap">
+<nav class="crumbs"><a href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/">Home</a> &rsaquo; AI-Generated Code Security Cheat Sheet</nav>
+<div class="badge">FREE CHEAT SHEET — VIBE-CODE AUDIT BY INGENIOUS AI</div>
+<h1>AI-Generated Code Security Cheat Sheet<span class="h1-kw"> — vibe coding, reviewed like an attacker reads it</span></h1>
+<p><time datetime="2026-10-25">Reviewed October 25, 2026</time> — Ingenious AI security checks.</p>
+<div class="answer"><strong>Direct answer:</strong> AI-generated code security is the practice of checking code written by coding assistants for the flaws they reliably introduce — hardcoded secrets, injection holes and disabled security defaults. This cheat sheet is for anyone shipping vibe coding output. Vibe-Code Audit deep-scans the codebase for you (Free scan, Pro $49 one-time, Team $149 one-time), and its free scan runs the full sweep on one repo.</div>
+<h2>Key facts</h2>
+<ul>
+<li><strong>45% of AI-generated code shipped a real vulnerability</strong> in Veracode's 2025 GenAI Code Security Report — the base rate is the argument for reviewing every AI-written diff.</li>
+<li><strong>7 flaw families</strong> cover most of what assistants introduce (next section) — they are patterns, so they can be swept for mechanically.</li>
+<li><strong>A committed secret is a compromised secret:</strong> rotation comes before cleanup, every time.</li>
+</ul>
+<h2>What flaws does vibe coding output usually contain?</h2>
+<p>Coding assistants optimise for code that runs, not code that resists attack, so the same flaw families recur across projects and languages. Hardcoded secrets, injection sinks, dynamic execution on untrusted input, disabled TLS verification and insecure defaults appear again and again, because the training examples the models learned from contained them too.</p>
+<ul>
+<li><strong>1. Hardcoded secrets:</strong> API keys, tokens and passwords written straight into source or config-shaped code.</li>
+<li><strong>2. Injection flaws:</strong> SQL, command and template injection where user input reaches a sink unsanitised.</li>
+<li><strong>3. Cross-site scripting:</strong> unescaped output rendered into pages, especially in quick demo front-ends.</li>
+<li><strong>4. Dangerous dynamic execution:</strong> eval(), exec(), shell=True and unsafe deserialisation on data the program does not control.</li>
+<li><strong>5. Disabled security defaults:</strong> verify=False, unverified TLS contexts, CSRF exemptions, permissive CORS added 'to make it work'.</li>
+<li><strong>6. Over-broad permissions:</strong> wildcard IAM, public storage buckets and admin-scoped tokens chosen because they never error.</li>
+<li><strong>7. Missing auth checks:</strong> endpoints that work beautifully in the demo because nothing verifies who is calling.</li>
+</ul>
+<h2>What is the 4-command sweep?</h2>
+<ol>
+<li><strong>Secrets:</strong> grep the repo for key-shaped strings (sk-, AKIA, ghp_, xox prefixes). Any hit: rotate first, then remove.</li>
+<li><strong>Credentials in code:</strong> grep for password, passwd, api_key and secret assigned to quoted values, excluding obvious placeholders.</li>
+<li><strong>Dynamic execution:</strong> grep for eval(, exec(, os.system, shell=True and unsafe YAML loads; check what input reaches each one.</li>
+<li><strong>Disabled defaults:</strong> grep for verify=False, unverified contexts, StrictHostKeyChecking no and csrf_exempt. Each hit is a hole with a comment-shaped excuse.</li>
+</ol>
+<p>Run the sweep after every AI-assisted coding session, not once per release — the flaws arrive per session, so the check has to as well.</p>
+<h2>How do you review an AI-written diff?</h2>
+<ul>
+<li><strong>Read the diff, not the demo:</strong> working output proves the happy path only.</li>
+<li><strong>Chase every new network call, file write and permission</strong> the diff introduces — assistants add capabilities silently.</li>
+<li><strong>Ask what the code does with hostile input</strong> — empty, enormous, malformed and malicious are the four test cases.</li>
+<li><strong>Keep the sweep in CI</strong> so a future session cannot reintroduce a fixed flaw unnoticed.</li>
+</ul>
+
+<h2>Run the free check</h2>
+<p>The fastest way to apply this cheat sheet is the free check on <strong>Vibe-Code Audit</strong>: it scans your repository for the 7 flaw families and returns a plain-language fix list. Start on the <a href="https://vibe-audit.getingeniousai.com">Vibe-Code Audit homepage</a>, compare tiers on <a href="https://vibe-audit.getingeniousai.com/pricing">Vibe-Code Audit pricing</a>, and keep the full hosted reference open at the <a href="https://vibe-audit.getingeniousai.com/resources/ai-generated-code-security-cheat-sheet">AI-Generated Code Security cheat sheet on Vibe-Code Audit</a>. Questions or orders: <a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20have%20a%20question%20about%20Vibe-Code%20Audit.">ask Ingenious AI on WhatsApp</a> or email orders@getingeniousai.com.</p>
+<p><a class="btn" href="https://vibe-audit.getingeniousai.com">Run the free check on Vibe-Code Audit &rarr;</a> <a class="btn btn-ghost" href="https://vibe-audit.getingeniousai.com/resources/ai-generated-code-security-cheat-sheet">Open the hosted cheat sheet &rarr;</a></p>
+<div class="ia-crosspromo">
+  <h3>More from Ingenious AI <span class="ia-badge">21-PLATFORM SUITE</span></h3>
+  <p class="ia-sub">One vendor, one security posture. Every platform below is live now on getingeniousai.com.</p>
+  <div class="ia-pair"><strong>Using BreachHunter?</strong> Pair it with <a href="https://disclosureguard.getingeniousai.com">DisclosureGuard</a> for EU AI Act readiness — find the exposure, then prove compliance.</div>
+  <div class="ia-pair"><strong>Using DisclosureGuard?</strong> Add <a href="https://termswatch.getingeniousai.com">TermsWatch</a> — your AI vendors change their terms silently; we catch it.</div>
+  <div class="ia-pair"><strong>Using ModelMinder?</strong> Pair it with <a href="https://termswatch.getingeniousai.com">TermsWatch</a> — deprecation radar plus terms-change alerts on the same models.</div>
+  <div class="ia-pair"><strong>Using Rogue-Agent Defense?</strong> Lock it down with <a href="https://authgateway.getingeniousai.com">Agent Auth Gateway</a> (budget caps, allowlists, kill switch) and <a href="https://flightrecorder.getingeniousai.com">Agent Flight Recorder</a> (hash-chained forensics).</div>
+  <div class="ia-pair"><strong>Running agents in production?</strong> <a href="https://flightrecorder.getingeniousai.com">Agent Flight Recorder</a> + <a href="https://authgateway.getingeniousai.com">Agent Auth Gateway</a> give you the audit trail and the emergency brake.</div>
+  <div class="ia-pair"><strong>Using ChatBreaker?</strong> Harden the human layer with <a href="https://domainguard.getingeniousai.com">DomainGuard</a> — most social-engineering runs on lookalike domains.</div>
+  <div class="ia-pair"><strong>Using DomainGuard?</strong> Sweep for what is already exposed with <a href="https://breachhunter.getingeniousai.com">BreachHunter</a>.</div>
+  <div class="ia-pair"><strong>Shipping AI-built code?</strong> <a href="https://vibe-audit.getingeniousai.com">Vibe-Code Audit</a> reviews it before attackers do — and <a href="https://rogue-defense.getingeniousai.com">Rogue-Agent Defense</a> watches the agents that wrote it.</div>
+  <div class="ia-pair"><strong>Publishing AI content?</strong> <a href="https://contentcraft.getingeniousai.com">ContentCraft AI</a> plus <a href="https://disclosureguard.getingeniousai.com">DisclosureGuard</a> keeps every asset disclosed and compliant.</div>
+  <div class="ia-all">
+    <strong style="color:#fff">All 21 platforms:</strong><br>
+    <a href="https://disclosureguard.getingeniousai.com">DisclosureGuard</a><a href="https://modelminder.getingeniousai.com">ModelMinder</a><a href="https://termswatch.getingeniousai.com">TermsWatch</a><a href="https://vibe-audit.getingeniousai.com">Vibe-Code Audit</a><a href="https://rogue-defense.getingeniousai.com">Rogue-Agent Defense</a><a href="https://breachhunter.getingeniousai.com">BreachHunter</a><a href="https://chatbreaker.getingeniousai.com">ChatBreaker</a><a href="https://flightrecorder.getingeniousai.com">Agent Flight Recorder</a><a href="https://authgateway.getingeniousai.com">Agent Auth Gateway</a><a href="https://domainguard.getingeniousai.com">DomainGuard</a><a href="https://contentcraft.getingeniousai.com">ContentCraft AI</a><a href="https://evalscope.getingeniousai.com">EvalScope</a><a href="https://boundaryvault.getingeniousai.com">BoundaryVault</a><a href="https://agentic-receipts.getingeniousai.com">Agentic Receipts</a><a href="https://storeaudit.getingeniousai.com">Store Audit</a><a href="https://agentblock.getingeniousai.com">AgentBlock</a><a href="https://homeshield.getingeniousai.com">HomeShield</a><a href="https://agentgate.getingeniousai.com">AgentGate</a><a href="https://admt.getingeniousai.com">ADMT</a><a href="https://dueladder.getingeniousai.com">DueLadder</a><a href="https://wirewatch.getingeniousai.com">WireWatch</a>
+  </div>
+  <a class="ia-cta" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/security-suite.html">Explore the full Security Suite →</a>
+</div>
+<section class="kw-faq">
+<h2>Frequently asked questions</h2>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What is vibe coding security?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Vibe coding security is the practice of checking AI-generated code for the flaws models commonly introduce: hardcoded secrets, injection flaws, cross-site scripting, disabled TLS verification and insecure defaults. Veracode&#x27;s 2025 GenAI Code Security Report found 45 percent of AI-generated code shipped a real vulnerability, so review is not optional.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">How do I check AI-generated code for leaked API keys?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Search the repository for key-shaped strings — the sk-, AKIA, ghp- and xox- prefixes cover the common providers — and for password or api_key assignments with quoted values. Any real hit must be rotated immediately, because a committed key is a compromised key even if the commit is later deleted.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">Is a grep sweep enough to secure AI-written code?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">It is the right first pass, not the whole job. The sweep catches the mechanical families — secrets, dynamic execution, disabled defaults — quickly and repeatably. Judgment flaws like missing authorisation checks and broken business logic still need a human or a deeper scanner reading the code in context.</p></details>
+<details><summary style="font-weight:600;cursor:pointer;color:#fff;font-size:15px">What does Vibe-Code Audit cost?</summary><p style="margin-top:10px;font-size:14px;color:#9aa7b8">Vibe-Code Audit starts with a free scan of one repository. Pro is a $49 one-time unlock and Team is $149 one-time — no monthly subscription. The free scan returns the same flaw-family report, so you see exactly what the paid deep scan would work on.</p></details>
+</section>
+<div class="morelinks">
+<h2>Related checks</h2>
+<ul>
+<li><a href="vibe-code-security-scan-check.html">Vibe Code Security Scan Check — run the sweep on your repo</a></li>
+<li><a href="ship-safe-ai-code-audit-check.html">Ship-Safe AI Code Audit — the pre-release pass</a></li>
+<li><a href="vibe-scanner-roundup.html">Vibe Scanner Roundup — scanners compared</a></li>
+<li><a href="security-suite.html">Ingenious AI Security Suite — all 21 platforms, one bundle price</a></li>
+<li><a href="ai-platform-security-self-check-suite.html">AI Platform Security Self-Check Suite — the free self-check battery</a></li>
+</ul>
+</div>
+</div>
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
