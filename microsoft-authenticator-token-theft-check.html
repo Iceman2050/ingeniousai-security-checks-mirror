@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<!-- skills-used: unlazy-gates, public_page_preflight -->
+<html data-primary-keyword="cybersecurity news today" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity News Today: Authenticator Token Theft</title>
+<meta name="description" content="Cybersecurity news today: a flaw in Microsoft Authenticator for Android let any app pose as Teams and take work account tokens. Audit your exposure.">
+<link rel="canonical" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/microsoft-authenticator-token-theft-check.html">
+<meta property="og:title" content="Cybersecurity News Today: Authenticator Flaw Let Apps Pose as Teams and Take Work Tokens">
+<meta property="og:description" content="Microsoft has fixed CVE-2026-80097 in Authenticator for Android: a permissionless app could claim to be Teams and receive Microsoft Graph tokens for the signed-in work account. Check your version and run the broker exposure audit.">
+<meta property="og:url" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/microsoft-authenticator-token-theft-check.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cybersecurity News Today: Authenticator Token Theft">
+<meta name="twitter:description" content="CVE-2026-80097, CVSS 8.6: Authenticator's Android broker trusted the app an attacker claimed to be. Fixed in 6.2606.4246. Audit your own exposure with six questions.">
+<link rel="stylesheet" href="ecosystem.css">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#e8e8e8;background:#0f1115;max-width:820px;margin:0 auto;padding:1.2rem}
+h1{font-size:1.7rem;line-height:1.3}h2{font-size:1.3rem;margin-top:2.2rem;color:#ffd166}
+a{color:#7cc4ff}
+details{background:#1a1e27;border-radius:8px;padding:.8rem 1rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+.xlinks{background:#141a26;border-radius:8px;padding:1rem;margin-top:2rem}
+.xlinks ul{margin:.4rem 0;padding-left:1.2rem}
+.meta{color:#9aa3b2;font-size:.85rem}
+.src{font-size:.85rem;color:#9aa3b2}
+.warnbox{background:#2a1f10;border:1px solid #8a6d1f;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin:1.2rem 0}
+.stat{background:#1a1e27;border-radius:8px;padding:.9rem;text-align:center}
+.stat b{display:block;font-size:1.5rem;color:#ffd166}
+.stat span{font-size:.85rem;color:#9aa3b2}
+.checker{background:#141a26;border:1px solid #1c6ef2;border-radius:8px;padding:1rem;margin:1.5rem 0}
+.checker label{display:block;margin:.6rem 0 .2rem;font-weight:600}
+.checker select,.checker input[type=number],.checker input[type=text]{background:#222836;border:1px solid #3a4356;border-radius:8px;padding:.6rem;color:#e8e8e8;font-size:1rem;width:100%;box-sizing:border-box}
+.checker button{background:#1c6ef2;color:#fff;border:none;border-radius:8px;padding:.7rem 1.4rem;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.8rem}
+.checker .hint{font-size:.9rem;color:#9aa3b2;margin:.2rem 0 .4rem}
+.res{margin-top:1rem;padding:.8rem;border-radius:8px;display:none;font-weight:600}
+.res.ok{display:block;background:#14301f;border:1px solid #4ade80}
+.res.warn{display:block;background:#2a1f10;border:1px solid #8a6d1f}
+.res.high{display:block;background:#3a2410;border:1px solid #f59e0b}
+.res.crit{display:block;background:#3a1a1a;border:1px solid #f87171}
+.fixlist{margin:.4rem 0 .4rem 1.1rem;font-weight:400}
+.fixlist li{margin:.35rem 0}
+.why{font-weight:400;color:#c8cfda}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Cybersecurity News Today: Authenticator Flaw Let Apps Pose as Teams and Take Work Tokens","author":{"@type":"Organization","name":"Ingenious AI"},"datePublished":"2026-10-27","description":"Microsoft has fixed CVE-2026-80097, a flaw in Microsoft Authenticator for Android rated 8.6 and labeled Important. On Android, Authenticator also works as a sign-in broker for apps such as Teams and Outlook. It exposed an activity, AccountChooserActivity, that any app on the device could start with no permissions. Authenticator built its token request from values the calling app supplied, including the identity it claimed. A signature check verified the impersonated app's genuine signature, and Teams was really installed, so the check passed. Researcher Ofek Levin, working through a fellowship at Enclave, reported that posing as Teams returned Microsoft Graph tokens for the signed-in work account, with permissions to read and send mail and read and write files and calendars. The fix shipped in the September 2026 Patch Tuesday; the fixed version is Authenticator for Android 6.2606.4246."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Ingenious AI","url":"https://gitlab.com/Iceman2050"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is CVE-2026-80097?","acceptedAnswer":{"@type":"Answer","text":"CVE-2026-80097 is a flaw in Microsoft Authenticator for Android, assigned on September 8, 2026 and rated 8.6 (Important) by Microsoft. On Android, Authenticator also works as a sign-in broker: apps such as Teams and Outlook ask it for sign-in tokens. Authenticator exposed an activity, AccountChooserActivity, that any app on the device could start with no permissions. It built the token request from values the calling app supplied, including the identity the app claimed to be. A malicious app could claim to be Teams and receive Microsoft Graph tokens for the work account signed into Authenticator on that device. Microsoft fixed the flaw in the September 2026 Patch Tuesday; the fixed version is Authenticator for Android 6.2606.4246."}},
+{"@type":"Question","name":"Why did the signature check fail to stop the impersonation?","acceptedAnswer":{"@type":"Answer","text":"A signature check existed, but it verified the wrong identity. It looked up the real signature of the app being impersonated and confirmed the request matched it. Because Teams was genuinely installed on the device, its real signature was there to read, so the check passed. Authenticator could also see which app had actually made the request, the Enclave research found, but it did not use that to decide whether to hand over a token. The broker verified the claim instead of the caller."}},
+{"@type":"Question","name":"Do the researchers and Microsoft agree on how the attack works?","acceptedAnswer":{"@type":"Answer","text":"They agree on the flaw and disagree on one point. Enclave reported that its proof of concept returned tokens without any user interaction, other than the presence of a signed-in account. Microsoft's advisory says exploitation requires installing a malicious app on the device and convincing the user to complete an authentication flow in Authenticator, and its CVSS score reflects user interaction. Microsoft also says the flaw has not been used in attacks, was not publicly disclosed before the fix, and is not listed in the CISA Known Exploited Vulnerabilities catalog as of October 26, 2026."}},
+{"@type":"Question","name":"What should I do if I use Microsoft Authenticator on Android for work?","acceptedAnswer":{"@type":"Answer","text":"Update Microsoft Authenticator for Android to version 6.2606.4246 or later. To check your version, open Authenticator, open the menu or About screen, and read the version listed there; in the Play Store, an Update button on the Authenticator listing means you are behind. Organizations that manage Android devices can require that minimum version through device management. Review which apps are installed on any phone that holds a work account, and remove apps you do not recognize or need. Microsoft's advisory does not say whether updating revokes tokens a malicious app may already have obtained, so our recommendation, where compromise is a concern, is to revoke the account's sessions from the account security page."}}
+]}
+</script>
+</head>
+<body>
+<p class="meta"><time datetime="2026-10-27">October 27, 2026</time> · cybersecurity news today</p>
+<h1>Cybersecurity News Today: Authenticator Flaw Let Any App Pose as Teams and Take Work Tokens</h1>
+<p>The sharpest story in <strong>cybersecurity news today</strong> is about a guard who checked the wrong ID. <strong>Microsoft</strong> has fixed a flaw in <strong>Microsoft Authenticator for Android</strong>, tracked as <strong>CVE-2026-80097</strong> and rated <strong>8.6 (Important)</strong>, that let a malicious app with <strong>no permissions</strong> pose as a trusted Microsoft app such as <strong>Teams</strong> and collect <strong>sign-in tokens for the victim's work account</strong> (The Hacker News, October 27, 2026, reporting the research and Microsoft's advisory). In the researchers' tests, the tokens gave access to the account's <strong>email, files, and calendars</strong>. This page states what Microsoft and the researchers have published, then gives you a working audit: six questions about your own phone and work setup, scored against the exact pattern this flaw ran on.</p>
+<div class="warnbox"><strong>Honest scope, read this first:</strong> the audit below measures your setup against the pattern in CVE-2026-80097. It does not scan your phone, and no answer here tells you whether a token was taken from your account. Two things the sources leave open, stated plainly. Microsoft's advisory does not say whether updating revokes tokens a malicious app may already have obtained. And the sources disagree on one point: Enclave reported tokens returned with no user interaction beyond a signed-in account, while Microsoft's advisory says the user must complete an authentication flow. Both positions are reported on this page, attributed.</div>
+
+<h2>What happened, as Microsoft and Enclave reported it</h2>
+<ul>
+<li><strong>The broker role:</strong> on Android, Authenticator does more than show six-digit codes. It acts as a broker. When Teams, Outlook, or another Microsoft app needs to sign a user in, it asks Authenticator, and Authenticator hands back a token. The broker controls access to the whole account, so which app it grants a token to is the decision that matters.</li>
+<li><strong>The open door:</strong> Authenticator exposes a component, an activity named <strong>AccountChooserActivity</strong>, that any app on the device can start. When an attacker's app started it, Authenticator built its token request from values the attacker's app supplied, including the name of the app it claimed to be. The app said it was Teams, and the broker believed it (Enclave's technical write-up, October 23, 2026).</li>
+<li><strong>The check that checked the wrong thing:</strong> a signature check was supposed to stop this. The check looked up the real signature of the app being impersonated and confirmed the request matched it. Because Teams was genuinely installed on the device, its real signature was there to read, so the check passed. Authenticator could also see which app had actually made the request, Enclave found, but it did not use that to decide whether to hand over a token.</li>
+<li><strong>The result:</strong> in Enclave's tests, posing as Teams and requesting Microsoft Graph tokens returned permissions to read and send mail, read and write files, and read and write calendars, among others. The tokens apply to the work account signed into Authenticator on that device.</li>
+<li><strong>The researcher:</strong> the research comes from <strong>Ofek Levin</strong>, working through a fellowship program at the security firm <strong>Enclave</strong>, which published the technical details on <strong>October 23, 2026</strong>.</li>
+<li><strong>The rating and the fix:</strong> Microsoft assigned the CVE on <strong>September 8, 2026</strong>, rated it <strong>8.6</strong> on the CVSS scale and labeled it <strong>Important</strong>. The fix shipped in the <strong>September 2026 Patch Tuesday</strong>. The fixed version is <strong>Authenticator for Android 6.2606.4246</strong>; update to that version or later.</li>
+<li><strong>The disagreement:</strong> Enclave reported that its proof of concept returned tokens without any user interaction, other than the presence of a signed-in account. Microsoft's advisory says exploitation requires installing a malicious app on the device and convincing the user to complete an authentication flow in Authenticator, and its CVSS score reflects user interaction.</li>
+<li><strong>Exploitation status:</strong> Microsoft says the flaw has not been used in attacks and was not publicly disclosed before the fix, and rates exploitation as less likely. The flaw is not listed in the U.S. CISA Known Exploited Vulnerabilities catalog as of October 26, 2026 (The Hacker News).</li>
+</ul>
+<div class="statgrid">
+<div class="stat"><b>8.6</b><span>CVSS score for CVE-2026-80097, rated Important by Microsoft</span></div>
+<div class="stat"><b>0</b><span>permissions the malicious app needed, per Enclave</span></div>
+<div class="stat"><b>6.2606.4246</b><span>first fixed Authenticator for Android version</span></div>
+<div class="stat"><b>Oct 23</b><span>Enclave published the technical details, 2026</span></div>
+</div>
+<p>Put the shape in proportion. The cryptography held. The signature was genuine, and a signature compared with itself matches 100 percent of the time. What failed was the question the broker asked: it verified that Teams is Teams, when the decision needed which app is asking. Any system that hands out tokens, keys, or sessions on the strength of a claimed identity has the same failure available to it. The audit below scores how much of that shape your own setup carries.</p>
+
+<h2>Why does this cybersecurity news today matter?</h2>
+<p>The broker pattern is everywhere now, and phones are only the most visible case. An authenticator broker, an identity provider, an agent gateway: each one sits between a caller and an account, and each one decides who gets a token. CVE-2026-80097 is a clean demonstration that a verification step can run exactly as coded and still protect nothing, because it verified the claim instead of the caller. The fix on the defender side is a habit, not a patch: bind every token decision to the identity of the caller that the platform itself reports, never to a name the caller supplies.</p>
+<p>The second lesson is about the installed app next door. The attack needed no permissions and no exploit chain. It needed one unvetted app on the same phone as a work account, plus a broker willing to trust it. That is why Microsoft guidance pairs the update with device management: require the fixed version, and know which apps share a device with your work accounts.</p>
+
+<h2>The check: Authenticator broker exposure audit</h2>
+<div class="checker">
+<p style="margin-top:0">Answer six questions about your own phone and work setup. Everything runs in your browser; nothing is sent anywhere. The verdict shows its reasoning for every answer and lists the fix for each weak one, in the order Microsoft's guidance uses: update first, then enforcement, then the app inventory, then sessions.</p>
+<label for="q1">1. Do you use Microsoft Authenticator on Android to sign in to a work or school account?</label>
+<select id="q1">
+<option value="android" selected>Yes, Authenticator on Android, work or school account</option>
+<option value="other">No: iPhone, personal accounts only, or no Authenticator</option>
+</select>
+<p class="hint">To check your Authenticator version for question 2: open Authenticator, open the menu or About screen, and read the version listed there. Fixed is 6.2606.4246 or later. In the Play Store, open the Microsoft Authenticator listing; an Update button means your installed version is behind.</p>
+<label for="q2">2. Is your Authenticator version 6.2606.4246 or later?</label>
+<select id="q2">
+<option value="old" selected>No, it is an earlier version</option>
+<option value="unsure">Not sure</option>
+<option value="patched">Yes, 6.2606.4246 or later</option>
+</select>
+<label for="q3">3. Do you install apps from outside Google Play, or have little-known apps you have not vetted on the same phone?</label>
+<select id="q3">
+<option value="yes" selected>Yes, sideloaded or unvetted apps are on this phone</option>
+<option value="playonly">No, Play Store only, and I vet what I install</option>
+</select>
+<label for="q4">4. Are Teams or Outlook installed with your work account on the same phone as your personal apps?</label>
+<select id="q4">
+<option value="yes" selected>Yes, work apps and personal apps share this phone</option>
+<option value="separate">No, work apps are on a separate device or work profile only</option>
+</select>
+<label for="q5">5. Does your organization enforce a minimum Authenticator version, or an app protection policy, through device management such as Intune?</label>
+<select id="q5">
+<option value="no" selected>No</option>
+<option value="dontknow">Don't know</option>
+<option value="yes">Yes</option>
+</select>
+<label for="q6">6. If a token had been taken, would you know how to revoke the account's sessions?</label>
+<select id="q6">
+<option value="no" selected>No</option>
+<option value="yes">Yes</option>
+</select>
+<button id="audit-go" type="button">Score my exposure</button>
+<p id="audit-verdict" class="res" role="status"></p>
+<noscript><p><em>Enable JavaScript for the scored audit. The short version, in Microsoft's order: update Authenticator for Android to 6.2606.4246 or later, have your organization require that version through device management, review which apps share the phone with your work account, and revoke the account's sessions if you have any concern, because Microsoft's advisory does not say whether updating cancels tokens already taken.</em></p></noscript>
+</div>
+<script>
+(function(){
+function val(id){return document.getElementById(id).value;}
+document.getElementById('audit-go').addEventListener('click',function(){
+var q1=val('q1'),q2=val('q2'),q3=val('q3'),q4=val('q4'),q5=val('q5'),q6=val('q6');
+var v=document.getElementById('audit-verdict');
+if(q1==='other'){
+v.className='res ok';
+v.innerHTML='<strong>NOT APPLICABLE</strong><br>CVE-2026-80097 lives in Microsoft Authenticator for Android acting as the sign-in broker for a work or school account. On your answers, that combination is not present, so this flaw has no broker to run through. If your setup changes, an Android phone with a work account in Authenticator, run this audit again, and keep Authenticator at 6.2606.4246 or later either way.';
+return;
+}
+var pts=0, why=[], fixes={};
+if(q2==='old'){pts+=4;why.push('Authenticator before 6.2606.4246 (+4): this is the vulnerable version range. The broker on your phone will build a token request from values a calling app supplies.');fixes.update=1;}
+else if(q2==='unsure'){pts+=3;why.push('Version not sure (+3): an unknown version is scored as risk. The patched and unpatched brokers look identical from the home screen; the version number is the only difference that matters here.');fixes.update=1;}
+else{why.push('Authenticator 6.2606.4246 or later (0): the broker flaw is fixed in this version. The remaining answers decide the rest of your score.');}
+if(q3==='yes'){pts+=2;why.push('Sideloaded or unvetted apps (+2): the attack needed one malicious app on the device and no permissions. An unvetted app is the delivery vehicle.');fixes.inventory=1;}
+else{why.push('Play Store only, vetted installs (0): the easy delivery route for a permissionless malicious app is closed.');}
+if(q4==='yes'){pts+=1;why.push('Work apps share the phone (+1): Teams being genuinely installed is what made the signature check pass in Enclave\u2019s tests. The impersonated app has to be present for the claim to verify.');}
+else{why.push('Work apps separate (0): the work account and its broker are not sharing a device with personal apps.');}
+if(q5==='no'){pts+=2;why.push('No enforced minimum version (+2): nothing stops a phone in your organization from running the vulnerable broker indefinitely. The update exists; enforcement is what makes it universal.');fixes.enforce=1;}
+else if(q5==='dontknow'){pts+=1;why.push('Enforcement unknown (+1): if a minimum version is enforced, this point goes away. If it is not, every phone is its own patch schedule.');fixes.enforce=1;}
+else{why.push('Minimum version or app protection enforced (0): device management can require 6.2606.4246 or later, which closes the version question for every managed phone at once.');}
+if(q6==='no'){pts+=1;why.push('Session revocation unknown (+1): Microsoft\u2019s advisory does not say whether updating revokes tokens already taken. If you cannot revoke sessions, a taken token keeps working on its own schedule.');fixes.revoke=1;}
+else{why.push('Session revocation known (0): you hold the one remedy that works even against a token taken before the patch.');}
+var tier,cls;
+if(q2==='old'||pts>=7){tier='EXPOSED';cls='crit';}
+else if(pts>=2){tier='AT RISK';cls='high';}
+else{tier='GUARDED';cls='ok';}
+var ORDER=[
+['update','Update Authenticator to 6.2606.4246 or later.','Open the Play Store, open the Microsoft Authenticator listing, and update. Then confirm the version on the app\u2019s About screen. This is Microsoft\u2019s fix and it comes first.'],
+['enforce','Have the minimum version enforced.','Organizations that manage Android devices can require Authenticator 6.2606.4246 or later through device management, such as Intune. If you are the admin, set it. If you are not, send this page to the person who is.'],
+['inventory','Review the apps on the phone.','List what is installed on any phone that holds a work account. Remove sideloaded apps and anything you do not recognize or need. The attack needed one unvetted app and no permissions; the inventory is where that app lives.'],
+['revoke','Revoke the account\u2019s sessions if you have any concern.','Our recommendation, labeled as ours: Microsoft\u2019s advisory does not say whether updating revokes tokens a malicious app may already have obtained. From the account security page, sign out of all sessions, then sign back in. A revoked session ends a taken token\u2019s usefulness.']
+];
+var txt='<strong>'+tier+'</strong> (exposure points: '+pts+')<br>';
+if(tier==='EXPOSED'){txt+='Your Authenticator is the version range this flaw runs on, or your answers stack to the same place. The broker on the phone will honor a claimed identity from any app installed beside it. Work the fix list in order, today.<br>';}
+else if(tier==='AT RISK'){txt+='The broker patch is in place or within reach, but part of the pattern is still present in your setup. The weak answers below are the pieces an attacker would use; close them in the order listed.<br>';}
+else{txt+='The strong answers dominate: a patched broker, vetted apps, enforcement in place, and session revocation within your reach. The pattern CVE-2026-80097 ran on is not present in your answers.<br>';}
+txt+='<span class="why">'+why.join('<br>')+'</span>';
+var fl=[];
+ORDER.forEach(function(pair){if(fixes[pair[0]]){fl.push('<li><strong>'+pair[1]+'</strong> '+pair[2]+'</li>');}});
+if(fl.length){txt+='<br>Your fix list, in Microsoft\u2019s order:<ol class="fixlist">'+fl.join('')+'</ol>';}
+else{txt+='<br>No fixes outstanding from these six answers. Keep Authenticator current and re-run this audit after any change of phone, employer policy, or authenticator app.';}
+v.className='res '+cls;v.innerHTML=txt;
+});})();
+</script>
+
+<h2>What to do now, in order</h2>
+<ul>
+<li><strong>Update Authenticator.</strong> Bring Microsoft Authenticator for Android to version 6.2606.4246 or later from the Play Store, then confirm the version on the app's About screen. This is Microsoft's fix, and it is the first step for every reader with a work account on Android.</li>
+<li><strong>Enforce the minimum version.</strong> Organizations that manage Android devices can require that minimum version through device management. A fix that depends on every employee updating by hand is a fix that stays partial.</li>
+<li><strong>Review the app inventory.</strong> On any phone that holds a work account, list the installed apps and remove what you do not recognize or need. The malicious app in this pattern needed no permissions, so the permissions screen is not where you will spot it.</li>
+<li><strong>Revoke sessions where compromise is a concern.</strong> Microsoft's advisory does not say whether updating cancels tokens a malicious app may already have obtained. Our recommendation: revoke the account's sessions from the account security page, then sign back in. It costs minutes and it ends the value of any token already taken.</li>
+</ul>
+<p><strong>Agent Auth Gateway</strong>, Ingenious AI's gateway for application and agent identities, exists for the failure this flaw demonstrated: a broker that hands out tokens on the strength of a claimed identity. It verifies the caller itself, holds identities behind allowlists, budgets, and a kill switch, so a token decision never rests on a name the caller supplied. <a href="https://authgateway.getingeniousai.com">See Agent Auth Gateway</a>.</p>
+
+<div style="background:#0d1420;border:1px solid #1c6ef2;border-radius:10px;padding:20px;margin:28px 0;text-align:center"><div style="font-size:12px;letter-spacing:2px;color:#6ea8fe;margin-bottom:8px">FROM INGENIOUS AI</div><div style="font-size:16px;color:#e8edf3;margin-bottom:6px"><strong><a href="https://authgateway.getingeniousai.com" style="color:#fff;text-decoration:underline">Agent Auth Gateway</a> is built for exactly this: verifying the caller itself before a token moves, with allowlists, budgets, and a kill switch, so a claimed identity is never enough.</strong></div><div style="font-size:13px;color:#9aa7b8;margin-bottom:12px">All 21 platforms are live now on getingeniousai.com. Browse the fleet at the <a href="https://getingeniousai.com" style="color:#6ea8fe;text-decoration:none">Ingenious AI hub</a>, or open the <a href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/security-suite.html" style="color:#6ea8fe;text-decoration:none">Security Suite deal</a>.</div><a href="https://wa.me/5016691053?text=Hi%20Ingenious%20AI%2C%20I%20want%20to%20buy%20Agent%20Auth%20Gateway." style="display:inline-block;background:#1c6ef2;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Order Agent Auth Gateway on WhatsApp &rarr;</a></div>
+
+<style>
+  .ia-crosspromo{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    max-width:640px;margin:24px auto;padding:20px 22px;border-radius:14px;color:#eaf0ff;
+    background:linear-gradient(135deg,#0b1226 0%,#131c3a 60%,#1b1440 100%);
+    border:1px solid rgba(120,140,255,.25);box-shadow:0 8px 28px rgba(10,20,60,.35)}
+  .ia-crosspromo h3{margin:0 0 4px;font-size:18px;font-weight:700;letter-spacing:.2px;color:#fff}
+  .ia-crosspromo h3 .ia-badge{display:inline-block;font-size:11px;font-weight:600;vertical-align:middle;
+    margin-left:8px;padding:3px 9px;border-radius:999px;color:#0b1226;
+    background:linear-gradient(90deg,#7df9c6,#4de3ff)}
+  .ia-crosspromo .ia-sub{margin:0 0 14px;font-size:13.5px;color:#aeb9dd;line-height:1.45}
+  .ia-crosspromo .ia-pair{font-size:14px;line-height:1.5;padding:9px 0;border-top:1px solid rgba(140,160,255,.14)}
+  .ia-crosspromo .ia-pair:first-of-type{border-top:none}
+  .ia-crosspromo .ia-pair strong{color:#fff}
+  .ia-crosspromo a{color:#8fd8ff;text-decoration:none;font-weight:600}
+  .ia-crosspromo a:hover{text-decoration:underline;color:#c4ecff}
+  .ia-crosspromo .ia-all{margin-top:14px;padding-top:12px;border-top:1px solid rgba(140,160,255,.2);
+    font-size:12.5px;line-height:1.9;color:#aeb9dd}
+  .ia-crosspromo .ia-all a{display:inline-block;margin:2px 4px 2px 0;padding:3px 10px;border-radius:999px;
+    background:rgba(120,150,255,.12);border:1px solid rgba(120,150,255,.28);
+    font-size:12px;font-weight:600;color:#dbe4ff;white-space:nowrap}
+  .ia-crosspromo .ia-all a:hover{background:rgba(120,150,255,.25);text-decoration:none}
+  .ia-crosspromo .ia-cta{display:inline-block;margin-top:14px;padding:10px 18px;border-radius:10px;
+    background:linear-gradient(90deg,#4de3ff,#7df9c6);color:#0b1226!important;font-weight:700;
+    font-size:14px;text-decoration:none!important}
+  .ia-crosspromo .ia-cta:hover{filter:brightness(1.08)}
+</style>
+
+<div class="ia-crosspromo">
+  <h3>More from Ingenious AI <span class="ia-badge">21-PLATFORM SUITE</span></h3>
+  <p class="ia-sub">One vendor, one security posture. Every platform below is live now on getingeniousai.com.</p>
+
+  <div class="ia-pair"><strong>Using BreachHunter?</strong> Pair it with <a href="https://disclosureguard.getingeniousai.com">DisclosureGuard</a> for EU AI Act readiness: find the exposure, then prove compliance.</div>
+  <div class="ia-pair"><strong>Using DisclosureGuard?</strong> Add <a href="https://termswatch.getingeniousai.com">TermsWatch</a>. Your AI vendors change their terms silently; we catch it.</div>
+  <div class="ia-pair"><strong>Using ModelMinder?</strong> Pair it with <a href="https://termswatch.getingeniousai.com">TermsWatch</a>: deprecation radar plus terms-change alerts on the same models.</div>
+  <div class="ia-pair"><strong>Using Rogue-Agent Defense?</strong> Lock it down with <a href="https://authgateway.getingeniousai.com">Agent Auth Gateway</a> (budget caps, allowlists, kill switch) and <a href="https://flightrecorder.getingeniousai.com">Agent Flight Recorder</a> (hash-chained forensics).</div>
+  <div class="ia-pair"><strong>Running agents in production?</strong> <a href="https://flightrecorder.getingeniousai.com">Agent Flight Recorder</a> + <a href="https://authgateway.getingeniousai.com">Agent Auth Gateway</a> give you the audit trail and the emergency brake.</div>
+  <div class="ia-pair"><strong>Using ChatBreaker?</strong> Harden the human layer with <a href="https://domainguard.getingeniousai.com">DomainGuard</a>. Most social-engineering runs on lookalike domains.</div>
+  <div class="ia-pair"><strong>Using DomainGuard?</strong> Sweep for what's already exposed with <a href="https://breachhunter.getingeniousai.com">BreachHunter</a>.</div>
+  <div class="ia-pair"><strong>Shipping AI-built code?</strong> <a href="https://vibe-audit.getingeniousai.com">Vibe-Code Audit</a> reviews it before attackers do, and <a href="https://rogue-defense.getingeniousai.com">Rogue-Agent Defense</a> watches the agents that wrote it.</div>
+  <div class="ia-pair"><strong>Publishing AI content?</strong> <a href="https://contentcraft.getingeniousai.com">ContentCraft AI</a> plus <a href="https://disclosureguard.getingeniousai.com">DisclosureGuard</a> keeps every asset disclosed and compliant.</div>
+
+  <div class="ia-all">
+    <strong style="color:#fff">All 21 platforms:</strong><br>
+    <a href="https://disclosureguard.getingeniousai.com">DisclosureGuard</a><a href="https://modelminder.getingeniousai.com">ModelMinder</a><a href="https://termswatch.getingeniousai.com">TermsWatch</a><a href="https://vibe-audit.getingeniousai.com">Vibe-Code Audit</a><a href="https://rogue-defense.getingeniousai.com">Rogue-Agent Defense</a><a href="https://breachhunter.getingeniousai.com">BreachHunter</a><a href="https://chatbreaker.getingeniousai.com">ChatBreaker</a><a href="https://flightrecorder.getingeniousai.com">Agent Flight Recorder</a><a href="https://authgateway.getingeniousai.com">Agent Auth Gateway</a><a href="https://domainguard.getingeniousai.com">DomainGuard</a><a href="https://contentcraft.getingeniousai.com">ContentCraft AI</a><a href="https://evalscope.getingeniousai.com">EvalScope</a><a href="https://boundaryvault.getingeniousai.com">BoundaryVault</a><a href="https://agentic-receipts.getingeniousai.com">Agentic Receipts</a><a href="https://storeaudit.getingeniousai.com">Store Audit</a><a href="https://agentblock.getingeniousai.com">AgentBlock</a><a href="https://homeshield.getingeniousai.com">HomeShield</a><a href="https://agentgate.getingeniousai.com">AgentGate</a><a href="https://admt.getingeniousai.com">ADMT</a><a href="https://dueladder.getingeniousai.com">DueLadder</a><a href="https://wirewatch.getingeniousai.com">WireWatch</a>
+  </div>
+
+  <a class="ia-cta" href="https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/security-suite.html">Explore the full Security Suite →</a>
+</div>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What is CVE-2026-80097?</summary><p>CVE-2026-80097 is a flaw in Microsoft Authenticator for Android, assigned on September 8, 2026 and rated 8.6 (Important) by Microsoft. On Android, Authenticator also works as a sign-in broker: apps such as Teams and Outlook ask it for sign-in tokens. Authenticator exposed an activity, AccountChooserActivity, that any app on the device could start with no permissions. It built the token request from values the calling app supplied, including the identity the app claimed to be. A malicious app could claim to be Teams and receive Microsoft Graph tokens for the work account signed into Authenticator on that device. Microsoft fixed the flaw in the September 2026 Patch Tuesday; the fixed version is Authenticator for Android 6.2606.4246.</p></details>
+<details><summary>Why did the signature check fail to stop the impersonation?</summary><p>A signature check existed, but it verified the wrong identity. It looked up the real signature of the app being impersonated and confirmed the request matched it. Because Teams was genuinely installed on the device, its real signature was there to read, so the check passed. Authenticator could also see which app had actually made the request, the Enclave research found, but it did not use that to decide whether to hand over a token. The broker verified the claim instead of the caller.</p></details>
+<details><summary>Do the researchers and Microsoft agree on how the attack works?</summary><p>They agree on the flaw and disagree on one point. Enclave reported that its proof of concept returned tokens without any user interaction, other than the presence of a signed-in account. Microsoft's advisory says exploitation requires installing a malicious app on the device and convincing the user to complete an authentication flow in Authenticator, and its CVSS score reflects user interaction. Microsoft also says the flaw has not been used in attacks, was not publicly disclosed before the fix, and is not listed in the CISA Known Exploited Vulnerabilities catalog as of October 26, 2026.</p></details>
+<details><summary>What should I do if I use Microsoft Authenticator on Android for work?</summary><p>Update Microsoft Authenticator for Android to version 6.2606.4246 or later. To check your version, open Authenticator, open the menu or About screen, and read the version listed there; in the Play Store, an Update button on the Authenticator listing means you are behind. Organizations that manage Android devices can require that minimum version through device management. Review which apps are installed on any phone that holds a work account, and remove apps you do not recognize or need. Microsoft's advisory does not say whether updating revokes tokens a malicious app may already have obtained, so our recommendation, where compromise is a concern, is to revoke the account's sessions from the account security page.</p></details>
+
+<p class="src">Sources: The Hacker News, October 27, 2026 (Swati Khandelwal), reporting Microsoft's advisory for CVE-2026-80097 and the Enclave research; Enclave's technical write-up, published October 23, 2026, by Ofek Levin (the AccountChooserActivity mechanism, the signature check that verified the impersonated app, the Microsoft Graph token permissions returned in testing, and the no-user-interaction result); Microsoft's advisory for CVE-2026-80097 as quoted by The Hacker News (the 8.6 rating and Important label, the September 8, 2026 assignment, the September 2026 Patch Tuesday fix, version 6.2606.4246 as the fixed version, the user-interaction position, exploitation rated less likely, no exploitation in attacks, no public disclosure before the fix, and the absence from the CISA Known Exploited Vulnerabilities catalog as of October 26, 2026). The session-revocation step is this page's recommendation, stated because Microsoft's advisory does not say whether updating revokes tokens already obtained; it is not Microsoft's wording.</p>
+
+<div class="xlinks"><strong>Related checks</strong><ul>
+<li><a href="agent-monitor-tamper-check.html">Agent Monitor Tamper Check</a>: OpenAI's agents weakened their own safety monitoring, and one denied it</li>
+<li><a href="agent-log-token-leak-check.html">Agent Log Token Leak Check</a>: sign-in tokens and keys sitting in agent logs, readable by whoever reads the log</li>
+<li><a href="storm-0940-artex-spray-check.html">Storm-0940 ARTEX Spray Check</a>: an AI framework spraying passwords and signing in through trusted application identities</li>
+</ul></div>
+
+<div id="ecosystem-footer"></div>
+<script src="ecosystem.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "376c9de98060423683cfe15cec38f36b"}'></script>
+</body>
+</html>
