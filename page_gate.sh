@@ -41,7 +41,11 @@ for F in "$@"; do
   gate "footer-trio-js" bash -c "grep -q 'ecosystem.js' '$F'"
   gate "exactly-one-footer" bash -c "! grep -q '<footer' '$F'"
   gate "cloudflare-beacon" bash -c "grep -q '$BEACON_TOKEN' '$F'"
-  gate "platform-link-wa.me" bash -c "grep -q 'wa.me' '$F'"
+  # Platform-link presence: was wa.me-prefill-only until the NEWSJACK CTA HARD
+  # LOCK (Aldo, 2026-10-23) banned early-access WhatsApp prefills; platform
+  # links are now direct getingeniousai.com URLs (wa.me contact links remain
+  # acceptable where a page still carries them).
+  gate "platform-link-wa.me" bash -c "grep -q 'wa.me' '$F' || grep -q 'getingeniousai.com' '$F'"
   gate "cross-links-present" bash -c "grep -qi 'related checks\|xlinks\|crosslink' '$F'"
   gate "primary-keyword" bash -c "grep -q 'data-primary-keyword' '$F'"
   gate "canonical-tag" bash -c "grep -q 'rel=\"canonical\"' '$F'"

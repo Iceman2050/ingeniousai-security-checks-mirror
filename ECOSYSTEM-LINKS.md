@@ -1,6 +1,6 @@
 # Ecosystem Link Matrix — 2026-10-17
 
-Every mirror page must link all 11 Ingenious AI platforms (WhatsApp early-access prefills), the GitHub org, and carry the Cloudflare beacon.
+Every mirror page must link all 11 Ingenious AI platforms (direct live URLs), the GitHub org, and carry the Cloudflare beacon.
 `static-11` = page has all 11 prefill links inline. `footer-js-11` = provided by the shared ecosystem footer (ecosystem.js). Exempt: Google verification file, embed-only badge widget.
 
 **Result: 124/126 pages link all 11 platforms; 11 need attention.**

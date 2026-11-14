@@ -5,20 +5,19 @@
  * (placed just before the Cloudflare beacon, before </body>)
  *
  * EMAIL RAIL STATUS (2026-10-17): the hosted email endpoint is not live
- * until Nov 1. INGENIOUS_EMAIL_ENDPOINT below is null, so signups are
+ * yet. INGENIOUS_EMAIL_ENDPOINT below is null, so signups are
  * queued honestly: saved to localStorage AND offered as a mailto: compose
  * to the business inbox. The confirmation copy always says exactly what
  * happened — never a fake "you're subscribed".
- * On Nov 1: set INGENIOUS_EMAIL_ENDPOINT to the platform newsletter API
+ * When it goes live: set INGENIOUS_EMAIL_ENDPOINT to the platform newsletter API
  * URL (see README section "Email ecosystem"). The signup flow then POSTs
  * JSON {email, source_page, ts} and reports the real server response.
  */
 (function () {
   "use strict";
 
-  var INGENIOUS_EMAIL_ENDPOINT = null; // <-- swap in Nov 1 (see README)
+  var INGENIOUS_EMAIL_ENDPOINT = null; // <-- swap in when the endpoint goes live (see README)
   var BUSINESS_INBOX = "avilanatanael640@gmail.com";
-  var WA = "https://wa.me/5016691053?text=";
   var MIRROR = "https://ingeniousai-security-checks-mirror-0e97b6.gitlab.io/";
 
   var PLATFORMS = [
@@ -34,10 +33,6 @@
     ["DomainGuard", "domain-impersonation defense"],
     ["ContentCraft AI", "AI content studio"]
   ];
-
-  function prefill(name) {
-    return WA + encodeURIComponent("Hi Ingenious AI! I want early access to " + name + ".");
-  }
 
   /* Platforms LIVE on the new fleet (getingeniousai.com) link direct.
    * A platform enters this map only after its checker PASS + live 200.
@@ -67,7 +62,7 @@
   };
 
   function platformUrl(name) {
-    return LIVE[name] || prefill(name);
+    return LIVE[name] || "https://getingeniousai.com";
   }
 
   function el(tag, attrs, text) {
@@ -89,7 +84,7 @@
 
     var sub = el("p", { "class": "eco-sub" },
       "Free AI-security checkers, original research, and tools — one ecosystem. " +
-      "Our platforms are going live on our new home; live ones link straight in, the rest open early access:");
+      "Our platforms are live on our new home; every one links straight in:");
     wrap.appendChild(sub);
 
     var row = el("div", { "class": "eco-platforms" });
@@ -162,7 +157,7 @@
       "\nSigned up from: " + location.href);
     msg.innerHTML = "";
     msg.appendChild(document.createTextNode(
-      "Saved on this device — our email list launches with the platforms on Nov 1. " +
+      "Saved on this device — our email list is not live yet. " +
       "Want it confirmed today? "));
     var a = el("a", { href: "mailto:" + BUSINESS_INBOX + "?subject=" + subject + "&body=" + body },
       "Send us a one-tap signup email instead");

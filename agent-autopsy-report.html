@@ -152,12 +152,11 @@ ol.killchain li{margin:8px 0;padding:10px 14px;background:#0d1420;border-left:3p
 </div>
 
 <script>
-var WA = function(msg){ return "https://wa.me/5016691053?text=" + encodeURIComponent(msg); };
 var CTA = {
-  chatbreaker: WA("Hi Ingenious AI! I want early access to ChatBreaker (prompt injection defense)."),
-  gateway: WA("Hi Ingenious AI! I want early access to Agent Auth Gateway (agent permissions and approvals)."),
-  rogue: WA("Hi Ingenious AI! I want early access to Rogue-Agent Defense (shadow agent behavior detection)."),
-  recorder: WA("Hi Ingenious AI! I want early access to Agent Flight Recorder (tamper-evident agent audit trail).")
+  chatbreaker: "https://chatbreaker.getingeniousai.com",
+  gateway: "https://authgateway.getingeniousai.com",
+  rogue: "https://rogue-defense.getingeniousai.com",
+  recorder: "https://flightrecorder.getingeniousai.com"
 };
 
 var INCIDENTS = {
@@ -228,7 +227,7 @@ selfprobe: {
 
 function platCard(key, name, desc){
   if(!desc) return '<div class="plat covered-off"><h3>'+name+'</h3><p>Not the primary defense for this incident.</p></div>';
-  return '<div class="plat"><h3><span class="y">✓</span> '+name+'</h3><p>'+desc+'</p><a class="cta" href="'+CTA[key]+'" target="_blank" rel="noopener">Get early access →</a></div>';
+  return '<div class="plat"><h3><span class="y">✓</span> '+name+'</h3><p>'+desc+'</p><a class="cta" href="'+CTA[key]+'" target="_blank" rel="noopener">Open platform →</a></div>';
 }
 
 function autopsyCustom(text){

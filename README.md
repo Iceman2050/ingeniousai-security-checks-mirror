@@ -10,12 +10,10 @@ Every page on this mirror carries the shared ecosystem footer
 (`ecosystem.js` + `ecosystem.css`, include snippet in
 `_ecosystem-footer.html`):
 
-- **All 11 Ingenious AI platforms** — WhatsApp early-access prefills
+- **All 11 Ingenious AI platforms** — direct links to the live platforms
   (DisclosureGuard, ModelMinder, TermsWatch, Vibe-Code Audit,
   Rogue-Agent Defense, BreachHunter, ChatBreaker, Agent Flight
   Recorder, Agent Auth Gateway, DomainGuard, ContentCraft AI).
-  Prefills stay until Nov 1, when platforms return and links flip to
-  direct platform URLs.
 - **GitHub org** — https://github.com/Iceman2050 (73 open-source
   security tools; every repo README carries the same 11 platform links).
 - **Newsletter signup** — honest email capture (see below).
@@ -53,19 +51,19 @@ In-flight retrofit checklist: `ECOSYSTEM-RETROFIT-CHECKLIST.md`.
 
 ## Built by Ingenious AI
 
-This project is part of the **Ingenious AI** platform suite — defensive security tooling for the AI era. Our platforms are currently in early access (full launch Nov 1) — request access to any of them on WhatsApp:
+This project is part of the **Ingenious AI** platform suite — defensive security tooling for the AI era. Our platforms are live — visit any of them:
 
-- [DisclosureGuard](https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DisclosureGuard)
-- [ModelMinder](https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ModelMinder)
-- [TermsWatch](https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20TermsWatch)
-- [Vibe-Code Audit](https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Vibe-Code%20Audit)
-- [Rogue-Agent Defense](https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Rogue-Agent%20Defense)
-- [BreachHunter](https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20BreachHunter)
-- [ChatBreaker](https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ChatBreaker)
-- [Agent Flight Recorder](https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Flight%20Recorder)
-- [Agent Auth Gateway](https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20Agent%20Auth%20Gateway)
-- [DomainGuard](https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20DomainGuard)
-- [ContentCraft AI](https://wa.me/5016691053?text=Hi%20Ingenious%20AI!%20I%20want%20early%20access%20to%20ContentCraft%20AI)
+- [DisclosureGuard](https://disclosureguard.getingeniousai.com)
+- [ModelMinder](https://modelminder.getingeniousai.com)
+- [TermsWatch](https://termswatch.getingeniousai.com)
+- [Vibe-Code Audit](https://vibe-audit.getingeniousai.com)
+- [Rogue-Agent Defense](https://rogue-defense.getingeniousai.com)
+- [BreachHunter](https://breachhunter.getingeniousai.com)
+- [ChatBreaker](https://chatbreaker.getingeniousai.com)
+- [Agent Flight Recorder](https://flightrecorder.getingeniousai.com)
+- [Agent Auth Gateway](https://authgateway.getingeniousai.com)
+- [DomainGuard](https://domainguard.getingeniousai.com)
+- [ContentCraft AI](https://contentcraft.getingeniousai.com)
 
 
 > Built by Ingenious AI
